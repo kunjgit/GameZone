@@ -1744,7 +1744,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    * PORTFOLIO
    */
 
-  .project-list { grid-template-columns: repeat(3, 1fr); }
+  .project-list { grid-template-columns: repeat(4, 1fr); }
 
 
 
@@ -1803,7 +1803,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   main {
-    max-width: 1200px;
+    max-width: 2000px;
     margin-inline: auto;
     display: flex;
     justify-content: center;

@@ -1,5 +1,5 @@
 ---
-name: "🚀➕Game Enhancement Request"
+name: "🎮✨Game Enhancement Request"
 about: "Suggest an enhancement for this project. Improve an existing feature"
 title: ""
 labels: "Type: Enhancement"
@@ -7,7 +7,7 @@ assignees: Josee9988
 
 ---
 
-# **🚀 Enhancement Request**
+# **🎮 Enhancement Request**
 
 ## **Is your enhancement request related to a problem? Please describe.**
 <!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->

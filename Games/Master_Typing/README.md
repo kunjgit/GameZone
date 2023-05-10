@@ -1,4 +1,4 @@
-<font size="7">**Master_Typing** </font>
+# **Master_Typing**
 
 ---
 
@@ -12,6 +12,7 @@
 - fully responsive design
 - animated keys 
 <br>
+
 ## **How to play? 🕹️**
 - the game will have animation on one key and you have to press that key
 - by practising the keys you will able to improve the muscle memory for you touch typing

@@ -11,7 +11,23 @@
 <h3><font size="4">This open source repository contains collection of games build on basic tech stacks in web development . Use your creativity and build your own game and contribute to the repository by making PR 🎮
 <br>
 Make sure you star the repository and show your love to us💗
-</font></div>
+</font>
+<br>
+<br>
+<p>
+    
+![Lines of code](https://img.shields.io/tokei/lines/github/kunjgit/GameZone) 
+![GitHub issues](https://img.shields.io/github/issues/kunjgit/GameZone)
+![GitHub forks](https://img.shields.io/github/forks/kunjgit/GameZone)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/kunjgit/GameZone)
+![GitHub Repo stars](https://img.shields.io/github/stars/kunjgit/GameZone?style=social)
+![GitHub contributors](https://img.shields.io/github/contributors/kunjgit/GameZone)
+![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Fkunjgit.github.io%2FGameZone%2F)    
+</p>    
+  
+    
+  
+</div>
 <br>
 
 

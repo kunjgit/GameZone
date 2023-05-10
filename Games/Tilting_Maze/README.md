@@ -1,4 +1,4 @@
-<font size="7">**Tilting_Maze** </font>
+# **Tilting_Maze** 
 
 ---
 

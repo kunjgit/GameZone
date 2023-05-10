@@ -1,42 +1,45 @@
-<summary align="center"><h1>
+
+
+
+<div style="display:none;" align="center"><h1>
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Video Game" width="50" height="50" /><font size="10"> GameZone</font></h1>
 
 <!-- repo intro -->
-</summary>
-<summary align="center">
-<h2>
+</div>
+<div align="center">
+
 <h3><font size="4">This open source repository contains collection of games build on basic tech stacks in web development . Use your creativity and build your own game and contribute to the repository by making PR 🎮
 <br>
 Make sure you star the repository and show your love to us💗
-</font></summary>
+</font></div>
 <br>
 
----
 
 <!-- tech stacks -->
-</summary>
-<summary align="center">
+</div>
+<div align="center">
 <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" alt="High Voltage" width="40" height="40" /><font size="6">Tech Stack</font></h2>
 
 <br>
-</summary>
+</div>
 <center>
+<p>
 <img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge&logo=HTML5&logoColor=white">
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black">
 <img src="https://img.shields.io/badge/Bootstrap-7952B3.svg?style=for-the-badge&logo=Bootstrap&logoColor=black">
 <img src="https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=black">
 <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=black">
+</p>
 </center>
 <br>
 
 <br>
 
----
 <!-- lets get started -->
-<summary align="center">
+<div align="center">
 <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="40" height="40" /> Let's get started</font></h2>
 
-</summary>
+</div>
 
 <!-- contribution steps -->
 
@@ -60,13 +63,14 @@ Make sure you star the repository and show your love to us💗
 - I will review your code and I will merge your code to the main branch of this repository and you will notified for the same
 - If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md) 
 <br>
-<br>
----
+
+    
 
 
-<summary align="center">
+
+<div align="center">
 <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Robot" width="40" height="40" /> Games</font></h2>
-</summary>
+</div>
 <!-- list of the games -->
 <center>
 
@@ -80,11 +84,10 @@ Make sure you star the repository and show your love to us💗
 <br>
 <br>
 
----
 
-<summary align="center">
+<div align="center">
 <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="Page with Curl" width="40" height="40" /> Contributing Guideline </font></h2>
-</summary>
+</div>
 <br>
 
 <!-- contributing guideline detail -->
@@ -94,11 +97,11 @@ Make sure you star the repository and show your love to us💗
 
 <br>
 
----
+
 <!-- code of conduct -->
-<summary align="center">
+<div align="center">
 <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" alt="Handshake" width="40" height="40" /> Code of Conduct </font></h2>
-</summary>
+</div>
 <br>
 
 - Please note that this project is released with [CODE OF CONDUCT](./.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
@@ -106,11 +109,10 @@ Make sure you star the repository and show your love to us💗
 
 <br>
 
----
 <!-- a big thanks to all the contributors -->
-<summary align="center">
+<div align="center">
 <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" alt="Red Heart" width="40" height="40" /> Contributors </font></h2>
-</summary>
+</div>
 <br>
 
 - This project thanking all the contributors for having your valuable contribution to our project 

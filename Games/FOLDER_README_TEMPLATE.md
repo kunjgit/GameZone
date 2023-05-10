@@ -1,4 +1,4 @@
-<font size="7">**Game_Name** </font>
+# **Game_Name** 
 
 ---
 

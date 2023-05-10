@@ -1,4 +1,4 @@
-<font size="7">**Contributing Guidelines** 📄</font>
+# **Contributing Guidelines** 📄
 
 This documentation contains a set of guidelines to help you during the contribution process.
 We are happy to welcome all the contributions from anyone willing to improve/add new scripts to this project.
@@ -62,6 +62,6 @@ in case you are stuck:
 
 <br>
 
-<font size="6">**Happy Hacking 💗** <font>
+# **Happy Hacking 💗** 
 
 

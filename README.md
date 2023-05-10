@@ -121,8 +121,8 @@ Make sure you star the repository and show your love to us💗
 <br>
 
 <center>
-<a href="https://github.com/kunjgit/kunjgit/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=kunjgit/kunjgit" />
+<a href="https://github.com/kunjgit/GameZone/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=kunjgit/GameZone" />
 </a>
 </center>
 

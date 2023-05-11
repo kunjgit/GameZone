@@ -94,6 +94,7 @@ Make sure you star the repository and show your love to us💗
 | --- | --- |
 | 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing) |
 | 2 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)|
+| 3 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
     
 </center>
 

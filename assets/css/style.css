@@ -14,6 +14,11 @@
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
+a {
+  text-decoration: none;
+  color: #fff;
+  
+}
 
 footer {
   position: absolute;

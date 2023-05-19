@@ -8,7 +8,7 @@
 </div>
 <div align="center">
 
-<h3><font size="4">This open source repository contains collection of games build on basic tech stacks in web development . Use your creativity and build your own game and contribute to the repository by making PR üéÆ
+<h3><font size="4">This open source repository contains a collection of games build on basic tech stacks in web development . Use your creativity and build your own game and contribute to the repository by making PR üéÆ
 <br>
 Make sure you star the repository and show your love to usüíó
 <br>
@@ -65,23 +65,23 @@ Also join the discord server for GameZone and start collaborating with others ü
 
 - Fork the repository 
 - Clone this repository   ``` git clone "url of the repo" ```
-- Raise and issue to add new game or to enhancement for a game (by selecting the appropriate issue template )
+- Raise an issue to add new game or to enhancement for a game (by selecting the appropriate issue template )
 - Wait till you have been assigned the issue
 - After you have been assigned the issue start working on the code
 - Create your new branch using ```git checkout -b <name of your branch> ```
 * Having your code into the repository
-    - Make your game folder into ```Games``` folder by the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
+    - Make your game folder into the ```Games``` folder by the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
     - Add your code files (index.html,style.css,script.js) in your game folder
-    - Create ```README.md``` file in your folder and add all the functionalities and how you can play that game in that README file , also include screenshots of working game , video of a game explaining (if required).
+    - Create a ```README.md``` file in your folder and add all the functionalities and how you can play that game in that README file, also include screenshots of the working game, video of a game explaining (if required).
     - To create ```Your_Folder/README.md ``` checkout the template [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md)
     - Now take one good screenshot of your game that you want to display it on our website and add into ```assets/images``` (follow the naming convention <your_folder_name>.png or .jpeg or .jpg)
-    - add your folders link and name in main README.md (the one you are reading currently)
+    - add your folder's link and name in the main README.md (the one you are reading currently)
 
 - Push your changes to Github using ```git push origin <name your branch>```
 - Submit your changes for review by creating PR 
-- And you are done ! 
-- I will review your code and I will merge your code to the main branch of this repository and you will notified for the same
-- If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md) 
+- And you are done! 
+- I will review your code and I will merge your code to the main branch of this repository and you will be notified for the same
+- If you are having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md) 
 <br>
 
     
@@ -114,7 +114,7 @@ Also join the discord server for GameZone and start collaborating with others ü
 <!-- contributing guideline detail -->
 - Read our [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md) to get all details about contributing to **GameZone**
 - Learn all about development process and all information you need to contribute to our project
-- If you are having the basic queries make sure you checkout resources there 
+- If you are having basic queries make sure you checkout the resources there 
 
 <br>
 
@@ -136,7 +136,7 @@ Also join the discord server for GameZone and start collaborating with others ü
 </div>
 <br>
 
-- This project thanking all the contributors for having your valuable contribution to our project 
+- This project thanks all the contributors for having your valuable contribution to our project 
 - Make sure you show some love by giving ‚≠ê to our repository
 
 <br>

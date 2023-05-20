@@ -23,7 +23,7 @@
 
 <br>
 
-![image](../../assets/images/Mater_Typing.png)
+![image](../../assets/images/Master_Typing.png)
 
 <br>
 

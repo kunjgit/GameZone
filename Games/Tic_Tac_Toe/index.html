@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container" id="Container">
+
+        <div class="game_container">
+            <div class="heading">
+                <h2>Tic Tac Toe Game</h2>
+            </div>
+
+            <div class="box_container">
+
+                <div>
+                    <div class="span_container" onclick="fillBox(0)" id="1"></div>
+                    <div class="span_container" onclick="fillBox(1)" id="2"></div>
+                    <div class="span_container" onclick="fillBox(2)" id="3"></div>
+                </div>
+
+                <div>
+                    <div class="span_container" onclick="fillBox(3)" id="4"></div>
+                    <div class="span_container" onclick="fillBox(4)" id="5"></div>
+                    <div class="span_container" onclick="fillBox(5)" id="6"></div>
+                </div>
+                <div>
+                    <div class="span_container" onclick="fillBox(6)" id="7"></div>
+                    <div class="span_container" onclick="fillBox(7)" id="8"></div>
+                    <div class="span_container" onclick="fillBox(8)" id="9"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="div"
+        style="display: flex; justify-content: center; align-items: center; position: absolute; top: 0; height: 100vh; width: 100vw; z-index: -1;">
+
+        <div id="xWins">
+            <h2>
+                X Wins..
+            </h2>
+
+            <button class="btn" onclick="reStart()">Restart</button>
+            <button class="btn" onclick="Exit()">Exit</button>
+
+
+        </div>
+    </div>
+
+    <div id="div2"
+        style="display: flex; justify-content: center; align-items: center; position: absolute; top: 0; height: 100vh; width: 100vw; z-index: -1;">
+
+        <div id="yWins">
+            <h2>
+                O Wins..
+            </h2>
+
+            <button class="btn" onclick="reStart()">Restart</button>
+            <button class="btn" onclick="Exit()">Exit</button>
+
+
+        </div>
+
+    </div>
+
+    <div id="tie" style=" display: flex; justify-content: center; align-items: center; position: absolute; top:
+        0; height: 100vh; width: 100vw; z-index: -1;">
+
+        <div id="tied">
+            <h2>
+                Match Tied
+            </h2>
+
+            <button class="btn" onclick="reStart()">Restart</button>
+            <button class="btn" onclick="Exit()">Exit</button>
+        </div>
+
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>

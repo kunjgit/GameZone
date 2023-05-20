@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.game_container {
+  height: 500px;
+  width: 500px;
+  background: blueviolet;
+  box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.26);
+  border: 5px solid aqua;
+  outline: 2px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.heading h2 {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bolder;
+  margin: 12px 23px;
+  margin-bottom: 30px;
+}
+
+.box_container {
+  height: 350px;
+  width: 350px;
+  background: aqua;
+  border: 3px solid red;
+  outline: 2px solid aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box_container span,
+.span_container {
+  height: 90px;
+  width: 90px;
+  background: red;
+  margin: 12px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 5rem;
+  font-family: "Times New Roman", Times, serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#xWins,
+#yWins,
+#tied {
+  width: 400px;
+  height: 150px;
+  background: aqua;
+  position: absolute;
+  animation: X_wins 0.5s linear 1 forwards;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: violet 2px 2px 230px 50px;
+}
+
+@keyframes X_wins {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+#xWins h2,
+#yWins h2,
+#tied h2 {
+  font-size: 2rem;
+}
+
+.btn,
+#div2 > button {
+  margin: 3px 7px;
+  padding: 2px 6px;
+  background: blue;
+  border: 2px solid white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s all linear;
+  color: white;
+}
+.btn:hover {
+  background: white;
+  border-color: black;
+  outline: 2px solid white;
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .game_container {
+    height: 380px;
+    width: 380px;
+  }
+
+  .box_container {
+    height: 280px;
+    width: 280px;
+  }
+
+  .span_container {
+    height: 65px;
+    width: 65px;
+    font-size: 3rem;
+  }
+
+  #xWins, #yWins,
+  #tied {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .game_container {
+    height: 280px;
+    width: 280px;
+  }
+  .heading h2 {
+    font-size: 1rem;
+  }
+  .box_container {
+    height: 200px;
+    width: 200px;
+  }
+  .span_container {
+    height: 40px;
+    width: 40px;
+    font-size: 1.5rem;
+  }
+}

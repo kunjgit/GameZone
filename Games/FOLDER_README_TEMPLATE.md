@@ -10,9 +10,9 @@
 
 ## **functionalities 🎮**
 <!-- add functionalities over here -->
--The main priority of this game is to save yourself from the dozens of enemies attacking you at once. The enemies will keep shooting continuously which increases the chances of you getting hit. Thus, save yourself first and then attack the enemies to last longer in the game.
--Once you see that you are safe from the attacks, attack blindly at the opponents. No matter if any shot is missed, some will still be hit and the enemies will be gone. This will increase the chance of destroying the opponents and scoring maximum points.
--To gain the highest score possible, focus on all the controls, move left or right as needed and shoot the opponent to destroy them all. 
+- The main priority of this game is to save yourself from the dozens of enemies attacking you at once. The enemies will keep shooting continuously which increases the chances of you getting hit. Thus,save yourself first and then attack the enemies to last longer in the game.
+- Once you see that you are safe from the attacks, attack blindly at the opponents. No matter if any shot is missed, some will still be hit and the enemies will be gone. This will increase the chance of destroying the opponents and scoring maximum points.
+- To gain the highest score possible, focus on all the controls, move left or right as needed and shoot the opponent to destroy them all. 
 <br>
 
 ## **How to play? 🕹️**

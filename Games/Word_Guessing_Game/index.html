@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Word Guessing Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1><b>GUESS THE WORD</b></h1>
+        <div class="content">
+            <input type = "text" class = "typing-input" maxlength = "1">
+            <div class="inputs">
+                <!-- <input type="text" name="" id="" disabled>
+                <input type="text" name="" id="" disabled>
+                <input type="text" name="" id="" disabled>
+                <input type="text" name="" id="" disabled>
+                <input type="text" name="" id="" disabled>
+                <input type="text" name="" id="" disabled> -->
+            </div>
+            <div class="details">
+                <p class = "hint"><b>Hint : </b><span>Hint will be shown here</span></p>
+                <p class = "guesses_left">Remaining guesses : <span></span></p>
+                <p class = "wrong_letters">Wrong letters : <span></span></p>
+            </div>
+            <button class = "reset-btn">Reset Game</button>
+        </div>
+    </div>
+    <script src="word.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

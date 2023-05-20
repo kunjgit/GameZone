@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Roboto+Mono:wght@300;400;500;600;700&display=swap");
+body {
+  background-color: #00fff2;
+  font-family: "Montserrat", sans-serif;
+}
+
+.model {
+  width: 95%;
+  height: 95%;
+  background-color: #212523;
+  position: absolute;
+  color: #fff;
+  z-index: 1;
+  top: 2%;
+  left: 2%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 8px 8px 20px rgb(0, 0, 0);
+}
+.model h1 {
+  margin: 1rem 0;
+  font-size: 3.4rem;
+  font-weight: 600;
+  font-family: cursive;
+  text-align: center;
+}
+.model .details {
+  width: 100%;
+  height: 74%;
+  margin-bottom: 1rem;
+  display: grid;
+  margin: 0px 3px;
+}
+.model .details p {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: cursive;
+}
+.model .start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.model #btn {
+  padding: 10px 10px;
+  border-radius: 10px;
+  font-family: cursive;
+  font-size: 20px;
+  align-items: center;
+  transition: all 0.4s ease-in-out;
+  background: #acefb7;
+  color: #973939;
+}
+.model #btn:hover {
+  background: linear-gradient(to left, red, yellow, blue);
+  color: #000;
+  font-size: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+.model #btn:focus {
+  transform: translateY(-5%) scale(0.9);
+  transition: all 0.4s ease-in-out;
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-content: center;
+  position: relative;
+}
+#canvas #title {
+  text-align: center;
+}
+#canvas #title h1 {
+  font-family: "Roboto Mono", monospace;
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  background-color: #ffb663;
+}
+#canvas .moves {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: #000;
+}
+#canvas .buttons {
+  font-size: 16px;
+  text-transform: uppercase;
+  height: 55px;
+  width: 102px;
+  border-radius: 20px;
+  background-color: #515ca3;
+  color: #ffffff;
+  opacity: 0.7;
+  transition: all 0.4s ease-in-out;
+}
+#canvas .buttons:hover {
+  opacity: 1;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+#canvas #towers {
+  color: #ffc6c6;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+#canvas #towers .base {
+  position: relative;
+  width: 180px;
+  height: 200px;
+  margin: auto;
+  border-bottom: 9px #421b1b solid;
+  border-radius: 20px;
+}
+
+.line1,
+.line2,
+.line3 {
+  padding: 2px;
+  width: 5px;
+  height: 150px;
+  background: #421b1b;
+  border-radius: 180px;
+  padding-top: 50px;
+  margin: 10px 0 0 65px;
+  position: relative;
+  align-items: center;
+}
+
+#towers li {
+  position: relative;
+  display: block;
+  height: 20px;
+  border-radius: 10px;
+  top: 170px;
+}
+
+#disc7 {
+  background-color: #8300ff;
+  width: 175px;
+  margin: -40px 0 0 -86px;
+}
+
+#disc6 {
+  background-color: #8668e8;
+  width: 150px;
+  margin: -40px 0 0 -73px;
+}
+
+#disc5 {
+  background-color: #91acff;
+  width: 125px;
+  margin: -40px 0 0 -58px;
+}
+
+#disc4 {
+  background-color: #acefb7;
+  width: 100px;
+  margin: -40px 0 0 -46px;
+}
+
+#disc3 {
+  background-color: #fbff9b;
+  width: 75px;
+  margin: -40px 0 0 -34px;
+}
+
+#disc2 {
+  background-color: #ffb663;
+  width: 50px;
+  margin: -40px 0 0 -22px;
+}
+
+#disc1 {
+  background-color: #ffa8a8;
+  width: 25px;
+  margin: -40px 0 0 -10px;
+}
+
+#discno {
+  font-family: "Roboto Mono", serif;
+  font-size: 30px;
+  color: #515ca3;
+  margin: auto;
+  font-weight: 600;
+}
+#discno #box {
+  font-size: 30px;
+  text-align: center;
+  height: 50px;
+  width: 70px;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-family: "Roboto Mono", serif;
+}
+
+#restart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=style.css.map */

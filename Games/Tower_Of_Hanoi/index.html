@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Towers of Hanoi</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css">
+</head>
+
+<body>
+    <div class="model">
+        <h1>Tower of Hanoi</h1>
+        <div class="details">
+           <p> 🌟 Welcome to the Tower of Hanoi Game! 🌟</p>
+           
+
+            <p>
+                🎉 Hey there, fellow puzzle enthusiasts! Get ready to embark on an exciting journey of strategy and logic with the Tower of Hanoi. 🏰✨
+            </p>
+
+            <p>
+                📜 Imagine yourself as a master architect, entrusted with the task of moving a stack of disks from one peg to another. Your mission, should you choose to accept it, is to reach the target peg while obeying the sacred rules of the game. 🕹️
+            </p>
+
+            <p>   
+                🌈 But fear not! This is no ordinary challenge. It's a puzzle that will tickle your brain and keep you entertained for hours. 🧠✨
+            </p>
+
+            <p>
+                🤔 So, what are the rules, you ask? Simple, my friend! You can only move one disk at a time, and you must never place a larger disk on top of a smaller one. Remember, size matters in this tower-building adventure! 📏
+            </p>
+
+           <p>
+                ⚙️ Strategize, plan your moves wisely, and watch as the disks dance their way across the pegs. With each step, you'll uncover the secrets of the optimal solution. Can you conquer the Tower of Hanoi in the fewest moves? 🏆
+           </p>
+
+            <p>
+                🌟 It's time to show off your puzzle-solving prowess and embrace the challenge! Get ready to stack, slide, and shuffle your way to victory. Good luck, and may the power of logic be with you! 🎲✨🧩.
+            </p>
+
+        </div>
+       <div class="start">
+        <button id="btn">🙂Let's Start🙂</button>
+       </div>
+    </div>
+  <div id="canvas">
+    <div id="title">
+      <h1>Towers Of Hanoi</h1></div>
+    </br>
+    <div class="moves"></div>
+    </br>
+    </br>
+    <div id="towers">
+      <div class="t" value="0">
+        <ul id="t1" value="0" class="base">
+          <ul class="line1">
+          </ul>
+        </ul>
+      </div>
+      <div class="t" value="1">
+        <ul id="t2" value="1" class="base">
+          <ul class="line2"></ul>
+        </ul>
+      </div>
+      <div class="t" value="2">
+        <ul id="t3" value="2" class="base">
+          <ul class="line3"></ul>
+        </ul>
+      </div>
+    </div>
+    </br>
+    </br>
+    </br>
+    <div id="discno">
+      Enter Number of Discs: <input type="number" id="box" max="7" min="1" value="5"></input>
+    </div>
+    </br>
+    </br>
+    <div id="restart">
+      <button type="button" class="buttons">Restart</button>
+    </div>
+<!-- </br>
+    <div id="solve">
+      <button type="button" class="buttons">Solve</button>
+    </div>
+-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+  </div>
+</body>
+
+</html>

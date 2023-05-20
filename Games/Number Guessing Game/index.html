@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Game Title -->
+    <title>Number Guessing Game</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- JavaScript -->
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <label for="num" id="title">Guess the Number</label> <br>
+            <input type="text" name="num" id="num" placeholder="Enter number between 1 - 10">
+        </form>
+        
+        <br>
+        <button id="submitBtn" onclick="checkNum()">Check Number</button>
+        <button id="refreshBtn" style="display: none; color: goldenrod; background-color: #1D2A35;" onclick="location.reload();">New Game</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+
+        // Prevent form submission & checkNumber 
+        const form = document.querySelector("form");
+
+        form.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkNum();
+            }
+        });
+
+    </script>
+</body>
+</html>

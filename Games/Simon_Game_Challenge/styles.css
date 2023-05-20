@@ -74,6 +74,22 @@ body {
   }
 }
 
+@media only screen and (max-width: 563px) and (min-width: 480px) {
+  /* styles for phone */
+  .container {
+    width: 90%;
+  }
+  .btn {
+    height: 100px;
+    width: 100px;
+  }
+  #level-title,
+  #play-button {
+    font-size: 3.5rem;
+  }
+}
+
+
 @media only screen and (max-width: 480px) {
   /* styles for phone */
   .container {

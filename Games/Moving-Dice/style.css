@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    background-color: #060331;
+    font-size: 15px;
+}
+
+.dice {
+    width: 100vw;
+    height: 100vh;
+}
+
+.heading h1 {
+    text-align: center;
+    padding: 2rem;
+    font-size: 4rem;
+    text-decoration: underline;
+    margin: auto;
+    color: #fff;
+}
+
+.cont {
+    display: flex;
+    width: 70%;
+    height: 55vh;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.img1 {
+    font-size: 25rem;
+    cursor: pointer;
+    padding: 5rem;
+}
+
+.img2 {
+    font-size: 25rem;
+    cursor: pointer;
+    padding: 5rem;
+}
+
+h2 {
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn button {
+    font-size: 2rem;
+    width: 8rem;
+    margin: 1rem;
+    font-weight: 550;
+    cursor: pointer;
+    border: 0;
+    border-radius: 10px;
+}
+
+.btn button:hover{
+    box-shadow: red 1px 1px 10px;
+    transition: 0.5s;
+}
+
+.cont span {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width:600px) {
+
+    .heading h1 {
+        font-size: 2rem;
+    }
+
+    .cont {
+        flex-direction: column;
+        margin: 0;
+        width: 100%;
+    }
+
+    .img1 {
+        font-size: 2rem;
+        padding: 0;
+    }
+
+    .img1 img {
+        font-size: 2rem;
+        width: 8rem;
+        padding: 0;
+    }
+
+    .img2 img {
+        font-size: 2rem;
+        width: 8rem;
+        padding: 0;
+    }
+
+    .img2 {
+        font-size: 2rem;
+        padding: 0;
+    }
+
+    .cont h3{
+        padding: 1rem;
+        text-align: left;
+    }
+    
+    .btn{
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .btn button{
+        font-size: 1.5rem;
+        width: fit-content;
+    }
+
+    .dice h2{
+        font-size: 1.5rem;
+    }
+
+}

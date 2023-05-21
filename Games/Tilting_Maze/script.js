@@ -387,10 +387,6 @@ Math.minmax = (value, limit) => {
   
     const maxVelocity = 1.5;
   
-    // Time passed since last cycle divided by 16
-    // This function gets called every 16 ms on average so dividing by 16 will result in 1
-    const timeElapsed = (timestamp - previousTimestamp) / 16;
-  
     try {
       // If mouse didn't move yet don't do anything
       if (accelerationX != undefined && accelerationY != undefined) {

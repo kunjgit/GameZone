@@ -6,19 +6,41 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+body {
+    margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #020202;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+h1{
+    border-bottom : 1px solid #ccc;
+    border-bottom-width: 1px;
+    color : bisque;
+    margin: 10px 0 2 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    animation: animationtext 4s steps(80, end); 
+    transition: all cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
 body{
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #040404
+    background-color: #040404;
 }
 .wrapper{
-    width : 430px;
-    background: #fff;
+    width : 480px;
+    background: #060606;
     border-radius: 5px;
     box-shadow: #b5b5b5;
-
     background: rgba(244, 237, 237, 0.25);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 6.5px );
@@ -29,11 +51,24 @@ body{
 }
 
 .wrapper h1{
-    font-size: 25px;
+    font-size: 35px;
     font-weight:500;
     padding : 20px 25px;
     border-bottom : 1px solid #ccc;
-    color : #ccc
+    border-bottom-width: 1px;
+    color : bisque;
+    margin: 10px 0 2 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    animation: animationtext 4s steps(80, end); 
+    transition: all cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+@keyframes animationtext { 
+ from {
+     width: 0;
+    transition: all 2s ease-in-out;
+ } 
 }
 
 .wrapper .content{
@@ -57,13 +92,14 @@ body{
     width: 56px;
     margin: 4px;
     font-weight: 500;
-    color : #ffffff;
+    color : rgb(242, 139, 14);
     font-size: 24px;
     text-align:center;
     background: none;
     border-radius: 5px;
     text-transform: uppercase;
     border : 1px solid #b5b5b5;
+    
 }
 
 .inputs input:first-child{
@@ -77,7 +113,8 @@ body{
 .details p{
     font-size: 19px;
     margin-bottom: 10px;
-    color: #ccc;
+    color: #292121;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .content .reset-btn{
@@ -85,11 +122,84 @@ body{
     cursor: pointer;
     outline: none;
     border: none;
-    background: #040404;
+    background: rgb(242, 139, 14);
     color: #fff;
-    font-size: 17px;
+    font-size: 22px;
     /*font-weight: 500;*/
     padding: 15px 0px;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
+
+.firstword{
+    font-size: 150%;
+    color:rgb(238, 151, 46);
+}
+
+.info{
+    color :rgb(238, 151, 46);
+}
+
+
+.emoji {
+    padding: 3rem;
+    font-size: 6rem;
+    transform: scale(.5);
+    text-shadow: 0 2px 4px rgba(0,0,0,.3);
+    transition: 
+      text-shadow .2s ease-in-out,
+      transform .2s ease-in-out;
+  }
+  
+  .emoji:hover {
+    transform: scale(1) translatey(-20px);
+    text-shadow: 0 20px 20px rgba(0,0,0,.3);
+  }
+  
+  .emoji--happy:before {
+    content: '🙂';
+  }
+  
+  .emoji--happy:hover:before {
+    content: '😄';
+  }
+  
+  .emoji--sad:before {
+    content: '😕';
+  }
+  
+  .emoji--sad:hover:before {
+    content: '☹️';
+  }
+  
+  .emoji--crying:before {
+    content: '😥';
+  }
+  
+  .emoji--crying:hover:before {
+    content: '😰';
+  }
+  
+  /* .emoji--grimacing:before {
+    content: '😬';
+  }
+  
+  .emoji--grimacing:hover:before {
+    content: '😁';
+  } */
+
+  #emojis_settlement{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #within_same_emoji{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin-left: 20%;
+  }

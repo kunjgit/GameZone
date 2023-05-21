@@ -66,9 +66,5 @@ const wordlist = [
     {
         word : "japan",
         hint : "Country of Rising Sun"
-    },
-    {
-        word : "hello";
-        
     }
 ]

@@ -9,10 +9,31 @@ let word;
 let maxGuesses;
 let incorrect_letters = [];
 let correct_letters = [];
+let wins = 0;
+let dif = 0;
+function chooseDif1() {
+    dif = 1;
+    document.getElementById('startButton').style.display = 'block';
+    document.getElementById('chooseDifficulty').style.display = 'none';
+    getRandomWord();
+}
+function chooseDif2() {
+    dif = 2;
+    document.getElementById('startButton').style.display = 'block';
+    document.getElementById('chooseDifficulty').style.display = 'none';
+    getRandomWord();
+}
+function chooseDif3() {
+    dif = 3;
+    document.getElementById('startButton').style.display = 'block';
+    document.getElementById('chooseDifficulty').style.display = 'none';
+    getRandomWord();
+}
 
 //Function to get random word from list
 function getRandomWord() {
     //Getting the word randomly from the list
+    document.getElementsByClassName('wrapper')[0].style.display = 'block';
     let randomobject = wordlist[Math.floor(Math.random() * wordlist.length)];
 
     //Getting the word from the object
@@ -22,12 +43,27 @@ function getRandomWord() {
     hint.innerText = randomobject.hint;
 
     //By default, the number of guesses is 8
-    maxGuesses = 5;
+    //maxGuesses = 5;
+    if (dif == 1) {
+        maxGuesses = word.length + 5;
+    }
+    else if (dif == 2) {
+        maxGuesses = word.length;
+    }
+    else if (dif == 3) {
+        if (word.length % 2 == 0) {
+            maxGuesses = word.length / 2;
+        }
+        else {
+            maxGuesses = (word.length - 1) / 2;
+        }
+    }
     guessesLeft.innerText = maxGuesses;
 
     //Resetting values to default 
     incorrect_letters = [];
     correct_letters = [];
+    //wins = 0;
 
     //Creating the input fields for the word
     let html = "";
@@ -57,6 +93,7 @@ function initialiseGame(e)
                 {
                     correct_letters.push(` ${key}`)
                     inputs.querySelectorAll("input")[i].value = key;
+                    //console.log("Letter is found :)");
                 }
             }
         }
@@ -74,12 +111,14 @@ function initialiseGame(e)
     setTimeout(()=>{
         if(correct_letters.length === word.length)
         {
+            wins++;
             alert(`Congratulations! You won, you have got the word ${word.toUpperCase()} :)`);
             getRandomWord();    //Restarting the game
         }
         else if(maxGuesses<1)
         {
-            alert("Game Over! You are out of guesses :( ")
+            alert(`Game Over! You are out of guesses :( , your score is ${wins}`);
+            wins = 0;
             for(let i=0;i<word.length;i++)
             {
                 inputs.querySelectorAll("input")[i].value = word[i];
@@ -88,10 +127,20 @@ function initialiseGame(e)
     });
 }
 
-resetButton.addEventListener("click", getRandomWord);
+function restart() {
+    document.getElementById('startButton').style.display = 'none';
+    document.getElementsByClassName('wrapper')[0].style.display = 'none';
+    document.getElementById('chooseDifficulty').style.display = 'block';
+    incorrect_letters = [];
+    correct_letters = [];
+    maxGuesses = "";
+    dif = 0;
+}
+
+resetButton.addEventListener("click", restart);
 typingInput.addEventListener("input", initialiseGame);
 inputs.addEventListener("click",() => typingInput.focus());
 document.addEventListener("keydown",() => typingInput.focus());
 
-getRandomWord();
+// getRandomWord();
 

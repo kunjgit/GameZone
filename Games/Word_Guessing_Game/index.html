@@ -6,29 +6,53 @@
     <title>Word Guessing Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="wrapper">
-        <h1><b>GUESS THE WORD</b></h1>
-        <div class="content">
-            <input type = "text" class = "typing-input" maxlength = "1">
-            <div class="inputs">
-                <!-- <input type="text" name="" id="" disabled>
-                <input type="text" name="" id="" disabled>
-                <input type="text" name="" id="" disabled>
-                <input type="text" name="" id="" disabled>
-                <input type="text" name="" id="" disabled>
-                <input type="text" name="" id="" disabled> -->
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="crossorigin="anonymous" />
+     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<body style = "background-color: black;">
+    <div id="chooseDifficulty" style="display: block">
+        <h1 style="color: bisque;"><b><span class = "firstword">W</span>elcome <span class="firstword">T</span>o <span class="firstword">W</span>ord <span class="firstword">G</span>uessing <span class="firstword">G</span>ame<span class="firstword">!</span></b></h1>
+        <h5 class="my-4" style="color: bisque; font-size: 22px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Choose a Difficulty Level : </h5>
+        <button type="button" onclick="chooseDif1()" class="btn btn-secondary btn-lg px-4 mx-2" style="background-color: rgb(229, 177, 115);">Easy</button>
+        <button type="button" onclick="chooseDif2()" class="btn btn-success btn-lg px-4 mx-2" style="background-color: rgb(213, 145, 73);">Normal</button>
+        <button type="button" onclick="chooseDif3()" class="btn btn-danger btn-lg px-4 mx-2" style="background-color: rgb(211, 129, 41);">Hard</button>
+    </div>
+    <div id="startButton" style="display: none">
+    <div id = "emojis_settlement">
+        <div class="wrapper">
+            <h1><b><span class = "firstword">G</span>UESS <span class="firstword">T</span>HE <span class="firstword">W</span>ORD</b></h1>
+            <div class="content">
+                <input type = "text" class = "typing-input" maxlength = "1">
+                <div class="inputs">
+                    <!-- <input type="text" name="" id="" disabled>
+                    <input type="text" name="" id="" disabled>
+                    <input type="text" name="" id="" disabled>
+                    <input type="text" name="" id="" disabled>
+                    <input type="text" name="" id="" disabled>
+                    <input type="text" name="" id="" disabled> -->
+                </div>
+                <div class="details">
+                    <p class = "hint" style="color: bisque;">Hint : <span class = "info">Hint will be shown here</span></p>
+                    <p class = "guesses_left" style="color: bisque;">Remaining Guesses : <span  class = "info"></span></p>
+                    <p class = "wrong_letters" style="color: bisque;">Wrong Letters : <span  class = "info"></span></p>
+                </div> 
+                <button class="reset-btn">Reset Game</button>     
             </div>
-            <div class="details">
-                <p class = "hint"><b>Hint : </b><span>Hint will be shown here</span></p>
-                <p class = "guesses_left">Remaining guesses : <span></span></p>
-                <p class = "wrong_letters">Wrong letters : <span></span></p>
-            </div>
-            <button class = "reset-btn">Reset Game</button>
+        </div>
+        <div>
+            <span id = "within_same_emoji" class="emoji emoji--happy"></span>
+            <span id = "within_same_emoji" class="emoji emoji--sad"></span>
+            <span id = "within_same_emoji" class="emoji emoji--crying"></span>
         </div>
     </div>
     <script src="word.js"></script>
     <script src="script.js"></script>
+    
 </body>
 </html>

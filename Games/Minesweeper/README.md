@@ -34,7 +34,7 @@ The objective of the game is to clear a rectangular grid that contains hidden mi
 
 <br>
 
-![image](pic.png)
+![image](Minesweeper.png)
 
 
 <br>

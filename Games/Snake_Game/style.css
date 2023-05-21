@@ -1,0 +1,244 @@
+:root {
+
+  --color-button: #f78400;
+
+  --color-button-after: #f5f5f5;
+
+  --color-button: #424246;
+
+  --color-border: #373737;
+
+}
+
+* {
+
+  margin: 0;
+
+}
+
+html {
+
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+
+    'Lucida Sans', Arial, sans-serif;
+
+}
+
+body {
+background-color: black;
+color: #f5f5f5;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  height: 100vh;
+
+}
+
+button {
+
+  cursor: pointer;
+
+}
+
+.grid {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  border: 2px solid var(--color-border);
+
+  min-height: 200px;
+
+  min-width: 200px;
+
+}
+
+.start-btn {
+
+  position: relative;
+
+  font-size: 1.15rem;
+
+  font-weight: bold;
+
+  background: var(--color-button);
+
+  padding: 0.6rem 1rem;
+
+  margin: 1rem 0;
+
+  border: 0;
+
+}
+
+.start-btn::after {
+
+  position: absolute;
+
+  content: attr(data-content);
+
+  width: 100%;
+
+  height: 100%;
+
+  top: 0;
+
+  left: 0;
+
+  box-shadow: inset 0 0 2px var(--color-border);
+
+  background-color: var(--color-button-after);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transform: translate(-0.2rem, -0.2rem);
+
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+}
+
+.start-btn:hover::after,
+
+.start-btn:focus::after {
+
+  transform: translate(0);
+
+}
+
+.grid div {
+
+  transition: transform 0.4s ease;
+
+}
+
+.food-item {
+
+  transform: scale(1.15);
+
+}
+
+.keys-container {
+
+  visibility: hidden;
+  display: grid;
+
+  grid-template-columns: 50px 50px 50px;
+
+  grid-template-rows: auto;
+
+  grid-template-areas:
+
+    '.    up   .'
+
+    'left down right';
+
+  grid-gap: 10px;
+
+  padding: 1rem;
+
+}
+
+@media screen and (max-width:1000px) {
+  .keys-container{
+visibility: visible;
+}
+}
+
+.keys-container button {
+
+  background-color: var(--color-button-after);
+
+  border: none;
+
+  padding: 0.5rem;
+
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+
+  transition: all 0.3s ease;
+
+}
+
+.keys-container button:focus {
+
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+
+}
+
+#ArrowUp {
+
+  grid-area: up;
+
+}
+
+#ArrowDown {
+
+  grid-area: down;
+
+}
+
+#ArrowLeft {
+
+  grid-area: left;
+
+}
+
+#ArrowRight {
+
+  grid-area: right;
+
+}
+
+.shake {
+
+  animation: shake 0.5s linear 1;
+
+}
+
+@keyframes shake {
+
+  10%,
+
+  90% {
+
+    transform: translate3d(-1px, 0, 0);
+
+  }
+
+  20%,
+
+  80% {
+
+    transform: translate3d(2px, 0, 0);
+
+  }
+
+  30%,
+
+  50%,
+
+  70% {
+
+    transform: translate3d(-4px, 0, 0);
+
+  }
+
+  40%,
+
+  60% {
+
+    transform: translate3d(4px, 0, 0);
+
+  }
+
+}

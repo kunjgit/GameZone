@@ -18,7 +18,7 @@ Your clicks controls the X or O inside each box.
 ## **Screenshots 📸**
 <br>
 
-![image](../../assets/images/Tilting_Maze.png)
+![image](../../assets/images/Tic_Tac_Toe.png)
 
 <br>
 

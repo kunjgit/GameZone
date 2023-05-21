@@ -36,7 +36,11 @@ Keep moving the pieces around the board until they are in the correct order.
 The correct order is achieved when the numbers on the pieces are in ascending order from left to right and top to bottom.
 
 <br>
+## **Screenshots 📸**
 
+<br>
+
+![image](../../assets/images/sliding puzzle.png)
 
 <br>
 

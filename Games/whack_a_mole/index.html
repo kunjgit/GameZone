@@ -17,3 +17,129 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-family: 'Arial', sans-serif;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin-top: 30px;
+}
+
+.hole {
+  background-color: #D3D3D3;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.mole {
+  background-image: url('mole.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  cursor: pointer;
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const gameBoard = document.getElementById('game-board');
+  const holes = gameBoard.getElementsByClassName('hole');
+  const scoreDisplay = document.getElementById('score');
+  const timerDisplay = document.getElementById('timer');
+  const startButton = document.getElementById('start-button');
+  
+  let score = 0;
+  let timeRemaining = 60;
+  let moleInterval;
+  let timerInterval;
+
+  // Function to start the game
+  function startGame() {
+    resetGame();
+    moleInterval = setInterval(popMole, 1000);
+    timerInterval = setInterval(updateTimer, 1000);
+    startButton.disabled = true;
+  }
+
+  // Function to reset the game
+  function resetGame() {
+    score = 0;
+    timeRemaining = 60;
+    scoreDisplay.textContent = score;
+    timerDisplay.textContent = timeRemaining;
+    hideAllMoles();
+    clearInterval(moleInterval);
+    clearInterval(timerInterval);
+  }
+
+  // Function to generate a random hole index
+  function getRandomHoleIndex() {
+    return Math.floor(Math.random() * holes.length);
+  }
+
+  // Function to show a mole in a random hole
+  function popMole() {
+    hideAllMoles();
+    const holeIndex = getRandomHoleIndex();
+    const mole = holes[holeIndex].querySelector('.mole');
+    mole.style.display = 'block';
+    mole.addEventListener('click', whackMole);
+    setTimeout(() => {
+      mole.style.display = 'none';
+      mole.removeEventListener('click', whackMole);
+    }, 1000);
+  }
+
+  // Function to hide all moles
+  function hideAllMoles() {
+    const moles = gameBoard.getElementsByClassName('mole');
+    for (let mole of moles) {
+      mole.style.display = 'none';
+    }
+  }
+
+  // Function to whack a mole
+  function whackMole() {
+    score++;
+    scoreDisplay.textContent = score;
+  }
+
+  // Function to update the timer
+  function updateTimer() {
+    timeRemaining--;
+    timerDisplay.textContent = timeRemaining;
+    if (timeRemaining <= 0) {
+      endGame();
+    }
+  }
+
+  // Function to end the game
+  function endGame() {
+    clearInterval(moleInterval);
+    clearInterval(timerInterval);
+    startButton.disabled = false;
+    alert("Game Over! Your final score is " + score);
+  }
+
+  // Event listener for the start button
+  startButton.addEventListener('click', startGame);
+});
+

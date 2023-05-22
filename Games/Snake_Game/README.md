@@ -23,7 +23,8 @@
 ## **Screenshots 📸**
 <br>
 
-![image](https://github.com/iamsuyashpatel07/GameZone/assets/59373438/9b18fe91-94c3-4cda-a99f-afc33bdb769f)
+![Snake_Game](https://github.com/iamsuyashpatel07/GameZone/assets/59373438/e27d271e-62ed-4c3b-837a-2d39d53f9266)
+
 
 
 

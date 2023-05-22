@@ -10,18 +10,16 @@
 
 ## **functionalities 🎮**
 <!-- add functionalities over here -->
-- The snake game typically includes the following functionalities:
-
--- Snake Movement
--- Food Generation
--- Snake 
--- Obstacles
--- Self-Collision Detection
--- Score Tracking
--- Level Progression
--- High Score Recording
--- Game Over Condition
--- User Interface
+- Snake Movement
+- Food Generation
+- Snake 
+- Obstacles
+- Self-Collision Detection
+- Score Tracking
+- Level Progression
+- High Score Recording
+- Game Over Condition
+- User Interface
 
 <br>
 
@@ -38,7 +36,11 @@
 ## **Screenshots 📸**
 
 <br>
-![Snake_Game](https://github.com/Aryan5464/GameZone/assets/111825539/47c126f9-8937-4711-a4c3-bb44428715c9)
+<!-- ![Snake_Game](img/Snake_Game.png) -->
+
+![Snake_Game](https://github-production-user-asset-6210df.s3.amazonaws.com/111825539/239776190-f8ce3472-b0f4-4732-957e-12ea494332c9.png)
+
+
 
 <br>
 

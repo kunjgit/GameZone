@@ -34,7 +34,7 @@
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![image](D:\GameZone-1\assets\images\Pac_man.png)
+![image](assets\images\Pac_man.png)
 
 
 <br>

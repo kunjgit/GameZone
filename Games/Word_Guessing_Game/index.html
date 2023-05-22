@@ -16,16 +16,33 @@
      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
 <body style = "background-color: black;">
+    
     <div id="chooseDifficulty" style="display: block">
         <h1 style="color: bisque;"><b><span class = "firstword">W</span>elcome <span class="firstword">T</span>o <span class="firstword">W</span>ord <span class="firstword">G</span>uessing <span class="firstword">G</span>ame<span class="firstword">!</span></b></h1>
         <h5 class="my-4" style="color: bisque; font-size: 22px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Choose a Difficulty Level : </h5>
-        <button type="button" onclick="chooseDif1()" class="btn btn-secondary btn-lg px-4 mx-2" style="background-color: rgb(229, 177, 115);">Easy</button>
-        <button type="button" onclick="chooseDif2()" class="btn btn-success btn-lg px-4 mx-2" style="background-color: rgb(213, 145, 73);">Normal</button>
-        <button type="button" onclick="chooseDif3()" class="btn btn-danger btn-lg px-4 mx-2" style="background-color: rgb(211, 129, 41);">Hard</button>
+        <button type="button" value = "1" onclick="chooseDif1()" class="btn btn-secondary btn-lg px-4 mx-2" style="background-color: rgb(229, 177, 115);">Easy</button>
+        <button type="button" value = "2" onclick="chooseDif2()" class="btn btn-success btn-lg px-4 mx-2" style="background-color: rgb(213, 145, 73);">Normal</button>
+        <button type="button" value = "3" onclick="chooseDif3()" class="btn btn-danger btn-lg px-4 mx-2" style="background-color: rgb(211, 129, 41);">Hard</button>
     </div>
-    <div id="startButton" style="display: none">
+
+      <!-- <div class = "wrapper-new"> -->
+        <!--<div class="content">
+            <h1>Rules</h1>
+            <p>
+                <ol>
+                    <li>There are 10 questions and you will be scored 1 mark for each question.</li>
+                    <li>You will have to guess the word, within the given number of guesses only.</li>
+                    <li>You will have to test your luck, give us the word, that we are having for a hint. And that makes our game interesting.Example : For a fruit of 5 letters, if we have set apple and you are entering mango, then your answer would be rejected. And that's also making it a game of Luck!!</li>
+                    <li>Another twist of game is : If we are having Hello in our answer and you are entering hello, you are rejected.Casing of letters!!</li>
+                </ol>
+            </p>
+        </div>
+        <div class="next" onclick = "abc">Click next here</div> -->
+    <!-- </div>  -->
+
+    <div id="startButton" style="display: none"></div>
     <div id = "emojis_settlement">
-        <div class="wrapper">
+        <div class="wrapper" style="display: none;">
             <h1><b><span class = "firstword">G</span>UESS <span class="firstword">T</span>HE <span class="firstword">W</span>ORD</b></h1>
             <div class="content">
                 <input type = "text" class = "typing-input" maxlength = "1">
@@ -42,13 +59,16 @@
                     <p class = "guesses_left" style="color: bisque;">Remaining Guesses : <span  class = "info"></span></p>
                     <p class = "wrong_letters" style="color: bisque;">Wrong Letters : <span  class = "info"></span></p>
                 </div> 
-                <button class="reset-btn">Reset Game</button>     
+                <div class = "bottomline">
+                    <button id = "bottomline" class="reset-btn" style="font-family :'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Reset Game</button>  
+                    <button id = "bottomline" class = "next" style="font-family :'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Next</button>        
+                </div>   
             </div>
         </div>
-        <div>
-            <span id = "within_same_emoji" class="emoji emoji--happy"></span>
+        <div class = "emoji-display">
+            <!-- <span id = "within_same_emoji" class="emoji emoji--happy"></span>
             <span id = "within_same_emoji" class="emoji emoji--sad"></span>
-            <span id = "within_same_emoji" class="emoji emoji--crying"></span>
+            <span id = "within_same_emoji" class="emoji emoji--crying"></span> -->
         </div>
     </div>
     <script src="word.js"></script>

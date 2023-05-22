@@ -4,13 +4,23 @@ const hint = document.querySelector(".hint span");
 const typingInput = document.querySelector(".typing-input")
 const wrongLetter = document.querySelector(".wrong_letters span");
 const guessesLeft = document.querySelector(".guesses_left span");
-
+const nextButton = document.querySelector(".next");
 let word;
 let maxGuesses;
 let incorrect_letters = [];
 let correct_letters = [];
 let wins = 0;
 let dif = 0;
+let element;
+let newelement;
+let score = 0;
+let count = 0;
+
+window.onload = function () {
+    document.getElementById('startButton').style.display = 'none';
+    document.getElementsByClassName('wrapper')[0].style.display = 'none';
+}
+
 function chooseDif1() {
     dif = 1;
     document.getElementById('startButton').style.display = 'block';
@@ -30,12 +40,35 @@ function chooseDif3() {
     getRandomWord();
 }
 
+nextButton.addEventListener("click", function(e){
+    incorrect_letters = [];
+    correct_letters = [];
+    count++;
+    maxGuesses = "";
+    element.innerHTML = "";
+    element = "";
+    newelement = "";
+    // if(count<10)
+    getRandomWord();
+    // else
+    // alert(`Your score is ${score}`);
+    // else{
+    //     alert(`Your score is ${score}`);
+    // }
+});
+
 //Function to get random word from list
 function getRandomWord() {
+    if(count>9)
+    {
+        alert(`Your score is ${score}`);
+    }
     //Getting the word randomly from the list
     document.getElementsByClassName('wrapper')[0].style.display = 'block';
     let randomobject = wordlist[Math.floor(Math.random() * wordlist.length)];
-
+    element = document.querySelector('.emoji-display')
+    newelement = document.createElement("span");
+    element.appendChild(newelement);
     //Getting the word from the object
     word = randomobject.word;
     console.log(word);
@@ -78,6 +111,7 @@ function getRandomWord() {
 
 function initialiseGame(e)
 {
+    //count++;
     let key = e.target.value;
     console.log(key);
     if(key.match(/^[A-Za-z]+$/) && !incorrect_letters.includes(` ${key}`) && !correct_letters.includes(` ${key}`))
@@ -94,14 +128,22 @@ function initialiseGame(e)
                     correct_letters.push(` ${key}`)
                     inputs.querySelectorAll("input")[i].value = key;
                     //console.log("Letter is found :)");
+                   //$('.emoji--happy').classList.add('hover');
+                   newelement.innerHTML= '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face%20with%20Big%20Eyes.png" alt="Grinning Face with Big Eyes" width="300" height="300" />'
+                   element.style.display = 'flex';
                 }
+                console.log("Out of the loop")
+                // element.removeChild(lastChild);
+                // console.log("Element removed");
             }
         }
         else
         {
+            newelement.innerHTML = '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Worried%20Face.png" alt="Worried Face" width="300" height="300"/>'
            // console.log("Letter is not found :(");
            maxGuesses--;
-           incorrect_letters.push(` ${key}`);
+           incorrect_letters.push(` ${key}`);   
+           
         }
         wrongLetter.innerText = incorrect_letters;
         guessesLeft.innerText = maxGuesses;
@@ -111,17 +153,31 @@ function initialiseGame(e)
     setTimeout(()=>{
         if(correct_letters.length === word.length)
         {
+            //newelement.innerHTML = '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Star-Struck.png" alt="Star-Struck" width="25" height="25" />';
             wins++;
-            alert(`Congratulations! You won, you have got the word ${word.toUpperCase()} :)`);
-            getRandomWord();    //Restarting the game
+            //alert(`Congratulations! You won, you have got the word ${word.toUpperCase()} :)`);
+            score++;
+            //getRandomWord();    //Restarting the game
+            $('.next').onclick(function(e){
+                incorrect_letters = [];
+                correct_letters = [];
+                maxGuesses = "";
+                element.innerHTML = "";
+                element = "";
+                newelement = "";
+                getRandomWord();
+                initialiseGame();
+            });
+            
         }
         else if(maxGuesses<1)
         {
             alert(`Game Over! You are out of guesses :( , your score is ${wins}`);
-            wins = 0;
             for(let i=0;i<word.length;i++)
             {
                 inputs.querySelectorAll("input")[i].value = word[i];
+                //alert(`The score is ${score}`);
+                restart();
             }
         }
     });
@@ -135,6 +191,11 @@ function restart() {
     correct_letters = [];
     maxGuesses = "";
     dif = 0;
+    element.innerHTML = "";
+    element = "";
+    newelement = "";
+    //score = 0;
+    count = 0;
 }
 
 resetButton.addEventListener("click", restart);

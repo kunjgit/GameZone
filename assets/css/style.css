@@ -108,7 +108,7 @@ footer {
 }
 
 .socials a i {
-  font-size: 1.1rem;
+  font-size: 2.2rem;
 
   width: 20px;
 
@@ -116,6 +116,7 @@ footer {
 }
 
 .socials a:hover i {
+    font-size: 2.5rem;
   color: aqua;
 }
 

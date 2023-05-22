@@ -29,4 +29,6 @@ else{
     document.querySelector("h1").innerHTML="&#128681;Player 2 Wins";
 }
 
-
+document.querySelector("button").addEventListener("click",function(){
+    location.reload();
+});

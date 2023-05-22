@@ -1,0 +1,42 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: url("../../assets/images/Whack_A_Mole/image1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height:min-content;
+}
+#board{
+   width: 480px;
+   height: 480px;
+   display: flex;
+   margin: 0 auto;
+   flex-wrap: wrap;
+   background: url("../../assets/images/Whack_A_Mole/image5.png");
+   background-size: cover;
+   border: 4px solid white;
+   border-radius: 30px;
+}
+#board div{
+    width:160px;
+    height: 160px;
+    background-image: url("../../assets/images/Whack_A_Mole/image3.png");
+    background-size: cover;
+}
+#board div img{
+    width: 80px;
+    height: 80px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#score{
+    color: #0400f3ab;
+}
+h1{
+    font-weight: 800;
+    color: #1f7ffc;
+}

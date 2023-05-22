@@ -23,10 +23,10 @@ if(n1==n2){
     document.querySelector("h1").innerHTML="Tie";
 }
 else if(n1>n2){
-    document.querySelector("h1").innerHTML="&#128681;&nbsp;Player 1 Wins";
+    document.querySelector("h1").innerHTML="&#128681;Player 1 Wins";
 }
 else{
-    document.querySelector("h1").innerHTML="&#128681;&nbsp;Player 2 Wins";
+    document.querySelector("h1").innerHTML="&#128681;Player 2 Wins";
 }
 
 

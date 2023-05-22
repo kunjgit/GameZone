@@ -38,10 +38,10 @@
 ## **Screenshots 📸**
 
 <br>
-<!-- add your screenshots like this -->
-![image](../../assets/images/Snake_Game.png)
+![Snake_Game](https://github.com/Aryan5464/GameZone/assets/111825539/47c126f9-8937-4711-a4c3-bb44428715c9)
 
 <br>
 
 ## **Working video 📹**
-<!-- add your working video over here -->
+https://github.com/Aryan5464/GameZone/assets/111825539/817d42b4-68f7-4e63-8156-b092a37d325c
+

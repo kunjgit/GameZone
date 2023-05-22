@@ -22,5 +22,5 @@ If you get the dice of 1, your current score will reset and chance would go to t
 ## **Screenshots 📸**
 
 <br>
-![image](../../assets/images/LudoGame.png)
+![image](../../assets/images/Ludo_Game.png)
 

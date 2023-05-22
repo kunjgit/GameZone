@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #E6E6FA;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 90vh;
+}
+
+#tetris{
+    background-color: white;
+    box-shadow: 0 0 10px 2px lightgrey;;
+}

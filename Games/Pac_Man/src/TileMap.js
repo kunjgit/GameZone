@@ -7,13 +7,13 @@ export default class TileMap {
     this.tileSize = tileSize;
 
     this.yellowDot = new Image();
-    this.yellowDot.src = "Pac_man_images/yellowDot.png";
+    this.yellowDot.src = "Games\Pac_Man\Pac_man_images\yellowDot.png";
 
     this.pinkDot = new Image();
-    this.pinkDot.src = "Pac_man_images/pinkDot.png";
+    this.pinkDot.src = "Games\Pac_Man\Pac_man_images\pinkDot.png";
 
     this.wall = new Image();
-    this.wall.src = "Pac_man_images/wall.png";
+    this.wall.src = "Games\Pac_Man\Pac_man_images\wall.png";
 
     this.powerDot = this.pinkDot;
     this.powerDotAnmationTimerDefault = 30;

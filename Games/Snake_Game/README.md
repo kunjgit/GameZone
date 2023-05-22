@@ -39,7 +39,7 @@
 
 <br>
 <!-- add your screenshots like this -->
-![image](img/Snake_Game.png)
+![image](../../assets/images/Snake_Game.png)
 
 <br>
 

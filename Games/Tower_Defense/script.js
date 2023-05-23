@@ -116,8 +116,8 @@ class Defender{
     constructor(x,y){
         this.x =x;
         this.y = y;
-        this.width = cellSize;
-        this.height = cellSize;
+        this.width = cellSize - cellGap*2;
+        this.height = cellSize - cellGap*2;
         this.shooting = false;
         this.health = 100;
         this.projectiles = [];
@@ -145,8 +145,8 @@ class Defender{
     }
 }
 canvas.addEventListener('click', function(){
-    const gridPositionX = mouse.x - (mouse.x % cellSize);
-    const gridPositionY =  mouse.y - (mouse.y % cellSize);
+    const gridPositionX = mouse.x - (mouse.x % cellSize) + cellGap;
+    const gridPositionY =  mouse.y - (mouse.y % cellSize) + cellGap;
     if(gridPositionY < cellSize) return;
     for(let i = 0; i<defenders.length; i++){
         if(defenders[i].x === gridPositionX && defenders[i].y === gridPositionY)return;

@@ -1,0 +1,118 @@
+body{
+    margin :0;
+    padding: 0;
+    font-family: "Poppins" , sans-serif;
+    background-color:#416cea;
+}
+
+.wrapper{
+   width: 33.75em; 
+   background-color: #ffffff;
+   position: absolute;
+   padding: 2em;
+   transform: translateX(-50%);
+   left: 50%;
+   top: 1.25em;
+   border-radius: 0.5em;
+}
+
+.container{
+    margin: 1.25em auto;
+    width: 33.75em;
+    border-radius: 0.6em;
+    overflow: hidden;
+    background-color:#416cea ;
+}
+
+#information{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+}
+
+.player-wrappers{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.player1:before{
+    content: "";
+    display: inline-block;
+    width: 3.12em;
+    height: 3.12em;
+    border-radius: 50%;
+    background: radial-gradient(#fff24e 1.12em, #ffc400 1.25em);
+
+}
+
+.player2:before{
+    content: "";
+    display: inline-block;
+    width: 3.12em;
+    height: 3.12em;
+    border-radius: 50%;
+    background: radial-gradient(#ff4747 1.12em, #c00303 1.25em);
+}
+
+#playerTurn{
+    margin: 1em 0;
+    text-align: right;
+}
+
+#playerTurn span{
+    font-weight: 600;
+}
+
+.startScreen{
+    position: absolute;
+    top: 0;
+    height:100vh;
+    width: 100vw;
+    background-color: #416cea;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#game-logo{
+   font-size:5em ;
+   color: #fff24e;
+}
+
+.startScreen button{
+    background-color: #ffffff;
+    color:#ff4747;
+    font-size: 1.4em;
+    font-weight: 300;
+    padding: 1em 1em;
+    border: none;
+    outline: none;
+    border-radius: 2em ;
+    cursor: pointer;
+}
+
+.grid-row{
+    margin:0 auto;
+    display:flex;
+}
+
+.grid-box{
+    width: 5em;
+    height: 5em;
+    display:grid;
+    place-items: center;
+    background: radial-gradient(white 1.37em, #416cea 1.43em);
+    cursor: pointer;
+}
+
+.hide{
+    display:none;
+}
+
+#message {
+    margin-bottom: 1em;
+    color: #ffffff;
+    font-size: 1.2em;
+}

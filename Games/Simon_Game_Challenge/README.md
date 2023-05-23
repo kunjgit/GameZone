@@ -36,3 +36,5 @@
 ## **Working video 📹**
 
 <!-- add your working video over here -->
+
+![](<../../assets/animations/SimonVideo%20(2).gif>)

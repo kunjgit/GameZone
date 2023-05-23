@@ -118,7 +118,7 @@ class Defender{
         this.y = y;
         this.width = cellSize;
         this.height = cellSize;
-        this.shooting = true;
+        this.shooting = false;
         this.health = 100;
         this.projectiles = [];
         this.timer = 0;
@@ -160,11 +160,16 @@ canvas.addEventListener('click', function(){
 function handleDefenders(){
     for(let i = 0; i<defenders.length; i++){
         defenders[i].draw();
-        defenders[i].update()  ;
+        defenders[i].update();
+        if(enemyPositions.indexOf(defenders[i].y) !== -1){
+            defenders[i].shooting = true;
+        }else{
+            defenders[i].shooting = false;
+        }
         for(let j = 0; j<enemies.length; j++){
             if(defenders[i] && collision(defenders[i], enemies[j])){
                 enemies[j].movement = 0;
-                defenders[i].health -= 0.2;
+                defenders[i].health -= 1;
             }
             if(defenders[i] && defenders[i].health <= 0){
                 defenders.splice(i,1);

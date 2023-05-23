@@ -8,11 +8,83 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    
-
-
-
-
+    <div class="content">
+        <h1 class="title">Tic Tac Toe</h1>
+        <h3 class="displayTurn">Player 1's turn</h3>
+        <div class="buttons">
+          <div id="resetBtn" class="btn resetBtn">Reset Game</div>
+          <div id="restartBtn" class="btn newGame">New Game</div>
+        </div>
+        <div class="gameWrapper">
+          <div class="gameboard">
+            <div class="box" id="0"></div>
+            <div class="box" id="1"></div>
+            <div class="box" id="2"></div>
+            <div class="box" id="3"></div>
+            <div class="box" id="4"></div>
+            <div class="box" id="5"></div>
+            <div class="box" id="6"></div>
+            <div class="box" id="7"></div>
+            <div class="box" id="8"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close"></span>
+          <p class="result"></p>
+        </div>
+      </div>
+      <div class="modal-wrapper">
+        <div id="initialForm" class="modal">
+          <!-- Initial Popup content -->
+          <div class="front-content">
+            <form id="myForm" class ="myForm" autocomplete="off">
+              <div class="inputField">
+                <label class="input-label">(X) Player 1's name:</label>
+                <input
+                  type="text"
+                  name="player1Name"
+                  class="formClass"
+                  id="form1"
+                  required
+                />
+              </div>
+              <div class="inputField">
+                <label class="input-label"> (O) Player 2's name:</label>
+                <input
+                  type="text"
+                  name="player2Name"
+                  class="formClass"
+                  id="form2"
+                  required
+                />
+              </div>
+              <div class="inputField">
+                <label for="1v1" class="Title container">Human vs Human:</label>
+                <input type="radio" id="1v1" name="choice" value="0" required />
+              </div>
+              <div class="inputField">
+                <label for="ai" class="Title">Human vs Easy AI:</label>
+                <input type="radio" id="ai" name="choice" value="1" required />
+              </div>
+              <div class="inputField">
+                <label for="ai" class="Title">Human vs Hard AI:</label>
+                <input
+                  type="radio"
+                  id="aiHard"
+                  name="choice"
+                  value="2"
+                  required
+                />
+              </div>
+              <div class="flex">
+                <button type="submit" class="startButton">Start Game</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
 
     <script src="./tictac.js"></script>
 </body>

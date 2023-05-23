@@ -143,7 +143,7 @@ function moveDown(){
             }
         }
         if(fallingPieceObj.y == 0){
-            alert("gamer over");
+            alert("Gamer Over!!! Start New Game");
             grid = generateGrid();
             score = 0;
         }

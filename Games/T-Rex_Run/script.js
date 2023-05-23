@@ -1,3 +1,16 @@
+/**
+ * This module contains the game logic for the T-Rex Runner game. It exports functions
+ * for updating the game state, handling game over and retrying the game. It also sets up
+ * event listeners for starting the game and retrying the game.
+ * 
+ * The game consists of a world with a ground, a dino and cacti. The dino can jump over the
+ * cacti to avoid them. The game ends when the dino collides with a cactus.
+ * 
+ * The game keeps track of the player's score, which increases over time. The highest score
+ * achieved is also tracked and displayed on the screen.
+ * 
+ * The game is responsive and adjusts to the size
+ */
 import { updateGround, setupGround } from "./ground.js"
 import { updateDino, setupDino, getDinoRect, setDinoLose } from "./dino.js"
 import { updateCactus, setupCactus, getCactusRects } from "./cactus.js"
@@ -42,6 +55,7 @@ function checkLose() {
   const dinoRect = getDinoRect()
   return getCactusRects().some(rect => isCollision(rect, dinoRect))
 }
+
 
 function isCollision(rect1, rect2) {
   return (

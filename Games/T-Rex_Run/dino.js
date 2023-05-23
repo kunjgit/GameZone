@@ -1,3 +1,7 @@
+/**
+ * This module contains functions for setting up and updating the dinosaur character in the game.
+ * @module Dino
+ */
 import {
     incrementCustomProperty,
     setCustomProperty,

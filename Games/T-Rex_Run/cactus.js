@@ -1,3 +1,7 @@
+/**
+ * This module contains functions for setting up and updating cacti in a game.
+ * @module cactus
+ */
 import {
     setCustomProperty,
     incrementCustomProperty,

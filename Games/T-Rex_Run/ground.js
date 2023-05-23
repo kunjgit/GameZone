@@ -1,3 +1,7 @@
+/**
+ * Contains functions for setting up and updating the ground elements on the page.
+ * @module ground
+ */
 import {
     getCustomProperty,
     incrementCustomProperty,

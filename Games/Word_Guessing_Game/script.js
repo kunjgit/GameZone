@@ -15,28 +15,38 @@ let element;
 let newelement;
 let score = 0;
 let count = 0;
+let nextelement;
+let nextnewelement;
+let elementvalue;
+let ans;
 
 window.onload = function () {
     document.getElementById('startButton').style.display = 'none';
     document.getElementsByClassName('wrapper')[0].style.display = 'none';
+    document.getElementsByClassName('wrapper-new')[0].style.display = 'none';
+    document.getElementsByClassName('scorecard')[0].style.display = 'none';
 }
 
 function chooseDif1() {
     dif = 1;
-    document.getElementById('startButton').style.display = 'block';
+    //document.getElementById('startButton').style.display = 'block';
+    console.log("easy");
     document.getElementById('chooseDifficulty').style.display = 'none';
+    document.getElementsByClassName('wrapper-new')[0].style.display = 'none';
     getRandomWord();
 }
 function chooseDif2() {
     dif = 2;
-    document.getElementById('startButton').style.display = 'block';
+    //document.getElementById('startButton').style.display = 'block';
     document.getElementById('chooseDifficulty').style.display = 'none';
+    document.getElementsByClassName('wrapper-new')[0].style.display = 'none';
     getRandomWord();
 }
 function chooseDif3() {
     dif = 3;
-    document.getElementById('startButton').style.display = 'block';
+    //document.getElementById('startButton').style.display = 'block';
     document.getElementById('chooseDifficulty').style.display = 'none';
+    document.getElementsByClassName('wrapper-new')[0].style.display = 'none';
     getRandomWord();
 }
 
@@ -61,9 +71,11 @@ nextButton.addEventListener("click", function(e){
 function getRandomWord() {
     if(count>9)
     {
-        alert(`Your score is ${score}`);
+       // document.getElementsByClassName('wrapper')[0].style.display = 'none';
+        scoredisplay();
     }
     //Getting the word randomly from the list
+    if(count<=9)
     document.getElementsByClassName('wrapper')[0].style.display = 'block';
     let randomobject = wordlist[Math.floor(Math.random() * wordlist.length)];
     element = document.querySelector('.emoji-display')
@@ -107,11 +119,14 @@ function getRandomWord() {
     //Adding the input fields to the html
     inputs.innerHTML = html;
     //console.log("Demo text")
+    //document.getElementsByClassName('wrapper')[0].style.display = 'block';
 }
 
 function initialiseGame(e)
 {
+    //document.getElementsByClassName('wrapper')[0].style.display = 'block';
     //count++;
+    //document.getElementsByClassName('wrapper')[0].style.display = 'block'
     let key = e.target.value;
     console.log(key);
     if(key.match(/^[A-Za-z]+$/) && !incorrect_letters.includes(` ${key}`) && !correct_letters.includes(` ${key}`))
@@ -142,6 +157,7 @@ function initialiseGame(e)
             newelement.innerHTML = '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Worried%20Face.png" alt="Worried Face" width="300" height="300"/>'
            // console.log("Letter is not found :(");
            maxGuesses--;
+
            incorrect_letters.push(` ${key}`);   
            
         }
@@ -172,20 +188,32 @@ function initialiseGame(e)
         }
         else if(maxGuesses<1)
         {
-            alert(`Game Over! You are out of guesses :( , your score is ${wins}`);
             for(let i=0;i<word.length;i++)
             {
                 inputs.querySelectorAll("input")[i].value = word[i];
-                //alert(`The score is ${score}`);
-                restart();
             }
+            //alert(`Sorry! You lost, the word was ${word.toUpperCase()} :(`);
+            //document.getElementsByClassName('wrapper')[0].style.display = 'none';
+            scoredisplay();
         }
     });
+}
+
+function scoredisplay()
+{
+    document.getElementById('chooseDifficulty').style.display = 'none';
+    document.getElementsByClassName('wrapper')[0].style.display = 'none';
+    document.getElementsByClassName('emoji-display')[0].style.display = 'none';
+    document.getElementsByClassName('scorecard')[0].innerHTML = `
+    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Trophy.png" alt="Trophy" width="200" height="200" id="trophy"/><h1 id = "scorep">Your Score is <span id="scoreportion">${score}</span></h1><br><button type="button" class="nextnew1" onclick = "restart()">Click here to Restart</button>`;
+    document.getElementsByClassName('scorecard')[0].style.display = 'block';
+    //restart();
 }
 
 function restart() {
     document.getElementById('startButton').style.display = 'none';
     document.getElementsByClassName('wrapper')[0].style.display = 'none';
+    document.getElementsByClassName('scorecard')[0].style.display = 'none';
     document.getElementById('chooseDifficulty').style.display = 'block';
     incorrect_letters = [];
     correct_letters = [];
@@ -196,6 +224,35 @@ function restart() {
     newelement = "";
     //score = 0;
     count = 0;
+    nextnewelement = "";
+    ans = 0;
+    elementvalue = 0;
+}
+
+function abc()
+{
+    nextelement.style.display = 'none';
+    nextelement.removeChild(nextnewelement);
+    console.log(ans);
+    console.log(elementvalue);
+    if(ans==5)
+    {
+        //nextelement.style.display = 'none';
+        console.log(ans);
+        chooseDif1();
+    }
+
+    else if(ans==6)
+    {
+        //nextelement.style.display = 'none';
+        chooseDif2();
+    }
+    else if(ans==7)
+    {
+        //nextelement.style.display = 'none';
+        chooseDif3();
+    }
+    //document.getElementsByClassName('wrapper')[0].style.display = 'block';
 }
 
 resetButton.addEventListener("click", restart);
@@ -205,3 +262,35 @@ document.addEventListener("keydown",() => typingInput.focus());
 
 // getRandomWord();
 
+const buttonGroup = document.getElementById("button-group");
+const buttonGroupPressed = e => { 
+  
+  const isButton = e.target.nodeName === 'BUTTON';
+  
+  if(!isButton) {
+    return
+  }
+  
+  elementvalue = e.target.id;
+  if(elementvalue=="1"){
+    console.log("hello");
+      ans = 5;
+  }
+  else if(elementvalue=="2"){
+      ans = 6;
+  }   
+  else if(elementvalue=="3"){
+      ans = 7;
+  }
+  console.log(ans);
+  //document.querySelector('#buttonid').value = 6;
+  document.getElementById('chooseDifficulty').style.display = 'none';
+  nextelement = document.querySelector('.wrapper-new');
+  nextnewelement = document.createElement("div");
+  nextelement.appendChild(nextnewelement);
+  nextnewelement.innerHTML = '<div id ="abc"><div><h1 id = "rules"><span style="font-size:40px;">&#128204;</span>Rules</h1><p style = "color : bisque;"><ol style ="color : bisque;"><li>There are <span id = "rulespart">10 questions</span> and you will be scored <span id= "rulespart">1 mark </span>for each question.</li><li>You will have to guess the word, within the given number of guesses only.</li><li>You will have to <span id="rulespart">test your luck</span>, give us the word, that we are having for a hint. And that makes our game interesting.Example : For a fruit of 5 letters, if we have set apple and you are entering mango, then your answer would be rejected. And that is also making it a game of Luck!!</li><li>Another twist of game is : If we are having Hello in our answer and you are entering hello, you are rejected. <span id = "rulespart">Casing of letters!!</span></li></ol></p><button type="button" class="nextnew" onclick = "abc()"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="45" height="45" id="rocketimg"/>Start your Game!</button></div></div>';
+  nextelement.style.display = 'block';
+  
+}
+
+buttonGroup.addEventListener("click", buttonGroupPressed);

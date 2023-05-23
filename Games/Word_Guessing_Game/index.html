@@ -14,17 +14,39 @@
      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <style>
+    .left, .right {
+      float: left;
+      width: 20%; /* The width is 20%, by default */
+    }
+    
+    .main {
+      float: left;
+      width: 60%; /* The width is 60%, by default */
+    }
+    
+    /* Use a media query to add a breakpoint at 800px: */
+    @media screen and (max-width: 800px) {
+      .left, .main, .right {
+        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+      }
+    }
+    </style>
+  
+     </style>
     </head>
 <body style = "background-color: black;">
     
     <div id="chooseDifficulty" style="display: block">
-        <h1 style="color: bisque;"><b><span class = "firstword">W</span>elcome <span class="firstword">T</span>o <span class="firstword">W</span>ord <span class="firstword">G</span>uessing <span class="firstword">G</span>ame<span class="firstword">!</span></b></h1>
-        <h5 class="my-4" style="color: bisque; font-size: 22px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Choose a Difficulty Level : </h5>
-        <button type="button" value = "1" onclick="chooseDif1()" class="btn btn-secondary btn-lg px-4 mx-2" style="background-color: rgb(229, 177, 115);">Easy</button>
-        <button type="button" value = "2" onclick="chooseDif2()" class="btn btn-success btn-lg px-4 mx-2" style="background-color: rgb(213, 145, 73);">Normal</button>
-        <button type="button" value = "3" onclick="chooseDif3()" class="btn btn-danger btn-lg px-4 mx-2" style="background-color: rgb(211, 129, 41);">Hard</button>
+        <h1 style="color: bisque;"><b><span class = "firstword">&nbsp;W</span>elcome <span class="firstword">T</span>o <span class="firstword">W</span>ord <span class="firstword">G</span>uessing <span class="firstword">G</span>ame<span class="firstword">!</span></b></h1>
+        <h3 class="my-4" style="color: bisque; font-size: 22px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Choose a Difficulty Level : </h3>
+        <div id="button-group">
+            <button type="button" id = "1" value = 1  class="btn btn-secondary btn-lg px-4 mx-2" style="background-color: rgb(229, 177, 115);">Easy</button>
+            <button type="button" id = "2" value = 2  class="btn btn-success btn-lg px-4 mx-2" style="background-color: rgb(213, 145, 73);">Normal</button>
+            <button type="button" id = "3" value = 3  class="btn btn-danger btn-lg px-4 mx-2" style="background-color: rgb(211, 129, 41);">Hard</button>
+        </div>
     </div>
-
+    <div class = "wrapper-new" style="display: none;"></div>
       <!-- <div class = "wrapper-new"> -->
         <!--<div class="content">
             <h1>Rules</h1>
@@ -41,9 +63,15 @@
     <!-- </div>  -->
 
     <div id="startButton" style="display: none"></div>
-    <div id = "emojis_settlement">
         <div class="wrapper" style="display: none;">
-            <h1><b><span class = "firstword">G</span>UESS <span class="firstword">T</span>HE <span class="firstword">W</span>ORD</b></h1>
+            <div style="display: flex; flex:auto;">
+                <div>
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Thinking%20Face.png" alt="Thinking Face" width="55" height="55" id="ruleimg"/>
+                </div>
+                <div>
+                    <h1><b><span class = "firstword">G</span>UESS <span class="firstword">T</span>HE <span class="firstword">W</span>ORD</b></h1>
+                </div>
+            </div>
             <div class="content">
                 <input type = "text" class = "typing-input" maxlength = "1">
                 <div class="inputs">
@@ -70,7 +98,9 @@
             <span id = "within_same_emoji" class="emoji emoji--sad"></span>
             <span id = "within_same_emoji" class="emoji emoji--crying"></span> -->
         </div>
-    </div>
+        <div class = "scorecard" style="display: none;">
+            <h1 id = "scorevalue"></h1>
+        </div>
     <script src="word.js"></script>
     <script src="script.js"></script>
     

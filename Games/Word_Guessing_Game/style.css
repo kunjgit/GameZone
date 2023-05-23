@@ -72,7 +72,7 @@ body{
 }
 
 .wrapper-new{
-  width : 480px;
+  width :550px;
   background: #060606;
   border-radius: 5px;
   box-shadow: #b5b5b5;
@@ -82,6 +82,7 @@ body{
   -webkit-backdrop-filter: blur( 6.5px );
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 1% 1% 2% 1%;
   
 }
 
@@ -156,7 +157,9 @@ body{
     /*font-weight: 500;*/
     padding: 15px 0px;
     border-radius: 5px;
+    text-align: center;
     transition: all 0.3s ease;
+    justify-items: center;
 }
 
 
@@ -173,7 +176,9 @@ body{
   border-radius: 5px;
   transition: all 0.3s ease;
   text-align: center;
-  margin-left: 10%
+  margin-left: 10%;
+  justify-items: center;
+  
 }
 
 
@@ -185,50 +190,6 @@ body{
 .info{
     color :rgb(238, 151, 46);
 }
-
-/* 
-.emoji{
-      padding: 3rem;
-      font-size: 6rem;
-      transform: scale(.5);
-      text-shadow: 0 2px 4px rgba(0,0,0,.3);
-      transition: 
-      text-shadow .2s ease-in-out,
-      transform .2s ease-in-out;
-  }
-  
-  .emoji:hover {
-    transform: scale(1) translatey(-20px);
-    text-shadow: 0 20px 20px rgba(0,0,0,.3);
-  } */
-  
-  /* .emoji--happy:before {
-    content: '😀';
-  }
-  
-  .emoji--sad:before {
-    content: '😕';
-  }
-  
-  .emoji--sad:hover:before {
-    content: '☹️';
-  }
-  
-  .emoji--crying:before {
-    content: '😥';
-  }
-  
-  .emoji--crying:hover:before {
-    content: '😰';
-  }
-   */
-  /* .emoji--grimacing:before {
-    content: '😬';
-  }
-  
-  .emoji--grimacing:hover:before {
-    content: '😁';
-  } */
 
   #emojis_settlement{
     display: flex;
@@ -253,9 +214,88 @@ body{
   #bottomline{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
   }
 
   .bottomline{
     display: flex;
     flex-direction: row;
   }
+
+  .nextnew{
+      align-items: center;
+      width: 50%;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background: rgb(242, 139, 14);
+      color: #fff;
+      font-size: 22px;
+      /*font-weight: 500;*/
+      padding: 10px 0px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      text-align: center;
+      margin-left: 10%
+    
+  }
+
+  #rules{
+    color:rgb(242, 139, 14);
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+  }
+
+  #rulespart{
+    color : rgb(253, 101, 0);
+    font-weight: bolder;
+  }
+
+  .nextnew1{
+    align-items: center;
+    width: 50%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: rgb(242, 139, 14);
+    color: #fff;
+    font-size: 22px;
+    /*font-weight: 500;*/
+    padding: 15px 0px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-left: 25%
+  
+}
+
+#scoreportion{
+  color :rgb(253, 101, 0)
+}
+
+#scorep{
+  color : bisque;
+  font-size: 98px;
+  align-items: center;
+}
+
+#trophy{
+  margin-left: 35%;
+}
+
+#abc{
+  display: flex;
+  flex-direction: row;
+}
+
+#ruleimg{
+  margin-left: 30%;
+  margin-top: 40%;
+}
+
+#rocketimg{
+  margin-left: -10%;
+  margin-top: 0%;
+}

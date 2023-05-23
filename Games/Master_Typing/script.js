@@ -44,3 +44,43 @@ document.addEventListener("keyup", event => {
 })
 
 targetRandomKey();
+
+// ---------------------For the Timer--------------------------------
+
+var timerElement = document.getElementById('timer');
+var intervalId;
+var secondsLeft = 60;
+
+function startTimer() {
+
+  
+  // Disable the start button
+  document.querySelector('button:nth-of-type(1)').disabled = true;
+  
+
+  // Update the timer every second
+  intervalId = setInterval(function() {
+    secondsLeft--;
+    if (secondsLeft < 0) {
+      clearInterval(intervalId);
+      timerElement.textContent = 'Time is up!';
+      // console.log(wrongEntry,rightEntry);
+      return;
+    }
+    var minutes = Math.floor(secondsLeft / 60);
+    var seconds = secondsLeft % 60;
+    timerElement.textContent = padNumber(minutes) + ':' + padNumber(seconds);
+  }, 1000);
+}
+
+function restartTimer() {
+  clearInterval(intervalId);
+  secondsLeft = 60;
+  timerElement.textContent = '00:00';
+  // Enable the start button
+  document.querySelector('button:nth-of-type(1)').disabled = false;
+}
+
+function padNumber(number) {
+  return number.toString().padStart(2, '0');
+}

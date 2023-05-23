@@ -1,0 +1,139 @@
+body {
+  background-color: black;
+  margin: 0px;
+}
+
+.main-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: lawngreen;
+  margin-top: 50px;
+  font-size: 38px;
+}
+
+.container {
+  display: grid;
+  width: 800px;
+  height: 800px;
+  background-color: white;
+  border: 5px solid lime;
+}
+
+.grid {
+  border: 0.5px solid rgb(5, 5, 5);
+}
+
+.top-btn {
+  display: flex;
+  gap: 50px;
+  margin-top: 25px 0 35px 0;
+}
+
+.btn {
+  background-color: darkorchid;
+  color: lawngreen;
+  border: 0.5px solid lawngreen;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+}
+
+.btn:hover {
+  box-shadow: 0px 0px 10px lawngreen;
+  cursor: pointer;
+}
+
+.colors {
+  margin-top: 15px;
+}
+
+.rgb {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(236, 92, 212),
+    rgb(0, 255, 255),
+    rgb(11, 247, 11)
+  );
+}
+
+.rgb:hover {
+  box-shadow: 0px 0px 20px rgb(9, 172, 247);
+}
+
+.violet {
+  background-color: darkviolet;
+  color: white;
+}
+
+.violet:hover {
+  box-shadow: 0px 0px 20px rgb(196, 81, 245);
+}
+
+.lime {
+  background-color: lime;
+}
+
+.lime:hover {
+  box-shadow: 0px 0px 20px lime;
+}
+
+.pink {
+  background-color: deeppink;
+  color: white;
+}
+
+.pink:hover {
+  box-shadow: 0px 0px 20px deeppink;
+}
+
+.aqua {
+  background-color: aquamarine;
+}
+
+.aqua:hover {
+  box-shadow: 0px 0px 20px aquamarine;
+}
+
+.gray {
+  background-color: gray;
+  color: rgb(224, 221, 221);
+}
+
+.gray:hover {
+  box-shadow: 0px 0px 20px gray;
+}
+
+.colors {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.color-btn {
+  border-radius: 5px;
+  border: none;
+  padding: 3px;
+  width: 100px;
+}
+
+.color-btn:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 750px) {
+  .container {
+    width: 330px;
+    height: 330px;
+  }
+  
+  .colors {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}

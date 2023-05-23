@@ -1,7 +1,7 @@
 //tog is used for toggling the chance between two players
 let tog = 1;
-let rollingSound = new Audio("../../assets/sounds/Snake_and_Ladders/dice-rolling.mp3");
-let winSound = new Audio("../../assets/sounds/Snake_and_Ladders/winSound.mp3");
+let rollingSound = new Audio("./sounds/dice-rolling.mp3");
+let winSound = new Audio("./sounds/winSound.mp3");
 
 let p1sum = 0; // p1sum refers to the red token position on the board (i.e the sum which they got on the dice and 
 // the sum recieved after climbing the ladder.)

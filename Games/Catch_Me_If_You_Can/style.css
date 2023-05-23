@@ -1,0 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.lion {
+  background: url("./assets/bg.jpg");
+  background-size: cover;
+}

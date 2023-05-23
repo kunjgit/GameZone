@@ -1,0 +1,28 @@
+.container-3 {
+  border: 1px solid black;
+  width: 75%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.flex-box-rps {
+  display: flex;
+  border: 1px solid black;
+  padding: 10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+.flex-box-rps img:hover {
+  box-shadow: 0px 10px 50px rgb(26, 67, 202);
+  cursor: pointer;
+}
+
+.reload {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

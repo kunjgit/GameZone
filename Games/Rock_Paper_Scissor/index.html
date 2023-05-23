@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container-3">
+      <h2>Rock,Paper,Scissors</h2>
+      <div class="flex-box-rps" id="flex-box-rps-div">
+        <img
+          id="rock"
+          src="data:image/jpeg;base64,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"
+          height="150"
+          width="150"
+          alt=""
+          onclick="rpsGame(this)" />
+        <img
+          id="paper"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMsAAAD4CAMAAAB1y+ICAAAAt1BMVEX///8Ah9oAAADl5eXi4uIkmd8Aj9yOxezL4fXh7vm42vKYxuxgsOXa7fmcm5r8//9JqOMAi9uBv+rn8/uy1PHR5/fv+f1vt+g2oOHC4PWezO5XqeOp0/DZFwreTUiSkZAAT3sKCwzIMz8gWX7TQER+h41edYc9ZYJNSkmJNDCGGBJhXl1wcHGzs7PT09MaGxzw8PA/P0B2gYu14vt5hIzDw8NOboRpeYia1PeKjo93d3goXYDm/P8zx6NkAAADb0lEQVR4nO3dXVMaMRTGcRpp6SvY0tLSGhRcFWVbF1SU6vf/XF1mgGE4J+PYC/Lk5Pld7Zy7/5g0nQGyjQYRZe+gmZqDUMrYpWesp0xc2RYur+QMSOkmWkqljgf+v1br3kxcpUwP3LEyRW85dtqWYUtsbMHEFkxswcQWTM+23LWb68fUW8r6/9K/V8+JtzTdcOjcapp4y5+6ZWikpXFdr7Fy9Zx6S1VON/8MpN6yLdWW09fSyCtDIKcZtFhaY2yJiy2Y2IIph5bHQ2nklSGQx0DLyRtp5JUhkJPgGuvsWq4xMQSSxX5hS1xswcQWTKGWi49S4ZUhkIvQuf9ZGnllCOQF535n4Pd/mL9AFvuFLXGxBRNbMIVa5l+kwitDIPPQuf9KGnllCCR07i963V1PA/8khkB6iwz2C1viYgsmtmAKnvstqfDKEEgO5/7ZJ2nglSGQswz2C1viYgsmtmAKtdx/FW4KfySnQO4zOPdnb4V+4ftyCmSWwX5hS1xswcQWTMFz/71Qn/s3cgokh3Pf0t/F0n5hS1xswcQWTKGW22/SwCtDILcZnPvnP4WHwj/IKZDzDPYLW+JiCya2YAq1nHXf7eoOvBwC6YY+RzZ17n8Q6nO/JadAeO5jYgsmtmDKoWXR6e1afm9cDIF0Qt8bt3Tuz79LhVeGQEK/r7S0XzYt7b/r6/qSb5k6t3lOvMXSfX2WWiytMSN7f/3r68bmF+Op/k7c0rlv6V4Fk+f+FrbsD1swsQVTDi0p3tcXuqf38Yc08soQSOgeRUtrjC1xsQUTWzDl0GLpfn5LLZbWGFviYgsmtmDKoeXil3BY+EM5BRK8c1j5TCDVzywsrTG2xMUWTGzBlEOLpc/EbZ378ksaqX6HxNJ+YUtcbMHEFkx81wAmS+8a4J3DmNiCiS2Ycmix9Jt3S+e+pTsiLO0XtsTFFkxswRS8c/hIKrwyBJLDncOzvrC8c1hOgfBdA5jYgoktmHJosfQuG0vnPt81EFcOe58tcbEFUw4tfNdAXHzXAKbn9n5VTjdZqbdcO+fK1XPiLZbu62vWLc5IS6Os19j6wr7UWxp37eb6MdUWS++st3Tuz1tS4ZUhkND3LS2e+9vYsj9swcQWTPZbKjdRpugtE1fp47ItXF7JGZBS/QPUxi4949AfrGqmRl1gRJSXf2mMYMfqZSeQAAAAAElFTkSuQmCC"
+          height="150"
+          width="150"
+          alt=""
+          onclick="rpsGame(this)" />
+
+        <img
+          id="scissors"
+          src="https://thumbs.dreamstime.com/z/female-hand-sign-victory-sign-peace-sign-scissors-vector-color-flat-illustration-isolated-white-background-web-83128345.jpg"
+          height="150"
+          width="150"
+          alt=""
+          onclick="rpsGame(this)" />
+      </div>
+    </div>
+
+    <div class="reload" onclick="{reload()}">
+      <button class="btn btn-primary btn-lg">Reset</button>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

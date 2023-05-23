@@ -1,3 +1,241 @@
-body{
-    background-color: red;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-family: "Yellowtail", sans-serif;
+    background-image: url("https://cdn.pixabay.com/photo/2017/02/12/12/42/wall-2059909_640.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .flex {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .title,
+  .displayTurn,
+  .buttons {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #5271ff,
+      0 0 82px #5271ff, 0 0 92px #5271ff, 0 0 102px #5271ff, 0 0 151px #5271ff;
+  }
+
+  .title {
+    padding-top: 2rem;
+    font-size: 4rem;
+  }
+
+  .displayTurn {
+    font-size: 2rem;
+  }
+
+  .buttons {
+    cursor: pointer;
+    height: 20px;
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .btn {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn:hover {
+    font-size: 2.3rem;
+    color: #f09;
+    font-weight: bold;
+  }
+  
+  #restartBtn {
+    padding-left: 2rem;
+  }
+  
+  .gameWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .gameboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 2rem;
+    width: 25vw;
+    height: 25vw;
+  }
+  
+  .box {
+    width: auto;
+    height: auto;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 1rem;
+    font-size: max(4vw, 3rem);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-left: 1.6vw;
+    box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
+      0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  .player1 {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 25px #0fa;
+  }
+  .player2 {
+    font-size: max(4vw, 3rem);
+  
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 25px #f09;
+  }
+
+  .box:hover {
+    transform: scale(1.1);
+  }
+  
+  .modal-wrapper {
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    width: 100vw;
+    height: 100vh;
+    position: fixed; /* Stay in place */
+  }
+  
+  .modal {
+    display: flex; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    overflow: auto; /* Enable scroll if needed */
+    height: fit-content;
+    font-size: max(5vh, 20px);
+  }
+  
+  /* Modal Content/Box */
+  .modal-content,
+  .front-content {
+    background-color: rgba(101, 255, 191, 0.164);
+    text-align: center;
+    width: 100%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: thin;
+    border-radius: 20px;
+    color: #fff;
+    text-shadow: 0 0 7px #5271ff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #5271ff;
+  }
+  
+  .front-content {
+    margin: 5vh auto;
+    border: none;
+    width: auto;
+    border-radius: 0px;
+    border: 0.2rem solid #fff;
+    border-radius: 2rem;
+    padding: 2rem 5rem 2rem 5rem;
+    box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
+      0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .front:hover,
+  .front:focus {
+    color: black;
+    cursor: pointer;
+  }
+  
+  .inputField {
+    display: flex;
+    font-size: max(3vw, 25px);
+    width: 100%;
+    padding-bottom: 3rem;
+    align-items: center;
+  }
+  .formClass {
+    height: 2rem;
+    margin-left: 2rem;
+    background-color: rgba(201, 201, 201, 0.678);
+    border: 0.1rem solid #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 40px #fff,
+      0 0 80px rgba(0, 255, 170, 0.485), 0 0 90px rgba(0, 255, 170, 0.352);
+    padding: 0.5rem;
+    color: black;
+    font-size: 2rem;
+    text-shadow: 0 0 7px #ff00009b, 0 0 10px rgb(255, 0, 0);
+    width: 50%;
+  }
+  .input-label {
+    min-width: 50%;
+  }
+  .radio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 200px;
+  }
+  
+  input[type="radio"] {
+    border: 0px;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 2rem;
+  }
+
+  input[type="radio"]:hover{
+    cursor: pointer;
+  }
+  
+  .startButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 200px;
+    outline: none;
+    background-color: rgba(201, 201, 201, 0.678);
+    border: 0.1rem solid #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 40px #fff,
+      0 0 80px rgba(0, 255, 170, 0.485), 0 0 90px rgba(0, 255, 170, 0.352);
+    text-shadow: 0 0 3px #4ee60e9b, 0 0 10px rgb(0, 255, 21);
+    color: rgb(18, 64, 26);
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .startButton:hover {
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(12, 12, 107);
+  }
+  
+  
+  @media only screen and (max-width: 900px) {
+    .gameWrapper {
+      width: 100vw;
+    }
+    .gameboard {
+      width: auto;
+    }
+  }
+  

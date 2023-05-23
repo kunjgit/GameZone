@@ -8,7 +8,7 @@
 </div>
 <div align="center">
 
-<h3><font size="4">This open source repository contains collection of games build on basic tech stacks in web development . Use your creativity and build your own game and contribute to the repository by making PR 🎮
+<h3><font size="4">This open source repository contain collection of games build on basic tech stacks in web development . Use your creativity and build your own game and contribute to the repository by making PR 🎮
 <br>
 Make sure you star the repository and show your love to us💗
 <br>

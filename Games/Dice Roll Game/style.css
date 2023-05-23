@@ -1,0 +1,62 @@
+.container {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.dice {
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+}
+
+body {
+    background-color: #042f4b;
+    margin: 0;
+}
+
+h1 {
+    margin: 30px;
+    font-family: "Lobster", cursive;
+    text-shadow: 5px 0 #232931;
+    font-size: 4.5rem;
+    color: #4ecca3;
+    text-align: center;
+}
+
+p {
+    font-size: 2rem;
+    color: #4ecca3;
+    font-family: "Indie Flower", cursive;
+}
+
+img {
+    width: 100%;
+}
+
+.bottom {
+    padding-top: 30px;
+}
+
+.btn {
+    background: #4ecca3;
+    font-family: "Indie Flower", cursive;
+    border-radius: 7px;
+    color: #ffff;
+    font-size: 30px;
+    padding: 16px 25px 16px 25px;
+    text-decoration: none;
+}
+
+.butn:hover {
+    background: #232931;
+    text-decoration: none;
+}
+
+
+.even-roll {
+transition: transform 1.5s ease-out;
+}
+.odd-roll {
+transition: transform 1.25s ease-out;
+}

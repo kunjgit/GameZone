@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T-REX RUN</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" type="module"></script>
+</head>
+<body>
+  <div class="world" data-world>
+    <div class="score" data-score>
+      <h1><b>Score: <span id="current-score">00000</span></b></h1>
+    </div>
+    <div class="highest-score" data-highest-score>
+      <h1><b>HI: <span id="highest-score">00000</span></b></h1>
+    </div>
+    <div class="start-screen" data-start-screen>Press 'Spacebar' To Start</div>
+    <img src="ground.png" class="ground" data-ground>
+    <img src="ground.png" class="ground" data-ground>
+    <img src="dino-stationary.png" class="dino" data-dino>
+    <audio id="jump-sound" src="jump.mp3"></audio>
+    <audio id="gameover-sound" src="die.mp3"></audio>
+    <audio id="score-beat-sound" src="point.mp3"></audio>
+    <script src="ground.js" type="module"></script>
+    <script src="dino.js" type="module"></script>
+    <script src="cactus.js" type="module"></script>
+    <script src="obstacle.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+  </div>
+</body>
+</html>

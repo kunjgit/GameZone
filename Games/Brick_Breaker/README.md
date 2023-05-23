@@ -21,7 +21,7 @@
 
 <br>
 <!-- add your screenshots like this -->
-![image](../../assets/images/Brick_Breaker.png)
+![image](https://github.com/5h0ov/GameZone/blob/main/assets/images/Brick_Breaker.png)
   
 <br>
 

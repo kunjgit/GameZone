@@ -76,9 +76,9 @@ function createPlatforms(){
 }
 
 function createEnemy(){
-    for(let i=0;i < 20;i++){
-        let enemyGap = 600
-        let newenemyBottom = 100 + i * enemyGap
+    for(let i=0;i < 5;i++){
+        let enemyGap = 600 / 5
+        let newenemyBottom = 5 + i * enemyGap
         let newEnemy = new Enemy(newenemyBottom)
 
         enemys.push(newEnemy)
@@ -123,7 +123,7 @@ function moveEnemys(){
                 enemys.shift()
 
                 score--
-                let newEnemys = new Enemy(1200)
+                let newEnemys = new Enemy(1000)
                 enemys.push(newEnemys)
             }
 

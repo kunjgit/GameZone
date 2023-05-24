@@ -198,7 +198,7 @@ function handleFloatingMessages(){
     for(let i = 0; i < floatingMessages.length; i++){
         floatingMessages[i].update();
         floatingMessages[i].draw();
-        if(floatingMessages[i].lifespan>=50){
+        if(floatingMessages[i].lifeSpan>=50){
             floatingMessages.splice(i,1);
             i--;
         }
@@ -238,6 +238,8 @@ function handleEnemies(){
         }
         if(enemies[i].health <= 0){
             let gainedResources= enemies[i].maxHealth/10;
+            floatingMessages.push(new floatingMessage('+' + gainedResources, enemies[i].x, enemies[i].y, 30, 'black'));
+            floatingMessages.push(new floatingMessage('+' + gainedResources,190,50,30,'gold'));
             numberOfResources += gainedResources;
             score += gainedResources;
             const findIndex = enemyPositions.indexOf(enemies[i].y);
@@ -279,6 +281,8 @@ function handleResources(){
         resources[i].draw();
         if(resources[i] && mouse.x && mouse.y && collision(resources[i], mouse)){
             numberOfResources += resources[i].amount;
+            floatingMessages.push(new floatingMessage('+' + resources[i].amount,resources[i].x,resources[i].y,30,'black'));
+            floatingMessages.push(new floatingMessage('+' + resources[i].amount,180,50,30,'gold'));
             resources.splice(i,1);
             i--;
         }

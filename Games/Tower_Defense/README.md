@@ -10,9 +10,9 @@ A Plants vs Zombies type game where you battle waves of enemies by placing your 
 
 ## **functionalities 🎮**
 <li>
-</ul>Towers: The player can place towers to defend their base from waves of enemies.</ul>
-<ul></ul>Enemies: Waves of enemies will spawn at the edge of the map and attempt to reach the player's base</ul>
-<ul></ul>Resources: A player can pick up elixir to spawn defenders quicker.</ul>
+<ul>Towers: The player can place towers to defend their base from waves of enemies.</ul>
+<ul>>Enemies: Waves of enemies will spawn at the edge of the map and attempt to reach the player's base</ul>
+<ul>Resources: A player can pick up elixir to spawn defenders quicker.</ul>
 </li>
 <br>
 

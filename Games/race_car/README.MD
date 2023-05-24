@@ -16,4 +16,4 @@ To begin we have to press 'c' and to accelerate the car we have to press 'up' ar
 
 Screenshot
 
-Screenshot (39).png
+race_car.png

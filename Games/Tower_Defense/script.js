@@ -302,9 +302,9 @@ function handleGameStatus(){
     if (score >= winningScore && enemies.length===0){
         ctx.fillStyle='black';
         ctx.font='60px Orbitron';   
-        ctx.fillText('LEVEL COMPLETE', 130, 300);
+        ctx.fillText('YOU WON !', 130, 300);
         ctx.font = '30px Orbitron';
-        ctx.fillText('You Won By ' + score + ' points!', 134,340);
+        ctx.fillText('By ' + score + ' points!', 134,340);
 
     }
 }

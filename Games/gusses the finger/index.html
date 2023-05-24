@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HOW MANY FINGERS</title>
+        <style>
+            #game{
+                font-style: italic;
+                color: rgb(28, 47, 214);
+            }
+            #numberentre{
+                font-weight: bold;
+            }
+        </style>
+
+    </head>
+    <body>
+        <p id="game"><h2>HOW MANY FINGERS I AM HOLDING UP? <h2></p>
+        <p><input type ="text" id="numberentre" ><button id="fingersentred">check</button></p>
+        <script id="text/javascript">
+            document.getElementById("fingersentred").onclick =function(){
+                var randomnumber = Math.random();
+                randomnumber = randomnumber * 6;
+                randomnumber = Math.floor(randomnumber);
+                
+                if(document.getElementById("numberentre").value == randomnumber){
+                    alert("well done you got it");
+                }
+                else{
+                    alert("Nopes! the number was:" + randomnumber);
+                }
+            }
+        </script>
+    </body>
+</html>

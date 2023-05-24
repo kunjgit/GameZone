@@ -1,0 +1,76 @@
+body {
+    font-family: 'Roboto Slab', serif;
+}
+
+#title {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 56px;
+    margin-bottom: 4px;
+}
+
+#welcome {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 300;
+    color: #676767;
+    margin-bottom: 40px;
+}
+
+#game_board_container {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.game_board_letter {
+    display: inline-block;
+    border: 2px solid #bcbcbc;
+    margin: 16px;
+    width: 68px;
+    height: 68px;
+    font-size: 64px;
+    font-weight: bolder;
+    text-align: center;
+}
+.no_border {
+    display: inline-block;
+    border: 2px solid #bcbcbc;
+    margin: 16px;
+    width: 68px;
+    height: 68px;
+    font-size: 64px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#guessed_container {
+    font-size: 20px;
+    text-align: center;
+    height: 20px;
+
+    margin-bottom:16px;
+    
+}
+
+#guessed {
+    border-bottom:1px solid #000000;
+    padding-right:24px;
+    padding-left:24px;
+    padding-bottom:8px;
+    
+}
+
+#win_loss_container {
+    padding:8px;
+    text-align: center;
+    font-weight: 300;
+    color: #676767;
+}
+
+#guesses_remaining_container {
+    text-align: center;
+    height: 20px;
+    font-weight: 300;
+    color: #676767;
+}
+  

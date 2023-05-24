@@ -26,7 +26,7 @@ A Plants vs Zombies type game where you battle waves of enemies by placing your 
 
 - You can re-fill your elixir by either hovering over the elixir points randomly displayed on the game grid or by eliminating an enemy
 
-- Both defenders and enemies have 100 hit points however defenders can shoot projectiles but enemies can only to damage while colliding with a defender 
+- Both defenders and enemies have 100 hit points however defenders can shoot projectiles but enemies can only do damage while colliding with a defender 
 
 - Defeating 1 enemy gives you 10 points
 

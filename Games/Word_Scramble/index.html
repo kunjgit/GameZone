@@ -1,0 +1,35 @@
+<html lang="en" dir="ltr">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1 class="name">Word Scramble</h1>
+        <div id="rules">
+            <p class="lead">Unscamble the words.</p>
+            <p>Type in your guess.</p>
+            <p>Get correct words according to level and level will increase.</p>
+            <p>Get a word wrong 3 times and game will restart.</p>
+            <p>Finish level 3 and you win.</p>
+            <p>Good luck!</p>
+            <button id="play-btn">Let's Play</button>
+        </div>
+    </nav>
+
+    <div id="game-container" class="hidden">
+        <p>Level: <span id="level">1</span></p>
+        <p>Score: <span id="score">0</span></p>
+        <p>Attempts: <span id="attempts">0</span></p>
+        <p id="info"></p>
+
+        <div id="guess-container">
+            <p id="scrambled-word"></p>
+            <input id="user-guess" type="text" placeholder="Enter your guess">
+            <button id="submit">Submit</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

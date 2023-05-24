@@ -1,11 +1,12 @@
 # **Game_Name** 
 
----
+Tower Defense
 
 <br>
 
 ## **Description 📃**
-<!-- add your game description here  -->
+
+A Plants vs Zombies type game where you battle waves of enemies by placing your defensive units and preventing them from reaching our home territory
 - 
 
 ## **functionalities 🎮**

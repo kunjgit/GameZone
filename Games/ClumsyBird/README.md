@@ -28,7 +28,7 @@ Control the bird using space bar or arrows
 ## **Screenshots 📸**
 
 <br>
-<img src = "assets/images/clumsybird.png">
+<img src = "clumsybird.png">
 
 <br>
 

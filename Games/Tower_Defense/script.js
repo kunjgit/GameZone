@@ -146,19 +146,7 @@ class Defender{
       
     }
 }
-canvas.addEventListener('click', function(){
-    const gridPositionX = mouse.x - (mouse.x % cellSize) + cellGap;
-    const gridPositionY =  mouse.y - (mouse.y % cellSize) + cellGap;
-    if(gridPositionY < cellSize) return;
-    for(let i = 0; i<defenders.length; i++){
-        if(defenders[i].x === gridPositionX && defenders[i].y === gridPositionY)return;
-    }
-    let defenderCost = 100;
-    if(numberOfResources >= defenderCost){
-        defenders.push(new Defender(gridPositionX, gridPositionY));
-        numberOfResources -= defenderCost;
-    }
-});
+
 function handleDefenders(){
     for(let i = 0; i<defenders.length; i++){
         defenders[i].draw();
@@ -181,6 +169,42 @@ function handleDefenders(){
         }
     }
 }
+//floating messages
+const floatingMessages=[];
+class floatingMessage{
+    constructor(value,x, y, size,color){
+        this.value = value;
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.lifeSpan = 0;
+        this.color=color;
+        this.opacity=1;
+    }
+    update(){
+        this.y -= 0.3;
+        this.lifeSpan += 1;
+        if(this.opacity > 0.01) this.opacity -= 0.01;
+    }
+    draw(){
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = this.color;
+        ctx.font = this.size + 'px Orbitron';
+        ctx.fillText(this.value, this.x, this.y)
+        ctx.globalAlpha = 1;
+    }
+}
+function handleFloatingMessages(){
+    for(let i = 0; i < floatingMessages.length; i++){
+        floatingMessages[i].update();
+        floatingMessages[i].draw();
+        if(floatingMessages[i].lifespan>=50){
+            floatingMessages.splice(i,1);
+            i--;
+        }
+    }
+}
+
 //enemies
 class Enemy {
     constructor(verticalPosition){
@@ -240,11 +264,11 @@ class Resource{
         this.amount = amounts[Math.floor(Math.random()*amounts.length)];
     }
     draw(){
-        ctx.fillStyle = 'yellow';
+        ctx.fillStyle = 'purple';
         ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = 'white';
         ctx.font = '20px Orbitron';
-        ctx.fillText(this.amount, this.x + 15, this.y + 25)
+        ctx.fillText(this.amount, this.x + 15, this.y + 35)
     }
 }
 function handleResources(){
@@ -265,7 +289,7 @@ function handleGameStatus(){
     ctx.fillStyle = 'gold';
     ctx.font = '30px Orbitron';
     ctx.fillText('Score: '+ score, 20, 40);
-    ctx.fillText('Resources: '+ numberOfResources, 20, 80);
+    ctx.fillText('Elixir: '+ numberOfResources, 20, 80);
     if(gameOver){
         ctx.fillStyle='black';
         ctx.font='90px Orbitron';
@@ -280,6 +304,22 @@ function handleGameStatus(){
 
     }
 }
+canvas.addEventListener('click', function(){
+    const gridPositionX = mouse.x - (mouse.x % cellSize) + cellGap;
+    const gridPositionY =  mouse.y - (mouse.y % cellSize) + cellGap;
+    if(gridPositionY < cellSize) return;
+    for(let i = 0; i<defenders.length; i++){
+        if(defenders[i].x === gridPositionX && defenders[i].y === gridPositionY)return;
+    }
+    let defenderCost = 100;
+    if(numberOfResources >= defenderCost){
+        defenders.push(new Defender(gridPositionX, gridPositionY));
+        numberOfResources -= defenderCost;
+    }else{
+        floatingMessages.push(new floatingMessage('Need more elixir', mouse.x, mouse.y, 15, 'blue'));
+    }
+
+});
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.fillStyle = "blue";
@@ -289,7 +329,8 @@ function animate(){
     handleEnemies();
     handleGameStatus();
     handleProjectiles();
-    handleResources()
+    handleResources();
+    handleFloatingMessages()
     frame++;
     if (!gameOver)requestAnimationFrame(animate);
 }

@@ -1,0 +1,46 @@
+body{
+  background-color: cyan;
+}
+
+h1{
+  text-align: center;
+  font-size: 100px;
+}
+
+.memory-game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+  }
+  
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .card {
+    background-color: #333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card.flipped {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .card.matched {
+    background-color: #8bc34a;
+    color: #fff;
+  }
+  

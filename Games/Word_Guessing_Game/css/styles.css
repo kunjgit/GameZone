@@ -32,7 +32,6 @@ body {
     font-weight: bolder;
     text-align: center;
 }
-
 .no_border {
     display: inline-block;
     border: 2px solid #bcbcbc;

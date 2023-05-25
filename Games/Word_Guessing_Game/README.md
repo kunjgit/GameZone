@@ -43,8 +43,4 @@ Game consists of following functionalities :
 <source src="assets\Word_Guessing_Game.mp4">
 </video>
 
-<video>
-<source src = "assests/Word_Guessing_Game.mp4" type="video/mp4">
-</video>
-
 <!-- add your working video over here -->

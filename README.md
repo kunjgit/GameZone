@@ -109,8 +109,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
 | 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|    
 | 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
-| 7 | [Moving Dice Game](https://github.com/kunjgit/GameZone/tree/main/Games/Moving_Dice)| 
-| 8 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)|
+| 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)|
+| 8 | [Moving Dice Game](https://github.com/kunjgit/GameZone/tree/main/Games/Moving_Dice)| 
+
   
 
 </center>

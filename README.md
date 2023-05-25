@@ -99,7 +99,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing) |
 | 2 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)|
 | 3 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
-| * | [Dice ShowDown Game]((https://github.com/Himanshu07-debug/GameZone/tree/main/Games/Dice_Showdown_Game))|
+| * | [Dice ShowDown Game](https://github.com/Himanshu07-debug/GameZone/tree/main/Games/Dice_Showdown_Game)|
 
 </center>
 

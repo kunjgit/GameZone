@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8">
+    <title>Classic Pool Game</title>
+    <link rel="stylesheet" type="text/css" href="css/game-layout.css"/>
+    <link rel="shortcut icon" type="image/png" href="assets/sprites/favicon.png"/>
+    <script src="script/lib/LAB.min.js"></script>
+    <script>
+        $LAB
+                .script('script/system/Keys.js').wait()
+                .script('script/system/Color.js').wait()
+                .script('script/geom/Vector2.js').wait()
+                .script('script/input/ButtonState.js').wait()
+                .script('script/input/Keyboard.js').wait()
+                .script('script/input/Mouse.js').wait()
+                .script('script/Global.js').wait()
+                .script('script/Canvas2D.js').wait()
+                .script('script/game_objects/Score.js').wait()
+                .script('script/game_objects/Ball.js').wait()
+                .script('script/game_objects/Stick.js').wait()
+                .script('script/menu/Label.js').wait()
+                .script('script/menu/Button.js').wait()
+                .script('script/menu/Menu.js').wait()
+                .script('script/menu/MainMenu.js').wait()
+                .script('script/AI/Opponent.js').wait()
+                .script('script/AI/AIPolicy.js').wait()
+                .script('script/AI/AITrainer.js').wait()
+                .script('script/game_objects/Player.js').wait()
+                .script('script/GamePolicy.js').wait()
+                .script('script/GameWorld.js').wait()
+                .script('script/Game.js').wait()
+                .script('script/Assets.js').wait(function () {
+                    Game.start('gameArea','screen', 1500, 825);
+                });
+
+    </script>
+</head>
+
+<body style = "background-color:black">
+<div id="gameArea">
+    <canvas id="screen" width="2000" height="1000"></canvas>
+</div>
+</body>
+</html>

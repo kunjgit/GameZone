@@ -1,4 +1,4 @@
-# **Master_Typing**
+# **Sudoku game**
 
 ---
 

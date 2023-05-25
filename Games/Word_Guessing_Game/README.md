@@ -25,19 +25,26 @@ Game consists of following functionalities :
 ## **Screenshots 📸**
 
 <br>
-## Landing Page
-![Landing_Page](../Word_Guessing_Game/assets/1.png)
-## Rules
-![Rules](../Word_Guessing_Game/assets/2.png)
-## Game
-![Game](../Word_Guessing_Game/assets/3.png)
-## Score
-![Score](../Word_Guessing_Game/assets/4.png)
+<h1>Landing Page</h1>
+<img src = "assets\1.png"></img>
+<h1>Rules</h1>
+<img src = "assets\2.png"></img>
+<h1>Game</h1>
+<img src = "assets\3.png"></img>
+<h1>ScoreBoard</h1>
+<img src = "assets\4.png"></img>
+
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
 
 ## **Working Video 📹**
 
- [![Watch the video]()](../Word_Guessing_Game/assets/Word_Guessing_Game.mp4)
+<video controls>
+<source src="assets\Word_Guessing_Game.mp4">
+</video>
+
+<video>
+<source src = "assests/Word_Guessing_Game.mp4" type="video/mp4">
+</video>
 
 <!-- add your working video over here -->

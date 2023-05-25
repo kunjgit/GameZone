@@ -17,11 +17,41 @@ body {
   font-size: 3rem;
   color: #fef2bf;
 }
-
 .container {
-  display: block;
-  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-section {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
   margin: auto;
+  margin-left: 80px;
+}
+
+.instructions-section {
+  background-color: #fef2bf;
+  font-size: 1.5rem;
+  flex: 1;
+  padding: 10px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .game-section,
+  .instructions-section {
+    width: 100%;
+    margin: 20px auto;
+  }
 }
 
 .btn {
@@ -88,7 +118,6 @@ body {
     font-size: 3.5rem;
   }
 }
-
 
 @media only screen and (max-width: 480px) {
   /* styles for phone */

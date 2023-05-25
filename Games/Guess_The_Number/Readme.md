@@ -31,7 +31,7 @@ To play the Guess the Number game, follow these steps:
 
 ## **Screenshots 📸**
 
-<br>!
+<br>
 <img src="Screenshots/Screenshot.png" alt="Guess the Number Game Screenshot">
 
 

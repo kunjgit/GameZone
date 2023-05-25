@@ -1,0 +1,22 @@
+name: Comment on Issue Closure
+on:
+  issues:
+    types:
+      - closed
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Comment on Issue Closure
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const { owner, repo, number } = context.issue;
+            const author = context.payload.issue.user.login;
+            const commentBody = `Hey @${author} ! Thank you so much for your raising the issue💗 \n It’s all yours, you can come anytime again and make some contributions! 🚀 \n Alone, we can do little, but together we can do so much! 😇
+            `;
+            await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
+            console.log(`Commented on the issue: ${commentBody}.`);

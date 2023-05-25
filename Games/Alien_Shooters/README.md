@@ -23,7 +23,7 @@
 
 <br>
 
-![Game image](../../assets/images/Dino_Runner_Game.png)
+![Game image](../../assets/images/Alien_Shooter.png)
 
 <br>
 

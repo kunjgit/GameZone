@@ -108,6 +108,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 3 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
 | 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
 | 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|    
+| 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
+| 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)|
+| 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|
+  
 
 </center>
 

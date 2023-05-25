@@ -21,7 +21,7 @@
 </br>
 
 ## **Screenshots 📸**
-![image](../../assets/images/Doodle_jump.png)
+![image](../../assets/images/Doodle_Jump_Game.png)
 
 </br>
 

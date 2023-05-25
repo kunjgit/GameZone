@@ -17,6 +17,7 @@
 ## **How to play? 🕹️**
 - Your aim is to shoot as many aliens as possible. 
 - The more you shoot the more they become and faster they approach.
+- But shooting 1 aliens gets you 100 points. When you shoot a certain set of aliens, you get bonus points for the same; that is 100 times the number of aliens you just shot.
 <br>
 
 ## **Screenshots 📸**

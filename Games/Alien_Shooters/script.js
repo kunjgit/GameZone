@@ -50,7 +50,6 @@ window.onload = function() {
     board.height = boardHeight;
     context = board.getContext("2d"); //used for drawing on the board
 
-    //load images
     shipImg = new Image();
     shipImg.src = "./assets/shooter.png";
     shipImg.onload = function() {
@@ -220,4 +219,23 @@ function detectCollision(a, b) {
            a.x + a.width > b.x &&   //a's top right passes b's top left
            a.y < b.y + b.height &&  //a's top left doesn't reach b's bottom left
            a.y + a.height > b.y;    //a's bottom left passes b's top left
+}
+
+function resetGame(){
+    score = 0;
+    gameOver = false;
+
+    ship = {
+        x : shipX,
+        y : shipY,
+        width : shipWidth,
+        height : shipHeight
+    }
+
+    alienArray = [];
+    alienRows = 2;
+    alienColumns = 3;
+    generateAliens();
+    createAliens();
+    alienVelocityX = 1;
 }

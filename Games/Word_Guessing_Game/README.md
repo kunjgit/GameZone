@@ -40,7 +40,7 @@ Game consists of following functionalities :
 ## **Working Video 📹**
 
 <video controls>
-<source src="assets\Word_Guessing_Game.mp4">
+<source src="assets\Word_Guessing_Game.mp4" type="video/mp4">
 </video>
 
 <!-- add your working video over here -->

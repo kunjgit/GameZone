@@ -5,7 +5,7 @@
 <br>
 
 ## **Description 📃**
-- Dive into the exciting world of Classic Pool Game Master a captivating pool game inspired by the classic 8-ball pool. Challenge your skills, strategize your shots, and aim for victory as you compete
+- Dive into the exciting world of Classic 8 Ball Pool Game Master a captivating pool game inspired by the classic 8-ball pool. Challenge your skills, strategize your shots, and aim for victory as you compete
  
 
 ## **functionalities 🎮**

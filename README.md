@@ -17,10 +17,10 @@ Also join the discord server for GameZone and start collaborating with others ü
 <br>
 <br>
 <p>
-    
+
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fgwk4XZfxG)
 
-![Lines of code](https://img.shields.io/tokei/lines/github/kunjgit/GameZone) 
+![Lines of code](https://img.shields.io/tokei/lines/github/kunjgit/GameZone)
 ![GitHub issues](https://img.shields.io/github/issues/kunjgit/GameZone)
 ![GitHub forks](https://img.shields.io/github/forks/kunjgit/GameZone)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kunjgit/GameZone)
@@ -28,9 +28,9 @@ Also join the discord server for GameZone and start collaborating with others ü
 ![GitHub contributors](https://img.shields.io/github/contributors/kunjgit/GameZone)
 ![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Fkunjgit.github.io%2FGameZone%2F)    
 </p>    
-  
-    
-  
+
+
+
 </div>
 <br>
 
@@ -63,7 +63,7 @@ Also join the discord server for GameZone and start collaborating with others ü
 
 <!-- contribution steps -->
 
-- Fork the repository 
+- Fork the repository
 - Clone this repository   ``` git clone "url of the repo" ```
 - Raise and issue to add new game or to enhancement for a game (by selecting the appropriate issue template )
 - Wait till you have been assigned the issue
@@ -78,13 +78,13 @@ Also join the discord server for GameZone and start collaborating with others ü
     - add your folders link and name in main README.md (the one you are reading currently)
 
 - Push your changes to Github using ```git push origin <name your branch>```
-- Submit your changes for review by creating PR 
-- And you are done ! 
+- Submit your changes for review by creating PR
+- And you are done !
 - I will review your code and I will merge your code to the main branch of this repository and you will notified for the same
-- If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md) 
+- If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
 <br>
 
-    
+
 
 
 
@@ -99,7 +99,7 @@ Also join the discord server for GameZone and start collaborating with others ü
 | 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing) |
 | 2 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)|
 | 3 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
-    
+  | 4 | [Menja](https://github.com/SALONI-AGGARWAL0304/GameZone/tree/main/Games/Menja)|  
 </center>
 
 <br>
@@ -114,7 +114,7 @@ Also join the discord server for GameZone and start collaborating with others ü
 <!-- contributing guideline detail -->
 - Read our [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md) to get all details about contributing to **GameZone**
 - Learn all about development process and all information you need to contribute to our project
-- If you are having the basic queries make sure you checkout resources there 
+- If you are having the basic queries make sure you checkout resources there
 
 <br>
 
@@ -136,7 +136,7 @@ Also join the discord server for GameZone and start collaborating with others ü
 </div>
 <br>
 
-- This project thanking all the contributors for having your valuable contribution to our project 
+- This project thanking all the contributors for having your valuable contribution to our project
 - Make sure you show some love by giving ‚≠ê to our repository
 
 <br>
@@ -146,10 +146,3 @@ Also join the discord server for GameZone and start collaborating with others ü
   <img src="https://contrib.rocks/image?repo=kunjgit/GameZone" />
 </a>
 </center>
-
-
-
-
-
-
-

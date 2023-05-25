@@ -20,7 +20,7 @@ jobs:
         with:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
-            const commentBody = `\n  @${context.payload.sender.login} here, \n We have this annoucement to make 📢!! \n We have updated our README 🚀 \n Make sure you follow proper guideline to raise your next issues !! \n Make sure you join our [Discord🕹️](https://discord.gg/fgwk4XZfxG) if you haven't 😇 \n  Thank you 💗!`;
+            const commentBody = `\n  @${context.payload.sender.login} here, \n We have this annoucement to make 📢!! \n During the time of PR don't alter main index file ! 🙂 \n In main Readme file just use * as a game number during the time we are merging we will add number !! 👀 \n Make sure you join our [Discord🕹️](https://discord.gg/fgwk4XZfxG) if you haven't 😇 \n  Thank you 💗!`;
             
             // Get the list of opened issues
             const { data: issues } = await github.issues.listForRepo({

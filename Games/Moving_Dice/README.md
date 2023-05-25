@@ -1,3 +1,5 @@
+<h1>Moving Dice Game</h1>
+
 ## Description 📜
 
 The **Moving Dice** game is a classic kids game that have sound of dice while shuffling and this is developed using HTML, **CSS, & JavaScript**.

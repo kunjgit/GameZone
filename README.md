@@ -111,6 +111,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
 | 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)|
 | 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|
+| * | [Atari Breakout](https://github.com/kunjgit/GameZone/tree/main/Games/Atari_Breakout)|
   
 
 </center>

@@ -66,5 +66,57 @@ const wordlist = [
     {
         word : "japan",
         hint : "Country of Rising Sun"
+    },
+    {
+        word : "dialogue",
+        hint : "A conversation between two or more people"
+    },
+    {
+        word : "edible",
+        hint : "Something suitable to be eaten"
+    },
+    {
+        word : "behavior",
+        hint : "The way that someone behaves"
+    },
+    {
+        word : "blood" ,
+        hint : "Red liquid that flows in our body"
+    },
+    {
+        word : "danger",
+        hint : "The possibility of harm or death to someone"
+    },
+    {
+        word : "disease",
+        hint : "An illness of people"
+    },
+    {
+        word : "hate",
+        hint : "To dislike someone"
+    },
+    {
+        word : "hour",
+        hint : "A period of 60 minutes"
+    },
+    {
+        word : "level",
+        hint : "The height of something"
+    },
+    {
+        word : "owner",
+        hint : "Someone who owns something"
+    },
+    {
+        word : "punishment",
+        hint : "The act of punishing someone"
+    },
+    {
+        word : "way",
+        hint : "A route, direction"
+    },
+    {
+        word : "Sick",
+        hint : "Condition of not feeling well"
     }
 ]

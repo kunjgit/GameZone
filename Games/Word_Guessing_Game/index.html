@@ -14,6 +14,7 @@
      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     
      <style>
     .left, .right {
       float: left;
@@ -36,32 +37,21 @@
      </style>
     </head>
 <body style = "background-color: black;">
-    
-    <div id="chooseDifficulty" style="display: block">
-        <h1 style="color: bisque;"><b><span class = "firstword">&nbsp;W</span>elcome <span class="firstword">T</span>o <span class="firstword">W</span>ord <span class="firstword">G</span>uessing <span class="firstword">G</span>ame<span class="firstword">!</span></b></h1>
-        <h3 class="my-4" style="color: bisque; font-size: 22px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Choose a Difficulty Level : </h3>
-        <div id="button-group">
+    <br>
+   <!-- <div class = "firstpage">
+    <img src="" alt="">
+   </div> -->
+    <div id="chooseDifficulty" style="display: block ; align-items: center ;align-content : center;" id="abcd">
+        <img src = "Game.gif" style="align-items: center; margin-left:2px;">
+        <!-- <h1 style="color: bisque;"><b><span class = "firstword">&nbsp;W</span>elcome <span class="firstword">T</span>o <span class="firstword">W</span>ord <span class="firstword">G</span>uessing <span class="firstword">G</span>ame<span class="firstword">!</span></b></h1> -->
+        <h3 class="my-4" style="color: bisque; font-size: 22px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align: center;">Choose a Difficulty Level : </h3>
+        <div id="button-group" style="align-items: center; justify-content: center; padding-left: 27%;">
             <button type="button" id = "1" value = 1  class="btn btn-secondary btn-lg px-4 mx-2" style="background-color: rgb(229, 177, 115);">Easy</button>
             <button type="button" id = "2" value = 2  class="btn btn-success btn-lg px-4 mx-2" style="background-color: rgb(213, 145, 73);">Normal</button>
             <button type="button" id = "3" value = 3  class="btn btn-danger btn-lg px-4 mx-2" style="background-color: rgb(211, 129, 41);">Hard</button>
         </div>
     </div>
     <div class = "wrapper-new" style="display: none;"></div>
-      <!-- <div class = "wrapper-new"> -->
-        <!--<div class="content">
-            <h1>Rules</h1>
-            <p>
-                <ol>
-                    <li>There are 10 questions and you will be scored 1 mark for each question.</li>
-                    <li>You will have to guess the word, within the given number of guesses only.</li>
-                    <li>You will have to test your luck, give us the word, that we are having for a hint. And that makes our game interesting.Example : For a fruit of 5 letters, if we have set apple and you are entering mango, then your answer would be rejected. And that's also making it a game of Luck!!</li>
-                    <li>Another twist of game is : If we are having Hello in our answer and you are entering hello, you are rejected.Casing of letters!!</li>
-                </ol>
-            </p>
-        </div>
-        <div class="next" onclick = "abc">Click next here</div> -->
-    <!-- </div>  -->
-
     <div id="startButton" style="display: none"></div>
         <div class="wrapper" style="display: none;">
             <div style="display: flex; flex:auto;">

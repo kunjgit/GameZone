@@ -51,6 +51,7 @@ function chooseDif3() {
 }
 
 nextButton.addEventListener("click", function(e){
+    wrongLetter.innerText = "";
     incorrect_letters = [];
     correct_letters = [];
     count++;
@@ -156,7 +157,7 @@ function initialiseGame(e)
         {
             newelement.innerHTML = '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Worried%20Face.png" alt="Worried Face" width="300" height="300"/>'
            // console.log("Letter is not found :(");
-           maxGuesses--;
+            maxGuesses--;
 
            incorrect_letters.push(` ${key}`);   
            
@@ -215,6 +216,7 @@ function restart() {
     document.getElementsByClassName('wrapper')[0].style.display = 'none';
     document.getElementsByClassName('scorecard')[0].style.display = 'none';
     document.getElementById('chooseDifficulty').style.display = 'block';
+    incorrect_letters.innerHTML = "";
     incorrect_letters = [];
     correct_letters = [];
     maxGuesses = "";
@@ -222,7 +224,7 @@ function restart() {
     element.innerHTML = "";
     element = "";
     newelement = "";
-    //score = 0;
+    score = 0;
     count = 0;
     nextnewelement = "";
     ans = 0;

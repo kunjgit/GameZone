@@ -108,7 +108,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)|
 | 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|
 | 9 | [Memory Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Game)| 
-| 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)| 
+| 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)|
+| 11 | [Fruit Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Ninja)|  
 
 
 </center>

@@ -65,7 +65,14 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 - Fork the repository 
 - Clone this repository   ``` git clone "url of the repo" ```
-- Raise and issue to add new game or to enhancement for a game (by selecting the appropriate issue template )
+* Raise and issue to add new game or to enhancement for a game (Have a look at few things you have to take care during raising issue )
+    - Select appropriate issue template 
+    - Make sure your idea is unique and interesting ðŸš€ 
+    * Don't alter the issue title. You are supposed to write your issue name after that only.
+        - ```[Issue Title]: Your Issue``` make sure you just add your issue name 
+        - ex .```[New game]: Super Mario``` 
+    - Make sure select the program in which you are participating to ðŸ”¥
+
 - Wait till you have been assigned the issue
 - After you have been assigned the issue start working on the code
 - Create your new branch using ```git checkout -b <name of your branch> ```
@@ -99,9 +106,12 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing) |
 | 2 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)|
 | 3 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
-| 4 | [Mario](https://github.com/kunjgit/GameZone/tree/main/Games/Mario)|
+| 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
+| 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|    
+| 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
+| 7 | [Mario](https://github.com/kunjgit/GameZone/tree/main/Games/Mario)|
 
-    
+  
 </center>
 
 <br>
@@ -132,6 +142,30 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 <br>
 
+<!-- mentors -->
+
+
+<div align="center">
+<h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Man%20Teacher%20Light%20Skin%20Tone.png" alt="Robot" width="40" height="40" /> Mentors</font></h2>
+</div>
+
+<br>
+<br>
+
+<div align="center">
+
+
+![GSSoC23](https://raw.githubusercontent.com/girlscript/gssoc-assets/main/Logos/GS_logo_White.png)
+
+| Dhruva Bhattacharya | Arun G Nayak | RAJU KUMAR | Durgesh Kumar Prajapati |
+| --- | --- | --- | --- |
+| ![Mentor 1](https://avatars.githubusercontent.com/u/71749153?v=4&s=150) | ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150) | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150) | ![Mentor 4](https://avatars.githubusercontent.com/u/98798977?v=4&s=150) |
+| [LinkedIn](https://www.linkedin.com/in/dhruva-bhattacharya/) \| [GitHub](https://github.com/dhruvaop) | [LinkedIn](https://www.linkedin.com/in/arun-g-nayak) \| [GitHub](https://github.com/Arun9739/) | [LinkedIn](https://www.linkedin.com/in/rajukumar101/) \| [GitHub](https://github.com/raju-kumar21) | [LinkedIn](https://www.linkedin.com/in/durgeshkumar4993/) \| [GitHub](https://github.com/Durgesh4993) |
+
+
+</div>
+<br>
+<br>
 <!-- a big thanks to all the contributors -->
 <div align="center">
 <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" alt="Red Heart" width="40" height="40" /> Contributors </font></h2>

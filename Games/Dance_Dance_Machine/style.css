@@ -1,0 +1,27 @@
+body{
+    padding-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #F1FA3C;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 98pt;
+    font-family: 'Kavoon', cursive;
+    color: #851DE0;
+}
+
+.stage {
+	background-color: black;
+	height: 500px;
+	width: 500px;
+	text-align: center;
+}
+#controls {
+	padding-left: 105px;
+
+}

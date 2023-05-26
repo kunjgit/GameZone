@@ -67,8 +67,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
   - Select appropriate issue template
   - Make sure your idea is unique and interesting ðŸš€
   * Don't alter the issue title. You are supposed to write your issue name after that only.
-    - `[Issue Title]: Your Issue` make sure you just add your issue name
-    - ex .`[New game]: Super Mario`
+    -`[Issue Title]: Your Issue` make sure you just add your issue name
+    -ex .`[New game]: Super Mario`
   - Make sure select the program in which you are participating to ðŸ”¥
 
 - Wait till you have been assigned the issue
@@ -108,8 +108,13 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)|
 | 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|
 | 9 | [Memory Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Game)| 
-| 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)|
-| 11 | [Fruit Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Ninja)|  
+| 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)| 
+=======
+| 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)| 
+| 11 | [Ludo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_Game)|
+| 12 | [Piano Game](https://github.com/kunjgit/GameZone/tree/main/Games/Piano)|
+| 11 | [Fruit Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Ninja)| 
+
 
 
 </center>

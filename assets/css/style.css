@@ -32,7 +32,7 @@ footer {
   background: var(--smoky-black);
 
   height: auto;
-  
+
   position: static;
   bottom: 0;
   width: 100%;
@@ -2331,4 +2331,20 @@ textarea.form-input::-webkit-resizer {
     max-width: 700px;
   }
 
+}
+
+/* scroll To top */
+#scrollTo {
+  color: var(--white-1);
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 15px;
+  transition: all 0.5s ease 0s;
+}
+
+#scrollTo:hover {
+  background-color: var(--white-1);
+  color: var(--smoky-black);
+  border-radius: 5px;
 }

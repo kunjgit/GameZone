@@ -102,12 +102,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing) |
 | 2 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)|
 | 3 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
-
-| * | [Ludo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_Game)|
-=======
-
-    
-=======
 | 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
 | 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|    
 | 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
@@ -115,7 +109,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|
 | 9 | [Memory Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Game)| 
 | 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)| 
-
+| 11 | [Ludo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_Game)|
 
 </center>
 

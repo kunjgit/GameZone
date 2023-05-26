@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Scramble</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="crossorigin="anonymous" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="chooseDifficulty" style="display: block">
+        <h1><b><span class = "firstword">&nbsp;W</span>elcome <span class="firstword">T</span>o <span class="firstword">W</span>ord <span class="firstword">G</span>uessing <span class="firstword">G</span>ame<span class="firstword">!</span></b></h1>
+        <h3 class="my-4" style = " font-size: 22px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Choose a Difficulty Level : </h3>
+        <div id="button-group">
+            <button type="button" id = "1" value = 1  class="btn btn-secondary btn-lg px-4 mx-2" style="background-color: rgb(229, 177, 115);">Easy</button>
+            <button type="button" id = "2" value = 2  class="btn btn-success btn-lg px-4 mx-2" style="background-color: rgb(213, 145, 73);">Normal</button>
+            <button type="button" id = "3" value = 3  class="btn btn-danger btn-lg px-4 mx-2" style="background-color: rgb(211, 129, 41);">Hard</button>
+        </div>
+    </div>
+
+    <div class = "wrapper-new" style="display: none;"></div>
+
+    <div class="container">
+        <h1>Word Scramble</h1>
+        <div class="content">
+            <p class="word">abcdefgh</p>
+            <div class="details">
+                <p class="hint">Hint : <span>Hello World</span></p>
+                <p class="time">Time Left : <span><b>10</b>s</span></p>
+            </div>
+            <input type="text" name="" id="" placeholder="Enter a valid word">
+            <div class="buttons">
+                <button class="refreshword">Refresh Word</button>
+                <button class="checkword">Check Word</button>
+            </div>
+        </div>
+    </div>
+    <script src="word.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

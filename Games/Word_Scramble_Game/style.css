@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: var(--bs-font-sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fefefe;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1{
+  border-bottom : 1px solid #000000;
+  border-bottom-width: 1px;
+  color : rgb(253, 252, 250);
+  margin: 10px 0 2 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  animation: animationtext 4s steps(80, end); 
+  transition: all cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+
+@keyframes animationtext { 
+  from {
+      width: 0;
+     transition: all 2s ease-in-out;
+  } 
+ }
+
+ .wrapper{
+  width : 480px;
+  background: #060606;
+  border-radius: 5px;
+  box-shadow: #b5b5b5;
+  background: rgba(244, 237, 237, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6.5px );
+  -webkit-backdrop-filter: blur( 6.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  
+}
+
+.wrapper h1{
+  font-size: 35px;
+  font-weight:500;
+  padding : 20px 25px;
+  border-bottom : 1px solid #ccc;
+  border-bottom-width: 1px;
+  color : rgb(0, 0, 0);
+  margin: 10px 0 2 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  animation: animationtext 4s steps(80, end); 
+  transition: all cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+@keyframes animationtext { 
+from {
+   width: 0;
+  transition: all 2s ease-in-out;
+} 
+}
+
+.wrapper-new{
+width :550px;
+background: #fefdfd;
+border-radius: 5px;
+box-shadow: #b5b5b5;
+background: rgba(244, 237, 237, 0.25);
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 6.5px );
+-webkit-backdrop-filter: blur( 6.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+padding: 1% 1% 2% 1%;
+
+}
+
+
+.container {
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+  border-radius: 7px;
+}
+
+.container h2{
+  font-size : 25px;
+  font-weight : 500;
+  padding : 20px 20px;
+  border-bottom : 1px solid #ccc;
+}
+
+.container .content{
+  margin : 25px 20px 35px;
+}
+
+.content .details{
+  margin : 25px 0px 20px;
+}
+
+.content .word{
+  font-size : 35px;
+  font-weight : 500;
+  text-align : center;
+  letter-spacing : 24px;
+  margin-right : -24px;
+  text-transform : uppercase;
+}
+
+.details p{
+  font-size : 20px;
+  margin-bottom : 10px;
+}
+
+.details p b{
+  font-weight : 500;
+}
+
+.content input{
+  width : 100%;
+  height : 50px;
+  outline : none;
+  font-size : 20px;
+  padding : 0 15px;
+  border-radius : 5px;
+  border : 2px solid #ccc;
+}
+
+.content buttons{
+  display : flex;
+  margin-top : 20px;
+  justify-content : space between;
+}
+
+.buttons button{
+  border : none;
+  outline : none;
+  padding : 15px 0;
+  font-size : 15px;
+  border-radius : 5px;
+  width : calc(100%/2 - 4px);
+  margin-top : 5%
+}

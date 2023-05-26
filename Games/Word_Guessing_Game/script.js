@@ -115,6 +115,7 @@ function currentWordLetters() {
 }
 
 // Function to get the number of guesses allowed
+
 function getGuessesAllowed() {
   return 10;
 }

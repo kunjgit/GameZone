@@ -9,6 +9,7 @@ This game is a word-guessing game where the player tries to guess letters to for
 
 <br>
 
+
 ## **functionalities 🎮** 
 The game starts by displaying a hidden word with blank spaces representing the letters to be guessed.
 The player can input a letter by pressing a key on the keyboard.

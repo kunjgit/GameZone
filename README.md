@@ -109,7 +109,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|
 | 9 | [Memory Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Game)| 
 | 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)| 
-| 11 | [Bubble_Blast_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bubble_Blast_Game)|
+| 11 | [Ludo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_Game)|
+| 12 | [Piano Game](https://github.com/kunjgit/GameZone/tree/main/Games/Piano)|
+| 13 | [Bubble_Blast_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bubble_Blast_Game)|
 
 </center>
 

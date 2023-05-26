@@ -1,7 +1,7 @@
 //canvas
 let canvas;
-let boardWidth = 360;
-let boardHeight = 640;
+let boardWidth = 780;
+let boardHeight = 720;
 let context;
 
 //bird

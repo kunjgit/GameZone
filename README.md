@@ -112,6 +112,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 11 | [Ludo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_Game)|
 | 12 | [Piano Game](https://github.com/kunjgit/GameZone/tree/main/Games/Piano)|
 | 13 | [Atari Breakout](https://github.com/kunjgit/GameZone/tree/main/Games/Atari_Breakout)|
+| 14  | [Dinosaur Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dinosaur_Game)|
+
 
 </center>
 

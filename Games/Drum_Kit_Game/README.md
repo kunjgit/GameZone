@@ -5,11 +5,13 @@
 
 ## **Description 📃**
 A fun and interactive drumming simulation game that can be played through your web browser.
+The game provides visual feedback in the form of on-screen prompts or notes that indicate when and which drum element to hit.
+With increasing difficulty levels and varying music tracks, Drum and Kit Game offers an engaging and immersive experience for rhythm game enthusiasts.
 Tech used
 - HTML for structure
 - CSS for styling
 - JavaScript for interactivity and game logic
-- 
+
 
 ## **functionalities 🎮**
 Easy to play

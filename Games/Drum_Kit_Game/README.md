@@ -1,6 +1,6 @@
  **Game_Name** 
----Drum_And_Kit
-
+<br><br>
+Drum_And_Kit
 <br>
 
 ## **Description 📃**
@@ -14,27 +14,25 @@ Tech used
 
 
 ## **functionalities 🎮**
-Easy to play
-Mind relaxing
-Fully responsive design
-Fun to play 
-- 
+-Easy to play<br>
+-Mind relaxing<br>
+-Fully responsive design<br>
+-Fun to play 
+
 <br>
 
 ## **How to play? 🕹️**
-Start the game by clicking Drums.
-Realistic drum sounds and animations.
-A variety of drum sets to choose from.
-
-- 
+-Start the game by clicking Drums.<br>
+-Realistic drum sounds and animations.<br>
+-A variety of drum sets to choose from.<br> 
 
 <br>
 
 ## **Screenshots 📸**
 
 <br>
-<img src = "assets/images/Drum_And_Kit.PNG">
 
+![image](https://github.com/Roshnijeewani3457/GameZone/assets/89697445/abe283c6-6b1f-439d-8994-6e0bb29f1ac4)
 
 
 

@@ -118,8 +118,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 17 | [Race car game](https://github.com/kunjgit/GameZone/tree/main/Games/race_car)|
 | 18 | [Aim Training](https://github.com/DP-NOTHING/GameZone/tree/contri/Games/Aim_Training)| 
 | 19 | [Alien Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Shooters)|
-| * | [Word Association Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Association_Game)
-
+| 20 | [Fruit Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Ninja)| 
+| 21 | [Doodle Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doodle_Jump)| 
+| 22 | [Alphabet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet)|
+| 23 | [Candy Crush](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Crush)|
+| 24 | [Word Association Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Association_Game)|
 
 </center>
 

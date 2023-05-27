@@ -1,12 +1,5 @@
 body {
-    margin: 0%;
-    padding: 0%;
-    /* background-image: url('Assets/body-bg.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover; */
     background-color: #ece8d9;
-    /* overflow: hidden; */
 }
 
 /* Title Area */
@@ -22,16 +15,23 @@ body {
 }
 
 /* Middle Area of Website */
-.middle {
-    font-size: 1.4rem;
+
+.middle { 
+    position: relative; 
     color: black;
     padding: 10px;
-    margin: 10px auto;
+    margin: auto;
     height: 68vh;
     overflow: visible;
-    /* border: 2px solid yellow; */
 }
 
+#easy{ 
+    margin-left: 10px;
+    float: right;
+}
+#hard{
+   float: right;
+}
 /* Random RGB Value Genartor */
 #rgb {
     border: 2px solid black;
@@ -39,16 +39,11 @@ body {
     width: fit-content;
     font-weight: 500;
     font-size: larger;
-    margin: auto;
+    margin: 10px auto;
     padding: 3px 20px;
     border-radius: 26px;
 }
-.dis{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    
-}
+
 /* Color Box CSS */
 .color-box {
     /* border: 2px solid red; */

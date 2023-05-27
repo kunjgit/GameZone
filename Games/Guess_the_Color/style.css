@@ -1,0 +1,91 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    /* background-image: url('Assets/body-bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: #ece8d9;
+    /* overflow: hidden; */
+}
+
+/* Title Area */
+.header {
+    background-color: #189AB4;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 500;
+    padding: 10px 5px;
+}
+
+/* Middle Area of Website */
+.middle {
+    font-size: 1.4rem;
+    color: black;
+    padding: 10px;
+    margin: 10px auto;
+    height: 68vh;
+    overflow: visible;
+    /* border: 2px solid yellow; */
+}
+
+/* Random RGB Value Genartor */
+#rgb {
+    border: 2px solid black;
+    display: block;
+    width: fit-content;
+    font-weight: 500;
+    margin: auto;
+    padding: 3px 20px;
+    border-radius: 26px;
+}
+
+/* Color Box CSS */
+.color-box {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    padding: 25px;
+    margin: 25px 0px;
+    color: white;
+}
+
+.box {
+    border: 2px solid black;
+    padding: 25px;
+    margin: 25px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    background-color: green;
+    transition: transform .2s;
+    border-radius: 20px;
+}
+
+
+
+.box:hover {
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+
+}
+
+/* Bottom Part */
+.bottom {
+    /* border: 2px solid blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lose {
+    display: none;
+}
+
+#win {
+    display: none;
+}

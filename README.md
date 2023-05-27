@@ -121,7 +121,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 20 | [Fruit Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Ninja)| 
 | 21 | [Doodle Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doodle_Jump)| 
 | 22 | [Alphabet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet)|
-
+| 23 | [Candy Crush](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Crush)|
 
 
 </center>

@@ -105,7 +105,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
 | 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|    
 | 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
-| 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)|
+| 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)| 
 | 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|
 | 9 | [Memory Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Game)| 
 | 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)| 
@@ -116,6 +116,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 15 | [Guess The Colour by RGB Game](https://github.com/kunjgit/GameZone/tree/main/Games/Colour_Guessing_Game)| 
 | 16 | [Guess The Number](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Number) |
 | 17 | [Race car game](https://github.com/kunjgit/GameZone/tree/main/Games/race_car)|
+| 18 | [Aim Training](https://github.com/DP-NOTHING/GameZone/tree/contri/Games/Aim_Training)| 
 
 
 </center>

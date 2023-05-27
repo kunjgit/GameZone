@@ -108,7 +108,13 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)|
 | 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|
 | 9 | [Memory Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Game)| 
-| * | [Guess The Colour by RGB Game](https://github.com/kunjgit/GameZone/tree/main/Games/Colour_Guessing_Game)| 
+| 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)| 
+| 11 | [Ludo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_Game)|
+| 12 | [Piano Game](https://github.com/kunjgit/GameZone/tree/main/Games/Piano)|
+| 13 | [Atari Breakout](https://github.com/kunjgit/GameZone/tree/main/Games/Atari_Breakout)|
+| 14 | [Dinosaur Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dinosaur_Game)|
+| 15 | [Guess The Colour by RGB Game](https://github.com/kunjgit/GameZone/tree/main/Games/Colour_Guessing_Game)| 
+
 
 
 </center>

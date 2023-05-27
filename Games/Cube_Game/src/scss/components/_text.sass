@@ -1,0 +1,40 @@
+.text
+  position: absolute
+  left: 0
+  right: 0
+  text-align: center
+  line-height: 0.75
+  perspective: 100rem
+  opacity: 0
+
+  i
+    display: inline-block
+    opacity: 0
+    white-space: pre-wrap
+
+  &--title
+    bottom: 75%
+    font-size: 4.4em
+    height: 1.2em
+
+    span
+      display: block
+
+      &:first-child
+        font-size: 0.5em
+        margin-bottom: 0.2em
+
+  &--note
+    top: 87%
+    font-size: 1em
+
+  &--timer
+    bottom: 78%
+    font-size: 3.5em
+    line-height: 1
+
+  &--complete,
+  &--best-time
+    font-size: 1.5em
+    top: 83%
+    line-height: 1em

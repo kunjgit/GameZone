@@ -1,0 +1,36 @@
+{
+	"build_systems":
+	[
+		{
+			"file_patterns":
+			[
+				"*.js"
+			],
+			"name": "Rollup",
+			"shell_cmd": "rollup -c rollup.config.dev.js",
+			"working_dir": "${project_path}"
+		},
+		{
+			"cmd": "$file",
+			"file_patterns":
+			[
+				"*.scss"
+			],
+			"name": "Libsass",
+			"target": "compile_sass",
+			"working_dir": "${project_path}"
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "."
+		},
+		{
+			"path": "/Users/boris/Desktop/the-cube-codepen"
+		}
+	],
+	"settings":
+	{
+	}
+}

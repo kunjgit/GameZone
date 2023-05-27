@@ -1,0 +1,46 @@
+.btn
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  background-color: transparent
+  border-radius: 0
+  border-width: 0
+  position: absolute
+  pointer-events: none
+  font-size: 1.2em
+  color: rgba(#000, 0.25)
+  opacity: 0
+
+  &:after
+    position: absolute
+    content: ''
+    width: 3em
+    height: 3em
+    left: 50%
+    top: 50%
+    margin-left: -1.5em
+    margin-top: -1.5em
+    border-radius: 100%
+
+  &--tr
+    top: 0.8em
+    right: 0.8em
+
+  &--tl
+    top: 0.8em
+    left: 0.8em
+
+  &--bl
+    bottom: 0.8em
+    left: 0.8em
+
+  &--br
+    bottom: 0.8em
+    right: 0.8em
+
+  &--bc
+    bottom: 0.8em
+    left: calc(50% - 0.5em)
+
+  svg 
+    display: block

@@ -1,0 +1,52 @@
+.ui
+  pointer-events: none
+  color: #070d15
+
+  &,
+  &__background,
+  &__game,
+  &__texts,
+  &__prefs,
+  &__theme,
+  &__stats,
+  &__buttons
+    +inset
+    overflow: hidden
+
+  &__background
+    z-index: 1
+    transition: background 500ms ease
+    background: #d1d5db
+
+    &:after
+      +inset
+      content: ''
+      background-image: linear-gradient(to bottom, rgba(#fff, 1) 50%, rgba(#fff, 0) 100%)
+
+  &__game
+    pointer-events: all
+    z-index: 2
+
+    canvas
+      display: block
+      width: 100%
+      height: 100%
+
+  &__texts
+    z-index: 3
+
+  &__prefs,
+  &__stats,
+  &__theme
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    align-items: center
+    overflow: hidden
+    z-index: 4
+
+  &__theme
+    padding-top: 15em
+
+  &__buttons
+    z-index: 5

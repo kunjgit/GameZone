@@ -67,8 +67,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
   - Select appropriate issue template
   - Make sure your idea is unique and interesting ðŸš€
   * Don't alter the issue title. You are supposed to write your issue name after that only.
-   - `[Issue Title]: Your Issue` make sure you just add your issue name
-   - ex .`[New game]: Super Mario`
+    - `[Issue Title]: Your Issue` make sure you just add your issue name
+    - ex .`[New game]: Super Mario`
   - Make sure select the program in which you are participating to ðŸ”¥
 
 - Wait till you have been assigned the issue
@@ -103,7 +103,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 2 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)|
 | 3 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
 | 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
-| 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|    
+| 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|   
 | 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
 | 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)| 
 | 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|
@@ -123,7 +123,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 22 | [Alphabet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet)|
 | 23 | [Candy Crush](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Crush)|
 | 24 | [Word Association Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Association_Game)|
-| * | [Bubble_Blast_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bubble_Blast_Game)|
+| 25 | [Tic Tac Toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe)|
+| 26 | [Bubble Blast Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bubble_Blast_Game)|
 
 </center>
 

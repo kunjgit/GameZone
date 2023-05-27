@@ -52,6 +52,7 @@ function restartGame() {
   gameRunning = true;
   isAudioPlaying = false;
 
+  const dino = document.querySelector(".dino");
   const obstacle = document.querySelector(".obstacle");
   const gameOver = document.querySelector(".gameOver");
 
@@ -61,8 +62,9 @@ function restartGame() {
   updateScore(score);
 
   setTimeout(playAudio, 500);
+  dino.style.left = "52px";
 
-//   gameLoop();
+  //   gameLoop();
 }
 
 function endGame() {
@@ -77,7 +79,7 @@ function endGame() {
   clearTimeout(gameRestartTimeout);
   gameRestartTimeout = setTimeout(restartGame, 3000);
 }
-  
+
 setInterval(() => {
   if (!gameRunning) {
     return;

@@ -13,10 +13,12 @@ body {
 .header {
     background-color: #189AB4;
     color: black;
+    border-bottom: 2px solid black;
+    border-radius: 0 0 2rem 2rem ;
     font-size: 2rem;
     text-align: center;
     font-weight: 500;
-    padding: 10px 5px;
+    padding: 20px 5px;
 }
 
 /* Middle Area of Website */

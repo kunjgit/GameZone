@@ -118,6 +118,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 17 | [Race car game](https://github.com/kunjgit/GameZone/tree/main/Games/race_car)|
 | 18 | [Aim Training](https://github.com/DP-NOTHING/GameZone/tree/contri/Games/Aim_Training)| 
 | 19 | [Alien Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Shooters)|
+| 20 | [Fruit Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Ninja)| 
+
 
 
 </center>

@@ -10,7 +10,7 @@ function updateScore() {
 
 function movePlayer(event) {
   const containerWidth = document.getElementById("game-container").offsetWidth;
-  const playerWidth = player.offsetWidth;
+  const playerWidth = player.offsetWidth * 0.5;
 
   let x = event.clientX;
   if (x < playerWidth / 2) {

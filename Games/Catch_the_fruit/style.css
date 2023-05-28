@@ -5,23 +5,21 @@
     border: 1px solid #000;
   }
 
-#container{
+  .container {
     position: relative;
     width: 400px;
-    height: 50px;
-    align-content: center;
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
+    padding-bottom: 20px;
+
   }
   
   .player {
     position: absolute;
     left: 50%;
     bottom: 10px;
-    transform: translateX(-10%);
+    transform: translateX(-50%);
     width: 50px;
     height: 50px;
-    /* background-color: blue; */
     border: 10px;
   }
   
@@ -41,4 +39,48 @@
     font-size: 18px;
     font-weight: bold;
   }
+
+.button {
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: .15rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0cf;
+    border-radius: 10rem;
+    z-index: -2;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken(#0cf, 15%);
+    transition: all .3s;
+    border-radius: 10rem;
+    z-index: -1;
+  }
+  &:hover {
+    color: #000;
+    &:before {
+      width: 100%;
+    }
+  }
+}
   

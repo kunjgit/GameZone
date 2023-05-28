@@ -106,7 +106,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|   
 | 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
 | 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)| 
-| 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|
+| 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|   
 | 9 | [Memory Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Game)| 
 | 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)| 
 | 11 | [Ludo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_Game)|
@@ -129,8 +129,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 28 | [Minesweeper](https://github.com/kunjgit/GameZone/tree/main/Games/Minesweeper)|
 | 29 | [Dice ShowDown Game](https://github.com/Himanshu07-debug/GameZone/tree/main/Games/Dice_Showdown_Game)|
 | 30 | [Pac_Man Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pac_Man_Game)|
+| 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|   
   
-  
+
 </center>
 
 <br>

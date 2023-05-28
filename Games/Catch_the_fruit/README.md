@@ -6,14 +6,12 @@
 
 ## **Description 📃**
 <!-- add your game description here  -->
-"Catch the Fruit" is an exciting and fast-paced game where your reflexes and hand-eye coordination will be put to the test. Your mission is to control the player character and catch falling fruits as they descend from the top of the screen.
+"Catch the Fruit" is an exciting and fast-paced game where your reflexes and hand-eye coordination will be put to the test. Your mission is to control the player character and catch falling fruits as they descend from the top of the screen. 
 
-As the game begins, you'll find yourself in a vibrant and colorful game world. The player character, represented by a nimble blue square, is controlled by your mouse movements. Move the mouse horizontally within the game container to position the player and aim for the falling fruits.
+As the game begins, you'll find yourself in a vibrant and colorful game world. The player character, represented by a nimble blue square, is controlled by your mouse movements. Move the mouse horizontally within the game container to position the player and aim for the falling fruits. Keep a close eye on the screen as a variety of juicy and tempting fruits start falling from above. The fruits, depicted as delightful red circles, will descend at varying speeds, adding to the challenge. Your task is to maneuver the player skillfully, aligning it with the falling fruits to make successful catches.
 
-Keep a close eye on the screen as a variety of juicy and tempting fruits start falling from above. The fruits, depicted as delightful red circles, will descend at varying speeds, adding to the challenge. Your task is to maneuver the player skillfully, aligning it with the falling fruits to make successful catches.
-- 
 
-## **functionalities 🎮**
+## **Functionalities 🎮**
 <!-- add functionalities over here -->
 - The game is a simple catch-the-falling-fruit game where the player controls a character to catch falling fruits.
 - The player can move horizontally within the game container using the mouse.
@@ -21,7 +19,6 @@ Keep a close eye on the screen as a variety of juicy and tempting fruits start f
 - When a fruit is caught, the player's score increases.
 - If a fruit reaches the bottom without being caught, it resets to the top, and the game continues.
 - The game continues indefinitely, allowing the player to try to achieve the highest score possible.
-- 
 <br>
 
 ## **How to play? 🕹️**
@@ -36,7 +33,7 @@ Keep a close eye on the screen as a variety of juicy and tempting fruits start f
 <br>
 
 ## **Screenshots 📸**
-![image](Catch_the_fruit.jpg)
+![Catch_the_fruit](https://github.com/sudarshan-hub/GameZone/assets/79958765/b23ac6c8-6391-4e82-a584-3c641a37b9c3)
 
 
 <br>

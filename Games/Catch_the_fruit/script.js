@@ -58,7 +58,7 @@ function dropFruit() {
       fruit.style.top = "10px";
       dropFruit();
     }
-  }, 10);
+  }, 5);
 }
 
 // Add event listener to move the player

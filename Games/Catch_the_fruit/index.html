@@ -5,9 +5,17 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div id="game-container" class="center">
-    <div id="player" class="player"></div>
-    <div id="fruit" class="fruit"></div>
+  <div id="container">
+    <h1>Catch the fruit</h1>
+  </div>
+  <div id="game-container">
+    <img id="player" class="player" src="assets/img/trolley.png"></img>
+    <!-- <img id="fruit" class="fruit" src="assets/img/strawberry.png"></img> -->
+    <script>
+      var pictures = ['assets/img/cherry.png', 'assets/img/grapes.png', 'assets/img/orange.png', 'assets/img/pineapple.png', 'assets/img/strawberry.png', 'assets/img/watermelon.png'];
+      var picture = pictures[Math.floor(Math.random() * pictures.length)];
+      document.write('<img id="fruit" class="fruit" src="' + picture + '"/>');
+    </script>
     <div id="score">Score: 0</div>
   </div>
 

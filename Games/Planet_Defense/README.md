@@ -36,6 +36,6 @@ Planet Defense
 
 <br>
 
-![image]((../../assets/images/Planet_Defense.png))
+![image](../../assets/images/Planet_Defense.png)
 
 <br>

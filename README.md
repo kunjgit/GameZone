@@ -130,7 +130,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 29 | [Dice ShowDown Game](https://github.com/Himanshu07-debug/GameZone/tree/main/Games/Dice_Showdown_Game)|
 | 30 | [Pac_Man Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pac_Man_Game)|
 | 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
+| 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square) |
 |    | [Interactive Quizzing Application](https://github.com/kunjgit/GameZone/tree/main/Games/Interactive_Quizzing)|
+
   
 
 

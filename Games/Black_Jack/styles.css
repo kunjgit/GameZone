@@ -1,0 +1,58 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    background-color: #0C134F;
+    color: #1B9C85;
+    font-family: 'Audiowide', cursive;
+    text-align: center;
+}
+h1{
+    font-family: 'Black Ops One', cursive;
+    color: #F9D949;
+}
+
+img{
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
+
+button{
+    background-color: #F9D949;
+    border: 1px solid #F9D949;
+    margin: 23px;
+    color: #1B9C85;
+    font-family: 'Audiowide', cursive;
+    font-weight: 600;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+button:hover, button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #F9D949;
+}
+
+button:active {
+  opacity: .5;
+}
+
+p{
+    font-weight: 600;
+}

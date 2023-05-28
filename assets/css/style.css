@@ -2103,7 +2103,7 @@ textarea.form-input::-webkit-resizer {
 
   .main-content {
     position: relative;
-    width: max-content;
+    width: fit-content;
     margin: auto;
   }
 

@@ -1,5 +1,6 @@
 body {
-    background-color: black;
+  background: rgb(0,194,32);
+  background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 500;
     display: flex;
@@ -12,6 +13,7 @@ body {
   .title {
     color: mintcream;
     text-transform: uppercase;
+    text-align: center;
     margin-top: 3em;
     margin-bottom: 3em;
     font-size: 1em;
@@ -28,8 +30,12 @@ body {
   }
   
   .keyboard {
+    background: linear-gradient(112.5deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    padding-right: 35px;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgb(32, 38, 57) 0px 1px 3px -1px;
   }
   
   .row {
@@ -214,11 +220,12 @@ body {
   /* ------------for button----------------------------- */
   
 .btn{
-  margin-top: 50px;
+  margin-top: 20px;
+  padding-bottom: 20px;
   padding-left: 60px;
   text-align: center;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
 }
 .button {
   align-items: center;
@@ -265,3 +272,4 @@ body {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
+

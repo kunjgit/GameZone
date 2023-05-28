@@ -3,5 +3,7 @@ body {
     font-size: 32px;
     color: white;
     text-align: center;
-    background-color: blue;
+    background-color: darkblue;
+    background: url("../Snake\ Mania.jpg.jpeg");
+    background-size:contain;
 }

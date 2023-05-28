@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fruit Ninja</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+<!-- StyleSheet-->
+
+<style> 
+    body {
+    position: relative;
+    text-align: center;
+    background-color: orange;
+    margin-left: 50px;
+    padding-bottom: -1000px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    }
+</style>
+
+<!-- Website_Icon -->
+    <link rel="shortcut icon" href="/assets/game_assets/website_icon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <div class="logo">
+        <img src="./assets/home_page_assets/logo.png" alt="logo" style="width: 600px; height: 300px;">
+    </div>
+
+    <div class="wrapper">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Reset button -->
+    <div class="buttons">
+        <button id="resetButton" style="margin-left: 900px; margin-top: 80px; margin-right: 65px" class="btn-hover color-6">Reset</button>
+    </div>
+    
+
+    <!-- P5Js Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="p5/p5.js"></script>
+    <script type="text/javascript" src="p5/addons/p5.dom.js"></script>
+    <script type="text/javascript" src="p5/addons/p5.sound.js"></script>
+
+    <!-- Js Files-->
+    <script src="./js/main.js"></script>     
+    <script src="./js/swords.js"></script>     
+    <script src="./js/fruit.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+canvas {
+    box-shadow: black 20px 10px 50px;
+    margin-bottom: 20px;
+    background-image: url("images/bg-main-menu.webp");
+    background-size: 600px 600px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s linear;
+}
+h1#heading {
+    margin: 0px;
+    margin-bottom: 10px;
+    font-size: 100px;
+    font-family: "VT323", monospace;
+    color: #f1f1f1;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(
+        0deg,
+        rgb(48, 149, 200),
+        rgb(78, 4, 251),
+        rgb(90, 7, 123)
+    );
+    overflow: hidden;
+}
+
+#play2 {
+    background-color: rgb(78, 4, 251);
+    color: white;
+}
+
+#restart {
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 200px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    font-family: monospace;
+}
+
+.sidenav a,
+.dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.sidenav a:hover,
+.dropdown-btn:hover {
+    color: #0d0d0d;
+    background-color: rgb(225, 215, 20);
+}
+
+.active {
+    background-color: rgb(78, 4, 251);
+    color: white;
+}
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    margin-left: 8px;
+}
+
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}

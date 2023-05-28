@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="shortcut icon"
+        href="/Games/Space_invader/favicon_io/favicon-32x32.png"
+        type="image/x-icon" />
+        <title>Space Invaders</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body id="bg">
+        <div class="sidenav">
+            <a href="https://github.com/REC-1104/SpaceInvaders/tree/master"
+                >GitHub</a
+            >
+            <br />
+            <br />
+            <a id="play1">SpaceShip 1</a>
+            <a id="play2">SpaceShip 2</a>
+            <br />
+            <button class="dropdown-btn">
+                Spaceship Speed
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a id="ShipInc">Increase</a>
+                <a id="ShipDec">Decrease</a>
+            </div>
+            <br />
+            <button class="dropdown-btn">
+                Enemy Speed
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a id="EnemyInc">Increase</a>
+                <a id="EnemyDec">Decrease</a>
+            </div>
+            <br />
+            <br />
+            <a id="yourtime">Your Time :0 s</a>
+            <br />
+            <br />
+            <br />
+            <img
+                src="images/reset.webp"
+                alt="restart"
+                id="restart"
+                height="50"
+            />
+            <a id="penalty">(Penalty :5 s)</a>
+            <br />
+            <br />
+            <br />
+            <a id="travel">Wanna travel ?</a>
+            <a onClick="window.location.reload()">RESTART</a>
+            <br />
+            <hr>
+            <br>
+            <a>Space-->shoot</a>
+            <a>Arrowkeys-->move</a>
+        </div>
+
+        <div class="container">
+            <h1 id="heading">Space Invaders</h1>
+            <canvas id="game"></canvas>
+        </div>
+
+        <script type="module" src="index.js"></script>
+    </body>
+</html>

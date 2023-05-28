@@ -126,6 +126,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 25 | [Tic Tac Toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe)|
 | 26 | [Flappy Bird Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flappy_Bird)|
 | 27 | [Trivia It](https://hithub.com/kunjgit/GameZone/tree/main/Games/Trivia_It)|
+| 28 | [Minesweeper](https://github.com/kunjgit/GameZone/tree/main/Games/Minesweeper)|
 
   
 </center>

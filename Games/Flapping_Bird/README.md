@@ -1,8 +1,5 @@
 # **Flapping_Bird_Game** 
 
----
-
-<br>
 
 ## **Description 📃**
 <!-- add your game description here  -->
@@ -18,12 +15,6 @@ The project consists of the following files:
 - `style.css`: The CSS file that defines the visual appearance of the game elements.
 
 - `script.js`: The JavaScript file that contains the game's logic and functionality.
-
-
-## **functionalities 🎮**
-<!-- add functionalities over here -->
-- 
-<br>
 
 ## **How to play? 🕹️**
 
@@ -41,15 +32,12 @@ The project consists of the following files:
 
 ## **Screenshots 📸**
 
-<br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
 ### when you enter the game 
-![image](https://github.com/Enhancer18/GameZone/assets/102911149/c1c1fa00-d1da-4f7b-bba2-49a875bf2f44)
+- ![image](https://github.com/Enhancer18/GameZone/assets/102911149/c1c1fa00-d1da-4f7b-bba2-49a875bf2f44)
 ### After crossing a pipe 
-![image](https://github.com/Enhancer18/GameZone/assets/102911149/0e4de87d-5d87-4d3e-9831-2f655dc0407e)
+- ![image](https://github.com/Enhancer18/GameZone/assets/102911149/0e4de87d-5d87-4d3e-9831-2f655dc0407e)
 ### when the bird touched the pipe 
-![image](https://github.com/Enhancer18/GameZone/assets/102911149/2d06d15b-758b-4f64-a22e-046993cb32c9)
+- ![image](https://github.com/Enhancer18/GameZone/assets/102911149/2d06d15b-758b-4f64-a22e-046993cb32c9)
 
 
 <br>

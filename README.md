@@ -69,7 +69,7 @@ Also join the discord server for GameZone and start collaborating with others �
   * Don't alter the issue title. You are supposed to write your issue name after that only.
     - `[Issue Title]: Your Issue` make sure you just add your issue name
     - ex .`[New game]: Super Mario`
-  - Make sure select the program in which you are participating to 🔥
+  - Make sure you select the program in which you are participating 🔥
 
 - Wait till you have been assigned the issue
 - After you have been assigned the issue start working on the code

@@ -1,7 +1,13 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 32px;
+    font-size: 2rem;
     color: white;
     text-align: center;
     background-color: blue;
+}
+h1{
+    margin: 0.5rem;
+}
+p{
+    margin: 0.5rem;
 }

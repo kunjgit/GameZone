@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&family=Source+Sans+Pro:wght@200&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  font-family: "Josefin Sans", sans-serif;
+  background: url(./assets/bg2.jpg);
+  background-size: cover;
+}
+
+.hide {
+  display: none;
+}
+
+.startScreen {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: white;
+  background: #780206;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right,
+      #061161,
+      #780206);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,
+      #061161,
+      #780206);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 40px;
+  text-align: center;
+  width: 30rem;
+  padding: 2rem;
+  z-index: 4;
+  line-height: 2.5rem;
+  cursor: pointer;
+}
+
+.car,
+.enemy {
+  width: 50px;
+  height: 70px;
+  bottom: 120px;
+  position: absolute;
+}
+
+.car {
+  background-image: url(./assets/car.png);
+  background-size: 100% 100%;
+  z-index: 4;
+}
+
+.enemy {
+  background-image: url(./assets/enemy1.png);
+  background-size: 100% 100%;
+  z-index: 4;
+  rotate: 180deg;
+}
+
+.gameArea {
+  width: 400px;
+  height: 110vh;
+  margin: auto;
+  background: black;
+  position: relative;
+  border-right: 0.5rem dashed #c8d6e5;
+  border-left: 0.5rem dashed #c8d6e5;
+}
+
+.lines {
+  width: 8px;
+  height: 100px;
+  position: absolute;
+  margin-left: 200px;
+  background: white;
+}
+
+.car-score {
+  position: absolute;
+  left: 10rem;
+  top: 10rem;
+  min-width: max-content;
+  height: 2rem;
+  color: white;
+  background: #dc2424;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right,
+      #4a569d,
+      #dc2424);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,
+      #4a569d,
+      #dc2424);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 4rem;
+  font-size: 1rem;
+  padding: 1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  line-height: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+.endscreen {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: white;
+  background: #780206;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right,
+      #061161,
+      #780206);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,
+      #061161,
+      #780206);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 40px;
+  text-align: center;
+  width: 30rem;
+  padding: 2rem;
+  z-index: 4;
+  line-height: 2.5rem;
+  cursor: pointer;
+}

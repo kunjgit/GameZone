@@ -134,7 +134,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 33 | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)|  
 | 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)|
 | 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)| 
-
+| * | [Rock Paper Scissor Game](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_Paper_Scissors)|
 
 </center>
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # **Word Scramble Game**
 
 ---
@@ -46,3 +47,6 @@ Game consists of following functionalities :
 </video>
 
 <!-- add your working video over here -->
+=======
+Word Scramble 
+>>>>>>> 51158dc9ad9efbfd30873b8474f35f8806deebaf

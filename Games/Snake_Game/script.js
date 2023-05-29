@@ -1,105 +1,139 @@
-var blockSize = 25;
-var rows = 20;
-var cols = 20;
-var board;
-var context; 
+//Game requirements
+let inputDir={x:0,y:0}
+let direction={x:0,y:0};
+let speed=10;
+let score=0;
+let lastPaintTime=0;
+let snakeArr=[{x:Math.round(2+16*Math.random()),y:Math.round(2+16*Math.random())}];
+food={x:6,y:7}
+let foodSound=new Audio('./assets/food.mp3');
+let gameOverSound=new Audio('./assets/gameover.mp3');
+let moveSound=new Audio ('./assets/move.mp3');
+let musicSound=new Audio('./assets/music.mp3')
 
-//snake head
-var snakeX = blockSize * 5;
-var snakeY = blockSize * 5;
-
-var velocityX = 0;
-var velocityY = 0;
-
-var snakeBody = [];
-
-//food
-var foodX;
-var foodY;
-
-var gameOver = false;
-
-window.onload = function() {
-    board = document.getElementById("board");
-    board.height = rows * blockSize;
-    board.width = cols * blockSize;
-    context = board.getContext("2d"); //used for drawing on the board
-
-    placeFood();
-    document.addEventListener("keyup", changeDirection);
-    // update();
-    setInterval(update, 3000/10); //100 milliseconds
-}
-
-function update() {
-    if (gameOver) {
-        return;
-    }
-
-    context.fillStyle="black";
-    context.fillRect(0, 0, board.width, board.height);
-
-    context.fillStyle="red";
-    context.fillRect(foodX, foodY, blockSize, blockSize);
-
-    if (snakeX == foodX && snakeY == foodY) {
-        snakeBody.push([foodX, foodY]);
-        placeFood();
-    }
-
-    for (let i = snakeBody.length-1; i > 0; i--) {
-        snakeBody[i] = snakeBody[i-1];
-    }
-    if (snakeBody.length) {
-        snakeBody[0] = [snakeX, snakeY];
-    }
-
-    context.fillStyle="lime";
-    snakeX += velocityX * blockSize;
-    snakeY += velocityY * blockSize;
-    context.fillRect(snakeX, snakeY, blockSize, blockSize);
-    for (let i = 0; i < snakeBody.length; i++) {
-        context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
-    }
-
-    //game over conditions
-    if (snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize) {
-        gameOver = true;
-        alert("Game Over");
-        location.reload()
-    }
-
-    for (let i = 0; i < snakeBody.length; i++) {
-        if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
-            gameOver = true;
-            alert("Game Over");
-            location.reload()
+//Game Function
+function isCollide(snakeArr){
+    //Self Bump 
+    for (let index=1;index<snakeArr.length;index++){
+        if(snakeArr[index].x===snakeArr[0].x &&snakeArr[index].y===snakeArr[0].y){
+            return true;
         }
     }
-}
-
-function changeDirection(e) {
-    if (e.code == "ArrowUp" && velocityY != 1) {
-        velocityX = 0;
-        velocityY = -1;
-    }
-    else if (e.code == "ArrowDown" && velocityY != -1) {
-        velocityX = 0;
-        velocityY = 1;
-    }
-    else if (e.code == "ArrowLeft" && velocityX != 1) {
-        velocityX = -1;
-        velocityY = 0;
-    }
-    else if (e.code == "ArrowRight" && velocityX != -1) {
-        velocityX = 1;
-        velocityY = 0;
-    }
+        if (snakeArr[0].x>=18 || snakeArr[0].x<=0 || snakeArr[0].y>=18 || snakeArr[0].y<=0){
+            return true;
+        }
 }
 
 
-function placeFood() {
-    //(0-1) * cols -> (0-19.9999) -> (0-19) * 25
-    foodX = Math.floor(Math.random() * cols) * blockSize;
-    foodY = Math.floor(Math.random() * rows) * blockSize;
+function gameEngine(){
+    //Part 1: Update Snake Array
+    if(isCollide(snakeArr)){
+        gameOverSound.play();
+        musicSound.pause();
+        inputDir={x:0,y:0};
+        alert("Game Over Press any Key to Play Again");
+        window.location.reload();
+        snakeArr=[{x:13,y:15}]
+        musicSound.play();
+        score=0;
+    }
+
+    //On eating food increment food and regenrate food
+    if(snakeArr[0].x===food.x && snakeArr[0].y===food.y){
+        foodSound.play();
+        score+=1;
+        if(score>hiscoreval){
+            hiscoreval=score;
+            localStorage.setItem("hiscore",JSON.stringify(hiscoreval))
+            HiScore.innerHTML="HiScore: "+hiscoreval;
+        }
+        scoreBox.innerHTML=("Score: "+score);
+        snakeArr.unshift({x:snakeArr[0].x+inputDir.x ,y:snakeArr[0].y+inputDir.y});
+        let a=2;
+        let b=16;
+        food={x:Math.round(a+(b-a)*Math.random()),y:Math.round(a+(b-a)*Math.random())}
+    }
+
+    //Moving the snake
+    for(let i=snakeArr.length-2;i>=0;i--){
+        snakeArr[i+1]={...snakeArr[i]};
+    }
+
+    snakeArr[0].x+=inputDir.x;
+    snakeArr[0].y+=inputDir.y;
+
+
+    //Part2:Render the snake and food
+    //Snake
+    board.innerHTML="";
+    snakeArr.forEach((e,index)=>{
+        snakeElement=document.createElement('div');
+        snakeElement.style.gridRowStart=e.y;
+        snakeElement.style.gridColumnStart=e.x;
+        if (index===0){
+            snakeElement.classList.add('head');
+        }
+        else{
+            snakeElement.classList.add('snake')
+        }
+        board.appendChild(snakeElement);
+    })
+
+    //Food
+        foodElement=document.createElement('div');
+        foodElement.style.gridRowStart=food.y;
+        foodElement.style.gridColumnStart=food.x;
+        foodElement.classList.add('food')
+        board.appendChild(foodElement);
 }
+
+
+
+function main(ctime){
+    window.requestAnimationFrame(main);
+    if((ctime-lastPaintTime)/1000<1/speed){
+        return;
+    }
+    lastPaintTime=ctime;
+    gameEngine();
+} 
+
+
+//Main Logic Starts Here
+let hiscore=localStorage.getItem('hiscore');
+if(hiscore===null){
+    hiscoreval=0;
+    localStorage.setItem("Hiscore",JSON.stringify(hiscoreval))
+}
+else{
+    hiscoreval=JSON.parse(hiscore);
+    HiScore.innerHTML=("HiScore: "+hiscoreval)
+}
+window.requestAnimationFrame(main);
+window.addEventListener("keydown",function(e){
+    musicSound.play();
+    inputDir={x:0,y:1}
+    moveSound.play();
+    switch(e.key){
+        case "ArrowUp":
+            inputDir.x=0;
+            inputDir.y=-1;
+
+        break;
+        case "ArrowDown":
+            inputDir.x=0;
+            inputDir.y=1;
+        break;
+        case "ArrowLeft":
+            inputDir.x=-1;
+            inputDir.y=0;
+        break;
+        case "ArrowRight":
+            inputDir.x=1;
+            inputDir.y=0;
+        break;
+        default:
+            break;
+        
+    }
+})

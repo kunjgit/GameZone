@@ -132,6 +132,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
 | 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square) |
 | *  | [Planet Defense Game](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Defense) |
+| *  | [Tower Blocks Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Blocks) |
   
 
 </center>

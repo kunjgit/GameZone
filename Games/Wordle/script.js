@@ -2,6 +2,7 @@ const words_list=["About","Alert","Argue","Beach","Above","Alike","Arise","Began
 
 const message= document.getElementById("message");
 
+//Scrolls to top after the game finishes
 function scrollToTop(){
     window.scroll({
         top:0,
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     console.log(word);
 
     const keys=document.querySelectorAll(".keyboard-row button");
+    // The below function can be used to fetch 5 letter words using APIs
 
     // function getNewWord() {
     //     fetch(
@@ -32,9 +34,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     //         params: {random: 'true'},
     //         headers: {
     //           "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-    //         //   "x-rapidapi-key":
-    //         //     "61c5e3986dmsh20c1bee95c2230dp18d1efjsn4668bbcfc1b3",
-    //           "x-rapidapi-key": "hBSn4HblPjchEGffz0fkTw==lGlieG0ujLqUQV01",
+    //           "x-rapidapi-key": "Your_API_Key",
     //         },
     //       }
     //     )
@@ -49,11 +49,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     //       });
     //   }
 
+    //Number of guesses made
     function getCurrentWordArr(){
         const numberOfGuessedWords = guessedWords.length;
         return guessedWords[numberOfGuessedWords-1];
     }
 
+    //increment the square boxes(tiles)
     function updateGuessedWords(letter){
          const currentWordArr =getCurrentWordArr();
 
@@ -67,6 +69,7 @@ document.addEventListener("DOMContentLoaded",()=>{
          }
     }
 
+    //Get Color of Tile after each guess
     function getTileColor(letter,index){
         const isCorrectLetter = word.includes(letter);
 
@@ -82,9 +85,9 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
 
         return "rgb(181,159,59)";
-
     }
 
+    //Change the Color of Keyboard keys according to the color scheme once a guess is made
     function changeKeyColor(tileColor,letter){
         const letterKey = document.querySelector(`[data-key=${letter}]`);
 
@@ -95,6 +98,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         letterKey.style=`background-color:${tileColor};`
     }
 
+    //Handle "Enter" Key
     function handleSubmitWord(){
        const currentWordArr = getCurrentWordArr();
        if(currentWordArr.length!==5){
@@ -108,6 +112,8 @@ document.addEventListener("DOMContentLoaded",()=>{
        const firstLetterId = guessedWordCount*5 + 1;
        const interval = 300;
        currentWordArr.forEach((letter,index) => {
+
+        //Change Color of Tile successively with animation 
         setTimeout(() => {
             const tileColor = getTileColor(letter,index);
             const letterId = firstLetterId + index;
@@ -120,21 +126,25 @@ document.addEventListener("DOMContentLoaded",()=>{
 
        guessedWordCount+=1;
 
+       //If Guessed word is the correct word
        if(currentWord===word){
         message.innerHTML=`Congratulations!<br>You Won!!!`;
         scrollToTop();
         return;
        }
 
+       //If player has exhausted the guesses and couldn't guess the right word
        if(guessedWords.length === 6){
         message.innerHTML=`Sorry.You Lost.<br>Correct Word is ${word}`;
         scrollToTop();
         return;
        }
 
+       //Go to next row of tiles
        guessedWords.push([]);
     }
 
+    //Handle "Del" Key
     function handleDeleteLetter(){
         const currentWordArr= getCurrentWordArr();
         const removedLetter = currentWordArr.pop();
@@ -145,6 +155,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         availableSpace=availableSpace-1;
     }
 
+    //Creating square tiles
     function createSquares(){
         const gameBoard = document.getElementById("board");
 
@@ -158,6 +169,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
 
 
+    //Function performed when a key is presses
     for(let i=0;i<keys.length;i++){
         keys[i].onclick = ({target}) => {
           const letter =target.getAttribute("data-key");

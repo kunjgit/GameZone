@@ -42,8 +42,8 @@ Game consists of following functionalities :
 
 ## **Working Video 📹**
 
-<video controls>
+<!-- <video controls>
 <source src="assets\Word_Scramble.mp4" type="video/mp4">
-</video>
-
+</video> -->
+https://github.com/dishamodi0910/GameZone/blob/Word_Scramble/Games/Word_Scramble_Game/assets/Word_Scramble.mp4
 <!-- add your working video over here -->

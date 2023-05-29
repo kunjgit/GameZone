@@ -47,4 +47,3 @@ The project consists of the following files:
 The implementation of this Flappy Bird game is based on the original concept developed by Dong Nguyen. Special thanks to Dong Nguyen for creating the original game.
 
 ---
-Please make sure to include the necessary information specific to your project, such as your email address for contact, and update the sections according to the actual implementation and details of your project.

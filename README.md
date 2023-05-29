@@ -109,8 +109,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
 | 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|    
 | 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
-
-  
+| * | [Emoji Charades](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Charades)|
 </center>
 
 <br>

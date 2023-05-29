@@ -14,6 +14,11 @@ body{
     height: 100vh;
 }
 
+.sound{
+    padding: 2.5rem;
+    height: 2rem;
+}
+
 .dino{
     background-image: url(dino.png);
     background-repeat: no-repeat;

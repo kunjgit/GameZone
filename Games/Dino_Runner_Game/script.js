@@ -10,19 +10,18 @@ let mute = false;
 
 function toggle(img) {
   if (img.src.endsWith("unmute.png")) {
-    img.src = "mute.png"
-    audio.pause()
+    img.src = "mute.png";
+    audio.pause();
+  } else {
+    img.src = "unmute.png";
+    audio.play();
   }
-  else {
-    img.src = "unmute.png"
-    audio.play()
-  }
-  mute = !mute
-  isAudioPlaying = !isAudioPlaying
+  mute = !mute;
+  isAudioPlaying = !isAudioPlaying;
   console.log(mute + "  " + isAudioPlaying);
 }
 
-audio.play()
+audio.play();
 
 document.addEventListener("keydown", function (e) {
   if (!gameRunning) {
@@ -42,6 +41,7 @@ document.addEventListener("keydown", function (e) {
       window.getComputedStyle(dino, null).getPropertyValue("left")
     );
     dino.style.left = dinoX + 112 + "px";
+    
   }
   if (e.keyCode == 37) {
     const dino = document.querySelector(".dino");
@@ -64,6 +64,9 @@ function restartGame() {
 
   obstacle.classList.add("obstacleAni");
   gameOver.innerHTML = "";
+
+  const dino = document.querySelector(".dino");
+  dino.style.left = "52px";
 
   updateScore(score);
 }

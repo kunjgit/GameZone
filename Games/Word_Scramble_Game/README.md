@@ -45,5 +45,9 @@ Game consists of following functionalities :
 <!-- <video controls>
 <source src="assets\Word_Scramble.mp4" type="video/mp4">
 </video> -->
-[![Word Scramble]](https://github.com/dishamodi0910/GameZone/blob/Word_Scramble/Games/Word_Scramble_Game/assets/Word_Scramble.mp4)
+
+
+https://github.com/dishamodi0910/GameZone/assets/106090499/1bfd52fc-ede4-4b20-b91d-5e40f08be143
+
+
 <!-- add your working video over here -->

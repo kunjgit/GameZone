@@ -69,7 +69,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
   * Don't alter the issue title. You are supposed to write your issue name after that only.
     - `[Issue Title]: Your Issue` make sure you just add your issue name
     - ex .`[New game]: Super Mario`
-  - Make sure select the program in which you are participating to ðŸ”¥
+  - Make sure you select the program in which you are participating ðŸ”¥
 
 - Wait till you have been assigned the issue
 - After you have been assigned the issue start working on the code
@@ -129,9 +129,13 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 28 | [Minesweeper](https://github.com/kunjgit/GameZone/tree/main/Games/Minesweeper)|
 | 29 | [Dice ShowDown Game](https://github.com/Himanshu07-debug/GameZone/tree/main/Games/Dice_Showdown_Game)|
 | 30 | [Pac_Man Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pac_Man_Game)|
-| 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|   
-| 32 | [Rock Paper Scissors](https://github.com/its-me-abhishek/GameZone/tree/main/Games/Rock_Paper_Scissors)|
-
+| 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
+| 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square) |
+| 33 | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)|  
+| 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)|
+| 35 | [Rock Paper Scissors](https://github.com/its-me-abhishek/GameZone/tree/main/Games/Rock_Paper_Scissors)|
+  
+  
 </center>
 
 <br>

@@ -69,7 +69,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
   * Don't alter the issue title. You are supposed to write your issue name after that only.
     - `[Issue Title]: Your Issue` make sure you just add your issue name
     - ex .`[New game]: Super Mario`
-  - Make sure select the program in which you are participating to ðŸ”¥
+  - Make sure you select the program in which you are participating ðŸ”¥
 
 - Wait till you have been assigned the issue
 - After you have been assigned the issue start working on the code
@@ -128,9 +128,13 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 27 | [Trivia It](https://hithub.com/kunjgit/GameZone/tree/main/Games/Trivia_It)|
 | 28 | [Minesweeper](https://github.com/kunjgit/GameZone/tree/main/Games/Minesweeper)|
 | 29 | [Dice ShowDown Game](https://github.com/Himanshu07-debug/GameZone/tree/main/Games/Dice_Showdown_Game)|
-| 30 | [Pac_Man Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pac_Man_Game)|
+| 30 | [Pac_Man Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pac_Man_Game)| 
 | 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
 | 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square) |
+| 33 | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)|  
+| 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)|
+| 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)| 
+| * | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_and_ladders)|
 
 </center>
 

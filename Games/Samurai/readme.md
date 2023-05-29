@@ -1,0 +1,1 @@
+<p align="center"><img src="assets\howToPlay.png" width="500" alt=""></p>

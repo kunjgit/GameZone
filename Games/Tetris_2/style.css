@@ -1,0 +1,207 @@
+body, html {
+  background-image: url("https://s19.postimg.cc/53hmmyd9f/stars-3000x2000-pink-cosmos-hd-7164.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  font-family: "Lucida Console";
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  min-width: 700px;
+}
+
+.wrapper {
+  display: inline-flex;
+  justify-content: center;
+  margin: 1vh 0;
+  padding: 1% 1% 0.5% 1%;
+  background: rgba(0, 0, 0, 0.65);
+  box-shadow: -1px 5px 5px rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  margin-top: 20vh !important;
+  border: solid 0.05em #fff;
+  box-shadow: -15px 20px 20px rgba(0, 0, 0, 0.75) !important;
+}
+
+.modal-content {
+  background: #202028;
+}
+
+.modal-content .btn {
+  font-size: 18px !important;
+}
+
+.modal-content input {
+  color: white;
+  font-size: 24px !important;
+  width: 50% !important;
+  text-align: center;
+}
+
+.modal-content label {
+  font-size: 16px !important;
+}
+
+.btn:focus {
+  background-color: #00bfa5 !important;
+}
+
+.btn {
+  background-color: #009688 !important;
+}
+
+.yourScore {
+  padding-bottom: 0px;
+}
+
+.detailsLeft {
+  width: 130px;
+  position: relative;
+  height: 90vh;
+  margin: 0% 2%;
+  text-align: right;
+  font-size: 16px;
+}
+
+.highScores {
+  position: absolute;
+  bottom: 35px;
+  right: 0px;
+  line-height: 10px;
+  font-size: 14px;
+}
+
+.detailsRight {
+  position: relative;
+  height: 90vh;
+  margin: 2% 2% 0% 2%;
+  text-align: left;
+}
+
+.next {
+  height: 15vh;
+  border: solid 0.1em #fff;
+}
+
+.controls {
+  position: absolute;
+  bottom: 50px;
+  left: 0px;
+  font-size: 12px;
+  line-height: 8px;
+}
+
+.tetris {
+  height: 90vh;
+  border: solid 0.25em #fff;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 0px;
+}
+
+.footer a:link, a:visited, a:active {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+.footer a:link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 920px), (max-height: 800px) {
+  body, html {
+    font-size: 16px;
+    margin: 0px !important;
+  }
+
+  .modal {
+    width: 25vw !important;
+    margin-top: 20vh !important;
+    border: solid 0.05em #fff;
+    box-shadow: -15px 20px 20px rgba(0, 0, 0, 0.75) !important;
+    min-width: 500px;
+  }
+
+  .modal-content {
+    background: #202028;
+  }
+
+  .modal-content .btn {
+    font-size: 14px !important;
+  }
+
+  .modal-content input {
+    color: white;
+    font-size: 12px !important;
+    width: 50% !important;
+    text-align: center;
+  }
+
+  .modal-content label {
+    font-size: 14px !important;
+  }
+
+  .wrapper {
+    display: inline-flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5) !important;
+    padding: 0% 0%;
+    background: rgba(0, 0, 0, 0.65);
+    margin: 0px !important;
+    height: 100%;
+    width: 100%;
+  }
+
+  .detailsLeft {
+    height: 80vh;
+    width: 110px;
+    margin: 5% 1% 0% 0%;
+    font-size: 14px;
+  }
+
+  .score-title {
+    font-size: 14px;
+  }
+
+  .highScores {
+    line-height: 8px;
+    font-size: 12px;
+  }
+
+  .detailsRight {
+    height: 80vh;
+    width: 120px;
+    margin: 5% 0% 0% 1%;
+    text-align: left;
+  }
+
+  .next {
+    border: solid 0.1em #fff;
+    height: 12vh;
+  }
+
+  .controls {
+    line-height: 8px;
+    font-size: 12px;
+  }
+
+  .tetris {
+    height: 85vh;
+    border: solid 0.25em #fff;
+    margin-bottom: 2%;
+    margin-top: 2%;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+}

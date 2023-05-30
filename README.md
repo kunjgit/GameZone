@@ -26,7 +26,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 ![GitHub contributors](https://img.shields.io/github/contributors/kunjgit/GameZone)
 ![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Fkunjgit.github.io%2FGameZone%2F)
 
-</p>    
+</p>
 
 </div>
 <br>
@@ -65,26 +65,27 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 - Clone this repository `git clone "url of the repo"`
 
 * Raise and issue to add new game or to enhancement for a game (Have a look at few things you have to take care during raising issue )
-   - Select appropriate issue template
-   - Make sure your idea is unique and interesting ðŸš€
 
-   * Don't alter the issue title. You are supposed to write your issue name after that only.
-      - `[Issue Title]: Your Issue` make sure you just add your issue name
-      - ex .`[New game]: Super Mario`
+  - Select appropriate issue template
+  - Make sure your idea is unique and interesting ðŸš€
 
-   - Make sure you select the program in which you are participating ðŸ”¥
+  * Don't alter the issue title. You are supposed to write your issue name after that only.
+    - `[Issue Title]: Your Issue` make sure you just add your issue name
+    - ex .`[New game]: Super Mario`
+
+  - Make sure you select the program in which you are participating ðŸ”¥
 
 - Wait till you have been assigned the issue
 - After you have been assigned the issue start working on the code
 - Create your new branch using `git checkout -b <name of your branch> `
 
 * Having your code into the repository
-   - Make your game folder into `Games` folder by the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
-   - Add your code files (index.html,style.css,script.js) in your game folder
-   - Create `README.md` file in your folder and add all the functionalities and how you can play that game in that README file , also include screenshots of working game , video of a game explaining (if required).
-   - To create `Your_Folder/README.md ` checkout the template [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md)
-   - Now take one good screenshot of your game that you want to display it on our website and add into `assets/images` (follow the naming convention <your_folder_name>.png or .jpeg or .jpg)
-   - add your folders link and name in main README.md (the one you are reading currently)
+  - Make your game folder into `Games` folder by the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
+  - Add your code files (index.html,style.css,script.js) in your game folder
+  - Create `README.md` file in your folder and add all the functionalities and how you can play that game in that README file , also include screenshots of working game , video of a game explaining (if required).
+  - To create `Your_Folder/README.md ` checkout the template [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md)
+  - Now take one good screenshot of your game that you want to display it on our website and add into `assets/images` (follow the naming convention <your_folder_name>.png or .jpeg or .jpg)
+  - add your folders link and name in main README.md (the one you are reading currently)
 
 - Push your changes to Github using `git push origin <name your branch>`
 - Submit your changes for review by creating PR
@@ -98,48 +99,47 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 <!-- list of the games -->
 <center>
 
-| No. | Name of the game |
-| --- | --- |
-| 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing) |
-| 2 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)|
-| 3 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
-| 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
-| 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|  
-| 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
-| 7 | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)|
-| 8 | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)|  
-| 9 | [Memory Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Game)|
-| 10 | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)|
-| 11 | [Ludo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_Game)|
-| 12 | [Piano Game](https://github.com/kunjgit/GameZone/tree/main/Games/Piano)|
-| 13 | [Atari Breakout](https://github.com/kunjgit/GameZone/tree/main/Games/Atari_Breakout)|
-| 14 | [Dinosaur Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dinosaur_Game)|
-| 15 | [Guess The Colour by RGB Game](https://github.com/kunjgit/GameZone/tree/main/Games/Colour_Guessing_Game)|
-| 16 | [Guess The Number](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Number) |
-| 17 | [Race car game](https://github.com/kunjgit/GameZone/tree/main/Games/race_car)|
-| 18 | [Aim Training](https://github.com/DP-NOTHING/GameZone/tree/contri/Games/Aim_Training)|
-| 19 | [Alien Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Shooters)|
-| 20 | [Fruit Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Ninja)|
-| 21 | [Doodle Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doodle_Jump)|
-| 22 | [Alphabet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet)|
-| 23 | [Candy Crush](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Crush)|
-| 24 | [Word Association Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Association_Game)|
-| 25 | [Tic Tac Toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe)|
-| 26 | [Flappy Bird Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flappy_Bird)|
-| 27 | [Trivia It](https://hithub.com/kunjgit/GameZone/tree/main/Games/Trivia_It)|
-| 28 | [Minesweeper](https://github.com/kunjgit/GameZone/tree/main/Games/Minesweeper)|
-| 29 | [Dice ShowDown Game](https://github.com/Himanshu07-debug/GameZone/tree/main/Games/Dice_Showdown_Game)|
-| 30 | [Pac_Man Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pac_Man_Game)|
-| 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
-| 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square)|
-| 33 | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)|  
-| 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)| 
-| 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)|
-| 36 | [Word Scramble Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Scramble_Game)|
-| 37 | [Tetris](https://github.com/kunjgit/GameZone/tree/main/Games/Tetris)|
-| 38 | [Interactive Quizzing Application](https://github.com/kunjgit/GameZone/tree/main/Games/Interactive_Quizzing)|
-
-
+| No. | Name of the game                                                                                             |
+| --- | ------------------------------------------------------------------------------------------------------------ |
+| 1   | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)                           |
+| 2   | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)                             |
+| 3   | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)             |
+| 4   | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)                                 |
+| 5   | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)                     |
+| 6   | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)                             |
+| 7   | [Doraemon Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doraemon_Jump)                           |
+| 8   | [Black Jack](https://github.com/kunjgit/GameZone/tree/main/Games/Black_Jack)                                 |
+| 9   | [Memory Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Game)                               |
+| 10  | [Word Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Guessing_Game)                 |
+| 11  | [Ludo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_Game)                                   |
+| 12  | [Piano Game](https://github.com/kunjgit/GameZone/tree/main/Games/Piano)                                      |
+| 13  | [Atari Breakout](https://github.com/kunjgit/GameZone/tree/main/Games/Atari_Breakout)                         |
+| 14  | [Dinosaur Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dinosaur_Game)                    |
+| 15  | [Guess The Colour by RGB Game](https://github.com/kunjgit/GameZone/tree/main/Games/Colour_Guessing_Game)     |
+| 16  | [Guess The Number](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Number)                     |
+| 17  | [Race car game](https://github.com/kunjgit/GameZone/tree/main/Games/race_car)                                |
+| 18  | [Aim Training](https://github.com/DP-NOTHING/GameZone/tree/contri/Games/Aim_Training)                        |
+| 19  | [Alien Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Shooters)                          |
+| 20  | [Fruit Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Ninja)                               |
+| 21  | [Doodle Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Doodle_Jump)                               |
+| 22  | [Alphabet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet)                                |
+| 23  | [Candy Crush](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Crush)                               |
+| 24  | [Word Association Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Association_Game)           |
+| 25  | [Tic Tac Toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe)                               |
+| 26  | [Flappy Bird Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flappy_Bird)                          |
+| 27  | [Trivia It](https://hithub.com/kunjgit/GameZone/tree/main/Games/Trivia_It)                                   |
+| 28  | [Minesweeper](https://github.com/kunjgit/GameZone/tree/main/Games/Minesweeper)                               |
+| 29  | [Dice ShowDown Game](https://github.com/Himanshu07-debug/GameZone/tree/main/Games/Dice_Showdown_Game)        |
+| 30  | [Pac_Man Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pac_Man_Game)                             |
+| 31  | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)                      |
+| 32  | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square)                        |
+| 33  | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)                                 |
+| 34  | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)                            |
+| 35  | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)                            |
+| 36  | [Word Scramble Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Scramble_Game)                 |
+| 37  | [Tetris](https://github.com/kunjgit/GameZone/tree/main/Games/Tetris)                                         |
+| 38  | [Interactive Quizzing Application](https://github.com/kunjgit/GameZone/tree/main/Games/Interactive_Quizzing) |
+| \*  | [Typing Speed Test Game](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test_Game)         |
 
 </center>
 

@@ -1,0 +1,467 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+.rr {
+  /* set via JS:
+   * --rr-difficulty-speed: 0; starting speed of game loop
+   * --rr-difficulty-size: 0; ignored space around hero (the lower the easier)
+   */
+  --rr-s-stage: 10vw;
+  /* scaling of entire game (i.e. font size w/ em's within) */
+  --rr-h-stage: 1.75em;
+  /* height of the gameboard */
+  --rr-w-stage: 10em;
+  /* width of the gameboard */
+  --rr-hangtime: 750;
+  /* jump duration */
+  --rr-h-jump: 0.8em;
+  /* jump distance up */
+  --rr-hero-size: 1em;
+  /* width/height of the hero character */
+  --rr-state: paused;
+  /* running/paused state of game */
+  --rr-x: 0;
+  /* percetange from left */
+  --rr-y: 0.145;
+  /* percentage from bottom */
+  --rr-w: 240;
+  /* width in px */
+  --rr-h: 240;
+  /* height in px */
+  --rr-s: 1;
+  /* scale (increases w & h proportionately) */
+  --rr-s-ratio: 0.002em;
+  /* initial scale obsticles are based off */
+  --rr-bp: "desktop";
+  /* size identifier */
+  /* colors/fonts */
+  --rr-c-1: #e92e49;
+  --rr-c-1-200: #d11e38;
+  --rr-c-1-800: #e98990;
+  --rr-c-0-900: #fff;
+  --rr-ff: "VT323", monospace;
+  overflow: hidden;
+  width: 100%;
+}
+.rr svg {
+  display: block;
+}
+.rr button {
+  cursor: pointer;
+  padding: 0.3em 0.5em 0.2em;
+  background-color: var(--rr-c-0-900);
+  border: 1px solid var(--rr-c-0-900);
+  color: var(--rr-c-1);
+  text-transform: uppercase;
+}
+.rr button:hover {
+  opacity: 0.5;
+}
+.rr input, .rr button {
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--rr-ff);
+}
+.rr .no-animation {
+  -webkit-animation: none !important;
+          animation: none !important;
+}
+
+@media (max-width: 800px) {
+  .rr {
+    --rr-bp: "mobile";
+    --rr-s-stage: 20vw;
+    --rr-w-stage: 5em;
+    --rr-h-stage: 2.25em;
+    --rr-hangtime: 1250;
+    --rr-h-jump: 1.15em;
+  }
+}
+.rr__stage {
+  overflow: hidden;
+  position: relative;
+  width: var(--rr-w-stage);
+  height: var(--rr-h-stage);
+  margin: 0 auto;
+  background-color: var(--rr-c-1);
+  font-family: var(--rr-ff);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--rr-s-stage);
+  /*DEBUG* / &:not(DEBUG) {
+      overflow: visible;
+      &::before,
+      &::after {
+          content: "";
+          position: absolute;
+          top: -1em;
+          z-index: 99;
+          width: calc((100vw - var(--rr-w-stage)) * .5);
+          height: 3em;
+          background: #EA5F6Daa;
+      }
+      &::before {
+          right: calc(100% + 1px);
+      }
+      &::after {
+          left: calc(100% + 1px);
+      }
+  }
+  */
+}
+.rr__stage[data-running] {
+  --rr-state: running;
+}
+
+.rr__scores {
+  position: absolute;
+  top: 0;
+  z-index: 110;
+  right: 0.25em;
+  height: 1em;
+  font-size: 0.18em;
+  color: var(--rr-c-0-900);
+}
+
+.rr__toggle {
+  position: absolute;
+  right: 0.1em;
+  bottom: 0.1em;
+  z-index: 110;
+  font-size: 0.085em;
+  transition-duration: 0.6s;
+  transition-property: background-color, opacity, color;
+}
+.rr__stage[data-running] .rr__toggle {
+  background-color: transparent;
+  opacity: 0.5;
+  color: var(--rr-c-0-900);
+}
+
+.rr__hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  width: calc(var(--rr-hero-size) * (var(--rr-difficulty-size) / 100));
+  height: calc(var(--rr-hero-size) * (var(--rr-difficulty-size) / 100));
+  bottom: 0.1em;
+  left: 0.25em;
+  z-index: 100;
+  transition: transform calc(var(--rr-hangtime) * 1ms * 0.5);
+  transition-timing-function: cubic-bezier(0.58, -0.01, 0.65, 1.15);
+}
+.rr__hero[data-ani=jumping-up] {
+  transform: translateY(calc(var(--rr-h-jump) * -1));
+  transition-timing-function: cubic-bezier(0.49, 0.1, 0.07, 0.75);
+}
+.rr__hero[data-ani=super] {
+  transform: translateY(calc(var(--rr-h-jump) * -1.1));
+}
+.rr__hero:focus {
+  outline: 0;
+}
+.rr__hero svg {
+  display: block;
+  width: var(--rr-hero-size);
+  height: var(--rr-hero-size);
+}
+
+.rr__hero-ani {
+  display: none;
+  margin-bottom: -0.2em;
+}
+
+.rr__hero:is([data-ani="jumping"], [data-ani="jumping-up"], [data-ani="resting"]) .rr__hero-ani--resting {
+  display: block;
+}
+.rr__hero:is([data-ani="jumping"], [data-ani="jumping-up"]) .rr__hero-ani--resting {
+  -webkit-animation: rr-arch calc(var(--rr-hangtime) * 1ms) var(--rr-state);
+          animation: rr-arch calc(var(--rr-hangtime) * 1ms) var(--rr-state);
+}
+@-webkit-keyframes rr-arch {
+  15%, 25% {
+    transform: rotate(-15deg);
+  }
+  90% {
+    transform: rotate(7deg);
+  }
+}
+@keyframes rr-arch {
+  15%, 25% {
+    transform: rotate(-15deg);
+  }
+  90% {
+    transform: rotate(7deg);
+  }
+}
+
+.rr__hero:is([data-ani="running"]) .rr__hero-ani--running {
+  display: block;
+}
+.rr__hero-ani--running svg {
+  -webkit-animation: rr-run 0.4s steps(4) infinite var(--rr-state);
+          animation: rr-run 0.4s steps(4) infinite var(--rr-state);
+}
+@-webkit-keyframes rr-run {
+  from {
+    transform: none;
+  }
+  to {
+    transform: translateY(calc(var(--rr-hero-size) * -4));
+  }
+}
+@keyframes rr-run {
+  from {
+    transform: none;
+  }
+  to {
+    transform: translateY(calc(var(--rr-hero-size) * -4));
+  }
+}
+.rr__hero-ani--running span {
+  overflow: hidden;
+  display: block;
+  width: var(--rr-hero-size);
+  height: var(--rr-hero-size);
+}
+
+.rr__hero:is([data-ani="super"]) .rr__hero-ani--super {
+  display: block;
+  -webkit-animation: rr-super calc(var(--rr-hangtime) * 1ms) infinite;
+          animation: rr-super calc(var(--rr-hangtime) * 1ms) infinite;
+}
+@-webkit-keyframes rr-super {
+  50% {
+    transform: translateY(-0.025em);
+  }
+}
+@keyframes rr-super {
+  50% {
+    transform: translateY(-0.025em);
+  }
+}
+
+.rr__hero-ani--crashed {
+  display: none;
+}
+.rr__hero:is([data-ani="crashed"]) .rr__hero-ani--crashed {
+  display: block;
+  margin-bottom: -0.1em;
+}
+
+.rr__landscape {
+  position: absolute;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+.rr__landscape.animates {
+  -webkit-animation: rr-landscape calc(var(--rr-difficulty-speed) * 1ms * var(--rr-parallax, 1)) infinite linear var(--rr-state);
+          animation: rr-landscape calc(var(--rr-difficulty-speed) * 1ms * var(--rr-parallax, 1)) infinite linear var(--rr-state);
+}
+@-webkit-keyframes rr-landscape {
+  100% {
+    transform: translateX(-200%);
+  }
+}
+@keyframes rr-landscape {
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+.rr__landscape--1.animates {
+  -webkit-animation-delay: calc( (var(--rr-difficulty-speed) * -1ms * var(--rr-parallax, 1)) * 0.5 );
+          animation-delay: calc( (var(--rr-difficulty-speed) * -1ms * var(--rr-parallax, 1)) * 0.5 );
+}
+
+.rr__landscape--realtime {
+  --rr-parallax: 1;
+  z-index: 50;
+}
+
+.rr__landscape--horizon {
+  --rr-parallax: 8;
+  z-index: 10;
+}
+
+.rr__landscape--mountains {
+  --rr-parallax: 32;
+  z-index: 0;
+}
+
+.rr__obsticle,
+.rr__background {
+  --rr-w-s: calc(var(--rr-w) * var(--rr-s) * var(--rr-s-ratio));
+  --rr-h-s: calc(var(--rr-h) * var(--rr-s) * var(--rr-s-ratio));
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: var(--rr-w-s);
+  height: var(--rr-h-s);
+  left: calc(var(--rr-x) * (var(--rr-w-stage) - var(--rr-w-s)));
+  bottom: calc(var(--rr-y) * (var(--rr-h-stage) - var(--rr-h-s)));
+}
+.rr__obsticle.rr-ani--rock svg,
+.rr__background.rr-ani--rock svg {
+  -webkit-animation: rr-ani-rock 1.5s infinite var(--rr-state);
+          animation: rr-ani-rock 1.5s infinite var(--rr-state);
+}
+@-webkit-keyframes rr-ani-rock {
+  50% {
+    transform: translateY(-0.05em);
+  }
+}
+@keyframes rr-ani-rock {
+  50% {
+    transform: translateY(-0.05em);
+  }
+}
+.rr__obsticle svg,
+.rr__background svg {
+  width: var(--rr-w-s);
+  height: var(--rr-h-s);
+}
+
+.rr__obsticle:not(.active) {
+  display: none;
+}
+
+.rr__ground {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 0;
+}
+
+@media (max-width: 800px) {
+  .rr__ground {
+    bottom: 0.17em;
+  }
+}
+.rr__mountains {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 85%;
+  opacity: 0.15;
+}
+.rr__mountains + .rr__mountains {
+  right: 0;
+}
+
+@media (max-width: 800px) {
+  .rr__mountains {
+    height: 55%;
+  }
+}
+.rr__msg {
+  overflow: hidden;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 100;
+  inset: -0.1em;
+}
+.rr__msg.active {
+  display: flex;
+}
+.rr__msg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--rr-c-1);
+  opacity: 0.75;
+}
+
+.rr__msg--level {
+  transform: scale(0);
+  -webkit-animation: rr-level 0.85s forwards;
+          animation: rr-level 0.85s forwards;
+}
+.rr__msg--level::before {
+  background-color: transparent;
+}
+@-webkit-keyframes rr-level {
+  100% {
+    transform: scale(1.5);
+  }
+}
+@keyframes rr-level {
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+.rr__msg-txt {
+  max-width: 10em;
+  font-size: 0.25em;
+  text-align: center;
+  color: var(--rr-c-0-900);
+}
+
+.rr__user-form {
+  max-width: 10em;
+  font-size: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.rr__user-form input {
+  width: 100%;
+  background-color: transparent;
+  border: 0 solid var(--rr-c-1-800);
+  border-bottom-width: 1px;
+  font-size: 1em;
+  text-align: center;
+  color: var(--rr-c-0-900);
+}
+.rr__user-form input:focus {
+  outline: 0;
+  border-color: var(--rr-c-0-900);
+}
+.rr__user-form input::-moz-placeholder {
+  color: var(--rr-c-0-900);
+  opacity: 0.5;
+}
+.rr__user-form input:-ms-input-placeholder {
+  color: var(--rr-c-0-900);
+  opacity: 0.5;
+}
+.rr__user-form input::placeholder {
+  color: var(--rr-c-0-900);
+  opacity: 0.5;
+}
+.rr__user-form button {
+  margin: 0.5em auto;
+  font-size: 0.75em;
+}
+
+/* global */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* codepen only below */
+body {
+  display: flex;
+  align-items: center;
+  filter: hue-rotate(177deg);
+}
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: #ea5f6d;
+}

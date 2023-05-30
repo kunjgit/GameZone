@@ -16,7 +16,7 @@ const calculate = () => {
     female_name.replace(/\s/g, "")
     let combined_name = (male_name + female_name).toLowerCase()
     for (let i = 0; i < combined_name.length; i++) {
-        if (combined_name[i] === "l" || combined_name[i] === "o" || combined_name[i] === "v" || combined_name[i] === "e") {
+        if (combined_name[i] === "l" || combined_name[i] === "o" || combined_name[i] === "v" || combined_name[i] === "e"|| combined_name[i] === "t"|| combined_name[i] === "r"|| combined_name[i] === "u") {
             love_score++
         }
     }

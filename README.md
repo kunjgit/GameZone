@@ -138,6 +138,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 36 | [Word Scramble Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Scramble_Game)|
 | 37 | [Tetris](https://github.com/kunjgit/GameZone/tree/main/Games/Tetris)|
 | 38 | [Interactive Quizzing Application](https://github.com/kunjgit/GameZone/tree/main/Games/Interactive_Quizzing)|
+| *  | [Tile_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
 
 
 

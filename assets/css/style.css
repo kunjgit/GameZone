@@ -14,6 +14,13 @@
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
+
+main{
+  background: radial-gradient(50% 50% at 50% 50%, #0B004E 0%, #08003A 57.81%, #06002E 100%);
+  margin-top: 60px;
+  margin-bottom: 0px;
+}
+
 a {
   text-decoration: none;
   color: #fff;
@@ -28,8 +35,6 @@ footer {
   left: 0;
 
   right: 0;
-
-  background: var(--smoky-black);
 
   height: auto;
   
@@ -1641,19 +1646,6 @@ textarea.form-input::-webkit-resizer {
     border-radius: 12px;
     font-size: 18px;
   }
-
-
-
-  /**
-   * #MAIN
-   */
-
-  main {
-    margin-top: 60px;
-    margin-bottom: 0px;
-  }
-
-
 
   /**
    * #SIDEBAR

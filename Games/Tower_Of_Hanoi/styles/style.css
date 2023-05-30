@@ -20,21 +20,20 @@ body {
   box-shadow: 8px 8px 20px rgb(0, 0, 0);
 }
 .model h1 {
-  margin: 1rem 0;
-  font-size: 3.4rem;
+  font-size: 2.4rem;
   font-weight: 600;
-  font-family: cursive;
+  font-family: "Montserrat" sans-serif;
   text-align: center;
 }
 .model .details {
   width: 100%;
   height: 74%;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   display: grid;
-  margin: 0px 3px;
+  margin: -4px 3px;
 }
 .model .details p {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   font-family: cursive;
 }

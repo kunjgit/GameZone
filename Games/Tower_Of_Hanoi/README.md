@@ -12,6 +12,10 @@
 
 - The game is made using HTML5, CSS3, SCSS, JavaScript.
 
+- Still working on a Solve theorem may be gonna apply in few days.
+
+- Added a Model in the starting to show the rules in case  you are aware.
+
 ## **functionalities 🎮**
 
 - Disk Movement:

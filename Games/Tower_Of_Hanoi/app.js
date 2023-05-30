@@ -67,7 +67,7 @@ $(document).ready(function() {
         }
         hold = null;
       }
-      if (solved()) alert("Solved with " + moves + " moves!");
+      if (solved()) $(".moves").text("Solved with " + moves + " moves!");
     }
   
     function moveDisc(a, b) {

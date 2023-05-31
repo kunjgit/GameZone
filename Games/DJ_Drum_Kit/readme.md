@@ -17,7 +17,7 @@
 
 ## **How to play? 🕹️**
 - Tap on different parts of drum set to play sound
-
+- If playing on a device with keyboard input hitting the keys will also generate the same output
 <br>
 
 ## **Screenshots 📸**

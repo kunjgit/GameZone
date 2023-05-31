@@ -23,7 +23,7 @@
 ## **Screenshots 📸**
 
 <br>
-<img src="./assets/images/DJ_Drum_Kit" alt="image">
+<img src="./assets/images/DJ_Drum_Kit.png" alt="image">
 
 <br>
 

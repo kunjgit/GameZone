@@ -1,5 +1,21 @@
 'use strict';
 
+//mode-toggle
+
+var icon = document.getElementsByClassName("mode-toggle")[0];
+var root = document.documentElement;
+var body = document.body;
+
+icon.addEventListener("click", function() {
+root.classList.toggle("light-mode");
+body.classList.toggle("light-mode");
+
+if (body.classList.contains("light-mode")) {
+  icon.innerHTML = '<i class="fa-solid fa-2xl fa-moon" style="color: #000000;"></i>';
+} else {
+  icon.innerHTML = '<i class="fa-solid fa-2xl fa-sun"></i>';
+}
+});
 
 
 // element toggle function

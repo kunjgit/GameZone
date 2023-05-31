@@ -16,7 +16,7 @@
 \*-----------------------------------*/
 a {
   text-decoration: none;
-  color: #fff;
+  color: var(--secondary-color);
 
 }
 
@@ -29,7 +29,7 @@ footer {
 
   right: 0;
 
-  background: var(--smoky-black);
+  background: var(--primary-color);
 
   height: auto;
   
@@ -41,7 +41,7 @@ footer {
 
   padding-top: 40px;
   margin-top: auto;
-  color: #fff;
+  color: var(--secondary-color);
 }
 
 .footer-content {
@@ -79,7 +79,7 @@ footer {
 
   font-size: 14px;
 
-  color: #cacdd2;
+  color: var(--secondary-color);
 }
 
 
@@ -102,7 +102,7 @@ footer {
 .socials a {
   text-decoration: none;
 
-  color: #fff;
+  color: var(--secondary-color);
 
   padding: 5px;
 }
@@ -120,7 +120,7 @@ footer {
 }
 
 .footer-bottom {
-  background: #000;
+  background: var(--primary-color);
 
   width: 100vw;
 
@@ -198,6 +198,23 @@ footer {
   /**
    * colors
    */
+
+  /* darkMode-lightMode Toggle */
+  
+    /*background-color*/
+    --primary-color: hsl(0, 0%, 7%);
+    --secondary-color: hsl(86, 42%, 93%);
+  
+  
+   /* light mode theme */
+   
+    .light-mode{
+    --primary-color: #fff9f3;
+    --secondary-color: hsl(0, 3%, 6%);
+  
+      
+    }
+
 
   /* gradient */
 
@@ -340,7 +357,7 @@ html {
 }
 
 body {
-  background: var(--smoky-black);
+  background: var(--primary-color);
 }
 
 
@@ -464,7 +481,7 @@ article.active {
 }
 
 .has-scrollbar::-webkit-scrollbar-track {
-  background: var(--onyx);
+  background: var(--secondary-color);
   border-radius: 5px;
 }
 
@@ -512,7 +529,11 @@ main {
 }
 
 
-
+.head-title{
+  color: var(--secondary-color); 
+  text-align: center; 
+  font-size: 1.5cm; 
+}
 
 
 /*-----------------------------------*\
@@ -1307,7 +1328,7 @@ main {
 }
 
 .project-title {
-  color: var(--white-2);
+  color: var(--secondary-color);
   font-size: var(--fs-5);
   font-weight: var(--fw-400);
   text-transform: capitalize;
@@ -1315,7 +1336,7 @@ main {
 }
 
 .project-category {
-  color: var(--light-gray-70);
+  color: var(--secondary-color);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
 }

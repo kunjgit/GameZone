@@ -31,3 +31,7 @@ The Drum Kit website is built using the following technologies:
 - HTML: Used for the structure and layout of the web page.
 - CSS: Used for styling the website and creating visual effects.
 - JavaScript: Used to handle the button clicks and play the drum sounds.
+## Screenshot!
+![Drum_Kit](https://github.com/sharmavikas4/GameZone/assets/103022164/395a3c5a-43b1-42e8-ab7d-9065b5c165a1)
+
+

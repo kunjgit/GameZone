@@ -149,6 +149,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 44 | [Typing Speed Test Game](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test_Game)|
 | 45 | [Tile_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
 
+| * | [Connect4](https://github.com/kunjgit/GameZone/tree/main/Games/Connect4)|
+
 
 </center>
 

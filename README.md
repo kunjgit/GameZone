@@ -26,7 +26,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 ![GitHub contributors](https://img.shields.io/github/contributors/kunjgit/GameZone)
 ![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Fkunjgit.github.io%2FGameZone%2F)
 
-</p>    
+</p>
 
 </div>
 <br>
@@ -41,11 +41,13 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 </div>
 <center>
 <p>
+<div align="center">
 <img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge&logo=HTML5&logoColor=white">
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black">
 <img src="https://img.shields.io/badge/Bootstrap-7952B3.svg?style=for-the-badge&logo=Bootstrap&logoColor=black">
 <img src="https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=black">
 <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=black">
+<div>
 </p>
 </center>
 <br>
@@ -65,26 +67,27 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 - Clone this repository `git clone "url of the repo"`
 
 * Raise and issue to add new game or to enhancement for a game (Have a look at few things you have to take care during raising issue )
-   - Select appropriate issue template
-   - Make sure your idea is unique and interesting ðŸš€
 
-   * Don't alter the issue title. You are supposed to write your issue name after that only.
-      - `[Issue Title]: Your Issue` make sure you just add your issue name
-      - ex .`[New game]: Super Mario`
+  - Select appropriate issue template
+  - Make sure your idea is unique and interesting ðŸš€
 
-   - Make sure you select the program in which you are participating ðŸ”¥
+  * Don't alter the issue title. You are supposed to write your issue name after that only.
+    - `[Issue Title]: Your Issue` make sure you just add your issue name
+    - ex .`[New game]: Super Mario`
+
+  - Make sure you select the program in which you are participating ðŸ”¥
 
 - Wait till you have been assigned the issue
 - After you have been assigned the issue start working on the code
 - Create your new branch using `git checkout -b <name of your branch> `
 
 * Having your code into the repository
-   - Make your game folder into `Games` folder by the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
-   - Add your code files (index.html,style.css,script.js) in your game folder
-   - Create `README.md` file in your folder and add all the functionalities and how you can play that game in that README file , also include screenshots of working game , video of a game explaining (if required).
-   - To create `Your_Folder/README.md ` checkout the template [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md)
-   - Now take one good screenshot of your game that you want to display it on our website and add into `assets/images` (follow the naming convention <your_folder_name>.png or .jpeg or .jpg)
-   - add your folders link and name in main README.md (the one you are reading currently)
+  - Make your game folder into `Games` folder by the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
+  - Add your code files (index.html,style.css,script.js) in your game folder
+  - Create `README.md` file in your folder and add all the functionalities and how you can play that game in that README file , also include screenshots of working game , video of a game explaining (if required).
+  - To create `Your_Folder/README.md ` checkout the template [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md)
+  - Now take one good screenshot of your game that you want to display it on our website and add into `assets/images` (follow the naming convention <your_folder_name>.png or .jpeg or .jpg)
+  - add your folders link and name in main README.md (the one you are reading currently)
 
 - Push your changes to Github using `git push origin <name your branch>`
 - Submit your changes for review by creating PR
@@ -97,10 +100,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 </div>
 <!-- list of the games -->
 <center>
-
+  
 | No. | Name of the game |
 | --- | --- |
-| 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing) |
+| 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)|
 | 2 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)|
 | 3 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
 | 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
@@ -138,8 +141,13 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 36 | [Word Scramble Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Scramble_Game)|
 | 37 | [Tetris](https://github.com/kunjgit/GameZone/tree/main/Games/Tetris)|
 | 38 | [Interactive Quizzing Application](https://github.com/kunjgit/GameZone/tree/main/Games/Interactive_Quizzing)|
-| *  | [Tile_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
-
+| 39 | [Planet Defense Game](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Defense)|
+| 40 | [Rabbit Rush Game](https://github.com/kunjgit/GameZone/tree/main/Games/Rabbit_Rush)| 
+| 41 | [Wordle](https://github.com/kunjgit/GameZone/tree/main/Games/Wordle)|
+| 42 | [Roll Race Game](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_Race)| 
+| 43 | [Menja Game](https://github.com/kunjgit/GameZone/tree/main/Games/Menja)| 
+| 44 | [Typing Speed Test Game](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test_Game)|
+| 45 | [Tile_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
 
 
 </center>

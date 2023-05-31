@@ -143,6 +143,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 39 | [Planet Defense Game](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Defense)|
 | 40 | [Rabbit Rush Game](https://github.com/kunjgit/GameZone/tree/main/Games/Rabbit_Rush)| 
 | 41 | [Wordle](https://github.com/kunjgit/GameZone/tree/main/Games/Wordle) |
+| 42 | [Roll Race Game](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_Race)| 
+
 
 
 </center>

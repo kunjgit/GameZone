@@ -60,4 +60,17 @@
     background-image:linear-gradient(yellow,orange);
     border: .25vmin solid black;
     border-radius:50% ;
+=======
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    background-color: blue;
+}
+h1{
+    margin: 0.5rem;
+}
+p{
+    margin: 0.5rem;
 }

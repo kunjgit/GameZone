@@ -100,9 +100,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 </div>
 <!-- list of the games -->
 <center>
+  
 | No. | Name of the game |
 | --- | --- |
-| 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing) |
+| 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)|
 | 2 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)|
 | 3 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
 | 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
@@ -142,7 +143,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 38 | [Interactive Quizzing Application](https://github.com/kunjgit/GameZone/tree/main/Games/Interactive_Quizzing)|
 | 39 | [Planet Defense Game](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Defense)|
 | 40 | [Rabbit Rush Game](https://github.com/kunjgit/GameZone/tree/main/Games/Rabbit_Rush)| 
-| 41 | [Wordle](https://github.com/kunjgit/GameZone/tree/main/Games/Wordle) |
+| 41 | [Wordle](https://github.com/kunjgit/GameZone/tree/main/Games/Wordle)|
 | 42 | [Roll Race Game](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_Race)| 
 | 43 | [Menja Game](https://github.com/kunjgit/GameZone/tree/main/Games/Menja)| 
 | 44 | [Typing Speed Test Game](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test_Game)|

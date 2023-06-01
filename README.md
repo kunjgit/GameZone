@@ -148,7 +148,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 43 | [Menja Game](https://github.com/kunjgit/GameZone/tree/main/Games/Menja)| 
 | 44 | [Typing Speed Test Game](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test_Game)|
 | 45 | [Tile_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
-| *  | [Traffic_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
+| 46 | [Stick_Hero_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Stick_Hero_Game)|
+| 47 | [Starwars_Character_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Starwars_Character_Game)|
+| 48  | [Traffic_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
+
 
 </center>
 

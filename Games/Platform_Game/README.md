@@ -20,11 +20,13 @@
 - You have to also avoid the fire lake in the path. If you hit them you will lose the game.
 <br>
 
+
 ## **Screenshots 📸**
-<br>
-![Game image](../../assets/images/Platform_Game.png)
 
 <br>
+
+![Game image](../../assets/images/Platform_Game.png)
+
 
 ## **Working video 📹**
 <!-- add your working video over here -->

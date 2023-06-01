@@ -148,7 +148,12 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 43 | [Menja Game](https://github.com/kunjgit/GameZone/tree/main/Games/Menja)| 
 | 44 | [Typing Speed Test Game](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test_Game)|
 | 45 | [Tile_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
-| 45 | [2048](https://github.com/kunjgit/GameZone/tree/main/Games/2048)|
+=======
+| 46 | [Stick_Hero_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Stick_Hero_Game)|
+| 47 | [Starwars_Character_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Starwars_Character_Game)|
+| 48 | [Traffic_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
+| 49 | [Love Result Predictor](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Result_Predictor)|
+| 50 | [2048](https://github.com/kunjgit/GameZone/tree/main/Games/2048)|
 
 
 </center>
@@ -193,10 +198,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 ![GSSoC23](https://raw.githubusercontent.com/girlscript/gssoc-assets/main/Logos/GS_logo_White.png)
 
-| Dhruva Bhattacharya                                                                                   | Arun G Nayak                                                                                   | RAJU KUMAR                                                                                         | Durgesh Kumar Prajapati                                                                               |
-| ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| ![Mentor 1](https://avatars.githubusercontent.com/u/71749153?v=4&s=150)                               | ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                            | ![Mentor 4](https://avatars.githubusercontent.com/u/98798977?v=4&s=150)                               |
-| [LinkedIn](https://www.linkedin.com/in/dhruva-bhattacharya/) \| [GitHub](https://github.com/dhruvaop) | [LinkedIn](https://www.linkedin.com/in/arun-g-nayak) \| [GitHub](https://github.com/Arun9739/) | [LinkedIn](https://www.linkedin.com/in/rajukumar101/) \| [GitHub](https://github.com/raju-kumar21) | [LinkedIn](https://www.linkedin.com/in/durgeshkumar4993/) \| [GitHub](https://github.com/Durgesh4993) |
+
+| Arun G Nayak                                                                                   | RAJU KUMAR                                                                                         |
+| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                           |
+| [LinkedIn](https://www.linkedin.com/in/arun-g-nayak) \| [GitHub](https://github.com/Arun9739/) | [LinkedIn](https://www.linkedin.com/in/rajukumar101/) \| [GitHub](https://github.com/raju-kumar21) |
 
 </div>
 <br>

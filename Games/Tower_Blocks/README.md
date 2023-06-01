@@ -6,8 +6,6 @@
 
 ## **Description 📃** 
 - Blocks will be sliding in different directions. Your aim is to stop them at the right place so as to make the highest tower possible.
-**Your Chrome Dinosaur game, but with some twists.**
-
 
 ## **functionalities 🎮** 
 - Easy to play

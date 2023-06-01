@@ -1,0 +1,35 @@
+.top-img{
+    width: 40%;
+    height: 40%;
+    margin: top 20px;
+    margin-bottom: 50px;
+    max-width: 450px;
+}
+h1{
+    font-size: 4rem;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-weight: bold;
+}
+.top{
+    min-height: 450px;
+    background: url("images\\bg.png");
+}
+.top-1{
+    width: 60%;
+}
+.start{
+    margin-top: 40px;
+}
+.pl1 .pl2{
+    font-weight: 700;
+}
+.playzone{
+    width: 65%;
+}
+.dice{
+    width: 30%;
+}
+.bottom{
+    background: url("images\\bg-bottom.png");
+    margin-top: 10%;
+}

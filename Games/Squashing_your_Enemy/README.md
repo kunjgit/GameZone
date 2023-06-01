@@ -25,12 +25,16 @@ The game uses HTML Canvas and JavaScript.
 ## **Screenshots 📸**
 
 <br>
-## Game Page
+**Game Page**
 <img src = "assets\1.png">
-## ScoreBoard
+**ScoreBoard**
 <img src = "assets\2.png">
 
 <br>
 
 ## **Working video 📹**
+
+
+https://github.com/dishamodi0910/GameZone/assets/106090499/1225d3a2-d818-4798-a7cc-87aa9167aebb
+
 

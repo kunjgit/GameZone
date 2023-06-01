@@ -126,6 +126,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 25 | [Tic Tac Toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe)|
 | 26 | [Samurai Game](https://github.com/kunjgit/GameZone/tree/main/Games/Samurai)|
 
+| 53 | [Moto Racing Game](https://github.com/kunjgit/GameZone/tree/main/Games/racing_moto)|
+
 </center>
 
 <br>

@@ -135,7 +135,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 33 | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)|  
 | 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)|
 | 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)| 
-| 36 | [Catch the fruit Game](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_fruit)|
+| * | [Catch the fruit Game](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_fruit)|
 | 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)| 
 | 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)|
 | 36 | [Word Scramble Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Scramble_Game)|

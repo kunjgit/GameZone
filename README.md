@@ -195,10 +195,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 ![GSSoC23](https://raw.githubusercontent.com/girlscript/gssoc-assets/main/Logos/GS_logo_White.png)
 
-| Dhruva Bhattacharya                                                                                   | Arun G Nayak                                                                                   | RAJU KUMAR                                                                                         | Durgesh Kumar Prajapati                                                                               |
-| ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| ![Mentor 1](https://avatars.githubusercontent.com/u/71749153?v=4&s=150)                               | ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                            | ![Mentor 4](https://avatars.githubusercontent.com/u/98798977?v=4&s=150)                               |
-| [LinkedIn](https://www.linkedin.com/in/dhruva-bhattacharya/) \| [GitHub](https://github.com/dhruvaop) | [LinkedIn](https://www.linkedin.com/in/arun-g-nayak) \| [GitHub](https://github.com/Arun9739/) | [LinkedIn](https://www.linkedin.com/in/rajukumar101/) \| [GitHub](https://github.com/raju-kumar21) | [LinkedIn](https://www.linkedin.com/in/durgeshkumar4993/) \| [GitHub](https://github.com/Durgesh4993) |
+
+| Arun G Nayak                                                                                   | RAJU KUMAR                                                                                         |
+| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                           |
+| [LinkedIn](https://www.linkedin.com/in/arun-g-nayak) \| [GitHub](https://github.com/Arun9739/) | [LinkedIn](https://www.linkedin.com/in/rajukumar101/) \| [GitHub](https://github.com/raju-kumar21) |
 
 </div>
 <br>

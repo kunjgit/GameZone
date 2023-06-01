@@ -20,7 +20,7 @@ html, body {
     font-size: 10vh;
     transition: transform 0.5s ease;
     color: #334;
-    transform: translatey(200px) scale(1);
+    transform: translatey(500px) scale(1);
 }
 
 #container #score {

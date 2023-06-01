@@ -6,7 +6,7 @@
 </div>
 <div align="center">
 
-<h3><font size="4">This open source repository contains collection of games build on basic tech stacks in web development . Use your creativity and build your own game and contribute to the repository by making PR 🎮
+<h3><font size="4">This open source repository contains a collection of games built on basic tech stacks in web development. Use your creativity, build your own game and contribute to the repository by making a PR 🎮
 <br>
 Make sure you star the repository and show your love to us💗
 <br>
@@ -148,8 +148,11 @@ Also join the discord server for GameZone and start collaborating with others �
 | 43 | [Menja Game](https://github.com/kunjgit/GameZone/tree/main/Games/Menja)| 
 | 44 | [Typing Speed Test Game](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test_Game)|
 | 45 | [Tile_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
-| 46 | [Samurai Game](https://github.com/kunjgit/GameZone/tree/main/Games/Samurai)|
-
+| 46 | [Stick_Hero_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Stick_Hero_Game)|
+| 47 | [Starwars_Character_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Starwars_Character_Game)|
+| 48 | [Traffic_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
+| 49 | [Love Result Predictor](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Result_Predictor)|
+| 52 | [Samurai Game](https://github.com/kunjgit/GameZone/tree/main/Games/Samurai)|
 
 
 </center>

@@ -148,7 +148,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 43 | [Menja Game](https://github.com/kunjgit/GameZone/tree/main/Games/Menja)| 
 | 44 | [Typing Speed Test Game](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test_Game)|
 | 45 | [Tile_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
-
+| 46 | [Red_Light_Green_Light](https://github.com/kunjgit/GameZone/tree/main/Games/Red_Light_Green_Light)|
 
 </center>
 

@@ -166,8 +166,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 59 | [Unruly Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Unruly_Tower)|
 | 60 | [Maze Game](https://github.com/kunjgit/GameZone/tree/main/Games/MazeGame)|
 | 61 | [Connect4](https://github.com/kunjgit/GameZone/tree/main/Games/Connect4)|
-
-
 | 62 | [Spelling_Bee](https://github.com/kunjgit/GameZone/tree/main/Games/Spelling_Bee)|
 
 </center>

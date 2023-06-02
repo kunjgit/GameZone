@@ -107,18 +107,19 @@ function padNumber(number) {
 function assessment() {
   const accuracy = (correctEntry / totalEntry) * 100;
   const acc = accuracy.toFixed(2);
+  
+  timerElement.innerHTML =`You type with the speed of ${correctEntry} CPM. Your accuracy was ${acc}%. `
 
-  if (isNaN(acc)) {
-    timerElement.innerHTML = "No entries made. Accuracy cannot be calculated.";
-  } else if (acc == 100) {
-    timerElement.innerHTML = "Great! You achieved 100% Accuracy.";
-  } else if (acc >= 90 && acc <= 99) {
-    timerElement.innerHTML = `Outstanding! You achieved ${acc}% Accuracy.`;
-  } else if (acc >= 80 && acc <= 89) {
-    timerElement.innerHTML = `Excellent! You achieved ${acc}% Accuracy.`;
-  } else if (acc >= 70 && acc <= 79) {
-    timerElement.innerHTML = `Good! You achieved ${acc}% Accuracy.`;
+  if (correctEntry > 60) {
+    timerElement.innerHTML+=`<br> <p style="display: flex; justify-content: center">Excellent!!!</p>`;
+  } else if (correctEntry >= 50 && correctEntry < 60) {
+    timerElement.innerHTML+=`<br> <p style="display: flex; justify-content: center">Great!</p>`;
+  } else if (correctEntry >= 35 && correctEntry < 50) {
+    timerElement.innerHTML+=`<br> <p style="display: flex; justify-content: center">Good attempt</p>`;
+  } else if (correctEntry >= 20 && correctEntry < 35) {
+    timerElement.innerHTML+=`<br> <p style="display: flex; justify-content: center">Fair enough</p>`;
   } else {
-    timerElement.innerHTML = "You Need More Practice!";
+    timerElement.innerHTML+=`<br> <p style="display: flex; justify-content: center">Need More Practice!</p>`;
   }
+
 }

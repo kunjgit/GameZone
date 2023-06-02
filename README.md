@@ -136,6 +136,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
 | 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square)|
 | 33 | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)|  
+| 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)|
+| 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)| 
 | 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)| 
 | 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)|
 | 36 | [Word Scramble Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Scramble_Game)|
@@ -148,7 +150,20 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 43 | [Menja Game](https://github.com/kunjgit/GameZone/tree/main/Games/Menja)| 
 | 44 | [Typing Speed Test Game](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test_Game)|
 | 45 | [Tile_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
-| 46 | [Unruly Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Unruly_Tower)|
+| 46 | [Stick_Hero_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Stick_Hero_Game)|
+| 47 | [Starwars_Character_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Starwars_Character_Game)|
+| 48 | [Traffic_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
+| 49 | [Love Result Predictor](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Result_Predictor)|
+| 50 | [Snake and Ladders](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_and_ladders)|
+| 51 | [Tower Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Defense)|
+| 52 | [Bird Game](https://github.com/Shr-reny/GameZone/tree/b367981bcb5c3654f79fb23b4ffd41e159e9cc24/Games/Bird_game)|
+| 53 | [Bubble Blast Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bubble_Blast_Game)|
+| 54 | [Emoji Charades](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Charades)|           
+| 55 | [Drum And Kit](https://github.com/Roshnijeewani3457/GameZone/tree/new/Games/Drum_And_Kit)|           
+| 56 | [Rock Paper Scissors](https://github.com/its-me-abhishek/GameZone/tree/main/Games/Rock_Paper_Scissors)|
+| 57 | [Frogger](https://github.com/kunjgit/GameZone/tree/main/Games/Frogger) |
+| 58 | [!morethan5 ](https://github.com/SusanStorm/GameZone/tree/main/Games/Not_morethan5)|
+| 59 | [Unruly Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Unruly_Tower)|
 
 
 </center>
@@ -193,10 +208,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 ![GSSoC23](https://raw.githubusercontent.com/girlscript/gssoc-assets/main/Logos/GS_logo_White.png)
 
-| Dhruva Bhattacharya                                                                                   | Arun G Nayak                                                                                   | RAJU KUMAR                                                                                         | Durgesh Kumar Prajapati                                                                               |
-| ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| ![Mentor 1](https://avatars.githubusercontent.com/u/71749153?v=4&s=150)                               | ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                            | ![Mentor 4](https://avatars.githubusercontent.com/u/98798977?v=4&s=150)                               |
-| [LinkedIn](https://www.linkedin.com/in/dhruva-bhattacharya/) \| [GitHub](https://github.com/dhruvaop) | [LinkedIn](https://www.linkedin.com/in/arun-g-nayak) \| [GitHub](https://github.com/Arun9739/) | [LinkedIn](https://www.linkedin.com/in/rajukumar101/) \| [GitHub](https://github.com/raju-kumar21) | [LinkedIn](https://www.linkedin.com/in/durgeshkumar4993/) \| [GitHub](https://github.com/Durgesh4993) |
+
+| Arun G Nayak                                                                                   | RAJU KUMAR                                                                                         |
+| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                           |
+| [LinkedIn](https://www.linkedin.com/in/arun-g-nayak) \| [GitHub](https://github.com/Arun9739/) | [LinkedIn](https://www.linkedin.com/in/rajukumar101/) \| [GitHub](https://github.com/raju-kumar21) |
 
 </div>
 <br>

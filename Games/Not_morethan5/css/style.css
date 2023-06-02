@@ -1,0 +1,253 @@
+body {
+	background-image: url("https://media.istockphoto.com/photos/futuristic-scifi-concrete-room-with-glowing-neon-virtual-reality-picture-id1174871534?k=20&m=1174871534&s=612x612&w=0&h=jWkOvWaUj18f0w2ZVTdnFyoHBkR5X2nKuvp3wx9Gqvw=");
+	/* background-image: url("https://csshint.com/wp-content/uploads/2020/01/CSS-Animated-Backgrounds-2.gif"); */
+	background-position: center;
+	background-repeat: no-repeat;
+  background-size: cover;
+
+	/* background-color: #fefbd8; */
+		text-align: center;
+		font-family: 'Roboto', sans-serif;
+		/* background: linear-gradient(to bottom right, #33ccff 10%, #ffffcc 90%); */
+}
+
+body a {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+#heading {
+	/* background: -webkit-linear-gradient(#64605f 3%, #352d2d 73%); */
+	background: -webkit-linear-gradient(#32C1CD 3%, cyan 73%);
+	/* background: -webkit-linear-gradient(#32C1CD 3%,#544179 73%); */
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	/* font-family: 'Lobster', cursive; */
+	font-family: 'Fuzzy Bubbles', cursive;
+	margin-top: 70px;
+}
+.details {
+	position: absolute;
+	left: 1;
+	top: 1;
+	padding: 5px;
+}
+#ryan {
+	height: 100%;
+	margin: auto;
+	margin-top: 0;
+	text-align: center;
+}
+#ryan_end {
+	color: #32C1CD;
+	margin: 30px;
+}
+#ryan_animation {
+	height: 10em;
+	margin: 0 auto;
+	width: 11em;
+}
+#ryan_guesses {
+	color:#32C1CD;
+	margin: 20px;
+	font-family: 'Source Code Pro', monospace;
+}
+#ryan_word {
+	margin: 10px
+}
+#ryan_gameover, #ryan_victory {
+	color: #6166B3;
+	font-size: 5em;
+}
+section#ryanan {
+	height: 30.5em;
+	overflow: hidden;
+}
+#ryan_word, #ryan_guesses {
+	letter-spacing: 1em;
+}
+#myModal {
+	margin-top: 0px;
+}
+.btn {
+   
+	box-shadow: none;
+	outline: none;
+	margin: 15px;
+	margin-bottom: 10px;
+	font-family: 'Fuzzy Bubbles', cursive;
+}
+
+.h {
+	opacity: 0;
+}
+
+.man_head {
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	background-color: #FFCC99;
+	position: relative;
+	bottom: 150px;
+	left: 112px;
+}
+.man_upper {
+	background: #000066;
+	width: 40px;
+	height: 50px;
+	position: relative;
+	left: 112px;
+	bottom: 150px;
+}
+.man_lower {
+	background: #330099;
+	width: 30px;
+	height: 30px;
+	position: relative;
+	left: 117px;
+	bottom: 150px;
+}
+.pole_h {
+	background: #000;
+	width: 100px;
+	height: 8px;
+	position: relative;
+	left: 46px;
+}
+.pole_v {
+	width: 8px;
+	height: 150px;
+	background: #000;
+	left: 46px;
+	position: relative;
+}
+.pole_b {
+	border-color: transparent transparent #000000 transparent;
+	border-width: 0 50px 50px 50px;
+	border-style: solid;
+	width: 0;
+	height: 0;
+	bottom: 10px;
+	position: relative;
+}
+.rope {
+	width: 6px;
+	height: 40px;
+	background-color: #996633;
+	position: relative;
+	bottom: 150px;
+	left: 130px;
+}
+#footer {
+	position: relative;
+	bottom: 0;
+}
+.social-media {
+	color: #EEEEEE;
+	/* color: #181818; */
+	bottom: 0;
+	padding: 5px;
+}
+
+/* dark mode  */
+
+.dark-mode {
+	background: linear-gradient(to bottom right, #0a0a0a 0%, #7e7c7c 100%);
+	color: black;
+}
+.dark-mode .theme {
+	background-color: whitesmoke;
+	color: rgb(51, 47, 47);
+}
+.dark-mode #heading {
+	background: -webkit-linear-gradient(#f8f4f3 3%, #b1b1b1 73%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: whitesmoke;
+}
+.dark-mode .social-media {
+	color: #f5f5f5;
+}
+
+
+
+/* loading overlay*/
+
+.loading-overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+	background: linear-gradient(to bottom right, #33ccff 0%, #ffffcc 100%);
+}
+.sk-cube-grid {
+	width: 40px;
+	height: 40px;
+	margin: 300px auto;
+}
+.sk-cube-grid .sk-cube {
+	width: 33%;
+	height: 33%;
+	background-color: #333;
+	float: left;
+	-webkit-animation: sk-cubeGridScaleDelay 1.2s infinite ease-in-out;
+	animation: sk-cubeGridScaleDelay 1.2s infinite ease-in-out;
+}
+.sk-cube-grid .sk-cube1 {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
+}
+.sk-cube-grid .sk-cube2 {
+	-webkit-animation-delay: 0.3s;
+	animation-delay: 0.3s;
+}
+.sk-cube-grid .sk-cube3 {
+	-webkit-animation-delay: 0.4s;
+	animation-delay: 0.4s;
+}
+.sk-cube-grid .sk-cube4 {
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
+}
+.sk-cube-grid .sk-cube5 {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
+}
+.sk-cube-grid .sk-cube6 {
+	-webkit-animation-delay: 0.3s;
+	animation-delay: 0.3s;
+}
+.sk-cube-grid .sk-cube7 {
+	-webkit-animation-delay: 0s;
+	animation-delay: 0s;
+}
+.sk-cube-grid .sk-cube8 {
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
+}
+.sk-cube-grid .sk-cube9 {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
+}
+@-webkit-keyframes sk-cubeGridScaleDelay {
+	0%,	70%, 100% {
+		-webkit-transform: scale3D(1, 1, 1);
+		transform: scale3D(1, 1, 1);
+	} 35% {
+		-webkit-transform: scale3D(0, 0, 1);
+		transform: scale3D(0, 0, 1);
+	}
+}
+@keyframes sk-cubeGridScaleDelay {
+	0%, 70%, 100% {
+		-webkit-transform: scale3D(1, 1, 1);
+		transform: scale3D(1, 1, 1);
+	} 35% {
+		-webkit-transform: scale3D(0, 0, 1);
+		transform: scale3D(0, 0, 1);
+	}
+}

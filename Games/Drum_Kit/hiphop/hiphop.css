@@ -1,0 +1,128 @@
+body {
+  text-align: center;
+}
+.drum {
+  outline: none;
+  font-size: 1.5rem;
+  font-family: "Arvo", cursive;
+  line-height: 2;
+  font-weight: 900;
+  color: #ff0073;
+  text-shadow: 3px 0 #dbedf3;
+  border-radius: 15px;
+  display: inline-block;
+  width: 200px;
+  height: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dropdown-menu-center {
+  top: 50px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.nav {
+  margin-top: 20px;
+}
+
+.a {
+  background-image: url("../../images/hi-hat.png");
+  grid-column: 1;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  height: 360px;
+}
+
+.w {
+  background-image: url("../../images/floor-tom.png");
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.s {
+  background-image: url("../../images/tom-drum.png");
+  grid-column: 5;
+  grid-row: 3;
+}
+
+.d {
+  background-image: url("../../images/snare-drum.png");
+  grid-column: 6;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  height: 380px;
+}
+
+.j {
+  background-image: url("../../images/tom.png");
+  grid-row: 4;
+  grid-column: 2;
+}
+
+.k {
+  background-image: url("../../images/tom.png");
+  grid-row: 4;
+  grid-column: 5;
+}
+
+.l {
+  background-image: url("../../images/bass-drum.png");
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 5;
+  width: 400px;
+  height: 400px;
+}
+
+.m {
+  background-image: url("../../images/cymbal2.png");
+  grid-column: 3;
+  grid-row: 1;
+}
+.n {
+  background-image: url("../../images/cymbal2.png");
+  grid-column: 4;
+  grid-row: 1;
+}
+.o {
+  background-image: url("../../images/cymbal3.png");
+  grid-column: 2;
+  grid-row: 2;
+  transform: rotateY(180deg);
+}
+.p {
+  background-image: url("../../images/cymbal1.png");
+  grid-column: 3;
+  grid-row: 2;
+  transform: rotateY(180deg);
+}
+.q {
+  background-image: url("../../images/cymbal1.png");
+  grid-column: 4;
+  grid-row: 2;
+}
+.e {
+  background-image: url("../../images/cymbal3.png");
+  grid-column: 5;
+  grid-row: 2;
+}
+
+.drumSet {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.pressed {
+  box-shadow: 0 3px 4px 0 #dbedf3;
+  opacity: 0.5;
+}
+
+.red {
+  color: red;
+}

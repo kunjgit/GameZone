@@ -27,7 +27,7 @@
 
 <br>
 
-![Game image](../../images/Rock_paper_scissor.png)
+![Game image](../../Images/Rock_paper_scissor.png)
 
 <br>
 

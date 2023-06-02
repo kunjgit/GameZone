@@ -177,6 +177,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 70 | [Avax Gods](https://github.com/kunjgit/GameZone/tree/main/Games/Avax_gods)|
 | 71 | [Flip Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Card_Game)|
 
+| * | [Fifteen Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fifteen_Puzzle_Game)|
+  
 </center>
 
 <br>

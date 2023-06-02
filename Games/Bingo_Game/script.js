@@ -6,6 +6,7 @@ const failSound = new Audio('./assets/sounds/failSound.mp3');
 const winSound = new Audio('./assets/sounds/winSound.mp3');
 const welcomeSound = new Audio('./assets/sounds/welcomeSound.mp3');
 
+// This will activate when page load
 window.addEventListener('load', function () {
     let loadingPage = document.getElementById('loading-page');
     let mainPage = document.getElementById('main-page');
@@ -53,8 +54,10 @@ window.addEventListener('load', function () {
     });
 });
 
+// StartGame function is trigger when start game button is pressed on the webpage
 function startGame(numPlayers) {
 
+    // This is handling the sound background sound effect
     let backgroundMusic = document.getElementById('backgroundMusic');
     let muteButton = document.getElementById('muteButton');
     let unmuteButton = document.getElementById('unmuteButton');
@@ -94,6 +97,7 @@ function startGame(numPlayers) {
 
     volumeSlider.addEventListener('input', setVolume);
 
+    // Game algorithm starts
     function shuffle(arr) {
         let currentIndex = arr.length, randomIndex;
         while (currentIndex != 0) {
@@ -110,6 +114,7 @@ function startGame(numPlayers) {
         data.push(Array(12).fill(false));
     }
 
+    // This for loop creats the board for each and every player of the game
     for (let k = 0; k < numPlayers; k++) {
         let div = document.createElement('div');
         div.classList.add('card', `card-${k + 1}`);
@@ -170,6 +175,7 @@ function startGame(numPlayers) {
         container.appendChild(div);
     }
 
+    // This will activate all the function on each and every clicked on the numbers
     document.addEventListener('click', function (event) {
         let text = event.target.textContent;
         if (text >= 1 && text <= 25) {
@@ -182,6 +188,7 @@ function startGame(numPlayers) {
         }
     });
 
+    // This function adds crosses on the numbers after clicked
     function addStrike(text) {
         const cards = document.querySelectorAll('.card');
         for (let k = 0; k < numPlayers; k++) {
@@ -194,6 +201,7 @@ function startGame(numPlayers) {
         }
     }
 
+    // This function handles the change of the player
     function changePlayer(event) {
         const cards = document.querySelectorAll('.card');
 
@@ -217,6 +225,7 @@ function startGame(numPlayers) {
         });
     }
 
+    // Adding extra css for the pressed numbers and handling the board effect
     function addEffect() {
         const cards = document.querySelectorAll('.card');
 
@@ -245,6 +254,7 @@ function startGame(numPlayers) {
     }
     addEffect();
 
+    // Handling the winning conditions and check on every click
     function checkWinningConditions() {
         const cards = document.querySelectorAll('.card');
         for (let k = 0; k < numPlayers; k++) {
@@ -295,6 +305,7 @@ function startGame(numPlayers) {
         }
     }
 
+    // Before announcing winner, checking draw condition
     function checkDrawCondition() {
         let a = [];
         for (let i = 0; i < numPlayers; i++) {
@@ -328,6 +339,7 @@ function startGame(numPlayers) {
         }
     }
 
+    // Adding congratulation page which declare the winner of the game.
     function giveCongratulations(id) {
         let congratsPage = document.getElementById('congratsPage');
         var winnerNumberElement = document.getElementById('winnerName');

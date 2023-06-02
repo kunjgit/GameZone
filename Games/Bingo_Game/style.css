@@ -20,6 +20,7 @@ body {
     text-align: left;
 }
 
+/* CSS of Loading Page */
 #loading-page {
     display: flex;
     justify-content: center;
@@ -74,6 +75,7 @@ body {
     font-size: 2rem;
 }
 
+/* CSS of Main Page */
 #main-page {
     display: none;
     text-align: center;
@@ -107,6 +109,7 @@ body {
     font-size: 1.2rem;
 }
 
+/* CSS of Game Page */
 h1 {
     display: grid;
     justify-content: center;
@@ -199,6 +202,7 @@ body:focus {
     font-size: 1rem;
 }
 
+/* CSS of audio controllers */
 #audioControls {
     position: fixed;
     top: 10px;
@@ -276,6 +280,7 @@ body:focus {
     }
 }
 
+/* CSS of congrats page */
 #congratsPage {
     display: flex;
     flex-direction: column;
@@ -301,6 +306,7 @@ body:focus {
     color: #555;
 }
 
+/* Making responsive */
 @media (max-width: 950px) {
     .container {
         display: flex;

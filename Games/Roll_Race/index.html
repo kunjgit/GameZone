@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="index.js" as="script">
+    <title>Roll Race</title>
+    <link rel="icon" href="forest.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-fluid my-0 p-4 top">
+        <div class="top-1 float-start">
+            <h1 class="text-white">Roll Race </h1>
+            <hr class="text-light">
+            <p class="text-light top-text">This is a simple game played between two players. The player starts when they get a "6" on his dice.
+                Then, their representative (the 🐵) moves forward as many places as the dice shows. The first player to reach the 10-block mark wins.
+            <br> This game is a project created using HTML, CSS and JS. It uses javascript to manipulate the dice and give the results accordingly.
+                Hope you enjoy playing it.😊
+            </p>
+            <a href="#target"><button class="btn btn-large btn-success d-block mx-auto start ">Begin Game</button></a>
+        </div>
+        <img class="top-img img-fluid float-end" src="images\red-dice.png" alt="display img">
+        
+    </div>
+    <div class="main-body" id="target">
+        <div class="playzone float-start">
+            <div id="p1 my-5">
+                <h2 class="pl1 text-success my-3 mx-2">Player 1</h2>
+                <img class="pl1path img-fluid my-3 mx-2" src="images\path\path-null.png" alt="path img">
+            </div>
+            <div id="p2">
+                <h2 class="pl2 text-success my-3 mx-2">Player 2</h2>
+                <img class="pl2path img-fluid my-3 mx-2" src="images\path\path-null.png" alt="path img">
+            </div>
+        </div>
+        <div class="dice float-end my-4">
+            <img class="img-fluid mx-auto d-block diceimg " src="images\dice\dice6.png" />
+            <br>
+            <h2 class="turn text-center">Turn</h2>
+            <button class="roll btn btn-success mx-auto d-block" id="dicebtn">Roll Dice</button>
+        </div>
+    </div>
+  
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>

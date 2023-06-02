@@ -9,6 +9,12 @@
   <title>Master Typing</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="/assets/images/Master_Typing.png">
+
+   <!-- for timer  and assessment section-->
+  <h1 class="title">Hands on the keyboard 👀</h1>
+  <div class="timer title" id="timer">00:00</div>
+
+  <!-- for keyboard  -->
 <div class="keyboard">
   <ul class="row row-0">
     <li class="pinky" id="esc">ESC</li>
@@ -72,5 +78,12 @@
     <li class="pinky" id="right-shift">SHIFT</li>
   </ul>
 </div>
-<h1 class="title">Hands on the keyboard 👀</h1>
+
+
+ <!-- for start and restart button -->
+<div class="btn">
+  <button class="button" onclick="startTimer()">Start</button>
+  <button class="button" onclick="restartTimer()">Restart</button>
+</div>
+
 <script src="script.js"></script>

@@ -168,7 +168,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 61 | [Connect4](https://github.com/kunjgit/GameZone/tree/main/Games/Connect4)|
 | 62 | [Spelling_Bee](https://github.com/kunjgit/GameZone/tree/main/Games/Spelling_Bee)|
 | 63 | [2048](https://github.com/kunjgit/GameZone/tree/main/Games/2048)|
+| 64 | [Spin the Wheel](https://github.com/kunjgit/GameZone/tree/main/Games/Spin_the_wheel)|
 
+  
 </center>
 
 <br>

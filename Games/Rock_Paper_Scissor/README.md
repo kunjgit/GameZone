@@ -27,7 +27,7 @@
 
 <br>
 
-![Game image](../../assets/images/Alien_Shooter.png)
+![Game image](../../images/Rock_paper_scissor.png)
 
 <br>
 

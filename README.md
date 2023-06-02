@@ -136,6 +136,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
 | 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square)|
 | 33 | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)|  
+| 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)|
+| 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)| 
 | 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)| 
 | 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)|
 | 36 | [Word Scramble Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Scramble_Game)|
@@ -156,8 +158,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 51 | [Tower Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Defense)|
 | 52 |[Bird Game](https://github.com/Shr-reny/GameZone/tree/b367981bcb5c3654f79fb23b4ffd41e159e9cc24/Games/Bird_game)|
 | 53 | [Bubble Blast Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bubble_Blast_Game)|
+| 54 | [Emoji Charades](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Charades)|           
            
-           
+
 
 </center>
 

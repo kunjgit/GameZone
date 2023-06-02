@@ -23,6 +23,35 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Adding the search bar  css */
+    #searchbar{
+    padding:15px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: #000000;
+    border: #000000;
+  }
+  
+  input[type=text] {
+     width: 30%;
+     -webkit-transition: width 0.15s ease-in-out;
+     transition: width 0.15s ease-in-out;
+     color: azure;
+  }
+  
+  input[type=text]:focus {
+    width: 70%;
+    outline-color: rgb(0, 0, 0);
+  }
+  
+  .searchgame{
+    display: list-item;
+  }
+    </style>
+  
+  
+  
 </head>
 
 <!-- Light-Dark theme SWITCH -->
@@ -57,6 +86,10 @@
         <br>
         <br>
       </div>
+
+      
+      <input id="searchbar" onkeyup="search_game()" type="text" name="search" placeholder="Search your Game here">
+      <br>
 
       <!-- Games -->
 
@@ -1120,6 +1153,24 @@
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- Adding the javascript search button functionality -->
+<script>
+  function search_game() {
+  let input = document.getElementById('searchbar').value;
+  console.log(input)
+  input = input.toLowerCase();
+  let searchelement = document.getElementsByClassName('project-item  active');
+  console.log(searchelement.length);
+  for (i = 0; i < searchelement.length; i++) { 
+      if (!searchelement[i].innerHTML.toLowerCase().includes(input)) {
+          searchelement[i].style.display="none";
+      }
+      else {
+          searchelement[i].style.display="list-item";                 
+      }
+  }
+}
+</script>
 <div>
 </div>
 

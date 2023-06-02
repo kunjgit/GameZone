@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="index.css">
+  <title>Rock, Paper, Scissors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="color"></div>
+  <div class="up">
+    <div class="left">
+      <p>ROCK</p>
+      <P>PAPER</P>
+      <P>SCISSORS</P>
+    </div>
+    <div class="right">
+      <p id="score1">score</p>
+      <p id="score">0</p>
+    </div>
+  </div>
+  <div class="image">
+    <div class="rulesimage">
+      <div class="cont">
+        <p>RULES</p>
+        <img id="close" src="images/icon-close.svg" alt="img">
+      </div>
+        <img id="x" src="images/image-rules.svg" alt="img">
+    </div>
+    <div class="toptwo">
+      <img class="paper" src="images/icon-paper.svg" alt="">
+      <img class="scissor" src="images/icon-scissors.svg" alt="">
+    </div>
+    <div class="bottomone">
+      <img class="rock" src="images/icon-rock.svg" alt="">
+    </div>
+    <img id="traingle" src="images/bg-triangle.svg" alt="">
+  </div>
+  <section class="onclicking">
+    <div class="manual">
+      <!-- <img class="paper" src="images/icon-paper.svg" alt=""> -->
+      <img class="manualimage" src="" alt="">
+      <p>YOU PICKED</p>
+    </div>
+    <div class="system">
+      <!-- <img class="paper" src="images/icon-paper.svg" alt=""> -->
+      <img class="systemimage" src="" alt="">
+      <p>THE HOUSE PICKED</p>
+    </div>
+  </section>
+  <section class="decider">
+      <p class="winorlose"></p>
+      <p class="playagain">PLAY AGAIN</p>
+  </section>
+  <div class="rule">
+    <p id="Rules">RULES</p>
+  </div>
+  <div class="restart">
+    <p id="restart">RESTART</p>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

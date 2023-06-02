@@ -169,13 +169,14 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 62 | [Spelling_Bee](https://github.com/kunjgit/GameZone/tree/main/Games/Spelling_Bee)|
 | 63 | [2048](https://github.com/kunjgit/GameZone/tree/main/Games/2048)|
 | 64 | [Spin the Wheel](https://github.com/kunjgit/GameZone/tree/main/Games/Spin_the_wheel)|
-
-| *  | [Flip Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Card_Game)|
-
 | 65 | [Breakout](https://github.com/kunjgit/GameZone/tree/main/Games/Breakout)|
+| 66  | [Tower Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Blocks)|
+| 67 | [Platform_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Platform_Game)|
+| 68 | [Red_Light_Green_Light](https://github.com/kunjgit/GameZone/tree/main/Games/Red_Light_Green_Light)|
+| 69 | [Squash your Enemy](https://github.com/kunjgit/GameZone/tree/main/Games/Squashing_your_Enemy)|
+| 70 | [Avax Gods](https://github.com/kunjgit/GameZone/tree/main/Games/Avax_gods)|
+| 71 | [Flip Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Card_Game)|
 
-
-  
 </center>
 
 <br>

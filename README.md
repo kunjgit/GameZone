@@ -177,6 +177,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 67 | [Platform_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Platform_Game)|
 | 68 | [Red_Light_Green_Light](https://github.com/kunjgit/GameZone/tree/main/Games/Red_Light_Green_Light)|
 | 69 | [Squash your Enemy](https://github.com/kunjgit/GameZone/tree/main/Games/Squashing_your_Enemy)|
+<<<<<<< HEAD
 >>>>>>> upstream/main
 
 
@@ -186,6 +187,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 
 >>>>>>> Stashed changes
+=======
+| 70 | [Avax Gods](https://github.com/kunjgit/GameZone/tree/main/Games/Avax_gods)|
+| 71 | [Flip Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Card_Game)|
+
+>>>>>>> upstream/main
 </center>
 
 <br>

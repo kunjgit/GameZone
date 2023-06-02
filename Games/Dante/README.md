@@ -29,6 +29,5 @@
 
 <br>
  
-![Preview 1](./images/preview1.png)
-![Preview 2](./images/preview2.png)
+![Dante](../../assets/images/Dante.jpg)
 

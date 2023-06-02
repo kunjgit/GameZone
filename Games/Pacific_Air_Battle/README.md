@@ -33,9 +33,8 @@
 ## **Screenshots 📸**
 <br>
 
-![Screenshot 2023-06-02 at 19-07-01 Pacific Air Battle](https://github.com/0xabdulkhalid/GameZone/assets/92252895/130a5190-bf2a-441f-b2d8-baaf6ea5c965)
-![Screenshot 2023-06-02 at 19-07-18 Pacific Air Battle](https://github.com/0xabdulkhalid/GameZone/assets/92252895/1424503e-b50a-4110-a555-d32e1b928161)
-![Screenshot 2023-06-02 at 19-07-40 Pacific Air Battle](https://github.com/0xabdulkhalid/GameZone/assets/92252895/8e547385-e131-40be-82d8-0a5161039137)
-
+![Preview 1](./images/preview1.png)
+![Preview 2](./images/preview2.png)
+![Preview 3](./images/preview3.png)
 
 

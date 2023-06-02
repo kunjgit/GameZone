@@ -31,7 +31,7 @@
 
 <br>
 
-![image](./assets/Bingo_Game.png)
+![image](../../assets/images/Bingo_Game.png)
 
 <br>
 

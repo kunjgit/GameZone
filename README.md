@@ -152,6 +152,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 47 | [Starwars_Character_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Starwars_Character_Game)|
 | 48 | [Traffic_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
 | 49 | [Love Result Predictor](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Result_Predictor)|
+| *  | [Bingo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bingo_Game)|
 
 </center>
 

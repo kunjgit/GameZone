@@ -152,7 +152,29 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 47 | [Starwars_Character_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Starwars_Character_Game)|
 | 48 | [Traffic_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
 | 49 | [Love Result Predictor](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Result_Predictor)|
-| *  | [Bingo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bingo_Game)|
+| 50 | [Snake and Ladders](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_and_ladders)|
+| 51 | [Tower Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Defense)|
+| 52 | [Bird Game](https://github.com/Shr-reny/GameZone/tree/b367981bcb5c3654f79fb23b4ffd41e159e9cc24/Games/Bird_game)|
+| 53 | [Bubble Blast Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bubble_Blast_Game)|
+| 54 | [Emoji Charades](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Charades)|           
+| 55 | [Drum And Kit](https://github.com/Roshnijeewani3457/GameZone/tree/new/Games/Drum_And_Kit)|           
+| 56 | [Rock Paper Scissors](https://github.com/its-me-abhishek/GameZone/tree/main/Games/Rock_Paper_Scissors)|
+| 57 | [Frogger](https://github.com/kunjgit/GameZone/tree/main/Games/Frogger) |
+| 58 | [!morethan5 ](https://github.com/SusanStorm/GameZone/tree/main/Games/Not_morethan5)|
+| 59 | [Unruly Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Unruly_Tower)|
+| 60 | [Maze Game](https://github.com/kunjgit/GameZone/tree/main/Games/MazeGame)|
+| 61 | [Connect4](https://github.com/kunjgit/GameZone/tree/main/Games/Connect4)|
+| 62 | [Spelling_Bee](https://github.com/kunjgit/GameZone/tree/main/Games/Spelling_Bee)|
+| 63 | [2048](https://github.com/kunjgit/GameZone/tree/main/Games/2048)|
+| 64 | [Spin the Wheel](https://github.com/kunjgit/GameZone/tree/main/Games/Spin_the_wheel)|
+| 65 | [Breakout](https://github.com/kunjgit/GameZone/tree/main/Games/Breakout)|
+| 66  | [Tower Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Blocks)|
+| 67 | [Platform_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Platform_Game)|
+| 68 | [Red_Light_Green_Light](https://github.com/kunjgit/GameZone/tree/main/Games/Red_Light_Green_Light)|
+| 69 | [Squash your Enemy](https://github.com/kunjgit/GameZone/tree/main/Games/Squashing_your_Enemy)|
+| 70 | [Avax Gods](https://github.com/kunjgit/GameZone/tree/main/Games/Avax_gods)|
+| 71 | [Flip Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Card_Game)|
+| 72 | [Bingo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bingo_Game)|
 
 </center>
 

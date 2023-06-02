@@ -27,7 +27,8 @@
 
 <br>
 
-![Game image](../../Images/Rock_paper_scissor.png)
+![Rock_paper_scissor](https://github.com/anilkoduru/GameZone/assets/88759473/1abe383e-0f65-4e6f-a7ce-18aacf5b86b6)
+
 
 <br>
 

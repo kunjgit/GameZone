@@ -136,9 +136,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
 | 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square)|
 | 33 | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)|  
-
-| 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)|
-| 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)| 
 | 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)| 
 | 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)|
 | 36 | [Word Scramble Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Scramble_Game)|
@@ -155,7 +152,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 47 | [Starwars_Character_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Starwars_Character_Game)|
 | 48 | [Traffic_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
 | 49 | [Love Result Predictor](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Result_Predictor)|
-| * | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_and_ladders)|
+| 50 | [Snake and Ladders](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_and_ladders)|
 
 </center>
 

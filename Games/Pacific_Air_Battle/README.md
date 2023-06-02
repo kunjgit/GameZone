@@ -33,8 +33,6 @@
 ## **Screenshots 📸**
 <br>
 
-![Preview 1](./images/preview1.png)
-![Preview 2](./images/preview2.png)
-![Preview 3](./images/preview3.png)
+![Pacific Air Battle](../../assets/images/Pacific_Air_Battle.jpg)
 
 

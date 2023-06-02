@@ -25,12 +25,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
-<!-- Light-Dark theme SWITCH -->
-<p class="invert-color" style="margin-top: 30px; margin-left: 50px;">Light/Dark theme :</p>
-<label class="theme-toggle" style="margin-top: 4px; margin-left: 50px">
-  <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked>
-  <span class="slider"></span>
-</label>
 
 <body>
   
@@ -48,14 +42,23 @@
     -->
 
     <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-      <div>
-        <h1 style="color:white; text-align: center ; font-size: 1.5cm; ">🕹️GameZone</h1>
-        <br>
-        <br>
+      <div class="Name">
+          <!--
+            - #NAVBAR
+          -->
+          <div>
+            <h1 style="color:white; text-align: center ; font-size: 1.5cm; ">🕹️GameZone</h1>
+            <br>
+            <br>
+          </div>
+          <!-- Light-Dark theme SWITCH -->
+          <div>
+            <p class="invert-color" style="margin-top: 30px; margin-left: 50px;">Light/Dark theme :</p>
+            <label class="theme-toggle" style="margin-top: 4px; margin-left: 50px">
+              <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
       </div>
 
       <!-- Games -->

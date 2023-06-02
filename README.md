@@ -164,6 +164,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 57 | [Frogger](https://github.com/kunjgit/GameZone/tree/main/Games/Frogger) |
 | 58 | [!morethan5 ](https://github.com/SusanStorm/GameZone/tree/main/Games/Not_morethan5)|
 | 59 | [Unruly Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Unruly_Tower)|
+| 60 | [Maze Game](https://github.com/kunjgit/GameZone/tree/main/Games/MazeGame)|
 
 
 </center>

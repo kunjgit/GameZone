@@ -175,9 +175,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 70 | [Avax Gods](https://github.com/kunjgit/GameZone/tree/main/Games/Avax_gods)|
 | 71 | [Flip Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Card_Game)|
 | 72 | [Bingo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bingo_Game)|
-| * | [Pacific Air Battle](https://github.com/kunjgit/GameZone/tree/main/Games/Pacific_Air_Battle)|
-
-
+| 73 | [Fifteen Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fifteen_Puzzle_Game)|
+| 74 | [Stack_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Stack_Game)|
+| 75 | [Pacific Air Battle](https://github.com/kunjgit/GameZone/tree/main/Games/Pacific_Air_Battle)|
+  
 </center>
 
 <br>

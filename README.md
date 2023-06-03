@@ -176,6 +176,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 71 | [Flip Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Card_Game)|
 | 72 | [Bingo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bingo_Game)|
 
+| * | [Among Us Game](https://github.com/kunjgit/GameZone/tree/main/Games/Among_Us_Game)|
+
 
 </center>
 

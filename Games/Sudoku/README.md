@@ -29,7 +29,7 @@
 
 <br>
 
-![image](../../assets/images/sudoku.png)
+![image](../../assets/images/Sudoku.png)
 
 <br>
 

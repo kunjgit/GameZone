@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,300&family=Lora:ital@1&family=M+PLUS+Rounded+1c:wght@500&family=Nanum+Myeongjo:wght@700&family=Roboto+Slab:wght@300&family=Signika+Negative:wght@500&family=Splash&family=The+Nautigal:wght@700&display=swap');
+
+*{ font-weight: 600;
+    font-family: 'Roboto Slab', serif;
+
+    color: rgb(46, 2, 46);
+}
+html {
+    width:100vw;
+    height:100%;
+}
+body {
+    margin:0px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#eb7644), to(#29a918));
+    background-image: -o-linear-gradient(top,#9b7095 0%, #e187e9 100%);
+    background-image: linear-gradient(to bottom, #9b7095 0%, #e187e9 100%);
+}
+
+p {
+    font-size: 40px;
+    margin-top:5px;
+}
+td {
+    background-color: transparent;
+    height:70px;
+    width:70px;
+}
+td, .inner, .front, .back {
+    border-radius: 4px;
+}
+table {
+    margin-top: 80px;
+}
+
+#inst {
+    width: 85vw;
+    background-color: rgba(255,255,255,0.1);
+    text-align: center;
+    margin-top:16vh;
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    border: 3px solid rgb(78, 17, 60);
+    border-radius: 100px;
+    padding: 5px;
+}
+#inst li {
+    text-align: left;
+    padding: 5px;
+}
+
+button {
+    background-color: rgba(255,255,255,0.2);
+    -webkit-backdrop-filter: (20px);
+    backdrop-filter: (20px);
+    color: rgb(55, 2, 65);
+    margin: 5px;
+    border: 2px solid rgb(61, 8, 45);
+    border-radius: 40px;
+    font-weight: smaller;
+    width:100px;
+    font-size:18px;
+    padding:5px;
+}
+
+#ol {
+    position: absolute;
+    height:100vh;
+    width:100vw;
+    background-color: rgba(0,0,200,0.1);
+    color: rgb(50, 7, 54);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+    z-index:2;
+    
+}
+#iol {
+    text-align: center;
+    position: absolute;
+    width: 100vw;
+    top: 35vw;
+}
+
+#title {
+    background-color: rgba(255,255,255,0.25);
+    -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+    border-radius:10px;
+    margin: 8px;
+    margin-top:0px;
+    color: white;
+    height:56px;
+    text-align: center;
+}
+
+#time {
+    position: absolute;
+    right: 20px;
+    font-size: 16px;
+    top: 8.5px;
+}
+
+#moves {
+    position: absolute;
+    left: 20px;
+    font-size: 16px;
+    top:8.5px;
+}
+
+#logo {
+    font-size: 22px;
+    padding-top: 10px;
+    display: block;
+}
+
+.inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    -webkit-transition: -webkit-transform 0.8s;
+            transition: -webkit-transform 0.8s;
+         -o-transition: transform 0.8s;
+            transition: transform 0.8s;
+            transition: transform 0.8s, -webkit-transform 0.8s;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+}
+
+.front {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.back {
+    background-color: rgba(255,255,255,0.5);
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+}
+.front, .back :hover{
+    cursor: pointer;
+}
+button:hover, button:active {
+    outline:0;
+    cursor: pointer;
+}

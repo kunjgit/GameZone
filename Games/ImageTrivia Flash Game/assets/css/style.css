@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.slides-container {
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+}
+
+#title-style {
+    font-family: 'Faster One', cursive;
+    font-size: 75px;
+    margin-left: 30px;
+}
+
+body, html {
+    height: 100%;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../images/Screenshot\ 2023-06-04\ 180948.png");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    position: relative;
+    margin-left: 25px;
+    height: 50px;
+    width: 700px;
+    animation: fromLeft 5s ease;
+}
+.slides > section {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    margin: 25px auto;
+}
+
+.slides > section > .left-div {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 25px;
+    animation: fromTop 2s ease;
+}
+
+.left-div > p {
+    margin-top: 15px;
+    font-family: 'Bangers', cursive;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.slides > section > .right-div {
+    position: relative;
+    width: 600px;
+    height: 700px;
+    float: right;
+    margin-top: 25px;
+    margin-right: 75px;
+}
+
+.start {
+    border-radius: 12px;
+    background: red;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.buttons > .button {
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #0a5c0f;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.buttons > h2 {
+    font-family: 'Bangers', cursive;
+    font-size: 28px;
+}
+
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: white;
+    color: rgb(78, 90, 8);
+}
+
+#show-counter {
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    font-size: 25px;
+}
+
+#image-holder {
+    /* Box-model */
+    width: 100%;
+    height: 600px;
+}
+
+/* css animation for intro title and instructions */
+@keyframes fromLeft {
+    0% {Left: -100%;}
+    50% {Left: 100%;}
+    100% {Left: 0;}
+}
+
+@keyframes fromTop {
+    0% {Top: -100%;}
+    50% {Top: 100%;}
+    100% {Top: 0;}
+}

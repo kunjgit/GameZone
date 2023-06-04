@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia Game</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Carter+One" rel="stylesheet">
+    
+    <!-- Animate css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+</head>
+<body>
+
+<div class="bg">
+    <header><span id="title-style">Trivia Game</span></header>
+        
+        <div class="slides-container">
+            <div class="slides">
+                <section>
+                    <div class="left-div">
+                        <p id="question">Want to test your Memory??</p>
+                        <p id="message">An image will be shown to the right for 5 seconds for your reference/Hint.Pay  a detailed attention.
+                            Read and answer a question. Got it?
+                        </p>
+                        <div class="buttons"></div>
+                        <div id="show-counter"></div>
+                        <p id="play" class="animated lightSpeedIn delay-4s">Press play to start.</p>       
+                        <button class="button start animated lightSpeedIn delay-4s">START</button>
+                    </div>
+                    <div class="right-div">
+                        <div id="image-holder" class="animated zoomInUp delay-2s"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    <iframe src="assets/audio/Elevator-music.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
+</div>
+
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+
+</body>
+</html>

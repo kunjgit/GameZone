@@ -31,9 +31,9 @@
 
 <br>
 
-![image](ScreenShots\in_game.png)
-![image](ScreenShots\game_over.png)
-![image](ScreenShots\you_win.png)
+![image](ScreenShots/Color_Matcher.png)
+![image](ScreenShots/game_over.png)
+![image](ScreenShots/you_win.png)
 
 
 

@@ -163,14 +163,28 @@ footer {
 .socials a i {
   font-size: 1.1rem;
 
-  width: 20px;
+  width:20px;
 
   transition: color 0.4s ease;
 }
 
-.socials a:hover i {
+/* .socials a:hover i {
   color: aqua;
+} */
+#github:hover{
+transform:translate(0,-10px);
+scale:2.5;
 }
+#twitter:hover{
+  color: #1DA1F2;
+  transform:translate(0,-10px);
+  scale:2.5;
+  }
+  #linkedin:hover{
+    color: #0A66C2;
+    transform:translate(0,-10px);
+    scale:2.5;
+    }
 
 .footer-bottom {
   background: #000;

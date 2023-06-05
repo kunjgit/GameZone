@@ -1,0 +1,20 @@
+.github-icon {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+  }
+  
+  .github-icon .icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url('https://www.pngarts.com/files/8/Github-Logo-Transparent-Background-PNG.png'); /* Replace with your own GitHub icon image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .github-icon:hover .icon {
+    transform: scale(1.2);
+  }
+  

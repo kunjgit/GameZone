@@ -1,6 +1,8 @@
 var name1 = "Player1";
 var name2 = "Player2";
 $(".start").click(function(){
+    $(".diceimg").css("opacity","1");
+
     dicebtn.style.display='block';
 
  name1= document.getElementById("pl1").value;

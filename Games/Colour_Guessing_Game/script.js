@@ -10,6 +10,10 @@ var resetButton = document.querySelector("#reset");
 var modeButtons = document.querySelectorAll(".mode");
 var easyButton = document.querySelector(".mode");
 
+var audio = new Audio("Assets/click.wav");
+var win = new Audio("Assets/win.mp3");
+var no = new Audio("Assets/no.mp3");
+
 init();
 
 function init() {
@@ -24,19 +28,26 @@ resetButton.addEventListener("click", function() {
 });
 
 function setupSquares() {
+	
     document.getElementById("message").style.fontFamily = "'Space Grotesk', sans-serif";
     document.getElementById("message").style.fontWeight = "300";
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].style.backgroundColor = colors[i];
 		squares[i].addEventListener("click", function() {
 			var clickedColor = this.style.backgroundColor;
+			audio.play();
 			if(clickedColor === pickedColor) {
                 this.style.backgroundColor = pickedColor;
 				messageDisplay.textContent = "Correct";
 				resetButton.textContent = "Play Again";
 				changeColors(pickedColor);
+
+				win.play();
 			}
+			
 			else {
+				no.play();
+
 				this.style.backgroundColor = "#411530";
 				messageDisplay.textContent = "try again";
 			}

@@ -33,3 +33,12 @@ h1{
     background: url("images\\bg-bottom.png");
     margin-top: 10%;
 }
+@media(max-width : 650px){
+    #landing-container{
+        flex-direction: column;
+        
+    }
+    .top-1{
+        width: 100% !important;
+    }
+}

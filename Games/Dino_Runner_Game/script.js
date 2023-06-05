@@ -6,15 +6,23 @@ let gameRestartTimeout;
 const audio = new Audio("music.mp3");
 const audiogo = new Audio("gameover.mp3");
 let isAudioPlaying = false;
+let mute = false;
 
-function playAudio() {
-  if (!isAudioPlaying) {
-    audio.play();
-    isAudioPlaying = true;
+function toggle(img) {
+  if (img.src.endsWith("unmute.png")) {
+    img.src = "mute.png"
+    audio.pause()
   }
+  else {
+    img.src = "unmute.png"
+    audio.play()
+  }
+  mute = !mute
+  isAudioPlaying = !isAudioPlaying
+  console.log(mute + "  " + isAudioPlaying);
 }
 
-setTimeout(playAudio, 500);
+audio.play()
 
 document.addEventListener("keydown", function (e) {
   if (!gameRunning) {
@@ -50,7 +58,6 @@ function restartGame() {
   score = 0;
   cross = true;
   gameRunning = true;
-  isAudioPlaying = false;
 
   const obstacle = document.querySelector(".obstacle");
   const gameOver = document.querySelector(".gameOver");
@@ -59,10 +66,6 @@ function restartGame() {
   gameOver.innerHTML = "";
 
   updateScore(score);
-
-  setTimeout(playAudio, 500);
-
-//   gameLoop();
 }
 
 function endGame() {
@@ -73,11 +76,13 @@ function endGame() {
   gameOver.innerHTML = "Game Over - Restarting in 3 seconds";
 
   obstacle.classList.remove("obstacleAni");
-  audiogo.play();
+  if (!mute) {
+    audiogo.play();
+  }
   clearTimeout(gameRestartTimeout);
   gameRestartTimeout = setTimeout(restartGame, 3000);
 }
-  
+
 setInterval(() => {
   if (!gameRunning) {
     return;
@@ -123,7 +128,7 @@ setInterval(() => {
       obstacle.style.animationDuration = newDur + "s";
     }, 500);
   }
-}, 10);
+}, 1);
 
 function updateScore(score) {
   scoreCont.innerHTML = "Your Score: " + score;

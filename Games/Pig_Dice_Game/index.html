@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="shortcut icon" href="./images/icon.svg" type="image/x-icon">
+	<title>Pig Dice Game</title>
+
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+	<main>
+		<!-- Player 1 Section -->
+		<section class="player player--0 player--active">
+			<h2 class="name" id="name--0">Player 1</h2>
+			<p class="score" id="score--0"></p>
+			<div class="current">
+				<p class="current-label">Current</p>
+				<p class="current-score" id="current--0"></p>
+			</div>
+		</section>
+
+		<!-- Player 2 Section -->
+		<section class="player player--1">
+			<h2 class="name" id="name--1">Player 2</h2>
+			<p class="score" id="score--1"></p>
+			<div class="current">
+				<p class="current-label">Current</p>
+				<p class="current-score" id="current--1"></p>
+			</div>
+		</section>
+
+		<!-- Buttons and Dices -->
+		<img src="./images/dice-1.png" alt="Playing dice" class="dice" />
+		<button class="btn btn--new">🔄 New game</button>
+		<button class="btn btn--roll">🎲 Roll dice</button>
+		<button class="btn btn--hold">📥 Hold</button>
+	</main>
+
+	<p class="author">
+		Made by <a target="_blank" href="https://github.com/Avdhesh-Varshney">Avdhesh Varshney</a>
+	</p>
+
+	<!-- JavaScript file -->
+	<script src="./script.js"></script>
+</body>
+
+</html>

@@ -1344,6 +1344,13 @@ main {
 }
 
 .project-img img {
+  width: 213.75px;
+  height: 123.37px;
+  object-fit: fill;
+  transition: var(--transition-1);
+}
+
+#controller {
   width: 100%;
   height: 100%;
   object-fit: cover;

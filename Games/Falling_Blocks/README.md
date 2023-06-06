@@ -37,9 +37,11 @@ Enter: Restart the game.
 
 ## **Screenshots 📸**
 
+![Falling_Blocks](https://github.com/thakurdiwakar/GameZone/assets/76618190/30864409-eb91-4de6-865d-6966c525830b)
 <br>
 <!-- add your screenshots like this -->
-![Falling_Blocks](https://github.com/thakurdiwakar/GameZone/assets/76618190/30864409-eb91-4de6-865d-6966c525830b)
+
+
 
 
 <br>

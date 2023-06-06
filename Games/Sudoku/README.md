@@ -38,7 +38,7 @@
 
 ## **Working video 📹**
 <!-- add your working video over here -->
-=======
+
 ## **Description 📃**
 
 <!-- add your game description here  -->

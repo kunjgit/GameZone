@@ -20,10 +20,11 @@
 ## **Screenshots 📸**
 <br>
 
-![image](../../assets/images/Snake_Game.png)
+![image](../Snake_Game/assets/images/Snake%20Game.png)
 
 <br>
 
 
 ## **Working video 📹**
 <!-- add your working video over here -->
+

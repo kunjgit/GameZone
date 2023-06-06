@@ -26,14 +26,32 @@
   
 </head>
 
-<!-- Light-Dark theme SWITCH -->
-<p class="invert-color" style="margin-top: 30px; margin-left: 50px;">Light/Dark theme :</p>
-<label class="theme-toggle" style="margin-top: 4px; margin-left: 50px">
-  <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked>
-  <span class="slider"></span>
-</label>
-
 <body>
+
+  <div class="top" style="display: flex;">
+    <div class="top-left">
+            <!-- Light-Dark theme SWITCH -->
+            <p class="invert-color" style="margin-top: 30px; margin-left: 50px;">Light/Dark theme :</p>
+            <label class="theme-toggle" style="margin-top: 4px; margin-left: 50px">
+              <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked>
+              <span class="slider"></span>
+            </label>
+    </div>
+    <div class="top-right" style="margin-left: calc(70% - 50px/2); margin-top: 1%;">
+            <!--Adding Google Translate-->
+            <div id="google_translate_element">
+              <script
+                type="text/javascript"
+                src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+              ></script>
+            </div>
+     </div>
+    </div>
+  </div>
+
+
+
+
   
   <!--
     - #MAIN

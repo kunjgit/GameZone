@@ -131,7 +131,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 30 | [Pac_Man Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pac_Man_Game)|
 | 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
 | 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square) |
-| 33 | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher) |
+| * | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher) |
   
 
 </center>

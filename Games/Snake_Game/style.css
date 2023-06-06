@@ -21,14 +21,15 @@
     top: 50px;
     font-weight: bold;
     font-family: 'Prosto One', cursive;
+
 }
 
 #gameName{
     position: absolute;
     top: -40px;
-    
-   
+
 }
+
 #HiScore{
     position: absolute;
     font-size:39px ;
@@ -56,13 +57,13 @@
     left: 83.7vw;
     top: 73vh;
 }
+
 .head{
     background-image:linear-gradient(grey,purple);
     transform: scale(1.02);
     border: 2px solid purple;
     border-radius: 4px;
 }
-
 
 .snake{
     background-color: purple;

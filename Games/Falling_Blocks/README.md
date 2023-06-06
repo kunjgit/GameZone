@@ -39,7 +39,7 @@ Enter: Restart the game.
 
 <br>
 <!-- add your screenshots like this -->
-![image](../../assets/images/Falling_Blocks.png)
+![image](assets/images/Falling_Blocks.png)
 
 <br>
 

@@ -39,7 +39,7 @@ Enter: Restart the game.
 
 <br>
 <!-- add your screenshots like this -->
-<!-- ![image](url) -->
+<!-- ![image](https://github.com/thakurdiwakar/GameZone/blob/newGame/assets/images/Falling_Blocks.png) -->
 
 <br>
 

@@ -1,0 +1,22 @@
+name: Comment on PR Creation
+on:
+    pull_request_target:
+        types:
+            - opened
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Comment on PR
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const { owner, repo, number } = context.issue;
+            const commentAuthor = context.payload.sender.login;
+            const commentBody = `Thank you @${commentAuthor} ,for creating the PR and contributing to our GameZone 💗 \n Review team will review the PR and will reach out to you soon! 😇 \n Make sure that you have marked all the tasks that you are done with ✅. \n Thank you for your patience! 😀	
+            `;
+            await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
+            console.log(`Commented on the PR: ${commentBody}.`);

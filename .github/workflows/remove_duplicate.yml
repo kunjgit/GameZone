@@ -1,0 +1,117 @@
+name: Prevent Duplicate Issues
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  prevent-duplicate-issues:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install --prefix .github string-similarity
+
+      - name: Check for duplicate issue
+        id: check_duplicate
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const newIssueTitle = context.payload.issue.title ? context.payload.issue.title.toLowerCase() : '';
+            const newIssueWords = newIssueTitle.split(' ');
+
+            const { data: issues } = await github.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100 // Adjust the per_page value as per your requirements
+            });
+
+            const stringSimilarity = require('.github/node_modules/string-similarity');
+            let isDuplicate = false;
+            let duplicateIssueNumber = null;
+            let similarIssueNumber = null;
+
+            for (const issue of issues) {
+              if (issue.number === context.issue.number) {
+                continue; // Skip the current issue being checked
+              }
+
+              const existingIssueTitle = issue.title ? issue.title.toLowerCase() : '';
+              const existingIssueWords = existingIssueTitle.split(' ');
+
+              let matchedWordCount = 0;
+              for (const word of newIssueWords) {
+                let maxSimilarity = 0;
+                for (const existingWord of existingIssueWords) {
+                  const similarity = stringSimilarity.compareTwoStrings(word, existingWord);
+                  if (similarity >= 0.75 && similarity > maxSimilarity) {
+                    maxSimilarity = similarity;
+                  }
+                }
+                if (maxSimilarity >= 0.75) {
+                  matchedWordCount++;
+                }
+              }
+
+              const similarityPercentage = (matchedWordCount / newIssueWords.length) * 100;
+              if (similarityPercentage >= 80) {
+                // Check if both current and similar issues have '[New Game]:' in the title
+                const hasNewGameTitle = newIssueTitle.includes('[new game]:');
+                const hasSimilarNewGameTitle = existingIssueTitle.includes('[new game]:');
+
+                if (hasNewGameTitle && hasSimilarNewGameTitle) {
+                  isDuplicate = true;
+                  duplicateIssueNumber = issue.number;
+                  similarIssueNumber = issue.number;
+                  break;
+                }
+              }
+            }
+
+            core.setOutput('is_duplicate', isDuplicate.toString());
+            core.setOutput('duplicate_issue_number', duplicateIssueNumber ? duplicateIssueNumber.toString() : '');
+            core.setOutput('similar_issue_number', similarIssueNumber ? similarIssueNumber.toString() : '');
+
+      - name: Close duplicate issue and comment
+        if: steps.check_duplicate.outputs.is_duplicate == 'true'
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const duplicateIssueNumber = parseInt('${{ steps.check_duplicate.outputs.duplicate_issue_number }}');
+            const { owner, repo } = context.repo;
+
+            // Close the newly created duplicate issue
+            await github.issues.update({
+              owner: owner,
+              repo: repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });
+
+            // Get the issue opener's username
+            const openerUsername = context.payload.issue.user.login;
+
+            // Comment on the newly created duplicate issue
+            await github.issues.createComment({
+              owner: owner,
+              repo: repo,
+              issue_number: context.issue.number,
+              body: `Hey @${openerUsername}! \nWe are already having a similar game request in #${duplicateIssueNumber} 👀 \nMake sure you come up with a cool unique idea 😀 \n Waiting for your new game idea 💗.`
+            });
+
+            console.log(`Closed the duplicate issue #${duplicateIssueNumber}.`);
+
+      - name: Skip if not a duplicate issue
+        if: steps.check_duplicate.outputs.is_duplicate != 'true'
+        run: echo "Not a duplicate issue. Skipping..."

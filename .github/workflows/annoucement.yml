@@ -1,0 +1,45 @@
+name: Issue Announcement
+on:
+  workflow_dispatch:
+
+jobs:
+  issue-announcement:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Comment on opened issues
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const commentBody = `\n  @${context.payload.sender.login} here, \n We have this annoucement to make 📢!! \n During the time of PR don't alter main index file ! 🙂 \n In main Readme file just use * as a game number during the time we are merging we will add number !! 👀 \n Make sure you join our [Discord🕹️](https://discord.gg/fgwk4XZfxG) if you haven't 😇 \n  Thank you 💗!`;
+            
+            // Get the list of opened issues
+            const { data: issues } = await github.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100 // Adjust the per_page value as per your requirements
+            });
+
+            // Comment on each opened issue
+            for (const issue of issues) {
+              const opener = issue.user.login;
+              await github.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `Hey @${opener} 👋!\n ${commentBody}\n\n`
+              });
+
+              console.log(`Commented on issue #${issue.number}.`);
+            }
+

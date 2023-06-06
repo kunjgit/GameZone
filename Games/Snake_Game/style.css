@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Prosto+One&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.body{
+    background-image: linear-gradient(limegreen,yellow);
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#scoreBox{
+    position: absolute;
+    font-size:39px ;
+    right: 150px;
+    top: 9px;
+    font-weight: bold;
+    font-family: 'Prosto One', cursive;
+}
+
+#HiScore{
+    position: absolute;
+    font-size:39px ;
+    right: 150px;
+    top: 50px;
+    font-weight: bold;
+    font-family: 'Prosto One', cursive;
+
+}
+
+#board{
+    background-image:  linear-gradient(orange,violet);
+    width: 90vmin;
+    height: 92vmin;
+    border: 3px solid black;
+    display: grid;
+    grid-template-rows: repeat(18,1fr);
+    grid-template-columns: repeat(18,1fr);
+}
+
+.head{
+    background-image:linear-gradient(grey,purple);
+    transform: scale(1.02);
+    border: 2px solid purple;
+    border-radius: 4px;
+}
+
+.snake{
+    background-color: purple;
+    border: .25vmin solid white;
+    border-radius: 12px;
+}
+
+.food{
+    background-image:linear-gradient(yellow,orange);
+    border: .25vmin solid black;
+    border-radius:50% ;
+=======
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    background-color: blue;
+}
+h1{
+    margin: 0.5rem;
+}
+p{
+    margin: 0.5rem;
+}

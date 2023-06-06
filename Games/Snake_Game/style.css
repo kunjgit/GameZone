@@ -5,9 +5,9 @@
 }
 
 .body{
-    background-image: linear-gradient(limegreen,yellow);
-    min-height: 100vh;
-    min-width: 100vw;
+    background: #09c90f ;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,16 +17,22 @@
 #scoreBox{
     position: absolute;
     font-size:39px ;
-    right: 150px;
-    top: 9px;
+    left: 180px;
+    top: 50px;
     font-weight: bold;
     font-family: 'Prosto One', cursive;
 }
 
+#gameName{
+    position: absolute;
+    top: -40px;
+    
+   
+}
 #HiScore{
     position: absolute;
     font-size:39px ;
-    right: 150px;
+    right: 100px;
     top: 50px;
     font-weight: bold;
     font-family: 'Prosto One', cursive;
@@ -34,21 +40,29 @@
 }
 
 #board{
-    background-image:  linear-gradient(orange,violet);
+    background-image: linear-gradient(limegreen,yellow);
     width: 90vmin;
-    height: 92vmin;
+    height: 70vmin;
+    margin-top: 40px;
     border: 3px solid black;
     display: grid;
     grid-template-rows: repeat(18,1fr);
     grid-template-columns: repeat(18,1fr);
 }
 
+#snakeImage{
+    position: absolute;
+    font-size:39px ;
+    left: 83.7vw;
+    top: 73vh;
+}
 .head{
     background-image:linear-gradient(grey,purple);
     transform: scale(1.02);
     border: 2px solid purple;
     border-radius: 4px;
 }
+
 
 .snake{
     background-color: purple;
@@ -74,3 +88,6 @@ h1{
 p{
     margin: 0.5rem;
 }
+
+
+

@@ -10,6 +10,7 @@ let foodSound=new Audio('./assets/food.mp3');
 let gameOverSound=new Audio('./assets/gameover.mp3');
 let moveSound=new Audio ('./assets/move.mp3');
 let musicSound=new Audio('./assets/music.mp3')
+const controls=document.querySelectorAll('.controls i')
 
 //Game Function
 function isCollide(snakeArr){
@@ -45,7 +46,7 @@ function gameEngine(){
         if(score>hiscoreval){
             hiscoreval=score;
             localStorage.setItem("hiscore",JSON.stringify(hiscoreval))
-            HiScore.innerHTML="HiScore: "+hiscoreval;
+            HiScore.innerHTML="High Score: "+hiscoreval;
         }
         scoreBox.innerHTML=("Score: "+score);
         snakeArr.unshift({x:snakeArr[0].x+inputDir.x ,y:snakeArr[0].y+inputDir.y});
@@ -107,7 +108,7 @@ if(hiscore===null){
 }
 else{
     hiscoreval=JSON.parse(hiscore);
-    HiScore.innerHTML=("HiScore: "+hiscoreval)
+    HiScore.innerHTML=("High Score: "+hiscoreval)
 }
 window.requestAnimationFrame(main);
 window.addEventListener("keydown",function(e){
@@ -137,3 +138,4 @@ window.addEventListener("keydown",function(e){
         
     }
 })
+

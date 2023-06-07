@@ -136,8 +136,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
 | 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square)|
 | 33 | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)|  
-| 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)|
-| 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)| 
 | 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)| 
 | 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)|
 | 36 | [Word Scramble Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Scramble_Game)|
@@ -176,7 +174,22 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 69 | [Squash your Enemy](https://github.com/kunjgit/GameZone/tree/main/Games/Squashing_your_Enemy)|
 | 70 | [Avax Gods](https://github.com/kunjgit/GameZone/tree/main/Games/Avax_gods)|
 | 71 | [Flip Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Card_Game)|
-| 72 | [Love Calculator Game](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Calci)|
+| 72 | [Bingo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bingo_Game)|
+| 73 | [Fifteen Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fifteen_Puzzle_Game)|
+| 74 | [Stack_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Stack_Game)|
+| 75 | [Block.io_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Block.io)|
+| 76 | [Country_Guesser_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Country_Guesser_Game)|
+| 77 | [Touch_The_Ball_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Touch_The_Ball)|
+| 78 | [Sudoku](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku)|
+| 79 | [Mini_Golf](https://github.com/kunjgit/GameZone/tree/main/Games/Mini_Golf)|
+| 80 | [Rubik's_solver](https://github.com/kunjgit/GameZone/tree/main/Games/Rubik's_solver)|
+| 81 | [Shoot_The_Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_The_Balloon)|
+| 82 | [Dont_Die_To_Ghosts](https://github.com/kunjgit/GameZone/tree/main/Games/Dont_Die_To_Ghosts)|  
+| 83 | [SciFi_Alchemy](https://github.com/kunjgit/GameZone/tree/main/Games/SciFi_Alchemy)|
+| 84 | [Packabunchas](https://github.com/kunjgit/GameZone/tree/main/Games/Packabunchas)|
+| 85 | [Cast and Catch]( https://github.com/Sheetal-05/GameZone/tree/main/Games/Cast_and_Catch)|
+| 86 | [Track_Not_Found](https://github.com/kunjgit/GameZone/tree/main/Games/Track_Not_Found)|
+| 87 | [Love Calculator Game](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Calci)|
 
 </center>
 

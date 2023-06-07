@@ -184,8 +184,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 79 | [Mini_Golf](https://github.com/kunjgit/GameZone/tree/main/Games/Mini_Golf)|
 | 80 | [Rubik's_solver](https://github.com/kunjgit/GameZone/tree/main/Games/Rubik's_solver)|
 | 81 | [Shoot_The_Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_The_Balloon)|
-  
+| 82 | [Dont_Die_To_Ghosts](https://github.com/kunjgit/GameZone/tree/main/Games/Dont_Die_To_Ghosts)|  
  
+
 </center>
 
 <br>

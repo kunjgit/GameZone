@@ -199,7 +199,14 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 94 | [Ping Pong Multiplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Multiplayer)|
 | 95 | [Sonic The Hedgehog](https://github.com/kunjgit/GameZone/tree/main/Games/Sonic_The_Hedgehog)|
 | 96 | [World Of Emojis](https://github.com/kunjgit/GameZone/tree/main/Games/World_Of_Emojis)|
+
 | 97 | [Falling Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Blocks)|
+
+| 97 | [Ball_Fall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Fall_Game)|
+| 98 | [Pinball](https://github.com/kunjgit/GameZone/tree/main/Games/Pinball)|  
+| 99 | [Duck_Hunting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Duck_Hunting_Game)|
+| 100 | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher)|
+
 
 
 </center>

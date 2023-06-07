@@ -26,4 +26,4 @@
 
 ## **Working video 📹**
 
-../../assets/animations/I_Want_To_Google_The_Game.mp4
+https://github.com/kunjgit/GameZone/assets/92252895/da951802-6d2d-40bd-a866-b11aae1dffeb

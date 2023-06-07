@@ -7,7 +7,14 @@
     <title>3d Box Game</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body></body>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap");
+    </style>
+    <div id="heading">
+      <h1 class="h1-heading">3D-Box Game</h1>
+    </div>
+  </body>
 </html>
 
 <script
@@ -25,6 +32,37 @@
 </script>
 
 <script type="module">
+  //For the game Heading - "3D-Box Game"
+  const text = document.querySelector(".h1-heading");
+  const strText = text.textContent;
+  const splitText = strText.split("");
+  text.textContent = "";
+  for (let i = 0; i < splitText.length; i++) {
+    text.innerHTML += "<span>" + splitText[i] + "</span>";
+  }
+
+  let char = 0;
+  let timer = setInterval(onTick, 200);
+
+  function onTick() {
+    const span = text.querySelectorAll("span")[char];
+    span.classList.add("fade");
+    span.classList.add("3d");
+    // Working on the the colourful text
+    // span.style.backgroundColor = `-webkit-linear-gradient(#03fce3, #fcba03)`;
+
+    char++;
+    if (char === splitText.length) {
+      complete();
+      return;
+    }
+  }
+
+  function complete() {
+    clearInterval(timer);
+    timer = null;
+  }
+
   import * as THREE from "three";
   import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
@@ -290,9 +328,11 @@
           box2: enemy,
         })
       ) {
-        cancelAnimationFrame(animationID);
         const h2 = document.createElement("H2");
-        h2.innertext = "Anmol";
+        h2.innerHTML = "GAME OVER";
+        h2.classList.add("gameover");
+        console.log(h2);
+        cancelAnimationFrame(animationID);
       }
     });
     if (frames % spawnRate === 0) {

@@ -191,6 +191,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 86 | [Track_Not_Found](https://github.com/kunjgit/GameZone/tree/main/Games/Track_Not_Found)|
 | 87 | [Love Calculator Game](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Calci)|
 
+  
+| * | [Corona Fighter Game](https://github.com/kunjgit/GameZone/tree/main/Games/Corona_Fighter_Game)|
+
 </center>
 
 <br>

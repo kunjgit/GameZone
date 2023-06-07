@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+#txt{
+    color: #CAD2C5;
+}
+#game{
+    width: 400px;
+    height: 500px;
+    border: 1px solid #2F3E46;
+    margin: auto;
+    overflow: hidden;
+    background-color: #CAD2C5;
+}
+#character{
+    width: 20px;
+    height: 20px;
+    background-color: #52796F;
+    border-radius: 50%;
+    position: relative;
+    top: 400px;
+    left: 190px;
+    z-index: 1000000;
+}
+.block{
+    width: 400px;
+    height: 20px;
+    background-color: #2F3E46;
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
+}
+.hole{
+    width: 60px;
+    height: 20px;
+    background-color: #CAD2C5;
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
+}

@@ -31,7 +31,7 @@ At the end of the game, the one with no cards will be the winner.
 
 <br><img src="./images/01.png" alt="Image Description">
 <br>
-<!-- <img src="./images/playerWins.png" alt="Image Description"> -->
+<img src="./images/02.png" alt="Image Description">
 
 
 

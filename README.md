@@ -177,7 +177,32 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 72 | [Bingo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bingo_Game)|
 | 73 | [Fifteen Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fifteen_Puzzle_Game)|
 | 74 | [Stack_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Stack_Game)|
-| 75 | [Duck_Hunting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Duck_Hunting_Game)|
+| 75 | [Block.io_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Block.io)|
+| 76 | [Country_Guesser_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Country_Guesser_Game)|
+| 77 | [Touch_The_Ball_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Touch_The_Ball)|
+| 78 | [Sudoku](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku)|
+| 79 | [Mini_Golf](https://github.com/kunjgit/GameZone/tree/main/Games/Mini_Golf)|
+| 80 | [Rubik's_solver](https://github.com/kunjgit/GameZone/tree/main/Games/Rubik's_solver)|
+| 81 | [Shoot_The_Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_The_Balloon)|
+| 82 | [Dont_Die_To_Ghosts](https://github.com/kunjgit/GameZone/tree/main/Games/Dont_Die_To_Ghosts)|  
+| 83 | [SciFi_Alchemy](https://github.com/kunjgit/GameZone/tree/main/Games/SciFi_Alchemy)|
+| 84 | [Packabunchas](https://github.com/kunjgit/GameZone/tree/main/Games/Packabunchas)|
+| 85 | [Cast and Catch](https://github.com/Sheetal-05/GameZone/tree/main/Games/Cast_and_Catch)|
+| 86 | [Track_Not_Found](https://github.com/kunjgit/GameZone/tree/main/Games/Track_Not_Found)|
+| 87 | [Love Calculator Game](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Calci)|
+| 88 | [Planet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Game)|
+| 89 | [Snake_Ladder](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Ladder)|  
+| 90 | [Among Us Game](https://github.com/kunjgit/GameZone/tree/main/Games/Among_Us_Game)|
+| 91 | [Pokedex_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokedex)|
+| 92 | [Pacific Air Battle](https://github.com/kunjgit/GameZone/tree/main/Games/Pacific_Air_Battle)|
+| 93 | [Dante](https://github.com/kunjgit/GameZone/tree/main/Games/Dante)|
+| 94 | [Ping Pong Multiplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Multiplayer)|
+| 95 | [Sonic The Hedgehog](https://github.com/kunjgit/GameZone/tree/main/Games/Sonic_The_Hedgehog)|
+| 96 | [World Of Emojis](https://github.com/kunjgit/GameZone/tree/main/Games/World_Of_Emojis)|
+| 97 | [Ball_Fall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Fall_Game)|
+| 98 | [Pinball](https://github.com/kunjgit/GameZone/tree/main/Games/Pinball)|  
+| 99 | [Duck_Hunting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Duck_Hunting_Game)|
+
 
 </center>
 

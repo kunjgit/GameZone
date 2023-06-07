@@ -7,6 +7,7 @@ The objective of the game is to checkmate the opponent's king, putting it in a p
 it is under attack and cannot escape capture.
 
 Functionalities:
+
 1.Piece Movement:
  A chess game allows players to move their pieces according to the rules of the game.
 Each piece has its specific movement capabilities, and players can select and move their pieces across the board during their turn.
@@ -19,4 +20,7 @@ The chess game incorporates the concept of "check" and "checkmate." When a playe
 The objective is to create a situation where the opponent's king is in checkmate, meaning it is under attack and cannot escape capture.
 The game notifies players when a check or checkmate occurs.
 
- 
+screenshot:
+
+
+ ![Screenshot](https://github.com/Yashoda2003/GameZone/assets/116747256/9b888b0b-0f2b-4697-af32-dd0e8eea1f2e)

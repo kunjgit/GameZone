@@ -187,6 +187,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 82 | [Dont_Die_To_Ghosts](https://github.com/kunjgit/GameZone/tree/main/Games/Dont_Die_To_Ghosts)|  
  
 
+| 83 | [SciFi_Alchemy](https://github.com/kunjgit/GameZone/tree/main/Games/SciFi_Alchemy)|
+
 </center>
 
 <br>

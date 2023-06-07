@@ -6,8 +6,9 @@
     <title>Drum Kit</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="hiphop.css">
+    <link rel="stylesheet" href="vintage.css">
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -17,12 +18,21 @@
                 aria-haspopup="true" aria-expanded="false">DrumSets</button>
             <div class="dropdown-menu dropdown-menu-center text-center">
                 <a class="dropdown-item" href="../../">Default</a>
-                <a class="dropdown-item" href="../vintage/vintage.html">Vintage</a>
-                <a class="dropdown-item" href="#">Hip Hop</a>
+                <a class="dropdown-item" href="#">Vintage</a>
+                <a class="dropdown-item" href="../hiphop/hiphop.html">Hip Hop</a>
             </div>
         </li>
     </ul>
     <div class="drumSet">
+        <div class="animation2">
+            <lottie-player id="animation2" src="https://assets1.lottiefiles.com/private_files/lf30_rjqwaenm.json"
+                mode="bounce" background="transparent" speed="1" style="width: 300px; height: 600px;" loop
+                autoplay></lottie-player>
+        </div>
+        <div class="animation1">
+            <lottie-player id="animation1" src="https://assets1.lottiefiles.com/packages/lf20_7zyl4dlw.json"
+                background="transparent" speed="1" style="width: 600px; height: 600px;" loop autoplay></lottie-player>
+        </div>
         <div class="w drum"></div>
         <div class="a drum"></div>
         <div class="s drum"></div>
@@ -31,11 +41,6 @@
         <div class="k drum"></div>
         <div class="l drum"></div>
         <div class="m drum"></div>
-        <div class="n drum"></div>
-        <div class="o drum"></div>
-        <div class="p drum"></div>
-        <div class="q drum"></div>
-        <div class="e drum"></div>
     </div>
     <button type="button" class="btn btn-outline-secondary" id="showKey">Show Key</button>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -47,7 +52,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="hiphop.js" charset="utf-8"></script>
+    <script src="vintage.js" charset="utf-8"></script>
 </body>
 
 </html>

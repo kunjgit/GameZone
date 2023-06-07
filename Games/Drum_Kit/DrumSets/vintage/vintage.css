@@ -7,7 +7,7 @@ body {
   font-family: "Arvo", cursive;
   line-height: 2;
   font-weight: 900;
-  color: #ff0073;
+  color: #da0463;
   text-shadow: 3px 0 #dbedf3;
   border-radius: 15px;
   display: inline-block;
@@ -28,44 +28,52 @@ body {
   margin-top: 20px;
 }
 
+.w {
+  background-image: url("../../images/cymbal1.png");
+  grid-row: 2;
+  grid-column: 2;
+  transform: rotateY(180deg);
+}
+
 .a {
-  background-image: url("../../images/hi-hat.png");
-  grid-column: 1;
+  background-image: url("../../images/cymbal1.png");
+  grid-row: 2;
+  grid-column: 5;
+}
+
+.s {
+  background-image: url("../../images/cymbal2.png");
+  grid-row: 2;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.d {
+  background-image: url("../../images/floor-tom.png");
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.m {
+  background-image: url("../../images/floor-tom.png");
+  grid-row: 3;
+  grid-column: 5;
+}
+
+.j {
+  background-image: url("../../images/snare-drum.png");
+  grid-column: 6;
   grid-row-start: 2;
   grid-row-end: 4;
   height: 360px;
 }
 
-.w {
-  background-image: url("../../images/floor-tom.png");
-  grid-column: 2;
-  grid-row: 3;
-}
-
-.s {
-  background-image: url("../../images/tom-drum.png");
-  grid-column: 5;
-  grid-row: 3;
-}
-
-.d {
-  background-image: url("../../images/snare-drum.png");
-  grid-column: 6;
+.k {
+  background-image: url("../../images/hi-hat.png");
+  grid-column: 1;
   grid-row-start: 2;
   grid-row-end: 4;
-  height: 380px;
-}
-
-.j {
-  background-image: url("../../images/tom.png");
-  grid-row: 4;
-  grid-column: 2;
-}
-
-.k {
-  background-image: url("../../images/tom.png");
-  grid-row: 4;
-  grid-column: 5;
+  height: 360px;
 }
 
 .l {
@@ -78,44 +86,27 @@ body {
   height: 400px;
 }
 
-.m {
-  background-image: url("../../images/cymbal2.png");
-  grid-column: 3;
-  grid-row: 1;
-}
-.n {
-  background-image: url("../../images/cymbal2.png");
-  grid-column: 4;
-  grid-row: 1;
-}
-.o {
-  background-image: url("../../images/cymbal3.png");
-  grid-column: 2;
-  grid-row: 2;
-  transform: rotateY(180deg);
-}
-.p {
-  background-image: url("../../images/cymbal1.png");
-  grid-column: 3;
-  grid-row: 2;
-  transform: rotateY(180deg);
-}
-.q {
-  background-image: url("../../images/cymbal1.png");
-  grid-column: 4;
-  grid-row: 2;
-}
-.e {
-  background-image: url("../../images/cymbal3.png");
-  grid-column: 5;
-  grid-row: 2;
-}
-
 .drumSet {
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
+}
+
+.animation1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 5;
+  z-index: -1;
+}
+
+.animation2 {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  grid-row-end: 7;
+  z-index: -1;
 }
 
 .pressed {

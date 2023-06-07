@@ -204,6 +204,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 99 | [Duck_Hunting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Duck_Hunting_Game)|
 | 100 | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher)|
 | * | [Retro_Dungeon_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Retro_Dungeon_Puzzle)|
+| * | [DuckHunt](https://github.com/kunjgit/GameZone/tree/main/Games/DuckHunt)|
 
 
 </center>

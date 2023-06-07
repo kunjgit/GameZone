@@ -1,0 +1,114 @@
+body{
+    background-image: url(Assets/Premium\ Vector\ _\ Golf\ course\ background\ in\ flat\ style.jpeg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-blend-mode: color;
+}
+#title{
+position: absolute;
+width: 792px;
+height: 135px;
+left: 700px;
+top: 5px;
+
+font-family: 'Black Ops One';
+font-style: normal;
+font-weight: 400;
+font-size: 100px;
+line-height: 100%;
+/* or 100px */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #037803;
+
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+backdrop-filter: blur(2px);
+}
+
+#now{
+    box-sizing: border-box;
+    font-family: 'Lacquer';
+    font-size: 80px;
+    color: #0ef30e;
+    font-weight: bolder;
+position: absolute;
+width: 550px;
+height: 116px;
+left: 105px;
+top: 278px;
+display: flex;
+align-items: center;
+text-align: center;
+
+background-image: url(Assets/stony_texture_2\ trail.jpg);
+background-size: 350px;
+border: 5px solid #000000;
+border-radius: 30px;
+
+}
+
+#frands{
+    box-sizing: border-box;
+    font-family: 'Lacquer';
+    font-size: 62px;
+    font-weight: bolder;
+    
+    color: #0ef30e;
+position: absolute;
+width: 550px;
+height: 116px;
+left: 105px;
+top: 450px;
+display: flex;
+align-items: center;
+text-align: center;
+background-image: url(Assets/stony_texture_2\ trail.jpg);
+background-size: 350px;
+
+
+border: 5px solid #000000;
+border-radius: 30px;
+
+}
+
+#sound{
+    box-sizing: border-box;    
+    color: #0ef30e;
+position: absolute;
+width: 80px;
+height: 80px;
+left: 105px;
+top: 600px;
+display: flex;
+align-items: center;
+text-align: center;
+background-image: url(Assets/stony_texture_2\ trail.jpg);
+background-size: 350px;
+
+
+border: 5px solid #000000;
+border-radius: 65px;
+
+}
+
+#vol{
+    font-size:50px;
+    
+    
+    text-shadow: #000000;
+    font-weight: bolder;
+}
+
+#sound:hover{
+    transform: scale(0.95);
+}
+#frands:hover{
+    transform: scale(0.95);
+}
+#now:hover{
+    transform: scale(0.95);
+}

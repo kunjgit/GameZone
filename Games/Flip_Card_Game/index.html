@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flip - card memory game.</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  </head>
+  <body>
+    <div id="g"></div>
+
+    <div class="logo">
+      <p class="info">Click the P to get started.</p>
+      <div class="card left">
+        <div class="flipper">
+          <div class="f c1">F</div>
+          <div class="b contentbox" id="stats">
+            <div class="padded">
+              <h2>Figures</h2>
+              Looks like you haven't FLIPped yet.
+              <a href="javascript:;" class="playnow">Play now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card active twist">
+        <div class="flipper">
+          <div class="b f">
+            <div class="c2">L</div>
+          </div>
+        </div>
+      </div>
+      <div class="card left">
+        <div class="flipper">
+          <div class="f c3">I</div>
+          <div class="b contentbox instructions">
+            <div class="padded">
+              <h2>Instructions</h2>
+              <p>Press [p] to pause, or [ESC] to abandon game.</p>
+              <p>
+                Flip is a timed card memory game. Click the green cards to see
+                what symbol they uncover and try to find the matching symbol
+                underneath the other cards.
+              </p>
+              <p>
+                Uncover two matching symbols at once to eliminate them from the
+                game.
+              </p>
+              <p>
+                Eliminate all cards as fast as you can to win the game. Have fun
+                FLIPing!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="flipper">
+          <div class="f c4">P</div>
+          <div class="b contentbox levels">
+            <a href="javascript:;" data-level="8" class="play">Casual</a>
+            <a href="javascript:;" data-level="18" class="play">Medium</a>
+            <a href="javascript:;" data-level="32" class="play">Hard</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="info">
+        Flip should work best in Google Chrome, decent in Firefox, IE10 and
+        Opera;
+      </p>
+    </div>
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

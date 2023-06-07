@@ -113,6 +113,52 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 }
 
+// Code for enabling Light-Dark THEME
+function toggleTheme() {
+  var slider = document.getElementById("themeToggle");
+  if (slider.checked) {
+    disableDarkTheme();
+  } else {
+    enableDarkTheme();
+  }
+}
+
+function enableDarkTheme() {
+  var elements = document.getElementsByTagName('*');
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+    if (
+      element.tagName !== 'BODY' &&
+      !element.classList.contains('ignore-dark-theme') &&
+      !element.classList.contains('project-category') &&
+      !element.classList.contains('footer')
+    ) {
+      element.classList.add('dark-theme');
+    }
+  }
+
+  // Adding specific background color for the footer
+  var footer = document.querySelector('footer');
+  if (footer) {
+    footer.classList.add('dark-theme');
+  }
+}
+
+
+function disableDarkTheme() {
+  var elements = document.getElementsByTagName('*');
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+    if (
+      element.tagName !== 'BODY' &&
+      !element.classList.contains('ignore-dark-theme') &&
+      !element.classList.contains('project-category')
+    ) {
+      element.classList.remove('dark-theme');
+    }
+  }
+}
+
 
 
 // contact form variables
@@ -156,4 +202,21 @@ for (let i = 0; i < navigationLinks.length; i++) {
     }
 
   
+}
+
+
+function search_game() {
+  let input = document.getElementById('searchbar').value;
+  console.log(input)
+  input = input.toLowerCase();
+  let searchelement = document.getElementsByClassName('project-item  active');
+  console.log(searchelement.length);
+  for (let i = 0; i < searchelement.length; i++) { 
+      if (!searchelement[i].innerHTML.toLowerCase().includes(input)) {
+          searchelement[i].style.display="none";
+      }
+      else {
+          searchelement[i].style.display="list-item";                 
+      }
+  }
 }

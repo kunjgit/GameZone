@@ -139,8 +139,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 34 | [Lighthouse Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lighthouse)| 
 | 35 | [Lights Out Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lights_Out)|
 | 36 | [Word Scramble Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Scramble_Game)|
-| 37 | [Tic-Tac-Toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe)|
-
 | 37 | [Tetris](https://github.com/kunjgit/GameZone/tree/main/Games/Tetris)|
 | 38 | [Interactive Quizzing Application](https://github.com/kunjgit/GameZone/tree/main/Games/Interactive_Quizzing)|
 | 39 | [Planet Defense Game](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Defense)|
@@ -205,6 +203,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 98 | [Pinball](https://github.com/kunjgit/GameZone/tree/main/Games/Pinball)|  
 | 99 | [Duck_Hunting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Duck_Hunting_Game)|
 | 100 | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher)|
+| 101 | [Tic-Tac-Toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe)|
+
 
 
 </center> 

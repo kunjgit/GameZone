@@ -197,6 +197,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 92 | [Pacific Air Battle](https://github.com/kunjgit/GameZone/tree/main/Games/Pacific_Air_Battle)|
 | 93 | [Dante](https://github.com/kunjgit/GameZone/tree/main/Games/Dante)|
 | 94 | [Ping Pong Multiplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Multiplayer)|
+| 95 | [Sonic The Hedgehog](https://github.com/kunjgit/GameZone/tree/main/Games/Sonic_The_Hedgehog)|
 
   
 </center>

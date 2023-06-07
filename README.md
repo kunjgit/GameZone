@@ -196,6 +196,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 91 | [Pokedex_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokedex)|
 | 92 | [Pacific Air Battle](https://github.com/kunjgit/GameZone/tree/main/Games/Pacific_Air_Battle)|
 | 93 | [Dante](https://github.com/kunjgit/GameZone/tree/main/Games/Dante)|
+| 94 | [Ping Pong Multiplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Multiplayer)|
 
   
 </center>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coin Flip Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #FFB6C1 ;
+        }
+        .container {
+            margin-top: 100px;
+        }
+
+        .card-header-custom {
+            background-color: #FAA0A0;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .card-body-custom {
+            background-color: #F3CFC6 ;
+            color: #fff;
+        }
+
+        .btn-primary-custom {
+            background-color:  #FAA0A0;
+            border-color: #FFB6C1;
+        }
+
+        .btn-primary-custom:hover {
+            background-color:  #FFB6C1;
+            border-color: #FFB6C1;
+        }
+
+        .btn-secondary-custom {
+            background-color:  #FAA0A0;
+            border-color: #FFB6C1;
+        }
+
+        .btn-secondary-custom:hover {
+            background-color:  #FFB6C1;
+            border-color: #FFB6C1;
+        }
+        .text-message {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .text-success {
+            color: #28a745;
+            font-size:20px;
+        }
+
+        .text-danger {
+            color: #dc3545;
+            font-size:20px;
+        }
+         .guess,.score{
+             font-size:20px;
+         }
+         .score{
+             margin-top:10px;
+         }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card mx-auto" style="max-width: 500px;">
+            <div class="card-header text-center card-header-custom">
+                <h1>Coin Flip Game</h1>
+            </div>
+            <div class="card-body text-center card-body-custom">
+                <div id="result"></div>
+                <p class="mt-3 guess">Guess the outcome: <input type="text" id="user-guess" placeholder="Heads or Tails" /></p>
+                <button class="btn btn-primary btn-primary-custom mr-2" onclick="flipCoin()">Flip Coin</button>
+                <button class="btn btn-secondary btn-secondary-custom" onclick="resetGame()">Reset</button>
+                <div class="score">Score: <span id="score">0</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

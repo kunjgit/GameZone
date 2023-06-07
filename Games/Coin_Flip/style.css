@@ -1,0 +1,35 @@
+.container {
+    margin-top: 100px;
+}
+
+.coin {
+    font-size: 64px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #FAA0A0;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    perspective: 800px;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    margin-top: 30px;
+}
+
+
+.flip-animation {
+    animation: flip 2s linear infinite;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}

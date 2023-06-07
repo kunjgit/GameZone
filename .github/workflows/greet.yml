@@ -49,5 +49,5 @@ jobs:
               owner: owner,
               repo: repo,
               issue_number: number,
-              labels: ["GSSoC23"]
+              labels: ["gssoc23"]
             });

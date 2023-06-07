@@ -192,6 +192,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 87 | [Love Calculator Game](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Calci)|
 | 88 | [Planet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Game)|
 | 89 | [Snake_Ladder](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Ladder)|  
+| 90 | [Among Us Game](https://github.com/kunjgit/GameZone/tree/main/Games/Among_Us_Game)|
 
 
 

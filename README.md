@@ -189,6 +189,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 84 | [Packabunchas](https://github.com/kunjgit/GameZone/tree/main/Games/Packabunchas)|
 | 85 | [Cast and Catch]( https://github.com/Sheetal-05/GameZone/tree/main/Games/Cast_and_Catch)|
 | 86 | [Track_Not_Found](https://github.com/kunjgit/GameZone/tree/main/Games/Track_Not_Found)|
+| 87 | [Love Calculator Game](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Calci)|
 
 </center>
 

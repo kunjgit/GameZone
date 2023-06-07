@@ -10,7 +10,8 @@
 ## **functionalities 🎮** 
 - random color generation
 - fully responsive design
-- 2 levels
+- 2 levels: 1. Easy 
+            2. Hard
 <br>
 
 ## **How to play? 🕹️**
@@ -27,9 +28,20 @@
 <br>
 
 ![image](../../assets/images/Colour_Guessing_Game.png)
+### Easy
+![image](https://github.com/vidhimakani74/GameZone/assets/100896986/968c920f-81e2-4640-99bd-dbc113a2de97)
+### Hard
+![image](https://github.com/vidhimakani74/GameZone/assets/100896986/773a5cca-dfbd-4e73-8787-9840e1b5876c)
+### Try Again
+![image](https://github.com/vidhimakani74/GameZone/assets/100896986/12a06ae0-7367-457a-813d-dc700171d0d6)
+### Correct OR Wining 
+![image](https://github.com/vidhimakani74/GameZone/assets/100896986/a8101222-168d-48fd-b82e-435165723f68)
 
 <br>
 
 ## **Working video 📹**
 <!-- add your working video over here -->
 https://github.com/singh-anushka/GameZone/assets/93376863/48c8b665-4390-480d-a565-37f9e19f3c4e
+## After Music added 
+https://github.com/vidhimakani74/GameZone/assets/100896986/10c7aeb2-bfe2-45f0-9252-3bf81e07d9e5
+

@@ -200,7 +200,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 95 | [Sonic The Hedgehog](https://github.com/kunjgit/GameZone/tree/main/Games/Sonic_The_Hedgehog)|
 | 96 | [World Of Emojis](https://github.com/kunjgit/GameZone/tree/main/Games/World_Of_Emojis)|
 
-  
+| * | [Space Huggers](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Huggers)|
+
+    
 </center>
 
 <br>

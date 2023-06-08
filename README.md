@@ -207,6 +207,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 102  | [Catch_me_game](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_me_game)|
 | 103 | [Blank Detective](https://github.com/kunjgit/GameZone/tree/main/Games/Blank Detective)|
 | 104 | [Falling Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Blocks)|
+| * | [Galaxy Rider](https://github.com/kunjgit/GameZone/tree/main/Games/Galaxy_Rider)|
 
 </center>
 

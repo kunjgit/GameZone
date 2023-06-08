@@ -27,6 +27,7 @@
 
 <!-- add your working video over here -->
 
-<video controls>
-<source src = "assets/Catch_the_Bunny.mp4">
-</video>
+
+https://github.com/dishamodi0910/GameZone/assets/106090499/1e95377d-0c6c-4e42-b940-e989a9d28f73
+
+

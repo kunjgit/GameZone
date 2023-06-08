@@ -52,7 +52,7 @@
   width: 16px;
   left: 2px;
   bottom: 2px;
-  background-color: white;
+  background-color: black;
   border-radius: 50%;
   transition: transform 0.4s;
 }

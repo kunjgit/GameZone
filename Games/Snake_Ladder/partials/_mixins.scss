@@ -1,0 +1,71 @@
+// rem fallback - credits: http://zerosixthree.se/
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+// center vertically and/or horizontally an absolute positioned element
+
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
+
+@mixin button_custom(){
+
+  @include MQ(M){
+    margin: 40px 0 20px 0;
+
+  }
+  text-align: center;
+  @include MQ(S){
+    margin: 20px auto;
+  }
+  a.faded{
+    background-color: lighten($color-button-roll,20%);
+    cursor: not-allowed;
+  }
+  a.active{
+
+  }
+  a{
+
+    background-color: $color-button-roll;
+    padding: 7px 20px;
+    @include MQ(M){
+      padding: 7px 50px;
+
+    }
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+    @include transition(all 0.3s);
+    &:hover{
+      background-color: white;
+      border: 3px solid $color-button-roll;
+      color: $color-button-roll;
+
+    }
+  }
+}

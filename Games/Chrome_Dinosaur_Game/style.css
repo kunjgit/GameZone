@@ -20,3 +20,29 @@ h1{
     height: 400px;
     width: 1000px;
 }
+
+.collision-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .collision-popup h2 {
+    margin-top: 0;
+  }
+  
+  .collision-popup p {
+    margin-bottom: 0;
+  }
+  
+  .collision-popup.show {
+    display: block;
+  }
+  

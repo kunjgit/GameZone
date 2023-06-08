@@ -40,6 +40,7 @@ let velocityY = 0;
 let gravity = .4;
 
 let gameOver = false;
+let collision = false;
 let score = 0;
 
 window.onload = function () {
@@ -96,10 +97,15 @@ function update() {
 
         if (detectCollision(dino, cactus)) {
             gameOver = true;
+            collision = true;
             dinoImg.src = "./assets/dino-dead.png";
-            context.fillStyle = "#27374D";
-            context.font = "40px 'Play'";
-            context.fillText("Press 'R' to Restart", 340, 210);
+            // context.fillStyle = "#27374D";
+            // context.font = "40px 'Play'";
+            // context.fillText("Press 'R' to Restart", 340, 210);
+            if (collision) {
+                const collisionPopup = document.getElementById("collision-popup");
+                collisionPopup.classList.add("show");
+              }
             dinoImg.onload = function () {
                 context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
             }
@@ -110,8 +116,8 @@ function update() {
     context.fillStyle = "#27374D";
     context.font = "25px 'Play'";
     score++;
-    context.fillText("Score:", 5, 25);
-    context.fillText(score, 80, 25);
+    context.fillText("Score:", 450, 30);
+    context.fillText(score, 520, 30);
 }
 
 function moveDino(e) {

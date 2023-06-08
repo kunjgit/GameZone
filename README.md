@@ -199,12 +199,24 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 94 | [Ping Pong Multiplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Multiplayer)|
 | 95 | [Sonic The Hedgehog](https://github.com/kunjgit/GameZone/tree/main/Games/Sonic_The_Hedgehog)|
 | 96 | [World Of Emojis](https://github.com/kunjgit/GameZone/tree/main/Games/World_Of_Emojis)|
+| 97 | [Ball_Fall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Fall_Game)|
+| 98 | [Pinball](https://github.com/kunjgit/GameZone/tree/main/Games/Pinball)|  
+| 99 | [Duck_Hunting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Duck_Hunting_Game)|
+| 100 | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher)|
+| 101 | [Catch_the_Bunny](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_Bunny)|
+| 102  | [Catch_me_game](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_me_game)|
+| 103 | [Blank Detective](https://github.com/kunjgit/GameZone/tree/main/Games/Blanks%20Detective)|
+| 104 | [Falling Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Blocks)|
+| 105 | [Movie Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Movie_Guessing_Game)|
+| 106 | [Wildcard_Bonanza](https://github.com/Sheetal-05/GameZone/tree/main/Games/Wildcard_Bonanza)|
+| 107 | [The Last Spartan](https://github.com/kunjgit/GameZone/tree/main/Games/The_Last_Spartan)|
+| 108 | [Space Exploration](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Exploration)|
 
 
 
 | * | [Spaceship_Escort](https://github.com/kunjgit/GameZone/tree/main/Games/Spaceship_Escort)|
 
-  
+
 </center>
 
 <br>

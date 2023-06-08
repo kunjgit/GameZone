@@ -1,0 +1,15 @@
+body
+{
+    margin:0px;
+}
+#box
+{
+    position:absolute;
+    height:20vh;
+    width:20vh;
+    background-color: orangered;
+    font-size:2vh;
+    padding:5px;
+    text-align:center;
+    box-sizing: border-box;
+}

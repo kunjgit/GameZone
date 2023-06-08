@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Guesser</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="main.js" defer></script>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i");
+    body {
+      background-color: rgba(242, 242, 242, 1);
+    }
+    .container {
+      width: 450px;
+      text-align: center;
+      font-family: "Muli", sans-serif;
+    }
+    h3,
+    h4,
+    h6 {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #09095b;
+      margin-bottom: 1em;
+    }
+    p {
+      font-weight: bold;
+      margin-top: 5px;
+      font-size: small;
+    }
+    input {
+      border-color: #09095b !important;
+      color: black !important;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="head" style="margin-bottom: 20px">
+        <h3>Guess All The Countries!</h3>
+        <h6 style="margin-bottom: 2rem; color: red !important">
+          Your Progress: <span id="progress">0</span>/195 Countries Guessed.
+        </h6>
+        <input
+          type="text"
+          class="form-control search"
+          id="country"
+          placeholder="e.g. Argentina"
+          onkeydown="search(this)"
+        />
+        <p class="misMatch" style="color: red !important"></p>
+      </div>
+
+      <h6 class="listNations" style="margin-top: 4rem"></h6>
+    </div>
+  </body>
+</html>

@@ -210,6 +210,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 105 | [Movie Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Movie_Guessing_Game)|
 | 106 | [Wildcard_Bonanza](https://github.com/Sheetal-05/GameZone/tree/main/Games/Wildcard_Bonanza)|
 | 107 | [The Last Spartan](https://github.com/kunjgit/GameZone/tree/main/Games/The_Last_Spartan)|
+| 108 | [Squared Lines](https://github.com/kunjgit/GameZone/tree/main/Squared Lines)|
 | * | [Space Exploration](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Exploration)|
 
 </center>

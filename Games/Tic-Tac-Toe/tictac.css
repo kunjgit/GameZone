@@ -44,7 +44,7 @@ body {
 
   .buttons {
     cursor: pointer;
-    height: 20px;
+    height: 1.3rem;
     padding-bottom: 3rem;
     margin-bottom: 3rem;
   }
@@ -81,8 +81,8 @@ body {
   .box {
     width: auto;
     height: auto;
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 3.125rem;
+    min-height: 3.125rem;
     border-radius: 1rem;
     font-size: max(4vw, 3rem);
     display: flex;
@@ -147,7 +147,7 @@ body {
     width: auto;
     border-radius: 0px;
     border: 0.2rem solid #fff;
-    border-radius: 2rem;
+    border-radius: 5px;
     padding: 2rem 5rem 2rem 5rem;
     box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
       0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;

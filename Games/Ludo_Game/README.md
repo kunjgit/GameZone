@@ -4,44 +4,23 @@
 
 <br>
 
-## **Description 📃** 
-- This project is built on a basic web tech stacks such as HTML, CSS and Javascript.
-- This game is just for fun.
+## **Description 📃**
+A multiplayer Ludo game, where you can play with your friend and the first to 100 points win
+- 
 
-## **functionalities 🎮** 
-- Two players take turns rolling a single die.
-- Rolling a 1 results in losing all accumulated points for the current turn.
-- Accumulated points are added to the player's total score when they choose to hold.
-- The first player to reach a 100 winning score wins the game.
-
-## ** Additional Features **
-- Displaying the current scores of each player.
-- Implementing a graphical user interface (GUI) for a more interactive experience.
-- Adding sounds for the dice rolling and when game over.
-
+## **functionalities 🎮**
+It has a points system that adds your points everytime you `
 <br>
 
 ## **How to play? 🕹️**
-- To roll the die, click a "Roll" button or press a key.
-- The die will generate a random number between 1 and 6.
-- If you roll a number other than 1, the value is added to your current score for the turn.
-- You can choose to roll again to accumulate more points, or you can decide to end your turn and "Hold" your current score.
-- If you roll a 1, your turn ends immediately, and you lose all the points accumulated during that turn. It becomes the next player's turn.
-- When you choose to "Hold," the points accumulated during your turn are added to your total score.
-- Your turn ends, and it becomes the next player's turn.
-- Continue taking turns until one of the players reaches or exceeds a 100 winning score.
-- The player who reaches the winning score first is declared the winner.
+Click on the "Roll Dice" to roll the dice. The dice that you get would assign you a score.
+You can either hold your score and pass the chance to the other player or roll the dice again.
+If you get the dice of 1, your current score will reset and chance would go to the other player
 
 <br>
 
 ## **Screenshots 📸**
 
 <br>
-
 ![image](../../assets/images/Ludo_Game.png)
 
-<br>
-
-## **Working video 📹**
-<!-- add your working video over here -->
-https://github.com/kunjgit/GameZone/assets/114330097/f49f4212-d872-43ad-80c2-44b68614a696

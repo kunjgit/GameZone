@@ -12,18 +12,12 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
-const diceRoll = new Audio('./sounds/DiceRoll.mp3');
-const gameOver = new Audio('./sounds/GameOver.mp3');
-const playAgain = new Audio('./sounds/playAgain.mp3')
-
 let scores, currentScore, activePlayer, playing;
 const init = function () {
   scores = [0, 0];
   currentScore = 0;
   activePlayer = 0;
   playing = true;
-
-  playAgain.play();
 
   score0El.textContent = 0;
   score1El.textContent = 0;
@@ -48,9 +42,8 @@ const switchPlayer = function () {
 btnRoll.addEventListener('click', function () {
   if (playing) {
     const dice = Math.trunc(Math.random() * 6) + 1;
-    diceRoll.play();
     diceEl.classList.remove('hidden');
-    diceEl.src = `./images/dice-${dice}.png`;
+    diceEl.src = `dice-${dice}.png`;
     if (dice !== 1) {
       currentScore += dice;
       document.getElementById(
@@ -72,8 +65,6 @@ btnHold.addEventListener('click', function () {
     if (scores[activePlayer] >= 100) {
       playing = false;
       diceEl.classList.add('hidden');
-
-      gameOver.play();
 
       document
         .querySelector(`.player--${activePlayer}`)

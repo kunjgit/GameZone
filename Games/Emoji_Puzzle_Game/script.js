@@ -149,9 +149,22 @@ function createGamePage() {
 
 createGamePage();
 
+// Adding functioning using pressing the enter button
+let myInput = document.querySelector('input');
+myInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+        checkValue();
+    }
+})
+
 // Working of Submit button
 let submitBtn = document.querySelector('.submitBtn');
 submitBtn.addEventListener('click', () => {
+    checkValue();
+});
+
+// Function handle the checking of entered value
+function checkValue() {
     let inputBox = document.querySelector('input');
     let enteredValue = parseInt(inputBox.value);
     if (enteredValue === sum6) {
@@ -170,7 +183,7 @@ submitBtn.addEventListener('click', () => {
             wrongAns.style.display = 'none';
         }, 1800);
     }
-});
+}
 
 // Working of Hint Button
 let hintBtn = document.getElementById('hintBtn');

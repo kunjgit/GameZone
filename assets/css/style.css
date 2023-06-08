@@ -2429,19 +2429,3 @@ textarea.form-input::-webkit-resizer {
   padding-right:10px ;
 }
 
-#google_translate_element{
-  margin-top: 0%;
-  width: max-content;
-  background-color: var(--smoky-black);
-  border-radius: 3px;
-  margin-left: calc(100% - 50px/2);
-}
-
-#google_translate_element select{
-  background-color: var(--smoky-black);
-  color: rgb(243, 239, 239);
-  border: none;
-  border-radius: 3px;
-  padding: 6px 8px;
-  cursor: pointer;
-}

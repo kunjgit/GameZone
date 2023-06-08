@@ -11,6 +11,3 @@ The game was designed to work on mobile phone; works best on tablet like iPad.
 ## TL;DR;
 "Sciara di fuoco" is an italian (sicilian) locution to point the famous magma's flow in the beautiful island of Stromboli.
 
-## AUTHOR
-Gabriele D'Arrigo - [@acirdesign](http://twitter.com/acirdesign "Follow me, dude!") - [acirdesign.com](http://www.acirdesign.com "Acirdesign")
-

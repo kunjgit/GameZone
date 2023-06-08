@@ -28,5 +28,5 @@
 <!-- add your working video over here -->
 
 <video controls>
-<source src = "assets/Catch_the_Bunny.mp4">
+<source src = "assets\Catch_the_Bunny.mp4">
 </video>

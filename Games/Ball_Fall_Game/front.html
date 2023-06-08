@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ball Fall</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="icon"
+      type="imagectx.fillText:/x-icon"
+      href="favicon-32x32.png"
+    />
+  </head>
+  <body>
+    <div class="group">
+      <div class="main-container">
+        <canvas
+          id="canvas"
+          height="500"
+          width="500"
+          style="border: 3px solid grey"
+        >
+        </canvas>
+        <script src="index.js"></script>
+      </div>
+      <div class="btn-container">
+        <div class="btnbox">
+          <button onclick="myfunction1()" class="btn" id="left">
+            <img src="left.png" />
+          </button>
+          <button onclick="myfunction2()" class="btn" id="right">
+            <img src="right.png" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      function myfunction1() {
+        console.log("working");
+        moveleftbtn();
+      }
+
+      function myfunction2() {
+        console.log("working2");
+        moverightbtn();
+      }
+    </script>
+  </body>
+</html>

@@ -205,6 +205,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 100 | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher)|
 | 101 | [Catch_the_Bunny](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_Bunny)|
 | 102  | [Catch_me_game](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_me_game)|
+| 97 | [Blank Detective](https://github.com/kunjgit/GameZone/tree/main/Games/Blank Detective)|
 
 </center>
 

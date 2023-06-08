@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Pinball editor</title>
+		<style type="text/css">
+
+textarea {
+	position:absolute;
+	left:60%;
+	width:40%;
+	height:100%;
+	margin: 1px 0px 1px 0px;
+	box-sizing: border-box;
+	border-radius:2px;
+	border:1px solid;
+	border-color:#888 #ccc #ccc #888;
+	vertical-align: top;
+	word-break: break-all;
+}
+
+		</style>
+	</head>
+	<body>
+		<div>
+		<canvas id="c"></canvas>
+		<textarea id="t" ></textarea>
+		</div>
+		<script language="Javascript">
+		
+	var zoomLevel = 1;
+	var highlight = -1;
+	var selection = [ -1, 1, 1, 0, 0];
+	var newPoint = [-1, -1];
+	var addingPoint = false;
+	var sceneryCanvas = document.getElementById("c");
+	sceneryCanvas.height=1400;
+	sceneryCanvas.width=.6*(window.innerWidth);
+	document.onkeydown = function(event) { return !keyControl(event, true); }
+	document.onmousemove = function (event) { return mouseControl(event); }
+	document.onmousedown = function (event) { return mouseButtonDown(event); }
+	document.onmouseup = function (event) { return mouseButtonUp(event); }
+	
+	
+	var bottomArea = 940;
+	var slingShotY = bottomArea;
+	var bonusLaneX = 250, bonusLaneY = 200, bonusLaneWidth = 80;
+	var walls = [
+			[8],
+			[2, bonusLaneX-bonusLaneWidth+16, bonusLaneY-20, 16, -.6*Math.PI, 0, 1],  // separator between access lane and L lane
+			[2, bonusLaneX-bonusLaneWidth+26.15, bonusLaneY + 11.25, 48.85, -Math.PI, -.6*Math.PI, 1],
+			[2, bonusLaneX-bonusLaneWidth+26.15, bonusLaneY + 11.25, 48.85, 5/6*Math.PI, Math.PI, 1],
+			[0, bonusLaneX-bonusLaneWidth-16.16, bonusLaneY+35.68, bonusLaneX-bonusLaneWidth+117.55, bonusLaneY+267.26, 1],
+			[2, bonusLaneX-bonusLaneWidth+121.86, bonusLaneY+264.77, 5, -1/6*Math.PI, 5/6*Math.PI, 1],
+			[0, bonusLaneX-bonusLaneWidth+126.2, bonusLaneY+262.27, bonusLaneX-bonusLaneWidth+45.4, bonusLaneY+122, 1 ],
+			[1, bonusLaneX-bonusLaneWidth+132, bonusLaneY+72, 100, 5/6*Math.PI, Math.PI, 1],
+			[0, bonusLaneX-bonusLaneWidth+32, bonusLaneY+72, bonusLaneX-bonusLaneWidth+32, bonusLaneY-20, 1],
+			[9],
+			// bonus lanes : first separator
+			[8],
+			[0, bonusLaneX, bonusLaneY-20, bonusLaneX, bonusLaneY+20, 1],
+			[2, bonusLaneX+16, bonusLaneY+20, 16, 0, Math.PI, 1], 
+			[0, bonusLaneX+32, bonusLaneY+20, bonusLaneX+32, bonusLaneY-20, 1],
+			[2, bonusLaneX+16, bonusLaneY-20, 16, -Math.PI, 0, 1], 
+			[9],
+			// bonus lanes : second separator
+			[8],
+			[0, bonusLaneX+bonusLaneWidth, bonusLaneY-20, bonusLaneX+bonusLaneWidth, bonusLaneY+20, 1],
+			[2, bonusLaneX+bonusLaneWidth+16, bonusLaneY+20, 16, 0, Math.PI, 1], 
+			[0, bonusLaneX+32+bonusLaneWidth, bonusLaneY+20, bonusLaneX+32+bonusLaneWidth, bonusLaneY-20, 1],
+			[2, bonusLaneX+bonusLaneWidth+16, bonusLaneY-20, 16, -Math.PI, 0, 1], 
+			[9],
+			// bonus lanes : third separator
+			[8],
+			[0, bonusLaneX+2*bonusLaneWidth, bonusLaneY-20, bonusLaneX+2*bonusLaneWidth, bonusLaneY+20, 1],
+			[2, bonusLaneX+2*bonusLaneWidth+16, bonusLaneY+20, 16, 0, Math.PI, 1], // bonus lane separators
+			[0, bonusLaneX+32+2*bonusLaneWidth, bonusLaneY+20, bonusLaneX+32+2*bonusLaneWidth, bonusLaneY-20, 1],
+			[2, bonusLaneX+2*bonusLaneWidth+16, bonusLaneY-20, 16, -Math.PI, 0, 1],
+			[9],
+			// left slingshot
+			[8],
+			[0, 102, slingShotY+17, 102, slingShotY+170, 1],
+			[2, 120, slingShotY+170, 18, Math.PI-Math.atan(1.5), Math.PI, 1],
+			[0, 110, slingShotY+185, 185, slingShotY+235, 1],
+			[2, 195, slingShotY+220, 18, -Math.atan2(71, 204), Math.PI-Math.atan(1.5), 1],
+			[0, 212, slingShotY+214.1, 140.74, slingShotY+9.3, 1.2],
+			[2, 122, slingShotY+17, 20, -Math.PI, -Math.atan2(71, 204), 1],			
+			[9],
+			// right slingshot
+			[8],
+			[0, 647, slingShotY+170, 647, slingShotY+17, 1],
+			[2, 627, slingShotY+17, 20, Math.atan2(71, 204)-Math.PI, 0, 1],
+			[0, 608.26, slingShotY+9.3, 537, slingShotY+214.1, 1.2],			
+			[2, 554, slingShotY+220, 18, -Math.PI, Math.atan2(71, 204)-Math.PI, 1],
+			[2, 554, slingShotY+220, 18, Math.atan(1.5), Math.PI, 1],
+			[0, 564, slingShotY+235, 639, slingShotY+185, 1],
+			[2, 629, slingShotY+170, 18, 0, Math.atan(1.5), 1], // right slingshot
+			[9],
+			// center of right ramp
+			[8],
+			[ 0, 565, 519, 630, 584, 1 ],
+			[ 2, 637.5, 576.5, 10.6, Math.PI/4, 3/4*Math.PI, 1 ],
+			[ 2, 541, 480, 147, 0, Math.PI/4, 1 ],
+			[ 0, 688, 480, 688, 269, 1 ],
+			[ 2, 616, 269, 72, -Math.PI, 0, 1 ],
+			[ 2, 616, 269, 72, 3/4*Math.PI, Math.PI, 1 ],
+			[ 1, 470.5, 414.5, 133.8, -Math.PI/4, Math.PI/4, 1],
+			[ 2, 570, 514, 7, -Math.PI, -3/4*Math.PI, 1 ],
+			[ 2, 570, 514, 7, 3/4*Math.PI, Math.PI, 1 ],
+			[9],
+			// separator between bottom left lanes, ending with left flipper
+			[8],
+			[0, 235, bottomArea+325, 70, bottomArea+215, 1],
+			[1, 86, bottomArea+191, 28.9, 2.16, Math.PI, 1 ], // bottom left lane separation
+			[0, 57, bottomArea+191, 57, bottomArea, 1], 
+			[2, 54, bottomArea, 3, -Math.PI, 0, 1], 
+			[0, 51, bottomArea, 51, bottomArea+211, 1],
+			[2, 87, bottomArea+211, 36, 2.16, Math.PI, 1], 
+			[0, 67, bottomArea+241, 217, bottomArea+341, 1],			
+			[9],
+			// separator between bottom right lanes, ending with right flipper
+			[8],
+			[0, 532, bottomArea+341, 682, bottomArea+241, 1],
+			[2, 662, bottomArea+211, 36, 0, .98, 1],
+			[0, 698, bottomArea+211, 698, bottomArea, 1],
+			[2, 695, bottomArea, 3, -Math.PI, 0, 1],
+			[0, 692, bottomArea, 692, bottomArea+191, 1 ],
+			[1, 663, bottomArea+191, 28.9, 0, .98, 1], // bottom right lane separation
+			[0, 679, bottomArea+215, 514, bottomArea+325, 1],
+			[9],
+			
+			// outer frame
+			[8],
+			[0, 231, bottomArea+460, 24, bottomArea+322, 1],
+			[1, 57, bottomArea+279, 54, 2.16, Math.PI, 1], // bottom left fast lane
+			[0, 3, bottomArea+279, 3, 929.8, 1], 
+			[1, 27.8, 929.8, 24.8, -Math.PI,-3/4*Math.PI, 1 ], // left wall
+			[0, 51.7, 870.6, 10.2, 912.2, 1 ],
+			[2, 41.1, 860, 15, 0, Math.PI/4, 1 ],
+			[0, 56.1, 860, 56.1, 824.9, 1 ],
+			[2, 7.6, 824.9, 48.5, -Math.PI/6, 0, 1 ],
+			[0, 49.6, 800.7, 29, 765, 1 ],
+			[1, 87.5, 731.3, 67.5, 5/6*Math.PI, Math.PI, 1 ],
+			[1, 87.5, 731.3, 67.5, -Math.PI, -5/6*Math.PI, 1 ],
+			[0, 29, 697.6, 104.1, 567.5, 1 ], // wall behind  R A F T  targets
+			[2, 77.3, 552, 31, -Math.PI/8, Math.PI/6, 1 ],
+			[0, 106, 540, 17.8, 327.2, 1 ],
+			[1, 197, 253, 194, 7/8*Math.PI, Math.PI, 1],
+			[1, 197, 253, 194, -Math.PI, -2*Math.PI/3, 1],
+			[1, 400, 605, 600, -2*Math.PI/3, -Math.PI/2, 1], // left ramp (outer wall)
+			[4, 400, 5, 400, 49, 1], // arbitrary end of left ramp
+			[2, 400, 605, 556, -2*Math.PI/3, -Math.PI/2, 1], // left ramp (inner wall)
+			[2, 171, 207, 97, -Math.PI, -2*Math.PI/3, 1],
+			[2, 171, 207, 97, 7/8*Math.PI, Math.PI, 1],
+			[0, 81.4, 244.1, 111.8, 317.7, 1 ],
+			[2, 119.3, 314.7, 8, -Math.PI/8, 7/8*Math.PI, 1], // separation between left ramp and lane to bonus group
+			[0, 126.7, 311.7, 96.2, 238, 1 ],
+			[1, 171, 207, 81, 7/8*Math.PI, Math.PI, 1],
+			[1, 171, 207, 81, -Math.PI, -2*Math.PI/3, 1],
+			[1, 400, 605, 540, -2*Math.PI/3, -.6*Math.PI, 1], 
+			[1, 271, 208, 122.5, -.6*Math.PI, -Math.PI/3, 1],
+			[2, 387.7, 6.2, 110.5, Math.PI/3, 2/3*Math.PI, 1], // bump above bonus group
+			[1, 561, 306, 236, -2/3*Math.PI, 0, 1], // launch ramp to bonus group (outer wall)
+			[0, 797, 306, 797, bottomArea+279, 1],
+			[0, 797, bottomArea+279, 753, bottomArea+279, .4],
+			[0, 753, bottomArea+279, 753, 306, 1],
+			[2, 561, 306, 192, -.6*Math.PI, 0, 1], //launch ramp to bonus group (inner wall)			
+			[2, 506.9, 139.5, 16.9,-Math.PI, -.6*Math.PI , 1],
+			[0, bonusLaneX+3*bonusLaneWidth, 139.5, bonusLaneX+3*bonusLaneWidth, bonusLaneY+80, 1],
+			[1, 303, bonusLaneY+80, 187, 0, Math.PI/6, 1],
+			[0, 465, 373.5, 377, 526, 1],	// right side of the funnel at the bottom of bonus group
+			[2, 381.4, 528.5, 5, -Math.PI, -5/6*Math.PI, 1],
+			[2, 381.4, 528.5, 5, Math.PI/3, Math.PI, 1],
+			[0, 383.9, 532.8, 518.2, 455.3, 1], // support for  A N D  targets
+			[2, 484.7, 397.3, 67 , -Math.PI/4 , Math.PI/3, 1],
+			[1, 615.8, 266.2, 118.4, 3/4*Math.PI , Math.PI, 1 ],
+			[1, 613.2, 266.2, 115.8, -Math.PI, -Math.PI/4, 1 ],
+			[1, 583.5, 295.9, 157.8, -Math.PI/4, 0, 1],
+			[0, 741.3, 295.9, 741.3, 500, 1 ], // right ramp, outer wall
+			[1, 460, 500, 281.3, 0, Math.PI/7, 1],
+			[2, 938.7, 730.5, 250, -Math.PI, -6/7*Math.PI, 1], // bump on right wall
+			[2, 938.7, 730.5, 250, 5/6*Math.PI, Math.PI, 1],
+			[1, 574.8, 940.6, 170.2, -Math.PI/6, 0, 1 ],
+			[0, 745, 940.6, 745, bottomArea+279, 1],
+			[1, 691, bottomArea+279, 54, 0, .98, 1], // bottom right fast lane
+			[0, 724, bottomArea+322, 517, bottomArea+460, 1],
+			
+			// drawing only, not considered for collisions
+			[4, 517, 1400, 799, 1400, 1],
+			[4, 799, 1400, 799, 0, 1],
+			[4, 799, 0, 0, 0, 1],
+			[4, 0, 0, 0, 1400, 1],
+			[4, 0, 1400, 231, 1400, 1],
+			[9],
+			[10],
+		
+			[0, 487, 83, 502, 123, 1], // blocker at the end of the launch ramp to prevent the ball from coming back			
+			[1, 400, 605, 600, -Math.PI/2, -Math.PI/3, 1], // left ramp (outer wall)
+			[3, 400, 605, 578, -Math.PI/2, -Math.PI/3, 1], // left ramp (center pole)
+			[2, 400, 605, 556, -Math.PI/2, -Math.PI/3, 1], // left ramp (inner wall)
+			[1, 604, 251.7, 192, -Math.PI/3, 0, 1 ],
+			[3, 604, 251.7, 170, -Math.PI/3, 0, 1 ],
+			[2, 604, 251.7, 148, -Math.PI/3, 0, 1 ],
+			[0, 796, 251.7, 796, 740, 1],
+			[0, 752, 740, 752, 251.7, 1],
+			[4, 774, 740, 774, 251.7, 1],
+			[2, 693, 740, 103, 0, Math.PI/3, 1 ],
+			[1, 693, 740, 59, 0, Math.PI/3, 1 ],
+			[3, 693, 740, 81, 0, Math.PI/3, 1 ],
+			[1, 796, 918.5, 103, -Math.PI, -2/3*Math.PI , 1],
+			[2, 796, 918.5, 147, -Math.PI, -2/3*Math.PI , 1],
+			[3, 796, 918.5, 125, -Math.PI, -2/3*Math.PI , 1],
+			[0, 693, 918.5, 693, 965, 1],
+			[4, 671, 918.5, 671, 943, 1],
+			[0, 649, 965, 649, 918.5, 1]
+		];
+
+		
+		
+		var bumpers = [ [bonusLaneX+50, bonusLaneY+120, 24, 1.1], [bonusLaneX+105, bonusLaneY+220, 24, 1.1], [bonusLaneX+160, bonusLaneY+120, 24, 1.1] ];
+		var targets = [ [210, 358, 230, 393], [234, 400, 254, 435], [258, 442, 278, 477],
+						[393, 545, 428, 525], [435, 521, 470, 501], [477, 497, 512, 477],
+						[99, 603, 119, 568], [75, 645, 95, 610 ], [51, 687, 71, 652], [27, 729, 47, 694 ] ];
+	
+	
+	/**
+	 * Delegated handler for keyboard events
+	 * Records key presses and releases, for both standard keys (arrows, enter, escape)
+	 * and configurable controls (through the controls menu)
+	 * Returns true if the event is handled, false otherwise.
+	 */
+	var keyDown = false;
+	function keyControl(event) {
+		var handled = true;
+		var key = event.which;
+		
+		// test against static, non-redefinable keys (arrows for menu navigation, escape)
+		switch (key) {
+			case 37 : // left arrow
+				break;
+			case 38 : // top arrow
+				this.controlUp = value;
+				break;
+			case 39 : // right arrow
+				break;
+			case 40 : // down arrow
+				this.controlDown = value;
+				break;
+			case 32 : // space bar
+			case 13 : // enter
+			case 112: // F1
+				this.controlFire = value;
+				break;
+			case 27 : // escape
+				this.controlEscape = value;
+				break;
+			case 107: // +
+				zoomLevel*=1.25;
+				break;
+			case 109: // -
+				zoomLevel*=.8;
+				break;
+			
+
+			default :
+				handled = false;
+				//alert(key);
+		}
+		
+		return handled;
+	}
+		
+	function mouseControl(event) {
+		var mouseX = (event.offsetX) / zoomLevel;
+		var mouseY = (event.offsetY) / zoomLevel;
+		if (addingPoint) {
+			newPoint = [mouseX, mouseY];
+			var vX = mouseX - selection[3], vY = mouseY - selection[4];
+			var mX = (mouseX + selection[3])/2, mY = (mouseY + selection[4])/2;
+			var v2 = Math.sqrt(vX*vX + vY*vY);	
+			var nX = -vY/v2, nY = vX/v2;
+			var u = (selection[6]*(mX-selection[3]) - selection[5]*(mY - selection[4]))/(selection[5]*nY - selection[6]*nX);
+			if (Math.abs(u) > 1000)  { // line
+				newPoint[2] = 0;
+				if (!selection[0]) {
+					newPoint[3] = selection[3];
+					newPoint[4] = selection[4];
+					newPoint[5] = v2;
+					var wall = walls[selection[1]];
+					var factor = selection[1] == 1 ? -1 : 1;
+					var angle = Math.atan2(factor*(wall[4]-wall[2]), factor*(wall[3]-wall[1]));
+					newPoint[6] = Math.cos(angle);
+					newPoint[7] = Math.sin(angle);
+				} else {
+					var wall = walls[selection[1]];
+					var angle = wall[4+selection[2]];
+					newPoint[3] = wall[1]+wall[3]*Math.cos(angle);
+					newPoint[4] = wall[2]+wall[3]*Math.sin(angle);
+					newPoint[5] = v2;
+					newPoint[6] = (selection[2]? 1 : -1)*Math.sin(angle);
+					newPoint[7] = (selection[2]? -1 : 1)*Math.cos(angle);
+				}
+			} else {
+				newPoint[2] = 1;
+				newPoint[3] = mX + u * nX;
+				newPoint[4] = mY + u * nY;
+				newPoint[5] = Math.sqrt((mouseX-newPoint[3])*(mouseX-newPoint[3])+(mouseY-newPoint[4])*(mouseY-newPoint[4]));
+				var angle1 = Math.atan2(selection[6], selection[5]);
+				if (selection[5]*vX + selection[6]*vY > 0) {
+					angle1 = ((angle1 + 2*Math.PI)%Math.PI)-Math.PI;	// reverse curvature
+				}
+				var angle2 = Math.atan2(mouseY-newPoint[4], mouseX-newPoint[3]);
+				newPoint[6] = Math.min(angle1, angle2);
+				newPoint[7] = Math.max(angle1, angle2);
+			}
+			
+		} else {
+			highlight = -1;
+			for (var i=0; i<walls.length; ++i) {
+				var wall = walls[i];
+				switch (wall[0]) {
+					case 0 : 
+						var x10 = wall[3]-wall[1], y10 = wall[4]-wall[2],
+							x20 = mouseX-wall[1], y20 = mouseY-wall[2];
+						var t0 = (x20 * x10 + y20 * y10) / (x10 * x10 + y10 * y10);
+						var distance = (y10*mouseX - x10*mouseY + wall[3]*wall[2] - wall[1]*wall[4]) / Math.sqrt(x10*x10 + y10*y10);
+						if (t0>=0 && t0<=1 && Math.abs(distance) < 20) {
+							highlight=i;
+						}
+						break;
+					case 1 :
+					case 2 :
+						var x20 = mouseX-wall[1], y20 = mouseY-wall[2];
+						var distance = Math.sqrt(x20*x20 + y20*y20);
+						var angle = Math.atan2(y20, x20);
+						if (Math.abs(distance - wall[3]) < 20 && angle >= wall[4] && angle <= wall[5]) {
+							highlight=i;
+						}
+						break;
+				}
+			}
+		}
+	}
+	
+	function mouseButtonDown(event) {
+		if (addingPoint) {
+			return;
+		}
+		var mouseX = (event.offsetX) / zoomLevel;
+		var mouseY = (event.offsetY) / zoomLevel;
+		selection[0] = -1;
+		var distance = 99999;
+		if (highlight == -1) {
+			return;
+		}
+		var wall = walls[highlight];
+		if (wall[0] == 0) {
+			var distanceA = (mouseX - wall[1])*(mouseX - wall[1]) + (mouseY - wall[2])*(mouseY - wall[2]);
+			var distanceB = (mouseX - wall[3])*(mouseX - wall[3]) + (mouseY - wall[4])*(mouseY - wall[4]);
+			distance = Math.min(distanceA, distanceB);
+			selection[0]=0;
+			selection[1]=highlight;
+			selection[2]=(distanceA<distanceB ? 0 : 1);
+			selection[3]=(distanceA<distanceB ? wall[1] : wall[3]);
+			selection[4]=(distanceA<distanceB ? wall[2] : wall[4]);
+			var dx = wall[3] - wall[1], dy = wall[4] - wall[2];
+			selection[5]=-dy/Math.sqrt(dx*dx+dy*dy);
+			selection[6]=dx/Math.sqrt(dx*dx+dy*dy);
+		}
+		if (wall[0] == 1) {
+			var xA = wall[1] + wall[3]*Math.cos(wall[4]), yA = wall[2] + wall[3]*Math.sin(wall[4]);
+			var xB = wall[1] + wall[3]*Math.cos(wall[5]), yB = wall[2] + wall[3]*Math.sin(wall[5]);
+			var distanceA = (mouseX - xA)*(mouseX - xA) + (mouseY - yA)*(mouseY - yA);
+			var distanceB = (mouseX - xB)*(mouseX - xB) + (mouseY - yB)*(mouseY - yB);
+			if (Math.min(distanceA, distanceB) < distance) {
+				distance = Math.min(distanceA, distanceB);
+				selection[0]=1;
+				selection[1]=highlight;
+				selection[2]=(distanceA<distanceB ? 0 : 1);
+				selection[3]=(distanceA<distanceB ? xA : xB);
+				selection[4]=(distanceA<distanceB ? yA : yB);
+				selection[5]=Math.cos(distanceA<distanceB ? wall[4] : wall[5]);
+				selection[6]=Math.sin(distanceA<distanceB ? wall[4] : wall[5]);
+			}
+		}
+		if (wall[0] == 2) {
+			var xA = wall[1] + wall[3]*Math.cos(wall[4]), yA = wall[2] + wall[3]*Math.sin(wall[4]);
+			var xB = wall[1] + wall[3]*Math.cos(wall[5]), yB = wall[2] + wall[3]*Math.sin(wall[5]);
+			var distanceA = (mouseX - xA)*(mouseX - xA) + (mouseY - yA)*(mouseY - yA);
+			var distanceB = (mouseX - xB)*(mouseX - xB) + (mouseY - yB)*(mouseY - yB);
+			if (Math.min(distanceA, distanceB) < distance) {
+				distance = Math.min(distanceA, distanceB);
+				selection[0]=2;
+				selection[1]=highlight;
+				selection[2]=(distanceA<distanceB ? 0 : 1);
+				selection[3]=(distanceA<distanceB ? xA : xB);
+				selection[4]=(distanceA<distanceB ? yA : yB);
+				selection[5]=Math.cos(distanceA<distanceB ? wall[4] : wall[5]);
+				selection[6]=Math.sin(distanceA<distanceB ? wall[4] : wall[5]);
+			}
+		}
+	}
+	
+	function mouseButtonUp(event) {
+		if (addingPoint) {
+			if (newPoint[2]) {
+				walls.push([1, newPoint[3], newPoint[4], newPoint[5], newPoint[6], newPoint[7], 1]);
+			} else {
+				walls.push([0, selection[3], selection[4], selection[3]-newPoint[5]*newPoint[6], newPoint[4]-newPoint[5]*newPoint[7], 1]);
+			}
+			exportShapes();
+			addingPoint = false;
+			newPoint = [-1, -1];
+			selection[0] = -1;
+		} else if (selection[0] > -1) {
+			addingPoint = true;
+		}
+	}
+		
+	function drawPlayfield() {
+		
+		var sceneryContext = sceneryCanvas.getContext("2d");
+		sceneryContext.save();
+		sceneryContext.clearRect(0, 0, sceneryCanvas.width, sceneryCanvas.height);
+		sceneryContext.scale(zoomLevel, zoomLevel);
+
+		if (newPoint[0] > -1) {
+			sceneryContext.fillStyle="#008";
+			sceneryContext.beginPath();
+			sceneryContext.arc(newPoint[0], newPoint[1], 4, 0, 7);
+			sceneryContext.stroke();			
+			
+			sceneryContext.strokeStyle="#008";
+			if (newPoint[2]) { // arc
+				sceneryContext.beginPath();
+				sceneryContext.arc(newPoint[3], newPoint[4], newPoint[5], newPoint[6], newPoint[7]);
+				sceneryContext.stroke();
+			} else {
+				sceneryContext.beginPath();
+				sceneryContext.moveTo(newPoint[3]-1000*newPoint[6], newPoint[4]-1000*newPoint[7]);
+				sceneryContext.lineTo(newPoint[3]+1000*newPoint[6], newPoint[4]+1000*newPoint[7]);
+				sceneryContext.stroke();
+			}
+		}
+
+		
+		// debug draw : wall outline
+		var baseColor = "#F00";
+		sceneryContext.lineWidth = 2;
+		for (var i=0; i<walls.length; ++i) {
+			sceneryContext.strokeStyle = (highlight==i ? "#00F" : baseColor);
+			switch (walls[i][0]) {
+				case 0 :
+				case 4 :
+					sceneryContext.beginPath();
+					sceneryContext.moveTo(walls[i][1],walls[i][2]);
+					sceneryContext.lineTo(walls[i][3],walls[i][4]);
+					sceneryContext.stroke();
+					// draw normal (inside wall)
+					sceneryContext.strokeStyle = "#800";
+					sceneryContext.beginPath();
+					sceneryContext.moveTo(.5*(walls[i][1]+walls[i][3]), .5*(walls[i][2]+walls[i][4]));
+					var vx = walls[i][3]-walls[i][1];
+					var vy = walls[i][4]-walls[i][2];
+					var vLength = Math.sqrt(vx*vx+vy*vy);
+					var normalX = vy/vLength;
+					var normalY = -vx/vLength;
+					sceneryContext.lineTo(.5*(walls[i][1]+walls[i][3])+4*normalX, .5*(walls[i][2]+walls[i][4])+4*normalY);
+					sceneryContext.stroke();
+					if (highlight==i) {
+						sceneryContext.fillStyle = "#00F";
+						sceneryContext.fillText("("+Math.floor(walls[i][1])+","+Math.floor(walls[i][2])+")", walls[i][1]+10, walls[i][2]);
+						sceneryContext.fillText("("+Math.floor(walls[i][3])+","+Math.floor(walls[i][4])+")", walls[i][3]+10, walls[i][4]);
+					}
+					break;
+				
+				case 1 : 
+				case 2 :
+				case 3 :
+					sceneryContext.beginPath();
+					sceneryContext.arc(...walls[i].slice(1,6));
+					sceneryContext.stroke();
+					if (highlight==i) {
+						sceneryContext.fillStyle = "#00F";
+						sceneryContext.fillText("("+Math.floor(walls[i][1])+","+Math.floor(walls[i][2])+")", walls[i][1], walls[i][2]);
+					}
+					break;
+				case 10 :
+					baseColor = "#444";
+				
+			}
+		}
+		for (var i=0; i<bumpers.length; ++i) {
+			sceneryContext.beginPath();
+			sceneryContext.arc(bumpers[i][0], bumpers[i][1], bumpers[i][2], 0, 2*Math.PI);
+			sceneryContext.stroke();
+		}
+		for (var i=0; i<targets.length; ++i) {
+			sceneryContext.beginPath();
+			sceneryContext.moveTo(targets[i][0], targets[i][1]);
+			sceneryContext.lineTo(targets[i][2], targets[i][3]);
+			sceneryContext.stroke();
+		}
+		
+		// debug draw : flippers
+		sceneryContext.save();
+		sceneryContext.translate(240, 720+570);
+		sceneryContext.rotate(.5);
+		var r1 = 20, r2 = 12, length = 90, a1 = Math.acos((r1-r2)/length), a2 = a1;
+		sceneryContext.beginPath();
+		sceneryContext.arc(0, 0, r1, a1, -a1);
+		sceneryContext.lineTo(length+r2*Math.cos(a2), -r2*Math.sin(a2));
+		sceneryContext.arc(length, 0, r2, -a2, a2);
+		sceneryContext.lineTo(r1*Math.cos(a1), r1*Math.sin(a1));
+		sceneryContext.stroke();
+		sceneryContext.restore();
+		
+		sceneryContext.save();
+		sceneryContext.translate(510, 720+570);
+		sceneryContext.rotate(Math.PI - .5);
+		sceneryContext.beginPath();
+		sceneryContext.arc(0, 0, r1, a1, -a1);
+		sceneryContext.lineTo(length+r2*Math.cos(a2), -r2*Math.sin(a2));
+		sceneryContext.arc(length, 0, r2, -a2, a2);
+		sceneryContext.lineTo(r1*Math.cos(a1), r1*Math.sin(a1));
+		sceneryContext.stroke();
+		sceneryContext.restore();
+
+		if (selection[0]>-1) {
+			sceneryContext.fillStyle="#00F";
+			sceneryContext.beginPath();
+			sceneryContext.arc(selection[3], selection[4], 4, 0, 7);
+			sceneryContext.fill();
+		}
+	
+		sceneryContext.restore();
+	
+		requestAnimationFrame(function() {drawPlayfield();});
+	
+	}
+	
+	
+	function exportShapes() {
+		var msg="this.walls = [";
+		for (var i=0; i<walls.length; ++i) {
+			msg+="[ "+walls[i]+" ],\n";
+		}
+		msg += "];\n\r";
+
+		msg+="this.bumpers = [";
+		for (var i=0; i<bumpers.length; ++i) {
+			msg+="[ "+bumpers[i]+" ],\n";
+		}
+		msg += "];\n\r";
+		document.getElementById("t").value = msg;
+	}
+
+	
+	drawPlayfield();
+	exportShapes();
+		
+		
+		</script>
+			
+</body></html>

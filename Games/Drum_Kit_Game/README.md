@@ -1,42 +1,43 @@
- **Game_Name** 
-<br><br>
-Drum_And_Kit
-<br>
+
+# **The Drum Kit**
+
+---
 
 ## **Description 📃**
-A fun and interactive drumming simulation game that can be played through your web browser.
-The game provides visual feedback in the form of on-screen prompts or notes that indicate when and which drum element to hit.
-With increasing difficulty levels and varying music tracks, Drum and Kit Game offers an engaging and immersive experience for rhythm game enthusiasts.
-<br><br>Tech used
-- HTML for structure
-- CSS for styling
-- JavaScript for interactivity and game logic
 
+- Drum kit is a simple web application where you can play different sounds by pressing the keys on your keyboard. The application is built using HTML, CSS and Javascript. The application is fully responsive and works on all devices.
 
-## **functionalities 🎮**
-- Easy to play<br>
-- Mind relaxing<br>
-- Fully responsive design<br>
-- Fun to play 
+## **Functionalities 🎮**
 
-<br>
+Game consists of following functionalities :
 
-## **How to play? 🕹️**
-- Start the game by clicking Drums.<br>
-- Realistic drum sounds and animations.<br>
-- A variety of drum sets to choose from.<br> 
+<ol>
+<li>User can play diffrent drum sounds by the keyboard keys written on the drum</li>
+<li>User can play many sounds at a time</li>
+<li>Diffrent sounds like kick,tom,crash and snare has been included.</li>
+</ol>
 
-<br>
+## **How to Play? 🕹️**
+
+- See which sound you wanna play on the drum keyboard letter is written.
+- Press that key and boom sound get played.
+- Repeat the above steps with diffrent sounds to play in the rhythm.
 
 ## **Screenshots 📸**
 
-<b>
-
-![image](https://github.com/Roshnijeewani3457/GameZone/assets/89697445/abe283c6-6b1f-439d-8994-6e0bb29f1ac4)
-
-
+<br>
+<h1>Drum Kit Image</h1>
+<img src = "assets\images\Drum_And_Kit.png"></img>
 
 
+## **Working Video 📹**
+
+<!-- <video controls>
+<source src="assets\demo_video.mp4" type="video/mp4">
+</video> -->
 
 
+https://drive.google.com/file/d/1gL1HEzOD1tDI3N1E646pmFltNuLbkYcc/view?usp=sharing
 
+
+<!-- add your working video over here -->

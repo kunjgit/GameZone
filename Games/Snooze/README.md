@@ -5,9 +5,9 @@
 <br>
 
 ## **Description 📃**
-- The human is asleep. The human set the alarm — but the human doesn’t like being woken up. 
-- The human will try to hit the snooze button. YOU are the snooze button. The human will try to hit YOU!
-- The human will try to delay the inevitable. Your job is to deliver the inevitable: to wake the human up.
+- The human is asleep, the human set the alarm but the human doesn’t like being woken up. 
+- The human will try to hit the snooze button, You are the snooze button so the human will try to hit YOU!
+- The human will try to delay the inevitable. Your job is to deliver the inevitable, to wake the human up.
 
 ## **functionalities 🎮**
 

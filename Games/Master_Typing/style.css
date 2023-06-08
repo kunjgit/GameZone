@@ -1,6 +1,7 @@
 body {
-  background: rgb(0,194,32);
-  background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);
+/*   background: rgb(0,194,32);
+  background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%); */
+    background-color: black;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 500;
     display: flex;
@@ -29,14 +30,14 @@ body {
     letter-spacing: 4px;
   }
   
-  .keyboard {
+/*   .keyboard {
     background: linear-gradient(112.5deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
     padding-right: 35px;
     padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgb(32, 38, 57) 0px 1px 3px -1px;
-  }
+  } */
   
   .row {
     list-style: none;

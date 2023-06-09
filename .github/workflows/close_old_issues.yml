@@ -32,10 +32,26 @@ jobs:
               per_page: 100 // Adjust the per_page value as per your requirements
             });
 
+            let allIssues = issues;
+
+            // Fetch all issues using pagination
+            let page = 2;
+            while (issues.length === 100) {
+              const { data: nextPageIssues } = await github.issues.listForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+                per_page: 100,
+                page
+              });
+              allIssues = allIssues.concat(nextPageIssues);
+              page++;
+            }
+
             const oneWeekAgo = new Date();
             oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
-            const olderIssues = issues.filter(issue => issue.pull_request === undefined && new Date(issue.created_at) < oneWeekAgo);
+            const olderIssues = allIssues.filter(issue => issue.pull_request === undefined && new Date(issue.created_at) < oneWeekAgo);
             core.setOutput('older_issues', olderIssues.map(issue => issue.number).join(','));
 
       - name: Close older issues and comment

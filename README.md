@@ -212,6 +212,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 107 | [The Last Spartan](https://github.com/kunjgit/GameZone/tree/main/Games/The_Last_Spartan)|
 | * | [Space Exploration](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Exploration)|
 
+
+| * | [Diamond_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Diamond_Run)|
+
 </center>
 
 <br>

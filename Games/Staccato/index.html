@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Hypercars</title>
+		<style type="text/css">
+
+div {
+  width:  100%;
+  min-height:100%;
+  margin: 0px;
+}
+
+canvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+	
+		</style>
+	</head>
+	<body>
+		<div>
+		<canvas id="c"></canvas>
+		<canvas id="g"></canvas>
+		</div>
+		<script language="Javascript" src="controls.js"></script>
+		<script language="Javascript" src="game.js"></script>
+		<script language="Javascript" src="menuDriver.js"></script>
+		<script language="Javascript" src="race.js"></script>
+		<script language="Javascript" src="chiptune.js"></script>
+		<script language="Javascript" src="soundManager.js"></script>
+		<script language="Javascript" src="track.js"></script>
+		<script language="Javascript" src="persistentData.js"></script>
+		<script language="Javascript" src="webglRenderer.js"></script>
+		<script language="Javascript" src="overlayRenderer.js"></script>
+		
+		
+		
+		
+		<script>
+
+window.onload = function() {
+controls = new Controls(new PersistentData());
+document.onkeydown = function(event) { return controls.onKeyDown(event); }
+document.onkeyup = function(event) { return controls.onKeyUp(event); }
+
+sz=16; // global tile size
+game = new Game(controls);
+game.soundManager.initialize();
+
+var renderer = new WebGLRenderer (document.getElementById('c'), game);
+var overlayRenderer = new OverlayRenderer (document.getElementById('g'));
+renderer.initialize();
+renderer.initializeTexture();
+game.setRenderer (renderer, overlayRenderer);
+game.launch();
+}
+		</script>
+	
+
+</body></html>

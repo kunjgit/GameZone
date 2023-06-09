@@ -1,0 +1,46 @@
+{
+    "sourceRoot": "./sources/",
+    "destinationRoot": "./www/",
+    "tasks": {
+        "sass": {
+            "source": ["sass/**/*.scss"],
+            "destination": "css/",
+            "browsers": ["last 2 versions"],
+            "config": {
+                "includePaths": []
+            }
+        },
+        "sasslint": {
+            "source": ["sass/**/*.scss"],
+            "ignore": []
+        },
+        "concatjs": {
+            "source": ["scripts/**/*.js"],
+            "watch": ["scripts/**/*.js"],
+            "filename": "game.js",
+            "destination": "scripts"
+        },
+        "eslint": {
+            "source": ["../www/scripts/game.js"],
+            "config": {
+                "globals": []
+            }
+        },
+        "views": {
+            "source": ["views/**/*.html"],
+            "destination": "",
+            "minifyHTML": true
+        },
+        "images": {
+            "source": ["images/**/*"],
+            "destination": "images",
+            "minify": true
+        },
+        "zip": {
+            "source": ["*.html"],
+            "destination": "./dist",
+            "filename": "game.zip",
+            "build": false
+        }
+    }
+}

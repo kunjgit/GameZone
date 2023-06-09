@@ -1,0 +1,147 @@
+#cardList {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 470px;
+    max-width: 326px;
+    margin: auto;
+}
+
+.card {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    font-size: 18px;
+    transform-origin: 50% 100%;
+    background: #fff;
+    color: $primary-color-1;
+    border-bottom: 5px solid #dadada;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    animation: append-card 0.2s ease;
+
+    &:nth-child(3) {
+        transform: translateY(12px) scale(0.95);
+    }
+
+    &:nth-child(2) {
+        transform: translateY(24px) scale(0.9);
+    }
+
+    &:first-child {
+        transform: translateY(36px) scale(0.85);
+        opacity: 0;
+    }
+
+    &.reset {
+        transition: transform 0.3s;
+        transform: translateX(0) !important;
+
+        .card__choice {
+            transition: opacity 0.3s;
+            opacity: 0 !important;
+        }
+    }
+
+    &.inactive {
+        transition: transform 0.3s;
+    }
+
+    &.to-left {
+        transform: translateX(-30rem) rotate(-30deg) !important;
+    }
+
+    &.to-right {
+        transform: translate(30rem) rotate(30deg) !important;
+    }
+
+    // Dragabble element over all others
+    &__drag {
+        z-index: 5;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        cursor: grab;
+    }
+
+    p {
+        padding-top: 12px;
+    }
+
+    b:not(:first-child) {
+        margin-left: 8px;
+    }
+}
+
+.card__content {
+    position: relative;
+    padding: 8px 16px 16px;
+}
+
+.card__race {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    padding: 8px 12px;
+    transform: translateY(-50%);
+    background: $primary-color-1;
+    border-radius: 12px;
+    color: $color-white;
+    font-size: 20px;
+
+    &.-elf {
+        background: $color-elf;
+    }
+    &.-dwarf {
+        background: $color-dwarf;
+    }
+    &.-human {
+        background: $color-human;
+    }
+    &.-orc {
+        background: $color-orc;
+    }
+}
+
+.card__imageWrapper {
+    width: 100%;
+    padding-top: 93.5%;
+    overflow: hidden;
+}
+
+.card__image {
+    position: relative;
+
+    svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+}
+
+.card__name {
+    font-size: 22px;
+}
+
+.card__choice {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    &.-reject {
+        background: rgba($error-color, 0.5);
+    }
+
+    &.-accept {
+        background: rgba($color-green-dark, 0.5);
+    }
+}

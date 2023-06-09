@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tindeath</title>
+    <link rel="stylesheet" href="css/style.css" inline />
+  </head>
+  <body>
+    <div id="backgroundOverflow">
+      <div id="backgroundWrapper">
+        <div id="background"></div>
+      </div>
+    </div>
+    <div id="backgroundDoor"></div>
+    <div id="clouds"></div>
+    <div id="gameWrapper" data-screen="0">
+      <div id="ui">
+        <p>Score<br /><b id="score">0</b></p>
+        <p>Timer<br /><b id="time"></b></p>
+        <p id="combo"></p>
+      </div>
+      <div id="home">
+        <h1>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 53">
+            <path
+              d="M13 21h1-1C24 18 25 9 24 1l1-1c9 5 20 15 20 30 0 11-7 20-18 22V37h7v-7h-7v-8h-9v8h-6v7h6v15a21 21 0 0 1-8-39h1l2 8Z"
+              fill="#d06e6d"
+            />
+          </svg>
+          tindeath
+        </h1>
+        <div>
+          <button class="startButton appear">Play</button>
+          <p id="tutorial-repeat" class="appear">Replay tutorial</p>
+          <p id="bestScore" class="appear"></p>
+        </div>
+      </div>
+      <div id="tutorial">
+        <div id="tutorial-1" class="block">
+          <div>
+            <div class="card__imageWrapper">
+              <div class="card__image"></div>
+            </div>
+            <h2>Welcome,</h2>
+            dear minion! Here you are a new guardian of death, protecting gates
+            access.
+            <button class="next">Next ➡️</button>
+          </div>
+          <div>
+            <div class="card__imageWrapper">
+              <div class="card__image"></div>
+            </div>
+            <h2>Your job</h2>
+            Send the good guys to heaven and bring the liars down to hell!
+            <button class="next">Next ➡️</button>
+          </div>
+          <div>
+            <div class="card__imageWrapper">
+              <div class="card__image"></div>
+            </div>
+            <h2>Be careful</h2>
+            Some will try to deceive you to avoid the flames of hell...
+            <button id="tutorial1Button">Next ➡️</button>
+          </div>
+          <div>
+            <div class="card__imageWrapper">
+              <div class="card__image"></div>
+            </div>
+            <h2>Nice!</h2>
+            You are ready, guardian of death!<br />
+            Check your 📖 for more details
+            <button class="next">Yeah!</button>
+          </div>
+          <div>
+            <div class="card__imageWrapper">
+              <div class="card__image"></div>
+            </div>
+            But remember: your time is running out, and you'll be scored every
+            day!
+            <button id="tutorialEndButton">Start!</button>
+          </div>
+        </div>
+
+        <p id="tutorial-2">
+          <b>Swipe right to <i class="good">accept</i> a soul.</b>
+        </p>
+        <p id="tutorial-3">
+          A Human green like an Orc?! Impossible!
+          <br />
+          <b> Swipe left to <i class="wrong">reject</i> this soul </b>
+        </p>
+      </div>
+      <div id="cardList"></div>
+      <div id="errorMessage"></div>
+      <div id="end">
+        <div class="block">
+          <div class="card__imageWrapper">
+            <div class="card__image"></div>
+          </div>
+          <h2>Time is over</h2>
+          Great job, minion !<br />
+          Your score for today: <b id="endscore"></b><br />
+          But I'm sure you can do even better, right?<br />
+          Restart to improve your score!
+          <button class="startButton">Restart!</button>
+        </div>
+      </div>
+      <div id="help" class="block">
+        <p id="helpClose">❌</p>
+        <ul>
+          <li>Only Elves got pointy ears</li>
+          <li>Elves are 2m minimum, while Dwarves are 1.5m maximum</li>
+          <li>Elves weigh 80kg max, while Orcs minimum weight is 90kg</li>
+          <li>Human don't live after 100yo</li>
+          <li>Elves got purple skin, Orcs green skin</li>
+          <li>
+            You'll soon have to check race names, like humans who got first name
+            and last name
+          </li>
+          <li>
+            ... and probably more inventive tricks you'll have to discover!
+          </li>
+        </ul>
+      </div>
+
+      <p id="soundButton">🔊</p>
+      <p id="helpButton">📖</p>
+    </div>
+    <script src="scripts/game.js" inline></script>
+  </body>
+</html>

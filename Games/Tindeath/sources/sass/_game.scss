@@ -1,0 +1,131 @@
+#gameWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: 88vw;
+    max-width: 600px;
+    height: 90vh;
+    margin: auto;
+    user-select: none;
+    z-index: 3;
+
+    // Welcome screen
+    &:not([data-screen="0"]) {
+        #home {
+            display: none;
+        }
+    }
+
+    &:not([data-screen="1"]) {
+        #tutorial {
+            display: none;
+        }
+    }
+    &:not([data-screen="1"]) {
+        #tutorial {
+            display: none;
+        }
+    }
+    &:not([data-screen="2"]) {
+        #cardList,
+        #ui {
+            display: none;
+        }
+    }
+    &:not([data-screen="3"]) {
+        #end {
+            display: none;
+        }
+    }
+
+    &[data-tutorial="1"] {
+        #ui,
+        #cardList,
+        #tutorial-2,
+        #tutorial-3,
+        #tutorial-4 {
+            display: none;
+        }
+    }
+    &[data-tutorial="2"] {
+        #ui,
+        #tutorial-1,
+        #tutorial-3,
+        #tutorial-4 {
+            display: none;
+        }
+        #cardList {
+            display: block;
+        }
+
+        &.-demo {
+            .card {
+                &:last-child {
+                    animation: show-swipe-right 1.5s ease 1s infinite;
+                }
+            }
+        }
+    }
+    &[data-tutorial="3"] {
+        #ui,
+        #tutorial-1,
+        #tutorial-2,
+        #tutorial-4 {
+            display: none;
+        }
+        #cardList {
+            display: block;
+        }
+
+        &.-demo {
+            .card {
+                &:last-child {
+                    animation: show-swipe-left 1.5s ease 1s infinite;
+                }
+            }
+        }
+    }
+    &[data-tutorial="4"] {
+        #ui,
+        #cardList,
+        #tutorial-1,
+        #tutorial-2,
+        #tutorial-3 {
+            display: none;
+        }
+    }
+}
+
+@keyframes show-swipe-right {
+    0% {
+        transform: none;
+    }
+    30% {
+        transform: translate(80px) rotate(8deg);
+    }
+    50% {
+        transform: none;
+    }
+}
+
+@keyframes show-swipe-left {
+    0% {
+        transform: none;
+    }
+    30% {
+        transform: translate(-80px) rotate(-8deg);
+    }
+    50% {
+        transform: none;
+    }
+}
+
+.startButton {
+    background-color: #91cfda;
+    color: #212226;
+
+    &:hover {
+        background: #bde2e9;
+    }
+}

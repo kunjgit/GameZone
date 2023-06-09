@@ -1,0 +1,83 @@
+#tutorial {
+    font-family: Tahoma, sans-serif;
+}
+
+.block {
+    padding: 24px;
+    text-align: center;
+    margin: 10% auto;
+    width: 100%;
+    max-width: 326px;
+    background: rgba(255, 249, 244, 0.9);
+    box-shadow: 0 4px 0 #ddd;
+    border-radius: 12px;
+    color: #212226;
+
+    h2 {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 34px;
+        color: #4d274d;
+    }
+
+    .card__imageWrapper {
+        margin: -24px 0 0 -24px;
+        width: calc(100% + 48px);
+        padding-top: 105%;
+    }
+}
+
+#bestScore,
+#tutorial-repeat {
+    text-align: center;
+
+    b {
+        font-size: 120%;
+    }
+}
+
+#bestScore {
+    font-size: 120%;
+}
+
+#tutorial-repeat {
+    color: #fbd495;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#tutorial-1 {
+    padding-top: 10px;
+    font-size: 24px;
+
+    > :not(:first-child) {
+        display: none;
+    }
+
+    button {
+        margin-top: 24px;
+    }
+}
+
+#tutorial-2,
+#tutorial-3 {
+    max-width: 326px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24px;
+
+    b {
+        font-size: 30px;
+    }
+}
+
+i {
+    font-style: normal;
+}
+
+#tutorial-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
+}

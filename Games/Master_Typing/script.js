@@ -39,7 +39,14 @@ document.addEventListener("keyup", event => {
   keyElement.addEventListener('animationend', () => {
   keyElement.classList.remove("hit")
   })
+
+  // for sound 
+
+  const keySound = document.getElementById("keySound");
+  keySound.currentTime = 0;
+  keySound.play();
   
+  // -------------------------
   if (keyPressed === highlightedKey.innerHTML) {
 
     //counting the correct entry

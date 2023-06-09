@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gone Fishing!</title>
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div id="game-container">
+        <h1 id="start-title">Cast and Catch</h1>
+        <div id="info-wrapper">
+            <div id="instructions"></div>
+            <button id="start-btn"><span class="arrow"></span></button>
+        </div>
+        <div id="game-stats">
+            <span id="game-day">Day 1</span>
+
+            <div id="clock">
+                <svg viewBox="0 0 120 120" class="chart-gauge" fill="none" stroke-width="4">
+                    <circle class="timer-backdrop" r="40" cx="60" cy="60"></circle>
+                    <circle class="timer-gauge" r="40" cx="60" cy="60"></circle>
+                    <text y="50%" x="50%" id="game-timer" class="timer-time">15s</text>
+                </svg>
+            </div>
+            <span id="game-score">Total Score: 0</span>
+        </div>
+        <p id="game-goal"></p>
+    </div>
+    <div id="click-container">
+        <span id="line"></span>
+    </div>
+    <div id="bubbles"></div>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

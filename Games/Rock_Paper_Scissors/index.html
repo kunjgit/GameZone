@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <div id="game">
+        <div id="userPanel">
+            <p>Your Choice:</p>
+            <button class="emojiButton" id="rockButton" onclick="play('rock')">👊</button>
+            <button class="emojiButton" id="paperButton" onclick="play('paper')">✋</button>
+            <button class="emojiButton" id="scissorsButton" onclick="play('scissors')">✌️</button>
+        </div>
+        <div id="resultPanel">
+            <p id="resultText">Make your move!</p>
+            <p id="scoreText">Score: You - 0 | Computer - 0</p>
+        </div>
+        <div id="computerPanel">
+            <p>Computer's Choice:</p>
+            <div id="computerEmoji"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

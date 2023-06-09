@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0; 
+ }
+ 
+ html,body{
+     height: 100%;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+ }
+ 
+ #container{
+     display: flex;
+     background-color: black;
+     /* height: 100%; */
+     align-items: center;
+     flex-direction: column;
+ }
+ 
+ #game{
+     width: 100%;
+     max-width: 500px;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .title{
+     color: gainsboro;
+     font-size: 2.5rem;
+     font-weight: bold;
+     margin: 0.2rem 0 0.2rem 0;
+     padding: 0;
+     text-align: center;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ }
+ 
+ #message{
+     color: gainsboro;
+     font-size: 2.5rem;
+     font-weight: bold;
+     margin: 0.4rem 0 0.4rem 0;
+     text-align: center;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+ }
+ 
+ #board-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+ }
+ 
+ #board{
+     display: grid;
+     grid-template-columns: repeat(5, 1fr);
+     grid-gap: 5px;
+     padding: 10px;
+     box-sizing: border-box;
+ }
+ 
+ .square{
+     border: 2px solid rgb(58,58,60);
+     min-width: 50px;
+     min-height: 50px;
+     font-size: 30px;
+     font-weight: bold;
+     color: gainsboro;
+     text-transform: uppercase;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ 
+ #keyboard-container{
+     height: 200px;
+ }
+ 
+ .keyboard-row{
+     display: flex;
+     justify-content: center;
+     width: 100%;
+     margin: 0 auto 8px;
+     touch-action: manipulation;
+ }
+ 
+ .keyboard-row button{
+     font-family: inherit;
+     font-weight: bold;
+     border: 0;
+     padding: 0;
+     height: 50px;
+     cursor: pointer;
+     background-color: rgb(129,131,132);
+     color: rgb(215,218,220);
+     flex-grow: 1;
+     text-transform: uppercase;
+     margin-right: 6px;
+     border-radius: 4px;
+     user-select: none;
+ }
+ 
+ .keyboard-row button.wide-button{
+     flex-grow: 1.5;
+ }
+ 
+ .spacer-half{
+     flex-grow: 0.5;
+ }
+ 
+ 

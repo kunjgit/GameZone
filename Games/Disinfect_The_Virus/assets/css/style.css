@@ -1,0 +1,166 @@
+/*!
+ * Jeferson Luckas - Disinfect the virus
+ * 
+ * Copyright (c) 2020 Jeferson Luckas
+ * Released under the MIT license
+ * https://github.com/JefersonLucas/disinfect-the-virus/blob/master/LICENSE
+ *
+ */
+
+/* Estilo do palco do jogo */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	cursor: url("../img/alcool-01.png") 30 30, auto;
+}
+body {
+	align-items: center;
+	background: linear-gradient(180deg, #167a5d, #009688, #167a5d);
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	width: 100%;
+	height: 100vh;
+}
+button,
+div,
+img,
+select,
+option {
+	z-index: 9;
+}
+
+/* Painel do jogo */
+
+.painel {
+	background-color: rgba(255,255,255,0.3);
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	position: absolute;
+	opacity: 0.8;
+	top: 0;
+	width: 170px;
+	height: 65px;
+}
+.vidas, 
+.pontos,
+.cronometro {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	position: relative;	
+}
+.vidas, 
+.pontos {
+	border-bottom: 1px solid #157a5d;
+	margin-top: 5px;	
+}
+.vidas {
+	border-right: 1px solid #157a5d;
+	width: 100px;
+	float: left;
+}
+.pontos {
+	width: 70px;
+	float: right;
+	color: #343a40;
+}
+.coracao {
+	animation: piscar 2.5s infinite;
+	color: #f44336;
+}
+.cronometro {
+	color: #343a40;
+	margin-top: 33px; 
+	width: 170px;
+	font-family: Helvetica;
+	font-size: 20px;
+}
+
+/* Tamanho aleatório */
+
+.tamanho-1,
+.tamanho-2,
+.tamanho-3 {
+	animation: aparece .5s;
+	z-index: 10;
+}
+.tamanho-1:hover,
+.tamanho-2:hover,
+.tamanho-3:hover {
+	cursor: url("../img/alcool-02.png") 30 30, auto;
+}
+.tamanho-1 {	
+	width: 50px;
+	height: 50px;
+}
+.tamanho-2 {
+	width: 70px;
+	height: 70px;
+}
+.tamanho-3 {
+	width: 90px;
+	height: 90px;
+}
+
+/* Lado aleatório */
+
+.lado-A {
+	transform: scaleX(1);
+}
+.lado-B {
+	transform: scaleX(-1);
+}
+
+/* Círculos Animados */
+
+.circulos li {
+	animation: circulo 2s infinite alternate;
+	background-color: rgba(43, 193, 154, 0.8);
+	border-radius: 50%;
+	bottom: -40px;
+	display: block;
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	z-index: 0;
+}
+
+/* Animações */
+
+@keyframes circulo {
+	0% {
+		opacity: 0;
+		transform: translateY(0);
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-1000px);
+	}
+}
+@keyframes piscar {
+	0%,
+	50%,
+	100% {
+		opacity: 0;
+	}
+	25%,
+	75% {
+		opacity: 1;
+	}
+}
+@keyframes aparece {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

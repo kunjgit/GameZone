@@ -1,0 +1,44 @@
+<!-- 
+/*!
+ * Jeferson Luckas - Disinfect the virus
+ * 
+ * Copyright (c) 2020 Jeferson Luckas
+ * Released under the MIT license
+ * https://github.com/JefersonLucas/disinfect-the-virus/blob/master/LICENSE
+ *
+ */ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta content="Jeferson Luckas" name="autor">
+  	<meta content="telephone=no" name="format-detection">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="assets/img/favicon/favicon.ico" rel="shortcut icon">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"> 
+    <link href="assets/css/style.css" rel="stylesheet">
+	<title>Desinfete o vírus</title>
+</head>
+<body>
+
+	<div class="painel">
+
+		<div class="vidas">
+			<i id="v1" class="coracao fas fa-heart fa-lg"></i>&nbsp;
+			<i id="v2" class="coracao fas fa-heart fa-lg"></i>&nbsp;
+			<i id="v3" class="coracao fas fa-heart fa-lg"></i>&nbsp;						
+		</div>
+		<div class="pontos">
+			<i class="fas fa-virus-slash fa-lg"></i>&nbsp;
+			<span id="pontos">00</span>
+		</div>
+		<div id="cronometro" class="cronometro user-select-none">
+			<i class="fas fa-stopwatch fa-lg"></i>&nbsp;00:<span id="tempo">30</span>
+		</div>
+		
+	</div>
+    
+    <script src="assets/js/game.js"></script>
+</body>
+</html>

@@ -4,6 +4,7 @@ on:
   pull_request_target:
     types:
       - opened
+      - synchronize
 
 jobs:
   pr-validation:
@@ -164,15 +165,51 @@ jobs:
 
                 console.log(`Commented on pull request #${prNumber} with required changes.`);
               } else {
-                // Add label to the pull request
-                await github.issues.addLabels({
-                  owner: repoOwner,
-                  repo: repoName,
-                  issue_number: prNumber,
-                  labels: ['under review']
-                });
+                const existingLabels = pr.labels.map(label => label.name.toLowerCase());
 
-                console.log(`Pull request #${prNumber} is valid and meets the requirements.`);
+                if (existingLabels.includes('changes requested') || existingLabels.includes('pending')) {
+                  // Remove the "changes requested" and "pending" labels
+                  await github.issues.removeLabel({
+                    owner: repoOwner,
+                    repo: repoName,
+                    issue_number: prNumber,
+                    name: 'changes requested'
+                  });
+                  await github.issues.removeLabel({
+                    owner: repoOwner,
+                    repo: repoName,
+                    issue_number: prNumber,
+                    name: 'pending'
+                  });
+
+                  // Approve the changes
+                  await github.pulls.createReview({
+                    owner: repoOwner,
+                    repo: repoName,
+                    pull_number: prNumber,
+                    event: 'APPROVE'
+                  });
+
+                  // Add the "under review" label
+                  await github.issues.addLabels({
+                    owner: repoOwner,
+                    repo: repoName,
+                    issue_number: prNumber,
+                    labels: ['under review']
+                  });
+
+                  console.log(`Updated pull request #${prNumber} with approved changes.`);
+                } else {
+                  // Add label to the pull request
+                  await github.issues.addLabels({
+                    owner: repoOwner,
+                    repo: repoName,
+                    issue_number: prNumber,
+                    labels: ['under review']
+                  });
+
+                  console.log(`Pull request #${prNumber} is valid and meets the requirements.`);
+                }
               }
             } else {
               console.log(`Pull request #${prNumber} does not have the "level3" label. No further validation is performed.`);

@@ -220,3 +220,4 @@ function search_game() {
       }
   }
 }
+

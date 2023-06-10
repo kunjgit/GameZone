@@ -1,0 +1,33 @@
+html,
+body{
+	margin: 0;
+	padding: 0;
+	background: #000;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: -moz-none;
+	-ms-user-select: none;
+	user-select: none;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAJ0lEQVQIW2MUERH5zwAFb968YWCECYA4QDZEAMYBKWQE4v8gGRgAACHyDbUYyktgAAAAAElFTkSuQmCC) repeat;
+}
+canvas{
+	width: 800px;
+	height: 480px;
+	position: absolute;
+	top: 48px;
+	left: 50%;
+	margin: 0 -400px;
+}
+#description{
+	width: 800px;
+	position: absolute;
+	top: 568px;
+	left: 50%;
+	margin: 0 -400px;
+	color: white;
+	text-align: center;
+}

@@ -224,6 +224,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 119 | [Immunity Collapse](https://github.com/kunjgit/GameZone/tree/main/Games/Immunity_Collapse)|
 | 120 | [Hunt Your Card](https://github.com/kunjgit/GameZone/tree/main/Games/Hunt_Your_Card)|
 | 121 | [Tenacity](https://github.com/kunjgit/GameZone/tree/main/Games/Tenacity)|
+| 122 | [Emoji Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Puzzle_Game)|
 
 </center>
 

@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Black Hole Square</title>
+    <meta name="description" content="Clean the universe!" />
+    <meta name="author" content="Quinten" />
+    <meta name="viewport" content="initial-scale=1,width=device-width" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0E181B" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link rel="icon" type="image/png" href="icon.png" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <style>
+      body {
+        background-color: #0e181b;
+        margin: 0;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      (() => {
+        var e = {
+            2895: (e, t, a) => {
+              var o = {
+                "./arrowdown.json": 7882,
+                "./arrowleft.json": 926,
+                "./arrowright.json": 8166,
+                "./arrowup.json": 947,
+                "./bgcut.json": 9192,
+                "./blackhole.json": 7761,
+                "./blanksquare.json": 2492,
+                "./canvas.json": 3961,
+                "./fillrect.json": 8298,
+                "./home.json": 4999,
+                "./levels.json": 9387,
+                "./maintitle.json": 8537,
+                "./mask.json": 4726,
+                "./neutronstar.json": 2318,
+                "./pointer.json": 7865,
+                "./position.json": 9043,
+                "./progress.json": 511,
+                "./puzzle.json": 37,
+                "./size.json": 1736,
+                "./state.json": 4135,
+                "./statemachine.json": 9094,
+                "./text.json": 8054,
+                "./tunnel.json": 7893,
+                "./xsquare.json": 2224,
+              };
+              function r(e) {
+                var t = s(e);
+                return a(t);
+              }
+              function s(e) {
+                if (!a.o(o, e)) {
+                  var t = new Error("Cannot find module '" + e + "'");
+                  throw ((t.code = "MODULE_NOT_FOUND"), t);
+                }
+                return o[e];
+              }
+              (r.keys = function () {
+                return Object.keys(o);
+              }),
+                (r.resolve = s),
+                (e.exports = r),
+                (r.id = 2895);
+            },
+            588: (e, t, a) => {
+              "use strict";
+              let o = {};
+              var r;
+              (r = a(106)).keys().forEach((e) => {
+                let t = e.replace(/\.\/([^\/]+)\.js$/, "$1");
+                o[t] = r(e).default;
+              });
+              const s = Object.freeze({
+                process: (e, t, a, r) => {
+                  t.forEach((t) => {
+                    let s = e[t];
+                    Object.keys(s).forEach((t) => {
+                      void 0 !== o[t] && o[t].update(e, s, a, r);
+                    });
+                  });
+                },
+              });
+              let n = {};
+              ((e) => {
+                e.keys().forEach((t) => {
+                  let a = t.replace(/\.\/([^\/]+)\.js$/, "$1");
+                  n[a] = e(t).default;
+                });
+              })(a(8293));
+              let i = {};
+              ((e) => {
+                e.keys().forEach((t) => {
+                  let a = t.replace(/\.\/([^\/]+)\.js$/, "$1");
+                  i[a] = e(t).default;
+                });
+              })(a(2098));
+              const c = Object.freeze({
+                process: (e, t, a, o, r) => {
+                  t.forEach((t) => {
+                    let s = e[t];
+                    a.save(),
+                      a.scale(e.game.canvas.zoom, e.game.canvas.zoom),
+                      Object.keys(s).forEach((t) => {
+                        void 0 !== i[t] && i[t].transform(e, s, a, o, r);
+                      }),
+                      Object.keys(s).forEach((t) => {
+                        void 0 !== n[t] && n[t].draw(e, s, a, o, r);
+                      }),
+                      a.restore();
+                  });
+                },
+              });
+              let l = 1,
+                u = 1,
+                p = 0,
+                d = 0,
+                h = 0,
+                v = 0;
+              const f = Object.freeze({
+                resize: (e, t) => {
+                  (h === window.innerWidth && v === window.innerHeight) ||
+                    ((h = window.innerWidth),
+                    (v = window.innerHeight),
+                    (t.style.width = h + "px"),
+                    (t.style.height = v + "px"),
+                    (t.width = h * window.devicePixelRatio),
+                    (t.height = v * window.devicePixelRatio),
+                    (e.canvas.w = t.width),
+                    (e.canvas.h = t.height),
+                    (l = e.canvas.tW / e.canvas.tH),
+                    (u = e.canvas.w / e.canvas.h),
+                    l < u
+                      ? ((e.canvas.zoom = e.canvas.h / e.canvas.tH),
+                        (e.canvas.gH = e.canvas.tH),
+                        (e.canvas.gW = (e.canvas.tH * e.canvas.w) / e.canvas.h))
+                      : ((e.canvas.zoom = e.canvas.w / e.canvas.tW),
+                        (e.canvas.gW = e.canvas.tW),
+                        (e.canvas.gH =
+                          (e.canvas.tW * e.canvas.h) / e.canvas.w)),
+                    (p = (e.canvas.gW - e.canvas.tW) / 2),
+                    (d = (e.canvas.gH - e.canvas.tH) / 2),
+                    (e.canvas.gX = p),
+                    (e.canvas.gY = d));
+                },
+              });
+              var g = a(5378);
+              const m = Object.freeze({
+                add: (e, t) => {
+                  let a,
+                    o,
+                    r,
+                    s,
+                    n,
+                    i,
+                    c = e.pointer,
+                    l = !1,
+                    u = (e, t) => {
+                      (c.x = e),
+                        (c.y = t),
+                        (c.downX = e),
+                        (c.downY = t),
+                        (c.justDown = !0),
+                        (c.isDown = !0),
+                        (l = !1);
+                    },
+                    p = (e, t) => {
+                      (c.x = e), (c.y = t);
+                    },
+                    d = (e, t) => {
+                      l
+                        ? (l = !1)
+                        : ((c.x = e),
+                          (c.y = t),
+                          (c.justUp = !0),
+                          (c.isDown = !1));
+                    };
+                  t.addEventListener("mousedown", (c) => {
+                    (a = t.getBoundingClientRect()),
+                      (o = a.left),
+                      (r = a.top),
+                      (s = e.canvas.zoom / window.devicePixelRatio),
+                      (n = (c.clientX - o) / s),
+                      (i = (c.clientY - r) / s),
+                      u(n, i);
+                  }),
+                    t.addEventListener("touchstart", (c) => {
+                      c.preventDefault(),
+                        (a = t.getBoundingClientRect()),
+                        (o = a.left),
+                        (r = a.top),
+                        (s = e.canvas.zoom / window.devicePixelRatio),
+                        (n = (c.changedTouches[0].clientX - o) / s),
+                        (i = (c.changedTouches[0].clientY - r) / s),
+                        u(n, i),
+                        g.Z.playSong({ melody: ["8-"] });
+                    }),
+                    t.addEventListener("mousemove", (c) => {
+                      (a = t.getBoundingClientRect()),
+                        (o = a.left),
+                        (r = a.top),
+                        (s = e.canvas.zoom / window.devicePixelRatio),
+                        (n = (c.clientX - o) / s),
+                        (i = (c.clientY - r) / s),
+                        p(n, i);
+                    }),
+                    t.addEventListener("touchmove", (c) => {
+                      c.preventDefault(),
+                        (a = t.getBoundingClientRect()),
+                        (o = a.left),
+                        (r = a.top),
+                        (s = e.canvas.zoom / window.devicePixelRatio),
+                        (n = (c.changedTouches[0].clientX - o) / s),
+                        (i = (c.changedTouches[0].clientY - r) / s),
+                        p(n, i);
+                    }),
+                    t.addEventListener("mouseup", (c) => {
+                      (a = t.getBoundingClientRect()),
+                        (o = a.left),
+                        (r = a.top),
+                        (s = e.canvas.zoom / window.devicePixelRatio),
+                        (n = (c.clientX - o) / s),
+                        (i = (c.clientY - r) / s),
+                        d(n, i);
+                    }),
+                    t.addEventListener("touchend", (c) => {
+                      c.preventDefault(),
+                        (a = t.getBoundingClientRect()),
+                        (o = a.left),
+                        (r = a.top),
+                        (s = e.canvas.zoom / window.devicePixelRatio),
+                        (n = c.changedTouches[0].clientX / s),
+                        (i = c.changedTouches[0].clientY / s),
+                        d(n, i);
+                    }),
+                    t.addEventListener("mouseout", (e) => {
+                      c.isDown && ((c.justUp = !0), (c.isDown = !1));
+                    }),
+                    t.addEventListener("mouseenter", (e) => {
+                      l = !0;
+                    });
+                },
+              });
+              var z = a(8520);
+              document.monetization &&
+                document.monetization.addEventListener(
+                  "monetizationstart",
+                  (e) => {
+                    z.Z.save("payed", !0);
+                  }
+                );
+              const x = Object.freeze({
+                  setup: (e) => {
+                    let t,
+                      a = e.game,
+                      o = document.createElement("canvas");
+                    t = o.getContext("2d");
+                    let r = document.querySelector(a.canvas.parentSelector);
+                    f.resize(a, o), r.appendChild(o), m.add(a, o);
+                    let n = 0,
+                      i = 0,
+                      l = (r) => {
+                        (i = r - n), (n = r), f.resize(a, o);
+                        let u = a.pointer.pointing;
+                        a.pointer.pointing = !1;
+                        let p = [],
+                          d = [];
+                        a.statemachine.active.forEach((t) => {
+                          let a = e[t];
+                          void 0 !== a.state &&
+                            ((p = [...p, ...a.state.updates]),
+                            (d = [...d, ...a.state.draws]));
+                        }),
+                          s.process(e, p, r, i),
+                          (a.pointer.justDown = !1),
+                          (a.pointer.justUp = !1),
+                          u && !a.pointer.pointing
+                            ? (o.style.cursor = "default")
+                            : !u &&
+                              a.pointer.pointing &&
+                              (o.style.cursor = "pointer"),
+                          t.clearRect(0, 0, a.canvas.w, a.canvas.h),
+                          c.process(e, d, t, r, i),
+                          requestAnimationFrame(l);
+                      };
+                    l(0);
+                  },
+                }),
+                w = JSON.parse(
+                  '{"game":{"canvas":{"w":320,"h":416,"tW":320,"tH":416,"gW":320,"gH":416,"oX":-13312,"oY":48,"gX":0,"gY":48,"zoom":1,"parentSelector":"body"},"statemachine":{"active":["level","controls"]},"pointer":{"x":0,"y":0,"justDown":false,"justUp":false,"isDown":false},"levels":{"sequence":["titlescreen","startscreen","click","wait","push","move","tango","substitute","wander","double","conflict","extract","grab","twin","snare","sink","support","ad"],"wm":["titlescreen","startscreen","click","wait","push","move","tango","substitute","wander","double","conflict","extract","grab","twin","snare","sink","support","ty","snatch","swivel","turmoil","end"],"current":0}},"titlescreen":{"puzzle":{"grid":[],"init":true,"taps":"","text":["","","","","","","","","","","","","","Swipe left to start"],"lT":" ","rT":" ","noBoard":true}},"maintitle":{"maintitle":{},"position":{"x":-160,"y":-208,"origin":"center"}},"startscreen":{"puzzle":{"grid":[],"init":true,"taps":"","text":["Welcome to Black Hole Square!","Clean up all the other squares","in the universe. Just tap them","and see what happens.","","Swipe right to reset a puzzle","or go back to the old ones.","Swipe left to skip a puzzle.","","Swipe left for first puzzle!"],"lT":"Wrong way","rT":"Let\'s puzzle"}},"ad":{"puzzle":{"grid":[],"init":true,"taps":"","text":["The edge of the universe...","","Thank you for playing!","","Did you know you could","unlock 3 bonus puzzles","when you support this game","through Web Monetization?"],"rT":"Not too dark here"}},"ty":{"puzzle":{"grid":[],"init":true,"taps":"","text":["Thank you","for supporting this game","through Web Monetization.","","The next 3 puzzles are only","for WM supporters.","","Swipe left for bonus puzzles"],"lT":"Free puzzles","rT":"Bonus puzzles"}},"end":{"puzzle":{"grid":[],"init":true,"taps":"","text":["The edge of the universe...","","Thank you for playing!"],"rT":"Just dark here"}},"substitute":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,6,0,0,0,0,5,2,2,1,0,0,0,1,2,0,0,0,0,0,1,0,0,0,0,0,0,0,0],"init":true,"taps":6}},"double":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,7,7,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"init":true,"taps":5}},"move":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,6,0,0,0,0,0,2,0,0,0,0,1,2,2,7,0,0,0,1,0,0,0,0,0,0,0,0,0],"init":true,"taps":5}},"click":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,5,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,7,0,0,0,0,0,0,0,0],"init":true,"taps":4}},"wait":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,5,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0],"init":true,"taps":5}},"push":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,2,0,0,0,5,0,0,1,0,0,0,4,0,0,0,0,0,0,0,0,0],"init":true,"taps":6}},"extract":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,6,0,0,0,0,0,2,0,0,0,0,0,3,7,0,0,0,0,1,0,0,0,0,0,0,0,0,0],"init":true,"taps":5}},"grab":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,2,0,5,3,2,2,2,1,0,0,0,4,0,0,0,0,0,0,0,0],"init":true,"taps":9}},"snare":{"puzzle":{"grid":[0,0,0,0,0,0,0,6,1,6,1,0,5,2,3,3,2,1,0,1,4,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0],"init":true,"taps":9}},"twin":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,1,0,0,0,0,5,2,0,0,0,0,0,3,7,0,0,0,1,2,3,7,0,0,0,4,0,0,0],"init":true,"taps":11}},"tango":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,1,0,0,0,0,5,6,0,0,0,0,0,0,4,7,0,0,0,0,1,0,0,0,0,0,0,0,0],"init":true,"taps":6}},"snatch":{"puzzle":{"grid":[0,0,0,0,0,0,0,6,0,0,0,0,0,5,3,3,7,0,0,0,0,0,8,0,0,0,0,0,4,0,0,0,0,0,0,0],"init":true,"taps":12}},"turmoil":{"puzzle":{"grid":[0,6,0,0,6,0,0,2,0,0,8,0,0,0,3,7,0,0,0,0,5,5,0,0,8,0,0,0,0,2,4,0,0,0,0,4],"init":true,"taps":20}},"sink":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,0,6,0,0,0,0,5,0,0,0,0,0,0,8,0,0,0,0,5,0,0,0,0,0,0,0,0,0],"init":true,"taps":6}},"swivel":{"puzzle":{"grid":[0,0,6,0,0,0,0,0,6,8,0,0,0,0,0,0,3,7,5,2,0,0,0,0,0,0,0,8,0,0,0,0,0,4,0,0],"init":true,"taps":14}},"wander":{"puzzle":{"grid":[0,0,0,0,1,0,1,0,2,0,0,0,0,6,0,0,0,0,0,5,0,0,7,0,0,0,0,4,0,1,0,1,0,0,0,0],"init":true,"taps":15}},"support":{"puzzle":{"grid":[0,0,0,0,0,0,0,1,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,1,0,8,7,0,0,0,4,0,0,0],"init":true,"taps":8}},"conflict":{"puzzle":{"grid":[0,0,0,0,0,0,0,0,0,6,0,0,0,1,2,5,0,0,0,0,0,7,2,1,0,0,0,4,0,0,0,0,0,1,0,0],"init":true,"taps":10}},"level":{"state":{"draws":[],"updates":["titlescreen"]}},"controls":{"state":{"draws":["bgcut","bgout","feedback","tunnel","tapstext","titletext","progress"],"updates":["progress"]}},"tapstext":{"position":{"x":296,"y":44,"origin":"game"},"text":{"text":"","align":"right"}},"titletext":{"position":{"x":24,"y":44,"origin":"game"},"text":{"text":""}},"feedback":{"position":{"x":0,"y":0,"origin":"center"},"text":{"text":"","align":"center","behind":true,"base":"middle"}},"bgcut":{"position":{"x":16,"y":64,"origin":"game"},"bgcut":{"fill":"#1F363D"}},"bgout":{"position":{"x":16,"y":68,"origin":"game"},"bgcut":{"fill":"#16272C"}},"tunnel":{"tunnel":{"fill":"#16272C"}},"progress":{"position":{"x":0,"y":160,"origin":"center"},"progress":{"dots":[]}}}'
+                );
+              let y = z.Z.load("current");
+              if (void 0 !== y) {
+                w.game.levels.current = y;
+                let e = (
+                  z.Z.load("payed") ? w.game.levels.wm : w.game.levels.sequence
+                )[y];
+                w.level.state.updates = [e];
+              }
+              x.setup(w),
+                "serviceWorker" in navigator &&
+                  window.addEventListener("load", (e) => {
+                    navigator.serviceWorker.register("./sw.js").then(
+                      (e) => {},
+                      (e) => {}
+                    );
+                  });
+            },
+            8520: (e, t, a) => {
+              "use strict";
+              a.d(t, { Z: () => n });
+              const o = JSON.parse('{"u2":"Black Hole Square"}');
+              let r = {},
+                s = localStorage.getItem(o.u2 + " Data");
+              null !== s && (r = JSON.parse(s));
+              const n = Object.freeze({
+                save: (e, t) => {
+                  (r[e] = t),
+                    localStorage.setItem(o.u2 + " Data", JSON.stringify(r));
+                },
+                load: (e) => r[e],
+              });
+            },
+            6988: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => r });
+              var o = a(8657);
+              const r = Object.freeze({
+                draw: (e, t, a) => {
+                  o.default.draw(e, t, a);
+                  let r = new Path2D(
+                    "M24 25.757l-9.879-9.878a3 3 0 00-4.242 4.242l12 12 .027.028a3.003 3.003 0 003.323.588l.034-.015.034-.016.033-.016.033-.017.032-.017.033-.017.032-.018.033-.018.032-.019.031-.019.032-.019.032-.02.031-.021.031-.02.031-.022.031-.021.03-.022.03-.023.03-.023.03-.023.03-.024.029-.024.029-.025.029-.025.028-.025.029-.026.028-.027.028-.026.027-.028 12-12a3 3 0 00-4.242-4.242L24 25.757z"
+                  );
+                  (a.fillStyle = "#878e88"), a.fill(r);
+                },
+              });
+            },
+            8702: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => r });
+              var o = a(8657);
+              const r = Object.freeze({
+                draw: (e, t, a) => {
+                  o.default.draw(e, t, a);
+                  let r = new Path2D(
+                    "M13.879 19.879l-.028.027a3.003 3.003 0 00-.49 3.521l.018.033.018.033.019.032.019.031.019.032.02.032.021.031.02.031.022.031.021.031.022.03.023.03.023.03.023.03.024.03.024.029.025.029.025.029.025.028.026.029.027.028.026.028.028.027 12 12a3 3 0 004.242-4.242L20.243 22l9.878-9.879a3 3 0 00-4.242-4.242l-12 12z"
+                  );
+                  (a.fillStyle = "#878e88"), a.fill(r);
+                },
+              });
+            },
+            3515: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => r });
+              var o = a(8657);
+              const r = Object.freeze({
+                draw: (e, t, a) => {
+                  o.default.draw(e, t, a);
+                  let r = new Path2D(
+                    "M27.757 22l-9.878 9.879a3 3 0 004.242 4.242l12-12a3 3 0 00.364-3.802l-.022-.032-.021-.031-.022-.03-.023-.03-.023-.03-.023-.03-.024-.03-.024-.029-.025-.029-.025-.029-.025-.028-.026-.029-.027-.028-.026-.028-.028-.027-12-12a3 3 0 00-4.242 4.242L27.757 22z"
+                  );
+                  (a.fillStyle = "#878e88"), a.fill(r);
+                },
+              });
+            },
+            4666: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => r });
+              var o = a(8657);
+              const r = Object.freeze({
+                draw: (e, t, a) => {
+                  o.default.draw(e, t, a);
+                  let r = new Path2D(
+                    "M22.507 11.397l-.035.021-.028.017-.032.019-.032.02-.031.021-.031.02-.031.022-.031.021-.03.022-.03.023-.03.023-.03.023-.03.024-.029.024-.029.025-.029.025-.028.025-.029.026-.028.027-.028.026-.027.028-12 12a3 3 0 004.242 4.242L24 18.243l9.879 9.878a3 3 0 004.242-4.242l-12-12a3.002 3.002 0 00-3.614-.482z"
+                  );
+                  (a.fillStyle = "#878e88"), a.fill(r);
+                },
+              });
+            },
+            833: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => o });
+              const o = Object.freeze({
+                draw: (e, t, a) => {
+                  a.globalCompositeOperation = "destination-over";
+                  let o = new Path2D(
+                    "M6 288h276c3.311 0 6-2.689 6-6V6c0-3.311-2.689-6-6-6H6C2.689 0 0 2.689 0 6v276c0 3.311 2.689 6 6 6z"
+                  );
+                  (a.fillStyle = t.bgcut.fill), a.fill(o);
+                },
+              });
+            },
+            8622: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => o });
+              const o = Object.freeze({
+                draw: (e, t, a) => {
+                  let o = new Path2D(
+                    "M44 12c0-3.311-2.689-6-6-6H10c-3.311 0-6 2.689-6 6v28c0 3.311 2.689 6 6 6h28c3.311 0 6-2.689 6-6V12z"
+                  );
+                  (a.fillStyle = "#000"),
+                    a.fill(o),
+                    (o = new Path2D(
+                      "M4 16c0-3.311 2.689-6 6-6h28c3.311 0 6 2.689 6 6v-4c0-3.311-2.689-6-6-6H10c-3.311 0-6 2.689-6 6v4z"
+                    )),
+                    (a.fillStyle = "#16272C"),
+                    a.fill(o);
+                },
+              });
+            },
+            8657: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => o });
+              const o = Object.freeze({
+                draw: (e, t, a) => {
+                  let o = t.clicked ? "#AECBD6" : "#c3dad5",
+                    r = t.clicked ? "#C9DDE4" : "#f2f7f6",
+                    s = new Path2D(
+                      "M44 12c0-3.311-2.689-6-6-6H10c-3.311 0-6 2.689-6 6v28c0 3.311 2.689 6 6 6h28c3.311 0 6-2.689 6-6V12z"
+                    );
+                  (a.fillStyle = o),
+                    a.fill(s),
+                    (s = new Path2D(
+                      "M44 8c0-3.311-2.689-6-6-6H10C6.689 2 4 4.689 4 8v28c0 3.311 2.689 6 6 6h28c3.311 0 6-2.689 6-6V8z"
+                    )),
+                    (a.fillStyle = r),
+                    a.fill(s),
+                    t.clicked && (t.clicked = t.clicked - 1);
+                },
+              });
+            },
+            6768: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => o });
+              const o = Object.freeze({
+                draw: (e, t, a) => {
+                  let o = e.game.canvas.gW,
+                    r = e.game.canvas.gH;
+                  void 0 !== t.size && ((o = t.size.w), (r = t.size.h)),
+                    (a.fillStyle = t.fillrect.fill),
+                    a.fillRect(0, 0, o, r);
+                },
+              });
+            },
+            3273: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => r });
+              let o = [
+                "M87.84 146.432c0 1.024-.362 1.792-1.088 2.304a4.02 4.02 0 01-2.368.768c-2.346 0-3.52-1.024-3.52-3.072v-45.44c0-2.048 1.174-3.072 3.52-3.072 2.347 0 3.52 1.024 3.52 3.072v9.6h13.504c2.176 0 4.438.81 6.784 2.432 2.304 1.622 3.456 4.182 3.456 7.68v19.072c0 3.542-1.045 5.974-3.136 7.296-2.09 1.366-4.48 2.048-7.168 2.048h-7.552c-1.536 0-2.346-1.002-2.432-3.008 0-2.005.81-3.008 2.432-3.008h6.4c1.579 0 2.71-.288 3.392-.864.683-.576 1.024-1.418 1.024-2.528V121.28c0-1.11-.341-2.176-1.024-3.2l.064.064c-.554-1.024-1.685-1.536-3.392-1.536H87.904l-.064 29.824z",
+                "M126.816 146.624c0 2.006-1.173 3.008-3.52 3.008-2.39 0-3.584-1.002-3.584-3.008v-45.888c0-2.005 1.195-3.008 3.584-3.008 2.347 0 3.52 1.003 3.52 3.008v45.888z",
+                "M145.312 149.12c-1.322 0-2.581-.181-3.776-.544a14.74 14.74 0 01-3.456-1.568v.064c-2.09-1.322-3.136-3.754-3.136-7.296v-3.136c0-1.75.31-3.274.928-4.576.619-1.301 1.483-2.336 2.592-3.104h-.064a12.458 12.458 0 013.392-1.632c1.195-.362 2.347-.544 3.456-.544h14.144v-5.952c0-1.066-.33-2.037-.992-2.912-.661-.874-1.781-1.312-3.36-1.312h-7.488c-1.621 0-2.741.395-3.36 1.184-.618.79-.928 1.718-.928 2.784v.512c0 2.219-1.194 3.328-3.584 3.328s-3.584-1.11-3.584-3.328v-.576c0-1.75.31-3.221.928-4.416a8.853 8.853 0 012.528-3.008h-.064a18.673 18.673 0 013.488-1.792c1.216-.47 2.379-.704 3.488-.704h9.728c1.067 0 2.208.235 3.424.704a16.903 16.903 0 013.424 1.792h-.064c1.11.81 1.963 1.867 2.56 3.168.598 1.302.896 2.806.896 4.512v25.664c0 2.048-1.173 3.072-3.52 3.072-.47 0-.906-.021-1.312-.064a2.611 2.611 0 01-1.088-.352 2.073 2.073 0 01-.768-.832c-.192-.362-.288-.842-.288-1.44l-.064-14.016h-12.928c-.938 0-1.664.107-2.176.32a2.598 2.598 0 00-1.216 1.024 23.491 23.491 0 00-.736 1.696 3.971 3.971 0 00-.224 1.376v2.496c0 1.11.33 1.952.992 2.528.662.576 1.803.864 3.424.864h7.168c1.579 0 2.368 1.003 2.368 3.008 0 .854-.192 1.568-.576 2.144-.384.576-.981.864-1.792.864h-8.384z",
+                "M205.472 138.944c0 3.499-1.152 6.08-3.456 7.744-2.261 1.622-4.522 2.432-6.784 2.432H184.48c-2.261 0-4.458-.81-6.592-2.432-1.024-.853-1.813-1.93-2.368-3.232-.554-1.301-.832-2.805-.832-4.512v-18.24c0-3.456 1.067-6.016 3.2-7.68a15.287 15.287 0 013.296-1.824c1.13-.448 2.23-.672 3.296-.672h10.752c1.024 0 2.155.203 3.392.608 1.238.406 2.39.95 3.456 1.632 1.024.726 1.846 1.728 2.464 3.008.619 1.28.928 2.795.928 4.544v3.2c0 2.048-1.173 3.072-3.52 3.072-2.346 0-3.52-1.024-3.52-3.072v-2.752c0-1.066-.33-2.037-.992-2.912-.661-.874-1.781-1.312-3.36-1.312h-8c-1.578 0-2.698.438-3.36 1.312-.661.875-.992 1.846-.992 2.912v18.112c0 1.024.33 1.984.992 2.88.662.896 1.782 1.344 3.36 1.344h8c1.579 0 2.699-.448 3.36-1.344.662-.896.992-1.856.992-2.88v-2.944c0-2.005 1.174-3.008 3.52-3.008 2.347 0 3.52 1.003 3.52 3.008v3.008z",
+                "M220.512 138.432v8.128c0 2.006-1.173 3.008-3.52 3.008-2.346 0-3.52-1.002-3.52-3.008v-45.568c0-2.048 1.174-3.072 3.52-3.072 2.347 0 3.52 1.024 3.52 3.072v27.136a189.274 189.274 0 013.552-4.128 405.824 405.824 0 003.904-4.48 1080.24 1080.24 0 013.872-4.48c1.28-1.472 2.475-2.848 3.584-4.128v.064c.768-.896 1.536-1.344 2.304-1.344.427 0 .843.096 1.248.288a8.32 8.32 0 011.312.8h-.064c1.024.854 1.536 1.707 1.536 2.56 0 .299-.064.63-.192.992a2.14 2.14 0 01-.64.928l-20.416 23.232zm21.376 6.4c.299.555.448 1.13.448 1.728 0 1.11-.64 1.942-1.92 2.496-.853.512-1.621.768-2.304.768-.47 0-.917-.16-1.344-.48a3.645 3.645 0 01-1.024-1.184l-6.4-12.352c-.384-.64-.576-1.28-.576-1.92 0-1.066.555-1.962 1.664-2.688.299-.213.608-.405.928-.576.32-.17.672-.298 1.056-.384.47-.085.918 0 1.344.256.427.256.79.598 1.088 1.024l7.04 13.312z",
+                "M104.736 226.432c0 2.048-1.173 3.072-3.52 3.072-2.346 0-3.52-1.024-3.52-3.072v-45.44c0-2.048 1.174-3.072 3.52-3.072 2.347 0 3.52 1.024 3.52 3.072v9.6h13.504c2.176 0 4.438.81 6.784 2.432 2.304 1.622 3.456 4.182 3.456 7.68v25.728c0 2.048-1.173 3.072-3.52 3.072-2.346 0-3.52-1.024-3.52-3.072V201.28c0-1.11-.341-2.176-1.024-3.2l.064.064c-.554-1.024-1.685-1.536-3.392-1.536h-12.352v29.824z",
+                "M157.408 190.592c1.11 0 2.25.235 3.424.704a19.487 19.487 0 013.424 1.792h-.064c1.11.81 1.963 1.867 2.56 3.168.598 1.302.896 2.806.896 4.512v18.176c0 3.499-1.152 6.08-3.456 7.744-2.261 1.622-4.522 2.432-6.784 2.432h-10.24c-1.11 0-2.24-.192-3.392-.576-1.152-.384-2.282-1.002-3.392-1.856-2.304-1.621-3.456-4.202-3.456-7.744v-18.176c0-1.706.299-3.21.896-4.512.598-1.301 1.45-2.357 2.56-3.168h-.064a17.279 17.279 0 013.392-1.792c1.195-.47 2.347-.704 3.456-.704h10.24zm-1.152 32.512c1.579 0 2.699-.448 3.36-1.344.662-.896.992-1.856.992-2.88v-18.048c0-1.066-.33-2.037-.992-2.912-.661-.874-1.781-1.312-3.36-1.312h-7.936c-1.578 0-2.698.438-3.36 1.312-.661.875-.992 1.846-.992 2.912v18.048c0 1.024.33 1.984.992 2.88.662.896 1.782 1.344 3.36 1.344h7.936z",
+                "M183.008 226.624c0 2.006-1.173 3.008-3.52 3.008-2.39 0-3.584-1.002-3.584-3.008v-45.888c0-2.005 1.195-3.008 3.584-3.008 2.347 0 3.52 1.003 3.52 3.008v45.888z",
+                "M198.88 218.88c0 1.024.33 1.984.992 2.88.662.896 1.782 1.344 3.36 1.344h8c1.579 0 2.699-.394 3.36-1.184a4.11 4.11 0 00.992-2.72v-.704c0-2.005 1.174-3.008 3.52-3.008 2.347 0 3.52 1.003 3.52 3.008v.768c0 1.792-.288 3.264-.864 4.416-.576 1.152-1.44 2.155-2.592 3.008-2.261 1.622-4.522 2.432-6.784 2.432h-10.752c-2.261 0-4.458-.81-6.592-2.432-1.024-.853-1.813-1.93-2.368-3.232-.554-1.301-.832-2.805-.832-4.512v-18.24c0-3.456 1.067-6.016 3.2-7.68a15.287 15.287 0 013.296-1.824c1.13-.448 2.23-.672 3.296-.672h10.752c1.024 0 2.155.203 3.392.608 1.238.406 2.39.95 3.456 1.632 1.024.726 1.846 1.728 2.464 3.008.619 1.28.928 2.795.928 4.544v8.64c0 .982-.288 1.856-.864 2.624-.576.768-1.632 1.152-3.168 1.152h-13.824c-1.536 0-2.346-1.002-2.432-3.008 0-2.005.81-3.008 2.432-3.008h10.88l-.064-5.952c0-1.066-.33-2.037-.992-2.912-.661-.874-1.781-1.312-3.36-1.312h-8c-1.578 0-2.698.438-3.36 1.312-.661.875-.992 1.846-.992 2.912v18.112z",
+                "M74.912 286.72c1.067 0 2.208.246 3.424.736a18.16 18.16 0 013.424 1.824h-.064a8.001 8.001 0 012.56 3.136c.598 1.28.896 2.816.896 4.608v1.92c0 3.499-1.152 6.08-3.456 7.744-1.11.854-2.24 1.472-3.392 1.856-1.152.384-2.282.576-3.392.576h-10.88c-1.11 0-2.24-.192-3.392-.576-1.152-.384-2.282-1.002-3.392-1.856-2.304-1.621-3.456-4.202-3.456-7.744v-.768c0-1.834 1.174-2.73 3.52-2.688 2.39 0 3.584.896 3.584 2.688v.704c0 1.024.32 1.984.96 2.88.64.896 1.77 1.344 3.392 1.344h8.448c1.622 0 2.752-.448 3.392-1.344.64-.896.96-1.856.96-2.88v-1.792c0-.554-.074-1.088-.224-1.6a3.728 3.728 0 00-.736-1.376c-.341-.405-.79-.736-1.344-.992s-1.237-.384-2.048-.384h-9.344c-2.176 0-4.458-.768-6.848-2.304-2.261-1.45-3.392-3.946-3.392-7.488v-2.176c0-1.706.299-3.21.896-4.512.598-1.301 1.45-2.357 2.56-3.168h-.064a17.279 17.279 0 013.392-1.792c1.195-.47 2.347-.704 3.456-.704h10.24c1.11 0 2.25.235 3.424.704a19.487 19.487 0 013.424 1.792h-.064c1.11.81 1.963 1.867 2.56 3.168.598 1.302.896 2.806.896 4.512v.576c0 .896-.298 1.547-.896 1.952-.597.406-1.472.63-2.624.672-2.346.043-3.52-.832-3.52-2.624v-.512c0-1.066-.33-2.037-.992-2.912-.661-.874-1.781-1.312-3.36-1.312h-7.936c-1.578 0-2.698.438-3.36 1.312-.661.875-.992 1.846-.992 2.912v1.536c0 1.11.33 2.112.992 3.008.662.896 1.782 1.344 3.36 1.344h9.408z",
+                "M103.776 309.12c-1.11 0-2.304-.128-3.584-.384a10.114 10.114 0 01-3.584-1.472c-1.194-.725-2.016-1.781-2.464-3.168-.448-1.386-.672-2.976-.672-4.768v-18.944c0-1.792.31-3.328.928-4.608.619-1.28 1.462-2.282 2.528-3.008a16.36 16.36 0 013.392-1.6c1.152-.384 2.283-.576 3.392-.576h10.304c1.11 0 2.23.192 3.36.576 1.13.384 2.294.918 3.488 1.6 1.024.726 1.846 1.739 2.464 3.04.619 1.302.928 2.827.928 4.576V315.2c0 2.048-1.173 3.072-3.52 3.072-2.346 0-3.52-1.002-3.52-3.008v-34.432c0-1.066-.33-2.037-.992-2.912-.661-.874-1.781-1.312-3.36-1.312h-8c-1.578 0-2.698.438-3.36 1.312-.661.875-.992 1.846-.992 2.912v18.048c0 1.024.33 1.984.992 2.88.662.896 1.782 1.344 3.36 1.344h6.656c1.536 0 2.304 1.003 2.304 3.008 0 .854-.181 1.568-.544 2.144-.362.576-.95.864-1.76.864h-7.744z",
+                "M163.168 298.944c0 1.707-.298 3.222-.896 4.544-.597 1.323-1.45 2.39-2.56 3.2h.064a15.956 15.956 0 01-3.392 1.76c-1.194.448-2.346.672-3.456.672h-10.304c-1.066 0-2.208-.224-3.424-.672a15.725 15.725 0 01-3.424-1.76h.064c-1.11-.81-1.962-1.877-2.56-3.2-.597-1.322-.896-2.837-.896-4.544V273.28c0-2.048 1.174-3.072 3.52-3.072 2.347 0 3.52 1.024 3.52 3.072v25.152c0 1.195.299 2.24.896 3.136.555 1.024 1.707 1.536 3.456 1.536h8c1.707 0 2.838-.512 3.392-1.536l-.064.064c.683-1.024 1.024-2.09 1.024-3.2V273.28c0-2.048 1.174-3.072 3.52-3.072 2.347 0 3.52 1.024 3.52 3.072v25.664z",
+                "M180.832 309.12c-1.322 0-2.581-.181-3.776-.544a14.74 14.74 0 01-3.456-1.568v.064c-2.09-1.322-3.136-3.754-3.136-7.296v-3.136c0-1.75.31-3.274.928-4.576.619-1.301 1.483-2.336 2.592-3.104h-.064a12.458 12.458 0 013.392-1.632c1.195-.362 2.347-.544 3.456-.544h14.144v-5.952c0-1.066-.33-2.037-.992-2.912-.661-.874-1.781-1.312-3.36-1.312h-7.488c-1.621 0-2.741.395-3.36 1.184-.618.79-.928 1.718-.928 2.784v.512c0 2.219-1.194 3.328-3.584 3.328s-3.584-1.11-3.584-3.328v-.576c0-1.75.31-3.221.928-4.416a8.853 8.853 0 012.528-3.008h-.064a18.673 18.673 0 013.488-1.792c1.216-.47 2.379-.704 3.488-.704h9.728c1.067 0 2.208.235 3.424.704a16.903 16.903 0 013.424 1.792h-.064c1.11.81 1.963 1.867 2.56 3.168.598 1.302.896 2.806.896 4.512v25.664c0 2.048-1.173 3.072-3.52 3.072-.47 0-.906-.021-1.312-.064a2.611 2.611 0 01-1.088-.352 2.073 2.073 0 01-.768-.832c-.192-.362-.288-.842-.288-1.44l-.064-14.016h-12.928c-.938 0-1.664.107-2.176.32a2.598 2.598 0 00-1.216 1.024 23.491 23.491 0 00-.736 1.696 3.971 3.971 0 00-.224 1.376v2.496c0 1.11.33 1.952.992 2.528.662.576 1.803.864 3.424.864h7.168c1.579 0 2.368 1.003 2.368 3.008 0 .854-.192 1.568-.576 2.144-.384.576-.981.864-1.792.864h-8.384z",
+                "M217.12 306.432c0 2.048-1.173 3.072-3.52 3.072-2.432 0-3.648-1.024-3.648-3.072v-26.496c0-3.498 1.046-5.93 3.136-7.296 2.09-1.365 4.502-2.048 7.232-2.048h7.296c1.579 0 2.368 1.003 2.368 3.008.086 2.006-.704 3.008-2.368 3.008h-6.784c-1.536 0-2.538.299-3.008.896-.47.598-.704 1.43-.704 2.496v26.432z",
+                "M242.464 298.88c0 1.024.33 1.984.992 2.88.662.896 1.782 1.344 3.36 1.344h8c1.579 0 2.699-.394 3.36-1.184a4.11 4.11 0 00.992-2.72v-.704c0-2.005 1.174-3.008 3.52-3.008 2.347 0 3.52 1.003 3.52 3.008v.768c0 1.792-.288 3.264-.864 4.416-.576 1.152-1.44 2.155-2.592 3.008-2.261 1.622-4.522 2.432-6.784 2.432h-10.752c-2.261 0-4.458-.81-6.592-2.432-1.024-.853-1.813-1.93-2.368-3.232-.554-1.301-.832-2.805-.832-4.512v-18.24c0-3.456 1.067-6.016 3.2-7.68a15.287 15.287 0 013.296-1.824c1.13-.448 2.23-.672 3.296-.672h10.752c1.024 0 2.155.203 3.392.608 1.238.406 2.39.95 3.456 1.632 1.024.726 1.846 1.728 2.464 3.008.619 1.28.928 2.795.928 4.544v8.64c0 .982-.288 1.856-.864 2.624-.576.768-1.632 1.152-3.168 1.152h-13.824c-1.536 0-2.346-1.002-2.432-3.008 0-2.005.81-3.008 2.432-3.008h10.88l-.064-5.952c0-1.066-.33-2.037-.992-2.912-.661-.874-1.781-1.312-3.36-1.312h-8c-1.578 0-2.698.438-3.36 1.312-.661.875-.992 1.846-.992 2.912v18.112z",
+              ].map((e) => {
+                let t = new Path2D(e),
+                  a = 2 + Math.random();
+                return (
+                  (a *= Math.random() > 0.5 ? 1 : -1), { path: t, speed: a }
+                );
+              });
+              const r = Object.freeze({
+                draw: (e, t, a) => {
+                  a.fillStyle = "#f2f7f6";
+                  let r = e.game.canvas.oX - e.game.canvas.gX;
+                  o.forEach((e) => {
+                    let t = r * e.speed;
+                    a.translate(0, t), a.fill(e.path), a.translate(0, -t);
+                  });
+                },
+              });
+            },
+            3047: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => r });
+              var o = a(8657);
+              const r = Object.freeze({
+                draw: (e, t, a) => {
+                  o.default.draw(e, t, a);
+                  let r = new Path2D(
+                    "M39 14.5c0-4.14-3.36-7.5-7.5-7.5h-15C12.36 7 9 10.36 9 14.5v15c0 4.14 3.36 7.5 7.5 7.5h15c4.14 0 7.5-3.36 7.5-7.5v-15z"
+                  );
+                  (a.fillStyle = "#878e88"), a.fill(r);
+                },
+              });
+            },
+            5473: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => r });
+              let o = [
+                (e, t) => [(e.fillStyle = "#4B8495"), e.fillRect(t, 0, 8, 8)],
+                (e, t) => [
+                  (e.strokeStyle = "#4B8495"),
+                  e.strokeRect(t + 0.5, 0.5, 7, 7),
+                ],
+                (e, t) => [(e.fillStyle = "#F2F7F6"), e.fillRect(t, 0, 8, 8)],
+                (e, t) => [
+                  (e.strokeStyle = "#F2F7F6"),
+                  e.strokeRect(t + 0.5, 0.5, 7, 7),
+                ],
+              ];
+              const r = Object.freeze({
+                draw: (e, t, a) => {
+                  let r = t.progress.dots;
+                  r.forEach((e, t) => {
+                    o[e](a, 12 * t - 6 * r.length);
+                  });
+                },
+              });
+            },
+            5264: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => o });
+              const o = Object.freeze({
+                draw: (e, t, a) => {
+                  t.text.behind &&
+                    (a.globalCompositeOperation = "destination-over"),
+                    (a.textAlign = t.text.align || "left"),
+                    (a.textBaseline = t.text.base || "top"),
+                    (a.fillStyle = "#f2f7f6"),
+                    (a.font = "14px monospace"),
+                    a.fillText(t.text.text, 0, 0);
+                },
+              });
+            },
+            5339: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => s });
+              let o = 400,
+                r = [];
+              for (let e = 0; e < 42; e++) {
+                let e = {
+                  start: Math.random() * o * 7,
+                  length: o + Math.random() * o * 2,
+                  rotation: Math.random() * Math.PI * 2,
+                };
+                r.push(e);
+              }
+              const s = Object.freeze({
+                draw: (e, t, a, s, n) => {
+                  (a.globalCompositeOperation = "destination-over"),
+                    (a.fillStyle = t.tunnel.fill),
+                    r.forEach((t) => {
+                      (t.start -= (8 * n) / 17),
+                        t.start < -398 &&
+                          ((t.length = 200 + (Math.random() * o) / 2),
+                          (t.start = t.start + 3200),
+                          (t.rotation = Math.random() * Math.PI * 2)),
+                        (t.rotation = t.rotation + (-0.005 * n) / 17);
+                      let r = [
+                          { x: -4, y: 80, z: t.start },
+                          { x: 4, y: 80, z: t.start },
+                          {
+                            x: 4,
+                            y: 80,
+                            z: Math.max(t.start - t.length, -399),
+                          },
+                          {
+                            x: -4,
+                            y: 80,
+                            z: Math.max(t.start - t.length, -399),
+                          },
+                        ],
+                        s = [];
+                      r.forEach((a) => {
+                        let [r, n] = ((
+                          e,
+                          t,
+                          a,
+                          o = Math.cos(a),
+                          r = Math.sin(a)
+                        ) => [o * e - r * t, r * e + o * t])(
+                          a.x,
+                          a.y,
+                          t.rotation
+                        );
+                        s.push(
+                          ...((
+                            e,
+                            t,
+                            a,
+                            o,
+                            r,
+                            s,
+                            n = 1,
+                            i = (a / (a + s)) * n
+                          ) => [e + o * i, t + r * i])(
+                            e.game.canvas.gW / 2,
+                            e.game.canvas.gH / 2,
+                            o,
+                            r,
+                            n,
+                            a.z
+                          )
+                        );
+                      }),
+                        ((e, t, a, o, r, s, n, i, c) => {
+                          e.beginPath(),
+                            e.moveTo(t, a),
+                            e.lineTo(o, r),
+                            e.lineTo(s, n),
+                            e.lineTo(i, c),
+                            e.closePath(),
+                            e.fill();
+                        })(a, ...s);
+                    });
+                },
+              });
+            },
+            5104: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => r });
+              var o = a(8657);
+              const r = Object.freeze({
+                draw: (e, t, a) => {
+                  o.default.draw(e, t, a);
+                  let r = new Path2D(
+                    "M24 17.757l-9.879-9.878a3 3 0 00-4.242 4.242L19.757 22l-9.878 9.879a3 3 0 004.242 4.242L24 26.243l9.879 9.878a3 3 0 004.242-4.242L28.243 22l9.878-9.879a3 3 0 00-4.242-4.242L24 17.757z"
+                  );
+                  (a.fillStyle = "#878e88"), a.fill(r);
+                },
+              });
+            },
+            8293: (e, t, a) => {
+              var o = {
+                "./arrowdown.js": 6988,
+                "./arrowleft.js": 8702,
+                "./arrowright.js": 3515,
+                "./arrowup.js": 4666,
+                "./bgcut.js": 833,
+                "./blackhole.js": 8622,
+                "./blanksquare.js": 8657,
+                "./fillrect.js": 6768,
+                "./maintitle.js": 3273,
+                "./neutronstar.js": 3047,
+                "./progress.js": 5473,
+                "./text.js": 5264,
+                "./tunnel.js": 5339,
+                "./xsquare.js": 5104,
+              };
+              function r(e) {
+                var t = s(e);
+                return a(t);
+              }
+              function s(e) {
+                if (!a.o(o, e)) {
+                  var t = new Error("Cannot find module '" + e + "'");
+                  throw ((t.code = "MODULE_NOT_FOUND"), t);
+                }
+                return o[e];
+              }
+              (r.keys = function () {
+                return Object.keys(o);
+              }),
+                (r.resolve = s),
+                (e.exports = r),
+                (r.id = 8293);
+            },
+            5378: (e, t, a) => {
+              "use strict";
+              let o, r, s, n, i, c, l;
+              a.d(t, { Z: () => p });
+              let u = 0;
+              const p = Object.freeze({
+                playSong: (e = {}) => {
+                  let t = (e, t, a, o = 120, r = "triangle") => {
+                      if ("closed" === e.context.state) return;
+                      let s = t.replace(/\d/g, ""),
+                        n = t.match(/^\d+/g);
+                      n = n ? +n[0] : 4;
+                      let i = t.match(/\d+$/g);
+                      i = i ? +i[0] : 4;
+                      let c = (15 / o) * n,
+                        l = "AbBCdDeEFgGa".indexOf(s);
+                      if (-1 === l) return c;
+                      let u = 100 * l + 1200 * (i - 4),
+                        p = e.context.createOscillator();
+                      return (
+                        p.connect(e),
+                        (p.frequency.value = 440),
+                        (p.detune.value = u),
+                        (p.type = r),
+                        e.gain.setValueAtTime(0, a),
+                        e.gain.linearRampToValueAtTime(0.6, a + 0.03 * c),
+                        e.gain.setValueAtTime(0.56, a + 0.24 * c),
+                        e.gain.setValueAtTime(0.55, a + 0.3 * c),
+                        e.gain.linearRampToValueAtTime(0, a + 1.5 * c),
+                        p.start(a),
+                        p.stop(a + 1.5 * c),
+                        c
+                      );
+                    },
+                    { melody: a, bass: p, bpm: d = 256, loop: h = !1 } = e,
+                    v = !a,
+                    f = !p;
+                  if (void 0 === o || "running" !== o.state) {
+                    if (
+                      ((o = new AudioContext()),
+                      /(iPhone|iPad)/i.test(navigator.userAgent) &&
+                        48e3 !== o.sampleRate)
+                    ) {
+                      let e = o.createBuffer(1, 1, 48e3),
+                        t = o.createBufferSource();
+                      (t.buffer = e),
+                        t.connect(o.destination),
+                        t.start(0),
+                        t.disconnect(),
+                        o.close(),
+                        (o = new AudioContext());
+                    }
+                    (s = o.createBiquadFilter()),
+                      s.connect(o.destination),
+                      (s.type = "lowpass"),
+                      (s.frequency.value = 920),
+                      (n = o.createGain()),
+                      n.connect(s),
+                      (n.gain.value = 0.8),
+                      (i = o.createDelay(60 / d)),
+                      (i.delayTime.value = 60 / d),
+                      (c = o.createGain()),
+                      (c.gain.value = 0.25),
+                      i.connect(c),
+                      c.connect(i),
+                      (l = o.createGain()),
+                      (l.gain.value = 0.5),
+                      l.connect(n),
+                      i.connect(l),
+                      (r = [0, 1, 2, 3, 4, 5, 6, 7].map(() => {
+                        let e = o.createGain();
+                        return e.connect(n), e.connect(i), e;
+                      }));
+                  }
+                  let g = 0,
+                    m = 0,
+                    z = 0,
+                    x = 0,
+                    w = (60 / d) * 7,
+                    y = 0,
+                    b = () => {
+                      if (
+                        "closed" !== o.state &&
+                        !(0 !== y && o.currentTime > y)
+                      ) {
+                        for (
+                          ((!v && o.currentTime > m + 0.35) ||
+                            (!f && o.currentTime > x + 0.35)) &&
+                          ((g = 0), (z = 0), (m = x = o.currentTime));
+                          !v && m < o.currentTime + w;
+
+                        ) {
+                          let e = t(r[u], a[g], m, d);
+                          (u = (u + 1) % r.length),
+                            (g = (g + 1) % a.length),
+                            (m += e),
+                            0 === g && (h || (v = !0)),
+                            (y = y < m + w ? m + w : y);
+                        }
+                        for (; !f && x < o.currentTime + w; ) {
+                          let e = t(r[u], p[z], x, d);
+                          (u = (u + 1) % r.length),
+                            (z = (z + 1) % p.length),
+                            (x += e),
+                            0 === z && (h || (f = !0)),
+                            (y = y < x + w ? x + w : y);
+                        }
+                        requestAnimationFrame(b);
+                      }
+                    };
+                  return b(), o;
+                },
+              });
+            },
+            2272: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => o });
+              const o = Object.freeze({
+                transform: (e, t, a) => {
+                  a.globalCompositeOperation = "source-atop";
+                },
+              });
+            },
+            4130: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => o });
+              const o = Object.freeze({
+                transform: (e, t, a) => {
+                  let o = 0,
+                    r = 0;
+                  if ("game" === t.position.origin) {
+                    let t = e.game.canvas;
+                    (o = t.oX), (r = t.oY);
+                  }
+                  if ("center" === t.position.origin) {
+                    let t = e.game.canvas;
+                    (o = t.gW / 2), (r = t.gH / 2);
+                  }
+                  a.translate(t.position.x + o, t.position.y + r);
+                },
+              });
+            },
+            2098: (e, t, a) => {
+              var o = { "./mask.js": 2272, "./position.js": 4130 };
+              function r(e) {
+                var t = s(e);
+                return a(t);
+              }
+              function s(e) {
+                if (!a.o(o, e)) {
+                  var t = new Error("Cannot find module '" + e + "'");
+                  throw ((t.code = "MODULE_NOT_FOUND"), t);
+                }
+                return o[e];
+              }
+              (r.keys = function () {
+                return Object.keys(o);
+              }),
+                (r.resolve = s),
+                (e.exports = r),
+                (r.id = 2098);
+            },
+            9189: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => o });
+              const o = Object.freeze({
+                update: (e, t, a, o) => {
+                  if (void 0 !== t.position) {
+                    (t.position.x =
+                      t.position.x +
+                      (((t.home.x - t.position.x) / 3) * o) / 17),
+                      Math.abs(t.home.x - t.position.x) <
+                        1 / e.game.canvas.zoom && (t.position.x = t.home.x);
+                    let a = t.home.y;
+                    t.home.drop && (a += 48),
+                      (t.position.y =
+                        t.position.y + (((a - t.position.y) / 3) * o) / 17),
+                      Math.abs(a - t.position.y) < 1 / e.game.canvas.zoom &&
+                        ((t.position.y = a),
+                        t.home.drop &&
+                          (delete t.mask,
+                          [
+                            "blanksquare",
+                            "xsquare",
+                            "arrowup",
+                            "arrowright",
+                            "arrowdown",
+                            "arrowleft",
+                            "neutronstar",
+                          ].forEach((e) => {
+                            delete t[e];
+                          }),
+                          (t.home.drop = !1))),
+                      t.position.x === t.home.x &&
+                        t.position.y === t.home.y &&
+                        t.home.suck &&
+                        ((t.mask = {}), (t.home.suck = !1), (t.home.drop = !0));
+                  }
+                },
+              });
+            },
+            2673: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => r });
+              var o = a(8520);
+              const r = Object.freeze({
+                update: (e, t, a, r) => {
+                  let s = o.Z.load("solved") || [],
+                    n = o.Z.load("payed")
+                      ? e.game.levels.wm
+                      : e.game.levels.sequence,
+                    i = n[e.game.levels.current],
+                    c = [],
+                    l = [];
+                  n.forEach((t) => {
+                    if (e[t].puzzle.grid.length) {
+                      let e = 0;
+                      s.indexOf(t) > -1 && (e += 1),
+                        t === i && (e += 2),
+                        c.push(e),
+                        l.push(t);
+                    }
+                  }),
+                    (t.progress.dots = c);
+                  let u =
+                      e.game.pointer.x - e.game.canvas.gW / 2 + 6 * c.length,
+                    p = e.game.pointer.y - e.game.canvas.gH / 2 - t.position.y;
+                  if (
+                    !(p < 0 || p > 8 || u < 0 || u > 12 * c.length) &&
+                    ((e.game.pointer.pointing = !0), e.game.pointer.justUp)
+                  ) {
+                    let t = l[(u / 12) | 0],
+                      a = e.game.levels;
+                    (a.current = n.indexOf(t)),
+                      o.Z.save("current", a.current),
+                      (e[t].puzzle.init = !0),
+                      (e.level.state.updates = [t]);
+                  }
+                },
+              });
+            },
+            6282: (e, t, a) => {
+              "use strict";
+              a.r(t), a.d(t, { default: () => S });
+              let o = {};
+              var r;
+              (r = a(2895)).keys().forEach((e) => {
+                let t = e.replace(/\.\/(.+)\.json$/, "$1");
+                o[t] = r(e);
+              });
+              const s = Object.freeze({
+                  add: (e, t) => ((e[t] = JSON.parse(JSON.stringify(o[t]))), e),
+                }),
+                n = Object.freeze({
+                  add: (e, t, ...a) => {
+                    let o = {};
+                    return (
+                      a.forEach((e) => {
+                        s.add(o, e);
+                      }),
+                      (e[t] = o),
+                      o
+                    );
+                  },
+                });
+              var i = a(5378),
+                c = a(8520);
+              let l = [
+                  ["position", "size", "home"],
+                  ["position", "size", "home", "blackhole"],
+                  ["position", "size", "home", "blanksquare"],
+                  ["position", "size", "home", "xsquare"],
+                  ["position", "size", "home", "arrowup"],
+                  ["position", "size", "home", "arrowright"],
+                  ["position", "size", "home", "arrowdown"],
+                  ["position", "size", "home", "arrowleft"],
+                  ["position", "size", "home", "neutronstar"],
+                ],
+                u = [
+                  "xsquare",
+                  "arrowup",
+                  "arrowright",
+                  "arrowdown",
+                  "arrowleft",
+                  "neutronstar",
+                ],
+                p = [
+                  "blanksquare",
+                  "xsquare",
+                  "arrowup",
+                  "arrowright",
+                  "arrowdown",
+                  "arrowleft",
+                  "neutronstar",
+                ],
+                d = { bass: ["4-", "2e3", "6a2"] },
+                h = { melody: ["4-", "2C3", "2D3", "4G3"] },
+                v = ["C3", "e3", "a3", "D3", "G3", "b3"],
+                f = {},
+                g = {};
+              u.forEach((e, t) => {
+                (f[e] = { melody: ["2" + v[t]] }),
+                  (g[e] = { melody: ["1" + v[t]] });
+              });
+              let m = !1,
+                z = !1,
+                x = 0,
+                w = !1,
+                y = !1,
+                b = !1;
+              window.addEventListener("wheel", (e) => {
+                w || (e.deltaX <= -1 ? (b = !0) : e.deltaX >= 1 && (y = !0));
+              });
+              let j = [],
+                k = c.Z.load("solved") || [],
+                O = c.Z.load("solutions") || {};
+              const S = Object.freeze({
+                update: (e, t, a, o) => {
+                  if (!0 === t.puzzle.init) {
+                    (t.puzzle.init = !1),
+                      (j = []),
+                      (e.tapstext.text.text = t.puzzle.taps
+                        ? t.puzzle.taps + " moves"
+                        : "");
+                    let a = (
+                      c.Z.load("payed")
+                        ? e.game.levels.wm
+                        : e.game.levels.sequence
+                    )[e.game.levels.current];
+                    e.titletext.text.text = t.puzzle.taps ? "The " + a : "";
+                    let o = e.level.state;
+                    (o.draws = []),
+                      t.puzzle.grid.forEach((t, a) => {
+                        let r = a % 6,
+                          s = (a / 6) | 0,
+                          i = "piece" + a,
+                          c = n.add(e, i, ...l[t]);
+                        (c.position.x = c.home.x = 16 + 48 * r),
+                          (c.position.y = c.home.y = 62 + 48 * s),
+                          o.draws.push(i),
+                          o.updates.push(i);
+                        let u = "top" + a,
+                          p = n.add(e, u, ...l[0]);
+                        (p.position.x = p.home.x = 16 + 48 * r),
+                          (p.position.y = p.home.y = 62 + 48 * s),
+                          o.draws.push(u),
+                          o.updates.push(u);
+                      }),
+                      void 0 !== t.puzzle.text &&
+                        t.puzzle.text.forEach((t, a, r) => {
+                          let s = "text" + a,
+                            i = n.add(e, s, "position", "text");
+                          (i.position.x = 160),
+                            (i.position.y = 208 - 12 * r.length + 24 * a),
+                            (i.text.text = t),
+                            (i.text.align = "center"),
+                            o.draws.push(s),
+                            o.updates.push(s);
+                          let c = "top" + a;
+                          n.add(e, c, ...l[0]);
+                        }),
+                      !0 === t.puzzle.noBoard
+                        ? ((e.controls.state.draws = ["tunnel", "maintitle"]),
+                          (e.controls.state.updates = []))
+                        : void 0 !== t.puzzle.text
+                        ? ((e.controls.state.draws = [
+                            "bgcut",
+                            "bgout",
+                            "feedback",
+                            "tunnel",
+                          ]),
+                          (e.controls.state.updates = []))
+                        : ((e.controls.state.draws = [
+                            "bgcut",
+                            "bgout",
+                            "feedback",
+                            "tunnel",
+                            "tapstext",
+                            "titletext",
+                            "progress",
+                          ]),
+                          (e.controls.state.updates = ["progress"]));
+                  }
+                  let r = e.game;
+                  if (b)
+                    return (
+                      t.puzzle.lT
+                        ? (e.feedback.text.text = t.puzzle.lT)
+                        : 0 === j.length
+                        ? (e.feedback.text.text = "Back")
+                        : (e.feedback.text.text = "Reset"),
+                      (m = !0),
+                      (x = 0),
+                      (w = !0),
+                      void (b = !1)
+                    );
+                  if (y)
+                    return (
+                      t.puzzle.rT
+                        ? (e.feedback.text.text = t.puzzle.rT)
+                        : (e.feedback.text.text = "Skip"),
+                      (z = !0),
+                      (x = 0),
+                      (w = !0),
+                      void (y = !1)
+                    );
+                  if (
+                    !w &&
+                    !0 === r.pointer.isDown &&
+                    (j.length < t.puzzle.taps || t.puzzle.text)
+                  ) {
+                    let a = r.pointer.x - r.pointer.downX;
+                    (r.canvas.oX = r.canvas.gX + a),
+                      (r.canvas.oY = r.canvas.gY),
+                      a > 48 &&
+                        (t.puzzle.lT
+                          ? (e.feedback.text.text = t.puzzle.lT)
+                          : 0 === j.length
+                          ? (e.feedback.text.text = "Back")
+                          : (e.feedback.text.text = "Reset")),
+                      a < -48 &&
+                        (t.puzzle.rT
+                          ? (e.feedback.text.text = t.puzzle.rT)
+                          : (e.feedback.text.text = "Skip"));
+                  } else {
+                    let t = r.canvas.gX,
+                      a = 1;
+                    if (
+                      (x <= 0 && z && (t -= r.canvas.gW),
+                      x <= 0 && m && ((t += r.canvas.gW), (a = -1)),
+                      (r.canvas.oX =
+                        r.canvas.oX + (((t - r.canvas.oX) / 7) * o) / 17),
+                      (r.canvas.oY = r.canvas.gY),
+                      x <= 0 && (z || m))
+                    ) {
+                      if (Math.abs(t - r.canvas.oX) < 1 / e.game.canvas.zoom) {
+                        let t = e.game.levels,
+                          o = c.Z.load("payed")
+                            ? e.game.levels.wm
+                            : e.game.levels.sequence;
+                        if (z || 0 === j.length) {
+                          let e = t.current;
+                          (t.current = Math.min(
+                            Math.max(t.current + a, 0),
+                            o.length - 1
+                          )),
+                            c.Z.save("current", t.current),
+                            e === t.current && (a = -a);
+                        }
+                        let s = o[t.current];
+                        (e[s].puzzle.init = !0),
+                          (e.level.state.updates = [s]),
+                          (r.canvas.oX = r.canvas.oX + 2 * r.canvas.gW * a),
+                          (z = !1),
+                          (m = !1);
+                      }
+                      return;
+                    }
+                    x > 0
+                      ? (x -= o)
+                      : Math.abs(t - r.canvas.oX) < 1 / e.game.canvas.zoom &&
+                        (w = !1);
+                  }
+                  if (!0 === e.game.pointer.justUp) {
+                    let a = r.pointer.x - r.pointer.downX;
+                    if (a > 48) return (m = !0), (x = 0), void (w = !0);
+                    if (a < -48) return (z = !0), (x = 0), void (w = !0);
+                    let o =
+                        e.game.pointer.x -
+                        16 -
+                        (e.game.canvas.gW - e.game.canvas.tW) / 2,
+                      s =
+                        e.game.pointer.y -
+                        62 -
+                        (e.game.canvas.gH - e.game.canvas.tH) / 2;
+                    if (j.length >= t.puzzle.taps) return;
+                    if (o < 0 || o > 288 || s < 0 || s > 288) return;
+                    (o = (o / 48) | 0), (s = (s / 48) | 0);
+                    let n = o + 6 * s,
+                      l = {
+                        arrowup: (e) => v(-6, 35, 0, e),
+                        arrowright: (e) =>
+                          v(1, n + (5 - (n % 6)), n - (n % 6), e),
+                        arrowdown: (e) => v(6, 35, 0, e),
+                        arrowleft: (e) =>
+                          v(-1, n + (5 - (n % 6)), n - (n % 6), e),
+                        xsquare: (t) => (t && delete e["piece" + n].xsquare, 1),
+                        neutronstar: (t) => (
+                          t &&
+                            (delete e["piece" + n].neutronstar,
+                            (e["piece" + n].blackhole = {}),
+                            (e["top" + n].neutronstar = {}),
+                            (e["top" + n].home.suck = !0)),
+                          1
+                        ),
+                      },
+                      v = (t, a, o, r = !0) => {
+                        let s = e["piece" + n],
+                          i = n,
+                          c = [],
+                          l = !1;
+                        for (; !l; ) {
+                          if (
+                            ((s = e["piece" + i]),
+                            !p.some((e) => void 0 !== s[e]))
+                          ) {
+                            void 0 !== s.blackhole
+                              ? c.unshift("top" + i)
+                              : (c.unshift("top" + i), c.push("piece" + i)),
+                              (l = !0);
+                            break;
+                          }
+                          c.unshift("top" + i),
+                            c.push("piece" + i),
+                            (i += t),
+                            (i > a || i < o) && ((c = []), (l = !0));
+                        }
+                        if (!r) return c.length;
+                        if (c.length < 1) return 0;
+                        let u,
+                          d,
+                          h = c.shift(),
+                          v = e[h],
+                          f = v.home;
+                        return (
+                          c.forEach((t) => {
+                            (d = e[t]),
+                              (u = d.home),
+                              (e[t] = v),
+                              (e[t].home = u),
+                              (v = d);
+                          }),
+                          (e[h] = v),
+                          (e[h].home = f),
+                          (e[h].home.suck = !0),
+                          c.length
+                        );
+                      },
+                      y = e["piece" + n];
+                    Object.keys(l).forEach((a) => {
+                      if (y[a]) {
+                        (y.clicked = 16),
+                          l[a](!0) > 0
+                            ? (j.push(n), i.Z.playSong(f[a]))
+                            : i.Z.playSong(g[a]);
+                        let o = t.puzzle.taps - j.length;
+                        if (
+                          ((e.tapstext.text.text = o + " moves"),
+                          t.puzzle.grid.some((t, a) =>
+                            p.some((t) => void 0 !== e["piece" + a][t])
+                          ))
+                        )
+                          if (o <= 0)
+                            (m = !0),
+                              (x = 750),
+                              (w = !0),
+                              i.Z.playSong(d),
+                              (e.feedback.text.text = "Out of moves!");
+                          else if (
+                            t.puzzle.grid.some((t, a) =>
+                              u.some((t) => void 0 !== e["piece" + a][t])
+                            )
+                          ) {
+                            n = 0;
+                            let t = !0;
+                            for (; n < 36 && t; ) {
+                              let a = e["piece" + n];
+                              Object.keys(l).forEach((e) => {
+                                a[e] && l[e](!1) > 0 && (t = !1);
+                              }),
+                                (n += 1);
+                            }
+                            t &&
+                              ((m = !0),
+                              (x = 750),
+                              (w = !0),
+                              i.Z.playSong(d),
+                              (e.feedback.text.text = "Stuck"));
+                          } else
+                            (m = !0),
+                              (x = 750),
+                              (w = !0),
+                              i.Z.playSong(d),
+                              (e.feedback.text.text = "Not clean...");
+                        else {
+                          (z = !0),
+                            (x = 750),
+                            (w = !0),
+                            i.Z.playSong(h),
+                            (e.feedback.text.text = "Clean!");
+                          let t = e.game.levels,
+                            a = (c.Z.load("payed") ? t.wm : t.sequence)[
+                              t.current
+                            ];
+                          k.indexOf(a) < 0 &&
+                            (k.push(a), c.Z.save("solved", k)),
+                            void 0 === O[a] && (O[a] = []);
+                          let o = JSON.stringify(j);
+                          -1 === O[a].indexOf(o) &&
+                            (O[a].push(o), c.Z.save("solutions", O));
+                        }
+                      }
+                    });
+                  } else if (!e.game.pointer.isDown) {
+                    let t =
+                        e.game.pointer.x -
+                        16 -
+                        (e.game.canvas.gW - e.game.canvas.tW) / 2,
+                      a =
+                        e.game.pointer.y -
+                        62 -
+                        (e.game.canvas.gH - e.game.canvas.tH) / 2;
+                    if (t < 0 || t > 288 || a < 0 || a > 288) return;
+                    (t = (t / 48) | 0), (a = (a / 48) | 0);
+                    let o = t + 6 * a;
+                    void 0 !== e["piece" + o] &&
+                      u.some((t) => void 0 !== e["piece" + o][t]) &&
+                      ((e.game.pointer.pointing = !0),
+                      (e["piece" + o].clicked = 1));
+                  }
+                },
+              });
+            },
+            106: (e, t, a) => {
+              var o = {
+                "./home.js": 9189,
+                "./progress.js": 2673,
+                "./puzzle.js": 6282,
+              };
+              function r(e) {
+                var t = s(e);
+                return a(t);
+              }
+              function s(e) {
+                if (!a.o(o, e)) {
+                  var t = new Error("Cannot find module '" + e + "'");
+                  throw ((t.code = "MODULE_NOT_FOUND"), t);
+                }
+                return o[e];
+              }
+              (r.keys = function () {
+                return Object.keys(o);
+              }),
+                (r.resolve = s),
+                (e.exports = r),
+                (r.id = 106);
+            },
+            7882: (e) => {
+              "use strict";
+              e.exports = {};
+            },
+            926: (e) => {
+              "use strict";
+              e.exports = {};
+            },
+            8166: (e) => {
+              "use strict";
+              e.exports = {};
+            },
+            947: (e) => {
+              "use strict";
+              e.exports = {};
+            },
+            9192: (e) => {
+              "use strict";
+              e.exports = { fill: "red" };
+            },
+            7761: (e) => {
+              "use strict";
+              e.exports = {};
+            },
+            2492: (e) => {
+              "use strict";
+              e.exports = {};
+            },
+            3961: (e) => {
+              "use strict";
+              e.exports = JSON.parse(
+                '{"w":320,"h":320,"tW":320,"tH":320,"gW":320,"gH":320,"zoom":1,"parentSelector":"body"}'
+              );
+            },
+            8298: (e) => {
+              "use strict";
+              e.exports = { fill: "tomato" };
+            },
+            4999: (e) => {
+              "use strict";
+              e.exports = JSON.parse('{"x":0,"y":0,"drop":false,"suck":false}');
+            },
+            9387: (e) => {
+              "use strict";
+              e.exports = JSON.parse('{"sequence":[],"current":0}');
+            },
+            8537: (e) => {
+              "use strict";
+              e.exports = {};
+            },
+            4726: (e) => {
+              "use strict";
+              e.exports = {};
+            },
+            2318: (e) => {
+              "use strict";
+              e.exports = {};
+            },
+            7865: (e) => {
+              "use strict";
+              e.exports = JSON.parse(
+                '{"x":0,"y":0,"downX":0,"downY":0,"justDown":false,"justUp":false,"isDown":false,"pointing":false}'
+              );
+            },
+            9043: (e) => {
+              "use strict";
+              e.exports = JSON.parse('{"x":0,"y":0,"origin":"game"}');
+            },
+            511: (e) => {
+              "use strict";
+              e.exports = { dots: [] };
+            },
+            37: (e) => {
+              "use strict";
+              e.exports = JSON.parse('{"grid":[],"init":false,"text":[]}');
+            },
+            1736: (e) => {
+              "use strict";
+              e.exports = { w: 48, h: 48 };
+            },
+            4135: (e) => {
+              "use strict";
+              e.exports = JSON.parse('{"draws":[],"updates":[]}');
+            },
+            9094: (e) => {
+              "use strict";
+              e.exports = { active: [] };
+            },
+            8054: (e) => {
+              "use strict";
+              e.exports = { text: "" };
+            },
+            7893: (e) => {
+              "use strict";
+              e.exports = { fill: "red" };
+            },
+            2224: (e) => {
+              "use strict";
+              e.exports = {};
+            },
+          },
+          t = {};
+        function a(o) {
+          var r = t[o];
+          if (void 0 !== r) return r.exports;
+          var s = (t[o] = { exports: {} });
+          return e[o](s, s.exports, a), s.exports;
+        }
+        (a.d = (e, t) => {
+          for (var o in t)
+            a.o(t, o) &&
+              !a.o(e, o) &&
+              Object.defineProperty(e, o, { enumerable: !0, get: t[o] });
+        }),
+          (a.o = (e, t) => Object.prototype.hasOwnProperty.call(e, t)),
+          (a.r = (e) => {
+            "undefined" != typeof Symbol &&
+              Symbol.toStringTag &&
+              Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
+              Object.defineProperty(e, "__esModule", { value: !0 });
+          }),
+          a(588);
+      })();
+    </script>
+  </body>
+</html>

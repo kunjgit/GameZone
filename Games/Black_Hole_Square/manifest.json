@@ -1,0 +1,1 @@
+{"name":"Black Hole Square","short_name":"BHS","description":"Clean the universe!","background_color":"#0E181B","theme_color":"#0E181B","foreground_color":"#F2F7F6","author":"Quinten","start_url":"./index.html","scope":"./","display":"standalone","icons":[{"src":"./icon.png","type":"image/png","sizes":"512x512","purpose":"any maskable"}]}

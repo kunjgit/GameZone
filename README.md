@@ -227,6 +227,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 122 | [Emoji Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Puzzle_Game)|
 | 123 | [Back To Space](https://github.com/kunjgit/GameZone/tree/main/Games/Back_To_Space)|
 | 124 | [Snooze](https://github.com/kunjgit/GameZone/tree/main/Games/Snooze)|
+| 125 | [Galaxy Rider](https://github.com/kunjgit/GameZone/tree/main/Games/Galaxy_Rider)|
 
 </center>
 

@@ -221,6 +221,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 116 | [3D-Box Game](https://github.com/kunjgit/GameZone/tree/main/Games/Glitch_Buster)|
 | 117 | [Escape](https://github.com/kunjgit/GameZone/tree/main/Games/Escape)|
 | 118 | [Retro_Dungeon_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Retro_Dungeon_Puzzle)|
+| 119 | [Immunity Collapse](https://github.com/kunjgit/GameZone/tree/main/Games/Immunity_Collapse)|
 
 </center>
 

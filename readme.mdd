@@ -1,0 +1,15 @@
+
+Whack-a-Mole Game
+Description
+Whack-a-Mole is a classic arcade game where the player must quickly whack as many moles as possible within a given time limit. The game features randomized mole pop-ups, a scoring system, and an interactive interface.
+
+Gameplay
+Moles will randomly appear in different holes.
+Use your mouse or touchscreen to whack the moles as quickly as possible.
+Each successful whack will earn you points and increase your score.
+The game has a time limit, so aim to achieve the highest score within the given timeframe.
+Enjoy the immersive gameplay and have fun!
+Technologies Used
+HTML
+CSS
+JavaScript

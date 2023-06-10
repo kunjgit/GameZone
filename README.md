@@ -229,6 +229,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 124 | [Snooze](https://github.com/kunjgit/GameZone/tree/main/Games/Snooze)|
 | 125 | [Galaxy Rider](https://github.com/kunjgit/GameZone/tree/main/Games/Galaxy_Rider)|
 
+
+| * | [Pixels_From_Space](https://github.com/kunjgit/GameZone/tree/main/Games/Pixels_From_Space)|
+
 </center>
 
 <br>

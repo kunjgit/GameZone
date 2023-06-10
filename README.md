@@ -210,6 +210,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 105 | [Movie Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Movie_Guessing_Game)|
 | 106 | [Wildcard_Bonanza](https://github.com/Sheetal-05/GameZone/tree/main/Games/Wildcard_Bonanza)|
 | 107 | [The Last Spartan](https://github.com/kunjgit/GameZone/tree/main/Games/The_Last_Spartan)|
+| * | [Space Exploration](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Exploration)|
 | 108 | [Space Exploration](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Exploration)|
 | 109 | [Bow Arrow Game](https://github.com/Roshnijeewani3457/GameZone/tree/latest/Games/Bow_Arrow)|
 | 110 | [I Want To Google The Game](https://github.com/kunjgit/GameZone/tree/main/Games/I_Want_To_Google_The_Game)|
@@ -228,6 +229,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 123 | [Back To Space](https://github.com/kunjgit/GameZone/tree/main/Games/Back_To_Space)|
 | 124 | [Snooze](https://github.com/kunjgit/GameZone/tree/main/Games/Snooze)|
 | 125 | [Galaxy Rider](https://github.com/kunjgit/GameZone/tree/main/Games/Galaxy_Rider)|
+| 126 | [Squared Lines](https://github.com/kunjgit/GameZone/tree/main/Squared Lines)|
 
 </center>
 

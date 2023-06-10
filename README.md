@@ -220,6 +220,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 115 | [Glitch Buster](https://github.com/kunjgit/GameZone/tree/main/Games/Glitch_Buster)|
 | 116 | [3D-Box Game](https://github.com/kunjgit/GameZone/tree/main/Games/Glitch_Buster)|
 | 117 | [Escape](https://github.com/kunjgit/GameZone/tree/main/Games/Escape)|
+| 118 | [Retro_Dungeon_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Retro_Dungeon_Puzzle)|
 
 </center>
 

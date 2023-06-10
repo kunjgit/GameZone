@@ -228,6 +228,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 123 | [Back To Space](https://github.com/kunjgit/GameZone/tree/main/Games/Back_To_Space)|
 | 124 | [Snooze](https://github.com/kunjgit/GameZone/tree/main/Games/Snooze)|
 | 125 | [Galaxy Rider](https://github.com/kunjgit/GameZone/tree/main/Games/Galaxy_Rider)|
+| 126 | [Squared Lines](https://github.com/kunjgit/GameZone/tree/main/Squared Lines)|
+| 127 | [Space War](https://github.com/kunjgit/GameZone/tree/main/Games/Space_War)|
+| 128 | [Sciara of Colors](https://github.com/kunjgit/GameZone/tree/main/Games/Sciara_Of_Colors)|  
+| 129 | [JunoJs](https://github.com/kunjgit/GameZone/tree/main/Games/JunoJs)|
 | * | [DuckHunt](https://github.com/kunjgit/GameZone/tree/main/Games/DuckHunt)|
 
 </center>

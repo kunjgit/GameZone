@@ -218,8 +218,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 113 | [Spaceship_Escort](https://github.com/kunjgit/GameZone/tree/main/Games/Spaceship_Escort)|
 | 114 | [Space Defence](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Defence)|
 | 115 | [Glitch Buster](https://github.com/kunjgit/GameZone/tree/main/Games/Glitch_Buster)|
-| 100 | [3D-Box Game](https://github.com/kunjgit/GameZone/tree/main/Games/Glitch_Buster)|
-
+| 116 | [3D-Box Game](https://github.com/kunjgit/GameZone/tree/main/Games/Glitch_Buster)|
+| 117 | [Escape](https://github.com/kunjgit/GameZone/tree/main/Games/Escape)|
 
 </center>
 

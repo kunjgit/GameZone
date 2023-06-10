@@ -239,6 +239,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 134 | [Zurbo](https://github.com/kunjgit/GameZone/tree/main/Games/Zurbo)|
 | 135 | [Blast Zone](https://github.com/kunjgit/GameZone/tree/main/Games/BlastZone)|
 | 136 | [Free Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Free_Bird)|
+| * | [Lost In The Maze 3D](https://github.com/kunjgit/GameZone/tree/main/Games/Lost_In_The_Maze_3D)|
 
 </center>
 

@@ -1,0 +1,136 @@
+<html>
+<head>
+	<title>Fill in 4</title>
+	<style>
+		.rounded {
+			border: 1px solid #bbb;
+			-moz-border-radius: 15px;
+			border-radius: 15px
+		}
+		.lvl-announcement{
+			font: bold 25px/1 "helvetica neue", helvetica, arial, sans-serif;
+			text-shadow: 0 1px 0 #fff;
+			margin-left: 0;
+			margin-right: 0;
+			width: 150px;
+		}
+		.line { border: 1px solid #bbb }
+		.left { float: left }
+		.clickable { cursor: pointer; }
+		.clickable:hover{
+			-webkit-box-shadow: inset 0 0 5px 5px #eaeaea;
+			box-shadow: inset 0 0 5px 5px #eaeaea;
+		}
+		.color{width: 200px; height: 100px; margin: 0 0 5px 10px}
+		.container-validate{ margin-top: 0; margin-bottom: 10px;}
+		.clear{ clear: both }
+		.sep{ margin-top: 0; margin-bottom: 10px}
+		.yellow{ background: #ffff00 }
+		.red{ background: #ff0000 }
+		.green{ background: #00ff00 }
+		.blue{ background: #0000ff }
+		.right-sep { margin: 0 0 0 10px; }
+		.help-container{ width: 350px;}
+		.right-comp { width: 200px; height: 50px; margin-bottom: 0; margin-top: 0}
+		button#help{
+			background: #e3e3e3;
+			border: 1px solid #bbb;
+			border-radius: 15px;
+			-webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
+			box-shadow: inset 0 0 1px 1px #f6f6f6;
+			color: #333;
+			font: bold 30px/1 "helvetica neue", helvetica, arial, sans-serif;
+			text-align: center;
+			text-shadow: 0 1px 0 #fff;
+			width: 100px;
+			margin-left: -250px;
+		}
+		button#help:hover{
+			background: #d9d9d9;
+			-webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
+			box-shadow: inset 0 0 1px 1px #eaeaea;
+			color: #222;
+			cursor: pointer;
+		}
+		button::-moz-focus-inner { border: 0; }
+		button.minimal {
+			background: #e3e3e3;
+			border: 1px solid #bbb;
+			border-radius: 15px;
+			-webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
+			box-shadow: inset 0 0 1px 1px #f6f6f6;
+			color: #333;
+			font: bold 30px/1 "helvetica neue", helvetica, arial, sans-serif;
+			padding: 8px 0 9px;
+			text-align: center;
+			text-shadow: 0 1px 0 #fff;
+			}
+		button.minimal:hover {
+			background: #d9d9d9;
+			-webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
+			box-shadow: inset 0 0 1px 1px #eaeaea;
+			color: #222;
+			cursor: pointer; }
+		button.minimal:active {
+			background: #d0d0d0;
+			-webkit-box-shadow: inset 0 0 1px 1px #e3e3e3;
+			box-shadow: inset 0 0 1px 1px #e3e3e3;
+			color: #000; }
+		#game-screen{
+			width: 1200px;
+			height: auto;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#announcement{
+			width: 49em;
+			height: 2em;
+			background: #e3e3e3;
+			padding: 1em;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript" src="fcg.js"></script>
+	<script type="text/javascript" src="level.js"></script>
+</head>
+<body>
+	<div id="game-screen">
+		<div id="announcement" class="rounded sep">
+			<div class="left help-container">
+				<button id="help">Help</button>
+			</div>
+			<div class="left">
+				<span class="lvl-announcement">Level: #<span id="level"></span></span> 
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="left">
+			<canvas id="myfcg" width="600px" height="550px" class="clickable line"></canvas>
+		</div>
+		<div class="left">
+			<div class="sep left">
+				<div id="red" class="rounded color red clickable"></div>
+				<div id="green" class="rounded color green clickable"></div>
+				<div id="blue" class="rounded color blue clickable"></div>
+				<div id="yellow" class="rounded color yellow clickable"></div>
+			</div>
+			<div class="clear"></div>
+			<div class="container-validate">
+				<button id="validate" class="right-comp minimal right-sep">Validate</button>
+			</div>
+			<div>
+				<button id="reset" class="right-comp minimal right-sep">Clear</button>
+			</div>
+		</div>
+		
+	</div>
+	<script>
+		var fcg;
+		document.onreadystatechange = function(){
+			if (document.readyState == "complete"){
+				startGame();
+			}
+		}
+	</script>
+</body>
+</html>

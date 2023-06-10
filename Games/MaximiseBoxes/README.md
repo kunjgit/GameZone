@@ -1,31 +1,31 @@
-# **Game_Name** 
+# __Maximise Boxes__
 
 ---
 
-<br>
-
 ## **Description 📃**
-<!-- add your game description here  -->
-- 
 
-## **functionalities 🎮**
+<!-- add your game description here  -->
+It is a multiplayer game.
+Based on the lines connected, the boxes would be coloured.
+The one with maximum number of boxes would be the winner.
+
+## **Functionalities 🎮**
+
 <!-- add functionalities over here -->
-- 
-<br>
+- It is a multiplayer game.
+- The player has to select the lines. The one with the line at the last would fill the connecting boxes.
+- The player with the maximum boxes covered would be the winner.
+- The size of the board can be adjustable by user.
+- Players will switch after every turn. But the player who has filled the last box, will get one extra chance consecutively.
 
 ## **How to play? 🕹️**
-<!-- add the steps how to play games -->
-- 
 
-<br>
+- User has to click on edge in such a way that it will maximise the number of boxes based on the lines connected and the number of adjacent boxes.
 
-## **Screenshots 📸**
+## **Screenshots**
 
-<br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
-
-<br>
+<img src = "assets\MaximiseBoxes.png">
 
 ## **Working video 📹**
+
 <!-- add your working video over here -->

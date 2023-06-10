@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JS 13 Arena</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript">
+    Game = {
+      config: {
+        canvas_id: 'game_canvas',
+        fps_counter_id: 'fps_counter',
+        fps: 60
+      }
+    }
+  </script>
+</head>
+</body>
+<div id="background">
+  <h1 id="fps_counter">0</h1>
+  <canvas id="game_canvas" width="640" height="480"></canvas>
+  <script type="text/javascript" src="game_01_utils.js"></script>
+  <script type="text/javascript" src="game_02_graphics.js"></script>
+  <script type="text/javascript" src="game_03_input.js"></script>
+  <script type="text/javascript" src="game_04_player.js"></script>
+  <script type="text/javascript" src="game_05_enemies.js"></script>
+  <script type="text/javascript" src="game_06_projectiles.js"></script>
+  <script type="text/javascript" src="game_07_battle_master.js"></script>
+  <script type="text/javascript" src="game_08_animator.js"></script>
+  <script type="text/javascript" src="game_init.js"></script>
+</div>
+</body>
+</html>

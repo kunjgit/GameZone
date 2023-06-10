@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="bb" default="build" basedir=".">
+
+	<!-- build package -->
+	<target name="build">
+
+	    <delete dir="dist" includes="*" quiet="false" />
+
+		<concat destfile="src/worker.js" fixlastline="yes">
+	        <header>(function() {</header>
+	        <fileset dir="src/js" includes="AP/*.js"></fileset>
+			<footer>})();</footer>
+	    </concat>
+
+		<java jar="yuicompressor.jar" fork="true">
+			<arg value="src/worker.js"/>
+			<arg value="-v"/>
+			<arg value="-o"/>
+			<arg value="dist/worker.js"/>
+		</java>
+
+		<concat destfile="src/script.js" fixlastline="yes">
+	        <header>(function() {</header>
+	        <fileset dir="src/js" includes="CP/*.js"></fileset>
+	        <fileset dir="src/js" includes="BB/*.js"></fileset>
+			<footer>})();</footer>
+	    </concat>
+
+		<java jar="yuicompressor.jar" fork="true">
+			<arg value="src/script.js"/>
+			<arg value="-v"/>
+			<arg value="-o"/>
+			<arg value="dist/script.js"/>
+		</java>
+
+		<java jar="yuicompressor.jar" fork="true">
+			<arg value="src/style.css"/>
+			<arg value="-v"/>
+			<arg value="-o"/>
+			<arg value="dist/style.css"/>
+		</java>
+
+		<copy file="src/index.html" tofile="dist/index.html" preservelastmodified="true">
+			<filterchain>
+				<deletecharacters chars="\r\t"/>
+				<trim/>
+				<ignoreblank/>
+			</filterchain>
+		</copy>
+
+		<zip destfile="dist.zip" basedir="dist" />
+		
+	</target>
+	
+</project>

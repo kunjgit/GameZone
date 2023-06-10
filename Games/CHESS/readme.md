@@ -1,4 +1,4 @@
-##CHESS GAME
+<h1>Chess</h2>
 
 1. The game will display the initial chessboard, and the player with the white pieces will be prompted to make the first move.
 

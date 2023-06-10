@@ -1,11 +1,20 @@
-# **SKY HIGH JUMPER **
- 
- Sky High Jumper is a game where you control a character called the Doodler, guiding them upwards by jumping on platforms. The goal is to reach higher heights while avoiding obstacles and enemies. Collect power-ups for temporary advantages and compete for high scores. It features addictive gameplay, charming graphics, and a simple yet challenging experience.
 
 
-TO PLAY:
 
- Begin the Game: Once you're ready, the game will start, and the Doodler will automatically begin to jump.
+# **Game_Name** 
+
+Sky High Jumper Game 
+---
+
+<br>
+
+## **Description 📃**
+Sky High Jumper is a game where you control a character called the Doodler, guiding them upwards by jumping on platforms. The goal is to reach higher heights while avoiding obstacles and enemies. Collect power-ups for temporary advantages and compete for high scores. It features addictive gameplay, charming graphics, and a simple yet challenging experience.
+- 
+
+
+## **How to play? 🕹️**
+Begin the Game: Once you're ready, the game will start, and the Doodler will automatically begin to jump.
 
 Control the Doodler: Use the provided controls to guide the Doodler's movement. Typically, you can move the Doodler left or right to land on platforms and avoid obstacles.
 
@@ -22,3 +31,16 @@ Game Over: The game will end if the Doodler falls off the screen or collides wit
 Replay: If you want to play again, you can choose to restart the game and try to beat your previous score.
 
 Remember to have fun and aim for a high score as you navigate the Doodler through the jumping adventure of Doodle Jump!
+
+- 
+
+<br>
+
+## **Screenshots 📸**
+
+<br>
+<img src = "assets\Sky_High_Jumper.png"></img>
+
+
+
+<br>

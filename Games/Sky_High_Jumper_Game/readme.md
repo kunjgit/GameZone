@@ -39,6 +39,7 @@ Remember to have fun and aim for a high score as you navigate the Doodler throug
 ## **Screenshots 📸**
 
 <br>
-![Images](<Screenshot (255).png>)
+![Images](<!(assets/images/Sky_High_Jumper.png)>)
+
 
 <br>

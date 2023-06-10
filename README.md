@@ -237,6 +237,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 132 | [Cable Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Cable_Maze)|
 | 133 | [Spaceducts](https://github.com/kunjgit/GameZone/tree/main/Games/Spaceducts)|
 | 134 | [Zurbo](https://github.com/kunjgit/GameZone/tree/main/Games/Zurbo)|
+| 135 | [Blast Zone](https://github.com/kunjgit/GameZone/tree/main/Games/BlastZone)|
+| 136 | [Free Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Free_Bird)|
 | * | [DuckHunt](https://github.com/kunjgit/GameZone/tree/main/Games/DuckHunt)|
 
 </center>

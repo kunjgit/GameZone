@@ -217,6 +217,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 112 | [Space Huggers](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Huggers)|
 | 113 | [Spaceship_Escort](https://github.com/kunjgit/GameZone/tree/main/Games/Spaceship_Escort)|
 | 114 | [Space Defence](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Defence)|
+| 115 | [Glitch Buster](https://github.com/kunjgit/GameZone/tree/main/Games/Glitch_Buster)|
 
 
 </center>

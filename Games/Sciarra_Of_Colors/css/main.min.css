@@ -1,0 +1,11 @@
+body{background-color:#000;margin:0;padding:0}
+header h1,header h2,header h3,p{color:#fff;font-family:Monospace,sans-serif;text-align:center;text-transform:uppercase;text-shadow:1px 1px 1px #000}
+header h2:hover,header h3:hover{cursor:pointer}
+header h1{padding:5px 0;font-size:2.5em;background-color:#ff0}
+header h2{padding:5px 0;font-size:2.5em;background-color:#0ff}
+header h3{padding:5px 0;font-size:2.5em;background-color:#f0f}
+#instruction-text{display:none}
+#instruction-text h2{color:#fff;font-family:Monospace,sans-serif;text-align:center;text-transform:uppercase;text-shadow:1px 1px 1px #000;color:#fff}
+#instruction-text p{width:80%;margin:10px auto}
+#game{display:none;margin:0 auto}
+@media(max-width:480px){header h1,header h2,header h3{font-size:2em}

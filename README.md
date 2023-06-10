@@ -231,8 +231,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 126 | [Squared Lines](https://github.com/kunjgit/GameZone/tree/main/Squared Lines)|
 | 127 | [Space War](https://github.com/kunjgit/GameZone/tree/main/Games/Space_War)|
 | 128 | [Sciara of Colors](https://github.com/kunjgit/GameZone/tree/main/Games/Sciara_Of_Colors)|  
+| 129 | [JunoJs](https://github.com/kunjgit/GameZone/tree/main/Games/JunoJs)|
 
-  
+
 </center>
 
 <br>

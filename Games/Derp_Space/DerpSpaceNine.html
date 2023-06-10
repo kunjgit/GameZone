@@ -1,0 +1,845 @@
+<html lang="en-US" dir="ltr" xmlns:og="http://ogp.me/ns#">
+ <body>
+ <style type="text/css">
+ canvas {
+    border: 1px solid black;
+}
+</style>
+                    <canvas id="c" width="600" height="600"></canvas>
+                            <script type="text/javascript">
+
+//COLLISION DETECTION ==================================================
+/**
+* Helper function to determine whether there is an intersection between the two polygons described
+* by the lists of vertices. Uses the Separating Axis Theorem
+*
+* @param a an array of connected points [{x:, y:}, {x:, y:},...] that form a closed polygon
+* @param b an array of connected points [{x:, y:}, {x:, y:},...] that form a closed polygon
+* @return true if there is any intersection between the 2 polygons, false otherwise
+*/
+function doPolygonsIntersect(obj1, obj2) {
+  a = getVList(obj1);
+  b = getVList(obj2);
+  var polygons = [a, b];
+  var minA, maxA, projected, i, i1, j, minB, maxB;
+  var totalMin;
+  for (i = 0; i < polygons.length; i++) {
+      // for each polygon, look at each edge of the polygon, and determine if it separates
+      // the two shapes
+      var polygon = polygons[i];
+      for (i1 = 0; i1 < polygon.length; i1++) {
+
+          // grab 2 vertices to create an edge
+          var i2 = (i1 + 1) % polygon.length;
+          var p1 = polygon[i1];
+          var p2 = polygon[i2];
+
+          // find the line perpendicular to this edge
+          var normal = {
+              x: p2.y - p1.y,
+              y: p1.x - p2.x
+          };
+
+          minA = maxA = undefined;
+          // for each vertex in the first shape, project it onto the line perpendicular to the edge
+          // and keep track of the min and max of these values
+          for (j = 0; j < a.length; j++) {
+              projected = normal.x * a[j].x + normal.y * a[j].y;
+              if (isUndefined(minA) || projected < minA) {
+                  minA = projected;
+              }
+              if (isUndefined(maxA) || projected > maxA) {
+                  maxA = projected;
+              }
+          }
+
+          // for each vertex in the second shape, project it onto the line perpendicular to the edge
+          // and keep track of the min and max of these values
+          minB = maxB = undefined;
+          for (j = 0; j < b.length; j++) {
+              projected = normal.x * b[j].x + normal.y * b[j].y;
+              if (isUndefined(minB) || projected < minB) {
+                  minB = projected;
+              }
+              if (isUndefined(maxB) || projected > maxB) {
+                  maxB = projected;
+              }
+          }
+
+          // if there is no overlap between the projects, the edge we are looking at separates the two
+          // polygons, and we know there is no overlap
+          if (maxA < minB || maxB < minA) {
+              return false;
+          }
+      }
+  }
+  return true;
+}
+
+function isUndefined(n) {
+  if (n === undefined) {
+      return true;
+  }
+}
+
+function getRealVertice(x, y, s) {
+  //easy ship access
+  //var s = shipList[0];
+  var sAng = toRad(s.angle);
+  //get x and y relative to center
+  var px = x - s.width / 2;
+  var py = s.width / 2 - y;
+  //rotate around center
+  var rx = px * Math.cos(sAng) - py * Math.sin(sAng);
+  var ry = px * Math.sin(sAng) + py * Math.cos(sAng);
+  //get real coordinates
+  rx = rx + s.width / 2 + s.posX;
+  ry = s.height / 2 - ry + s.posY;
+  return [rx, ry];
+}
+//END COLLISION DETECTION ==================================================
+
+keys = [];
+window.requestAnimFrame = (function () {
+  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+      window.setTimeout(callback, 1000 / 60);
+  };
+})();
+
+window.addEventListener("keydown", function (e) {
+  keys[e.keyCode] = true;
+  if (e.keyCode == 77) game.debug = !game.debug;
+  if (e.keyCode == 78) game.pause = !game.pause;
+});
+
+window.addEventListener("keyup", function (e) {
+  keys[e.keyCode] = false;
+});
+
+var game = new gameObject();
+var clock = new gameClock(new Date().getTime() / 1000);
+var tracer = new gameTracer();
+var imgShip = new Image();
+imgShip.src = 'ship.png';
+
+var canvas = document.getElementById('c');
+if (canvas.getContext) {
+  var ctx = canvas.getContext('2d');
+} else {
+  alert('Canvas not supported');
+}
+canvas.addEventListener("mousedown", function (e) {
+  var x = e.layerX - 2; // - canvas.position.X (-2 due to border);   
+  var y = e.layerY - 2; // - canvas.position.Y;
+  //tracer.log(x);
+  game.mouse.down = true;
+  game.mouse.x = x;
+  game.mouse.y = y;
+  for (var t = 0; t < buttons.length; t++) {
+      if (buttons[t].isHit(x, y)) {
+          game.setState(buttons[t].name);
+          //console.log(buttons[t].name);
+      }
+  }
+
+});
+
+canvas.addEventListener("mouseup", function (e) {
+  var x = e.layerX; // - canvas.position.X;   
+  var y = e.layerY; // - canvas.position.Y;
+  //tracer.log(x);
+  game.mouse.down = false;
+  game.mouse.x = x;
+  game.mouse.y = y;
+
+});
+var numS = 35; // number of star layers; number of stars per level
+var stars = [[],[],[]]; // master array for all star data;
+for (var j = 0; j < 3; j++) {
+    for (var i = 0; i < numS; i++) {
+        stars[j].push([Math.random() * (canvas.width), Math.random() * (canvas.height), (j + 1) * 0.3 + 0.25, (j + 1) * 0.2]);
+    } // [x,y,size,speed mult.]
+}
+
+var gameHeight = 20.0; //1 Meter = 6px
+var gameWidth = 20.0;
+
+
+var canvasHeight = canvas.height;
+var canvasWidth = canvas.width;
+
+var buttons = [];
+//Top Level Buttons
+var gameButton = new button("game", 260, 120, 30, "PL AY");
+var settingsButton = new button("settings", 100, 0, 15, "SETTINGS");
+var menuButton = new button("menu", 52, 0, 15, "MENU ");
+
+
+//Shared Buttons
+var nextButton = new button("next", 250, 0, 15, "NEXT LEVEL");
+
+//Settings Buttons
+var easyButton = new button("easy", 20, 80, 15, "E ASY");
+var mediumButton = new button("medium", 180, 80, 15, "MEDIUM ");
+var hardButton = new button("hard", 260, 80, 15, "H ARD");
+
+//Game Select Buttons
+//level
+
+//Settings Buttons
+
+//Auxiliary Buttons
+
+buttons.push(gameButton);
+
+//Game Buttons
+//buttons.push(
+
+var shipList = [];
+var candidateShips = [];
+candidateShips.push(new playerShip(gameHeight / 2, gameWidth / 2));
+candidateShips.push(new playerShip(gameHeight / 2, gameWidth / 2) + 2);
+
+var blockList = [];
+blockList.push(new block(1, 4, 30, 30, "n"));
+blockList.push(new block(1, 17, 1, 1, "end"));
+blockList.push(new block(2, 9, 1, 1, "n"));
+blockList.push(new block(-1, 15, 1, 1, "n"));
+blockList.push(new block(3, 15, 1, 1, "n"));
+blockList.push(new block(5, 9, 1, 1, "n"));
+blockList.push(new block(17, 7, 1, 1, "n"));
+blockList.push(new block(11, 19, 1, 1, "n"));
+blockList.push(new block(13, 3, 1, 1, "n"));
+blockList.push(new block(15, 19, 1, 1, "n"));
+blockList.push(new block(17, 2, 1, 1, "n"));
+blockList.push(new block(5, 9, 1, 1, "n"));
+blockList.push(new block(10, 7, 1, 1, "n"));
+blockList.push(new block(14, 19, 1, 1, "n"));
+blockList.push(new block(10, 0, 1, 1, "n"));
+blockList.push(new block(-1, 19, 1, 1, "n"));
+blockList.push(new block(-1, 18.25, 1, 1, "n"));
+blockList.push(new block(-1, 16.75, 1, 1, "n"));
+blockList.push(new block(-1, 17.5, 1, 1, "n"));
+blockList.push(new block(3, 19, 1, 1, "n"));
+blockList.push(new block(3, 18.25, 1, 1, "n"));
+blockList.push(new block(3, 16.75, 1, 1, "n"));
+blockList.push(new block(3, 17.5, 1, 1, "n"));
+blockList.push(new block(7.75, 1, 1, 1, "n"));
+blockList.push(new block(7, 1, 1, 1, "n"));
+var cargoList = [];
+cargoList.push(new cargo(10, 2, 1))
+var landingPads = [];
+landingPads.push(new cargo(blockList[0]));
+
+function landingPad(block, position, destination) {
+  //attaches to a block object on one of the sides
+  this.block = block;
+  this.position = position;
+  this.destination = destination;
+  //"t": landing pad on top of this block, one block wide i guess?
+  //"b"
+  //"l"
+  //"r"
+
+  this.draw = function () {
+      //draw code here
+  };
+
+  this.draw = function (x, y) {
+      //overload the position if you want?
+  };
+}
+
+function cargo(x, y, weight) {
+  this.posX = x; //Meters again!
+  this.posY = y;
+  this.width = .5;
+  this.height = .5;
+  this.angle = 90;
+  this.weight = weight; //not your concern, this is for me!
+
+  this.draw = function () {
+      var cargoTime = Math.abs(Math.cos(new Date().getTime() / 1500 % 2 * Math.PI) * 5)
+      ctx.fillStyle = 'rgb(255,255,' + Math.floor(255 / cargoTime) + ')';
+
+
+      ctx.fillRect(toPx(this.posX), this.posY*30 , 5, 5);
+      ctx.fillRect(toPx(this.posX) + cargoTime * 2+1.5, this.posY*30+1.5, 2, 2);
+      ctx.fillRect(toPx(this.posX) - cargoTime * 2+1.5, this.posY*30+1.5, 2, 2);
+      ctx.fillRect(toPx(this.posX)+1.5, toPx(this.posY) + cargoTime * 2+1.5, 2, 2);
+      ctx.fillRect(toPx(this.posX)+1.5, toPx(this.posY) - cargoTime * 2+1.5, 2, 2);
+
+      //console.log(cargoTime);
+      //draw code here
+  };
+
+
+}
+
+function block(x, y, width, height, landingPad) {
+  this.posX = x; //meters, crunch!
+  this.posY = y; //meters, crunch!
+  this.width = 1; //meters;
+  this.height = 1; //meters;
+  this.angle = 90;
+  this.landingPad = landingPad;
+  this.landingPad = typeof landingPad !== 'undefined' ? landingPad : "";
+
+  //Landing Pads:
+  //I'm thinking just draw the landing pad attached to a block maybe? If not you can use the landing pad set. your call, i think this will simplify things.
+  //"t": landing pad on top of this block, one block wide i guess?
+  //"b"
+  //"l"
+  //"r"
+  //"n": no landing pad
+
+  this.draw = function () {
+      var huehue = 5 + Math.floor((this.posY / canvasHeight * 10) % 5)
+      ctx.fillStyle = '#' + huehue + huehue + huehue;
+      if(this.landingPad == "end")
+        ctx.fillStyle = '#00CCCC';  
+      
+      //ctx.fillStyle = '#999';
+
+      ctx.fillRect(toPx(this.posX), toPx(this.posY), 20, 20);
+      ctx.fillStyle = '#bbb';
+      ctx.fillRect(toPx(this.posX), toPx(this.posY), 20, 2);
+      ctx.fillRect(toPx(this.posX + 18/30), toPx(this.posY), 2, 20);
+      //draw code here
+  };
+
+
+}
+shipList.push(new playerShip(gameHeight / 2, gameWidth / 2));
+//shipList.push(new playerShip(gameHeight / 2, gameWidth / 2 - 2));
+
+//shipList.push(new playerShip(gameHeight / 2 + 2, gameWidth / 2));
+
+
+function drawSelectShip() {}
+
+function drawGame() {
+  physics();
+  refresh();
+  drawCargo();
+  drawBlocks();
+
+  //Draw Ships
+  for (var y = 0; y < shipList.length; y++) {
+      var ship = shipList[y];
+
+      ctx.save();
+
+      ctx.fillStyle = '#8ED6FF';
+      ctx.translate(toPx(ship.posX) + ship.getWidth() / 2, toPx(ship.posY) + ship.getHeight() / 2);
+      ctx.rotate(toRad(ship.angle - 90));
+      //ctx.fillRect(-ship.getWidth() / 2, -ship.getHeight() / 2, ship.getWidth(), ship.getHeight()); //draw body
+
+      //Draw Thrusters
+      for (var x = 0; x < ship.thrusterList.length; x++) {
+          var cur = ship.thrusterList[x];
+          ctx.save();
+          ctx.fillStyle = 'black';
+          ctx.translate(cur.xOffset * (ship.getWidth() / 2), cur.yOffset * (ship.getHeight() / 2));
+          ctx.fillStyle = ((keys[cur.key] == true) ? 'red' : 'black');
+          ctx.fillRect(-toPx(cur.width) / 2, -toPx(cur.height) / 2, toPx(cur.width), toPx(cur.height));
+          ctx.restore();
+      }
+      ctx.drawImage(imgShip, -ship.getWidth() / 2, -ship.getHeight() / 2, ship.getWidth(), ship.getHeight());
+          if(ship.hasCargo)
+          {                      
+            cargoList[0].draw();
+          }
+
+      ctx.restore();
+                if(game.lost){
+            ctx.save();
+                ctx.fillStyle = "white";
+                ctx.font = "bold 40px Arial";
+               ctx.fillText("FIERY DEATH!",canvasWidth/2, canvasHeight/2) ;
+                ctx.restore();
+          }
+          if(game.won){
+            ctx.save();
+                ctx.fillStyle = "white";
+                ctx.font = "bold 40px Arial";
+               ctx.fillText("SUCCESSFUL \n DELIVERY!",canvasWidth/2, canvasHeight/2) ;
+               ctx.fillText("DELIVERY!",canvasWidth/2, canvasHeight/2+40) ;
+                ctx.restore();
+          }
+            tracer.log("WELCOME TO DERP SPACE NINE");
+  tracer.log("YOUR GOAL IS TO PICK UP THE YELLOW CARGO");
+  tracer.log("AND DELIVER IT TO THE BLUE LANDING PAD");
+  tracer.log("W, S, P, AND L CONTROL YOUR JETS, PARDNER");
+  tracer.log("HAVE FUN!(PRESS M TO CLOSE THIS MESSAGE)");
+  }
+}
+
+function drawMenu() {
+  ctx.save();
+
+  ctx.fillStyle = '#999';
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+  ctx.fillStyle = "white";
+                ctx.save();
+                ctx.font = "bold 40px Arial";
+               ctx.fillText("DERP",canvasWidth/2-55, canvasHeight/2-40);
+               ctx.fillStyle = "black";
+               ctx.fillText("SPACE",canvasWidth/2-55, canvasHeight/2);
+               ctx.fillStyle = "white";
+               ctx.fillText("NINE",canvasWidth/2-55, canvasHeight/2+40);
+                ctx.restore();
+
+  ctx.restore();
+}
+
+function drawSettings() {
+  // I dont thing save/restore is necessary here
+  //ctx.save();
+  ctx.fillStyle = '#444';
+  ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+  //ctx.restore();             
+}
+
+function drawBlocks() {
+  for (var u = 0; u < blockList.length; u++)
+  blockList[u].draw();
+}
+
+function drawCargo() {
+  for (var u = 0; u < cargoList.length; u++)
+    if(!shipList[0].hasCargo)      
+  cargoList[u].draw();
+
+}
+
+function drawToolbar() {
+  for (var x = 0; x < buttons.length; x++)
+  buttons[x].draw();
+}
+
+//Draw Canvas 
+(function updateCanvas() {
+
+  if (game.pause) requestAnimFrame(updateCanvas);
+
+  for (var x = 0; x < buttons.length; x++) {
+      var cur = buttons[x];      
+  }
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+
+
+  ctx.clearRect(0, 0, canvasHeight, canvasWidth);
+  for (var block in blockList) {
+      var b = blockList[block];
+      ctx.fillRect(toPx(b.posX), toPx(b.posY), toPx(b.width), toPx(b.height));
+
+  }
+
+  if (game.state == "game") drawGame();
+  else if (game.state == "menu") drawMenu();
+  else if (game.state == "settings") drawSettings();
+  else {
+      drawRect(0, 0, canvasWidth, canvasHeight);
+  }
+  drawToolbar();
+
+
+  if (game.debug) {
+      tracer.print();
+  }
+  tracer.clear();
+  //ctx.fillRect(ship.posX, ship.posY, 50, 50);
+  requestAnimFrame(updateCanvas);
+})();
+
+function gameClock(time) {
+  this.oldTime = time;
+
+  this.delta = function () {
+      var newTime = new Date().getTime() / 1000;
+      var delta = new Date().getTime() / 1000 - this.oldTime;
+      this.oldTime = newTime;
+      return delta;
+
+
+  }
+  this.time = function () {
+      return new Date().getTime() / 1000;
+  };
+}
+
+var levels = [];
+levels.push([]);
+levels.push([[],[[213.0,453.0],[273,453],[333,453],[393,453],[453,453],[513,453],[573,453]],
+                [154,398],[633,453],[[153,453]]]);
+levels.push([[],[[408,324],[468,324],[348,324]],[408,410],[408,264],[[408,465]]]);
+function gameObject() {
+  this.mouse = new mouse(0, 0);
+  this.state = "menu"; //menu, settings, game   
+  this.pause = false;
+  this.debug = true;
+  this.lost = false;
+  this.won = false;
+  this.level = 1;
+
+  this.restore = function(){
+    this.won = false;
+    this.lost = false;
+    
+    this.state = "menu";
+  }
+
+  
+  this.setState = function (newState) {
+      switch (newState) {
+          case "game":
+              this.restore();
+              this.state = "game";
+
+              //importLevel(levels[this.level]);//
+              buttons.length = 0;              
+              break;
+          case "next":
+              this.state = "game";
+              this.level++;
+              //this.level %= levels.length;
+              importLevel(this.level);
+              break;
+          case "menu":
+              this.state = "menu";
+              buttons.length = 0;
+              buttons.push(gameButton);
+              break;
+      }
+      //this.state = newState;
+  }
+
+
+}
+
+function mouse(x, y) {
+  this.posX = x;
+  this.posY = y;
+  this.down = false;
+}
+
+function gameTracer() {
+  this.logList = [];
+  this.log = function (text) {
+      this.logList.push(text);
+  };
+
+  this.clear = function () {
+      this.logList.length = 0;
+  };
+
+  this.print = function () {
+      ctx.save();
+      ctx.fillStyle = "white";
+      ctx.font = "bold 15px Arial";
+
+      for (var x = 0; x < this.logList.length; x++) {
+          ctx.fillText(this.logList[x], canvasWidth/2-100, x * 15 + 100);
+      }
+      ctx.restore();
+  };
+}
+
+function playerShip(x, y) {
+  this.width = 1.5;//.47;
+  this.height = 1;//.73;
+  this.thrusterHeight = .2;
+  this.thrusterWidth = .1;
+  this.posX = x;
+  this.posY = y;
+  this.posA = 0;
+  this.velX = 0;
+  this.velY = 0;
+  this.velA = 0;
+  this.thrusterList = [];
+  this.thrusterList.push(new thruster(-.6, 1, 87));
+  this.thrusterList.push(new thruster(.6, 1, 80));
+  //this.thrusterList.push(new thruster(-.22, 1.1, 87));
+  //this.thrusterList.push(new thruster(.22, 1.1, 80));
+  this.thrusterList.push(new thruster(-.5, -1, 83));
+  this.thrusterList.push(new thruster(.5, -1, 76));
+  this.hasCargo = false;
+  this.angle = 90;
+  this.weightPos = 0;
+
+
+  //this.pos
+  this.getWidth = function () {
+      return toPx(this.width);
+  };
+
+  this.getHeight = function () {
+      return toPx(this.height);
+  };
+
+}
+
+function thruster(x, y, key) {
+  this.xOffset = x;
+  this.yOffset = y;
+  this.key = key;
+  this.power = .3;
+  this.torque = 25;
+  this.height = .2;
+  this.width = .1;
+  this.active = false;
+}
+
+function settingsObject() {
+
+  this.gravity = false;
+  this.velocityDampening = false;
+  this.rotationDampening = true;
+
+}
+
+function button(name, x, y, size, text) {
+  this.name = name;
+  this.posX = x - 5;
+  this.posY = y;
+  this.content = text;
+  this.text = this.content;
+  this.size = size; //fontsize
+  this.width = this.text.length * this.size / 1.8; //do what you want here i'm ballparking.
+  this.height = this.size + 3; //do what you want here i'm ballparking.
+  this.down = false;
+
+  this.draw = function () {
+      ctx.save();
+
+      ctx.font = "" + this.size + "px Impact";
+      ctx.fillStyle = "#aaa";
+      ctx.fillRect(this.posX, this.posY, this.width, this.height);
+
+      ctx.fillStyle = "Black";
+      ctx.fillText(this.text, this.posX + 11, this.posY + this.size);
+      ctx.fillStyle = 'rgba(256, 256, 256, .4)';
+      ctx.fillRect(this.posX + 2, this.posY + 1, this.width - 4, this.size - 8);
+      ctx.fillStyle = 'rgba(0,0,0,.3)';
+      ctx.fillRect(this.posX + 2, this.posY + 13, this.width - 4, this.size - 11);
+
+      ctx.restore();
+  };
+
+  this.isHit = function (clickX, clickY) {
+      if (clickX > this.posX && clickX < (this.posX + this.width) && clickY > this.posY && clickY < (this.posY + this.height)) {
+          //this.text = "STOP HITTING ME";
+          return true;
+      } else {
+          //this.text = "MISSED ME";  
+          return false;
+      }
+
+
+  }
+
+}
+
+
+
+function toPx(inMeters) {
+  return inMeters * (canvasHeight / gameHeight);
+}
+
+function toMeters(inPx) {
+  console.log(inPx + " " + canvasHeight + " " + gameHeight);
+  return inPx / canvasHeight * gameHeight;
+}
+
+//Convert from degrees to radians
+function toRad(deg) {
+  return deg * Math.PI / 180
+}
+
+//generate random ships
+function generateShips() {
+  for (var x = 0; x < 10; x++) {
+      toAdd = new playerShip(Math.random() * gameWidth, Math.random() * gameHeight);
+      for (var y = 0; y < Math.random() * 10; y++) {
+          toAdd.thrusterList.push(new thruster((Math.random() - .5) * 2, (Math.random() - .5) * 2, Math.floor(Math.random() * 25) + 65));
+      }
+      shipList.push(toAdd);
+  }
+}
+function refresh(){
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+    ctx.fillStyle = '#fff';
+    for (var sj = 0; sj < 3; sj++) {
+        for (var si = 0; si < numS; si++) {
+            stars[sj][si] = getStars(stars[sj][si]); // updates stars (x,y)
+        }
+}}
+function getStars(n) {
+    var r = [(n[0] + canvasWidth + shipList[0].velX * n[3]) % canvasWidth, (n[1] + canvasHeight + shipList[0].velY * n[3]) % canvasHeight, n[2], n[3]]; // updates stars (x,y)
+    ctx.fillRect(r[0], r[1], r[2], r[2]); // draws stars    
+    
+    return r;
+}
+function physics() {
+  d = clock.delta();
+  for (var shipNum = 0; shipNum < shipList.length; shipNum++) {
+      var ship = shipList[shipNum];
+      ship.velA -= ship.velA * d * .75;
+
+      if (game.debug == true) {
+          ctx.save();
+          ctx.fillStyle = "blue";
+          ctx.font = "bold 10px Arial";
+          ctx.fillText(ship.velY, canvasWidth - 100, 10);
+          ctx.fillText(d, canvasWidth - 100, 20);
+          ctx.fillText(ship.thrusterList.length, canvasWidth - 100, 30);
+
+          ctx.restore();
+      }
+
+      var dAngle = 0;
+      var dPower = 0;
+      var dVelX = 0;
+      var dVelY = 0;
+
+      for (var x = 0; x < ship.thrusterList.length; x++) {
+          var cur = ship.thrusterList[x];
+          if (keys[cur.key]) {
+              dPower += 1 * cur.yOffset;
+              dAngle += 1 * -cur.xOffset * (cur.yOffset < 0 ? -1 : 1);
+
+          }
+
+      }
+
+      ship.velA += dAngle;
+
+
+      ship.velY += dPower * Math.sin(toRad(ship.angle)) * d;
+      ship.velX += dPower * Math.cos(toRad(ship.angle)) * d;
+
+      if (ship.posY < 0) {
+          ship.posY = 0;
+          ship.velY = -.75 * ship.velY;
+      }
+
+      if (ship.posY >= (gameHeight - ship.height)) {
+          //ctx.fillStyle = '#8ED6FF';
+          ship.posY = gameHeight - ship.height;
+          ship.velY = -.75 * ship.velY;
+      }
+
+      if (ship.posX < 0) {
+          ship.posX = 0;
+          ship.velX = -.9 * ship.velX;
+      }
+      if (ship.posX > (gameWidth - ship.width)) {
+          ship.posX = gameWidth - ship.width;
+          ship.velX = -.9 * ship.velX;
+      }
+      for (var c = 0; c< cargoList.length;c++){
+        if (doPolygonsIntersect(ship, cargoList[c])) {
+          console.log("hit the cargo!");
+          cargoList[c].posX = -.10;
+          cargoList[c].posY = .1;
+          ship.hasCargo = true;
+        }
+      }
+      for (var bnum in blockList) {
+          var blockVList = [];
+          var block = blockList[bnum];
+
+
+
+      
+          if (doPolygonsIntersect(ship, block)) {           
+
+              if(block.landingPad == "end" && ship.hasCargo){
+                game.won = true;
+                ship.velX = 0;
+                ship.velY = 0;
+
+                
+              }
+              else if(Math.sqrt(ship.velX*ship.velX + ship.velY*ship.velY) > .5) {
+                game.lost = true;
+                ship.velX = 0;
+                ship.velY = 0;
+                
+              }
+
+              ship.velX = -ship.velX;
+              ship.velY = -ship.velY;
+              ship.velA = -ship.velA;
+          }
+
+          ship.angle += ship.velA * d;
+          ship.posY -= ship.velY * d;
+          ship.posX -= ship.velX * d;
+      }
+      
+
+
+  }
+
+} 
+
+function importLevel(arr) {
+        
+
+
+
+        //Cargo: Arr[0]
+        cargoList.length = 0;  
+        for (var cargNum = 0; cargNum<arr[0].length; cargNum++) { 
+            cargoList.push(new cargo(toMeters(arr[0][cargNum][0]), toMeters(arr[0][cargNum][1])));                
+        }
+
+        blockList.length = 0;
+        for (var blockNum = 0; blockNum<arr[1].length; blockNum++) { 
+            blockList.push(new block(toMeters(arr[1][blockNum][0]), toMeters(arr[1][blockNum][1]), 1.5, 1.5, false));
+
+              }
+      
+        for (var platNum = 0; platNum < arr[2].length; platNum++){
+            //blockList.push(new block(toMeters(arr[2][platNum][0]), toMeters(arr[1][platNum][1]), 1.5, 1.5, "start"));
+            //blockList.push(new block(toMeters(arr[2][platNum][0]), toMeters(arr[1][platNum][1]), 1.5, 1.5, "end"));
+        }
+
+        shipList.length = 0;
+        shipList.push(new playerShip(toMeters(arr[3][0][0]),toMeters(arr[3][0][1])));
+}
+function getVList(block){  
+
+          var blockVList = [];
+          var v1 = getRealVertice(0, 0, block);
+          var v2 = getRealVertice(0 + block.width, 0, block);
+          var v3 = getRealVertice(0 + block.width, 0 + block.height, block);
+          var v4 = getRealVertice(0, 0 + block.height, block);
+          blockVList.push({
+              x: v1[0],
+              y: v1[1]
+          });
+          blockVList.push({
+              x: v2[0],
+              y: v2[1]
+          });
+          blockVList.push({
+              x: v3[0],
+              y: v3[1]
+          });
+          blockVList.push({
+              x: v4[0],
+              y: v4[1]
+          });
+          return blockVList;
+}
+
+            </script>
+            
+</body>    
+</html>           

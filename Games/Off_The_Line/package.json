@@ -1,0 +1,27 @@
+{
+  "name": "offtheline",
+  "version": "1.0.0",
+  "description": "js13kgames 2018 competition entry",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regularkid/offtheline.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/regularkid/offtheline/issues"
+  },
+  "homepage": "https://github.com/regularkid/offtheline#readme",
+  "dependencies": {
+    "google-closure-compiler": "^20190325.0.0",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-zip": "^4.2.0"
+  }
+}

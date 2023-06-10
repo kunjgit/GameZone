@@ -235,6 +235,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 130 | [Fall Down](https://github.com/kunjgit/GameZone/tree/main/Games/Fall_Down)|
 
 
+
+| * | [Unlock_The_Lock](https://github.com/kunjgit/GameZone/tree/main/Games/Unlock_The_Lock)|
+
+
 </center>
 
 <br>

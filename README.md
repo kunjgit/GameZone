@@ -240,6 +240,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 135 | [Blast Zone](https://github.com/kunjgit/GameZone/tree/main/Games/BlastZone)|
 | 136 | [Free Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Free_Bird)|
 | 137 | [Maximise Boxes](https://github.com/kunjgit/GameZone/tree/main/Games/MaximiseBoxes)|
+
+
+| * | [Sorades](https://github.com/kunjgit/GameZone/tree/main/Games/Sorades)|
 </center>
 
 <br>

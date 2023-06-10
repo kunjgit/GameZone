@@ -52,7 +52,7 @@
   width: 16px;
   left: 2px;
   bottom: 2px;
-  background-color: white;
+  background-color: black;
   border-radius: 50%;
   transition: transform 0.4s;
 }
@@ -2385,3 +2385,47 @@ textarea.form-input::-webkit-resizer {
   }
 
 }
+
+.search-container {
+  position: relative; /* Added position relative for icon positioning */
+  background: #fff;
+  height: 40px;
+  background: rgb(104,98,232);
+  background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
+  border-radius: 30px;
+  padding: 0px 16px 0px 14px  ;
+  margin-bottom:40px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.8s;
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2),
+              inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+              inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+.search-container:hover > .search-input {
+  width: 400px;
+}
+
+.search-container .search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 0px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 0.8s;
+}
+
+.search-container .search-btn {
+  position: absolute; /* Added position absolute for icon positioning */
+  right: 12px; /* Adjusted right positioning for icon */
+}
+.search-btn{
+  padding-right:10px ;
+}
+

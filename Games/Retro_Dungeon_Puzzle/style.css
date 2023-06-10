@@ -1,0 +1,4637 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P");
+* {
+  box-sizing: border-box;
+}
+
+.game-form {
+  background-color: #000000;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.view {
+  background-color: #000000;
+  width: 75vmin;
+  height: 75vmin;
+  margin: auto;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.map {
+  --repeat-x: 0;
+  --repeat-y: 0;
+  display: grid;
+  grid-template-columns: repeat(10, 25vmin);
+  grid-template-rows: repeat(10, 25vmin);
+  position: absolute;
+  top: 25vmin;
+  left: 25vmin;
+  transition: transform 1024ms ease-out;
+}
+
+.grid {
+  background-image: url("https://assets.codepen.io/430361/css-maze-floor.png");
+  background-size: 25vmin 25vmin;
+  display: block;
+  position: relative;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+.grid.wall {
+  background-image: url("https://assets.codepen.io/430361/css-maze-wall.png");
+}
+.grid.tree {
+  background-image: url("https://assets.codepen.io/430361/css-maze-tree.png");
+}
+.grid.finish {
+  background-image: url("https://assets.codepen.io/430361/css-maze-exit.png");
+  pointer-events: auto;
+}
+.grid.barrel {
+  background-image: url("https://assets.codepen.io/430361/css-maze-barrel.png");
+}
+.grid .object {
+  background-size: 25vmin 25vmin;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 128ms ease-out;
+}
+.grid .object.key {
+  background-image: url("https://assets.codepen.io/430361/css-maze-key.png");
+  pointer-events: auto;
+}
+.grid .object.lock {
+  background-image: url("https://assets.codepen.io/430361/css-maze-door.png");
+}
+.grid .object.monster {
+  background-image: url("https://assets.codepen.io/430361/css-maze-monster.png");
+}
+
+.map-check {
+  display: none;
+}
+
+#grid_0_0:checked ~ .view .map {
+  transform: translateX(0vmin) translateY(0vmin);
+}
+#grid_0_0:checked ~ .view .map .grid[for=grid_1_0],
+#grid_0_0:checked ~ .view .map .grid[for=grid_-1_0],
+#grid_0_0:checked ~ .view .map .grid[for=grid_0_1],
+#grid_0_0:checked ~ .view .map .grid[for=grid_0_-1] {
+  pointer-events: auto;
+}
+#grid_0_0:checked ~ .view .map .grid.wall, #grid_0_0:checked ~ .view .map .grid.tree, #grid_0_0:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_0_0:checked ~ .view .map .grid [for=key_0_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_0_0:checked ~ .view .map .grid [data-key="0_0"] {
+  display: none;
+}
+
+#lock_0_0:checked ~ .view .map .grid [for=lock_0_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_0_0:checked ~ .view .character {
+  animation: animate-character_0_0 1024ms step-end;
+}
+
+@keyframes animate-character_0_0 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_0_1:checked ~ .view .map {
+  transform: translateX(0vmin) translateY(-25vmin);
+}
+#grid_0_1:checked ~ .view .map .grid[for=grid_1_1],
+#grid_0_1:checked ~ .view .map .grid[for=grid_-1_1],
+#grid_0_1:checked ~ .view .map .grid[for=grid_0_2],
+#grid_0_1:checked ~ .view .map .grid[for=grid_0_0] {
+  pointer-events: auto;
+}
+#grid_0_1:checked ~ .view .map .grid.wall, #grid_0_1:checked ~ .view .map .grid.tree, #grid_0_1:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_0_1:checked ~ .view .map .grid [for=key_0_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_0_1:checked ~ .view .map .grid [data-key="0_1"] {
+  display: none;
+}
+
+#lock_0_1:checked ~ .view .map .grid [for=lock_0_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_0_1:checked ~ .view .character {
+  animation: animate-character_0_1 1024ms step-end;
+}
+
+@keyframes animate-character_0_1 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_0_2:checked ~ .view .map {
+  transform: translateX(0vmin) translateY(-50vmin);
+}
+#grid_0_2:checked ~ .view .map .grid[for=grid_1_2],
+#grid_0_2:checked ~ .view .map .grid[for=grid_-1_2],
+#grid_0_2:checked ~ .view .map .grid[for=grid_0_3],
+#grid_0_2:checked ~ .view .map .grid[for=grid_0_1] {
+  pointer-events: auto;
+}
+#grid_0_2:checked ~ .view .map .grid.wall, #grid_0_2:checked ~ .view .map .grid.tree, #grid_0_2:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_0_2:checked ~ .view .map .grid [for=key_0_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_0_2:checked ~ .view .map .grid [data-key="0_2"] {
+  display: none;
+}
+
+#lock_0_2:checked ~ .view .map .grid [for=lock_0_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_0_2:checked ~ .view .character {
+  animation: animate-character_0_2 1024ms step-end;
+}
+
+@keyframes animate-character_0_2 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_0_3:checked ~ .view .map {
+  transform: translateX(0vmin) translateY(-75vmin);
+}
+#grid_0_3:checked ~ .view .map .grid[for=grid_1_3],
+#grid_0_3:checked ~ .view .map .grid[for=grid_-1_3],
+#grid_0_3:checked ~ .view .map .grid[for=grid_0_4],
+#grid_0_3:checked ~ .view .map .grid[for=grid_0_2] {
+  pointer-events: auto;
+}
+#grid_0_3:checked ~ .view .map .grid.wall, #grid_0_3:checked ~ .view .map .grid.tree, #grid_0_3:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_0_3:checked ~ .view .map .grid [for=key_0_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_0_3:checked ~ .view .map .grid [data-key="0_3"] {
+  display: none;
+}
+
+#lock_0_3:checked ~ .view .map .grid [for=lock_0_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_0_3:checked ~ .view .character {
+  animation: animate-character_0_3 1024ms step-end;
+}
+
+@keyframes animate-character_0_3 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_0_4:checked ~ .view .map {
+  transform: translateX(0vmin) translateY(-100vmin);
+}
+#grid_0_4:checked ~ .view .map .grid[for=grid_1_4],
+#grid_0_4:checked ~ .view .map .grid[for=grid_-1_4],
+#grid_0_4:checked ~ .view .map .grid[for=grid_0_5],
+#grid_0_4:checked ~ .view .map .grid[for=grid_0_3] {
+  pointer-events: auto;
+}
+#grid_0_4:checked ~ .view .map .grid.wall, #grid_0_4:checked ~ .view .map .grid.tree, #grid_0_4:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_0_4:checked ~ .view .map .grid [for=key_0_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_0_4:checked ~ .view .map .grid [data-key="0_4"] {
+  display: none;
+}
+
+#lock_0_4:checked ~ .view .map .grid [for=lock_0_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_0_4:checked ~ .view .character {
+  animation: animate-character_0_4 1024ms step-end;
+}
+
+@keyframes animate-character_0_4 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_0_5:checked ~ .view .map {
+  transform: translateX(0vmin) translateY(-125vmin);
+}
+#grid_0_5:checked ~ .view .map .grid[for=grid_1_5],
+#grid_0_5:checked ~ .view .map .grid[for=grid_-1_5],
+#grid_0_5:checked ~ .view .map .grid[for=grid_0_6],
+#grid_0_5:checked ~ .view .map .grid[for=grid_0_4] {
+  pointer-events: auto;
+}
+#grid_0_5:checked ~ .view .map .grid.wall, #grid_0_5:checked ~ .view .map .grid.tree, #grid_0_5:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_0_5:checked ~ .view .map .grid [for=key_0_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_0_5:checked ~ .view .map .grid [data-key="0_5"] {
+  display: none;
+}
+
+#lock_0_5:checked ~ .view .map .grid [for=lock_0_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_0_5:checked ~ .view .character {
+  animation: animate-character_0_5 1024ms step-end;
+}
+
+@keyframes animate-character_0_5 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_0_6:checked ~ .view .map {
+  transform: translateX(0vmin) translateY(-150vmin);
+}
+#grid_0_6:checked ~ .view .map .grid[for=grid_1_6],
+#grid_0_6:checked ~ .view .map .grid[for=grid_-1_6],
+#grid_0_6:checked ~ .view .map .grid[for=grid_0_7],
+#grid_0_6:checked ~ .view .map .grid[for=grid_0_5] {
+  pointer-events: auto;
+}
+#grid_0_6:checked ~ .view .map .grid.wall, #grid_0_6:checked ~ .view .map .grid.tree, #grid_0_6:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_0_6:checked ~ .view .map .grid [for=key_0_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_0_6:checked ~ .view .map .grid [data-key="0_6"] {
+  display: none;
+}
+
+#lock_0_6:checked ~ .view .map .grid [for=lock_0_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_0_6:checked ~ .view .character {
+  animation: animate-character_0_6 1024ms step-end;
+}
+
+@keyframes animate-character_0_6 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_0_7:checked ~ .view .map {
+  transform: translateX(0vmin) translateY(-175vmin);
+}
+#grid_0_7:checked ~ .view .map .grid[for=grid_1_7],
+#grid_0_7:checked ~ .view .map .grid[for=grid_-1_7],
+#grid_0_7:checked ~ .view .map .grid[for=grid_0_8],
+#grid_0_7:checked ~ .view .map .grid[for=grid_0_6] {
+  pointer-events: auto;
+}
+#grid_0_7:checked ~ .view .map .grid.wall, #grid_0_7:checked ~ .view .map .grid.tree, #grid_0_7:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_0_7:checked ~ .view .map .grid [for=key_0_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_0_7:checked ~ .view .map .grid [data-key="0_7"] {
+  display: none;
+}
+
+#lock_0_7:checked ~ .view .map .grid [for=lock_0_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_0_7:checked ~ .view .character {
+  animation: animate-character_0_7 1024ms step-end;
+}
+
+@keyframes animate-character_0_7 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_0_8:checked ~ .view .map {
+  transform: translateX(0vmin) translateY(-200vmin);
+}
+#grid_0_8:checked ~ .view .map .grid[for=grid_1_8],
+#grid_0_8:checked ~ .view .map .grid[for=grid_-1_8],
+#grid_0_8:checked ~ .view .map .grid[for=grid_0_9],
+#grid_0_8:checked ~ .view .map .grid[for=grid_0_7] {
+  pointer-events: auto;
+}
+#grid_0_8:checked ~ .view .map .grid.wall, #grid_0_8:checked ~ .view .map .grid.tree, #grid_0_8:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_0_8:checked ~ .view .map .grid [for=key_0_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_0_8:checked ~ .view .map .grid [data-key="0_8"] {
+  display: none;
+}
+
+#lock_0_8:checked ~ .view .map .grid [for=lock_0_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_0_8:checked ~ .view .character {
+  animation: animate-character_0_8 1024ms step-end;
+}
+
+@keyframes animate-character_0_8 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_0_9:checked ~ .view .map {
+  transform: translateX(0vmin) translateY(-225vmin);
+}
+#grid_0_9:checked ~ .view .map .grid[for=grid_1_9],
+#grid_0_9:checked ~ .view .map .grid[for=grid_-1_9],
+#grid_0_9:checked ~ .view .map .grid[for=grid_0_10],
+#grid_0_9:checked ~ .view .map .grid[for=grid_0_8] {
+  pointer-events: auto;
+}
+#grid_0_9:checked ~ .view .map .grid.wall, #grid_0_9:checked ~ .view .map .grid.tree, #grid_0_9:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_0_9:checked ~ .view .map .grid [for=key_0_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_0_9:checked ~ .view .map .grid [data-key="0_9"] {
+  display: none;
+}
+
+#lock_0_9:checked ~ .view .map .grid [for=lock_0_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_0_9:checked ~ .view .character {
+  animation: animate-character_0_9 1024ms step-end;
+}
+
+@keyframes animate-character_0_9 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_1_0:checked ~ .view .map {
+  transform: translateX(-25vmin) translateY(0vmin);
+}
+#grid_1_0:checked ~ .view .map .grid[for=grid_2_0],
+#grid_1_0:checked ~ .view .map .grid[for=grid_0_0],
+#grid_1_0:checked ~ .view .map .grid[for=grid_1_1],
+#grid_1_0:checked ~ .view .map .grid[for=grid_1_-1] {
+  pointer-events: auto;
+}
+#grid_1_0:checked ~ .view .map .grid.wall, #grid_1_0:checked ~ .view .map .grid.tree, #grid_1_0:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_1_0:checked ~ .view .map .grid [for=key_1_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_1_0:checked ~ .view .map .grid [data-key="1_0"] {
+  display: none;
+}
+
+#lock_1_0:checked ~ .view .map .grid [for=lock_1_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_1_0:checked ~ .view .character {
+  animation: animate-character_1_0 1024ms step-end;
+}
+
+@keyframes animate-character_1_0 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_1_1:checked ~ .view .map {
+  transform: translateX(-25vmin) translateY(-25vmin);
+}
+#grid_1_1:checked ~ .view .map .grid[for=grid_2_1],
+#grid_1_1:checked ~ .view .map .grid[for=grid_0_1],
+#grid_1_1:checked ~ .view .map .grid[for=grid_1_2],
+#grid_1_1:checked ~ .view .map .grid[for=grid_1_0] {
+  pointer-events: auto;
+}
+#grid_1_1:checked ~ .view .map .grid.wall, #grid_1_1:checked ~ .view .map .grid.tree, #grid_1_1:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_1_1:checked ~ .view .map .grid [for=key_1_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_1_1:checked ~ .view .map .grid [data-key="1_1"] {
+  display: none;
+}
+
+#lock_1_1:checked ~ .view .map .grid [for=lock_1_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_1_1:checked ~ .view .character {
+  animation: animate-character_1_1 1024ms step-end;
+}
+
+@keyframes animate-character_1_1 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_1_2:checked ~ .view .map {
+  transform: translateX(-25vmin) translateY(-50vmin);
+}
+#grid_1_2:checked ~ .view .map .grid[for=grid_2_2],
+#grid_1_2:checked ~ .view .map .grid[for=grid_0_2],
+#grid_1_2:checked ~ .view .map .grid[for=grid_1_3],
+#grid_1_2:checked ~ .view .map .grid[for=grid_1_1] {
+  pointer-events: auto;
+}
+#grid_1_2:checked ~ .view .map .grid.wall, #grid_1_2:checked ~ .view .map .grid.tree, #grid_1_2:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_1_2:checked ~ .view .map .grid [for=key_1_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_1_2:checked ~ .view .map .grid [data-key="1_2"] {
+  display: none;
+}
+
+#lock_1_2:checked ~ .view .map .grid [for=lock_1_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_1_2:checked ~ .view .character {
+  animation: animate-character_1_2 1024ms step-end;
+}
+
+@keyframes animate-character_1_2 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_1_3:checked ~ .view .map {
+  transform: translateX(-25vmin) translateY(-75vmin);
+}
+#grid_1_3:checked ~ .view .map .grid[for=grid_2_3],
+#grid_1_3:checked ~ .view .map .grid[for=grid_0_3],
+#grid_1_3:checked ~ .view .map .grid[for=grid_1_4],
+#grid_1_3:checked ~ .view .map .grid[for=grid_1_2] {
+  pointer-events: auto;
+}
+#grid_1_3:checked ~ .view .map .grid.wall, #grid_1_3:checked ~ .view .map .grid.tree, #grid_1_3:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_1_3:checked ~ .view .map .grid [for=key_1_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_1_3:checked ~ .view .map .grid [data-key="1_3"] {
+  display: none;
+}
+
+#lock_1_3:checked ~ .view .map .grid [for=lock_1_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_1_3:checked ~ .view .character {
+  animation: animate-character_1_3 1024ms step-end;
+}
+
+@keyframes animate-character_1_3 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_1_4:checked ~ .view .map {
+  transform: translateX(-25vmin) translateY(-100vmin);
+}
+#grid_1_4:checked ~ .view .map .grid[for=grid_2_4],
+#grid_1_4:checked ~ .view .map .grid[for=grid_0_4],
+#grid_1_4:checked ~ .view .map .grid[for=grid_1_5],
+#grid_1_4:checked ~ .view .map .grid[for=grid_1_3] {
+  pointer-events: auto;
+}
+#grid_1_4:checked ~ .view .map .grid.wall, #grid_1_4:checked ~ .view .map .grid.tree, #grid_1_4:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_1_4:checked ~ .view .map .grid [for=key_1_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_1_4:checked ~ .view .map .grid [data-key="1_4"] {
+  display: none;
+}
+
+#lock_1_4:checked ~ .view .map .grid [for=lock_1_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_1_4:checked ~ .view .character {
+  animation: animate-character_1_4 1024ms step-end;
+}
+
+@keyframes animate-character_1_4 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_1_5:checked ~ .view .map {
+  transform: translateX(-25vmin) translateY(-125vmin);
+}
+#grid_1_5:checked ~ .view .map .grid[for=grid_2_5],
+#grid_1_5:checked ~ .view .map .grid[for=grid_0_5],
+#grid_1_5:checked ~ .view .map .grid[for=grid_1_6],
+#grid_1_5:checked ~ .view .map .grid[for=grid_1_4] {
+  pointer-events: auto;
+}
+#grid_1_5:checked ~ .view .map .grid.wall, #grid_1_5:checked ~ .view .map .grid.tree, #grid_1_5:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_1_5:checked ~ .view .map .grid [for=key_1_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_1_5:checked ~ .view .map .grid [data-key="1_5"] {
+  display: none;
+}
+
+#lock_1_5:checked ~ .view .map .grid [for=lock_1_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_1_5:checked ~ .view .character {
+  animation: animate-character_1_5 1024ms step-end;
+}
+
+@keyframes animate-character_1_5 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_1_6:checked ~ .view .map {
+  transform: translateX(-25vmin) translateY(-150vmin);
+}
+#grid_1_6:checked ~ .view .map .grid[for=grid_2_6],
+#grid_1_6:checked ~ .view .map .grid[for=grid_0_6],
+#grid_1_6:checked ~ .view .map .grid[for=grid_1_7],
+#grid_1_6:checked ~ .view .map .grid[for=grid_1_5] {
+  pointer-events: auto;
+}
+#grid_1_6:checked ~ .view .map .grid.wall, #grid_1_6:checked ~ .view .map .grid.tree, #grid_1_6:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_1_6:checked ~ .view .map .grid [for=key_1_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_1_6:checked ~ .view .map .grid [data-key="1_6"] {
+  display: none;
+}
+
+#lock_1_6:checked ~ .view .map .grid [for=lock_1_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_1_6:checked ~ .view .character {
+  animation: animate-character_1_6 1024ms step-end;
+}
+
+@keyframes animate-character_1_6 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_1_7:checked ~ .view .map {
+  transform: translateX(-25vmin) translateY(-175vmin);
+}
+#grid_1_7:checked ~ .view .map .grid[for=grid_2_7],
+#grid_1_7:checked ~ .view .map .grid[for=grid_0_7],
+#grid_1_7:checked ~ .view .map .grid[for=grid_1_8],
+#grid_1_7:checked ~ .view .map .grid[for=grid_1_6] {
+  pointer-events: auto;
+}
+#grid_1_7:checked ~ .view .map .grid.wall, #grid_1_7:checked ~ .view .map .grid.tree, #grid_1_7:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_1_7:checked ~ .view .map .grid [for=key_1_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_1_7:checked ~ .view .map .grid [data-key="1_7"] {
+  display: none;
+}
+
+#lock_1_7:checked ~ .view .map .grid [for=lock_1_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_1_7:checked ~ .view .character {
+  animation: animate-character_1_7 1024ms step-end;
+}
+
+@keyframes animate-character_1_7 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_1_8:checked ~ .view .map {
+  transform: translateX(-25vmin) translateY(-200vmin);
+}
+#grid_1_8:checked ~ .view .map .grid[for=grid_2_8],
+#grid_1_8:checked ~ .view .map .grid[for=grid_0_8],
+#grid_1_8:checked ~ .view .map .grid[for=grid_1_9],
+#grid_1_8:checked ~ .view .map .grid[for=grid_1_7] {
+  pointer-events: auto;
+}
+#grid_1_8:checked ~ .view .map .grid.wall, #grid_1_8:checked ~ .view .map .grid.tree, #grid_1_8:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_1_8:checked ~ .view .map .grid [for=key_1_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_1_8:checked ~ .view .map .grid [data-key="1_8"] {
+  display: none;
+}
+
+#lock_1_8:checked ~ .view .map .grid [for=lock_1_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_1_8:checked ~ .view .character {
+  animation: animate-character_1_8 1024ms step-end;
+}
+
+@keyframes animate-character_1_8 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_1_9:checked ~ .view .map {
+  transform: translateX(-25vmin) translateY(-225vmin);
+}
+#grid_1_9:checked ~ .view .map .grid[for=grid_2_9],
+#grid_1_9:checked ~ .view .map .grid[for=grid_0_9],
+#grid_1_9:checked ~ .view .map .grid[for=grid_1_10],
+#grid_1_9:checked ~ .view .map .grid[for=grid_1_8] {
+  pointer-events: auto;
+}
+#grid_1_9:checked ~ .view .map .grid.wall, #grid_1_9:checked ~ .view .map .grid.tree, #grid_1_9:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_1_9:checked ~ .view .map .grid [for=key_1_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_1_9:checked ~ .view .map .grid [data-key="1_9"] {
+  display: none;
+}
+
+#lock_1_9:checked ~ .view .map .grid [for=lock_1_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_1_9:checked ~ .view .character {
+  animation: animate-character_1_9 1024ms step-end;
+}
+
+@keyframes animate-character_1_9 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_2_0:checked ~ .view .map {
+  transform: translateX(-50vmin) translateY(0vmin);
+}
+#grid_2_0:checked ~ .view .map .grid[for=grid_3_0],
+#grid_2_0:checked ~ .view .map .grid[for=grid_1_0],
+#grid_2_0:checked ~ .view .map .grid[for=grid_2_1],
+#grid_2_0:checked ~ .view .map .grid[for=grid_2_-1] {
+  pointer-events: auto;
+}
+#grid_2_0:checked ~ .view .map .grid.wall, #grid_2_0:checked ~ .view .map .grid.tree, #grid_2_0:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_2_0:checked ~ .view .map .grid [for=key_2_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_2_0:checked ~ .view .map .grid [data-key="2_0"] {
+  display: none;
+}
+
+#lock_2_0:checked ~ .view .map .grid [for=lock_2_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_2_0:checked ~ .view .character {
+  animation: animate-character_2_0 1024ms step-end;
+}
+
+@keyframes animate-character_2_0 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_2_1:checked ~ .view .map {
+  transform: translateX(-50vmin) translateY(-25vmin);
+}
+#grid_2_1:checked ~ .view .map .grid[for=grid_3_1],
+#grid_2_1:checked ~ .view .map .grid[for=grid_1_1],
+#grid_2_1:checked ~ .view .map .grid[for=grid_2_2],
+#grid_2_1:checked ~ .view .map .grid[for=grid_2_0] {
+  pointer-events: auto;
+}
+#grid_2_1:checked ~ .view .map .grid.wall, #grid_2_1:checked ~ .view .map .grid.tree, #grid_2_1:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_2_1:checked ~ .view .map .grid [for=key_2_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_2_1:checked ~ .view .map .grid [data-key="2_1"] {
+  display: none;
+}
+
+#lock_2_1:checked ~ .view .map .grid [for=lock_2_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_2_1:checked ~ .view .character {
+  animation: animate-character_2_1 1024ms step-end;
+}
+
+@keyframes animate-character_2_1 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_2_2:checked ~ .view .map {
+  transform: translateX(-50vmin) translateY(-50vmin);
+}
+#grid_2_2:checked ~ .view .map .grid[for=grid_3_2],
+#grid_2_2:checked ~ .view .map .grid[for=grid_1_2],
+#grid_2_2:checked ~ .view .map .grid[for=grid_2_3],
+#grid_2_2:checked ~ .view .map .grid[for=grid_2_1] {
+  pointer-events: auto;
+}
+#grid_2_2:checked ~ .view .map .grid.wall, #grid_2_2:checked ~ .view .map .grid.tree, #grid_2_2:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_2_2:checked ~ .view .map .grid [for=key_2_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_2_2:checked ~ .view .map .grid [data-key="2_2"] {
+  display: none;
+}
+
+#lock_2_2:checked ~ .view .map .grid [for=lock_2_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_2_2:checked ~ .view .character {
+  animation: animate-character_2_2 1024ms step-end;
+}
+
+@keyframes animate-character_2_2 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_2_3:checked ~ .view .map {
+  transform: translateX(-50vmin) translateY(-75vmin);
+}
+#grid_2_3:checked ~ .view .map .grid[for=grid_3_3],
+#grid_2_3:checked ~ .view .map .grid[for=grid_1_3],
+#grid_2_3:checked ~ .view .map .grid[for=grid_2_4],
+#grid_2_3:checked ~ .view .map .grid[for=grid_2_2] {
+  pointer-events: auto;
+}
+#grid_2_3:checked ~ .view .map .grid.wall, #grid_2_3:checked ~ .view .map .grid.tree, #grid_2_3:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_2_3:checked ~ .view .map .grid [for=key_2_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_2_3:checked ~ .view .map .grid [data-key="2_3"] {
+  display: none;
+}
+
+#lock_2_3:checked ~ .view .map .grid [for=lock_2_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_2_3:checked ~ .view .character {
+  animation: animate-character_2_3 1024ms step-end;
+}
+
+@keyframes animate-character_2_3 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_2_4:checked ~ .view .map {
+  transform: translateX(-50vmin) translateY(-100vmin);
+}
+#grid_2_4:checked ~ .view .map .grid[for=grid_3_4],
+#grid_2_4:checked ~ .view .map .grid[for=grid_1_4],
+#grid_2_4:checked ~ .view .map .grid[for=grid_2_5],
+#grid_2_4:checked ~ .view .map .grid[for=grid_2_3] {
+  pointer-events: auto;
+}
+#grid_2_4:checked ~ .view .map .grid.wall, #grid_2_4:checked ~ .view .map .grid.tree, #grid_2_4:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_2_4:checked ~ .view .map .grid [for=key_2_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_2_4:checked ~ .view .map .grid [data-key="2_4"] {
+  display: none;
+}
+
+#lock_2_4:checked ~ .view .map .grid [for=lock_2_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_2_4:checked ~ .view .character {
+  animation: animate-character_2_4 1024ms step-end;
+}
+
+@keyframes animate-character_2_4 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_2_5:checked ~ .view .map {
+  transform: translateX(-50vmin) translateY(-125vmin);
+}
+#grid_2_5:checked ~ .view .map .grid[for=grid_3_5],
+#grid_2_5:checked ~ .view .map .grid[for=grid_1_5],
+#grid_2_5:checked ~ .view .map .grid[for=grid_2_6],
+#grid_2_5:checked ~ .view .map .grid[for=grid_2_4] {
+  pointer-events: auto;
+}
+#grid_2_5:checked ~ .view .map .grid.wall, #grid_2_5:checked ~ .view .map .grid.tree, #grid_2_5:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_2_5:checked ~ .view .map .grid [for=key_2_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_2_5:checked ~ .view .map .grid [data-key="2_5"] {
+  display: none;
+}
+
+#lock_2_5:checked ~ .view .map .grid [for=lock_2_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_2_5:checked ~ .view .character {
+  animation: animate-character_2_5 1024ms step-end;
+}
+
+@keyframes animate-character_2_5 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_2_6:checked ~ .view .map {
+  transform: translateX(-50vmin) translateY(-150vmin);
+}
+#grid_2_6:checked ~ .view .map .grid[for=grid_3_6],
+#grid_2_6:checked ~ .view .map .grid[for=grid_1_6],
+#grid_2_6:checked ~ .view .map .grid[for=grid_2_7],
+#grid_2_6:checked ~ .view .map .grid[for=grid_2_5] {
+  pointer-events: auto;
+}
+#grid_2_6:checked ~ .view .map .grid.wall, #grid_2_6:checked ~ .view .map .grid.tree, #grid_2_6:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_2_6:checked ~ .view .map .grid [for=key_2_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_2_6:checked ~ .view .map .grid [data-key="2_6"] {
+  display: none;
+}
+
+#lock_2_6:checked ~ .view .map .grid [for=lock_2_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_2_6:checked ~ .view .character {
+  animation: animate-character_2_6 1024ms step-end;
+}
+
+@keyframes animate-character_2_6 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_2_7:checked ~ .view .map {
+  transform: translateX(-50vmin) translateY(-175vmin);
+}
+#grid_2_7:checked ~ .view .map .grid[for=grid_3_7],
+#grid_2_7:checked ~ .view .map .grid[for=grid_1_7],
+#grid_2_7:checked ~ .view .map .grid[for=grid_2_8],
+#grid_2_7:checked ~ .view .map .grid[for=grid_2_6] {
+  pointer-events: auto;
+}
+#grid_2_7:checked ~ .view .map .grid.wall, #grid_2_7:checked ~ .view .map .grid.tree, #grid_2_7:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_2_7:checked ~ .view .map .grid [for=key_2_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_2_7:checked ~ .view .map .grid [data-key="2_7"] {
+  display: none;
+}
+
+#lock_2_7:checked ~ .view .map .grid [for=lock_2_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_2_7:checked ~ .view .character {
+  animation: animate-character_2_7 1024ms step-end;
+}
+
+@keyframes animate-character_2_7 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_2_8:checked ~ .view .map {
+  transform: translateX(-50vmin) translateY(-200vmin);
+}
+#grid_2_8:checked ~ .view .map .grid[for=grid_3_8],
+#grid_2_8:checked ~ .view .map .grid[for=grid_1_8],
+#grid_2_8:checked ~ .view .map .grid[for=grid_2_9],
+#grid_2_8:checked ~ .view .map .grid[for=grid_2_7] {
+  pointer-events: auto;
+}
+#grid_2_8:checked ~ .view .map .grid.wall, #grid_2_8:checked ~ .view .map .grid.tree, #grid_2_8:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_2_8:checked ~ .view .map .grid [for=key_2_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_2_8:checked ~ .view .map .grid [data-key="2_8"] {
+  display: none;
+}
+
+#lock_2_8:checked ~ .view .map .grid [for=lock_2_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_2_8:checked ~ .view .character {
+  animation: animate-character_2_8 1024ms step-end;
+}
+
+@keyframes animate-character_2_8 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_2_9:checked ~ .view .map {
+  transform: translateX(-50vmin) translateY(-225vmin);
+}
+#grid_2_9:checked ~ .view .map .grid[for=grid_3_9],
+#grid_2_9:checked ~ .view .map .grid[for=grid_1_9],
+#grid_2_9:checked ~ .view .map .grid[for=grid_2_10],
+#grid_2_9:checked ~ .view .map .grid[for=grid_2_8] {
+  pointer-events: auto;
+}
+#grid_2_9:checked ~ .view .map .grid.wall, #grid_2_9:checked ~ .view .map .grid.tree, #grid_2_9:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_2_9:checked ~ .view .map .grid [for=key_2_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_2_9:checked ~ .view .map .grid [data-key="2_9"] {
+  display: none;
+}
+
+#lock_2_9:checked ~ .view .map .grid [for=lock_2_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_2_9:checked ~ .view .character {
+  animation: animate-character_2_9 1024ms step-end;
+}
+
+@keyframes animate-character_2_9 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_3_0:checked ~ .view .map {
+  transform: translateX(-75vmin) translateY(0vmin);
+}
+#grid_3_0:checked ~ .view .map .grid[for=grid_4_0],
+#grid_3_0:checked ~ .view .map .grid[for=grid_2_0],
+#grid_3_0:checked ~ .view .map .grid[for=grid_3_1],
+#grid_3_0:checked ~ .view .map .grid[for=grid_3_-1] {
+  pointer-events: auto;
+}
+#grid_3_0:checked ~ .view .map .grid.wall, #grid_3_0:checked ~ .view .map .grid.tree, #grid_3_0:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_3_0:checked ~ .view .map .grid [for=key_3_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_3_0:checked ~ .view .map .grid [data-key="3_0"] {
+  display: none;
+}
+
+#lock_3_0:checked ~ .view .map .grid [for=lock_3_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_3_0:checked ~ .view .character {
+  animation: animate-character_3_0 1024ms step-end;
+}
+
+@keyframes animate-character_3_0 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_3_1:checked ~ .view .map {
+  transform: translateX(-75vmin) translateY(-25vmin);
+}
+#grid_3_1:checked ~ .view .map .grid[for=grid_4_1],
+#grid_3_1:checked ~ .view .map .grid[for=grid_2_1],
+#grid_3_1:checked ~ .view .map .grid[for=grid_3_2],
+#grid_3_1:checked ~ .view .map .grid[for=grid_3_0] {
+  pointer-events: auto;
+}
+#grid_3_1:checked ~ .view .map .grid.wall, #grid_3_1:checked ~ .view .map .grid.tree, #grid_3_1:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_3_1:checked ~ .view .map .grid [for=key_3_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_3_1:checked ~ .view .map .grid [data-key="3_1"] {
+  display: none;
+}
+
+#lock_3_1:checked ~ .view .map .grid [for=lock_3_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_3_1:checked ~ .view .character {
+  animation: animate-character_3_1 1024ms step-end;
+}
+
+@keyframes animate-character_3_1 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_3_2:checked ~ .view .map {
+  transform: translateX(-75vmin) translateY(-50vmin);
+}
+#grid_3_2:checked ~ .view .map .grid[for=grid_4_2],
+#grid_3_2:checked ~ .view .map .grid[for=grid_2_2],
+#grid_3_2:checked ~ .view .map .grid[for=grid_3_3],
+#grid_3_2:checked ~ .view .map .grid[for=grid_3_1] {
+  pointer-events: auto;
+}
+#grid_3_2:checked ~ .view .map .grid.wall, #grid_3_2:checked ~ .view .map .grid.tree, #grid_3_2:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_3_2:checked ~ .view .map .grid [for=key_3_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_3_2:checked ~ .view .map .grid [data-key="3_2"] {
+  display: none;
+}
+
+#lock_3_2:checked ~ .view .map .grid [for=lock_3_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_3_2:checked ~ .view .character {
+  animation: animate-character_3_2 1024ms step-end;
+}
+
+@keyframes animate-character_3_2 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_3_3:checked ~ .view .map {
+  transform: translateX(-75vmin) translateY(-75vmin);
+}
+#grid_3_3:checked ~ .view .map .grid[for=grid_4_3],
+#grid_3_3:checked ~ .view .map .grid[for=grid_2_3],
+#grid_3_3:checked ~ .view .map .grid[for=grid_3_4],
+#grid_3_3:checked ~ .view .map .grid[for=grid_3_2] {
+  pointer-events: auto;
+}
+#grid_3_3:checked ~ .view .map .grid.wall, #grid_3_3:checked ~ .view .map .grid.tree, #grid_3_3:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_3_3:checked ~ .view .map .grid [for=key_3_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_3_3:checked ~ .view .map .grid [data-key="3_3"] {
+  display: none;
+}
+
+#lock_3_3:checked ~ .view .map .grid [for=lock_3_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_3_3:checked ~ .view .character {
+  animation: animate-character_3_3 1024ms step-end;
+}
+
+@keyframes animate-character_3_3 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_3_4:checked ~ .view .map {
+  transform: translateX(-75vmin) translateY(-100vmin);
+}
+#grid_3_4:checked ~ .view .map .grid[for=grid_4_4],
+#grid_3_4:checked ~ .view .map .grid[for=grid_2_4],
+#grid_3_4:checked ~ .view .map .grid[for=grid_3_5],
+#grid_3_4:checked ~ .view .map .grid[for=grid_3_3] {
+  pointer-events: auto;
+}
+#grid_3_4:checked ~ .view .map .grid.wall, #grid_3_4:checked ~ .view .map .grid.tree, #grid_3_4:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_3_4:checked ~ .view .map .grid [for=key_3_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_3_4:checked ~ .view .map .grid [data-key="3_4"] {
+  display: none;
+}
+
+#lock_3_4:checked ~ .view .map .grid [for=lock_3_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_3_4:checked ~ .view .character {
+  animation: animate-character_3_4 1024ms step-end;
+}
+
+@keyframes animate-character_3_4 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_3_5:checked ~ .view .map {
+  transform: translateX(-75vmin) translateY(-125vmin);
+}
+#grid_3_5:checked ~ .view .map .grid[for=grid_4_5],
+#grid_3_5:checked ~ .view .map .grid[for=grid_2_5],
+#grid_3_5:checked ~ .view .map .grid[for=grid_3_6],
+#grid_3_5:checked ~ .view .map .grid[for=grid_3_4] {
+  pointer-events: auto;
+}
+#grid_3_5:checked ~ .view .map .grid.wall, #grid_3_5:checked ~ .view .map .grid.tree, #grid_3_5:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_3_5:checked ~ .view .map .grid [for=key_3_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_3_5:checked ~ .view .map .grid [data-key="3_5"] {
+  display: none;
+}
+
+#lock_3_5:checked ~ .view .map .grid [for=lock_3_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_3_5:checked ~ .view .character {
+  animation: animate-character_3_5 1024ms step-end;
+}
+
+@keyframes animate-character_3_5 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_3_6:checked ~ .view .map {
+  transform: translateX(-75vmin) translateY(-150vmin);
+}
+#grid_3_6:checked ~ .view .map .grid[for=grid_4_6],
+#grid_3_6:checked ~ .view .map .grid[for=grid_2_6],
+#grid_3_6:checked ~ .view .map .grid[for=grid_3_7],
+#grid_3_6:checked ~ .view .map .grid[for=grid_3_5] {
+  pointer-events: auto;
+}
+#grid_3_6:checked ~ .view .map .grid.wall, #grid_3_6:checked ~ .view .map .grid.tree, #grid_3_6:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_3_6:checked ~ .view .map .grid [for=key_3_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_3_6:checked ~ .view .map .grid [data-key="3_6"] {
+  display: none;
+}
+
+#lock_3_6:checked ~ .view .map .grid [for=lock_3_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_3_6:checked ~ .view .character {
+  animation: animate-character_3_6 1024ms step-end;
+}
+
+@keyframes animate-character_3_6 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_3_7:checked ~ .view .map {
+  transform: translateX(-75vmin) translateY(-175vmin);
+}
+#grid_3_7:checked ~ .view .map .grid[for=grid_4_7],
+#grid_3_7:checked ~ .view .map .grid[for=grid_2_7],
+#grid_3_7:checked ~ .view .map .grid[for=grid_3_8],
+#grid_3_7:checked ~ .view .map .grid[for=grid_3_6] {
+  pointer-events: auto;
+}
+#grid_3_7:checked ~ .view .map .grid.wall, #grid_3_7:checked ~ .view .map .grid.tree, #grid_3_7:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_3_7:checked ~ .view .map .grid [for=key_3_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_3_7:checked ~ .view .map .grid [data-key="3_7"] {
+  display: none;
+}
+
+#lock_3_7:checked ~ .view .map .grid [for=lock_3_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_3_7:checked ~ .view .character {
+  animation: animate-character_3_7 1024ms step-end;
+}
+
+@keyframes animate-character_3_7 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_3_8:checked ~ .view .map {
+  transform: translateX(-75vmin) translateY(-200vmin);
+}
+#grid_3_8:checked ~ .view .map .grid[for=grid_4_8],
+#grid_3_8:checked ~ .view .map .grid[for=grid_2_8],
+#grid_3_8:checked ~ .view .map .grid[for=grid_3_9],
+#grid_3_8:checked ~ .view .map .grid[for=grid_3_7] {
+  pointer-events: auto;
+}
+#grid_3_8:checked ~ .view .map .grid.wall, #grid_3_8:checked ~ .view .map .grid.tree, #grid_3_8:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_3_8:checked ~ .view .map .grid [for=key_3_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_3_8:checked ~ .view .map .grid [data-key="3_8"] {
+  display: none;
+}
+
+#lock_3_8:checked ~ .view .map .grid [for=lock_3_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_3_8:checked ~ .view .character {
+  animation: animate-character_3_8 1024ms step-end;
+}
+
+@keyframes animate-character_3_8 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_3_9:checked ~ .view .map {
+  transform: translateX(-75vmin) translateY(-225vmin);
+}
+#grid_3_9:checked ~ .view .map .grid[for=grid_4_9],
+#grid_3_9:checked ~ .view .map .grid[for=grid_2_9],
+#grid_3_9:checked ~ .view .map .grid[for=grid_3_10],
+#grid_3_9:checked ~ .view .map .grid[for=grid_3_8] {
+  pointer-events: auto;
+}
+#grid_3_9:checked ~ .view .map .grid.wall, #grid_3_9:checked ~ .view .map .grid.tree, #grid_3_9:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_3_9:checked ~ .view .map .grid [for=key_3_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_3_9:checked ~ .view .map .grid [data-key="3_9"] {
+  display: none;
+}
+
+#lock_3_9:checked ~ .view .map .grid [for=lock_3_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_3_9:checked ~ .view .character {
+  animation: animate-character_3_9 1024ms step-end;
+}
+
+@keyframes animate-character_3_9 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_4_0:checked ~ .view .map {
+  transform: translateX(-100vmin) translateY(0vmin);
+}
+#grid_4_0:checked ~ .view .map .grid[for=grid_5_0],
+#grid_4_0:checked ~ .view .map .grid[for=grid_3_0],
+#grid_4_0:checked ~ .view .map .grid[for=grid_4_1],
+#grid_4_0:checked ~ .view .map .grid[for=grid_4_-1] {
+  pointer-events: auto;
+}
+#grid_4_0:checked ~ .view .map .grid.wall, #grid_4_0:checked ~ .view .map .grid.tree, #grid_4_0:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_4_0:checked ~ .view .map .grid [for=key_4_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_4_0:checked ~ .view .map .grid [data-key="4_0"] {
+  display: none;
+}
+
+#lock_4_0:checked ~ .view .map .grid [for=lock_4_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_4_0:checked ~ .view .character {
+  animation: animate-character_4_0 1024ms step-end;
+}
+
+@keyframes animate-character_4_0 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_4_1:checked ~ .view .map {
+  transform: translateX(-100vmin) translateY(-25vmin);
+}
+#grid_4_1:checked ~ .view .map .grid[for=grid_5_1],
+#grid_4_1:checked ~ .view .map .grid[for=grid_3_1],
+#grid_4_1:checked ~ .view .map .grid[for=grid_4_2],
+#grid_4_1:checked ~ .view .map .grid[for=grid_4_0] {
+  pointer-events: auto;
+}
+#grid_4_1:checked ~ .view .map .grid.wall, #grid_4_1:checked ~ .view .map .grid.tree, #grid_4_1:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_4_1:checked ~ .view .map .grid [for=key_4_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_4_1:checked ~ .view .map .grid [data-key="4_1"] {
+  display: none;
+}
+
+#lock_4_1:checked ~ .view .map .grid [for=lock_4_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_4_1:checked ~ .view .character {
+  animation: animate-character_4_1 1024ms step-end;
+}
+
+@keyframes animate-character_4_1 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_4_2:checked ~ .view .map {
+  transform: translateX(-100vmin) translateY(-50vmin);
+}
+#grid_4_2:checked ~ .view .map .grid[for=grid_5_2],
+#grid_4_2:checked ~ .view .map .grid[for=grid_3_2],
+#grid_4_2:checked ~ .view .map .grid[for=grid_4_3],
+#grid_4_2:checked ~ .view .map .grid[for=grid_4_1] {
+  pointer-events: auto;
+}
+#grid_4_2:checked ~ .view .map .grid.wall, #grid_4_2:checked ~ .view .map .grid.tree, #grid_4_2:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_4_2:checked ~ .view .map .grid [for=key_4_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_4_2:checked ~ .view .map .grid [data-key="4_2"] {
+  display: none;
+}
+
+#lock_4_2:checked ~ .view .map .grid [for=lock_4_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_4_2:checked ~ .view .character {
+  animation: animate-character_4_2 1024ms step-end;
+}
+
+@keyframes animate-character_4_2 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_4_3:checked ~ .view .map {
+  transform: translateX(-100vmin) translateY(-75vmin);
+}
+#grid_4_3:checked ~ .view .map .grid[for=grid_5_3],
+#grid_4_3:checked ~ .view .map .grid[for=grid_3_3],
+#grid_4_3:checked ~ .view .map .grid[for=grid_4_4],
+#grid_4_3:checked ~ .view .map .grid[for=grid_4_2] {
+  pointer-events: auto;
+}
+#grid_4_3:checked ~ .view .map .grid.wall, #grid_4_3:checked ~ .view .map .grid.tree, #grid_4_3:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_4_3:checked ~ .view .map .grid [for=key_4_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_4_3:checked ~ .view .map .grid [data-key="4_3"] {
+  display: none;
+}
+
+#lock_4_3:checked ~ .view .map .grid [for=lock_4_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_4_3:checked ~ .view .character {
+  animation: animate-character_4_3 1024ms step-end;
+}
+
+@keyframes animate-character_4_3 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_4_4:checked ~ .view .map {
+  transform: translateX(-100vmin) translateY(-100vmin);
+}
+#grid_4_4:checked ~ .view .map .grid[for=grid_5_4],
+#grid_4_4:checked ~ .view .map .grid[for=grid_3_4],
+#grid_4_4:checked ~ .view .map .grid[for=grid_4_5],
+#grid_4_4:checked ~ .view .map .grid[for=grid_4_3] {
+  pointer-events: auto;
+}
+#grid_4_4:checked ~ .view .map .grid.wall, #grid_4_4:checked ~ .view .map .grid.tree, #grid_4_4:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_4_4:checked ~ .view .map .grid [for=key_4_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_4_4:checked ~ .view .map .grid [data-key="4_4"] {
+  display: none;
+}
+
+#lock_4_4:checked ~ .view .map .grid [for=lock_4_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_4_4:checked ~ .view .character {
+  animation: animate-character_4_4 1024ms step-end;
+}
+
+@keyframes animate-character_4_4 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_4_5:checked ~ .view .map {
+  transform: translateX(-100vmin) translateY(-125vmin);
+}
+#grid_4_5:checked ~ .view .map .grid[for=grid_5_5],
+#grid_4_5:checked ~ .view .map .grid[for=grid_3_5],
+#grid_4_5:checked ~ .view .map .grid[for=grid_4_6],
+#grid_4_5:checked ~ .view .map .grid[for=grid_4_4] {
+  pointer-events: auto;
+}
+#grid_4_5:checked ~ .view .map .grid.wall, #grid_4_5:checked ~ .view .map .grid.tree, #grid_4_5:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_4_5:checked ~ .view .map .grid [for=key_4_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_4_5:checked ~ .view .map .grid [data-key="4_5"] {
+  display: none;
+}
+
+#lock_4_5:checked ~ .view .map .grid [for=lock_4_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_4_5:checked ~ .view .character {
+  animation: animate-character_4_5 1024ms step-end;
+}
+
+@keyframes animate-character_4_5 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_4_6:checked ~ .view .map {
+  transform: translateX(-100vmin) translateY(-150vmin);
+}
+#grid_4_6:checked ~ .view .map .grid[for=grid_5_6],
+#grid_4_6:checked ~ .view .map .grid[for=grid_3_6],
+#grid_4_6:checked ~ .view .map .grid[for=grid_4_7],
+#grid_4_6:checked ~ .view .map .grid[for=grid_4_5] {
+  pointer-events: auto;
+}
+#grid_4_6:checked ~ .view .map .grid.wall, #grid_4_6:checked ~ .view .map .grid.tree, #grid_4_6:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_4_6:checked ~ .view .map .grid [for=key_4_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_4_6:checked ~ .view .map .grid [data-key="4_6"] {
+  display: none;
+}
+
+#lock_4_6:checked ~ .view .map .grid [for=lock_4_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_4_6:checked ~ .view .character {
+  animation: animate-character_4_6 1024ms step-end;
+}
+
+@keyframes animate-character_4_6 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_4_7:checked ~ .view .map {
+  transform: translateX(-100vmin) translateY(-175vmin);
+}
+#grid_4_7:checked ~ .view .map .grid[for=grid_5_7],
+#grid_4_7:checked ~ .view .map .grid[for=grid_3_7],
+#grid_4_7:checked ~ .view .map .grid[for=grid_4_8],
+#grid_4_7:checked ~ .view .map .grid[for=grid_4_6] {
+  pointer-events: auto;
+}
+#grid_4_7:checked ~ .view .map .grid.wall, #grid_4_7:checked ~ .view .map .grid.tree, #grid_4_7:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_4_7:checked ~ .view .map .grid [for=key_4_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_4_7:checked ~ .view .map .grid [data-key="4_7"] {
+  display: none;
+}
+
+#lock_4_7:checked ~ .view .map .grid [for=lock_4_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_4_7:checked ~ .view .character {
+  animation: animate-character_4_7 1024ms step-end;
+}
+
+@keyframes animate-character_4_7 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_4_8:checked ~ .view .map {
+  transform: translateX(-100vmin) translateY(-200vmin);
+}
+#grid_4_8:checked ~ .view .map .grid[for=grid_5_8],
+#grid_4_8:checked ~ .view .map .grid[for=grid_3_8],
+#grid_4_8:checked ~ .view .map .grid[for=grid_4_9],
+#grid_4_8:checked ~ .view .map .grid[for=grid_4_7] {
+  pointer-events: auto;
+}
+#grid_4_8:checked ~ .view .map .grid.wall, #grid_4_8:checked ~ .view .map .grid.tree, #grid_4_8:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_4_8:checked ~ .view .map .grid [for=key_4_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_4_8:checked ~ .view .map .grid [data-key="4_8"] {
+  display: none;
+}
+
+#lock_4_8:checked ~ .view .map .grid [for=lock_4_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_4_8:checked ~ .view .character {
+  animation: animate-character_4_8 1024ms step-end;
+}
+
+@keyframes animate-character_4_8 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_4_9:checked ~ .view .map {
+  transform: translateX(-100vmin) translateY(-225vmin);
+}
+#grid_4_9:checked ~ .view .map .grid[for=grid_5_9],
+#grid_4_9:checked ~ .view .map .grid[for=grid_3_9],
+#grid_4_9:checked ~ .view .map .grid[for=grid_4_10],
+#grid_4_9:checked ~ .view .map .grid[for=grid_4_8] {
+  pointer-events: auto;
+}
+#grid_4_9:checked ~ .view .map .grid.wall, #grid_4_9:checked ~ .view .map .grid.tree, #grid_4_9:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_4_9:checked ~ .view .map .grid [for=key_4_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_4_9:checked ~ .view .map .grid [data-key="4_9"] {
+  display: none;
+}
+
+#lock_4_9:checked ~ .view .map .grid [for=lock_4_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_4_9:checked ~ .view .character {
+  animation: animate-character_4_9 1024ms step-end;
+}
+
+@keyframes animate-character_4_9 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_5_0:checked ~ .view .map {
+  transform: translateX(-125vmin) translateY(0vmin);
+}
+#grid_5_0:checked ~ .view .map .grid[for=grid_6_0],
+#grid_5_0:checked ~ .view .map .grid[for=grid_4_0],
+#grid_5_0:checked ~ .view .map .grid[for=grid_5_1],
+#grid_5_0:checked ~ .view .map .grid[for=grid_5_-1] {
+  pointer-events: auto;
+}
+#grid_5_0:checked ~ .view .map .grid.wall, #grid_5_0:checked ~ .view .map .grid.tree, #grid_5_0:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_5_0:checked ~ .view .map .grid [for=key_5_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_5_0:checked ~ .view .map .grid [data-key="5_0"] {
+  display: none;
+}
+
+#lock_5_0:checked ~ .view .map .grid [for=lock_5_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_5_0:checked ~ .view .character {
+  animation: animate-character_5_0 1024ms step-end;
+}
+
+@keyframes animate-character_5_0 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_5_1:checked ~ .view .map {
+  transform: translateX(-125vmin) translateY(-25vmin);
+}
+#grid_5_1:checked ~ .view .map .grid[for=grid_6_1],
+#grid_5_1:checked ~ .view .map .grid[for=grid_4_1],
+#grid_5_1:checked ~ .view .map .grid[for=grid_5_2],
+#grid_5_1:checked ~ .view .map .grid[for=grid_5_0] {
+  pointer-events: auto;
+}
+#grid_5_1:checked ~ .view .map .grid.wall, #grid_5_1:checked ~ .view .map .grid.tree, #grid_5_1:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_5_1:checked ~ .view .map .grid [for=key_5_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_5_1:checked ~ .view .map .grid [data-key="5_1"] {
+  display: none;
+}
+
+#lock_5_1:checked ~ .view .map .grid [for=lock_5_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_5_1:checked ~ .view .character {
+  animation: animate-character_5_1 1024ms step-end;
+}
+
+@keyframes animate-character_5_1 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_5_2:checked ~ .view .map {
+  transform: translateX(-125vmin) translateY(-50vmin);
+}
+#grid_5_2:checked ~ .view .map .grid[for=grid_6_2],
+#grid_5_2:checked ~ .view .map .grid[for=grid_4_2],
+#grid_5_2:checked ~ .view .map .grid[for=grid_5_3],
+#grid_5_2:checked ~ .view .map .grid[for=grid_5_1] {
+  pointer-events: auto;
+}
+#grid_5_2:checked ~ .view .map .grid.wall, #grid_5_2:checked ~ .view .map .grid.tree, #grid_5_2:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_5_2:checked ~ .view .map .grid [for=key_5_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_5_2:checked ~ .view .map .grid [data-key="5_2"] {
+  display: none;
+}
+
+#lock_5_2:checked ~ .view .map .grid [for=lock_5_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_5_2:checked ~ .view .character {
+  animation: animate-character_5_2 1024ms step-end;
+}
+
+@keyframes animate-character_5_2 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_5_3:checked ~ .view .map {
+  transform: translateX(-125vmin) translateY(-75vmin);
+}
+#grid_5_3:checked ~ .view .map .grid[for=grid_6_3],
+#grid_5_3:checked ~ .view .map .grid[for=grid_4_3],
+#grid_5_3:checked ~ .view .map .grid[for=grid_5_4],
+#grid_5_3:checked ~ .view .map .grid[for=grid_5_2] {
+  pointer-events: auto;
+}
+#grid_5_3:checked ~ .view .map .grid.wall, #grid_5_3:checked ~ .view .map .grid.tree, #grid_5_3:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_5_3:checked ~ .view .map .grid [for=key_5_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_5_3:checked ~ .view .map .grid [data-key="5_3"] {
+  display: none;
+}
+
+#lock_5_3:checked ~ .view .map .grid [for=lock_5_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_5_3:checked ~ .view .character {
+  animation: animate-character_5_3 1024ms step-end;
+}
+
+@keyframes animate-character_5_3 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_5_4:checked ~ .view .map {
+  transform: translateX(-125vmin) translateY(-100vmin);
+}
+#grid_5_4:checked ~ .view .map .grid[for=grid_6_4],
+#grid_5_4:checked ~ .view .map .grid[for=grid_4_4],
+#grid_5_4:checked ~ .view .map .grid[for=grid_5_5],
+#grid_5_4:checked ~ .view .map .grid[for=grid_5_3] {
+  pointer-events: auto;
+}
+#grid_5_4:checked ~ .view .map .grid.wall, #grid_5_4:checked ~ .view .map .grid.tree, #grid_5_4:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_5_4:checked ~ .view .map .grid [for=key_5_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_5_4:checked ~ .view .map .grid [data-key="5_4"] {
+  display: none;
+}
+
+#lock_5_4:checked ~ .view .map .grid [for=lock_5_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_5_4:checked ~ .view .character {
+  animation: animate-character_5_4 1024ms step-end;
+}
+
+@keyframes animate-character_5_4 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_5_5:checked ~ .view .map {
+  transform: translateX(-125vmin) translateY(-125vmin);
+}
+#grid_5_5:checked ~ .view .map .grid[for=grid_6_5],
+#grid_5_5:checked ~ .view .map .grid[for=grid_4_5],
+#grid_5_5:checked ~ .view .map .grid[for=grid_5_6],
+#grid_5_5:checked ~ .view .map .grid[for=grid_5_4] {
+  pointer-events: auto;
+}
+#grid_5_5:checked ~ .view .map .grid.wall, #grid_5_5:checked ~ .view .map .grid.tree, #grid_5_5:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_5_5:checked ~ .view .map .grid [for=key_5_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_5_5:checked ~ .view .map .grid [data-key="5_5"] {
+  display: none;
+}
+
+#lock_5_5:checked ~ .view .map .grid [for=lock_5_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_5_5:checked ~ .view .character {
+  animation: animate-character_5_5 1024ms step-end;
+}
+
+@keyframes animate-character_5_5 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_5_6:checked ~ .view .map {
+  transform: translateX(-125vmin) translateY(-150vmin);
+}
+#grid_5_6:checked ~ .view .map .grid[for=grid_6_6],
+#grid_5_6:checked ~ .view .map .grid[for=grid_4_6],
+#grid_5_6:checked ~ .view .map .grid[for=grid_5_7],
+#grid_5_6:checked ~ .view .map .grid[for=grid_5_5] {
+  pointer-events: auto;
+}
+#grid_5_6:checked ~ .view .map .grid.wall, #grid_5_6:checked ~ .view .map .grid.tree, #grid_5_6:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_5_6:checked ~ .view .map .grid [for=key_5_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_5_6:checked ~ .view .map .grid [data-key="5_6"] {
+  display: none;
+}
+
+#lock_5_6:checked ~ .view .map .grid [for=lock_5_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_5_6:checked ~ .view .character {
+  animation: animate-character_5_6 1024ms step-end;
+}
+
+@keyframes animate-character_5_6 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_5_7:checked ~ .view .map {
+  transform: translateX(-125vmin) translateY(-175vmin);
+}
+#grid_5_7:checked ~ .view .map .grid[for=grid_6_7],
+#grid_5_7:checked ~ .view .map .grid[for=grid_4_7],
+#grid_5_7:checked ~ .view .map .grid[for=grid_5_8],
+#grid_5_7:checked ~ .view .map .grid[for=grid_5_6] {
+  pointer-events: auto;
+}
+#grid_5_7:checked ~ .view .map .grid.wall, #grid_5_7:checked ~ .view .map .grid.tree, #grid_5_7:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_5_7:checked ~ .view .map .grid [for=key_5_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_5_7:checked ~ .view .map .grid [data-key="5_7"] {
+  display: none;
+}
+
+#lock_5_7:checked ~ .view .map .grid [for=lock_5_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_5_7:checked ~ .view .character {
+  animation: animate-character_5_7 1024ms step-end;
+}
+
+@keyframes animate-character_5_7 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_5_8:checked ~ .view .map {
+  transform: translateX(-125vmin) translateY(-200vmin);
+}
+#grid_5_8:checked ~ .view .map .grid[for=grid_6_8],
+#grid_5_8:checked ~ .view .map .grid[for=grid_4_8],
+#grid_5_8:checked ~ .view .map .grid[for=grid_5_9],
+#grid_5_8:checked ~ .view .map .grid[for=grid_5_7] {
+  pointer-events: auto;
+}
+#grid_5_8:checked ~ .view .map .grid.wall, #grid_5_8:checked ~ .view .map .grid.tree, #grid_5_8:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_5_8:checked ~ .view .map .grid [for=key_5_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_5_8:checked ~ .view .map .grid [data-key="5_8"] {
+  display: none;
+}
+
+#lock_5_8:checked ~ .view .map .grid [for=lock_5_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_5_8:checked ~ .view .character {
+  animation: animate-character_5_8 1024ms step-end;
+}
+
+@keyframes animate-character_5_8 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_5_9:checked ~ .view .map {
+  transform: translateX(-125vmin) translateY(-225vmin);
+}
+#grid_5_9:checked ~ .view .map .grid[for=grid_6_9],
+#grid_5_9:checked ~ .view .map .grid[for=grid_4_9],
+#grid_5_9:checked ~ .view .map .grid[for=grid_5_10],
+#grid_5_9:checked ~ .view .map .grid[for=grid_5_8] {
+  pointer-events: auto;
+}
+#grid_5_9:checked ~ .view .map .grid.wall, #grid_5_9:checked ~ .view .map .grid.tree, #grid_5_9:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_5_9:checked ~ .view .map .grid [for=key_5_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_5_9:checked ~ .view .map .grid [data-key="5_9"] {
+  display: none;
+}
+
+#lock_5_9:checked ~ .view .map .grid [for=lock_5_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_5_9:checked ~ .view .character {
+  animation: animate-character_5_9 1024ms step-end;
+}
+
+@keyframes animate-character_5_9 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_6_0:checked ~ .view .map {
+  transform: translateX(-150vmin) translateY(0vmin);
+}
+#grid_6_0:checked ~ .view .map .grid[for=grid_7_0],
+#grid_6_0:checked ~ .view .map .grid[for=grid_5_0],
+#grid_6_0:checked ~ .view .map .grid[for=grid_6_1],
+#grid_6_0:checked ~ .view .map .grid[for=grid_6_-1] {
+  pointer-events: auto;
+}
+#grid_6_0:checked ~ .view .map .grid.wall, #grid_6_0:checked ~ .view .map .grid.tree, #grid_6_0:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_6_0:checked ~ .view .map .grid [for=key_6_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_6_0:checked ~ .view .map .grid [data-key="6_0"] {
+  display: none;
+}
+
+#lock_6_0:checked ~ .view .map .grid [for=lock_6_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_6_0:checked ~ .view .character {
+  animation: animate-character_6_0 1024ms step-end;
+}
+
+@keyframes animate-character_6_0 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_6_1:checked ~ .view .map {
+  transform: translateX(-150vmin) translateY(-25vmin);
+}
+#grid_6_1:checked ~ .view .map .grid[for=grid_7_1],
+#grid_6_1:checked ~ .view .map .grid[for=grid_5_1],
+#grid_6_1:checked ~ .view .map .grid[for=grid_6_2],
+#grid_6_1:checked ~ .view .map .grid[for=grid_6_0] {
+  pointer-events: auto;
+}
+#grid_6_1:checked ~ .view .map .grid.wall, #grid_6_1:checked ~ .view .map .grid.tree, #grid_6_1:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_6_1:checked ~ .view .map .grid [for=key_6_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_6_1:checked ~ .view .map .grid [data-key="6_1"] {
+  display: none;
+}
+
+#lock_6_1:checked ~ .view .map .grid [for=lock_6_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_6_1:checked ~ .view .character {
+  animation: animate-character_6_1 1024ms step-end;
+}
+
+@keyframes animate-character_6_1 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_6_2:checked ~ .view .map {
+  transform: translateX(-150vmin) translateY(-50vmin);
+}
+#grid_6_2:checked ~ .view .map .grid[for=grid_7_2],
+#grid_6_2:checked ~ .view .map .grid[for=grid_5_2],
+#grid_6_2:checked ~ .view .map .grid[for=grid_6_3],
+#grid_6_2:checked ~ .view .map .grid[for=grid_6_1] {
+  pointer-events: auto;
+}
+#grid_6_2:checked ~ .view .map .grid.wall, #grid_6_2:checked ~ .view .map .grid.tree, #grid_6_2:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_6_2:checked ~ .view .map .grid [for=key_6_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_6_2:checked ~ .view .map .grid [data-key="6_2"] {
+  display: none;
+}
+
+#lock_6_2:checked ~ .view .map .grid [for=lock_6_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_6_2:checked ~ .view .character {
+  animation: animate-character_6_2 1024ms step-end;
+}
+
+@keyframes animate-character_6_2 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_6_3:checked ~ .view .map {
+  transform: translateX(-150vmin) translateY(-75vmin);
+}
+#grid_6_3:checked ~ .view .map .grid[for=grid_7_3],
+#grid_6_3:checked ~ .view .map .grid[for=grid_5_3],
+#grid_6_3:checked ~ .view .map .grid[for=grid_6_4],
+#grid_6_3:checked ~ .view .map .grid[for=grid_6_2] {
+  pointer-events: auto;
+}
+#grid_6_3:checked ~ .view .map .grid.wall, #grid_6_3:checked ~ .view .map .grid.tree, #grid_6_3:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_6_3:checked ~ .view .map .grid [for=key_6_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_6_3:checked ~ .view .map .grid [data-key="6_3"] {
+  display: none;
+}
+
+#lock_6_3:checked ~ .view .map .grid [for=lock_6_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_6_3:checked ~ .view .character {
+  animation: animate-character_6_3 1024ms step-end;
+}
+
+@keyframes animate-character_6_3 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_6_4:checked ~ .view .map {
+  transform: translateX(-150vmin) translateY(-100vmin);
+}
+#grid_6_4:checked ~ .view .map .grid[for=grid_7_4],
+#grid_6_4:checked ~ .view .map .grid[for=grid_5_4],
+#grid_6_4:checked ~ .view .map .grid[for=grid_6_5],
+#grid_6_4:checked ~ .view .map .grid[for=grid_6_3] {
+  pointer-events: auto;
+}
+#grid_6_4:checked ~ .view .map .grid.wall, #grid_6_4:checked ~ .view .map .grid.tree, #grid_6_4:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_6_4:checked ~ .view .map .grid [for=key_6_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_6_4:checked ~ .view .map .grid [data-key="6_4"] {
+  display: none;
+}
+
+#lock_6_4:checked ~ .view .map .grid [for=lock_6_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_6_4:checked ~ .view .character {
+  animation: animate-character_6_4 1024ms step-end;
+}
+
+@keyframes animate-character_6_4 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_6_5:checked ~ .view .map {
+  transform: translateX(-150vmin) translateY(-125vmin);
+}
+#grid_6_5:checked ~ .view .map .grid[for=grid_7_5],
+#grid_6_5:checked ~ .view .map .grid[for=grid_5_5],
+#grid_6_5:checked ~ .view .map .grid[for=grid_6_6],
+#grid_6_5:checked ~ .view .map .grid[for=grid_6_4] {
+  pointer-events: auto;
+}
+#grid_6_5:checked ~ .view .map .grid.wall, #grid_6_5:checked ~ .view .map .grid.tree, #grid_6_5:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_6_5:checked ~ .view .map .grid [for=key_6_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_6_5:checked ~ .view .map .grid [data-key="6_5"] {
+  display: none;
+}
+
+#lock_6_5:checked ~ .view .map .grid [for=lock_6_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_6_5:checked ~ .view .character {
+  animation: animate-character_6_5 1024ms step-end;
+}
+
+@keyframes animate-character_6_5 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_6_6:checked ~ .view .map {
+  transform: translateX(-150vmin) translateY(-150vmin);
+}
+#grid_6_6:checked ~ .view .map .grid[for=grid_7_6],
+#grid_6_6:checked ~ .view .map .grid[for=grid_5_6],
+#grid_6_6:checked ~ .view .map .grid[for=grid_6_7],
+#grid_6_6:checked ~ .view .map .grid[for=grid_6_5] {
+  pointer-events: auto;
+}
+#grid_6_6:checked ~ .view .map .grid.wall, #grid_6_6:checked ~ .view .map .grid.tree, #grid_6_6:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_6_6:checked ~ .view .map .grid [for=key_6_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_6_6:checked ~ .view .map .grid [data-key="6_6"] {
+  display: none;
+}
+
+#lock_6_6:checked ~ .view .map .grid [for=lock_6_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_6_6:checked ~ .view .character {
+  animation: animate-character_6_6 1024ms step-end;
+}
+
+@keyframes animate-character_6_6 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_6_7:checked ~ .view .map {
+  transform: translateX(-150vmin) translateY(-175vmin);
+}
+#grid_6_7:checked ~ .view .map .grid[for=grid_7_7],
+#grid_6_7:checked ~ .view .map .grid[for=grid_5_7],
+#grid_6_7:checked ~ .view .map .grid[for=grid_6_8],
+#grid_6_7:checked ~ .view .map .grid[for=grid_6_6] {
+  pointer-events: auto;
+}
+#grid_6_7:checked ~ .view .map .grid.wall, #grid_6_7:checked ~ .view .map .grid.tree, #grid_6_7:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_6_7:checked ~ .view .map .grid [for=key_6_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_6_7:checked ~ .view .map .grid [data-key="6_7"] {
+  display: none;
+}
+
+#lock_6_7:checked ~ .view .map .grid [for=lock_6_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_6_7:checked ~ .view .character {
+  animation: animate-character_6_7 1024ms step-end;
+}
+
+@keyframes animate-character_6_7 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_6_8:checked ~ .view .map {
+  transform: translateX(-150vmin) translateY(-200vmin);
+}
+#grid_6_8:checked ~ .view .map .grid[for=grid_7_8],
+#grid_6_8:checked ~ .view .map .grid[for=grid_5_8],
+#grid_6_8:checked ~ .view .map .grid[for=grid_6_9],
+#grid_6_8:checked ~ .view .map .grid[for=grid_6_7] {
+  pointer-events: auto;
+}
+#grid_6_8:checked ~ .view .map .grid.wall, #grid_6_8:checked ~ .view .map .grid.tree, #grid_6_8:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_6_8:checked ~ .view .map .grid [for=key_6_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_6_8:checked ~ .view .map .grid [data-key="6_8"] {
+  display: none;
+}
+
+#lock_6_8:checked ~ .view .map .grid [for=lock_6_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_6_8:checked ~ .view .character {
+  animation: animate-character_6_8 1024ms step-end;
+}
+
+@keyframes animate-character_6_8 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_6_9:checked ~ .view .map {
+  transform: translateX(-150vmin) translateY(-225vmin);
+}
+#grid_6_9:checked ~ .view .map .grid[for=grid_7_9],
+#grid_6_9:checked ~ .view .map .grid[for=grid_5_9],
+#grid_6_9:checked ~ .view .map .grid[for=grid_6_10],
+#grid_6_9:checked ~ .view .map .grid[for=grid_6_8] {
+  pointer-events: auto;
+}
+#grid_6_9:checked ~ .view .map .grid.wall, #grid_6_9:checked ~ .view .map .grid.tree, #grid_6_9:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_6_9:checked ~ .view .map .grid [for=key_6_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_6_9:checked ~ .view .map .grid [data-key="6_9"] {
+  display: none;
+}
+
+#lock_6_9:checked ~ .view .map .grid [for=lock_6_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_6_9:checked ~ .view .character {
+  animation: animate-character_6_9 1024ms step-end;
+}
+
+@keyframes animate-character_6_9 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_7_0:checked ~ .view .map {
+  transform: translateX(-175vmin) translateY(0vmin);
+}
+#grid_7_0:checked ~ .view .map .grid[for=grid_8_0],
+#grid_7_0:checked ~ .view .map .grid[for=grid_6_0],
+#grid_7_0:checked ~ .view .map .grid[for=grid_7_1],
+#grid_7_0:checked ~ .view .map .grid[for=grid_7_-1] {
+  pointer-events: auto;
+}
+#grid_7_0:checked ~ .view .map .grid.wall, #grid_7_0:checked ~ .view .map .grid.tree, #grid_7_0:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_7_0:checked ~ .view .map .grid [for=key_7_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_7_0:checked ~ .view .map .grid [data-key="7_0"] {
+  display: none;
+}
+
+#lock_7_0:checked ~ .view .map .grid [for=lock_7_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_7_0:checked ~ .view .character {
+  animation: animate-character_7_0 1024ms step-end;
+}
+
+@keyframes animate-character_7_0 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_7_1:checked ~ .view .map {
+  transform: translateX(-175vmin) translateY(-25vmin);
+}
+#grid_7_1:checked ~ .view .map .grid[for=grid_8_1],
+#grid_7_1:checked ~ .view .map .grid[for=grid_6_1],
+#grid_7_1:checked ~ .view .map .grid[for=grid_7_2],
+#grid_7_1:checked ~ .view .map .grid[for=grid_7_0] {
+  pointer-events: auto;
+}
+#grid_7_1:checked ~ .view .map .grid.wall, #grid_7_1:checked ~ .view .map .grid.tree, #grid_7_1:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_7_1:checked ~ .view .map .grid [for=key_7_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_7_1:checked ~ .view .map .grid [data-key="7_1"] {
+  display: none;
+}
+
+#lock_7_1:checked ~ .view .map .grid [for=lock_7_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_7_1:checked ~ .view .character {
+  animation: animate-character_7_1 1024ms step-end;
+}
+
+@keyframes animate-character_7_1 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_7_2:checked ~ .view .map {
+  transform: translateX(-175vmin) translateY(-50vmin);
+}
+#grid_7_2:checked ~ .view .map .grid[for=grid_8_2],
+#grid_7_2:checked ~ .view .map .grid[for=grid_6_2],
+#grid_7_2:checked ~ .view .map .grid[for=grid_7_3],
+#grid_7_2:checked ~ .view .map .grid[for=grid_7_1] {
+  pointer-events: auto;
+}
+#grid_7_2:checked ~ .view .map .grid.wall, #grid_7_2:checked ~ .view .map .grid.tree, #grid_7_2:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_7_2:checked ~ .view .map .grid [for=key_7_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_7_2:checked ~ .view .map .grid [data-key="7_2"] {
+  display: none;
+}
+
+#lock_7_2:checked ~ .view .map .grid [for=lock_7_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_7_2:checked ~ .view .character {
+  animation: animate-character_7_2 1024ms step-end;
+}
+
+@keyframes animate-character_7_2 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_7_3:checked ~ .view .map {
+  transform: translateX(-175vmin) translateY(-75vmin);
+}
+#grid_7_3:checked ~ .view .map .grid[for=grid_8_3],
+#grid_7_3:checked ~ .view .map .grid[for=grid_6_3],
+#grid_7_3:checked ~ .view .map .grid[for=grid_7_4],
+#grid_7_3:checked ~ .view .map .grid[for=grid_7_2] {
+  pointer-events: auto;
+}
+#grid_7_3:checked ~ .view .map .grid.wall, #grid_7_3:checked ~ .view .map .grid.tree, #grid_7_3:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_7_3:checked ~ .view .map .grid [for=key_7_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_7_3:checked ~ .view .map .grid [data-key="7_3"] {
+  display: none;
+}
+
+#lock_7_3:checked ~ .view .map .grid [for=lock_7_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_7_3:checked ~ .view .character {
+  animation: animate-character_7_3 1024ms step-end;
+}
+
+@keyframes animate-character_7_3 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_7_4:checked ~ .view .map {
+  transform: translateX(-175vmin) translateY(-100vmin);
+}
+#grid_7_4:checked ~ .view .map .grid[for=grid_8_4],
+#grid_7_4:checked ~ .view .map .grid[for=grid_6_4],
+#grid_7_4:checked ~ .view .map .grid[for=grid_7_5],
+#grid_7_4:checked ~ .view .map .grid[for=grid_7_3] {
+  pointer-events: auto;
+}
+#grid_7_4:checked ~ .view .map .grid.wall, #grid_7_4:checked ~ .view .map .grid.tree, #grid_7_4:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_7_4:checked ~ .view .map .grid [for=key_7_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_7_4:checked ~ .view .map .grid [data-key="7_4"] {
+  display: none;
+}
+
+#lock_7_4:checked ~ .view .map .grid [for=lock_7_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_7_4:checked ~ .view .character {
+  animation: animate-character_7_4 1024ms step-end;
+}
+
+@keyframes animate-character_7_4 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_7_5:checked ~ .view .map {
+  transform: translateX(-175vmin) translateY(-125vmin);
+}
+#grid_7_5:checked ~ .view .map .grid[for=grid_8_5],
+#grid_7_5:checked ~ .view .map .grid[for=grid_6_5],
+#grid_7_5:checked ~ .view .map .grid[for=grid_7_6],
+#grid_7_5:checked ~ .view .map .grid[for=grid_7_4] {
+  pointer-events: auto;
+}
+#grid_7_5:checked ~ .view .map .grid.wall, #grid_7_5:checked ~ .view .map .grid.tree, #grid_7_5:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_7_5:checked ~ .view .map .grid [for=key_7_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_7_5:checked ~ .view .map .grid [data-key="7_5"] {
+  display: none;
+}
+
+#lock_7_5:checked ~ .view .map .grid [for=lock_7_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_7_5:checked ~ .view .character {
+  animation: animate-character_7_5 1024ms step-end;
+}
+
+@keyframes animate-character_7_5 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_7_6:checked ~ .view .map {
+  transform: translateX(-175vmin) translateY(-150vmin);
+}
+#grid_7_6:checked ~ .view .map .grid[for=grid_8_6],
+#grid_7_6:checked ~ .view .map .grid[for=grid_6_6],
+#grid_7_6:checked ~ .view .map .grid[for=grid_7_7],
+#grid_7_6:checked ~ .view .map .grid[for=grid_7_5] {
+  pointer-events: auto;
+}
+#grid_7_6:checked ~ .view .map .grid.wall, #grid_7_6:checked ~ .view .map .grid.tree, #grid_7_6:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_7_6:checked ~ .view .map .grid [for=key_7_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_7_6:checked ~ .view .map .grid [data-key="7_6"] {
+  display: none;
+}
+
+#lock_7_6:checked ~ .view .map .grid [for=lock_7_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_7_6:checked ~ .view .character {
+  animation: animate-character_7_6 1024ms step-end;
+}
+
+@keyframes animate-character_7_6 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_7_7:checked ~ .view .map {
+  transform: translateX(-175vmin) translateY(-175vmin);
+}
+#grid_7_7:checked ~ .view .map .grid[for=grid_8_7],
+#grid_7_7:checked ~ .view .map .grid[for=grid_6_7],
+#grid_7_7:checked ~ .view .map .grid[for=grid_7_8],
+#grid_7_7:checked ~ .view .map .grid[for=grid_7_6] {
+  pointer-events: auto;
+}
+#grid_7_7:checked ~ .view .map .grid.wall, #grid_7_7:checked ~ .view .map .grid.tree, #grid_7_7:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_7_7:checked ~ .view .map .grid [for=key_7_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_7_7:checked ~ .view .map .grid [data-key="7_7"] {
+  display: none;
+}
+
+#lock_7_7:checked ~ .view .map .grid [for=lock_7_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_7_7:checked ~ .view .character {
+  animation: animate-character_7_7 1024ms step-end;
+}
+
+@keyframes animate-character_7_7 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_7_8:checked ~ .view .map {
+  transform: translateX(-175vmin) translateY(-200vmin);
+}
+#grid_7_8:checked ~ .view .map .grid[for=grid_8_8],
+#grid_7_8:checked ~ .view .map .grid[for=grid_6_8],
+#grid_7_8:checked ~ .view .map .grid[for=grid_7_9],
+#grid_7_8:checked ~ .view .map .grid[for=grid_7_7] {
+  pointer-events: auto;
+}
+#grid_7_8:checked ~ .view .map .grid.wall, #grid_7_8:checked ~ .view .map .grid.tree, #grid_7_8:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_7_8:checked ~ .view .map .grid [for=key_7_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_7_8:checked ~ .view .map .grid [data-key="7_8"] {
+  display: none;
+}
+
+#lock_7_8:checked ~ .view .map .grid [for=lock_7_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_7_8:checked ~ .view .character {
+  animation: animate-character_7_8 1024ms step-end;
+}
+
+@keyframes animate-character_7_8 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_7_9:checked ~ .view .map {
+  transform: translateX(-175vmin) translateY(-225vmin);
+}
+#grid_7_9:checked ~ .view .map .grid[for=grid_8_9],
+#grid_7_9:checked ~ .view .map .grid[for=grid_6_9],
+#grid_7_9:checked ~ .view .map .grid[for=grid_7_10],
+#grid_7_9:checked ~ .view .map .grid[for=grid_7_8] {
+  pointer-events: auto;
+}
+#grid_7_9:checked ~ .view .map .grid.wall, #grid_7_9:checked ~ .view .map .grid.tree, #grid_7_9:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_7_9:checked ~ .view .map .grid [for=key_7_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_7_9:checked ~ .view .map .grid [data-key="7_9"] {
+  display: none;
+}
+
+#lock_7_9:checked ~ .view .map .grid [for=lock_7_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_7_9:checked ~ .view .character {
+  animation: animate-character_7_9 1024ms step-end;
+}
+
+@keyframes animate-character_7_9 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_8_0:checked ~ .view .map {
+  transform: translateX(-200vmin) translateY(0vmin);
+}
+#grid_8_0:checked ~ .view .map .grid[for=grid_9_0],
+#grid_8_0:checked ~ .view .map .grid[for=grid_7_0],
+#grid_8_0:checked ~ .view .map .grid[for=grid_8_1],
+#grid_8_0:checked ~ .view .map .grid[for=grid_8_-1] {
+  pointer-events: auto;
+}
+#grid_8_0:checked ~ .view .map .grid.wall, #grid_8_0:checked ~ .view .map .grid.tree, #grid_8_0:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_8_0:checked ~ .view .map .grid [for=key_8_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_8_0:checked ~ .view .map .grid [data-key="8_0"] {
+  display: none;
+}
+
+#lock_8_0:checked ~ .view .map .grid [for=lock_8_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_8_0:checked ~ .view .character {
+  animation: animate-character_8_0 1024ms step-end;
+}
+
+@keyframes animate-character_8_0 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_8_1:checked ~ .view .map {
+  transform: translateX(-200vmin) translateY(-25vmin);
+}
+#grid_8_1:checked ~ .view .map .grid[for=grid_9_1],
+#grid_8_1:checked ~ .view .map .grid[for=grid_7_1],
+#grid_8_1:checked ~ .view .map .grid[for=grid_8_2],
+#grid_8_1:checked ~ .view .map .grid[for=grid_8_0] {
+  pointer-events: auto;
+}
+#grid_8_1:checked ~ .view .map .grid.wall, #grid_8_1:checked ~ .view .map .grid.tree, #grid_8_1:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_8_1:checked ~ .view .map .grid [for=key_8_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_8_1:checked ~ .view .map .grid [data-key="8_1"] {
+  display: none;
+}
+
+#lock_8_1:checked ~ .view .map .grid [for=lock_8_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_8_1:checked ~ .view .character {
+  animation: animate-character_8_1 1024ms step-end;
+}
+
+@keyframes animate-character_8_1 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_8_2:checked ~ .view .map {
+  transform: translateX(-200vmin) translateY(-50vmin);
+}
+#grid_8_2:checked ~ .view .map .grid[for=grid_9_2],
+#grid_8_2:checked ~ .view .map .grid[for=grid_7_2],
+#grid_8_2:checked ~ .view .map .grid[for=grid_8_3],
+#grid_8_2:checked ~ .view .map .grid[for=grid_8_1] {
+  pointer-events: auto;
+}
+#grid_8_2:checked ~ .view .map .grid.wall, #grid_8_2:checked ~ .view .map .grid.tree, #grid_8_2:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_8_2:checked ~ .view .map .grid [for=key_8_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_8_2:checked ~ .view .map .grid [data-key="8_2"] {
+  display: none;
+}
+
+#lock_8_2:checked ~ .view .map .grid [for=lock_8_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_8_2:checked ~ .view .character {
+  animation: animate-character_8_2 1024ms step-end;
+}
+
+@keyframes animate-character_8_2 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_8_3:checked ~ .view .map {
+  transform: translateX(-200vmin) translateY(-75vmin);
+}
+#grid_8_3:checked ~ .view .map .grid[for=grid_9_3],
+#grid_8_3:checked ~ .view .map .grid[for=grid_7_3],
+#grid_8_3:checked ~ .view .map .grid[for=grid_8_4],
+#grid_8_3:checked ~ .view .map .grid[for=grid_8_2] {
+  pointer-events: auto;
+}
+#grid_8_3:checked ~ .view .map .grid.wall, #grid_8_3:checked ~ .view .map .grid.tree, #grid_8_3:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_8_3:checked ~ .view .map .grid [for=key_8_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_8_3:checked ~ .view .map .grid [data-key="8_3"] {
+  display: none;
+}
+
+#lock_8_3:checked ~ .view .map .grid [for=lock_8_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_8_3:checked ~ .view .character {
+  animation: animate-character_8_3 1024ms step-end;
+}
+
+@keyframes animate-character_8_3 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_8_4:checked ~ .view .map {
+  transform: translateX(-200vmin) translateY(-100vmin);
+}
+#grid_8_4:checked ~ .view .map .grid[for=grid_9_4],
+#grid_8_4:checked ~ .view .map .grid[for=grid_7_4],
+#grid_8_4:checked ~ .view .map .grid[for=grid_8_5],
+#grid_8_4:checked ~ .view .map .grid[for=grid_8_3] {
+  pointer-events: auto;
+}
+#grid_8_4:checked ~ .view .map .grid.wall, #grid_8_4:checked ~ .view .map .grid.tree, #grid_8_4:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_8_4:checked ~ .view .map .grid [for=key_8_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_8_4:checked ~ .view .map .grid [data-key="8_4"] {
+  display: none;
+}
+
+#lock_8_4:checked ~ .view .map .grid [for=lock_8_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_8_4:checked ~ .view .character {
+  animation: animate-character_8_4 1024ms step-end;
+}
+
+@keyframes animate-character_8_4 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_8_5:checked ~ .view .map {
+  transform: translateX(-200vmin) translateY(-125vmin);
+}
+#grid_8_5:checked ~ .view .map .grid[for=grid_9_5],
+#grid_8_5:checked ~ .view .map .grid[for=grid_7_5],
+#grid_8_5:checked ~ .view .map .grid[for=grid_8_6],
+#grid_8_5:checked ~ .view .map .grid[for=grid_8_4] {
+  pointer-events: auto;
+}
+#grid_8_5:checked ~ .view .map .grid.wall, #grid_8_5:checked ~ .view .map .grid.tree, #grid_8_5:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_8_5:checked ~ .view .map .grid [for=key_8_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_8_5:checked ~ .view .map .grid [data-key="8_5"] {
+  display: none;
+}
+
+#lock_8_5:checked ~ .view .map .grid [for=lock_8_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_8_5:checked ~ .view .character {
+  animation: animate-character_8_5 1024ms step-end;
+}
+
+@keyframes animate-character_8_5 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_8_6:checked ~ .view .map {
+  transform: translateX(-200vmin) translateY(-150vmin);
+}
+#grid_8_6:checked ~ .view .map .grid[for=grid_9_6],
+#grid_8_6:checked ~ .view .map .grid[for=grid_7_6],
+#grid_8_6:checked ~ .view .map .grid[for=grid_8_7],
+#grid_8_6:checked ~ .view .map .grid[for=grid_8_5] {
+  pointer-events: auto;
+}
+#grid_8_6:checked ~ .view .map .grid.wall, #grid_8_6:checked ~ .view .map .grid.tree, #grid_8_6:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_8_6:checked ~ .view .map .grid [for=key_8_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_8_6:checked ~ .view .map .grid [data-key="8_6"] {
+  display: none;
+}
+
+#lock_8_6:checked ~ .view .map .grid [for=lock_8_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_8_6:checked ~ .view .character {
+  animation: animate-character_8_6 1024ms step-end;
+}
+
+@keyframes animate-character_8_6 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_8_7:checked ~ .view .map {
+  transform: translateX(-200vmin) translateY(-175vmin);
+}
+#grid_8_7:checked ~ .view .map .grid[for=grid_9_7],
+#grid_8_7:checked ~ .view .map .grid[for=grid_7_7],
+#grid_8_7:checked ~ .view .map .grid[for=grid_8_8],
+#grid_8_7:checked ~ .view .map .grid[for=grid_8_6] {
+  pointer-events: auto;
+}
+#grid_8_7:checked ~ .view .map .grid.wall, #grid_8_7:checked ~ .view .map .grid.tree, #grid_8_7:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_8_7:checked ~ .view .map .grid [for=key_8_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_8_7:checked ~ .view .map .grid [data-key="8_7"] {
+  display: none;
+}
+
+#lock_8_7:checked ~ .view .map .grid [for=lock_8_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_8_7:checked ~ .view .character {
+  animation: animate-character_8_7 1024ms step-end;
+}
+
+@keyframes animate-character_8_7 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_8_8:checked ~ .view .map {
+  transform: translateX(-200vmin) translateY(-200vmin);
+}
+#grid_8_8:checked ~ .view .map .grid[for=grid_9_8],
+#grid_8_8:checked ~ .view .map .grid[for=grid_7_8],
+#grid_8_8:checked ~ .view .map .grid[for=grid_8_9],
+#grid_8_8:checked ~ .view .map .grid[for=grid_8_7] {
+  pointer-events: auto;
+}
+#grid_8_8:checked ~ .view .map .grid.wall, #grid_8_8:checked ~ .view .map .grid.tree, #grid_8_8:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_8_8:checked ~ .view .map .grid [for=key_8_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_8_8:checked ~ .view .map .grid [data-key="8_8"] {
+  display: none;
+}
+
+#lock_8_8:checked ~ .view .map .grid [for=lock_8_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_8_8:checked ~ .view .character {
+  animation: animate-character_8_8 1024ms step-end;
+}
+
+@keyframes animate-character_8_8 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_8_9:checked ~ .view .map {
+  transform: translateX(-200vmin) translateY(-225vmin);
+}
+#grid_8_9:checked ~ .view .map .grid[for=grid_9_9],
+#grid_8_9:checked ~ .view .map .grid[for=grid_7_9],
+#grid_8_9:checked ~ .view .map .grid[for=grid_8_10],
+#grid_8_9:checked ~ .view .map .grid[for=grid_8_8] {
+  pointer-events: auto;
+}
+#grid_8_9:checked ~ .view .map .grid.wall, #grid_8_9:checked ~ .view .map .grid.tree, #grid_8_9:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_8_9:checked ~ .view .map .grid [for=key_8_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_8_9:checked ~ .view .map .grid [data-key="8_9"] {
+  display: none;
+}
+
+#lock_8_9:checked ~ .view .map .grid [for=lock_8_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_8_9:checked ~ .view .character {
+  animation: animate-character_8_9 1024ms step-end;
+}
+
+@keyframes animate-character_8_9 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_9_0:checked ~ .view .map {
+  transform: translateX(-225vmin) translateY(0vmin);
+}
+#grid_9_0:checked ~ .view .map .grid[for=grid_10_0],
+#grid_9_0:checked ~ .view .map .grid[for=grid_8_0],
+#grid_9_0:checked ~ .view .map .grid[for=grid_9_1],
+#grid_9_0:checked ~ .view .map .grid[for=grid_9_-1] {
+  pointer-events: auto;
+}
+#grid_9_0:checked ~ .view .map .grid.wall, #grid_9_0:checked ~ .view .map .grid.tree, #grid_9_0:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_9_0:checked ~ .view .map .grid [for=key_9_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_9_0:checked ~ .view .map .grid [data-key="9_0"] {
+  display: none;
+}
+
+#lock_9_0:checked ~ .view .map .grid [for=lock_9_0] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_9_0:checked ~ .view .character {
+  animation: animate-character_9_0 1024ms step-end;
+}
+
+@keyframes animate-character_9_0 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_9_1:checked ~ .view .map {
+  transform: translateX(-225vmin) translateY(-25vmin);
+}
+#grid_9_1:checked ~ .view .map .grid[for=grid_10_1],
+#grid_9_1:checked ~ .view .map .grid[for=grid_8_1],
+#grid_9_1:checked ~ .view .map .grid[for=grid_9_2],
+#grid_9_1:checked ~ .view .map .grid[for=grid_9_0] {
+  pointer-events: auto;
+}
+#grid_9_1:checked ~ .view .map .grid.wall, #grid_9_1:checked ~ .view .map .grid.tree, #grid_9_1:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_9_1:checked ~ .view .map .grid [for=key_9_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_9_1:checked ~ .view .map .grid [data-key="9_1"] {
+  display: none;
+}
+
+#lock_9_1:checked ~ .view .map .grid [for=lock_9_1] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_9_1:checked ~ .view .character {
+  animation: animate-character_9_1 1024ms step-end;
+}
+
+@keyframes animate-character_9_1 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_9_2:checked ~ .view .map {
+  transform: translateX(-225vmin) translateY(-50vmin);
+}
+#grid_9_2:checked ~ .view .map .grid[for=grid_10_2],
+#grid_9_2:checked ~ .view .map .grid[for=grid_8_2],
+#grid_9_2:checked ~ .view .map .grid[for=grid_9_3],
+#grid_9_2:checked ~ .view .map .grid[for=grid_9_1] {
+  pointer-events: auto;
+}
+#grid_9_2:checked ~ .view .map .grid.wall, #grid_9_2:checked ~ .view .map .grid.tree, #grid_9_2:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_9_2:checked ~ .view .map .grid [for=key_9_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_9_2:checked ~ .view .map .grid [data-key="9_2"] {
+  display: none;
+}
+
+#lock_9_2:checked ~ .view .map .grid [for=lock_9_2] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_9_2:checked ~ .view .character {
+  animation: animate-character_9_2 1024ms step-end;
+}
+
+@keyframes animate-character_9_2 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_9_3:checked ~ .view .map {
+  transform: translateX(-225vmin) translateY(-75vmin);
+}
+#grid_9_3:checked ~ .view .map .grid[for=grid_10_3],
+#grid_9_3:checked ~ .view .map .grid[for=grid_8_3],
+#grid_9_3:checked ~ .view .map .grid[for=grid_9_4],
+#grid_9_3:checked ~ .view .map .grid[for=grid_9_2] {
+  pointer-events: auto;
+}
+#grid_9_3:checked ~ .view .map .grid.wall, #grid_9_3:checked ~ .view .map .grid.tree, #grid_9_3:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_9_3:checked ~ .view .map .grid [for=key_9_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_9_3:checked ~ .view .map .grid [data-key="9_3"] {
+  display: none;
+}
+
+#lock_9_3:checked ~ .view .map .grid [for=lock_9_3] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_9_3:checked ~ .view .character {
+  animation: animate-character_9_3 1024ms step-end;
+}
+
+@keyframes animate-character_9_3 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_9_4:checked ~ .view .map {
+  transform: translateX(-225vmin) translateY(-100vmin);
+}
+#grid_9_4:checked ~ .view .map .grid[for=grid_10_4],
+#grid_9_4:checked ~ .view .map .grid[for=grid_8_4],
+#grid_9_4:checked ~ .view .map .grid[for=grid_9_5],
+#grid_9_4:checked ~ .view .map .grid[for=grid_9_3] {
+  pointer-events: auto;
+}
+#grid_9_4:checked ~ .view .map .grid.wall, #grid_9_4:checked ~ .view .map .grid.tree, #grid_9_4:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_9_4:checked ~ .view .map .grid [for=key_9_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_9_4:checked ~ .view .map .grid [data-key="9_4"] {
+  display: none;
+}
+
+#lock_9_4:checked ~ .view .map .grid [for=lock_9_4] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_9_4:checked ~ .view .character {
+  animation: animate-character_9_4 1024ms step-end;
+}
+
+@keyframes animate-character_9_4 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_9_5:checked ~ .view .map {
+  transform: translateX(-225vmin) translateY(-125vmin);
+}
+#grid_9_5:checked ~ .view .map .grid[for=grid_10_5],
+#grid_9_5:checked ~ .view .map .grid[for=grid_8_5],
+#grid_9_5:checked ~ .view .map .grid[for=grid_9_6],
+#grid_9_5:checked ~ .view .map .grid[for=grid_9_4] {
+  pointer-events: auto;
+}
+#grid_9_5:checked ~ .view .map .grid.wall, #grid_9_5:checked ~ .view .map .grid.tree, #grid_9_5:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_9_5:checked ~ .view .map .grid [for=key_9_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_9_5:checked ~ .view .map .grid [data-key="9_5"] {
+  display: none;
+}
+
+#lock_9_5:checked ~ .view .map .grid [for=lock_9_5] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_9_5:checked ~ .view .character {
+  animation: animate-character_9_5 1024ms step-end;
+}
+
+@keyframes animate-character_9_5 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_9_6:checked ~ .view .map {
+  transform: translateX(-225vmin) translateY(-150vmin);
+}
+#grid_9_6:checked ~ .view .map .grid[for=grid_10_6],
+#grid_9_6:checked ~ .view .map .grid[for=grid_8_6],
+#grid_9_6:checked ~ .view .map .grid[for=grid_9_7],
+#grid_9_6:checked ~ .view .map .grid[for=grid_9_5] {
+  pointer-events: auto;
+}
+#grid_9_6:checked ~ .view .map .grid.wall, #grid_9_6:checked ~ .view .map .grid.tree, #grid_9_6:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_9_6:checked ~ .view .map .grid [for=key_9_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_9_6:checked ~ .view .map .grid [data-key="9_6"] {
+  display: none;
+}
+
+#lock_9_6:checked ~ .view .map .grid [for=lock_9_6] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_9_6:checked ~ .view .character {
+  animation: animate-character_9_6 1024ms step-end;
+}
+
+@keyframes animate-character_9_6 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_9_7:checked ~ .view .map {
+  transform: translateX(-225vmin) translateY(-175vmin);
+}
+#grid_9_7:checked ~ .view .map .grid[for=grid_10_7],
+#grid_9_7:checked ~ .view .map .grid[for=grid_8_7],
+#grid_9_7:checked ~ .view .map .grid[for=grid_9_8],
+#grid_9_7:checked ~ .view .map .grid[for=grid_9_6] {
+  pointer-events: auto;
+}
+#grid_9_7:checked ~ .view .map .grid.wall, #grid_9_7:checked ~ .view .map .grid.tree, #grid_9_7:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_9_7:checked ~ .view .map .grid [for=key_9_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_9_7:checked ~ .view .map .grid [data-key="9_7"] {
+  display: none;
+}
+
+#lock_9_7:checked ~ .view .map .grid [for=lock_9_7] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_9_7:checked ~ .view .character {
+  animation: animate-character_9_7 1024ms step-end;
+}
+
+@keyframes animate-character_9_7 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_9_8:checked ~ .view .map {
+  transform: translateX(-225vmin) translateY(-200vmin);
+}
+#grid_9_8:checked ~ .view .map .grid[for=grid_10_8],
+#grid_9_8:checked ~ .view .map .grid[for=grid_8_8],
+#grid_9_8:checked ~ .view .map .grid[for=grid_9_9],
+#grid_9_8:checked ~ .view .map .grid[for=grid_9_7] {
+  pointer-events: auto;
+}
+#grid_9_8:checked ~ .view .map .grid.wall, #grid_9_8:checked ~ .view .map .grid.tree, #grid_9_8:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_9_8:checked ~ .view .map .grid [for=key_9_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_9_8:checked ~ .view .map .grid [data-key="9_8"] {
+  display: none;
+}
+
+#lock_9_8:checked ~ .view .map .grid [for=lock_9_8] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_9_8:checked ~ .view .character {
+  animation: animate-character_9_8 1024ms step-end;
+}
+
+@keyframes animate-character_9_8 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+#grid_9_9:checked ~ .view .map {
+  transform: translateX(-225vmin) translateY(-225vmin);
+}
+#grid_9_9:checked ~ .view .map .grid[for=grid_10_9],
+#grid_9_9:checked ~ .view .map .grid[for=grid_8_9],
+#grid_9_9:checked ~ .view .map .grid[for=grid_9_10],
+#grid_9_9:checked ~ .view .map .grid[for=grid_9_8] {
+  pointer-events: auto;
+}
+#grid_9_9:checked ~ .view .map .grid.wall, #grid_9_9:checked ~ .view .map .grid.tree, #grid_9_9:checked ~ .view .map .grid.barrel {
+  pointer-events: none;
+}
+
+#key_9_9:checked ~ .view .map .grid [for=key_9_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+#key_9_9:checked ~ .view .map .grid [data-key="9_9"] {
+  display: none;
+}
+
+#lock_9_9:checked ~ .view .map .grid [for=lock_9_9] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#grid_9_9:checked ~ .view .character {
+  animation: animate-character_9_9 1024ms step-end;
+}
+
+@keyframes animate-character_9_9 {
+  0% {
+    background-position: -25vmin 0;
+  }
+  25% {
+    background-position: -50vmin 0;
+  }
+  50% {
+    background-position: -25vmin 0;
+  }
+  75% {
+    background-position: -50vmin 0;
+  }
+}
+.character {
+  background-image: url("https://assets.codepen.io/430361/css-maze-character.png");
+  background-size: 75vmin 25vmin;
+  background-position: 0 0;
+  width: 25vmin;
+  height: 25vmin;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  image-rendering: pixelated;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.fog {
+  background-image: radial-gradient(circle at center, transparent 0 12.5vmin, #000000 37.5vmin);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.pre-dialog, .post-dialog, .lose-dialog {
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 512ms ease-out;
+  transform: scale(0);
+}
+.pre-dialog::after, .post-dialog::after, .lose-dialog::after {
+  content: "▼";
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  animation: blink 1024ms ease-out infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.pre-dialog, .lose-dialog {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+#pre_dialog_0:checked ~ .view [id=pre_dialog_trigger_0] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+#pre_dialog_1:checked ~ .view [id=pre_dialog_trigger_1] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+#pre_dialog_2:checked ~ .view [id=pre_dialog_trigger_2] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.post-dialog {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+#post_dialog_0:checked ~ #show_post_dialog:checked ~ .view [id=post_dialog_trigger_0] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+#post_dialog_1:checked ~ #show_post_dialog:checked ~ .view [id=post_dialog_trigger_1] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.lose-dialog {
+  flex-direction: column;
+  justify-content: space-evenly;
+  transition: opacity 512ms ease-out 1024ms;
+}
+
+.reset {
+  color: #000000;
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: transparent;
+  background-image: url("https://assets.codepen.io/430361/css-maze-reset.png");
+  background-size: 20rem 3.4722222222rem;
+  width: 20rem;
+  height: 3.4722222222rem;
+  border: 0;
+  outline: 0;
+}
+
+.monster-check:checked ~ .view .map .grid {
+  pointer-events: none !important;
+}
+
+.monster-check:checked ~ .view .lose-dialog {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.monster-check:checked ~ .view .character {
+  background-image: url("https://assets.codepen.io/430361/css-maze-character-faint.png");
+  background-size: 75vmin 25vmin;
+  background-position: -50vmin 0;
+  animation: character-faint 512ms step-end !important;
+}
+
+@keyframes character-faint {
+  0% {
+    background-image: url("https://assets.codepen.io/430361/css-maze-character.png");
+    background-position: 0 0;
+  }
+  33.3333% {
+    background-image: url("https://assets.codepen.io/430361/css-maze-character-faint.png");
+    background-position: 0 0;
+  }
+  66.66667% {
+    background-position: -25vmin 0;
+  }
+  100% {
+    background-position: -50vmin 0;
+  }
+}

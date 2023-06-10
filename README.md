@@ -106,12 +106,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)|
 | 2 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)|
 | 3 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)|
-
-| * | [Bow Arrow Game](https://github.com/Roshnijeewani3457/GameZone/tree/latest/Games/Bow_Arrow)|
-
-
-
-=======
 | 4 | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)|
 | 5 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)|  
 | 6 | [Whack a Mole](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole)|
@@ -216,8 +210,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 105 | [Movie Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Movie_Guessing_Game)|
 | 106 | [Wildcard_Bonanza](https://github.com/Sheetal-05/GameZone/tree/main/Games/Wildcard_Bonanza)|
 | 107 | [The Last Spartan](https://github.com/kunjgit/GameZone/tree/main/Games/The_Last_Spartan)|
-| * | [Space Exploration](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Exploration)|
-
+| 108 | [Space Exploration](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Exploration)|
+| 109 | [Bow Arrow Game](https://github.com/Roshnijeewani3457/GameZone/tree/latest/Games/Bow_Arrow)|
 
 </center>
 

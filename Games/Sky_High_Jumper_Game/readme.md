@@ -3,7 +3,7 @@
 
 # **Game_Name** 
 
-Sky High Jumper Game
+Sky High Jumper Game 
 ---
 
 <br>

@@ -222,6 +222,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 117 | [Escape](https://github.com/kunjgit/GameZone/tree/main/Games/Escape)|
 | 118 | [Retro_Dungeon_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Retro_Dungeon_Puzzle)|
 | 119 | [Immunity Collapse](https://github.com/kunjgit/GameZone/tree/main/Games/Immunity_Collapse)|
+| 120 | [Hunt Your Card](https://github.com/kunjgit/GameZone/tree/main/Games/Hunt_Your_Card)|
 
 </center>
 

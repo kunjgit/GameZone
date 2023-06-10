@@ -233,7 +233,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 128 | [Sciara of Colors](https://github.com/kunjgit/GameZone/tree/main/Games/Sciara_Of_Colors)|  
 | 129 | [JunoJs](https://github.com/kunjgit/GameZone/tree/main/Games/JunoJs)|
 | 130 | [Fall Down](https://github.com/kunjgit/GameZone/tree/main/Games/Fall_Down)|
-
+| 131 | [Cat Goric](https://github.com/kunjgit/GameZone/tree/main/Games/Cat_Goric)|
 
 </center>
 

@@ -19,7 +19,14 @@
 <br>
 
 ## **Screenshots 📸**
+![Monster Maker - Google Chrome 04-06-2023 12_35_19](https://github.com/Kalivarapubindusree/GameZone/assets/114821855/2ffaada1-9a4a-441d-8128-e292c6e61e6e)
+
 
 <br>
 
 ## **Working video 📹**
+
+
+
+https://github.com/Kalivarapubindusree/GameZone/assets/114821855/15224dab-c160-494a-aab1-70730d345943
+

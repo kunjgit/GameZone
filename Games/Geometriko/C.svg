@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300">
+<defs>
+<linearGradient id="e" gradientUnits="userSpaceOnUse" x1="75" y1="4.5352" x2="75" y2="146.6262">
+<stop style="stop-color:#ffffff;stop-opacity:1" offset="0"/>
+<stop style="stop-color:#fffcf5;stop-opacity:1" offset="0.0192"/>
+<stop style="stop-color:#ffedc5;stop-opacity:1" offset="0.0415"/>
+<stop style="stop-color:#ffe29c;stop-opacity:1" offset="0.0643"/>
+<stop style="stop-color:#ffda7b;stop-opacity:1" offset="0.0874"/>
+<stop style="stop-color:#fed35c;stop-opacity:1" offset="0.1108"/>
+<stop style="stop-color:#fece40;stop-opacity:1" offset="0.1345"/>
+<stop style="stop-color:#fdca29;stop-opacity:1" offset="0.15880001"/>
+<stop style="stop-color:#fdc818;stop-opacity:1" offset="0.1847"/>
+<stop style="stop-color:#fdc712;stop-opacity:1" offset="0.35120001"/>
+<stop style="stop-color:#a8ab36;stop-opacity:1" offset="0.51920003"/>
+<stop style="stop-color:#edde3d;stop-opacity:1" offset="0.6875"/>
+<stop style="stop-color:#ffffff;stop-opacity:1" offset="0.8876"/>
+<stop style="stop-color:#fcee21;stop-opacity:1" offset="1"/>
+</linearGradient>
+<polygon id="a" fill="none" stroke="url(#e)" stroke-miterlimit="10" points="6.7,87.5 50,12.5 93.3,87.5 "/>
+<rect id="b" x="14.6" y="14.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 50 120.7107)" fill="none" stroke="url(#e)" stroke-miterlimit="10" width="70.7" height="70.7"/>
+<polygon id="c" fill="none" stroke="url(#e)" stroke-miterlimit="10" points="19.1,100 0,38.2 50,0 100,38.2 80.9,100 "/>
+<polygon id="d" fill="none" stroke="url(#e)" stroke-miterlimit="10" points="25,93.3 0,50 25,6.7 75,6.7 100,50 75,93.3 "/>
+</defs>
+<use x="53" y="27" xlink:href="#a"/><use x="241" y="55" xlink:href="#a"/><use x="12" y="8" xlink:href="#c"/><use x="46" y="-4" xlink:href="#d"/><use x="231" y="207" xlink:href="#b"/><use x="90" y="73" xlink:href="#c"/><use x="231" y="152" xlink:href="#b"/><use x="10" y="-2" xlink:href="#b"/><use x="-47" y="5" xlink:href="#a"/><use x="71" y="101" xlink:href="#a"/><use x="-9" y="97" xlink:href="#d"/><use x="215" y="119" xlink:href="#a"/><use x="110" y="214" xlink:href="#c"/><use x="122" y="31" xlink:href="#a"/><use x="-23" y="60" xlink:href="#d"/><use x="224" y="-20" xlink:href="#c"/><use x="-13" y="152" xlink:href="#c"/><use x="181" y="-1" xlink:href="#d"/><use x="206" y="96" xlink:href="#c"/><use x="203" y="81" xlink:href="#b"/><use x="238" y="34" xlink:href="#d"/><use x="86" y="79" xlink:href="#d"/><use x="164" y="105" xlink:href="#d"/><use x="91" y="159" xlink:href="#c"/><use x="99" y="-41" xlink:href="#a"/><use x="116" y="168" xlink:href="#c"/><use x="240" y="-1" xlink:href="#a"/><use x="-17" y="6" xlink:href="#b"/><use x="15" y="-47" xlink:href="#d"/><use x="182" y="224" xlink:href="#c"/><use x="215" y="207" xlink:href="#c"/><use x="-27" y="240" xlink:href="#b"/><use x="-3" y="159" xlink:href="#b"/><use x="70" y="145" xlink:href="#c"/><use x="97" y="168" xlink:href="#b"/><use x="62" y="0" xlink:href="#b"/><use x="-11" y="19" xlink:href="#d"/><use x="180" y="-24" xlink:href="#d"/><use x="-1" y="221" xlink:href="#a"/><use x="5" y="181" xlink:href="#a"/>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+<linearGradient id="A" x1="0" y1="1" x2="0" y2="0">
+<stop offset="0" style="stop-color:#16167E"/>
+<stop offset="0.25" style="stop-color:#182095"/>
+<stop offset="0.77" style="stop-color:#1C39D1"/>
+<stop offset="1" style="stop-color:#1E44ED"/>
+</linearGradient>
+<linearGradient id="B" x1="0" y1="1" x2="0" y2="0">
+<stop offset="0" style="stop-color:#1E44ED;stop-opacity:.6"/>
+<stop offset="0.26" style="stop-color:#1730CA;stop-opacity:.7"/>
+<stop offset="0.76" style="stop-color:#0A0D8E;stop-opacity:.9"/>
+<stop offset="1" style="stop-color:#050077"/>
+</linearGradient>
+<linearGradient id="C" x1="0" y1="1" x2="1" y2="0">
+<stop offset="0" style="stop-color:#1E44ED;stop-opacity:.6"/>
+<stop offset="0.4" style="stop-color:#1E2CB0;stop-opacity:.6"/>
+<stop offset="0.8" style="stop-color:#1D1474;stop-opacity:.6"/>
+<stop offset="1" style="stop-color:#1D0B5D;stop-opacity:.6"/>
+</linearGradient>
+<linearGradient id="D" x1="0" y1=".5" x2="0">
+<stop offset="0.75" style="stop-color:#fff;stop-opacity:0"/>
+<stop offset="1" style="stop-color:#fff"/>
+</linearGradient>
+<rect fill="url(#A)" width="100" height="100"/>
+<path fill="url(#B)" d="M100,43.8C87.8,38.3,72.5,35,55.8,35C33.3,35,13.3,41,0,50.4V100h100V43.8z"/>
+<path fill="url(#C)" d="M0,100c55.1,0,99.7-44.7,100-100C44.9,0,0.3,44.7,0,100z"/>
+<rect fill="url(#D)" width="100" height="100"/>
+</svg>

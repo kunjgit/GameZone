@@ -1,0 +1,753 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Geometriko — a game by indies4indies</title>
+<meta name=viewport content="width=device-width">
+<style>
+html{user-select:none;cursor:default;font-size:16px;height:100%;text-shadow:2px 2px 4px black;font-family:serif;color:#000;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	-moz-user-select:-moz-none;
+	-moz-user-select:none;
+	-ms-user-select:none;}
+table{margin:1em auto 0;font-size:4em;padding:1em;font-family:sans-serif;table-layout:fixed;width:24em;border:1px solid black;}
+table,input{
+	background:#aaa;
+	background:-moz-linear-gradient(top,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 100%);
+	background:-webkit-gradient(linear,left bottom,left top,color-stop(0%,rgba(0,0,0,.32)),color-stop(100%,rgba(0,0,0,0)));
+	background:-webkit-linear-gradient(top,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 100%);
+	background:-o-linear-gradient(top,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 100%);
+	background:-ms-linear-gradient(top,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 100%);
+	background:linear-gradient(to top,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 100%);
+}
+td{border:1px solid black;width:2.5em;height:2.5em}
+td:not(.h):not(.n){height:2.5em;width:2.5em;border:1px solid black;text-align:center;}
+td:not(.h):not(.n),b,body{
+	background:#aaa;
+	background:-moz-linear-gradient(bottom,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,.32)),color-stop(100%,rgba(0,0,0,0)));
+	background:-webkit-linear-gradient(bottom,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 100%);
+	background:-o-linear-gradient(bottom,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 100%);
+	background:-ms-linear-gradient(bottom,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 100%);
+	background:linear-gradient(to bottom,rgba(0,0,0,.32) 0%,rgba(0,0,0,0) 100%);
+}
+td:not(.h):not(.n):hover,b:hover{
+	background:#ddd;
+	background:-moz-linear-gradient(bottom,rgba(255,255,255,.32) 0%, rgba(0,0,0,0) 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(255,255,255,.32)),color-stop(100%,rgba(0,0,0,0)));
+	background:-webkit-linear-gradient(bottom,rgba(255,255,255,.32) 0%,rgba(0,0,0,0) 100%);
+	background:-o-linear-gradient(bottom,rgba(255,255,255,.32) 0%,rgba(0,0,0,0) 100%);
+	background:-ms-linear-gradient(bottom,rgba(255,255,255,.32) 0%,rgba(0,0,0,0) 100%);
+	background:linear-gradient(to bottom,rgba(255,255,255,.32) 0%,rgba(0,0,0,0) 100%);
+}
+.A.h div{margin-right:1em}
+.B.h div{margin-left:1em}
+.n,.h{border:0}
+.n{width:2em;}
+.h{width:3.5em;}
+.n:first-child{text-align:right}
+td div{color:white;text-align:center;overflow:hidden}
+td:not(.n):not(.A):not(.B),td.h{cursor:pointer}
+.n div{width:2em;border:0}
+.h div{opacity:.9}
+td:not(.A):not(.B):not(.n):hover{border:1px solid white}
+td{background-size:100% 100%}
+.A,.B{color:white;background-size:100% 100%}
+.A div,.B div{width:2.4em;line-height:2.4em;height:2.4em}
+td.A div{background-color:darkblue;background-image:url(C.svg),url(A.svg)}
+td.B div{background-color:#b22;background-image:url(C.svg),url(B.svg)}
+body.A{background-image:url(A.svg)}
+body.B{background-image:url(B.svg)}
+td.A div{border:.08em solid darkblue}
+td.B div{border:.08em solid #b22}
+.A .h.B div,.B .h.A div{opacity:.4}
+
+.A .h.A:hover div,.B .h.B:hover div{border:.08em solid white;}
+.h.c div{border:.08em solid gold}
+.c:hover div{border:.08em solid yellow!important}
+
+td.A svg{width:2em;height:2em;margin:.2em .1em .2em .3em;
+	-webkit-transform:perspective(8em) rotateY(20deg);
+	-moz-transform:perspective(8em) rotateY(20deg);
+	-ms-transform:perspective(8em) rotateY(20deg);
+	-o-transform:perspective(8em) rotateY(20deg);
+	transform:perspective(8em) rotateY(20deg);
+}
+td.B svg{width:2em;height:2em;margin:.2em .3em .2em .1em;
+	-webkit-transform:perspective(8em) rotateY(-20deg);
+	-moz-transform:perspective(8em) rotateY(-20deg);
+	-ms-transform:perspective(8em) rotateY(-20deg);
+	-o-transform:perspective(8em) rotateY(-20deg);
+	transform:perspective(8em) rotateY(-20deg);
+}
+.A .h.A:hover svg{
+	-webkit-transform:perspective(6em) rotateY(40deg) rotateZ(-10deg) rotateX(10deg);
+	-moz-transform:perspective(6em) rotateY(40deg) rotateZ(-10deg) rotateX(10deg);
+	-ms-transform:perspective(6em) rotateY(40deg) rotateZ(-10deg) rotateX(10deg);
+	-o-transform:perspective(6em) rotateY(40deg) rotateZ(-10deg) rotateX(10deg);
+	transform:perspective(3em) rotateY(40deg) rotateZ(-10deg) rotateX(10deg);
+}
+.B .h.B:hover svg{
+	-webkit-transform:perspective(6em) rotateY(-40deg) rotateZ(10deg) rotateX(10deg);
+	-moz-transform:perspective(6em) rotateY(-40deg) rotateZ(10deg) rotateX(10deg);
+	-ms-transform:perspective(6em) rotateY(-40deg) rotateZ(10deg) rotateX(10deg);
+	-o-transform:perspective(6em) rotateY(-40deg) rotateZ(10deg) rotateX(10deg);
+	transform:perspective(3em) rotateY(-40deg) rotateZ(10deg) rotateX(10deg);
+}
+
+.o{opacity:0}
+.i{opacity:1}
+
+
+*{
+	-webkit-transition:.4s;
+	-moz-transition:.4s;
+	-ms-transition:.4s;
+	-o-transition:.4s;
+	transition:.4s}
+body{
+	-webkit-transition:background 0;
+	-moz-transition:background 0;
+	-ms-transition:background 0;
+	-o-transition:background 0;
+	transition:background 0}
+table,td,td div{
+	-webkit-border-radius:.2em;
+	-khtml-border-radius:.2em;
+	-moz-border-radius:.2em;
+	-ms-border-radius:.2em;
+	-o-border-radius:.2em;
+	border-radius:.2em}
+
+
+#M,#C,#H{position:absolute;width:100%;top:16em;overflow:hidden;font-size:1.2em}
+#M,#C{text-align:center}
+#M{left:0;right:0}
+#C{left:-100%;right:0}
+#H{width:50%;margin:0 auto;left:-100%}
+.H #H{left:25%}
+.C #C{left:0}
+.H #M,.C #M{left:-100%}
+.A #M,.B #M{display:none}
+.A h1,.B h1{font-size:2em;line-height:1;}
+h1{overflow:hidden;font-size:7em;height:1.5em;text-align:center;}
+h1 img{display:block;margin:0 auto;width:12.5em;height:1.5em}
+select{background:#ddd}
+b,select{font-size:1em;font-weight:normal;display:block;line-height:2;width:15em;margin:1em auto;border:1px solid black;box-shadow:2px 2px 4px black,0 0 0 black inset;cursor:pointer;text-align:center;
+	-webkit-border-radius:8em;
+	-khtml-border-radius:8em;
+	-moz-border-radius:8em;
+	-ms-border-radius:8em;
+	-o-border-radius:8em;
+	border-radius:8em;}
+input{font-size:1em;font-weight:normal;line-height:1;width:3em;margin:1em auto;border:1px solid black;box-shadow:1px 1px 2px black inset;text-align:center;background:white}
+b:hover{box-shadow:0 0 0 black,2px 2px 4px black inset;border:1px solid gold;}
+p,h2{margin-top:1em;line-height:1.2}
+a{color:black;text-decoration:none;font-weight:bold;font-size:1.3em;text-shadow:none;box-shadow:1px 1px 2px black;background:white;font-family:sans-serif;padding:1px 3px;}
+a span{color:#00c7b0}
+a:hover{color:black;text-decoration:none;font-weight:bold;font-size:1.3em;text-shadow:none;box-shadow:2px 2px 4px black;background:white;font-family:sans-serif;padding:1px 3px;}
+
+#X{position:absolute;top:0;right:0;width:10em;text-align:right}
+#L{position:absolute;bottom:1em;right:1em}
+#X b{width:8em}
+#X p,#X span{margin-right:1em}
+body:not(.A):not(.B) table,body:not(.A):not(.B) #X{display:none}
+</style>
+
+
+<style id=d3></style>
+
+
+<h1><img src=L.svg alt=Geometriko>Geometriko</h1>
+<div id=M>
+	<b title="Help/Credits" onclick="d.body.className='H'">Help/Credits</b>
+	<b title="Your journey begins…" onclick="e.C = 1;e.L = 1;e.V(0,1,0,0,0,0,0,0);e.s();">Normal Quest</b>
+	<b title="Oh noes! The AI has gone mad, and it's even trying to cheat!" onclick="e.C = 2;e.L = 1;e.V(0,1,0,0,0,1,0,0);d.body.className = 'A';e.s();">Unlucky Quest</b>
+	<b title="It's your lucky day!" onclick="e.C = 3;e.L = 1;e.V(0,4,2,2,2,0,0,0);d.body.className = 'B';e.s();">Lucky Quest</b>
+	<b title="Two–players Hotseat" onclick="e.C = 0;e.L = 0;e.V(0,0,0,0,0,0,0,0);e.s();">Two–players Hotseat</b>
+	<b title="Custom Match" onclick="e.V(0,3,0,0,0,0,0,0);d.body.className='C'">Custom Battle</b>
+</div>
+<div id=C>
+	<h2>Blue player</h2>
+	<select>
+		<option selected>Human</option>
+		<option>Random AI</option>
+		<option>GeometrikAI – lvl 1</option>
+		<option>GeometrikAI – lvl 2</option>
+		<option>GeometrikAI – lvl 3</option>
+		<option>GeometrikAI – lvl 4</option>
+		<option>GeometrikAI – lvl 5</option>
+		<option>GeometrikAI – lvl 6</option>
+	</select>
+	<p>Starting tiles<br>
+	<input disabled type=text value=∞>
+	<input type=text>
+	<input type=text>
+	<input type=text>
+	<h2>Red player</h2>
+	<select>
+		<option>Human</option>
+		<option>Random AI</option>
+		<option>GeometrikAI – lvl 1</option>
+		<option selected>GeometrikAI – lvl 2</option>
+		<option>GeometrikAI – lvl 3</option>
+		<option>GeometrikAI – lvl 4</option>
+		<option>GeometrikAI – lvl 5</option>
+		<option>GeometrikAI – lvl 6</option>
+	</select>
+	<p>Starting tiles<br>
+	<input disabled type=text value=∞>
+	<input type=text>
+	<input type=text>
+	<input type=text>
+	<b title="Play" onclick="e.C = 0;e.L = 0;e.s()">Play</b>
+	<b title="Main Menu" onclick="d.body.className=''">Back</b>
+</div>
+<div id=H>
+	<p>Welcome to a little game demo by <a href=//www.indies4indies.com/ target=_blank>indies<span>4</span>indies</a>.
+	<p>GEOMETRIKO is a twisted mix of Tic–tac–toe and Reversi, featuring three single player modes and a two–player hotseat mode.
+	<h2>How to play</h2>
+	<p>GEOMETRIKO is a turn–based game played on a 4x4 grid, and features four different tiles, aka Tiers, arranged in ascending order.
+	<p>Each player starts with an infinite number of Tier–1 tiles.
+	<p>Every time a player makes a three–of–a–kind he performs a Trip on the board; once a Trip is made it is removed from the board and the player is awarded an upgraded Tier.
+	<p>Making a four–of–a–kind, a Quad, gives the player two upgraded Tiers.
+	<p>If a higher Tier is put next to a lesser one, the lesser one switches side.
+	<h2>Victory conditions</h2>
+	<p>A player can win a match either by filling the entire board with more of his own tiles than his opponent’s, or by achieving a Trip/Quad of Tier–4 tiles.
+	<p><br><br>We do hope you’ll enjoy playing it! Have fun!
+	<p>—The <a href=//www.indies4indies.com/ target=_blank>i<span>4</span>i</a> team.
+	<b title="Main Menu" onclick="d.body.className=''">Ok</b>
+</div>
+<div id=X>
+	<b title="Restart this match" onclick="d.body.className = ''; e.s();">Give up</b>
+	<b title="Main manu" onclick="d.body.className=''">Main Menu</b>
+	<p></p>
+	<span><input type=checkbox checked onclick=e.d3()>3D</span>
+</div>
+
+<a id=L href=//www.indies4indies.com/ target=_blank>indies<span>4</span>indies</a>
+
+<table>
+	<tr><td><td><td><td><td><td><td><td>
+	<tr><td><td><td><td><td><td><td><td>
+	<tr><td><td><td><td><td><td><td><td>
+	<tr><td><td><td><td><td><td><td><td>
+</table>
+
+<script>
+/*jslint browser: true*/
+'use strict';
+
+var d = document, w = window, $ = function (w) {
+	if (w.charAt(0) === '#') { return d.getElementById(w.substring(1)); }
+	if (w.charAt(0) === '.') { return d.getElementsByClassName(w.substring(1)); }
+	return d.getElementsByTagName(w);
+}, e = {
+	d3: function () { //TODO
+		if ($('#d3').innerHTML === '') {
+				$('#d3').innerHTML = '.A table{-webkit-transform:perspective(30em) rotateY(4deg);-moz-transform:perspective(30em) rotateY(4deg);-ms-transform:perspective(30em) rotateY(4deg);-o-transform:perspective(30em) rotateY(4deg);transform:perspective(30em) rotateY(4deg);}.B table{-webkit-transform:perspective(30em) rotateY(-4deg);-moz-transform:perspective(30em) rotateY(-4deg);-ms-transform:perspective(30em) rotateY(-4deg);-o-transform:perspective(30em) rotateY(-4deg);transform:perspective(30em) rotateY(-4deg);}';
+			} else {
+				$('#d3').innerHTML = ''; }
+	},
+	alert: function (m) { //TODO
+		w.alert(m);
+	},
+	C: 0, //Campaign mode
+	L: 1, //Campaign lvl
+	f: '', //field
+	r: '', //cards owned
+	h: '', //fiches
+	p: '', //player playing TODO add the name of the players? more players?
+	t: '', //TODO temp copy of clicked hand //previous declarations aren't necessary
+	//z: [0, 2], //ai mode
+	z: [4, 4], //ai mode
+	a: { //ai
+		b: false, //block human click
+		t: 600, //ai delayed click
+		l: 6, //ai deepness TODO controllare se riapplicare o eliminare,
+		p: 999999999, //deathscore
+		m: function ( f, r, p, d, A, B) { //minimax
+			//taken from https://bug675167.bugzilla.mozilla.org/attachment.cgi?id=549384  //adapted
+			if( p === true) { p = 1; }
+			if( p === false) { p = 0; }
+			var b = p === 1 ? e.a.p: -e.a.p, c = [-1, -1, -1, p], x, y, z, s, t, i, k, j, h, a, g = [], q = []; //bestscore, move, x, y, card chosen, score, result, scoreInner, counter, counter, ...
+			var C = [], I = 0; //cycler, Icycler
+			if (d < 1) { return [c]; }
+			for (z = 0; z < 4; z += 1) {
+				if (r[z][p] !== 0) { //do we have a card of that type?
+					for (y = 0; y < 4; y += 1) {
+						for (x = 0; x < 4; x += 1) {
+							if (f[y][x] === 0) { //is the field playable?
+								C[I] = [];
+								C[I][2] = [];
+								C[I][3] = [];
+								for (k = 0; k < 4; k += 1){ //dupe field / could be better with .split or json encode,decode ?
+									C[I][2][k] = [];
+									for (j = 0; j < 4; j += 1){
+										C[I][2][k][j] = f[k][j];
+									}
+								}
+								for (k = 0; k < 5; k += 1){ //dupe hand
+									C[I][3][k] = [];
+									C[I][3][k][0] = r[k][0];
+									C[I][3][k][1] = r[k][1];
+								}
+								C[I][2][y][x] = p * 4 + z + 1;
+								h = C[I][2][y][x];
+								if (z > 0) { C[I][3][z][p] -= 1; }
+								for (k = Math.max(0, y - 1); k < Math.min(4, y + 2); k += 1) { //turns cards
+									for (j = Math.max(0, x - 1); j < Math.min(4, x + 2); j += 1) {
+										a = C[I][2][k][j];
+										if (a > 0 && (a - 1) % 4 < (h - 1) % 4) {
+											if (h > 4) {
+												C[I][2][k][j] = a % 4 + 4;
+											} else {
+												C[I][2][k][j] = a % 4;
+											}
+										}
+									}
+								}
+								C[I][2] = e.v(C[I][2], C[I][3]); //tris
+								C[I][1] = e.a.s( C[I][2], C[I][3]);
+								C[I][0] = [z, x, y, p];
+								I += 1;
+							}
+						}
+					}
+				}
+			}
+			C.sort(function (a, b) {
+				var c = a[1][0], d = b[1][0];
+				if (p === 0) {
+					if (c > d) { return -1; }
+					if (c < d) { return 1; }
+				}
+				if (c < d) { return -1; }
+				if (c > d) { return 1; }
+				if (p === 0) {
+					var c = a[1][1], d = b[1][1];
+					if (c > d) { return -1; }
+					if (c < d) { return 1; }
+				}
+				var c = a[1][2], d = b[1][2];
+				if (c < d) { return -1; }
+				if (c > d) { return 1; }
+				return Math.floor( Math.random() * 3) - 1;
+			});
+			now:
+			for (k = 0; k < C.length; k += 1) {
+				z = C[k][0][0];
+				x = C[k][0][1];
+				y = C[k][0][2];
+				p = C[k][0][3]; //TODO do we need this?
+				s = C[k][1][0];
+				g = C[k][2];
+				q = C[k][3];
+				if (s === (p ? -e.a.p : e.a.p)) {
+					c = [z, x, y, p];
+					b = s;
+				}
+				if (d === 1) {
+					i = s;
+				} else {
+					t = e.a.m( g, q, !p, d - 1, A, B);
+					i = t[1];
+				}
+				if (p === 0){
+					A = Math.max(A, i);
+					if (B <= A) {
+						c = [z, x, y, p];
+						b = A;
+						break now;
+					}
+				} else {
+					B = Math.min(B, i);
+					if (B <= A) {
+						c = [z, x, y, p];
+						b = B;
+						break now;
+					}
+				}
+				if (p === 1) { //TODO minimize if condition
+					if (i < b) {
+						b = i;
+						c = [z, x, y, p];
+					} 
+				} else {
+					if (i > b) {
+						b = i;
+						c = [z, x, y, p];
+					}
+				}
+			}
+			return [c, b];
+		},
+		s: function (f, r, t) { //score TODO: add parameters / check hand / check possible future trisses and pokers? / t is AI style: reimplement? / implement check couples?
+			var s = [0, 0], i, j, z = 0, w = 0;
+			if (r[4][0] > 0) { return e.a.p; }
+			if (r[4][1] > 0) { return -e.a.p; }
+			for (i = 0; i < 4; i += 1) {
+				for (j = 0; j < 4; j += 1) {
+					if (f[i][j] > 0) {
+						if (f[i][j] < 5) {
+								s[0] += Math.pow(3, (f[i][j] - 1));
+								w += 1;
+							} else {
+								s[1] += Math.pow(3, (f[i][j] - 5));
+								w -= 1; }
+						} else { z += 1; }
+				}
+			}
+			for (i = 1; i < 4; i += 1) {
+				s[0] += Math.min(r[i][0], 4) * Math.pow(3.2, i);
+				s[1] += Math.min(r[i][1], 4) * Math.pow(3.2, i);
+			}
+			if (z === 0) {
+				if( w === 0) { return 0; } //TODO: ingame AI could consider a draw as a victory // cpu vs cpu could consider as a loose
+				if( w > 0) { return e.a.p; }
+					else { return -e.a.p; }
+			}
+			return [s[0] - s[1], s[0], s[1]];
+		},
+		r: function () { //random commodity
+			return Math.floor(Math.random() * 4);
+		},
+		c: function (c, x, y, t){ //ai click
+			if (e.a.t === 0) { e.a.C(c, x, y);
+				} else {
+					setTimeout( function() {
+						e.a.C(c, x, y); }
+						, 100); }
+		},
+		C: function (c, x, y) {
+			var t = e.p === 'A' ? 0 : 1;
+			e.a.b = false;
+			$( 'tr')[c].children[1 + t * 5].click();
+			$( 'tr')[y].children[2 + x].click();
+			return e
+		},
+		_: function (d) {
+			e.a.b = true;
+			setTimeout( function () {
+				var m = e.p === 'A' ? e.a.m(e.f,e.r,0,d,-e.a.p,e.a.p): e.a.m(e.f,e.r,1,d,-e.a.p,e.a.p);
+				var m = e.a.m(e.f,e.r,(e.p === 'A' ? 0 : 1),d,-e.a.p,e.a.p);
+				if ( m === undefined || m[0] === undefined || m[0][0] === -1 ) {
+					e.a[1]();
+				} else {
+					m = m[0];
+					e.a.c(m[0], m[1], m[2]);
+				}
+			}, e.a.t);
+		},
+		0: function () { //human
+			return e;
+		},
+		1: function () { //random ai
+			var r = e.a.r, c = -1, x = -1, y = -1, t = new Date().getTime();
+			e.a.b = true;
+			while ( c === -1 || e.r[c][e.p === 'A' ? 0 : 1] === 0) { c = r(); }
+			while ( x === -1 || e.f[y][x] !== 0) {
+				x = r();
+				y = r();
+			}
+			setTimeout( function () {
+				e.a.c(c, x, y, t);
+			}, e.a.t);
+		},
+		2: function () { //minimax ai
+			e.a._(1);
+		},
+		3: function () {
+			e.a._(2);
+		},
+		4: function () {
+			e.a._(3);
+		},
+		5: function () {
+			e.a._(4);
+		},
+		6: function () {
+			e.a._(5);
+		},
+		7: function () {
+			e.a._(6);
+		},
+		8: function () {
+			e.a._(7);
+		},
+		9: function () {
+			e.a._(8);
+		},
+		10: function () {
+			e.a._(9);
+		}
+	},
+	d: function () { //draw
+		var a = $('tr'), b, c, i, j;
+		for (i = 0; i < a.length; i += 1) {
+			b = a[i].children;
+			for (j = 0; j < b.length; j += 1) {
+				if (j === 0) {
+					b[j].className = 'n';
+					c = e.r[i][0];
+				}
+				if (j === 1) {
+					c = e.h[i][0];
+					b[j].className = 'A h';
+				}
+				if (j > 1 && j < 6) {
+					c = e.f[i][j - 2];
+					b[j].className = (c === 0 ? '' : (c > 4 ? 'B' : 'A'));
+					c = (c === 0 ? '' : (c > 4 ? e.h[c - 5][1] : e.h[c - 1][0]));
+					b[j].x = j - 2;
+				}
+				if (j === 6) {
+					c = e.h[i][1];
+					b[j].className = 'B h';
+				}
+				if (j === 7) {
+					c = e.r[i][1];
+					b[j].className = 'n';
+				}
+				b[j].y = i;
+				b[j].innerHTML = (c === 0 ? '' : c);
+				b[j].onclick = b[j].click = e.c;
+			}
+		}
+		return e;
+	},
+	u: function () { //turnifications
+		var a = d.body, b = a.className;
+		if (b === 'A') { a.className = 'B';
+			} else if (b === 'B') { a.className = 'A';
+			} else if (Math.floor(Math.random() * 2)) {
+				a.className = 'B';
+				e.S = 'Red';
+			} else {
+				a.className = 'A';
+				e.S = 'Blue';
+			}
+		e.p = a.className;
+		if (e.p === 'A') { $( 'td')[1].click();
+			} else { $( 'td')[6].click(); }
+		e.a[e.z[e.p === 'A' ? 0 : 1]]();
+	},
+	l: function () { //hand clicked
+		if ($('.c').length > 0) { $('.c')[0].className = e.p + ' h'; }
+	},
+	g: function (f, r) { //game over
+		var i = 0, j = 0, g;
+		if (r[4][0] || r[4][1]) { return true; }
+		for (i = 0; i < f.length; i += 1) {
+			g = f[i];
+			for (j = 0; j < g.length; j += 1) {
+				if (g[j] === 0) { return false; }
+			}
+		}
+		return true;
+	},
+	o: function (y, x) { //turns enemy cards
+		var i, j, a, c = e.f[y][x], d;
+		for (i = Math.max(0, y - 1); i < Math.min(4, y + 2); i += 1) {
+			for (j = Math.max(0, x - 1); j < Math.min(4, x + 2); j += 1) {
+				a = $('tr')[i].children[j + 2];
+				d = e.f[i][j];
+				if (d > 0 && (d - 1) % 4 < (c - 1) % 4) {
+					if (c > 4) {
+						e.f[i][j] = d % 4 + 4;
+						a.innerHTML = e.h[(d - 1) % 4][1];
+					} else {
+						e.f[i][j] = d % 4;
+						a.innerHTML = e.h[(d - 1) % 4][0];
+					}
+					a.className = e.p;
+				}
+			}
+		}
+		return e;
+	},
+	m: function (a, r) { //more cards
+		if (a > 4) { r[a - 4][1] += 1;
+			} else { r[a][0] += 1; }
+	},
+	v: function (a, r) { //tris
+		var i, j, c = [];
+		for (i = 0; i < a.length; i += 1) { c[i] = a[i].slice(0); }
+		for (i = 0; i < a.length; i += 1) {
+			for (j = 0; j < a[i].length; j += 1) {
+				if (a[i][j] > 0) {
+					if (a[i][j + 2] && a[i][j] === a[i][j + 1] && a[i][j] === a[i][j + 2]) {
+						c[i][j] = c[i][j + 1] = c[i][j + 2] = 0;
+						e.m(a[i][j], r);
+					}
+					if (a[i + 2] && a[i][j] === a[i + 1][j + 1] && a[i][j] === a[i + 2][j + 2]) {
+						c[i][j] = c[i + 1][j + 1] = c[i + 2][j + 2] = 0;
+						e.m(a[i][j], r);
+					}
+					if (a[i + 2] && a[i][j] === a[i + 1][j] && a[i][j] === a[i + 2][j]) {
+						c[i][j] = c[i + 1][j] = c[i + 2][j] = 0;
+						e.m(a[i][j], r);
+					}
+					if (a[i + 2] && a[i][j] === a[i + 1][j - 1] && a[i][j] === a[i + 2][j - 2]) {
+						c[i][j] = c[i + 1][j - 1] = c[i + 2][j - 2] = 0;
+						e.m(a[i][j], r);
+					}
+				}
+			}
+		}
+		return c;
+	},
+	w: function () { //winning TODO alert
+		var a = $('.A').length - 4, b = $('.B').length - 4, w = 0;
+		if (e.p === 'A') { a -= 1;
+			} else { b -= 1; }
+		if (e.r[4][0] > 0) { w = 1;
+			} else if (e.r[4][1] > 0) { w = 2;
+			} else if (a > b) { w = 1;
+			} else if (a < b) { w = 2;
+			} else { w = 3; }
+		if (w === 1) {
+			if (e.L > 0 && e.C > 0) { e.L += 1; }
+			if (e.L > 5 && e.C > 0) {
+				if (e.C === 1) { e.alert('Congratulations!\nYou have completed the Normal Quest!'); }
+				if (e.C === 2) { e.alert('Congratulations!\nYou have completed the Unlucky Quest!'); }
+				if (e.C === 3) { e.alert('Congratulations!\nYou have completed the Lucky Quest!'); }
+				e.L = 0;
+				e.C = 0;
+				d.body.className = '';
+				return e;
+			}
+			if (e.C === 1) { //campaign scripting
+				if (e.L < 3) { e.V(0,1,0,0,0,0,0,0); }
+				else e.V(0,e.L - 1,0,0,0,0,0,0);
+			}
+			if (e.C === 2) {
+				//if (e.L === 1) { e.V(0,1,0,0,0,1,0,0); }
+				if (e.L === 2) { e.V(0,1,0,0,0,1,1,0); }
+				if (e.L === 3) { e.V(0,1,0,0,0,2,1,0); }
+				if (e.L === 4) { e.V(0,1,0,0,0,2,1,1); }
+				if (e.L === 5) { e.V(0,1,0,0,0,2,2,2); }
+			}
+			if (e.C === 3) {
+				//if (e.L === 1) { e.V(0,4,2,2,2,0,0,0); }
+				if (e.L === 2) { e.V(0,4,2,1,1,0,0,0); }
+				if (e.L === 3) { e.V(0,4,2,1,0,0,0,0); }
+				if (e.L === 4) { e.V(0,4,1,1,0,0,0,0); }
+				if (e.L === 5) { e.V(0,4,1,0,0,0,0,0); }
+			}
+			e.alert(e.S + ' started, Blue wins!');
+		}
+		if (w === 2) {
+			e.alert(e.S + ' started, Red wins!');
+		}
+		if (w === 3) {
+			e.alert(e.S + " started, It's a draw!");
+		}
+		e.s();
+	},
+	R: function () {
+		var t = 16, b = d.body, h = $('html')[0], x = h.clientWidth / 120, y = h.clientHeight/80;
+		b.style.fontSize = Math.min(x,y) + 'px';
+	},
+	s: function () { //start
+		if( $( 'input')[8].checked === true) { e.d3(); }
+		var i = 0, a = $('#X').getElementsByTagName('p')[0], j = [['M75,18.4L8.5,133.6h133L75,18.4z M75,41.5l46.7,80.9H28.3 L75,41.5z','75,61.6 44.5,114.3 105.5,114.3','A'],
+			['M75,8.4L8.4,75l2.3,2.3L75,141.6l63.9-63.9l2.7-2.7L75,8.4z M75,124.3L25.7,75L75,25.7l46.8,46.8l2.5,2.5L75,124.3z','75,39.8 45.9,68.9 39.8,75 75,110.2 110.2,75 104.4,69.2','B'],
+			['M75,12.7L9.5,60.3l25,77h80.9l25-77L75,12.7z M106.8,126.8H43.2 L23.5,66.3L75,28.8l51.5,37.4L106.8,126.8z','75,46.2 38.3,72.9 52.3,116.1 97.7,116.1 111.7,72.9','C'],
+			['M109.6,15H40.4L5.7,75l34.6,60h69.3l34.6-60L109.6,15z M102.3,122.2H47.7L20.5,75l27.3-47.2h54.5L129.5,75L102.3,122.2z','95.4,39.6 54.6,39.6 34.1,75 54.6,110.4 95.4,110.4 115.9,75','D']];
+		e.h = [['', ''], ['', ''], ['', ''], ['', '']];
+		for(;i < 4; i += 1){
+			e.h[i][0] = e.h[i][1] = '<div><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 150 150"><path fill="#fff" stroke="#222" stroke-miterlimit="10" d="' + j[i][0] + '"></path><polygon fill="#fff" stroke="#222" stroke-miterlimit="10" points="' + j[i][1] +'"></polygon></svg>' + j[i][2] +'</div>';
+		}
+		e.s2();
+		if (e.C === 2) { d.body.className = 'A'; }
+		else if (e.C === 3) { d.body.className = 'B'; }
+		else { d.body.className = ''; }
+		e.p = '';
+		if (e.C === 1) { a.innerHTML = 'Normal Quest<br>Level ' + e.L; }
+		if (e.C === 2) { a.innerHTML = 'Unlucky Quest<br>Level ' + e.L; }
+		if (e.C === 3) { a.innerHTML = 'Lucky Quest<br>Level ' + e.L; }
+		e.d().u();
+	},
+	s2: function () { //start
+		//if( $( 'input')[0].checked === true) { e.d3(); }
+		var t = $('select'), a = t[0].selectedIndex, b = t[1].selectedIndex, u = $('input');
+		e.f = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
+		e.r = [['∞', '∞'], [parseInt(u[1].value) || 0, parseInt(u[5].value) || 0], [parseInt(u[2].value) || 0, parseInt(u[6].value) || 0], [parseInt(u[3].value) || 0, parseInt(u[7].value) || 0], [0, 0]];
+		e.z[0] = a;
+		e.z[1] = b;
+	},
+	V: function (a, b, c, d, e, f, g, h){ //puts values in custom mode as a commodity for next lvl
+		var i = $('select'), j = $('input');
+		i[0].selectedIndex = a;
+		i[1].selectedIndex = b;
+		j[1].value = c;
+		j[2].value = d;
+		j[3].value = e;
+		j[5].value = f;
+		j[6].value = g;
+		j[7].value = h;
+		return e;
+	},
+	c: function () { //click
+		var i, t = this;
+		if (t.className === 'n' || e.a.b) { return; } //TODO add check on .h of different player and disable .h without cards
+		if (t.className.search('h') != -1) {
+			e.l();
+			if (e.p === 'A' && (t.previousSibling.innerHTML === e.r[0][0] || t.previousSibling.innerHTML > 0)) {
+				e.t = t.innerHTML;
+				e.n = t.previousSibling;
+				t.className += ' c';
+			} else if (e.p === 'B' && (t.nextSibling.innerHTML === e.r[0][0] || t.nextSibling.innerHTML > 0)) {
+				e.t = t.innerHTML;
+				e.n = t.nextSibling;
+				t.className += ' c';
+			} else {
+				e.t = '';
+				e.n = false;
+			}
+		} else {
+			if (e.t !== '' && t.innerHTML === '') {
+				t.innerHTML = e.t;
+				t.className = e.p;
+				e.l();
+				if (e.n.innerHTML !== e.r[0][0]) {
+					e.n.innerHTML -= 1;
+					e.r[e.n.y][e.p === 'A' ? 0 : 1] -= 1;
+				}
+				if (e.n.innerHTML === '0') { e.n.innerHTML = ''; }
+				for (i = 0; i < e.h.length; i += 1) { if (e.t.slice(-7) === e.h[i][e.p === 'A' ? 0 : 1].slice(-7)) { e.f[t.y][t.x] = e.p === 'A' ? i + 1 : i + 5; } }
+				e.t = '';
+				e.f = e.o(t.y, t.x).v( e.f, e.r);
+				e.d();
+				if (e.g( e.f, e.r)) { e.w();
+					} else { e.u(); }
+			}
+		}
+	}
+}, C= d.createElement( 'canvas'), c = C.getContext('2d'), u = $( 'title')[ 0].innerHTML, r = [], f = d.createElement('link');
+//e.s();
+w.onresize = e.R;
+e.R();
+
+C.width= C.height= 32;
+c.font= 'bold 24px sans-serif';
+c.textAlign= 'left';
+for( var i= 0; i< c.measureText( u).width/ 8+ 6; ++ i){
+	c.clearRect( 0, 0, 32, 32);
+	c.arc( 16, 16, 16, 0 , 2 * Math.PI, false);
+	c.fillStyle= '#00f';
+	c.fill();
+	c.fillStyle= 'red';
+	c.fillText( u, -8* i+ 32, 26);
+	r[ i]= C.toDataURL( 'image/png');
+}
+f.rel= 'icon';
+setInterval( function(){
+	if( i>= r.length) i= 0;
+	f.href= r[ i ++];
+	d.head.appendChild( f);
+}, 200);
+
+
+</script>

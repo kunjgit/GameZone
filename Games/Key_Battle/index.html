@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Js13kGames 2018 Game by Kushagra Gour</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <div class="stage-wrap">
+            <div id="stageEl" class="stage">
+
+                <div id="p1" class="sprite boy p1"></div>
+                <div id="p2" class="sprite boy p2"></div>
+                <div id="p1ScoreEl" class="sprite score p1-score">
+                    <Sentence word="0"></Sentence>
+                </div>
+                <div id="p2ScoreEl" class="sprite score p2-score">
+                    <Sentence word="0"></Sentence>
+                </div>
+                <Controller id="0" class="controller1" leftKey="97" rightKey="100" enterkey="115"></Controller>
+                <Controller id="1" class="controller2" leftKey="106" rightKey="108" enterkey="107"></Controller>
+
+                <div class="ui-wrap">
+                    <Sentence word="key battle" classes="title"></Sentence>
+                    <button autofocus class="btn" data-type="0" onclick="gameTypeBtnClickHandler(event)">
+                        <Sentence word="vs computer"></Sentence>
+                    </button>
+                    <button class="btn" data-type="1" onclick="gameTypeBtnClickHandler(event)">
+                        <Sentence word="vs 2p"></Sentence>
+                    </button>
+
+                    <div class="type-1-help">
+                        <Sentence word="just type the words"></Sentence>
+                    </div>
+                    <div class="type-2-help">
+                        <Sentence word="1p left/right/enter - a/d/s"></Sentence>
+                        <Sentence word="2p left/right/enter - j/l/k"></Sentence>
+                    </div>
+
+                </div>
+            </div>
+            <div style="position:relative">
+                <a href="https://github.com/chinchang/js13k-2018/">Key Battle</a> -
+                a Js13kGames 2018 entry by <a href="https://twitter.com/chinchang457">Kushagra Gour</a>
+            </div>
+        </div>
+        <div class="overlay"></div>
+
+        <script src="script.js"></script>
+
+        <script>
+            compile('Controller');
+            compile('Sentence');
+        </script>
+    </body>
+
+</html>

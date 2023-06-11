@@ -1,0 +1,75 @@
+html,body{
+	background: #001;
+}
+
+#sceneBox{
+	color: #bbb;
+	cursor: default;
+	font: 18pt arial;
+	height: 80%;
+	margin: 50px auto;
+	padding: 1px 30px;
+	width: 70%;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+scene{
+	display: none;
+}
+
+entity, a{
+	color: #449;
+	cursor: pointer;
+	text-decoration: none;
+}
+entity:hover{
+	color: #44c;
+}
+entity.inactive{
+	color: #bbb;
+	cursor: default;
+}
+
+action{
+	display: none;
+}
+
+actionText{
+	color: #aaa;
+	display: none;
+	font-size: 16pt;
+}
+
+entityMenu{
+	display: block;
+	position: absolute;
+}
+entityMenuItem{
+	background: #334;
+	border-bottom: 1px solid #223;
+	color: #889;
+	cursor: pointer;
+	display: block;
+	font: 14pt arial;
+	padding: 5px 10px;
+	text-align: center;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+entityMenuItem:hover{
+	background: #556;
+}
+entityMenuItem:last-child{
+	border-bottom: none;
+}

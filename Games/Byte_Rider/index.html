@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Byte Rider</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style type="text/css">
+      * {
+        cursor: default;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-family: Verdana, Geneva, sans-serif;
+        font-weight: 400;
+        font-size: 62.5%;
+      }
+      body {
+        background: #fdfaf9;
+        color: #515151;
+        font-size: 1.6rem;
+      }
+      a,
+      a:visited {
+        color: inherit;
+        text-decoration: none;
+      }
+      .world {
+        width: 32rem;
+        min-height: 44.4rem;
+        margin: 0 auto;
+        padding: 0.4rem;
+        background: #fdfaf9;
+        color: #515151;
+        border-radius: 0.5rem;
+        box-shadow: 1px 1px 0 #e5dfd2, 1px -1px 0 #e5dfd2, -1px 1px 0 #e5dfd2,
+          -1px -1px 0 #e5dfd2;
+      }
+      .row {
+        flex-direction: row;
+      }
+      .col,
+      .row {
+        display: flex;
+      }
+      .col {
+        flex-direction: column;
+      }
+      .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 27.6rem;
+        font-size: 6.4rem;
+        pointer-events: none;
+        text-align: center;
+      }
+      .board {
+        position: relative;
+        margin-bottom: 0.2rem;
+      }
+      .piles {
+        flex-grow: 1;
+      }
+      .pile {
+        flex-wrap: wrap;
+        margin-right: 1.2rem;
+      }
+      .navi {
+        position: relative;
+      }
+      .discard {
+        flex-grow: 1;
+        justify-content: flex-end;
+        margin-right: 0;
+      }
+      .card {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 4.6rem;
+        height: 4.6rem;
+        margin: 0.2rem;
+        background-color: #fdfaf9;
+        box-shadow: 1px 1px 0 #515151, 1px -1px 0 #515151, -1px 1px 0 #515151,
+          -1px -1px 0 #515151, inset 0 0 1rem rgba(0, 0, 0, 0.3);
+      }
+      .x {
+        box-shadow: 1px 1px 0 #515151, 1px -1px 0 #515151, -1px 1px 0 #515151,
+          -1px -1px 0 #515151, inset 0 0 1rem #dc3220;
+      }
+      .y {
+        box-shadow: 1px 1px 0 #515151, 1px -1px 0 #515151, -1px 1px 0 #515151,
+          -1px -1px 0 #515151, inset 0 0 1rem #005ab5;
+      }
+      .pickable {
+        box-shadow: 1px 1px 0 #515151, 1px -1px 0 #515151, -1px 1px 0 #515151,
+          -1px -1px 0 #515151, inset 0 0 1rem #ffb000 !important;
+      }
+      .playable.card,
+      .playable > .card.invisible {
+        box-shadow: 1px 1px 0 #ffb000, 1px -1px 0 #ffb000, -1px 1px 0 #ffb000,
+          -1px -1px 0 #ffb000, inset 0 0 0.25rem #ffb000, 0 0 0.25rem #ffb000 !important;
+      }
+      .playable > .card.invisible {
+        visibility: visible !important;
+        pointer-events: none;
+      }
+      .picked {
+        transform: scale(1.2);
+        z-index: 1;
+      }
+      .picked,
+      .sliding > .card {
+        box-shadow: 1px 1px 0 #515151, 1px -1px 0 #515151, -1px 1px 0 #515151,
+          -1px -1px 0 #515151, inset 0 0 1rem rgba(0, 0, 0, 0.3),
+          0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+      }
+      .x.picked {
+        box-shadow: 1px 1px 0 #515151, 1px -1px 0 #515151, -1px 1px 0 #515151,
+          -1px -1px 0 #515151, inset 0 0 1rem #dc3220,
+          0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+      }
+      .y.picked {
+        box-shadow: 1px 1px 0 #515151, 1px -1px 0 #515151, -1px 1px 0 #515151,
+          -1px -1px 0 #515151, inset 0 0 1rem #005ab5,
+          0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+      }
+      .pickable.picked {
+        box-shadow: 1px 1px 0 #515151, 1px -1px 0 #515151, -1px 1px 0 #515151,
+          -1px -1px 0 #515151, inset 0 0 1rem #ffb000,
+          0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3) !important;
+      }
+      .info {
+        position: relative;
+        flex-grow: 1;
+        font-size: 1.2rem;
+      }
+      .info p + p {
+        margin-top: 0.6rem;
+      }
+      .info .icon {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        opacity: 0.2;
+        height: 9.2rem;
+        width: 9.2rem;
+      }
+      .info .inline {
+        display: inline-flex;
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+      .icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4.6rem;
+        height: 4.6rem;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        pointer-events: none;
+        color: transparent;
+      }
+      .icon .value {
+        top: 0;
+        border-bottom: 1px solid #515151;
+        border-right: 1px solid #515151;
+        border-bottom-right-radius: 0.5rem;
+      }
+      .icon .jacked,
+      .icon .value {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        font-size: 1rem;
+        overflow: hidden;
+        color: #515151;
+        padding: 0.1rem;
+        background-color: #fdfaf9;
+      }
+      .icon .jacked {
+        bottom: 0;
+        border-top: 1px solid #515151;
+        border-right: 1px solid #515151;
+        border-top-right-radius: 0.5rem;
+      }
+      .icon .jacked .iJ {
+        font-size: 1.2rem;
+        color: transparent;
+        background-repeat: no-repeat;
+        background-position: 50%;
+      }
+      .iA {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M164 41l-27 27v224l56 19h30l56-7V201h-23c-4 0-8-2-11-4l-6-9c-3-6-4-13-4-20s1-14 4-20l6-9c3-2 7-4 11-4h23v-15l-7 1c-8 0-15-5-19-11s-6-14-6-22 2-16 6-22c3-5 8-9 14-10l-15-15zm108 32c-6 0-7 10-7 15s1 15 7 15 7-10 7-15-1-15-7-15zm169 64v62h30v-62zm-184 16c-3 4-4 11-4 15 1 5 0 11 4 15h166v-30zM75 283L62 416l15 7 16-115zm37 20l-4 33 61 20-17-34-4-7zm251 9l-17 26 22 113 14-14zm-24 3l-76 9-17 34 83-12-2-8-1-4zm-164 12l23 46h20l23-46zm20 64l4 53 9-9 9 9 4-53zM62 436l-35 41 70-24zm323 23l-27 28h73zm-177 2l-26 26h52z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .i2 {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M245 49a130 130 0 00-130 130 130 130 0 0017 64l12-19 14 8 3-7a32 32 0 01-3-11 32 32 0 0133-33 32 32 0 0111 2l9-12 15 6 13-17-2 30-15-1-1 11a32 32 0 012 14 32 32 0 01-32 32 32 32 0 01-20-7l-13 5-10-6-16 5a130 130 0 0014 20l-9 46 16 2c2 13 7 27 16 41 2-11 5-23 13-38 43 4 83 4 126 0 8 15 11 27 13 38 9-14 14-28 16-41l16-2-9-46a130 130 0 0031-84 130 130 0 00-68-114l-9 1 18 17-35 21 15-23-18-16 8-9a130 130 0 00-41-7zm54 132a32 32 0 0133 33 32 32 0 01-33 32 32 32 0 01-32-32 32 32 0 0132-33zm-54 68l16 48-32 1zm-140 72v87h22v-87zm-65 11v65h11v-23h36v-19H51v-23zm151 6l-4 17-6 36h35c3-9 8-18 14-27l15-20 15 20c6 9 11 18 14 27h35l-6-36-4-17zm163 5v43h14l2-2v-39l-2-2zm-209 1v47h28l-19-29-9-18zm243 11v19h85l-24-19zm-52 7l-19 29h19zm-91 13c-10 14-16 25-16 40-28 0-55-2-81-6l9 47c54 9 117 9 176 0l9-47c-26 4-53 6-81 6 0-15-6-26-16-40zm227 16c1 23-19 29-19 49 0 16 11 21 19 21s20-5 20-21c0-20-20-26-20-49z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .i3 {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M25 25v142h62c2-22 11-41 25-55s33-23 55-25V25H25zm192 0v46h78V25h-78zm128 0v62c22 2 41 11 55 25s23 33 25 55h62V25H345zM185 57v48h-9c-22 0-39 7-52 19a72 72 0 00-19 52v9H57v14h32v48h62c5-51 45-91 96-96V89h-48V57h-14zm128 0v32h-48v62c51 5 91 45 96 96h46v-48h48v-14h-48v-9c0-22-7-39-19-52a72 72 0 00-52-19h-9V57h-14zm-57 112a87 87 0 100 174 87 87 0 000-174zm-35 41c14 0 30 9 35 24 5-15 21-24 35-24 18 0 28 20 28 31 0 17-12 29-27 42-12 11-36 38-36 38s-24-27-36-38c-15-13-27-25-27-42 0-11 10-31 28-31zm-196 7v78h46v-78H25zm400 0v78h46v-78h-46zM89 265v48H57v14h48v9c0 22 7 39 19 52 13 12 30 19 52 19h9v48h14v-32h48v-62c-51-5-91-45-96-96H89zm272 0c-5 51-45 91-96 96v62h48v32h14v-48h9c22 0 39-7 52-19 12-13 19-30 19-52v-9h48v-14h-48v-48h-46zM25 345v142h142v-62c-22-2-41-11-55-25a87 87 0 01-25-55H25zm400 0c-2 22-11 41-25 55a87 87 0 01-55 25v62h142V345h-62zm-208 96v46h78v-46h-78z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .i4 {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M256 23a233 233 0 100 466 233 233 0 000-466zm0 18c27 0 52 5 76 14l-20 51a160 160 0 0157 37l39-39a215 215 0 0145 66l-44 41 59 10 2 15-52 5-9-30-9-31-45 42a105 105 0 00-139-63l1-62-29 14-29 13 49 39a105 105 0 009 191l-44 43 31 10 30 11-8-61a105 105 0 0030 4 105 105 0 00102-131l58 11h-1a160 160 0 011 15 160 160 0 01-97 147l22 50c-26 12-55 18-85 18a216 216 0 01-45-5l-7-59-43 42a215 215 0 01-64-48l41-37a160 160 0 01-42-108 160 160 0 0147-113l-39-39a216 216 0 0138-30l46 37 2-60c21-6 43-10 66-10zm0 128c30 0 57 15 73 39l-42 39 56 10a87 87 0 01-90 86l-7-57-41 40a87 87 0 01-7-135l44 36 2-57 12-1zm0 55a32 32 0 00-32 32 32 32 0 0032 32 32 32 0 0032-32 32 32 0 00-32-32z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .i5 {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M395 31l-65 65 86 86 65-65-86-86zm-6 36l17 17-13 13-17-17 12-13zm-83 30l-12 12 109 109 12-12L306 97zm-43 6L23 343v60l86 86h60l240-240-146-146zm165 4l17 17-13 12-17-17 13-12z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .i6 {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M25 49v46h78V49zm128 0v46h78V49zm128 0v46h78V49zm128 0v46h78V49zM55 113v64h64v46h18v-46h64v-64h-18v46H73v-46zm256 0v64h64v46h18v-46h64v-64h-18v46H329v-46zM89 241v46h78v-46zm256 0v46h78v-46zm-226 64v48h128v46h18v-46h128v-48h-18v30H137v-30zm98 112v46h78v-46z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .i7 {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M64 48c-9 0-16 7-16 16v384c0 9 7 16 16 16h236l-16-16H64V64h63v98c0 3 4 7 8 7h170c4 0 8-4 8-7V64h69l1 1 9 7a872 872 0 0155 57l1 1v236h16V128l-1-4-1-2-3-3-8-10a878 878 0 00-63-60l-4-1H64zm88 16h48c5 0 8 4 8 10v70c0 6-3 10-8 10h-48c-5 0-8-4-8-10V74c0-6 3-10 8-10zm-38 148c-4 0-8 4-8 8v184c0 4 4 8 8 8h134l-30-31-16-15h77V238h127v-18c0-4-4-8-8-8H114zm183 44v128h-51l106 106 106-106h-51V256H297zm167 148l-16 16v28h-28l-16 16h44c9 0 16-7 16-16v-44z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .i8 {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M218 29l14 110h48l14-110zm93 5l-15 123h-80L201 34c-18 9-34 23-48 40v147H98a335 335 0 00-2 31c0 128 72 232 160 232 71-1 134-69 153-167h-7l-32 16h-70l-37-36v-62h136v16h17c0-97-42-184-105-217zm-55 9c14 0 25 11 25 25a25 25 0 11-25-25zm0 18c-4 0-7 3-7 7s3 7 7 7 7-4 7-7-3-7-7-7zm-121 39c-17 29-30 65-35 102l35 1zm185 150l-32 48 15 9 32-47zm48 0l-32 48 15 9 32-47zm-224 17h80v18h-7c-1 6-5 10-10 12-4 2-9 3-15 3-6 1-11-1-15-3-5-2-9-6-10-13l-23 1zm265 2v30h30v-30zM192 395h128v18H192zm48 32h32v18h-32z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .i9 {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M253 24l-12 43 142 38 11-43-141-38zm1 66l-7 25-19-5a80 80 0 00-98 57L80 353a81 81 0 0057 99l143 38c43 11 87-14 99-57l49-186c12-43-13-87-56-98l-19-5 7-26-18-5-10 35-2 9c-10 29 56 96 82 65 1 6 0 13-2 20l-2 10h-46c10 14 14 33 8 53-10 31-37 46-63 58-27 13-54 25-70 48l-14 20-3-24c-4-29-22-52-39-76-8-12-17-24-21-38-5-12-6-26-3-41h-31l22-80c9-34 42-53 76-44l27 8 9 2 2-9 10-34-18-5zm-37 130c-17 1-34 11-41 33-4 13-3 23 1 34s11 22 19 33c14 19 30 40 38 66 19-19 44-29 65-39 26-13 46-24 53-47 7-25-3-41-20-49-16-8-39-7-56 10l-12 12-4-16c-5-26-23-36-41-37h-2z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .iT {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M294 54h-81l-79 70 18 71 49-8-26 75 39-23 11 36 30-37 30 39 19-39 32 21-26-71 46 6 19-67-81-73zm-89 61c14 0 29 9 36 27l-62 9c-2-24 11-36 26-36zm105 0c15 0 28 12 26 36l-62-9c8-18 23-27 36-27zm-55 38l26 57h-48l22-57zM93 288l-42 30 208 72 207-73-41-29c-55 10-121-14-151 32h-31c-30-46-95-22-150-32zm-64 42l-6 17 191 67v18h91v-19l188-66-6-17-206 72 4 11h-54l4-11-206-72zm230 38v10l-1-10v2l1-2z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .iJ {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M336 16l10 35v36l59 45 70 36 11-33-88-97-20 4-42-26zm-12 20l-54 120h29l29-73V40l-4-4zm67 22l35 35-41-11 6-24zm-53 46l-24 60 51 127 25-148-52-39zM90 174v142h62v-96h146v96h57l-56-142H90zm-18 9l-46 34v117l30 10V241l16-16v-42zm98 55v14h110v-14H170zm0 32v14h110v-14H170zm0 32v14h110v-14H170zm-80 32v78a49 49 0 0129 5l37-84-66 1zm209 0l9 81a49 49 0 0132-1l17-80h-58zM97 430c-18 0-31 13-31 31s13 31 31 31a31 31 0 000-62zm228 0c-18 0-31 13-31 31s13 31 31 31a31 31 0 000-62zM97 445a16 16 0 110 31 16 16 0 010-31zm228 0a16 16 0 110 31 16 16 0 010-31zm-180 7l1 9-1 9h131v-18H145z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .iQ {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M255 27C200 59 102 81 40 67c1 160 56 374 217 417 165-44 216-257 217-417-61 14-169-11-219-40zm3 45c32 0 64 5 96 17l35 147h-64c10 29 7 70-10 99l-17-50-20 55-20-50-19 49-20-54-17 50c-15-27-24-65-10-99h-64l35-147c31-10 63-17 95-17zM85 114l12 3c11 3 25 3 39 1l-3 20-29-1c2 59 12 125 36 180 8 20 18 38 30 54l-3 26c-18-21-33-46-44-72-27-62-37-135-38-199v-12zm349 0v12c0 64-10 136-36 198-12 28-27 54-47 75l-3-24c13-17 24-37 33-58 23-55 33-121 34-180h-29l-4-19c15 2 30 1 41-1l11-3zm-261 42l-12 51 75-7c-13-26-36-38-63-44zm171 0c-26 8-49 20-63 44l74 7-11-51zm-86 59l-7 9-23 31 15 11 15-21 16 21 15-11-23-31-8-10zm-57 137l15 57 23-47 19 59 20-60 21 48 16-56c16 18 21 39 18 66-48 37-97 43-148 0 0-24-1-45 16-67z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .iK {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M151 22v32h18V22h-18zm48 0v32h18V22h-18zm48 0v32h18V22h-18zm48 0v32h18V22h-18zm48 0v32h18V22h-18zM132 73l-59 59v248l59 59h248l59-59V132l-59-59H132zm60 46h128v18H192v-18zM22 151v18h32v-18H22zm436 0v18h32v-18h-32zm-339 32h274v146H119V183zm-97 16v18h32v-18H22zm436 0v18h32v-18h-32zm-321 2v110h238V201H137zM22 247v18h32v-18H22zm436 0v18h32v-18h-32zM22 295v18h32v-18H22zm436 0v18h32v-18h-32zM22 343v18h32v-18H22zm436 0v18h32v-18h-32zm-266 32h128v18H192v-18zm-41 83v32h18v-32h-18zm48 0v32h18v-32h-18zm48 0v32h18v-32h-18zm48 0v32h18v-32h-18zm48 0v32h18v-32h-18z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .iS {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M256 18L50 136l206 118 206-118L256 18zM102 186l-52 30 206 118 206-118-52-30-154 88-154-88zm0 80l-52 30 206 118 206-118-52-30-154 88-154-88zm0 80l-52 30 206 118 206-118-52-30-154 88-154-88z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .iPlay {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M273 24c-15 1-26 4-33 9l-97 52-54 73c-12 18-3 52 32 30l39-51c49-43 150-23 103 62-24 50-13 74 17 84l14-46c24-54 69-64 67-107l107 8-1-112-194-2zm-54 104c-18-1-35 7-47 17l-39 51c10 9 21 4 32-6 13 6 22-4 30-23 4-14 8-23 24-39zm-33 88a13 13 0 00-5 1L52 277c-7 3-10 11-7 18l85 185c3 7 12 10 18 6l130-59c6-3 9-11 6-18l-85-185c-2-5-8-8-13-8z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .iDraw {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M210 488L89 442c-12-5-12-13-1-18l117 45c15 6 37 5 52-2l161-76c10 4 10 11-1 16l-167 80c-11 5-29 6-40 1zm0-32L89 409c-10-3-12-10-5-15l121 47c15 6 37 5 52-2l165-78c6 4 4 10-5 14l-167 79c-11 5-29 6-40 2zm0-28L89 381c-10-4-12-10-5-15l121 47c15 5 37 5 52-2l165-79c6 5 4 11-5 15l-167 79c-11 5-29 6-40 2zm0-29L89 353c-10-4-12-10-5-15l121 46c15 6 37 5 52-2l165-78c6 4 4 10-5 14l-167 80c-11 5-29 6-40 1zm0-28L89 324c-12-4-12-12-1-17l87-41 35 18c15 8 38 7 53-3l65-42 89 34c11 4 11 12 0 17l-167 79c-11 6-29 6-40 2zm7-100L93 206c-10-5-11-15-1-22l106-68h25v65h59v-65h50l-27-42 119 63c10 6 11 16 1 22L255 269c-10 7-27 8-38 2zm21-105v-65h-34l49-80 49 80h-35v65h-29z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .iBurn {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='height:512px;width:512px'%3E%3Cpath d='M281 65c-5 0-12 1-19 6-56 39-112 77-170 113-10 7-9 17 1 22l129 68c6 3 23 2 33-5l170-110c10-6 9-16-1-22L293 68s-5-3-12-3zm6 27l-13 70 113-15-3 15-113 15-14 70-26 4 14-70-117 15 3-16 117-15 14-69 25-4zm41 147l-65 42c-15 10-38 11-53 3l-35-18-87 41c-11 5-11 13 1 17l121 47c11 4 29 4 40-2l167-79c11-5 11-13 0-17l-89-34zm94 65l-165 78c-15 7-37 8-52 2L84 338c-7 5-5 11 5 15l121 46c11 5 29 4 40-1l167-80c9-4 11-10 5-14zm0 28l-165 79c-15 7-37 7-52 2L84 366c-7 5-5 11 5 15l121 47c11 4 29 3 40-2l167-79c9-4 11-10 5-15zm0 29l-165 78c-15 7-37 8-52 2L84 394c-7 5-5 12 5 15l121 47c11 4 29 3 40-2l167-79c9-4 11-10 5-14zm-4 30l-161 76c-15 7-37 8-52 2L88 424c-11 5-11 13 1 18l121 46c11 5 29 4 40-1l167-80c11-5 11-12 1-16z' fill='%23515151'/%3E%3C/svg%3E");
+      }
+      .reset {
+        font-size: 3.2rem;
+      }
+      .moveable {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .sliding {
+        transition-timing-function: linear;
+        transition-property: top, left;
+      }
+      .hidden {
+        display: none !important;
+      }
+      .invisible {
+        visibility: hidden !important;
+      }
+      .faded {
+        opacity: 0.05;
+      }
+      .colophon {
+        width: 32rem;
+        font-size: 0.9rem;
+        line-height: 0.9rem;
+        text-align: right;
+        margin: 1.6rem auto;
+        padding: 0 0.6rem;
+      }
+      .colophon > a:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+      abbr[title="and"] {
+        font-family: Adobe Caslon Pro, Baskerville, Goudy Old Style, Palatino,
+          Palatino Linotype, Book Antiqua, Georgia, Times New Roman, Times,
+          serif;
+        font-style: italic;
+        text-decoration: none;
+        font-size: 110%;
+        cursor: help;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      .atari.bg {
+        background: #1e1e28;
+        background-image: linear-gradient(
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3) 50%,
+          transparent 0,
+          transparent
+        );
+        background-repeat: repeat;
+        background-size: 2rem 1rem;
+      }
+      .atari.fg {
+        color: hsla(0, 0%, 100%, 0.9);
+        text-shadow: 0 0.1em 0 #000;
+      }
+      .ninetyfive.fg {
+        font-weight: 700;
+        color: rgba(81, 81, 81, 0.8);
+        text-shadow: -0.1em 0.1em 0 rgba(220, 50, 32, 0.5),
+          0.1em -0.1em 0 rgba(0, 90, 181, 0.5);
+      }
+      .honeycomb.bg {
+        background: radial-gradient(
+              circle farthest-side at 0 50%,
+              #fdfaf9 23.5%,
+              rgba(240, 166, 17, 0) 0
+            )
+            21px 30px,
+          radial-gradient(
+              circle farthest-side at 0 50%,
+              rgba(229, 223, 210, 0.3) 24%,
+              rgba(240, 166, 17, 0) 0
+            )
+            19px 30px,
+          linear-gradient(
+              #fdfaf9 14%,
+              rgba(240, 166, 17, 0) 0,
+              rgba(240, 166, 17, 0) 85%,
+              #fdfaf9 0
+            )
+            0 0,
+          linear-gradient(
+              150deg,
+              #fdfaf9 24%,
+              rgba(229, 223, 210, 0.3) 0,
+              rgba(229, 223, 210, 0.3) 26%,
+              rgba(240, 166, 17, 0) 0,
+              rgba(240, 166, 17, 0) 74%,
+              rgba(229, 223, 210, 0.3) 0,
+              rgba(229, 223, 210, 0.3) 76%,
+              #fdfaf9 0
+            )
+            0 0,
+          linear-gradient(
+              30deg,
+              #fdfaf9 24%,
+              rgba(229, 223, 210, 0.3) 0,
+              rgba(229, 223, 210, 0.3) 26%,
+              rgba(240, 166, 17, 0) 0,
+              rgba(240, 166, 17, 0) 74%,
+              rgba(229, 223, 210, 0.3) 0,
+              rgba(229, 223, 210, 0.3) 76%,
+              #fdfaf9 0
+            )
+            0 0,
+          linear-gradient(
+              90deg,
+              rgba(229, 223, 210, 0.3) 2%,
+              #fdfaf9 0,
+              #fdfaf9 98%,
+              rgba(229, 223, 210, 0.3) 0
+            )
+            0 0 #fdfaf9;
+        background-size: 40px 60px;
+      }
+      @media screen and (min-width: 40em) {
+        html {
+          font-size: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg atari">
+    <div class="bg honeycomb col world">
+      <div id="board" class="col board">
+        <div id="logo" class="fg ninetyfive logo">Byte<br />Rider</div>
+        <div id="Hy" class="row pile"></div>
+        <div class="row">
+          <div class="col piles">
+            <div id="Py" class="row pile"></div>
+            <div id="Px" class="row pile"></div>
+            <div id="Hx" class="row pile"></div>
+          </div>
+          <div class="col navi">
+            <div id="discard" class="pile col discard"></div>
+            <div id="S" class="card iS"></div>
+            <div id="reset" class="card pickable reset hidden">&orarr;</div>
+            <div id="spacer" class="card invisible"></div>
+          </div>
+        </div>
+      </div>
+      <div id="info" class="info"></div>
+    </div>
+    <div class="fg atari colophon">
+      <abbr title=""></abbr>
+      <a href="#" title="retrofuturist decker and ice cream piggy"></a>
+      <a href="#" title=""></a><a href="#" title=""></a>
+    </div>
+    <div id="card" class="moveable hidden"></div>
+    <script type="text/javascript">
+      !(function (t) {
+        var e = {};
+        function n(o) {
+          if (e[o]) return e[o].exports;
+          var a = (e[o] = { i: o, l: !1, exports: {} });
+          return t[o].call(a.exports, a, a.exports, n), (a.l = !0), a.exports;
+        }
+        (n.m = t),
+          (n.c = e),
+          (n.d = function (t, e, o) {
+            n.o(t, e) ||
+              Object.defineProperty(t, e, { enumerable: !0, get: o });
+          }),
+          (n.r = function (t) {
+            "undefined" != typeof Symbol &&
+              Symbol.toStringTag &&
+              Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }),
+              Object.defineProperty(t, "__esModule", { value: !0 });
+          }),
+          (n.t = function (t, e) {
+            if ((1 & e && (t = n(t)), 8 & e)) return t;
+            if (4 & e && "object" == typeof t && t && t.__esModule) return t;
+            var o = Object.create(null);
+            if (
+              (n.r(o),
+              Object.defineProperty(o, "default", { enumerable: !0, value: t }),
+              2 & e && "string" != typeof t)
+            )
+              for (var a in t)
+                n.d(
+                  o,
+                  a,
+                  function (e) {
+                    return t[e];
+                  }.bind(null, a)
+                );
+            return o;
+          }),
+          (n.n = function (t) {
+            var e =
+              t && t.__esModule
+                ? function () {
+                    return t.default;
+                  }
+                : function () {
+                    return t;
+                  };
+            return n.d(e, "a", e), e;
+          }),
+          (n.o = function (t, e) {
+            return Object.prototype.hasOwnProperty.call(t, e);
+          }),
+          (n.p = ""),
+          n((n.s = 4));
+      })([
+        function (t, e) {
+          const n = {
+            clone: (t) =>
+              void 0 !== t ? JSON.parse(JSON.stringify(t)) : void 0,
+            shuffle: (t) => {
+              const e = t.slice();
+              let n,
+                o,
+                a = e.length;
+              for (; a > 0; )
+                (o = Math.floor(Math.random() * a)),
+                  (n = e[(a -= 1)]),
+                  (e[a] = e[o]),
+                  (e[o] = n);
+              return e;
+            },
+            pick: (t = []) => {
+              return t[Math.floor(Math.random() * t.length)];
+            },
+            dedupe: (t = []) => t.filter((t, e, n) => n.indexOf(t) === e),
+          };
+          t.exports = n;
+        },
+        function (t, e, n) {
+          const o = n(0),
+            a = {},
+            s = ["C", "D", "H", "S"],
+            r = [
+              "A",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "T",
+              "J",
+              "Q",
+              "K",
+            ],
+            i = (t) => r.includes((t || "").split("")[0]),
+            c = (t) => (t || "").startsWith("S"),
+            l = (t) => (t || "").startsWith("D");
+          (a.player = (t, e) => {
+            if (!t || !e) return "";
+            if (t.x.hand.includes(e) || t.x.played.includes(e)) return "x";
+            if (t.y.hand.includes(e) || t.y.played.includes(e)) return "y";
+            const n = (e || "").split("")[1] || "";
+            return t[n] ? n : "";
+          }),
+            (a.opponent = (t) => ("x" === t ? "y" : "y" === t ? "x" : ""));
+          (a.deck = () => {
+            const t = [];
+            return (
+              s.forEach((e) => {
+                r.forEach((n) => {
+                  t.push(`${n}${e}`);
+                });
+              }),
+              t
+            );
+          }),
+            (a.create = () => ({
+              stock: a.deck(),
+              discard: [],
+              moves: [],
+              stacked: {},
+              x: { hand: [], played: [], allowed: [] },
+              y: { hand: [], played: [], allowed: [] },
+            })),
+            (a.play = (t, e) => {
+              let n = o.clone(t);
+              return (
+                (e || []).forEach((t) => {
+                  n = ((t, e) => {
+                    const n = o.clone(t),
+                      [s, r] = (e || "").split("-"),
+                      d = a.player(n, r);
+                    let p = s;
+                    return (
+                      c(s) && (p = n.stock.shift()),
+                      l(s) && (p = n.discard.shift()),
+                      ["x", "y"].forEach((t) => {
+                        ["hand", "played"].forEach((e) => {
+                          n[t][e] = n[t][e].filter((t) => t !== p);
+                        });
+                      }),
+                      ["stock", "discard"].forEach((t) => {
+                        n[t] = n[t].filter((t) => t !== p);
+                      }),
+                      Object.keys(n.stacked).forEach((t) => {
+                        (n.stacked[t] = n.stacked[t].filter((t) => t !== p)),
+                          t === p &&
+                            n.stacked[t].length <= 0 &&
+                            delete n.stacked[t];
+                      }),
+                      i(p) &&
+                        i(r) &&
+                        (n.stacked[r] || (n.stacked[r] = []),
+                        n.stacked[r].unshift(p)),
+                      p && c(r) && n.stock.unshift(p),
+                      p && l(r) && n.discard.unshift(p),
+                      p &&
+                        d &&
+                        ((t) => (t || "").startsWith("H"))(r) &&
+                        n[d].hand.push(p),
+                      p &&
+                        d &&
+                        ((t) => (t || "").startsWith("P"))(r) &&
+                        n[d].played.push(p),
+                      n
+                    );
+                  })(n, t);
+                }),
+                n
+              );
+            }),
+            (a.deal = (t, e) => {
+              let n = o.clone(t);
+              const s = a.opponent(e);
+              if (e && s) {
+                const t = [];
+                for (let n = 0; n < 5; n += 1)
+                  t.push(`S${s}-H${s}`), t.push(`S${e}-H${e}`);
+                t.push(`S${s}-H${s}`),
+                  (n.stock = o.shuffle(n.stock)),
+                  (n = a.play(n, t));
+              }
+              return n;
+            }),
+            (t.exports = a);
+        },
+        function (t, e, n) {
+          const o = n(1),
+            a = n(0),
+            s = {},
+            r = [
+              "",
+              "A",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "T",
+              "J",
+              "Q",
+              "K",
+            ],
+            i = ["A", "2", "3", "4", "5", "6", "7", "9", "T"],
+            c = ["8", "J", "K", "Q"],
+            l = (t) => i.includes((t || "").split("")[0]),
+            d = (t) => c.includes((t || "").split("")[0]),
+            p = (t) => l(t) || d(t),
+            f = (t) => (t || "").startsWith("S"),
+            u = (t) => (t || "").startsWith("D"),
+            h = (t) => (t || "").startsWith("A"),
+            y = (t) => (t || "").startsWith("2"),
+            m = (t) => (t || "").startsWith("3"),
+            $ = (t) => (t || "").startsWith("4"),
+            v = (t) => (t || "").startsWith("5"),
+            g = (t) => (t || "").startsWith("6"),
+            k = (t) => (t || "").startsWith("7"),
+            x = (t) => (t || "").startsWith("8"),
+            w = (t) => (t || "").startsWith("9"),
+            S = (t) => (t || "").startsWith("T"),
+            D = (t) => (t || "").startsWith("J"),
+            b = (t) => (t || "").startsWith("Q"),
+            C = (t) => (t || "").startsWith("K"),
+            P = (t) =>
+              (t || "")
+                .replace(/Dx/g, "D")
+                .replace(/Dy/g, "D")
+                .replace(/Sx/g, "S")
+                .replace(/Sy/g, "S"),
+            E = (t, e) => P(t) === P(e),
+            H = (t) => {
+              const [e] = t.split(""),
+                n = r.indexOf(e);
+              return n > -1 ? n : 0;
+            },
+            W = (t) => {
+              const [e] = t.split("");
+              return i.includes(e) ? r.indexOf(e) : C(e) ? 7 : 0;
+            },
+            O = (t) => (e) => l(t) && l(e) && H(e) <= H(t),
+            j = (t) => (e) =>
+              ((t || { stacked: {} }).stacked[e] || []).filter(D).length > 0,
+            A = (t) => (e) => d(e) || j(t)(e);
+          (s.pickable = (t, e) => {
+            const n = new Set();
+            return (
+              t &&
+                t[e] &&
+                (t[e].allowed.forEach((t) => {
+                  const [e] = (t[0] || "").split("-");
+                  e && n.add(e);
+                }),
+                n.size <= 0 &&
+                  (t[e].hand.forEach((t) => n.add(t)), n.add(`S${e}`))),
+              [...n]
+            );
+          }),
+            (s.playable = (t, e, n) => {
+              const o = new Set();
+              if (t && t[e]) {
+                let a = t[e].allowed.slice();
+                a.length <= 0 && (a = s.chain(t, e, n)),
+                  a.forEach((t) => {
+                    const [e, a] = (t[0] || "").split("-");
+                    E(e, n) && a && o.add(a);
+                  });
+              }
+              return [...o];
+            }),
+            (s.chain = (t, e, n) => {
+              const a = o.opponent(e);
+              if (!(t && e && a && n)) return [];
+              if (f(n)) return [[`${n}-H${e}`]];
+              const r = [[`${n}-P${e}`]],
+                i = t[a].played.filter(O(n)).map((t) => [`${n}-${t}`]);
+              if (h(n)) {
+                const o = t[a].played.find(b) ? b : A(t);
+                return t[a].played
+                  .filter(o)
+                  .map((t) => [`${n}-D${e}`, `${t}-D${a}`])
+                  .concat(r)
+                  .concat(i);
+              }
+              if (y(n)) {
+                const o = r.concat(i);
+                return t[a].played.find(l) && o.unshift([`${n}-D${e}`]), o;
+              }
+              if (m(n)) {
+                const o = r.concat(i);
+                return t[a].played.find(A(t)) && o.unshift([`${n}-D${e}`]), o;
+              }
+              if ($(n)) {
+                const o = t[a].played.find(b) ? b : p;
+                return t[a].played
+                  .filter(o)
+                  .map((t) => [`${n}-D${e}`, `${t}-S${a}`])
+                  .concat(r)
+                  .concat(i);
+              }
+              if (v(n)) {
+                const o = t[a].hand;
+                if (o.length <= 0) return r.concat(i);
+                if (o.length <= 1)
+                  return [[`${n}-D${e}`, `${o[0]}-D${a}`]].concat(r).concat(i);
+                const s = [];
+                for (let t = 0; t < o.length; t += 1)
+                  for (let r = 0; r < o.length; r += 1)
+                    t !== r &&
+                      s.push([`${n}-D${e}`, `${o[t]}-D${a}`, `${o[r]}-D${a}`]);
+                return s.concat(r).concat(i);
+              }
+              if (g(n)) {
+                const a = t.stock[0],
+                  c = t.stock[1];
+                if (!a && !c) return r.concat(i);
+                if (a && !c) {
+                  const c = [`${n}-D${e}`, `S${e}-H${e}`],
+                    l = [],
+                    d = o.play(t, c);
+                  return (
+                    s.chain(d, e, a).forEach((t) => {
+                      l.push(c.concat(t));
+                    }),
+                    l.concat(r).concat(i)
+                  );
+                }
+                if (a && c) {
+                  const l = [`${n}-D${e}`, `S${e}-H${e}`, `S${e}-H${e}`],
+                    d = [],
+                    p = l.concat(`${a}-S${e}`),
+                    f = o.play(t, p);
+                  s.chain(f, e, c).forEach((t) => {
+                    d.push(p.concat(t));
+                  });
+                  const u = l.concat(`${c}-S${e}`),
+                    h = o.play(t, u);
+                  return (
+                    s.chain(h, e, a).forEach((t) => {
+                      d.push(u.concat(t));
+                    }),
+                    d.concat(r).concat(i)
+                  );
+                }
+              }
+              if (k(n))
+                return t.discard
+                  .slice(0, 3)
+                  .map((t) => [`${n}-D${e}`, `${t}-H${e}`])
+                  .concat(r)
+                  .concat(i);
+              if (x(n)) return [[`${n}-P${e}`]];
+              if (w(n)) {
+                const o = t.stock[0],
+                  a = t.stock[1],
+                  s = t.stock[2];
+                return o && a && s
+                  ? [o, a, s]
+                      .map((t) => [
+                        `${n}-D${e}`,
+                        `S${e}-H${e}`,
+                        `S${e}-H${e}`,
+                        `S${e}-H${e}`,
+                        `${t}-S${e}`,
+                      ])
+                      .concat(r)
+                      .concat(i)
+                  : o && a
+                  ? [[`${n}-D${e}`, `S${e}-H${e}`, `S${e}-H${e}`]]
+                      .concat(r)
+                      .concat(i)
+                  : r.concat(i);
+              }
+              if (S(n))
+                return t[a].hand
+                  .map((t) => [`${n}-D${e}`, `${t}-H${e}`])
+                  .concat(r)
+                  .concat(i);
+              if (D(n)) {
+                const e = t[a].played.find(b) ? b : p;
+                return t[a].played.filter(e).map((t) => [`${n}-${t}`]);
+              }
+              return b(n) ? [[`${n}-P${e}`]] : C(n) ? [[`${n}-P${e}`]] : [];
+            }),
+            (s.moves = (t, e) => {
+              const n = new Set();
+              return (
+                t &&
+                  t[e] &&
+                  t[e].allowed.forEach((t) => {
+                    t[0] && n.add(t[0]);
+                  }),
+                n.size <= 0 &&
+                  s.pickable(t, e).forEach((o) => {
+                    s.chain(t, e, o).forEach((t) => {
+                      t[0] && n.add(t[0]);
+                    });
+                  }),
+                [...n]
+              );
+            }),
+            (s.allowed = (t, e, n) => s.moves(t, e).find((t) => E(t, n))),
+            (s.play = (t, e, n) => {
+              const [r] = n || [];
+              if (!t || !t[e] || !r) return t;
+              let i = a.clone(t),
+                c = [];
+              i.stock.length <= 0 &&
+                ((i.stock = a.shuffle(i.discard.slice(4))),
+                (i.discard = i.discard.slice(0, 4)));
+              const [p, v] = r.split("-");
+              let g;
+              if (
+                (i[e].allowed.length <= 0 && (i[e].allowed = s.chain(i, e, p)),
+                (i[e].allowed = i[e].allowed
+                  .filter((t) => E(t[0], r))
+                  .map((t) => t.slice(1))
+                  .filter((t) => t.length > 0)),
+                (c = n.slice(1)),
+                !g && h(i.discard[0]) && j(i)(p) && u(v))
+              ) {
+                const t = o.opponent(e),
+                  n = i.stacked[p].shift();
+                g = [`${n}-D${t}`, `${p}-P${e}`];
+              }
+              if (
+                (!g &&
+                  y(p) &&
+                  u(v) &&
+                  ((g = [r]),
+                  i[e].hand.includes(p) &&
+                    ["x", "y"].forEach((t) => {
+                      i[t].played.filter(l).forEach((e) => {
+                        let n = (i.stacked[e] || []).shift();
+                        for (; n; )
+                          g.push(`${n}-D${t}`),
+                            (n = (i.stacked[e] || []).shift());
+                        g.push(`${e}-D${t}`);
+                      });
+                    })),
+                !g &&
+                  m(p) &&
+                  u(v) &&
+                  ((g = [r]),
+                  i[e].hand.includes(p) &&
+                    ["x", "y"].forEach((t) => {
+                      i[t].played.filter(j(i)).forEach((e) => {
+                        let n,
+                          a = i.stacked[e].shift();
+                        for (; a; )
+                          (n = o.opponent(n || t)),
+                            (g = g.concat([`${a}-D${t}`, `${e}-P${n}`])),
+                            (a = i.stacked[e].shift());
+                      }),
+                        (g = g.concat(
+                          i[t].played.filter(d).map((e) => `${e}-D${t}`)
+                        ));
+                    })),
+                !g && $(i.discard[0]) && j(i)(p) && f(v))
+              ) {
+                const t = o.opponent(e),
+                  n = i.stacked[p].shift();
+                g = [`${n}-S${t}`, `${p}-P${e}`];
+              }
+              if (!g && O(p)(v)) {
+                const t = o.opponent(e);
+                g = [`${p}-${v}`, `${p}-D${e}`];
+                const n = i.stacked[v] || [];
+                g = (g = g.concat(n.map((e) => `${e}-D${t}`))).concat(
+                  `${v}-D${t}`
+                );
+              }
+              if (!g && D(p)) {
+                const t = o.opponent(e);
+                i[t].played.includes(v) && (g = [r, `${v}-P${e}`]);
+              }
+              return (
+                g || (g = [r]),
+                ((i = o.play(i, g)).moves = i.moves.concat(g)),
+                s.play(i, e, c)
+              );
+            }),
+            (s.autoplay = (t, e) => {
+              let n = a.clone(t),
+                o = s.moves(n, e);
+              for (
+                ;
+                1 === o.length &&
+                o[0] === `S${e}-H${e}` &&
+                t[e].allowed.length > 0;
+
+              )
+                (n = s.play(n, e, o)), (o = s.moves(n, e));
+              return n;
+            }),
+            (s.resolve = (t, e, n, o) => {
+              const a = s.moves(t, e);
+              let r = n,
+                i = o;
+              if ("S" === r) {
+                const t = a.find((t) => {
+                  const e = t.split("-")[0];
+                  return f(e) || u(e);
+                });
+                t && ([r] = t.split("-"));
+              }
+              if ("S" === i) {
+                const t = a.find((t) => {
+                  const e = t.split("-")[1];
+                  return f(e) || u(e);
+                });
+                t && ([i] = t.split("-").slice(1));
+              }
+              return `${r}-${i}`;
+            }),
+            (s.visible = (t, e) => {
+              const n = [],
+                a = o.opponent(e);
+              return (
+                t && t[e] && (n.push(e), a && t[e].played.find(x) && n.push(a)),
+                n
+              );
+            }),
+            (s.score = (t, e) =>
+              t && t[e] ? t[e].played.map(W).reduce((t, e) => t + e, 0) : 0),
+            (s.winner = (t) =>
+              s.score(t, "x") >= 21 ? "x" : s.score(t, "y") >= 21 ? "y" : ""),
+            (s.info = (t) => {
+              const e =
+                  "Score {value} points OR play on an equal or lower value point card and discard both cards.",
+                n = {};
+              return (
+                h(t) &&
+                  ((n.name = "Automated Response"),
+                  (n.value = 1),
+                  (n.play = e),
+                  (n.effect = "Discard any non-point card in play.")),
+                y(t) &&
+                  ((n.name = "Viral Infection"),
+                  (n.value = 2),
+                  (n.play = e),
+                  (n.effect = "Discard all point cards in play.")),
+                m(t) &&
+                  ((n.name = "Logic Bomb"),
+                  (n.value = 3),
+                  (n.play = e),
+                  (n.effect = "Discard all non-point cards in play.")),
+                $(t) &&
+                  ((n.name = "Stack Corruption"),
+                  (n.value = 4),
+                  (n.play = e),
+                  (n.effect =
+                    "Return any card in play to the top of the stock.")),
+                v(t) &&
+                  ((n.name = "Code Review"),
+                  (n.value = 5),
+                  (n.play = e),
+                  (n.effect =
+                    "Choose 2 of your opponent's cards that they must discard.")),
+                g(t) &&
+                  ((n.name = "Branch Prediction"),
+                  (n.value = 6),
+                  (n.play = e),
+                  (n.effect =
+                    "Draw 2 cards. Return 1 card to the top of the stock. Use the other card immediately.")),
+                k(t) &&
+                  ((n.name = "Data Recovery"),
+                  (n.value = 7),
+                  (n.play = e),
+                  (n.effect =
+                    "Add any card from the top 3 in the discard to your hand.")),
+                x(t) &&
+                  ((n.name = "Network Monitor"),
+                  (n.play =
+                    "Your opponent must play with their hand exposed.")),
+                w(t) &&
+                  ((n.name = "Energy Drink"),
+                  (n.value = 9),
+                  (n.play = e),
+                  (n.effect =
+                    "Draw 3 cards. Return one card to the top of the stock. Add the other 2 cards to your hand.")),
+                S(t) &&
+                  ((n.name = "Phishing Campaign"),
+                  (n.value = 10),
+                  (n.play = e),
+                  (n.effect =
+                    "Add any card from your opponent's hand to your hand.")),
+                D(t) &&
+                  ((n.name = "Trojan Horse"),
+                  (n.play = "Transfer control of an opponent's card in play.")),
+                b(t) &&
+                  ((n.name = "Filtering Router"),
+                  (n.play =
+                    "All your cards in play are protected from effects that target single cards. Routers are not protected by themselves or other Routers.")),
+                C(t) &&
+                  ((n.name = "Overclocked Processor"),
+                  (n.value = 7),
+                  (n.play =
+                    "Score {value} points. Processors are protected from effects that target point cards.")),
+                f(t) &&
+                  ((n.name = "Stock"),
+                  (n.play = "Draw 1 card and add it to your hand.")),
+                n
+              );
+            }),
+            (t.exports = s);
+        },
+        function (t, e) {
+          let n = [];
+          function o(t) {
+            return t instanceof o
+              ? t
+              : ((this.element = t),
+                "string" == typeof t &&
+                  0 === t.indexOf("#") &&
+                  (this.element = document.getElementById(t.slice(1))),
+                this);
+          }
+          (o.prototype.addClass = function (t) {
+            return (
+              this.element &&
+                this.element.classList &&
+                t &&
+                this.element.classList.add(t),
+              this
+            );
+          }),
+            (o.prototype.removeClass = function (t) {
+              return (
+                this.element &&
+                  this.element.classList &&
+                  this.element.classList.remove(t),
+                this
+              );
+            }),
+            (o.prototype.toggleClass = function (t) {
+              this.element &&
+                this.element.classList &&
+                this.element.classList.toggle(t);
+            }),
+            (o.prototype.html = function (t) {
+              return this.element && (this.element.innerHTML = t), this;
+            }),
+            (o.prototype.offset = function () {
+              const t = {
+                left: window.scrollX,
+                top: window.scrollY,
+                width: 0,
+                height: 0,
+              };
+              if (this.element) {
+                const e = this.element.getBoundingClientRect();
+                (t.left += e.left),
+                  (t.top += e.top),
+                  (t.width = e.width),
+                  (t.height = e.height);
+              }
+              return t;
+            }),
+            (o.prototype.css = function (t, e) {
+              if (this.element && this.element.style) {
+                if (void 0 === e) return this.element.style[t];
+                this.element.style[t] = e;
+              }
+              return this;
+            }),
+            (o.prototype.on = function (t, e) {
+              this.element && this.element.addEventListener(t, e, !1);
+            }),
+            (o.prototype.off = function (t, e) {
+              this.element && this.element.removeEventListener(t, e, !1);
+            }),
+            (o.prototype.click = function (t, e) {
+              const n = this;
+              return (
+                this.element &&
+                  ("ontouchstart" in document.documentElement == !1
+                    ? (this.element.onmousedown = function (o) {
+                        t && t(n, o),
+                          (document.onmousemove = function (t) {
+                            t.preventDefault();
+                          }),
+                          (document.onmouseup = function (t) {
+                            e && e(n, t),
+                              (document.onmousemove = void 0),
+                              (document.onmouseup = void 0);
+                          });
+                      })
+                    : (this.element.ontouchstart = function (o) {
+                        t && t(n, o),
+                          (document.ontouchmove = function (t) {
+                            t.preventDefault();
+                          }),
+                          (document.ontouchend = function (t) {
+                            e && e(n, t),
+                              (document.ontouchmove = void 0),
+                              (document.ontouchend = void 0);
+                          });
+                      })),
+                this
+              );
+            }),
+            (o.prototype.animate = function (t, e) {
+              const o = this;
+              function a() {
+                (n = n.filter(
+                  (e) => e.element !== o && e.callback !== a && e.klass !== t
+                )),
+                  o.off("webkitTransitionEnd", a),
+                  o.off("otransitionend", a),
+                  o.off("transitionend", a),
+                  o.removeClass(t),
+                  e && e();
+              }
+              this.element &&
+                (n.push({ element: o, callback: a, klass: t }),
+                this.on("webkitTransitionEnd", a),
+                this.on("otransitionend", a),
+                this.on("transitionend", a),
+                this.addClass(t));
+            }),
+            (o.prototype.unwrap = function () {
+              return this.element;
+            }),
+            (t.exports = function (t) {
+              return new o(t);
+            });
+        },
+        function (t, e, n) {
+          n(5), n(6).play();
+        },
+        function (t, e, n) {},
+        function (t, e, n) {
+          const o = n(3),
+            a = n(1),
+            s = n(7),
+            r = n(8),
+            i = n(0),
+            c = {};
+          let l,
+            d,
+            p = !1,
+            f = [],
+            u = "story";
+          const h = (t, e) => {
+              if (!p)
+                return e.target && e.target.matches(".reset")
+                  ? (e.stopPropagation(), void o(e.target).addClass("picked"))
+                  : void (
+                      e.target &&
+                      e.target.matches(".card") &&
+                      e.target.id &&
+                      (o(e.target).addClass("picked"), (u = e.target.id))
+                    );
+            },
+            y = (t, e) => {
+              if (!p) {
+                if (e.target && e.target.matches(".reset"))
+                  return (
+                    e.stopPropagation(),
+                    c.reset(),
+                    void o(e.target).removeClass("picked")
+                  );
+                if (
+                  e.target &&
+                  (e.target.matches(".card") || e.target.matches(".pile")) &&
+                  e.target.id
+                ) {
+                  e.stopPropagation(), f.push(e.target.id);
+                  const t = i.clone(l);
+                  ([l, d] = r.tick(l, "x", ...f)),
+                    (f = d ? [d] : []),
+                    (p = !0),
+                    s.animate(t, l, d, u, () => {
+                      (l.moves = []), (p = !1);
+                    });
+                }
+              }
+            };
+          (c.reset = () => {
+            (l = a.create()),
+              (l = a.deal(l, "x")),
+              (f = []),
+              (d = void 0),
+              (u = "story"),
+              (p = !1),
+              s.invalidate(l, d, u);
+          }),
+            (c.play = () => {
+              o("#board").click(h, y), c.reset();
+            }),
+            (t.exports = c);
+        },
+        function (t, e, n) {
+          const o = n(3),
+            a = n(2),
+            s = n(0),
+            r = n(1),
+            i = (t) => (t >= 0 ? `${t}<sup>&boxbox;</sup>` : ""),
+            c = (t) => (t || "").startsWith("J"),
+            l = (t) => ["Dx", "Dy", "Sx", "Sy"].includes(t),
+            d = (t, e, n, o) => {
+              const s = (n[t] || []).filter(c).length;
+              let r = `<div id="${t}" class="card ${o}">`;
+              return (
+                e &&
+                  (r += ((t, e) => {
+                    const n = a.info(t),
+                      [o] = (t || "").split("");
+                    let s = "";
+                    return (
+                      o &&
+                        ((s += `<div class="icon i${o}">`),
+                        n.value &&
+                          (s += `<div class="value">${i(n.value)}</div>`),
+                        e &&
+                          (s += `<div class="jacked">${((t) =>
+                            t > 0 ? `${t}<sup class="iJ">${t}</sup>` : "")(
+                            e
+                          )}</div>`),
+                        (s += "</div>")),
+                      s
+                    );
+                  })(t, s)),
+                (r += "</div>")
+              );
+            },
+            p = (t, e, n, o, a) => {
+              const s = (a || "").split("")[1];
+              let r = t
+                  .slice(-o)
+                  .map((t) => d(t, e, n, s))
+                  .join(""),
+                i = 0;
+              for (; i < o - t.length; )
+                (r += `<div id="${a}${i}" class="card ${s} invisible"></div>`),
+                  (i += 1);
+              return r;
+            },
+            f = (t, e) => {
+              if (l(e)) return "S";
+              if ("Hy" === e && t.y.hand.length >= 6) return "Hy";
+              if ("Px" === e || "Py" === e || "Hx" === e || "Hy" === e)
+                return `${e}0`;
+              const n = Object.keys(t.stacked).find((n) =>
+                t.stacked[n].includes(e)
+              );
+              return n || e;
+            },
+            u = (t) =>
+              o(
+                "Dx" === t || "Dy" === t || "Sx" === t || "Sy" === t
+                  ? "#S"
+                  : `#${t}`
+              ),
+            h = (t, e, n) => {
+              const o = r.opponent(e);
+              if (!t || !e || !o) return "";
+              if ("story" === n)
+                return ((t, e) => {
+                  let n = "";
+                  const o = s
+                    .dedupe(t[e].hand.map((t) => a.info(t).name))
+                    .slice(0, 2)
+                    .map((t) => `<strong>${t}</strong>`)
+                    .join(", ");
+                  return (
+                    (n += "<p>"),
+                    (n += `You need ${i(21)} points to win.`),
+                    (n += " You&rsquo;ve got "),
+                    (n += o),
+                    (n += " and a handful of other cards."),
+                    (n += " Pick one. Play one."),
+                    (n += " It&rsquo;s time to ride."),
+                    (n += "</p>")
+                  );
+                })(t, e);
+              const c = a.winner(t);
+              return c
+                ? ((t, e, n) => {
+                    let o = "";
+                    return (
+                      (o += '<p class="ninetyfive fg">Byte Rider</p>'),
+                      (o += "<p>"),
+                      (o += e === n ? " You win" : " The AI wins"),
+                      (o += ` with ${i(a.score(t, n))} points.`),
+                      (o += " Will you ride again?"),
+                      (o += "</p>")
+                    );
+                  })(t, e, c)
+                : a.visible(t, e).includes(o) || !t[o].hand.includes(n)
+                ? ((t) => {
+                    const e = a.info(t);
+                    let n = "<p>";
+                    if (e.name) {
+                      const [o] = t.split("");
+                      (n += `<span class="icon i${o}"></span>`),
+                        (n += `<strong>${e.name}</strong>`);
+                    }
+                    if (((n += "</p>"), e.play)) {
+                      n += `<p><span class="inline iPlay" title="Play"></span> ${e.play.replace(
+                        "{value}",
+                        i(e.value)
+                      )}</p>`;
+                    }
+                    return (
+                      e.effect &&
+                        (n += `<p><span class="inline iBurn" title="Discard"></span> ${e.effect}</p>`),
+                      n
+                    );
+                  })(n)
+                : "";
+            },
+            y = {
+              clear: (t) => {
+                ["S", "Hx", "Hy", "Px", "Py"]
+                  .concat(t.x.hand)
+                  .concat(t.x.played)
+                  .concat(t.y.hand)
+                  .concat(t.y.played)
+                  .forEach((t) =>
+                    u(t)
+                      .removeClass("pickable")
+                      .removeClass("playable")
+                      .removeClass("picked")
+                  ),
+                  u("S")
+                    .removeClass("hidden")
+                    .removeClass("x")
+                    .removeClass("iDraw")
+                    .removeClass("iBurn"),
+                  u("reset").addClass("hidden");
+              },
+            };
+          (y.render = (t, e, n) => {
+            y.clear(t);
+            const o = a.visible(t, "x");
+            if (
+              (u("discard").html(
+                ((t) =>
+                  t
+                    .slice(0, 4)
+                    .reverse()
+                    .map((t) => d(t, !0, {}))
+                    .join(""))(t.discard)
+              ),
+              u("Hy").html(p(t.y.hand, o.includes("y"), t.stacked, 6, "Hy")),
+              u("Py").html(p(t.y.played, !0, t.stacked, 10, "Py")),
+              u("Px").html(p(t.x.played, !0, t.stacked, 10, "Px")),
+              u("Hx").html(p(t.x.hand, o.includes("x"), t.stacked, 10, "Hx")),
+              "animate" !== e)
+            ) {
+              const n = a.pickable(t, "x");
+              if (
+                (n.filter(l).length > 0 &&
+                  u("S").addClass("x").addClass("iDraw"),
+                t.x.allowed.length > 0 &&
+                  n.forEach((t) => u(t).addClass("pickable")),
+                e)
+              ) {
+                const n = a.playable(t, "x", e);
+                n.filter(l).length > 0 && u("S").addClass("iBurn"),
+                  n.forEach((t) => u(t).addClass("playable")),
+                  u(e).addClass("picked");
+              }
+              a.winner(t) &&
+                (u("S").addClass("hidden"), u("reset").removeClass("hidden"));
+            }
+            "story" === n
+              ? u("logo").removeClass("faded")
+              : u("logo").addClass("faded"),
+              u("info").html(h(t, "x", n));
+          }),
+            (y.animate = (t, e, n, o, a) => {
+              let i = s.clone(t);
+              const c = s.clone(e),
+                l = c.moves.shift();
+              if (!l) return void y.invalidate(c, n, o, a);
+              const [p, h] = l.split("-"),
+                m = u(f(i, p)).offset(),
+                $ = u(f(i, h)).offset(),
+                v = p.startsWith("S") ? i.stock[0] : p,
+                g = "Sy" !== p,
+                k = $.left - m.left,
+                x = $.top - m.top,
+                w = Math.sqrt(k * k + x * x) / m.width / 4,
+                S = r.player(i, v);
+              u(v).addClass("invisible"),
+                u("card").html(d(v, g, i.stacked, S)),
+                u("card").css("left", `${m.left}px`),
+                u("card").css("top", `${m.top}px`),
+                u("card").css("transition-duration", `${w}s`),
+                u("card").removeClass("hidden"),
+                requestAnimationFrame(() => {
+                  y.clear(t),
+                    u("card").animate("sliding", () => {
+                      u("card").addClass("hidden"),
+                        (i = r.play(i, [l])),
+                        y.invalidate(i, "animate", o, () => {
+                          y.animate(i, c, n, o, a);
+                        });
+                    }),
+                    u("card").css("left", `${$.left}px`),
+                    u("card").css("top", `${$.top}px`);
+                });
+            }),
+            (y.invalidate = (t, e, n, o) => {
+              requestAnimationFrame(() => {
+                y.render(t, e, n), o && o();
+              });
+            }),
+            (t.exports = y);
+        },
+        function (t, e, n) {
+          const o = n(1),
+            a = n(0),
+            s = n(2),
+            r = n(9),
+            i = {
+              tick: (t, e, n, i) => {
+                if (s.winner(t)) return [a.clone(t), void 0];
+                let c = s.resolve(t, e, n, i);
+                if (s.allowed(t, e, c)) {
+                  let n = s.play(t, e, [c]);
+                  if (
+                    ((n = s.autoplay(n, e)),
+                    s.winner(n) !== e && n[e].allowed.length <= 0)
+                  ) {
+                    const t = o.opponent(e);
+                    for (
+                      c = r.move(n, t), n = s.play(n, t, [c]);
+                      n[t].allowed.length > 0;
+
+                    )
+                      (c = r.move(n, t)), (n = s.play(n, t, [c]));
+                  }
+                  return [n, void 0];
+                }
+                const l = s.pickable(t, e),
+                  [d, p] = c.split("-");
+                let [f] = [p, d].filter((t) => l.includes(t));
+                return n && i && n === f && (f = void 0), [a.clone(t), f];
+              },
+            };
+          t.exports = i;
+        },
+        function (t, e, n) {
+          const o = n(2),
+            a = n(1),
+            s = n(0),
+            r = {},
+            i = (t, e) => (t && t[e] ? t[e].hand : []),
+            c = (t, e) => i(t, e).length <= 6,
+            l = (t, e, n) =>
+              t && t[e] && t[e].allowed.length > 0
+                ? t[e].allowed.slice()
+                : o.chain(t, e, n);
+          (r.winning = (t, e) => {
+            return o.moves(t, e).filter((n) => {
+              const [a] = n.split("-");
+              return !!l(t, e, a)
+                .filter((t) => t[0] === n)
+                .find((n) => {
+                  const a = o.play(t, e, n);
+                  return o.winner(a) === e && c(a, e);
+                });
+            });
+          }),
+            (r.blocking = (t, e) => {
+              const n = a.opponent(e),
+                s = o.score(t, n);
+              return o.moves(t, e).filter((a) => {
+                const [r] = a.split("-");
+                return !!l(t, e, r)
+                  .filter((t) => t[0] === a)
+                  .find((a) => {
+                    const r = o.play(t, e, a);
+                    return o.score(r, n) < s && c(r, e);
+                  });
+              });
+            }),
+            (r.playable = (t, e) => {
+              return o.moves(t, e).filter((n) => {
+                const [a] = n.split("-");
+                return !!l(t, e, a)
+                  .filter((t) => t[0] === n)
+                  .find((n) => {
+                    const a = o.play(t, e, n);
+                    return c(a, e);
+                  });
+              });
+            }),
+            (r.moves = (t, e) => {
+              const n = r.winning(t, e);
+              if (n.length > 0) return n;
+              const s = a.opponent(e);
+              if (o.score(t, s) >= 11 && i(t, s).length > 0) {
+                const n = r.blocking(t, e);
+                if (n.length > 0) return n;
+              }
+              return r.playable(t, e);
+            }),
+            (r.move = (t, e) => {
+              const n = r.moves(t, e);
+              return s.pick(n);
+            }),
+            (t.exports = r);
+        },
+      ]);
+    </script>
+  </body>
+</html>

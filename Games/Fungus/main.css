@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+}
+body {
+  background-color: #222;
+}
+main {
+  position: relative;
+  width: 1200px;
+  height: 100%;
+  margin: auto;
+}
+h1 {
+  margin-top: 0;
+}
+em {
+  font-size: small;
+}
+.game {
+  width: 1000px;
+  margin: auto;
+}
+.controls {
+  position: absolute;
+  top: 0;
+  padding: 1.5em;
+}
+button {
+  border: none;
+  background: 0 0;
+  font-size: large;
+  cursor: pointer;
+}
+button:hover {
+  color: #d3d3d3;
+}
+.indented {
+  margin-left: 5em;
+}
+#intro {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 600px;
+  transform: translate(-50%, -50%);
+  padding: 5em;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background-color: rgba(34, 34, 34, 0.9);
+  font-size: large;
+}
+#intro.closed {
+  display: none;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="./main.css" />
+    <script src="./main.js"></script>
+    <title>Fungus Game</title>
+  </head>
+  <body onload="startGame()">
+    <main>
+      <div class="controls">
+        <h1>Fungus</h1>
+        <button onclick="game.resetLevel()">Restart Level</button>
+        <button onclick="game.resetGame()">Restart Game</button>
+        <button onclick="toggleMusic(event)" id="music-toggle">Music On</button>
+      </div>
+      <div id="intro" class="closed"></div>
+      <div class="game">
+        <canvas width="1000" height="900" id="canvas"></canvas>
+      </div>
+    </main>
+  </body>
+</html>

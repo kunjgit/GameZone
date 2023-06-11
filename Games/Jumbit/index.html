@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Jumbit - A 13kb Javascript game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta property="og:title" content="Jumbit - 13KB JS Game" />
+        <meta property="og:description" content="You are a small spark of flame trapped in a cold cave. Travelling through a breeze of wind, how long can you travel through the unstable frozen formations in your way? Tap to survive!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://jumbit.co" />
+        <meta property="og:image" content="http://jumbit.co/images/jumbit_160x160.png" />
+
+        <!-- build:includeCssFile build/style.min.css -->
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <!-- /build -->
+    </head>
+    <body>
+        <canvas></canvas>
+        <img src="./images/rock.png" id="obstacle" style="display:none;"/>
+        <img src="./images/small.png" id="small_formation" style="display:none;"/>
+        <img src="./images/big.png" id="large_formation" style="display:none;"/>
+        <img src="./images/heart.png" id="heart" style="display:none;"/>
+        <img src="./images/logo.png" id="jumbit_logo" style="display:none;"/>
+
+        <!-- build:includeJsFile build/game.min.js -->
+        <script src="js/game.js"></script>
+        <script src="js/draw.js"></script>
+        <script src="js/hero.js"></script>
+        <script src="js/obstacle.js"></script>
+        <script src="js/particle.js"></script>
+        <script src="js/formation.js"></script>
+        <script src="js/powerup.js"></script>
+        <script src="js/util.js"></script>
+        <!-- /build -->
+    </body>
+</html>

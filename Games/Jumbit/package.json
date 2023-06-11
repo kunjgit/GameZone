@@ -1,0 +1,17 @@
+{
+  "name": "Jumbit",
+  "description": "A 13kb game for JS13k competition 2014",
+  "author": "Ayman Farhat (http://aymanfarhat.com)",
+  "dependencies": {
+    "grunt": "0.x.x",
+    "grunt-contrib-clean": "0.5.x",
+    "grunt-contrib-uglify": "0.2.x",
+    "grunt-contrib-htmlmin": "0.3.x",
+    "grunt-processhtml": "0.3.x",
+    "grunt-contrib-concat": "0.5.x",
+    "grunt-contrib-cssmin": "0.10.x",
+    "grunt-contrib-compress": "0.10.x",
+    "grunt-contrib-copy": "0.5.x"
+  },
+  "engine": "node >= 0.10"
+}

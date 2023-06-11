@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Infinite Missiles</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        font-family: Verdana, Geneva, sans-serif;
+        -moz-user-select: none;
+        user-select: none;
+        image-rendering: crisp-edges;
+      }
+      body {
+        color: #fff;
+        background-color: #222;
+        overflow: hidden;
+      }
+      .text,
+      canvas {
+        position: fixed;
+        z-index: 2;
+      }
+      .text {
+        text-align: center;
+        width: 100%;
+        opacity: 0;
+        font-size: 60px;
+        top: 10%;
+        transition-property: opacity;
+        transition-duration: 2s;
+      }
+      .heat {
+        z-index: 2;
+        width: 98%;
+        height: 2%;
+        bottom: 2%;
+        left: 1%;
+        border-radius: 5px;
+        box-shadow: 0 0 3px 1px #222;
+        background: #fff;
+        position: fixed;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      !(function (t) {
+        var i = {};
+        function e(n) {
+          if (i[n]) return i[n].exports;
+          var o = (i[n] = { i: n, l: !1, exports: {} });
+          return t[n].call(o.exports, o, o.exports, e), (o.l = !0), o.exports;
+        }
+        (e.m = t),
+          (e.c = i),
+          (e.d = function (t, i, n) {
+            e.o(t, i) ||
+              Object.defineProperty(t, i, { enumerable: !0, get: n });
+          }),
+          (e.r = function (t) {
+            "undefined" != typeof Symbol &&
+              Symbol.toStringTag &&
+              Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }),
+              Object.defineProperty(t, "__esModule", { value: !0 });
+          }),
+          (e.t = function (t, i) {
+            if ((1 & i && (t = e(t)), 8 & i)) return t;
+            if (4 & i && "object" == typeof t && t && t.__esModule) return t;
+            var n = Object.create(null);
+            if (
+              (e.r(n),
+              Object.defineProperty(n, "default", { enumerable: !0, value: t }),
+              2 & i && "string" != typeof t)
+            )
+              for (var o in t)
+                e.d(
+                  n,
+                  o,
+                  function (i) {
+                    return t[i];
+                  }.bind(null, o)
+                );
+            return n;
+          }),
+          (e.n = function (t) {
+            var i =
+              t && t.__esModule
+                ? function () {
+                    return t.default;
+                  }
+                : function () {
+                    return t;
+                  };
+            return e.d(i, "a", i), i;
+          }),
+          (e.o = function (t, i) {
+            return Object.prototype.hasOwnProperty.call(t, i);
+          }),
+          (e.p = ""),
+          e((e.s = 1));
+      })([
+        function (t, i, e) {},
+        function (t, i, e) {
+          e.r(i);
+          var n = {};
+          e.r(n),
+            e.d(n, "create", function () {
+              return s;
+            }),
+            e.d(n, "transpose", function () {
+              return u;
+            }),
+            e.d(n, "multiply", function () {
+              return l;
+            }),
+            e.d(n, "translate", function () {
+              return c;
+            }),
+            e.d(n, "fromTranslation", function () {
+              return h;
+            }),
+            e.d(n, "scale", function () {
+              return f;
+            }),
+            e.d(n, "rotate", function () {
+              return d;
+            }),
+            e.d(n, "copy", function () {
+              return m;
+            }),
+            e.d(n, "identity", function () {
+              return v;
+            }),
+            e.d(n, "invert", function () {
+              return p;
+            }),
+            e.d(n, "lookAt", function () {
+              return g;
+            }),
+            e.d(n, "perspective", function () {
+              return x;
+            });
+          var o = {};
+          e.r(o),
+            e.d(o, "create", function () {
+              return M;
+            }),
+            e.d(o, "cross", function () {
+              return w;
+            }),
+            e.d(o, "copy", function () {
+              return y;
+            }),
+            e.d(o, "set", function () {
+              return b;
+            }),
+            e.d(o, "lerp", function () {
+              return C;
+            }),
+            e.d(o, "fromValues", function () {
+              return P;
+            }),
+            e.d(o, "angle", function () {
+              return E;
+            }),
+            e.d(o, "dot", function () {
+              return S;
+            }),
+            e.d(o, "distance", function () {
+              return A;
+            }),
+            e.d(o, "length", function () {
+              return T;
+            }),
+            e.d(o, "subtract", function () {
+              return F;
+            }),
+            e.d(o, "normalize", function () {
+              return L;
+            }),
+            e.d(o, "scale", function () {
+              return _;
+            }),
+            e.d(o, "add", function () {
+              return U;
+            }),
+            e.d(o, "transformMat4", function () {
+              return D;
+            });
+          let r = "undefined" != typeof Float32Array ? Float32Array : Array;
+          const a = 1e-6;
+          function s() {
+            let t = new r(16);
+            return (
+              r != Float32Array &&
+                ((t[1] = 0),
+                (t[2] = 0),
+                (t[3] = 0),
+                (t[4] = 0),
+                (t[6] = 0),
+                (t[7] = 0),
+                (t[8] = 0),
+                (t[9] = 0),
+                (t[11] = 0),
+                (t[12] = 0),
+                (t[13] = 0),
+                (t[14] = 0)),
+              (t[0] = 1),
+              (t[5] = 1),
+              (t[10] = 1),
+              (t[15] = 1),
+              t
+            );
+          }
+          function u(t, i) {
+            if (t === i) {
+              let e = i[1],
+                n = i[2],
+                o = i[3],
+                r = i[6],
+                a = i[7],
+                s = i[11];
+              (t[1] = i[4]),
+                (t[2] = i[8]),
+                (t[3] = i[12]),
+                (t[4] = e),
+                (t[6] = i[9]),
+                (t[7] = i[13]),
+                (t[8] = n),
+                (t[9] = r),
+                (t[11] = i[14]),
+                (t[12] = o),
+                (t[13] = a),
+                (t[14] = s);
+            } else
+              (t[0] = i[0]),
+                (t[1] = i[4]),
+                (t[2] = i[8]),
+                (t[3] = i[12]),
+                (t[4] = i[1]),
+                (t[5] = i[5]),
+                (t[6] = i[9]),
+                (t[7] = i[13]),
+                (t[8] = i[2]),
+                (t[9] = i[6]),
+                (t[10] = i[10]),
+                (t[11] = i[14]),
+                (t[12] = i[3]),
+                (t[13] = i[7]),
+                (t[14] = i[11]),
+                (t[15] = i[15]);
+            return t;
+          }
+          function l(t, i, e) {
+            let n = i[0],
+              o = i[1],
+              r = i[2],
+              a = i[3],
+              s = i[4],
+              u = i[5],
+              l = i[6],
+              c = i[7],
+              h = i[8],
+              f = i[9],
+              d = i[10],
+              m = i[11],
+              v = i[12],
+              p = i[13],
+              g = i[14],
+              x = i[15],
+              M = e[0],
+              w = e[1],
+              y = e[2],
+              b = e[3];
+            return (
+              (t[0] = M * n + w * s + y * h + b * v),
+              (t[1] = M * o + w * u + y * f + b * p),
+              (t[2] = M * r + w * l + y * d + b * g),
+              (t[3] = M * a + w * c + y * m + b * x),
+              (M = e[4]),
+              (w = e[5]),
+              (y = e[6]),
+              (b = e[7]),
+              (t[4] = M * n + w * s + y * h + b * v),
+              (t[5] = M * o + w * u + y * f + b * p),
+              (t[6] = M * r + w * l + y * d + b * g),
+              (t[7] = M * a + w * c + y * m + b * x),
+              (M = e[8]),
+              (w = e[9]),
+              (y = e[10]),
+              (b = e[11]),
+              (t[8] = M * n + w * s + y * h + b * v),
+              (t[9] = M * o + w * u + y * f + b * p),
+              (t[10] = M * r + w * l + y * d + b * g),
+              (t[11] = M * a + w * c + y * m + b * x),
+              (M = e[12]),
+              (w = e[13]),
+              (y = e[14]),
+              (b = e[15]),
+              (t[12] = M * n + w * s + y * h + b * v),
+              (t[13] = M * o + w * u + y * f + b * p),
+              (t[14] = M * r + w * l + y * d + b * g),
+              (t[15] = M * a + w * c + y * m + b * x),
+              t
+            );
+          }
+          function c(t, i, e) {
+            let n,
+              o,
+              r,
+              a,
+              s,
+              u,
+              l,
+              c,
+              h,
+              f,
+              d,
+              m,
+              v = e[0],
+              p = e[1],
+              g = e[2];
+            return (
+              i === t
+                ? ((t[12] = i[0] * v + i[4] * p + i[8] * g + i[12]),
+                  (t[13] = i[1] * v + i[5] * p + i[9] * g + i[13]),
+                  (t[14] = i[2] * v + i[6] * p + i[10] * g + i[14]),
+                  (t[15] = i[3] * v + i[7] * p + i[11] * g + i[15]))
+                : ((n = i[0]),
+                  (o = i[1]),
+                  (r = i[2]),
+                  (a = i[3]),
+                  (s = i[4]),
+                  (u = i[5]),
+                  (l = i[6]),
+                  (c = i[7]),
+                  (h = i[8]),
+                  (f = i[9]),
+                  (d = i[10]),
+                  (m = i[11]),
+                  (t[0] = n),
+                  (t[1] = o),
+                  (t[2] = r),
+                  (t[3] = a),
+                  (t[4] = s),
+                  (t[5] = u),
+                  (t[6] = l),
+                  (t[7] = c),
+                  (t[8] = h),
+                  (t[9] = f),
+                  (t[10] = d),
+                  (t[11] = m),
+                  (t[12] = n * v + s * p + h * g + i[12]),
+                  (t[13] = o * v + u * p + f * g + i[13]),
+                  (t[14] = r * v + l * p + d * g + i[14]),
+                  (t[15] = a * v + c * p + m * g + i[15])),
+              t
+            );
+          }
+          function h(t, i) {
+            return (
+              (t[0] = 1),
+              (t[1] = 0),
+              (t[2] = 0),
+              (t[3] = 0),
+              (t[4] = 0),
+              (t[5] = 1),
+              (t[6] = 0),
+              (t[7] = 0),
+              (t[8] = 0),
+              (t[9] = 0),
+              (t[10] = 1),
+              (t[11] = 0),
+              (t[12] = i[0]),
+              (t[13] = i[1]),
+              (t[14] = i[2]),
+              (t[15] = 1),
+              t
+            );
+          }
+          function f(t, i, e) {
+            let n = e[0],
+              o = e[1],
+              r = e[2];
+            return (
+              (t[0] = i[0] * n),
+              (t[1] = i[1] * n),
+              (t[2] = i[2] * n),
+              (t[3] = i[3] * n),
+              (t[4] = i[4] * o),
+              (t[5] = i[5] * o),
+              (t[6] = i[6] * o),
+              (t[7] = i[7] * o),
+              (t[8] = i[8] * r),
+              (t[9] = i[9] * r),
+              (t[10] = i[10] * r),
+              (t[11] = i[11] * r),
+              (t[12] = i[12]),
+              (t[13] = i[13]),
+              (t[14] = i[14]),
+              (t[15] = i[15]),
+              t
+            );
+          }
+          function d(t, i, e, n) {
+            let o,
+              r,
+              s,
+              u,
+              l,
+              c,
+              h,
+              f,
+              d,
+              m,
+              v,
+              p,
+              g,
+              x,
+              M,
+              w,
+              y,
+              b,
+              C,
+              P,
+              E,
+              S,
+              A,
+              T,
+              F = n[0],
+              L = n[1],
+              _ = n[2],
+              U = Math.hypot(F, L, _);
+            return U < a
+              ? null
+              : ((F *= U = 1 / U),
+                (L *= U),
+                (_ *= U),
+                (o = Math.sin(e)),
+                (s = 1 - (r = Math.cos(e))),
+                (u = i[0]),
+                (l = i[1]),
+                (c = i[2]),
+                (h = i[3]),
+                (f = i[4]),
+                (d = i[5]),
+                (m = i[6]),
+                (v = i[7]),
+                (p = i[8]),
+                (g = i[9]),
+                (x = i[10]),
+                (M = i[11]),
+                (w = F * F * s + r),
+                (y = L * F * s + _ * o),
+                (b = _ * F * s - L * o),
+                (C = F * L * s - _ * o),
+                (P = L * L * s + r),
+                (E = _ * L * s + F * o),
+                (S = F * _ * s + L * o),
+                (A = L * _ * s - F * o),
+                (T = _ * _ * s + r),
+                (t[0] = u * w + f * y + p * b),
+                (t[1] = l * w + d * y + g * b),
+                (t[2] = c * w + m * y + x * b),
+                (t[3] = h * w + v * y + M * b),
+                (t[4] = u * C + f * P + p * E),
+                (t[5] = l * C + d * P + g * E),
+                (t[6] = c * C + m * P + x * E),
+                (t[7] = h * C + v * P + M * E),
+                (t[8] = u * S + f * A + p * T),
+                (t[9] = l * S + d * A + g * T),
+                (t[10] = c * S + m * A + x * T),
+                (t[11] = h * S + v * A + M * T),
+                i !== t &&
+                  ((t[12] = i[12]),
+                  (t[13] = i[13]),
+                  (t[14] = i[14]),
+                  (t[15] = i[15])),
+                t);
+          }
+          function m(t, i) {
+            return (
+              (t[0] = i[0]),
+              (t[1] = i[1]),
+              (t[2] = i[2]),
+              (t[3] = i[3]),
+              (t[4] = i[4]),
+              (t[5] = i[5]),
+              (t[6] = i[6]),
+              (t[7] = i[7]),
+              (t[8] = i[8]),
+              (t[9] = i[9]),
+              (t[10] = i[10]),
+              (t[11] = i[11]),
+              (t[12] = i[12]),
+              (t[13] = i[13]),
+              (t[14] = i[14]),
+              (t[15] = i[15]),
+              t
+            );
+          }
+          function v(t) {
+            return (
+              (t[0] = 1),
+              (t[1] = 0),
+              (t[2] = 0),
+              (t[3] = 0),
+              (t[4] = 0),
+              (t[5] = 1),
+              (t[6] = 0),
+              (t[7] = 0),
+              (t[8] = 0),
+              (t[9] = 0),
+              (t[10] = 1),
+              (t[11] = 0),
+              (t[12] = 0),
+              (t[13] = 0),
+              (t[14] = 0),
+              (t[15] = 1),
+              t
+            );
+          }
+          function p(t, i) {
+            let e = i[0],
+              n = i[1],
+              o = i[2],
+              r = i[3],
+              a = i[4],
+              s = i[5],
+              u = i[6],
+              l = i[7],
+              c = i[8],
+              h = i[9],
+              f = i[10],
+              d = i[11],
+              m = i[12],
+              v = i[13],
+              p = i[14],
+              g = i[15],
+              x = e * s - n * a,
+              M = e * u - o * a,
+              w = e * l - r * a,
+              y = n * u - o * s,
+              b = n * l - r * s,
+              C = o * l - r * u,
+              P = c * v - h * m,
+              E = c * p - f * m,
+              S = c * g - d * m,
+              A = h * p - f * v,
+              T = h * g - d * v,
+              F = f * g - d * p,
+              L = x * F - M * T + w * A + y * S - b * E + C * P;
+            return L
+              ? ((L = 1 / L),
+                (t[0] = (s * F - u * T + l * A) * L),
+                (t[1] = (o * T - n * F - r * A) * L),
+                (t[2] = (v * C - p * b + g * y) * L),
+                (t[3] = (f * b - h * C - d * y) * L),
+                (t[4] = (u * S - a * F - l * E) * L),
+                (t[5] = (e * F - o * S + r * E) * L),
+                (t[6] = (p * w - m * C - g * M) * L),
+                (t[7] = (c * C - f * w + d * M) * L),
+                (t[8] = (a * T - s * S + l * P) * L),
+                (t[9] = (n * S - e * T - r * P) * L),
+                (t[10] = (m * b - v * w + g * x) * L),
+                (t[11] = (h * w - c * b - d * x) * L),
+                (t[12] = (s * E - a * A - u * P) * L),
+                (t[13] = (e * A - n * E + o * P) * L),
+                (t[14] = (v * M - m * y - p * x) * L),
+                (t[15] = (c * y - h * M + f * x) * L),
+                t)
+              : null;
+          }
+          function g(t, i, e, n) {
+            let o,
+              r,
+              s,
+              u,
+              l,
+              c,
+              h,
+              f,
+              d,
+              m,
+              p = i[0],
+              g = i[1],
+              x = i[2],
+              M = n[0],
+              w = n[1],
+              y = n[2],
+              b = e[0],
+              C = e[1],
+              P = e[2];
+            return Math.abs(p - b) < a &&
+              Math.abs(g - C) < a &&
+              Math.abs(x - P) < a
+              ? v(t)
+              : ((h = p - b),
+                (f = g - C),
+                (d = x - P),
+                (o = w * (d *= m = 1 / Math.hypot(h, f, d)) - y * (f *= m)),
+                (r = y * (h *= m) - M * d),
+                (s = M * f - w * h),
+                (m = Math.hypot(o, r, s))
+                  ? ((o *= m = 1 / m), (r *= m), (s *= m))
+                  : ((o = 0), (r = 0), (s = 0)),
+                (u = f * s - d * r),
+                (l = d * o - h * s),
+                (c = h * r - f * o),
+                (m = Math.hypot(u, l, c))
+                  ? ((u *= m = 1 / m), (l *= m), (c *= m))
+                  : ((u = 0), (l = 0), (c = 0)),
+                (t[0] = o),
+                (t[1] = u),
+                (t[2] = h),
+                (t[3] = 0),
+                (t[4] = r),
+                (t[5] = l),
+                (t[6] = f),
+                (t[7] = 0),
+                (t[8] = s),
+                (t[9] = c),
+                (t[10] = d),
+                (t[11] = 0),
+                (t[12] = -(o * p + r * g + s * x)),
+                (t[13] = -(u * p + l * g + c * x)),
+                (t[14] = -(h * p + f * g + d * x)),
+                (t[15] = 1),
+                t);
+          }
+          function x(t, i, e, n, o) {
+            let r,
+              a = 1 / Math.tan(i / 2);
+            return (
+              (t[0] = a / e),
+              (t[1] = 0),
+              (t[2] = 0),
+              (t[3] = 0),
+              (t[4] = 0),
+              (t[5] = a),
+              (t[6] = 0),
+              (t[7] = 0),
+              (t[8] = 0),
+              (t[9] = 0),
+              (t[11] = -1),
+              (t[12] = 0),
+              (t[13] = 0),
+              (t[15] = 0),
+              null != o && o !== 1 / 0
+                ? ((r = 1 / (n - o)),
+                  (t[10] = (o + n) * r),
+                  (t[14] = 2 * o * n * r))
+                : ((t[10] = -1), (t[14] = -2 * n)),
+              t
+            );
+          }
+          function M() {
+            let t = new r(3);
+            return r != Float32Array && ((t[0] = 0), (t[1] = 0), (t[2] = 0)), t;
+          }
+          function w(t, i, e) {
+            let n = i[0],
+              o = i[1],
+              r = i[2],
+              a = e[0],
+              s = e[1],
+              u = e[2];
+            return (
+              (t[0] = o * u - r * s),
+              (t[1] = r * a - n * u),
+              (t[2] = n * s - o * a),
+              t
+            );
+          }
+          function y(t, i) {
+            return (t[0] = i[0]), (t[1] = i[1]), (t[2] = i[2]), t;
+          }
+          function b(t, i, e, n) {
+            return (t[0] = i), (t[1] = e), (t[2] = n), t;
+          }
+          function C(t, i, e, n) {
+            let o = i[0],
+              r = i[1],
+              a = i[2];
+            return (
+              (t[0] = o + n * (e[0] - o)),
+              (t[1] = r + n * (e[1] - r)),
+              (t[2] = a + n * (e[2] - a)),
+              t
+            );
+          }
+          function P(t, i, e) {
+            let n = new r(3);
+            return (n[0] = t), (n[1] = i), (n[2] = e), n;
+          }
+          function E(t, i) {
+            let e = P(t[0], t[1], t[2]),
+              n = P(i[0], i[1], i[2]);
+            L(e, e), L(n, n);
+            let o = S(e, n);
+            return o > 1 ? 0 : o < -1 ? Math.PI : Math.acos(o);
+          }
+          function S(t, i) {
+            return t[0] * i[0] + t[1] * i[1] + t[2] * i[2];
+          }
+          function A(t, i) {
+            let e = i[0] - t[0],
+              n = i[1] - t[1],
+              o = i[2] - t[2];
+            return Math.hypot(e, n, o);
+          }
+          function T(t) {
+            let i = t[0],
+              e = t[1],
+              n = t[2];
+            return Math.hypot(i, e, n);
+          }
+          function F(t, i, e) {
+            return (
+              (t[0] = i[0] - e[0]),
+              (t[1] = i[1] - e[1]),
+              (t[2] = i[2] - e[2]),
+              t
+            );
+          }
+          function L(t, i) {
+            let e = i[0],
+              n = i[1],
+              o = i[2],
+              r = e * e + n * n + o * o;
+            return (
+              r > 0 && (r = 1 / Math.sqrt(r)),
+              (t[0] = i[0] * r),
+              (t[1] = i[1] * r),
+              (t[2] = i[2] * r),
+              t
+            );
+          }
+          function _(t, i, e) {
+            return (t[0] = i[0] * e), (t[1] = i[1] * e), (t[2] = i[2] * e), t;
+          }
+          function U(t, i, e) {
+            return (
+              (t[0] = i[0] + e[0]),
+              (t[1] = i[1] + e[1]),
+              (t[2] = i[2] + e[2]),
+              t
+            );
+          }
+          function D(t, i, e) {
+            let n = i[0],
+              o = i[1],
+              r = i[2],
+              a = e[3] * n + e[7] * o + e[11] * r + e[15];
+            return (
+              (a = a || 1),
+              (t[0] = (e[0] * n + e[4] * o + e[8] * r + e[12]) / a),
+              (t[1] = (e[1] * n + e[5] * o + e[9] * r + e[13]) / a),
+              (t[2] = (e[2] * n + e[6] * o + e[10] * r + e[14]) / a),
+              t
+            );
+          }
+          let N = new (window.AudioContext || window.webkitAudioContext)(),
+            R = !1;
+          class j {
+            constructor(t) {
+              (this.ended = !0),
+                N.decodeAudioData(k(t), (t) => {
+                  this.buffer = t;
+                });
+            }
+            play() {
+              this.buffer &&
+                !R &&
+                ((this.source = N.createBufferSource()),
+                (this.source.buffer = this.buffer),
+                this.source.connect(N.destination),
+                this.source.start(0),
+                (this.ended = !1),
+                this.source.addEventListener("ended", () => (this.ended = !0)));
+            }
+          }
+          function I() {
+            this.setSettings = function (t) {
+              for (var i = 0; i < 24; i++)
+                this[String.fromCharCode(97 + i)] = t[i] || 0;
+              this.c < 0.01 && (this.c = 0.01);
+              var e = this.b + this.c + this.e;
+              if (e < 0.18) {
+                var n = 0.18 / e;
+                (this.b *= n), (this.c *= n), (this.e *= n);
+              }
+            };
+          }
+          var B = new (function () {
+            var t, i, e, n, o, r, a, s, u, l, c, h;
+            (this._params = new I()),
+              (this.reset = function () {
+                var t = this._params;
+                (n = 100 / (t.f * t.f + 0.001)),
+                  (o = 100 / (t.g * t.g + 0.001)),
+                  (r = 1 - t.h * t.h * t.h * 0.01),
+                  (a = -t.i * t.i * t.i * 1e-6),
+                  t.a || ((c = 0.5 - t.n / 2), (h = 5e-5 * -t.o)),
+                  (s = 1 + t.l * t.l * (t.l > 0 ? -0.9 : 10)),
+                  (u = 0),
+                  (l = 1 == t.m ? 0 : (1 - t.m) * (1 - t.m) * 2e4 + 32);
+              }),
+              (this.totalReset = function () {
+                this.reset();
+                var n = this._params;
+                return (
+                  (t = n.b * n.b * 1e5),
+                  (i = n.c * n.c * 1e5),
+                  (e = n.e * n.e * 1e5 + 12),
+                  3 * (((t + i + e) / 3) | 0)
+                );
+              }),
+              (this.synthWave = function (f, d) {
+                var m = this._params,
+                  v = 1 != m.s || m.v,
+                  p = m.v * m.v * 0.1,
+                  g = 1 + 3e-4 * m.w,
+                  x = m.s * m.s * m.s * 0.1,
+                  M = 1 + 1e-4 * m.t,
+                  w = 1 != m.s,
+                  y = m.x * m.x,
+                  b = m.g,
+                  C = m.q || m.r,
+                  P = m.r * m.r * m.r * 0.2,
+                  E = m.q * m.q * (m.q < 0 ? -1020 : 1020),
+                  S = m.p ? 32 + (((1 - m.p) * (1 - m.p) * 2e4) | 0) : 0,
+                  A = m.d,
+                  T = m.j / 2,
+                  F = m.k * m.k * 0.01,
+                  L = m.a,
+                  _ = t,
+                  U = 1 / t,
+                  D = 1 / i,
+                  N = 1 / e,
+                  R = (5 / (1 + m.u * m.u * 20)) * (0.01 + x);
+                R > 0.8 && (R = 0.8), (R = 1 - R);
+                for (
+                  var j,
+                    I,
+                    B,
+                    k,
+                    G,
+                    O,
+                    z = !1,
+                    H = 0,
+                    W = 0,
+                    Y = 0,
+                    $ = 0,
+                    q = 0,
+                    K = 0,
+                    V = 0,
+                    X = 0,
+                    J = 0,
+                    Q = 0,
+                    Z = new Array(1024),
+                    tt = new Array(32),
+                    it = Z.length;
+                  it--;
+
+                )
+                  Z[it] = 0;
+                for (it = tt.length; it--; ) tt[it] = 2 * Math.random() - 1;
+                for (it = 0; it < d; it++) {
+                  if (z) return it;
+                  if (
+                    (S && ++J >= S && ((J = 0), this.reset()),
+                    l && ++u >= l && ((l = 0), (n *= s)),
+                    (n *= r += a) > o && ((n = o), b > 0 && (z = !0)),
+                    (I = n),
+                    T > 0 && ((Q += F), (I *= 1 + Math.sin(Q) * T)),
+                    (I |= 0) < 8 && (I = 8),
+                    L || ((c += h) < 0 ? (c = 0) : c > 0.5 && (c = 0.5)),
+                    ++W > _)
+                  )
+                    switch (((W = 0), ++H)) {
+                      case 1:
+                        _ = i;
+                        break;
+                      case 2:
+                        _ = e;
+                    }
+                  switch (H) {
+                    case 0:
+                      Y = W * U;
+                      break;
+                    case 1:
+                      Y = 1 + 2 * (1 - W * D) * A;
+                      break;
+                    case 2:
+                      Y = 1 - W * N;
+                      break;
+                    case 3:
+                      (Y = 0), (z = !0);
+                  }
+                  C &&
+                    ((B = 0 | (E += P)) < 0
+                      ? (B = -B)
+                      : B > 1023 && (B = 1023)),
+                    v &&
+                      g &&
+                      ((p *= g) < 1e-5 ? (p = 1e-5) : p > 0.1 && (p = 0.1)),
+                    (O = 0);
+                  for (var et = 8; et--; ) {
+                    if (++V >= I && ((V %= I), 3 == L))
+                      for (var nt = tt.length; nt--; )
+                        tt[nt] = 2 * Math.random() - 1;
+                    switch (L) {
+                      case 0:
+                        G = V / I < c ? 0.5 : -0.5;
+                        break;
+                      case 1:
+                        G = 1 - (V / I) * 2;
+                        break;
+                      case 2:
+                        G =
+                          0.225 *
+                            (((G =
+                              1.27323954 *
+                                (k =
+                                  6.28318531 *
+                                  ((k = V / I) > 0.5 ? k - 1 : k)) +
+                              0.405284735 * k * k * (k < 0 ? 1 : -1)) < 0
+                              ? -1
+                              : 1) *
+                              G *
+                              G -
+                              G) +
+                          G;
+                        break;
+                      case 3:
+                        G = tt[Math.abs(((32 * V) / I) | 0)];
+                    }
+                    v &&
+                      ((j = K),
+                      (x *= M) < 0 ? (x = 0) : x > 0.1 && (x = 0.1),
+                      w ? ((q += (G - K) * x), (q *= R)) : ((K = G), (q = 0)),
+                      ($ += (K += q) - j),
+                      (G = $ *= 1 - p)),
+                      C &&
+                        ((Z[X % 1024] = G),
+                        (G += Z[(X - B + 1024) % 1024]),
+                        X++),
+                      (O += G);
+                  }
+                  (O *= 0.125 * Y * y),
+                    (f[it] =
+                      O >= 1 ? 32767 : O <= -1 ? -32768 : (32767 * O) | 0);
+                }
+                return d;
+              });
+          })();
+          const k = function (t) {
+            B._params.setSettings(t);
+            var i = B.totalReset(),
+              e = new Uint8Array(4 * (((i + 1) / 2) | 0) + 44),
+              n = 2 * B.synthWave(new Uint16Array(e.buffer, 44), i),
+              o = new Uint32Array(e.buffer, 0, 44);
+            return (
+              (o[0] = 1179011410),
+              (o[1] = n + 36),
+              (o[2] = 1163280727),
+              (o[3] = 544501094),
+              (o[4] = 16),
+              (o[5] = 65537),
+              (o[6] = 44100),
+              (o[7] = 88200),
+              (o[8] = 1048578),
+              (o[9] = 1635017060),
+              (o[10] = n),
+              o.buffer
+            );
+          };
+          function G(t, i, e, n) {
+            let o = (function (t, i, e) {
+              let n = t.createProgram();
+              if (
+                (t.attachShader(n, i),
+                t.attachShader(n, e),
+                t.linkProgram(n),
+                !t.getProgramParameter(n, t.LINK_STATUS))
+              )
+                throw new Error(t.getProgramInfoLog(n));
+              return n;
+            })(t, K(t, t.VERTEX_SHADER, i), K(t, t.FRAGMENT_SHADER, e));
+            return (
+              (function (t, i, e) {
+                e.forEach(function (e) {
+                  !(function (t, i, e) {
+                    i.uniformsCache || (i.uniformsCache = {});
+                    i.uniformsCache[e] = t.getUniformLocation(i, e);
+                  })(t, i, e);
+                });
+              })(t, o, n),
+              o
+            );
+          }
+          function O(t, i, e, n, o, r) {
+            let a = t.getAttribLocation(i, r);
+            t.bindBuffer(t.ARRAY_BUFFER, e),
+              t.bufferData(t.ARRAY_BUFFER, n, t.STATIC_DRAW),
+              t.vertexAttribPointer(a, o, t.FLOAT, !1, 0, 0),
+              t.enableVertexAttribArray(a);
+          }
+          function z(t, i, e) {
+            t.bindBuffer(t.ELEMENT_ARRAY_BUFFER, i),
+              t.bufferData(t.ELEMENT_ARRAY_BUFFER, e, t.STATIC_DRAW);
+          }
+          function H(t, i, e, n) {
+            O(t, i, e, n, 3, "aNormal");
+          }
+          function W(t, i, e, n) {
+            O(t, i, e, n, 3, "aPosition");
+          }
+          function Y(t, i, e, n) {
+            O(t, i, e, n, 2, "aUvs");
+          }
+          function $(t, i) {
+            return Math.random() * (i - t) + t;
+          }
+          function q() {
+            return 2 * Math.round(Math.random()) - 1;
+          }
+          function K(t, i, e) {
+            let n = t.createShader(i);
+            if (
+              (t.shaderSource(n, e),
+              t.compileShader(n),
+              !t.getShaderParameter(n, t.COMPILE_STATUS))
+            )
+              throw new Error(t.getShaderInfoLog(n));
+            return n;
+          }
+          var V =
+              "precision highp float;\n\nattribute vec3 aPosition;\nattribute vec2 aUvs;\nattribute vec3 aNormal;\n\nuniform vec4 uLightPosition;\nuniform vec3 uKd;\nuniform vec3 uLd;\nuniform mat4 modelMatrix;\nuniform mat4 viewMatrix;\nuniform mat4 projectionMatrix;\nuniform mat4 normalMatrix;\n\nvarying vec3 vLightIntensity;\nvarying vec2 vUvs;\n\nvoid main() {\n  highp vec4 transformedNormal = normalMatrix * vec4(normalize(aNormal), 1.0);\n  highp vec4 eyeCoords = viewMatrix * modelMatrix * vec4(aPosition, 1.0);\n  highp vec3 s = normalize(vec3(uLightPosition - eyeCoords));\n\n  vLightIntensity = 6.4 * uLd * uKd * max(dot(s, transformedNormal.xyz), 0.0);\n  vUvs = aUvs;\n  gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(aPosition, 1.0);\n}\n",
+            X =
+              "precision highp float;\n\nuniform vec3 uColor;\nuniform mat4 normalMatrix;\nuniform mat4 modelMatrix;\nuniform mat4 viewMatrix;\nuniform float uTime;\nuniform float uHit;\nuniform float uHealth;\nuniform float uAlpha;\n\nvarying highp vec3 vLightIntensity;\nvarying vec2 vUvs;\n\nvoid main() {\n  float divisor = 150.0 - 100.0 * (1.0 - uHealth);\n  float time = uTime / divisor;\n  vec3 color = (0.5 + 0.5 * cos(time + vUvs.xyy + vec3(1.0, 2.0, 0.0))) * uHit;\n  color.r = color.r;\n  color.g = 0.0;\n  color.b = min(color.b, 0.2);\n  color = vLightIntensity + color;\n  color.r = color.r + (1.0 - uHealth);\n\n  gl_FragColor = vec4(color, min(uAlpha, 0.35));\n}\n\n";
+          let J = new Float32Array([
+              -0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5,
+              -0.5, 0, 0.5, 0.5, 0,
+            ]),
+            Q = new Float32Array([
+              -0.1, 1, 0, -0.1, 0, 0, 0.1, 1, 0, -0.1, 0, 0, 0.1, 0, 0, 0.1, 1,
+              0,
+            ]);
+          const Z = new Float32Array([
+              -1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, -1, -1, -1, -1, 1, -1, 1,
+              1, -1, 1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, 1, 1, -1, -1, -1,
+              -1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, 1, -1, 1, 1, 1,
+              1, -1, 1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1, 1, -1,
+            ]),
+            tt = new Float32Array([
+              0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1,
+              0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0,
+              1, 1, 0, 1,
+            ]),
+            it = new Uint16Array([
+              0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13,
+              14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23,
+            ]),
+            et = new Float32Array([
+              0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, -1, 0, 0, -1,
+              0, 0, -1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, -1, 0,
+              0, -1, 0, 0, -1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0,
+              -1, 0, 0, -1, 0, 0, -1, 0, 0,
+            ]),
+            nt = new Float32Array([0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1]),
+            ot = ["modelMatrix", "viewMatrix", "projectionMatrix", "uTime"],
+            rt = [
+              ...ot,
+              "normalMatrix",
+              "uColor",
+              "uLightPosition",
+              "uKd",
+              "uLd",
+              "uHit",
+              "uHealth",
+              "uAlpha",
+            ],
+            at = 200,
+            st = 0.003,
+            ut = 0.25,
+            lt = 1e3;
+          let ct = [],
+            ht = [],
+            ft = [],
+            dt = [],
+            mt = null,
+            vt = null,
+            pt = null,
+            gt = null,
+            xt = null;
+          class Mt {
+            static configureProgram(t) {
+              (mt = (function (t) {
+                return (
+                  (function () {
+                    for (let t = 0; t <= 15; ++t) {
+                      let i = (t * Math.PI) / 15,
+                        e = Math.sin(i),
+                        n = Math.cos(i);
+                      for (let i = 0; i <= 15; ++i) {
+                        let o = (2 * i * Math.PI) / 15 / 2,
+                          r = Math.sin(o),
+                          a = Math.cos(o),
+                          s = a * e,
+                          u = n,
+                          l = r * e,
+                          c = 1 - i / 15,
+                          h = 1 - t / 15;
+                        ct.push(0.5 * s),
+                          ct.push(0.5 * u),
+                          ct.push(0.5 * l),
+                          ht.push(s),
+                          ht.push(u),
+                          ht.push(l),
+                          ft.push(c),
+                          ft.push(h);
+                      }
+                    }
+                    for (let t = 0; t < 15; ++t)
+                      for (let i = 0; i < 15; ++i) {
+                        let e = 16 * t + i,
+                          n = e + 15 + 1;
+                        dt.push(e),
+                          dt.push(n),
+                          dt.push(e + 1),
+                          dt.push(n),
+                          dt.push(n + 1),
+                          dt.push(e + 1);
+                      }
+                    (ct = new Float32Array(ct)),
+                      (ht = new Float32Array(ht)),
+                      (ft = new Float32Array(ft)),
+                      (dt = new Uint16Array(dt));
+                  })(),
+                  G(t, V, X, rt)
+                );
+              })(t)),
+                (vt = t.createBuffer()),
+                (pt = t.createBuffer()),
+                (gt = t.createBuffer()),
+                (xt = t.createBuffer());
+            }
+            get collisionPosition() {
+              return this.position;
+            }
+            constructor(t, i, e) {
+              (this.type = "dome"),
+                (this.game = t),
+                (this.gl = this.game.gl),
+                (this.position = i),
+                (this.originalPosition = o.create()),
+                o.set(this.originalPosition, i[0], i[1], i[2]),
+                (this.color = e),
+                (this.collidable = !0),
+                (this.modelMatrix = n.create()),
+                (this.normalMatrix = n.create()),
+                (this.radius = 4.2),
+                (this.rotation = 0),
+                (this.hitFloat = 0),
+                (this.buildings = []),
+                (this.explodeSfx = new j([
+                  3,
+                  0.14,
+                  0.79,
+                  0.22,
+                  0.81,
+                  0.2472,
+                  ,
+                  -0.0503,
+                  ,
+                  ,
+                  0.26,
+                  ,
+                  ,
+                  ,
+                  ,
+                  0.5637,
+                  ,
+                  ,
+                  1,
+                  ,
+                  ,
+                  ,
+                  ,
+                  0.5,
+                ])),
+                (this.hitSfx = new j([
+                  0,
+                  ,
+                  0.1251,
+                  ,
+                  0.1622,
+                  0.12,
+                  ,
+                  ,
+                  ,
+                  ,
+                  ,
+                  ,
+                  ,
+                  0.1687,
+                  ,
+                  ,
+                  ,
+                  ,
+                  1,
+                  ,
+                  ,
+                  0.1,
+                  ,
+                  0.5,
+                ])),
+                this.reset(),
+                this.update();
+            }
+            reset() {
+              (this.hitFloat = 0),
+                (this.times = { hit: 0, exploded: 0, death: 0 }),
+                (this.dead = !1),
+                (this.exploded = !1),
+                (this.health = 1),
+                this.buildings.forEach((t) => (t.dead = !1));
+            }
+            update(t) {
+              const { modelMatrix: i, normalMatrix: e } = this,
+                { viewMatrix: o } = this.game,
+                r = 2 * this.radius,
+                a = n.create();
+              n.identity(i),
+                n.identity(e),
+                n.translate(i, i, this.position),
+                n.rotate(i, i, -Math.PI / 2, [1, 0, 0]),
+                n.scale(i, i, [r, r, r]),
+                n.multiply(a, i, o),
+                n.invert(e, a),
+                n.transpose(e, e),
+                t - this.times.hit > at && (this.hitFloat = 0),
+                this.hitFloat > 0 &&
+                  ((this.health -= st),
+                  (this.health = Math.max(this.health, 0)),
+                  this.hitSfx.ended && this.hitSfx.play()),
+                this.health < 0.2 &&
+                  this.health > 0 &&
+                  (this.position[0] = this.originalPosition[0] + $(-ut, ut)),
+                this.health <= 0
+                  ? (this.exploded ||
+                      ((this.exploded = !0),
+                      this.explodeSfx.play(),
+                      (this.times.exploded = t)),
+                    (this.alpha = Math.max(
+                      1 - (t - this.times.exploded) / lt,
+                      0
+                    )),
+                    this.alpha <= 0 &&
+                      ((this.dead = !0),
+                      this.buildings.forEach((t) => (t.dead = !0))))
+                  : (this.alpha += 0.005);
+            }
+            draw(t) {
+              const { gl: i, modelMatrix: e, normalMatrix: n } = this,
+                { viewMatrix: o, projectionMatrix: r } = this.game;
+              i.useProgram(mt),
+                H(i, mt, vt, ht),
+                W(i, mt, pt, ct),
+                Y(i, mt, gt, ft),
+                z(i, xt, dt),
+                i.uniform1f(mt.uniformsCache.uTime, t),
+                i.uniform1f(mt.uniformsCache.uAlpha, this.alpha),
+                i.uniform1f(mt.uniformsCache.uHit, this.hitFloat),
+                i.uniform1f(mt.uniformsCache.uHealth, this.health),
+                i.uniformMatrix4fv(mt.uniformsCache.modelMatrix, !1, e),
+                i.uniformMatrix4fv(mt.uniformsCache.viewMatrix, !1, o),
+                i.uniformMatrix4fv(mt.uniformsCache.normalMatrix, !1, n),
+                i.uniformMatrix4fv(mt.uniformsCache.projectionMatrix, !1, r),
+                i.uniform4fv(
+                  mt.uniformsCache.uLightPosition,
+                  [50, 200, -100, 1]
+                ),
+                i.uniform3fv(mt.uniformsCache.uKd, this.color),
+                i.uniform3fv(mt.uniformsCache.uLd, [1, 1, 1]),
+                i.frontFace(i.CW),
+                i.enable(i.CULL_FACE),
+                i.cullFace(i.BACK),
+                i.drawElements(i.TRIANGLES, dt.length, i.UNSIGNED_SHORT, 0),
+                i.disable(i.CULL_FACE),
+                i.frontFace(i.CCW);
+            }
+            hit(t) {
+              (this.times.hit = t), (this.hitFloat = 1);
+            }
+          }
+          var wt =
+              "precision highp float;\n\nattribute vec3 aPosition;\nattribute vec2 aUvs;\n\nuniform mat4 modelMatrix;\nuniform mat4 viewMatrix;\nuniform mat4 projectionMatrix;\n\nvarying vec2 vUvs;\n\nvoid main() {\n  vUvs = aUvs;\n  gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(aPosition,1);\n}",
+            yt =
+              "precision highp float;\n\nuniform float uRandom;\nuniform float uGood;\nuniform float uTime;\nuniform float uEndTime;\nuniform float uStartFadeTime;\n\nvarying vec2 vUvs;\n\nfloat circle(in vec2 _st,in float _radius){\n  vec2 dist= _st - vec2(0.5);\n  return 1.0 - smoothstep(\n  _radius - (_radius * .01),\n  _radius + (_radius * .01),\n  dot(dist, dist) * 4.0\n);\n}\n\nvoid main() {\n  float alpha = circle(vUvs, 1.0) * 0.8;\n  float time = uTime / 100.0;\n  float percentFadedOut = 1.0 - clamp((uTime - uStartFadeTime) / (uEndTime - uStartFadeTime), 0.0, 1.0);\n\n  vec3 color = 0.5 + 0.5 * cos(time * uRandom + vUvs.xyx + vec3(1.0, 2.0, 0.0));\n  color.r = color.r * (1.0 - uGood);\n  color.g = color.g * uGood;\n  color.b = min(color.b, 0.2);\n  gl_FragColor = vec4(color, alpha * percentFadedOut);\n}\n";
+          const bt = [
+              ...ot,
+              "uEndTime",
+              "uStartTime",
+              "uStartFadeTime",
+              "uRandom",
+              "uGood",
+            ],
+            Ct = 500;
+          let Pt = null,
+            Et = null,
+            St = null;
+          class At {
+            static configureProgram(t) {
+              (Pt = (function (t) {
+                return G(t, wt, yt, bt);
+              })(t)),
+                (Et = t.createBuffer()),
+                (St = t.createBuffer());
+            }
+            get collisionPosition() {
+              return this.position;
+            }
+            constructor(t, i, e, o = !0) {
+              (this.type = "explosion"),
+                (this.game = t),
+                (this.gl = this.game.gl),
+                (this.position = e);
+              const r = i + 2e3;
+              (this.times = { start: i, startFade: r, end: r + Ct }),
+                (this.dead = !1),
+                (this.good = o),
+                (this.collidable = !0),
+                (this.goodFloat = o ? 1 : 0),
+                (this.modelMatrix = n.create()),
+                (this.startingSize = 0.5),
+                (this.currentSize = this.startingSize),
+                (this.radius = this.currentSize / 2),
+                (this.randomFloat = $(0, 1)),
+                this.update(i);
+            }
+            update(t) {
+              t > this.times.end && (this.dead = !0),
+                t > this.times.startFade && (this.collidable = !1);
+              const { modelMatrix: i } = this;
+              (this.currentSize += 0.05),
+                (this.radius = this.currentSize / 2),
+                n.identity(i),
+                n.translate(i, i, [this.position[0], this.position[1], 0]),
+                n.scale(i, i, [
+                  this.currentSize,
+                  this.currentSize,
+                  this.currentSize,
+                ]);
+            }
+            draw(t) {
+              const { gl: i, modelMatrix: e, randomFloat: n } = this,
+                { viewMatrix: o, projectionMatrix: r } = this.game;
+              i.useProgram(Pt),
+                W(i, Pt, Et, J),
+                Y(i, Pt, St, nt),
+                i.uniform1f(Pt.uniformsCache.uGood, this.goodFloat),
+                i.uniform1f(Pt.uniformsCache.uTime, t),
+                i.uniform1f(Pt.uniformsCache.uEndTime, this.times.end),
+                i.uniform1f(
+                  Pt.uniformsCache.uStartFadeTime,
+                  this.times.startFade
+                ),
+                i.uniform1f(Pt.uniformsCache.uRandom, n),
+                i.uniformMatrix4fv(Pt.uniformsCache.modelMatrix, !1, e),
+                i.uniformMatrix4fv(Pt.uniformsCache.viewMatrix, !1, o),
+                i.uniformMatrix4fv(Pt.uniformsCache.projectionMatrix, !1, r),
+                i.drawArrays(i.TRIANGLES, 0, J.length / 3);
+            }
+          }
+          var Tt =
+            "precision highp float;\n\nuniform vec3 uColor;\nuniform float uTime;\nuniform float uStartTime;\nuniform float uEndTime;\nuniform float uExplodeTime;\nuniform float uGood;\nuniform float uPercentDone;\nuniform float uAlpha;\n\nvarying vec2 vUvs;\n\nvoid main() {\n  float x = pow(1.0 - abs(0.5 - vUvs.x), 10.0);\n  float percentComplete = clamp((uTime - uStartTime) / (uExplodeTime - uStartTime), 0.0, uPercentDone);\n  float trail = x * (1.0 - step(percentComplete, vUvs.y)) * (vUvs.y / percentComplete);\n  float percentFadedOut = 1.0 - clamp((uTime - uExplodeTime) / (uEndTime - uExplodeTime), 0.0, 1.0);\n  float alpha = trail * percentFadedOut;\n  float r = 1.0 - uGood;\n  float g = uGood;\n\n  gl_FragColor = vec4(r, g, 0.2, 1.0) * alpha * uAlpha;\n}\n\n";
+          const Ft = [
+              ...ot,
+              "uExplodeTime",
+              "uEndTime",
+              "uStartTime",
+              "uGood",
+              "uPercentDone",
+              "uAlpha",
+            ],
+            Lt = 2e3;
+          let _t = null,
+            Ut = null,
+            Dt = null;
+          const Nt = new j([
+              3,
+              ,
+              0.1265,
+              0.7565,
+              0.4248,
+              0.0688,
+              ,
+              0.0011,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              0.3391,
+              -0.016,
+              1,
+              ,
+              ,
+              ,
+              ,
+              0.5,
+            ]),
+            Rt = new j([
+              3,
+              ,
+              0.3723,
+              0.5327,
+              0.1716,
+              0.0352,
+              ,
+              0.0305,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              ,
+              0.2013,
+              -0.188,
+              1,
+              ,
+              ,
+              ,
+              ,
+              0.5,
+            ]);
+          class jt {
+            static configureProgram(t) {
+              (_t = (function (t) {
+                return G(t, wt, Tt, Ft);
+              })(t)),
+                (Ut = t.createBuffer()),
+                (Dt = t.createBuffer());
+            }
+            constructor(t, i, e, r, a, s, u = !1) {
+              (this.type = "missile"),
+                (this.game = t),
+                (this.gl = this.game.gl),
+                (this.speed = s),
+                (this.position = o.create()),
+                (this.collisionPosition = o.create()),
+                (this.destination = o.create()),
+                (this.exploded = !1),
+                (this.dead = !1),
+                (this.isBackground = u),
+                (this.collidable = !0),
+                (this.good = a),
+                (this.goodFloat = a ? 1 : 0),
+                o.copy(this.position, e),
+                o.copy(this.destination, r);
+              const l = o.create();
+              (this.alpha = this.isBackground ? 0.75 : 1),
+                o.subtract(l, this.destination, this.position);
+              const c = this.destination[0] - this.position[0];
+              this.angle = o.angle([0, 1, 0], l) * -Math.sign(c);
+              const h =
+                o.distance(this.position, this.destination) / this.speed + i;
+              (this.times = { start: i, explode: h, end: h + Lt }),
+                (this.radius = 0.1),
+                (this.percentDone = 0),
+                (this.goodExplodeSfx = Nt),
+                (this.badExplodeSfx = Rt),
+                (this.modelMatrix = n.create());
+              const f = n.create(),
+                d = n.create(),
+                m = n.create(),
+                v = o.distance(this.destination, this.position);
+              n.scale(f, this.modelMatrix, [10, v, 10]),
+                n.translate(m, this.modelMatrix, this.position),
+                n.rotate(d, this.modelMatrix, this.angle, [0, 0, 1]),
+                n.multiply(this.modelMatrix, d, f),
+                n.multiply(this.modelMatrix, m, this.modelMatrix),
+                this.update(i);
+            }
+            update(t) {
+              t > this.times.end && (this.dead = !0),
+                this.dead && (this.alpha -= 0.01),
+                this.exploded ||
+                  ((this.percentDone = Math.min(
+                    (t - this.times.start) /
+                      (this.times.explode - this.times.start),
+                    1
+                  )),
+                  o.lerp(
+                    this.collisionPosition,
+                    this.position,
+                    this.destination,
+                    this.percentDone
+                  ));
+            }
+            draw(t) {
+              const { gl: i, modelMatrix: e, goodFloat: n } = this,
+                { viewMatrix: o, projectionMatrix: r } = this.game;
+              i.useProgram(_t),
+                W(i, _t, Ut, Q),
+                Y(i, _t, Dt, nt),
+                i.uniform1f(_t.uniformsCache.uTime, t),
+                i.uniform1f(_t.uniformsCache.uGood, n),
+                i.uniformMatrix4fv(_t.uniformsCache.modelMatrix, !1, e),
+                i.uniformMatrix4fv(_t.uniformsCache.viewMatrix, !1, o),
+                i.uniformMatrix4fv(_t.uniformsCache.projectionMatrix, !1, r),
+                i.uniform1f(_t.uniformsCache.uExplodeTime, this.times.explode),
+                i.uniform1f(_t.uniformsCache.uStartTime, this.times.start),
+                i.uniform1f(_t.uniformsCache.uEndTime, this.times.end),
+                i.uniform1f(_t.uniformsCache.uPercentDone, this.percentDone),
+                i.uniform1f(_t.uniformsCache.uAlpha, this.alpha),
+                i.drawArrays(i.TRIANGLES, 0, Q.length / 3);
+            }
+            maybeExplode(t) {
+              return (
+                this.percentDone >= 1 && !this.exploded && (this.explode(t), !0)
+              );
+            }
+            explode(t) {
+              if (this.exploded) return;
+              const i = new At(this.game, t, this.collisionPosition, this.good);
+              this.percentDone >= 1 && !this.good && (i.collidable = !1),
+                this.game.drawables.push(i),
+                (this.times.explode = t),
+                (this.times.end = t + Lt),
+                (this.exploded = !0),
+                (this.collidable = !1),
+                this.good
+                  ? this.goodExplodeSfx.play()
+                  : this.badExplodeSfx.play();
+            }
+          }
+          var It =
+            "precision highp float;\n\nuniform float uGood;\nuniform float uTime;\nuniform float uStar;\nuniform vec2 uSeed;\n\nvarying vec2 vUvs;\n\nfloat circle(in vec2 _st,in float _radius){\n  vec2 dist= _st - vec2(0.5);\n  return 1.0 - smoothstep(\n  _radius - (_radius * .01),\n  _radius + (_radius * .01),\n  dot(dist, dist) * 4.0\n);\n}\n\nvoid main() {\n  float time = uTime / 100.0;\n  float isMoon = (1.0 - uStar);\n  float cutOut = circle(vUvs, 0.4) * isMoon;\n  float dist = distance(vUvs, vec2(0.5));\n  float halo = 1.0 - smoothstep(0.2, 0.6, dist);\n  float alpha = max(cutOut, halo);\n  alpha -= uSeed.x * uStar;\n  float twinkle = sin(uTime * uSeed.x / 60.0) / 2.0 * uStar * uSeed.y;\n  gl_FragColor = vec4(vec3(.86) + twinkle, 1.0) * alpha;\n}\n";
+          const Bt = [...ot, "uStar", "uSeed"];
+          let kt = null,
+            Gt = null,
+            Ot = null;
+          class zt {
+            static configureProgram(t) {
+              (kt = (function (t) {
+                return G(t, wt, It, Bt);
+              })(t)),
+                (Gt = t.createBuffer()),
+                (Ot = t.createBuffer());
+            }
+            constructor(t, i, e = !1) {
+              (this.type = "moon"),
+                (this.game = t),
+                (this.gl = this.game.gl),
+                (this.position = i),
+                (this.dead = !1),
+                (this.collidable = !1),
+                (this.starFloat = e ? 1 : 0),
+                (this.modelMatrix = n.create()),
+                (this.radius = e ? 0.2 : 1),
+                this.update(0),
+                (this.seed = [$(0, 0.3), Math.round($(0, 0.75))]);
+            }
+            update(t) {
+              const { modelMatrix: i } = this,
+                e = 2 * this.radius;
+              n.identity(i),
+                n.translate(i, i, this.position),
+                n.scale(i, i, [e, e, e]);
+            }
+            draw(t) {
+              const { gl: i, modelMatrix: e } = this,
+                { viewMatrix: n, projectionMatrix: o } = this.game;
+              i.useProgram(kt),
+                W(i, kt, Gt, J),
+                Y(i, kt, Ot, nt),
+                i.uniform1f(kt.uniformsCache.uTime, t),
+                i.uniform1f(kt.uniformsCache.uStar, this.starFloat),
+                i.uniform2f(kt.uniformsCache.uSeed, this.seed[0], this.seed[1]),
+                i.uniformMatrix4fv(kt.uniformsCache.modelMatrix, !1, e),
+                i.uniformMatrix4fv(kt.uniformsCache.viewMatrix, !1, n),
+                i.uniformMatrix4fv(kt.uniformsCache.projectionMatrix, !1, o),
+                i.drawArrays(i.TRIANGLES, 0, J.length / 3);
+            }
+          }
+          var Ht =
+              "precision highp float;\n\nattribute vec3 aPosition;\nattribute vec3 aNormal;\n\nuniform mat4 modelMatrix;\nuniform mat4 viewMatrix;\nuniform mat4 projectionMatrix;\nuniform mat4 normalMatrix;\nuniform vec3 uLightPosition;\nuniform vec3 uLightColor;\n\nvarying vec3 vNormal;\nvarying vec2 vUvs;\nvarying vec3 vLight;\n\nvoid main() {\n  vNormal = aNormal;\n  float light = dot(normalize(aNormal), normalize(uLightPosition));\n  vLight = uLightColor * light;\n  gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(aPosition, 1.0);\n}\n",
+            Wt =
+              "precision highp float;\n\nvarying vec3 vLight;\n\nvoid main() {\n gl_FragColor = vec4(vLight, 1.0);\n}\n";
+          const Yt = [...ot, "normalMatrix", "uLightPosition", "uLightColor"];
+          let $t = null,
+            qt = null,
+            Kt = null;
+          const Vt = 3.2,
+            Xt = 5.8,
+            Jt = 1;
+          class Qt {
+            static configureProgram(t) {
+              ($t = (function (t) {
+                return G(t, Ht, Wt, Yt);
+              })(t)),
+                (qt = t.createBuffer()),
+                (Kt = t.createBuffer());
+            }
+            constructor(t, i, e, o) {
+              (this.type = "mountains"),
+                (this.game = t),
+                (this.gl = this.game.gl),
+                (this.position = i),
+                (this.color = o),
+                (this.dimensions = e),
+                (this.modelMatrix = n.create()),
+                (this.normalMatrix = n.create()),
+                this.configureVertices(),
+                this.update();
+            }
+            update(t) {
+              const { modelMatrix: i, normalMatrix: e } = this,
+                { viewMatrix: o } = this.game,
+                r = n.create();
+              n.identity(i),
+                n.identity(e),
+                n.translate(i, i, this.position),
+                n.multiply(r, i, o),
+                n.invert(e, r),
+                n.transpose(e, e);
+            }
+            draw(t) {
+              const {
+                  gl: i,
+                  modelMatrix: e,
+                  normalMatrix: n,
+                  color: o,
+                  vertexData: r,
+                  normalData: a,
+                } = this,
+                { viewMatrix: s, projectionMatrix: u } = this.game;
+              i.useProgram($t),
+                W(i, $t, Kt, r),
+                H(i, $t, qt, a),
+                i.uniform1f($t.uniformsCache.uTime, t),
+                i.uniform3f($t.uniformsCache.uLightPosition, 0.3, 0, -0.9),
+                i.uniform3f($t.uniformsCache.uLightColor, ...o),
+                i.uniformMatrix4fv($t.uniformsCache.modelMatrix, !1, e),
+                i.uniformMatrix4fv($t.uniformsCache.viewMatrix, !1, s),
+                i.uniformMatrix4fv($t.uniformsCache.normalMatrix, !1, n),
+                i.uniformMatrix4fv($t.uniformsCache.projectionMatrix, !1, u),
+                i.drawArrays(i.TRIANGLES, 0, r.length / 3);
+            }
+            configureVertices() {
+              (this.vertexData = []),
+                (this.indexData = []),
+                (this.normalData = []);
+              const t = o.create(),
+                i = o.create(),
+                e = o.create(),
+                n = o.create(),
+                r = [t, i, e, e, i, n],
+                a = o.create(),
+                s = o.create(),
+                u = o.create(),
+                l = o.create(),
+                c = [u, u, u, l, l, l];
+              let h = 0;
+              for (
+                o.set(t, 0, 0, 0),
+                  o.set(i, 0, 0, Jt),
+                  o.set(e, 0, 1, 0),
+                  o.set(n, -t[0], t[1], t[2]);
+                h < this.dimensions[0];
+
+              ) {
+                const f = $(Vt, Xt),
+                  d = this.dimensions[1],
+                  m = $(0.6 * d, d);
+                (t[0] = 0 + h),
+                  (i[0] = 0 + h + f),
+                  (e[0] = 0 + h + f),
+                  (n[0] = t[0] + 2 * f),
+                  (e[1] = m),
+                  (t[2] = 0),
+                  (i[2] = Jt),
+                  (e[2] = 0),
+                  (n[2] = 0),
+                  r.forEach((t) => this.vertexData.push(...t)),
+                  o.subtract(a, e, t),
+                  o.subtract(s, i, t),
+                  o.cross(u, a, s),
+                  o.subtract(a, n, i),
+                  o.subtract(s, i, e),
+                  o.cross(l, a, s),
+                  c.forEach((t) => this.normalData.push(...t)),
+                  (h += f * $(0.7, 1.8));
+              }
+              (this.vertexData = new Float32Array(this.vertexData)),
+                (this.normalData = new Float32Array(this.normalData));
+            }
+          }
+          var Zt =
+              "attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aUvs;\n\nuniform mat4 modelMatrix;\nuniform mat4 normalMatrix;\nuniform mat4 viewMatrix;\nuniform mat4 projectionMatrix;\n\nvarying vec2 vUvs;\n\nvoid main() {\n  vec4 worldPos = modelMatrix * vec4(aPosition, 1);\n  vUvs = aUvs;\n\n  gl_Position = projectionMatrix * viewMatrix * worldPos;\n}",
+            ti =
+              "precision highp float;\n\nuniform vec3 uColor;\nvarying vec2 vUvs;\n\nvoid main() {\n  float distance = vUvs.x;\n  gl_FragColor = vec4(uColor.xyz, distance);\n}\n",
+            ii =
+              "precision highp float;\n\nuniform float uDead;\nuniform vec3 uColor;\nuniform vec3 uLightPosition;\nvarying vec3 vLighting;\nvarying vec2 vUvs;\nvarying vec3 vNormal;\n\nvoid main() {\n    vec3 windowColor = vec3(.7, .7, 0.0);\n    vec3 wallColor = vec3(.1, .1, .1);\n\n    float isSide = max(1.0 - vNormal.y, 0.0);\n    float gutter = 0.05;\n    vec2 windows = vec2(4.0, 4.0) * (1.0 - uDead);\n\n    float blX = step(gutter, mod(vUvs.x, 1.0 / windows.x));\n    float blY = step(gutter, mod(vUvs.y, 1.0 / windows.y));\n\t  float pct = blX * blY;\n\n    float trX = step(gutter, mod((1.0 - vUvs.x), 1.0 / windows.x));\n    float trY = step(gutter, mod((1.0 - vUvs.y), 1.0 / windows.y));\n\t  pct *= trX * trY * isSide;\n\n    float inversePct = 1.0 - pct;\n    vec3 color = (vec3(pct * windowColor + inversePct * wallColor) + .2);\n\n    gl_FragColor = vec4(color * vLighting, 1.0);\n}\n",
+            ei =
+              "attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aUvs;\n\nuniform mat4 modelMatrix;\nuniform mat4 normalMatrix;\nuniform mat4 viewMatrix;\nuniform mat4 projectionMatrix;\nuniform vec3 uLightPosition;\nuniform vec3 uLightColor;\n\nvarying vec3 vNormal;\nvarying vec3 vPosition;\nvarying vec2 vUvs;\nvarying vec4 vWorldPos;\nvarying vec3 vLighting;\n\nvoid main() {\n  vWorldPos = modelMatrix * vec4(aPosition, 1);\n  vec3 transformedNormal = vec3(normalMatrix * vec4(aNormal, 1.0));\n\n  float light = dot(normalize(transformedNormal), normalize(uLightPosition));\n\n  vLighting = uLightColor * light + .2;\n  vPosition = aPosition;\n  vUvs = aUvs;\n  vNormal = aNormal;\n\n  gl_Position = projectionMatrix * viewMatrix * vWorldPos;\n}";
+          const ni = [
+            ...ot,
+            "normalMatrix",
+            "uColor",
+            "uLightPosition",
+            "uLightColor",
+            "uDimensions",
+            "uDead",
+          ];
+          let oi = null,
+            ri = null,
+            ai = null,
+            si = null,
+            ui = null,
+            li = null;
+          class ci {
+            static configureProgram(t) {
+              (oi = (function (t) {
+                return G(t, Zt, ti, ni);
+              })(t)),
+                (ri = (function (t) {
+                  return G(t, ei, ii, ni);
+                })(t)),
+                (ai = t.createBuffer()),
+                (si = t.createBuffer()),
+                (ui = t.createBuffer()),
+                (li = t.createBuffer());
+            }
+            constructor(t, i, e, o = !1) {
+              (this.type = "cube"),
+                (this.game = t),
+                (this.gl = this.game.gl),
+                (this.position = i),
+                (this.dimensions = e),
+                (this.dead = !1),
+                (this.modelMatrix = n.create()),
+                (this.normalMatrix = n.create()),
+                (this.rotation = o ? $(-Math.PI, Math.PI) : 0),
+                (this.building = o),
+                (this.program = o ? ri : oi),
+                (this.color = o ? [0.7, 0.7, 0.7] : [0.27, 0.54, 0.34]),
+                this.update();
+            }
+            update(t) {
+              const { modelMatrix: i, normalMatrix: e } = this,
+                { viewMatrix: o } = this.game,
+                r = n.create();
+              n.identity(i),
+                n.identity(e),
+                n.translate(i, i, this.position),
+                n.rotate(i, i, this.rotation, [0, 1, 0]),
+                n.scale(i, i, this.dimensions),
+                n.multiply(r, i, o),
+                n.invert(e, r),
+                n.transpose(e, e);
+            }
+            draw(t) {
+              const {
+                  gl: i,
+                  modelMatrix: e,
+                  normalMatrix: n,
+                  program: o,
+                } = this,
+                { viewMatrix: r, projectionMatrix: a } = this.game;
+              i.useProgram(o),
+                this.building && H(i, o, ai, et),
+                W(i, o, si, Z),
+                Y(i, o, li, tt),
+                z(i, ui, it),
+                i.uniform1f(o.uniformsCache.uDead, this.dead ? 1 : 0),
+                i.uniform3f(o.uniformsCache.uDimensions, ...this.dimensions),
+                i.uniform3f(o.uniformsCache.uLightPosition, 0.25, 1, 0),
+                i.uniform3f(o.uniformsCache.uLightColor, 1, 1, 1),
+                i.uniform3f(o.uniformsCache.uColor, ...this.color),
+                i.uniformMatrix4fv(o.uniformsCache.modelMatrix, !1, e),
+                i.uniformMatrix4fv(o.uniformsCache.viewMatrix, !1, r),
+                i.uniformMatrix4fv(o.uniformsCache.normalMatrix, !1, n),
+                i.uniformMatrix4fv(o.uniformsCache.projectionMatrix, !1, a),
+                i.enable(i.CULL_FACE),
+                i.cullFace(i.BACK),
+                i.drawElements(i.TRIANGLES, it.length, i.UNSIGNED_SHORT, 0),
+                i.disable(i.CULL_FACE);
+            }
+          }
+          e(0);
+          const hi = {},
+            fi = document.createElement("canvas");
+          document.body.appendChild(fi);
+          const di = fi.getContext("webgl", { premultipliedAlpha: !0 });
+          fi.addEventListener(
+            "webglcontextlost",
+            (t) => t.preventDefault(),
+            !1
+          ),
+            fi.addEventListener("webglcontextrestored", () => fe(di), !1),
+            document.body.addEventListener("mouseup", le, !1),
+            document.body.addEventListener("touchend", le, !1);
+          const mi = document.createElement("div");
+          mi.classList.add("text"),
+            document.body.appendChild(mi),
+            setTimeout(() => de("Infinite Missiles"), 1);
+          const vi = document.createElement("div");
+          vi.classList.add("heat"), document.body.appendChild(vi);
+          const pi = 20,
+            gi = o.create(),
+            xi = o.create(),
+            Mi = [-1, -1],
+            wi = 0.11,
+            yi = 400,
+            bi = (15 * Math.PI) / 180,
+            Ci = n.create(),
+            Pi = n.create(),
+            Ei = n.create(),
+            Si = n.create(),
+            Ai = 0.02,
+            Ti = 0.002,
+            Fi = 0.025,
+            Li = 0.5,
+            _i = 3,
+            Ui = [0.2, 0.9, 0.2],
+            Di = [0.2, 0.2, 0.9],
+            Ni = [0.6, 0.2, 0.8],
+            Ri = 0.35,
+            ji = 0.05,
+            Ii = 0.002,
+            Bi = 0.1,
+            ki = 2e3,
+            Gi = new j([
+              0,
+              ,
+              0.2322,
+              ,
+              0.1669,
+              0.8257,
+              0.0746,
+              -0.3726,
+              ,
+              ,
+              ,
+              ,
+              ,
+              0.4334,
+              0.1887,
+              ,
+              0.0804,
+              -0.1996,
+              1,
+              ,
+              ,
+              ,
+              ,
+              0.5,
+            ]),
+            Oi = new j([
+              3,
+              ,
+              0.1796,
+              0.2371,
+              0.4295,
+              0.2341,
+              ,
+              0.1075,
+              ,
+              ,
+              ,
+              -0.4805,
+              0.8129,
+              ,
+              ,
+              ,
+              ,
+              ,
+              1,
+              ,
+              ,
+              ,
+              ,
+              0.5,
+            ]),
+            zi = { width: -1, height: -1 };
+          let Hi = [],
+            Wi = [],
+            Yi = [],
+            $i = [],
+            qi = [],
+            Ki = null,
+            Vi = 1,
+            Xi = !0,
+            Ji = 0,
+            Qi = null,
+            Zi = !1,
+            te = 5e3,
+            ie = 2,
+            ee = [],
+            ne = Ti,
+            oe = null;
+          (hi.gl = di),
+            (hi.viewMatrix = Ci),
+            (hi.projectionMatrix = Pi),
+            (hi.viewProjectionMatrix = Ei),
+            (hi.inverseViewProjectionMatrix = Si),
+            (hi.drawables = []),
+            (hi.camera = { staticPos: o.create() }),
+            (hi.shakeInfo = {
+              amplitude: o.create(),
+              dir: o.create(),
+              pos: o.create(),
+            }),
+            di.enable(di.BLEND),
+            di.blendFunc(di.SRC_ALPHA, di.ONE_MINUS_SRC_ALPHA),
+            di.depthFunc(di.LESS),
+            fe(di);
+          const re = [
+            [4 - pi, 0, 0],
+            [0, 0, 0],
+            [pi - 4, 0, 0],
+          ];
+          function ae(t) {
+            const { shakeInfo: i } = hi,
+              { amplitude: e, dir: n } = i,
+              r = zi.height / 10,
+              a = r;
+            o.add(e, e, [t, t * r, t]),
+              o.set(e, Math.min(1, e[0]), Math.min(a, e[1]), Math.min(1, e[2])),
+              o.set(n, q(), q(), q());
+          }
+          function se() {
+            Zi = !0;
+          }
+          function ue() {
+            Zi = !1;
+          }
+          function le(t) {
+            if (
+              (Xi &&
+                ((Xi = !1),
+                (Wi = hi.drawables.filter((t) => "missile" === t.type)).forEach(
+                  (t) => (t.dead = !0)
+                ),
+                (hi.drawables = [...$i]),
+                (Ji = 0),
+                (Qi = null),
+                (te = 5e3),
+                (ie = 2),
+                (ee = []),
+                (ne = Ti),
+                (oe = null),
+                $i.forEach((t) => t.reset()),
+                me(1e3),
+                setTimeout(se, 1500)),
+              !Ki || Ki.dead || Vi <= Bi)
+            )
+              return;
+            Gi.play();
+            let i = t;
+            t.touches && (i = t.changedTouches[0]);
+            const e = ce([i.clientX, i.clientY], Ki.position[2]);
+            qi.push([e[0], e[1], e[2]]);
+            const n = Math.max(Ri - 0.01 * Ji, ji);
+            Vi = Math.max(Vi - n, 0);
+          }
+          function ce(t, i = 0) {
+            const e = t[0],
+              n = t[1],
+              r = [
+                (e / fi.clientWidth) * 2 - 1,
+                (-n / fi.clientHeight) * 2 + 1,
+                0,
+              ],
+              a = o.create();
+            o.transformMat4(a, r, Si), o.subtract(a, a, gi), o.normalize(a, a);
+            const s = (i - gi[2]) / a[2];
+            return o.scale(a, a, s), o.add(a, a, gi), a;
+          }
+          function he() {
+            n.identity(Ci),
+              n.lookAt(Ci, gi, xi, [0, 1, 0]),
+              n.multiply(Ei, Pi, Ci),
+              n.invert(Si, Ei);
+          }
+          function fe(t) {
+            Mt.configureProgram(t),
+              At.configureProgram(t),
+              jt.configureProgram(t),
+              zt.configureProgram(t),
+              Qt.configureProgram(t),
+              ci.configureProgram(t);
+          }
+          function de(t, i = 0) {
+            setTimeout(() => {
+              (mi.innerText = t), (mi.style.opacity = 1);
+            }, i);
+          }
+          function me(t = 0) {
+            setTimeout(() => (mi.style.opacity = 0), t);
+          }
+          function ve() {
+            const t = `${100 * Vi}%`,
+              i = `${100 * (1 - Vi)}%`;
+            vi.style.background = `linear-gradient(to right, rgb(17, 127, 127) ${t}, rgb(200, 90, 90) ${t} ${i})`;
+          }
+          !(function () {
+            const t = new Mt(hi, [re[0][0], re[0][1], re[0][2] - 2], Ni),
+              i = new Mt(hi, [re[1][0], re[1][1], re[1][2] - 2], Ui),
+              e = new Mt(hi, [re[2][0], re[2][1], re[2][2] - 2], Di);
+            ($i = [t, i, e]),
+              hi.drawables.push(t),
+              hi.drawables.push(i),
+              hi.drawables.push(e),
+              (Ki = i);
+          })(),
+            ve(),
+            requestAnimationFrame(function t(i) {
+              $i.every((t) => t.dead) && ((Xi = !0), ue(), de("Game Over"));
+              !(function () {
+                const t = window.innerHeight,
+                  i = window.innerWidth,
+                  e = `${t}px`,
+                  r = `${i}px`;
+                if (
+                  ((fi.height = t),
+                  (fi.width = i),
+                  (document.body.style.height = e),
+                  (document.body.style.width = r),
+                  (document.documentElement.style.height = e),
+                  (document.documentElement.style.width = r),
+                  Mi[0] === i && Mi[1] === t)
+                )
+                  return;
+                window.scrollTo(0, 0),
+                  di.viewport(0, 0, i, t),
+                  (function () {
+                    n.identity(Pi);
+                    const t = fi.clientWidth / fi.clientHeight;
+                    n.perspective(Pi, bi, t, wi, yi);
+                  })(),
+                  o.set(gi, 0, 0, 1),
+                  o.set(xi, 0, 0, -1),
+                  he(),
+                  (Mi[0] = i),
+                  (Mi[1] = t);
+                const a = ce([i, t]),
+                  s = Math.min(pi / a[0], yi);
+                o.set(gi, 0, 0, s), o.set(xi, 0, 0, -1), he();
+                const u = ce([i, t]);
+                (zi.width = Math.abs(2 * u[0])),
+                  (zi.height = Math.abs(2 * u[1]));
+                const l = 0.04 * zi.height + 1,
+                  c = -u[1] - l;
+                o.set(gi, 0, c, s),
+                  o.copy(hi.camera.staticPos, gi),
+                  o.set(xi, 0, c, -1),
+                  he(),
+                  (Hi = []);
+                const h = 0.2 * zi.height;
+                for (let t = 0; t < 200; t++) {
+                  const t = $(-zi.width, zi.width),
+                    i = $(h, 1.5 * zi.height),
+                    e = $(-50, -80),
+                    n = new zt(hi, [t, i, e], !0);
+                  Hi.push(n);
+                }
+                const f = new zt(hi, [0, 0, 0]);
+                Hi.push(f);
+                const d = 0.1 * pi;
+                f.radius = d;
+                const m = ce([0.9 * i, 0.1 * t]);
+                o.set(f.position, m[0], m[1], 0);
+                const v = 0.66 * (zi.height - h),
+                  p = -zi.width / 2 - 0.25 * zi.width,
+                  g = zi.width + 0.25 * zi.width,
+                  x = new Qt(hi, [p, 0, -20], [g, 1 * v, 0], [0, 0.3, 0.5]),
+                  M = new Qt(hi, [p, 0, -19], [g, 0.7 * v, 0], [0, 0.5, 0.5]),
+                  w = new Qt(hi, [p, 0, -18], [g, 0.3 * v, 0], [0, 0.4, 0.5]);
+                Hi.push(x), Hi.push(M), Hi.push(w);
+                const y = new ci(hi, [0, -2, 0], [2 * zi.width, 1, 30]);
+                Hi.push(y),
+                  $i.forEach((t) => {
+                    t.buildings = [];
+                    let i = 0;
+                    const e = t.position[0] - t.radius + 0.2 * t.radius,
+                      n = t.position[2],
+                      o = 2 * t.radius - 2.5;
+                    for (; i < o; ) {
+                      i += $(0.5, 1);
+                      const o = $(0.5, 1.4),
+                        r = new ci(hi, [e + i, o, n], [0.5, o, 0.5], !0);
+                      Hi.push(r), t.buildings.push(r);
+                    }
+                    (t.buildings[0].dimensions[1] = 0.7),
+                      (t.buildings[0].position[1] = 0.7),
+                      (t.buildings[t.buildings.length - 1].dimensions[1] = 0.6),
+                      (t.buildings[t.buildings.length - 1].position[1] = 0.6);
+                  });
+              })();
+              !(function (t) {
+                const { shakeInfo: i } = hi,
+                  { amplitude: e, dir: n } = i;
+                if ((o.scale(e, e, 0.9), Math.abs(e[0]) <= 0.001))
+                  o.set(i.pos, 0, 0, 0);
+                else {
+                  const r = Math.sin(t / 1e4);
+                  o.set(
+                    i.pos,
+                    r * e[0] * n[0],
+                    r * e[1] * n[1],
+                    r * e[2] * n[2]
+                  );
+                }
+              })(i);
+              const { shakeInfo: e } = hi;
+              o.add(gi, hi.camera.staticPos, e.pos);
+              he();
+              requestAnimationFrame(t);
+              !(function (t) {
+                qi.forEach((i) =>
+                  hi.drawables.push(
+                    new jt(hi, t, [0, 4.5, Ki.position[2]], i, !0, Ai)
+                  )
+                ),
+                  (qi = []);
+              })(i);
+              Xi ||
+                (function (t) {
+                  if (!Zi) return;
+                  Qi || (Qi = t);
+                  const i = t - Qi;
+                  if (ee[ee.length - 1] < i) {
+                    const i = $i.filter((t) => !t.dead),
+                      r =
+                        ((e = 0), (n = i.length - 1), Math.floor($(e, n + 1))),
+                      a = i[r],
+                      s = zi.width / 2,
+                      u = $(-s, s),
+                      l = o.create();
+                    o.copy(l, a.position);
+                    const c = $(-0.1, 0.1);
+                    (l[0] += c),
+                      hi.drawables.push(
+                        new jt(hi, t, [u, zi.height, Ki.position[2]], l, !1, ne)
+                      ),
+                      ee.pop();
+                  }
+                  var e, n;
+                })(i);
+              hi.drawables = hi.drawables.filter((t) => !t.dead);
+              oe = hi.drawables.filter((t) => "missile" === t.type && !t.good);
+              Vi = Math.min(Vi + Ii, 1);
+              !(function (t) {
+                hi.drawables.forEach((i) => {
+                  i.collidable &&
+                    hi.drawables.forEach((e) => {
+                      if (!e.collidable) return;
+                      if (i === e) return;
+                      const n = o.distance(i.position, e.collisionPosition);
+                      n < i.radius + e.radius &&
+                        ("explosion" === i.type &&
+                        "missile" === e.type &&
+                        !1 === e.good
+                          ? e.explode(t)
+                          : "dome" === i.type &&
+                            "missile" === e.type &&
+                            !1 === e.good
+                          ? (e.explode(t), ae(_i))
+                          : "dome" === i.type &&
+                            "explosion" === e.type &&
+                            i.hit(t));
+                    });
+                });
+              })(i);
+              !(function (t) {
+                hi.drawables.forEach((i) => {
+                  "missile" === i.type &&
+                    i.maybeExplode(t) &&
+                    (!i.good && i.percentDone >= 1 ? ae(_i) : ae(Li)),
+                    i.update(t);
+                });
+              })(i);
+              if (oe <= 0 && 0 === ee.length && Zi) {
+                ue(),
+                  Ji++,
+                  (function () {
+                    (Qi = null),
+                      (ie += 1),
+                      (ne += 25e-5),
+                      (te += 750),
+                      (ee = []);
+                    for (; ee.length < ie; ) ee.push($(0, te));
+                    ((ee = ee.sort((t, i) => i - t))[0] = te),
+                      (ee[ee.length - 1] = 0);
+                  })(),
+                  (function (t = 0) {
+                    de(`Wave ${Ji}`, t), me(2 * t);
+                  })(3e3),
+                  setTimeout(() => se(), ki);
+                const t = -30,
+                  e = ee.length,
+                  n = ki / e,
+                  o = zi.width / 2,
+                  r = -o / 2;
+                for (let a = 0; a < e; a++) {
+                  const s = n * a;
+                  setTimeout(() => {
+                    const n = r + (o / (e - 1)) * a,
+                      u = new jt(
+                        hi,
+                        i + s,
+                        [n, 0, t],
+                        [n, 5 * zi.height, t],
+                        !1,
+                        Fi,
+                        !0
+                      );
+                    Yi.push(u), Oi.play();
+                  }, s);
+                }
+              }
+              Hi.forEach((t) => t.update(i));
+              Wi.forEach((t) => t.update(i));
+              Wi = Wi.filter((t) => t.alpha > 0);
+              Yi.forEach((t) => t.update(i));
+              Yi = Yi.filter((t) => t.alpha > 0);
+              !(function (t) {
+                di.clearDepth(1),
+                  di.clear(di.COLOR_BUFFER_BIT | di.DEPTH_BUFFER_BIT),
+                  ve(),
+                  Yi.forEach((i) => i.draw(t)),
+                  Hi.forEach((i) => i.draw(t)),
+                  Wi.forEach((i) => i.draw(t)),
+                  hi.drawables.forEach((i) => i.draw(t));
+              })(i);
+            }),
+            window.addEventListener("touchmove", (t) => t.preventDefault(), {
+              passive: !1,
+            });
+        },
+      ]);
+    </script>
+  </body>
+</html>

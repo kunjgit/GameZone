@@ -1,0 +1,32 @@
+{
+  "name": "jarl",
+  "version": "1.0.0",
+  "description": "a simple rouglike for js13k",
+  "main": "index.html",
+  "dependencies": {
+    "gulp": "^3.8.7",
+    "gulp-css": "0.0.9",
+    "gulp-minify-html": "^0.1.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-size": "^1.1.0",
+    "gulp-uglify": "^1.0.1",
+    "gulp-zip": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justgage/jarl.git"
+  },
+  "keywords": [
+    "rougelike"
+  ],
+  "author": "Gage Peterson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justgage/jarl/issues"
+  },
+  "homepage": "https://github.com/justgage/jarl"
+}

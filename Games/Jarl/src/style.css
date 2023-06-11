@@ -1,0 +1,92 @@
+body {
+   background-color: #170E0B;
+   color: #B19992;
+   font-family: monospace;
+}
+
+.top {
+   z-index : 4;
+}
+
+.mess {
+   border-bottom : 1px solid #170E0B;
+   margin: 0.5em;
+}
+
+.fixed {
+   position: fixed;
+}
+
+#text {
+   width: 480px;
+   height: 480px;
+   left : 480px;
+   top : 0px;
+   background-color: #281814;
+   overflow-y: scroll;
+}
+
+#room {
+   /*
+   background-image:url('ground.min.gif');
+   background-repeat: repeat;
+   width: 480px;
+   height: 480px;
+   left : 0px;
+   top : 0px;
+   */
+}
+
+.trans {
+   webkit-transition:  all 200ms cubic-bezier(0.550, 0.085, 0.015, 1); /* older webkit */
+   -webkit-transition: all 200ms cubic-bezier(0.550, 0.085, 0.015, 1.330); 
+   -moz-transition: all 200ms cubic-bezier(0.550, 0.085, 0.015, 1.330); 
+   -o-transition: all 200ms cubic-bezier(0.550, 0.085, 0.015, 1.330); 
+   transition: all 200ms cubic-bezier(0.550, 0.085, 0.015, 1.330); /* custom */
+
+   -webkit-transition-timing-function: cubic-bezier(0.550, 0.085, 0.015, 1); /* older webkit */
+   -webkit-transition-timing-function: cubic-bezier(0.550, 0.085, 0.015, 1.330); 
+   -moz-transition-timing-function: cubic-bezier(0.550, 0.085, 0.015, 1.330); 
+   -o-transition-timing-function: cubic-bezier(0.550, 0.085, 0.015, 1.330); 
+   transition-timing-function: cubic-bezier(0.550, 0.085, 0.015, 1.330); /* custom */
+}
+
+
+.flipped {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+
+#inventory {
+   background: rgba(43, 12, 0, 0.75);
+   padding : 1em;
+   margin : 0px;
+   width:500px;
+}
+
+#inventory ul {
+   margin : 0;
+   padding : 0;
+}
+
+#inventory p { 
+   text-align:center;
+   margin : 0;
+   border-bottom : 1px solid #170E0B;
+}
+
+
+#inventory li {
+   list-style:none;
+   padding:10px 0;
+}
+
+.left {
+   float:left;
+}
+
+

@@ -1,0 +1,6 @@
+canvas {
+	position: absolute;
+}
+#mainmenu, #levelselect {
+	cursor: none;
+}

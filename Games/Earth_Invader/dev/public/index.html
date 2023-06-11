@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Earth Invader</title>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="assets/favicons/favicon-144.png">
+	<meta name="msapplication-config" content="assets/favicons/browserconfig.xml">
+
+	<link rel="shortcut icon" href="assets/favicons/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="assets/favicons/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="assets/favicons/favicon-196.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="assets/favicons/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="assets/favicons/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/favicon-72.png">
+	<link rel="apple-touch-icon" href="assets/favicons/favicon-57.png">
+
+	<script src="js/phaser.js"></script>
+	<script src="js/vars.js"></script>
+	<script src="js/util.js"></script>
+	<script src="js/enemy.js"></script>
+	<script src="js/turret.js"></script>
+	<script src="js/planet.js"></script>
+	<script src="js/bullet.js"></script>
+	<script src="js/healthbar.js"></script>
+	<script src="js/star.js"></script>
+	<script src="js/powerup.js"></script>
+	<script src="js/initstars.js"></script>
+	<script src="js/initmenu.js"></script>
+	<script src="js/initls.js"></script>
+	<script src="js/initgame.js"></script>
+	<script src="js/test.js"></script>
+
+	<script src="libs/jquery-2.0.2.min.js"></script>
+    <script src="libs/textFit.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+
+	<link href="styles.css" rel="stylesheet">
+</head>
+<body onload="initGame()" style="margin: 0; padding: 0; background-color: black; overflow: hidden;">
+	<canvas id="stars"></canvas>
+	<canvas id="mainmenu"></canvas>
+	<canvas id="levelselect"></canvas>
+</body>
+</html>

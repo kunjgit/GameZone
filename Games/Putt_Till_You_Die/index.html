@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Putt Till You DIE</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        user-select: none;
+        color: #eee;
+        text-shadow: 2px 2px 1px #000;
+        text-align: center;
+        font-weight: 900;
+      }
+      html {
+        font-family: "Bradley Hand ITC", "Bradley Hand Bold";
+        line-height: 2em;
+        background-color: #7bb87b;
+        overflow: hidden;
+      }
+      #fg,
+      #hud {
+        left: 0;
+        top: 0;
+      }
+      .btn {
+        margin-top: 1em;
+        margin-left: 0.1em;
+        margin-right: 0.1em;
+        padding: 0.1em 0.5em;
+        display: inline-block;
+        width: 2em;
+        height: 1em;
+        border-radius: 2em;
+        line-height: 1em;
+        border: 4px solid #232;
+        background-color: #484;
+        font-size: 5em;
+      }
+      .btn:active {
+        transform: scale(0.9);
+      }
+      .i {
+        display: none;
+      }
+      #ss,
+      #rs {
+        border-top: 4px solid #9b9;
+        background-color: #595;
+        border-bottom: 4px solid #373;
+      }
+      #ts,
+      #is,
+      #ss,
+      #rs {
+        width: 100%;
+        z-index: 1000;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      #bg,
+      #fg,
+      #hud,
+      #ts,
+      #is,
+      #ss,
+      #rs,
+      .h {
+        position: absolute;
+      }
+      #is {
+        background-color: #7bb87b;
+      }
+      h3 {
+        font-size: 5em;
+        line-height: 1.5em;
+      }
+      h4 {
+        font-size: 25em;
+        line-height: 0.6em;
+      }
+      h5 {
+        font-size: 1.7em;
+        line-height: 0.7em;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 3em;
+      }
+      h6 {
+        font-size: 2.5em;
+        line-height: 1em;
+      }
+      .h {
+        width: 210px;
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body oncontextmenu="return!1" ondragstart="return!1" ondrop="return!1">
+    <img
+      id="i"
+      class="i"
+      src="data:image/png;base64,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"
+    />
+    <div id="hud" class="i">
+      <div id="hd" class="h">
+        <h1>HOLE</h1>
+        <h2 id="ht">1</h2>
+      </div>
+      <div id="pd" class="h">
+        <h1>PUTTS</h1>
+        <h2 id="pt">0</h2>
+      </div>
+      <div id="td" class="h">
+        <h1>TOTAL</h1>
+        <h2 id="tt">0</h2>
+      </div>
+      <div id="ad" class="h">
+        <h1>AVERAGE</h1>
+        <h2 id="at">0</h2>
+      </div>
+    </div>
+    <div id="ts" class="i">
+      <h3>PUTT TILL YOU</h3>
+      <h4>DIE</h4>
+      <h5>An Antix Development production for js13k 2022</h5>
+      <div id="tsb"></div>
+    </div>
+    <div id="is" class="i">
+      <h3>INSTRUCTIONS</h3>
+      <br />
+      <h6>
+        HOLD AND MOVE THE LEFT MOUSE BUTTON TO AIM,<br />A LONGER LINE MEANS
+        MORE PUTT POWER.<br /><br />RELEASE LEFT MOUSE BUTTON TO PUTT.<br /><br />PRESS
+        SPACE KEY TO CANCEL AIMING,<br /><br />AVOID SAND AND WATER TRAPS.<br /><br />HOLD
+        THE SHIFT KEY TO SHOW YOUR STATISTICS.<br /><br />PRESS THE TILDE KEY TO
+        DISPLAY THESE INSTRUCTIONS.<br /><br />PRESS THE BACKSPACE KEY TO ACCESS
+        THE RESET MENU.
+      </h6>
+      <div id="isb"></div>
+    </div>
+    <div id="rs" class="i">
+      <h3>RESET</h3>
+      <br />
+      <h6>
+        YOU ARE ABOUT TO RESET THE ENTIRE GAME.<br />THIS MEANS ALL OF YOUR
+        STATS WILL BE LOST.<br /><br />ARE YOU SURE YOU WANT TO DO THIS?.<br />
+      </h6>
+      <div id="rsb"></div>
+      <br /><br />
+    </div>
+    <div id="ss" class="i">
+      <h3>STATISTICS</h3>
+      <h6 id="s0"></h6>
+      <br />
+      <h6 id="s1"></h6>
+      <h6 id="s2"></h6>
+      <h6 id="s3"></h6>
+      <br />
+      <h6 id="s4"></h6>
+      <br />
+      <h6 id="s5"></h6>
+      <h6 id="s6"></h6>
+      <h6 id="s7"></h6>
+      <br />
+      <h6 id="s8"></h6>
+      <h6 id="s9"></h6>
+      <br /><br />
+    </div>
+  </body>
+  <script>
+    const e = Date.now(),
+      l = document,
+      t = window,
+      a = t.localStorage,
+      r = "com.antix.ptyd",
+      s = Math,
+      n = s.PI,
+      f = s.PI * 2,
+      o = s.sin,
+      h = s.cos,
+      d = s.imul,
+      c = s.atan2,
+      u = s.ceil,
+      C = s.floor,
+      x = s.hypot,
+      p = s.min,
+      g = s.abs,
+      O = 1,
+      N = 4,
+      y = 2,
+      b = 8,
+      E = 25,
+      _ = 400,
+      D = 700,
+      T = 12,
+      m = 0,
+      S = 1,
+      v = 8,
+      M = 4;
+    (SOUND_WATER = 0),
+      (SOUND_SAND = 1),
+      (SOUND_PUTT = 2),
+      (SOUND_WALL = 3),
+      (SOUND_GOAL = 4),
+      (SOUND_HOLEINONE = 5),
+      (SOUND_SOCLOSE = 6),
+      (SOUND_BUTTON = 7),
+      (SOUND_BLOCKER = 8),
+      (SOUND_WINDMILL = 9),
+      (SOUND_BALLFIXED = 10),
+      (MODE_NONE = 0),
+      (MODE_TITLE = 1),
+      (MODE_INSTRUCTIONS = 2),
+      (MODE_PLAY = 3),
+      (MODE_FADE_OUT = 4),
+      (MODE_FADE_IN = 5),
+      (oneCell = 160),
+      (halfCell = 80),
+      (canvasWidth = oneCell * 5 + 4),
+      (canvasHeight = oneCell * 5 + 4);
+    let k,
+      w,
+      I,
+      L,
+      P,
+      U,
+      A,
+      G,
+      W,
+      B,
+      R,
+      V = [],
+      H,
+      F,
+      $,
+      X,
+      Y,
+      K,
+      J,
+      q,
+      z,
+      j,
+      Q,
+      Z,
+      ee,
+      le,
+      te,
+      ae,
+      ie,
+      re,
+      se,
+      ne,
+      fe = MODE_TITLE,
+      oe = null,
+      he,
+      de = { C: null, B: 12 },
+      ce,
+      ue = [],
+      Ce,
+      xe,
+      pe = false,
+      ge,
+      Oe,
+      Ne,
+      ye,
+      be,
+      Ee,
+      _e,
+      De,
+      Te,
+      me,
+      Se,
+      ve = {
+        width: 0,
+        height: 0,
+        maxPathLength: 0,
+        generateExtraNodes: true,
+        chanceToGenerateExtraNode: 1,
+        maxExtraNodes: 0,
+        chanceToGenerateObstacle: 0.35,
+        chanceToGenerateWindmill: 0.35,
+      };
+    let Me = (e) => document.getElementById(e),
+      ke = (e) => l.body.appendChild(e),
+      we = (e) => (l.body.style.opacity = `${e}`),
+      Ie = (e, l) => (l ? e.classList.remove("i") : e.classList.add("i")),
+      Le = (e, l) => (Me(e).innerHTML = l),
+      Pe = (e, l, t) => (e < l ? l : e > t ? t : e),
+      Ue = (e) => {
+        fe = e;
+      },
+      Ae = (e, t) => {
+        let a = l.createElement("a");
+        a.classList.add("btn");
+        a.innerHTML = e;
+        a.onclick = t;
+        return a;
+      },
+      Ge = (e, t, a) => {
+        let i = l.createElement("canvas"),
+          r = i.getContext("2d");
+        i.ctx = r;
+        i.width = e;
+        i.height = t;
+        i.id = a;
+        ke(i);
+        return i;
+      };
+    let We = {
+        setSeed: (e) => {
+          We.seed = e;
+        },
+        getSeed: () => We.seed,
+        random: () => {
+          We.seed += 1831565813;
+          let e = We.seed;
+          e = d(e ^ (e >>> 15), e | 1);
+          e ^= e + d(e ^ (e >>> 7), e | 61);
+          return ((e ^ (e >>> 14)) >>> 0) / 4294967296;
+        },
+      },
+      Be = () => We.random(),
+      Re = (e, l) => {
+        e = u(e);
+        return C(Be() * (C(l) - e + 1) + e);
+      };
+    (gV = 0.5),
+      (sR = 44100),
+      (aC = null),
+      (fx = []),
+      (fx_add = (e) => fx.push(fx_bS(...e))),
+      (fx_play = (e) => fx_pS(fx[e])),
+      (fx_pS = (e) => {
+        if (!aC) aC = new (t.AudioContext || t.webkitAudioContext)();
+        const l = aC.createBuffer(1, e.length, sR),
+          a = aC.createBufferSource();
+        l.getChannelData(0).set(e);
+        a.buffer = l;
+        a.connect(aC.destination);
+        a.start(0);
+        return a;
+      }),
+      (fx_bS = (e, l, t, a, i, r, n, d, c, u, C, x, O, N, y, b, E, _, D) => {
+        let T = sR,
+          m = (e) => (e > 0 ? 1 : -1),
+          S = (d *= (500 * f) / T / T),
+          v = (l *= f / T),
+          M = [],
+          k = 0,
+          w = 0,
+          I = 0,
+          L = 1,
+          P = 0,
+          U = 0,
+          A = 0,
+          G,
+          W;
+        t = t * T + 9;
+        _ *= T;
+        a *= T;
+        i *= T;
+        b *= T;
+        c *= (500 * f) / T ** 3;
+        N *= f / T;
+        u *= f / T;
+        C *= T;
+        x = (x * T) | 0;
+        for (W = (t + _ + a + i + b) | 0; I < W; M[I++] = A) {
+          if (!(++U % ((y * 100) | 0))) {
+            A = r
+              ? r > 1
+                ? r > 2
+                  ? r > 3
+                    ? o((k % f) ** 3)
+                    : s.max(p(s.tan(k), 1), -1)
+                  : 1 - (((((2 * k) / f) % 2) + 2) % 2)
+                : 1 - 4 * g(s.round(k / f) - k / f)
+              : o(k);
+            A =
+              (x ? 1 - D + D * o((f * I) / x) : 1) *
+              m(A) *
+              g(A) ** n *
+              e *
+              gV *
+              (I < t
+                ? I / t
+                : I < t + _
+                ? 1 - ((I - t) / _) * (1 - E)
+                : I < t + _ + a
+                ? E
+                : I < W - b
+                ? ((W - I - b) / i) * E
+                : 0);
+            A = b
+              ? A / 2 +
+                (b > I
+                  ? 0
+                  : ((I < W - b ? 1 : (W - I) / b) * M[(I - b) | 0]) / 2)
+              : A;
+          }
+          G = (l += d += c) * h(N * w++);
+          k += G - G * O * (1 - (((o(I) + 1) * 1e9) % 2));
+          if (L && ++L > C) {
+            l += u;
+            v += u;
+            L = 0;
+          }
+          if (x && !(++P % x)) {
+            l = v;
+            d = S;
+            L = L || 1;
+          }
+        }
+        return M;
+      });
+    let Ve = (e, l) => ({ x: e, y: l }),
+      He = (e) => Ye(e, e) ** 0.5,
+      Fe = (e, l) => Ve(e.x + l.x, e.y + l.y),
+      $e = (e, l) => Fe(e, Xe(l, -1)),
+      Xe = (e, l) => Ve(e.x * l, e.y * l),
+      Ye = (e, l) => e.x * l.x + e.y * l.y,
+      Ke = (e, l) => e.x * l.y - e.y * l.x,
+      Je = (e, l, t, a = e.x - l.x, i = e.y - l.y) =>
+        Ve(a * h(t) - i * o(t) + l.x, a * o(t) + i * h(t) + l.y),
+      qe = (e) => Xe(e, 1 / (He(e) || 1)),
+      ze = (e, l) => He($e(e, l)),
+      je = [],
+      Qe = {},
+      Ze = (e, l, t, a) => {
+        e.D = l;
+        e.N = t;
+        e.S = a;
+        e.E = Fe(a, Xe(t, l));
+      },
+      el = (e, l, t, a, i, r, s, n, f) => {
+        f = {
+          T: i,
+          C: e,
+          F: t,
+          R: a,
+          M: l ? 1 / l : 0,
+          V: Ve(0, 0),
+          A: Ve(0, 0),
+          G: 0,
+          v: 0,
+          a: 0,
+          B: r,
+          W: s,
+          H: n,
+          I: i
+            ? (x(s, n) / 2, l > 0 ? 1 / ((l * (s ** 2 + n ** 2)) / 12) : 0)
+            : l > 0
+            ? (l * r ** 2) / 12
+            : 0,
+          N: [],
+          X: [
+            Ve(e.x - s / 2, e.y - n / 2),
+            Ve(e.x + s / 2, e.y - n / 2),
+            Ve(e.x + s / 2, e.y + n / 2),
+            Ve(e.x - s / 2, e.y + n / 2),
+          ],
+        };
+        if (i) il(f);
+        je.push(f);
+        return f;
+      },
+      ll = (e, l, t) => {
+        e.C = Fe(e.C, l);
+      },
+      tl = (e, l, t) => {
+        e.G += l;
+        if (e.T) {
+          for (t = 4; t--; ) {
+            e.X[t] = Je(e.X[t], e.C, l);
+          }
+          il(e);
+        }
+      },
+      al = (e, l) => He($e(l.C, e.C)) <= e.B + l.B,
+      il = (e, l) => {
+        for (l = 4; l--; ) {
+          e.N[l] = qe($e(e.X[(l + 1) % 4], e.X[(l + 2) % 4]));
+        }
+      },
+      rl = (e, l, t) => {
+        if (!e.T && l.T) {
+          [e, l] = [l, e];
+        }
+        if (e.T && !l.T) {
+          var a = 1,
+            i = -1e9,
+            r = 0,
+            s,
+            n,
+            f,
+            o;
+          for (s = 4; s--; ) {
+            f = l.C;
+            n = $e(f, e.X[s]);
+            o = Ye(n, e.N[s]);
+            if (o > 0) {
+              i = o;
+              r = s;
+              a = 0;
+              break;
+            }
+            if (o > i) {
+              i = o;
+              r = s;
+            }
+          }
+          var h, d;
+          if (a) {
+            Ze(Qe, l.B - i, e.N[r], $e(f, Xe(e.N[r], l.B)));
+          } else {
+            var c = $e(f, e.X[r]),
+              u = $e(e.X[(r + 1) % 4], e.X[r]),
+              C = Ye(c, u);
+            if (C < 0) {
+              h = He(c);
+              if (h > l.B) {
+                return;
+              }
+              d = qe(c);
+              Ze(Qe, l.B - h, d, Fe(f, Xe(d, -l.B)));
+            } else {
+              c = $e(f, e.X[(r + 1) % 4]);
+              u = Xe(u, -1);
+              C = Ye(c, u);
+              if (C < 0) {
+                h = He(c);
+                if (h > l.B) {
+                  return;
+                }
+                d = qe(c);
+                Ze(Qe, l.B - h, d, Fe(f, Xe(d, -l.B)));
+              } else {
+                if (i < l.B) {
+                  Ze(Qe, l.B - i, e.N[r], $e(f, Xe(e.N[r], l.B)));
+                } else {
+                  return;
+                }
+              }
+            }
+          }
+          return 1;
+        }
+      },
+      sl = (e, l, t) => {
+        if (!e.M && !l.M) {
+          return;
+        }
+        var a = (t.D / (e.M + l.M)) * 0.8,
+          i = Xe(t.N, a),
+          r = t.N;
+        ll(e, Xe(i, -e.M));
+        ll(l, Xe(i, l.M));
+        var s = Xe(t.S, l.M / (e.M + l.M)),
+          n = Xe(t.E, e.M / (e.M + l.M)),
+          f = Fe(s, n),
+          o = $e(f, e.C),
+          h = $e(f, l.C),
+          d = Fe(e.V, Ve(-1 * e.v * o.y, e.v * o.x)),
+          c = Fe(l.V, Ve(-1 * l.v * h.y, l.v * h.x)),
+          u = $e(c, d),
+          C = Ye(u, r);
+        if (C > 0) {
+          return;
+        }
+        var x = p(e.R, l.R),
+          g = p(e.F, l.F),
+          O = Ke(o, r),
+          N = Ke(h, r),
+          y = (-(1 + x) * C) / (e.M + l.M + O * O * e.I + N * N * l.I),
+          b = Xe(r, y);
+        e.V = $e(e.V, Xe(b, e.M));
+        l.V = Fe(l.V, Xe(b, l.M));
+        e.v -= O * y * e.I;
+        l.v += N * y * l.I;
+        var E = Xe(qe($e(u, Xe(r, Ye(u, r)))), -1),
+          _ = Ke(o, E),
+          D = Ke(h, E),
+          T =
+            (-(1 + x) * Ye(u, E) * g) / (e.M + l.M + _ * _ * e.I + D * D * l.I);
+        if (T > y) {
+          T = y;
+        }
+        b = Xe(E, T);
+        e.V = $e(e.V, Xe(b, e.M));
+        l.V = Fe(l.V, Xe(b, l.M));
+        e.v -= _ * T * e.I;
+        l.v += D * T * l.I;
+      },
+      nl = (e, l, t, a, i, r = 0) => el(e, t, a, i, 0, l, r),
+      fl = (e, l, t, a, i, r) => el(e, a, i, r, 1, x(l, t) / 2, l, t),
+      ol = () => {
+        for (i = je.length; i--; ) {
+          if (je[i] != oe) {
+            let e = je[i];
+            if (al(e, oe)) {
+              if (rl(e, oe, Qe)) {
+                if (Ye(Qe.N, $e(oe.C, e.C)) < 0) {
+                  Qe = { D: Qe.D, N: Xe(Qe.N, -1), S: Qe.E, E: Qe.S };
+                }
+                sl(e, oe, Qe);
+                if (!oe.inGoal) {
+                  if (e.isWindmill) {
+                    fx_play(SOUND_WINDMILL);
+                    Q.flips++;
+                    Se = true;
+                  } else if (e.isBlocker) {
+                    fx_play(SOUND_BLOCKER);
+                    Q.bumps++;
+                    Se = true;
+                  } else {
+                    fx_play(SOUND_WALL);
+                    Q.rebounds++;
+                    Se = true;
+                  }
+                }
+                if (ge) {
+                  erasePutter();
+                  ge = null;
+                  Oe = null;
+                  pe = false;
+                }
+                return;
+              }
+            }
+          }
+        }
+      },
+      hl = () => {
+        Q.hole++;
+        Q.putts = 0;
+        dl();
+        _l();
+        Z = 0;
+        Ue(MODE_FADE_IN);
+      },
+      dl = () => {
+        Q.seed = We.getSeed();
+        let e = 3;
+        ve.maxPathLength = 4;
+        ve.chanceToGenerateExtraNode = 0.3;
+        ve.chanceToGenerateObstacle = 0.3;
+        ve.chanceToGenerateWindmill = 0.25;
+        if (Q.hole < 4) {
+          ve.chanceToGenerateObstacle = 0.1;
+        }
+        if (Q.hole > 5) {
+          e++;
+          ve.maxPathLength = 6;
+          ve.chanceToGenerateExtraNode = 0.45;
+          ve.chanceToGenerateObstacle = 0.4;
+          ve.chanceToGenerateWindmill = 0.3;
+        }
+        if (Q.hole > 10) {
+          ve.maxPathLength = 8;
+          ve.chanceToGenerateExtraNode = 0.6;
+          ve.chanceToGenerateObstacle = 0.5;
+          ve.chanceToGenerateWindmill = 0.35;
+        }
+        if (Q.hole > 15) {
+          e++;
+          ve.maxPathLength = 10;
+          ve.chanceToGenerateExtraNode = 0.75;
+          ve.chanceToGenerateObstacle = 0.6;
+          ve.chanceToGenerateWindmill = 0.4;
+        }
+        ve.width = Re(3, e);
+        ve.height = Re(3, e);
+        ue = [];
+        je = [];
+        xl(ve);
+        Ol(ve);
+        pl();
+        gl();
+        Nl();
+      },
+      cl = (e, l) => (e.bitMask |= l),
+      ul = (e) => (e.partOfPath = true),
+      Cl = (e) => {
+        Ee = [];
+        for (let l = 0; l < e.height; l++) {
+          let t = [];
+          for (let a = 0; a < e.width; a++) {
+            t.push({ bitMask: 0, row: l, col: a });
+          }
+          Ee.push(t);
+        }
+        return {
+          width: e.width,
+          height: e.height,
+          leftEdge: 0,
+          rightEdge: 0,
+          topEdge: 0,
+          bottomEdge: 0,
+          pathNodes: Ee,
+        };
+      },
+      xl = (e) => {
+        const l = e.maxPathLength - 1,
+          t = e.width - 1,
+          a = e.height - 1;
+        let i = () => {
+            if (h < t) {
+              ul(_e);
+              cl(_e, y);
+              h++;
+              o();
+              cl(_e, b);
+              ye++;
+            } else {
+              s();
+            }
+          },
+          r = () => {
+            if (h > 0) {
+              ul(_e);
+              cl(_e, b);
+              h--;
+              o();
+              cl(_e, y);
+              ye++;
+            } else {
+              s();
+            }
+          },
+          s = () => {
+            if (d < a) {
+              ul(_e);
+              cl(_e, N);
+              d++;
+              o();
+              cl(_e, O);
+              ye++;
+              f();
+            } else {
+              n();
+            }
+          },
+          n = () => {
+            ul(_e);
+            if (Be() < 0.5) {
+              De = be.firstNode;
+              De.isFirstNode = false;
+              De.isLastNode = true;
+              be.lastNode = De;
+              be.firstNode = _e;
+              _e.isFirstNode = true;
+            } else {
+              _e.isLastNode = true;
+              be.lastNode = _e;
+            }
+            c = true;
+          },
+          f = () => {
+            if (h === t) {
+              movingEast = false;
+            } else if (h === 0) {
+              movingEast = true;
+            } else {
+              movingEast = Be() < 0.5;
+            }
+          },
+          o = () => {
+            _e = Ee[d][h];
+          },
+          h = Re(0, t),
+          d = 0,
+          c = false;
+        be = Cl(ve);
+        ye = 0;
+        Ee = be.pathNodes;
+        o();
+        _e.isFirstNode = true;
+        be.firstNode = _e;
+        ul(_e);
+        f();
+        while (!c) {
+          if (movingEast) {
+            if (Be() < 0.7) {
+              if (h < t) {
+                i();
+              } else {
+                s();
+              }
+            } else {
+              s();
+            }
+          } else {
+            if (Be() < 0.7) {
+              if (h > 0) {
+                r();
+              } else {
+                s();
+              }
+            } else {
+              s();
+            }
+          }
+          if (l != -1 && ye >= l) {
+            n();
+          }
+        }
+      },
+      pl = () => {
+        const e = be.pathNodes;
+        let l = () => {
+            for (let l = be.width - 1; l > 0; l--) {
+              for (let t = 0; t < be.height; t++) {
+                if (e[t][l].partOfPath) {
+                  be.rightEdge = l;
+                  return;
+                }
+              }
+            }
+            be.rightEdge = be.width - 1;
+          },
+          t = () => {
+            for (let l = 0; l < be.width; l++) {
+              for (let t = 0; t < be.height; t++) {
+                if (e[t][l].partOfPath) {
+                  be.leftEdge = l;
+                  return;
+                }
+              }
+            }
+            be.leftEdge = 0;
+          };
+        t();
+        l();
+        for (let l = be.height - 1; l > 0; l--) {
+          for (let t = 0; t < be.width; t++) {
+            if (e[l][t].partOfPath) {
+              be.bottomEdge = l;
+              return;
+            }
+          }
+        }
+        be.bottomEdge = be.height - 1;
+      },
+      gl = () => {
+        let e = [];
+        for (let l = 0; l <= be.bottomEdge; l++) {
+          let t = [];
+          for (let e = be.leftEdge; e <= be.rightEdge; e++) {
+            t.push(be.pathNodes[l][e]);
+          }
+          e.push(t);
+        }
+        be.width = be.rightEdge - be.leftEdge + 1;
+        be.height = be.bottomEdge + 1;
+        be.pathNodes = e;
+      },
+      Ol = (e) => {
+        if (e.generateExtraNodes) {
+          let l = [],
+            t = [],
+            a = (e, l) => {
+              if (!e.potentialExtra) {
+                if (!e.partOfPath) {
+                  e.potentialExtra = true;
+                  e.extraDirection = l;
+                  t.push(e);
+                }
+              }
+            };
+          const i = e.width - 1,
+            r = e.height - 1,
+            s = be.pathNodes;
+          for (let e = 0; e < s.length; e++) {
+            const l = s[e];
+            for (let t = 0; t < l.length; t++) {
+              if (l[t].partOfPath) {
+                if (t > 0) a(l[t - 1], y);
+                if (t < i) a(l[t + 1], b);
+                if (e > 0) a(s[e - 1][t], N);
+                if (e < r) a(s[e + 1][t], O);
+              }
+            }
+          }
+          for (let e = t.length - 1; e >= 0; e--) {
+            l.push(t.splice(C(Be() * e), 1)[0]);
+          }
+          let n = Pe(l.length, 0, l.length);
+          for (let t = 0; t < n; t++) {
+            if (Be() <= e.chanceToGenerateExtraNode) {
+              let e = l.shift(),
+                t = e.row,
+                a = e.col,
+                n = true,
+                f = (e, l) => {
+                  if (s[e][l].extra) n = false;
+                };
+              if (a > 0) f(t, a - 1);
+              if (a < i) f(t, a + 1);
+              if (t > 0) f(t - 1, a);
+              if (t < r) f(t + 1, a);
+              if (n) {
+                e.extra = true;
+                e.partOfPath = true;
+                switch (e.extraDirection) {
+                  case O:
+                    cl(s[e.row - 1][e.col], N);
+                    cl(e, O);
+                    break;
+                  case N:
+                    cl(s[e.row + 1][e.col], O);
+                    cl(e, N);
+                    break;
+                  case y:
+                    cl(s[e.row][e.col + 1], b);
+                    cl(e, y);
+                    break;
+                  default:
+                    cl(s[e.row][e.col - 1], y);
+                    cl(e, b);
+                    break;
+                }
+              }
+              e.potentialExtra = false;
+            }
+          }
+        }
+      },
+      Nl = () => {
+        Ee = be.pathNodes;
+        let e,
+          l,
+          t,
+          a = 1,
+          i = (e, l, t, a) => Y.clearRect(e, l, t, a),
+          r = (e) => (Y.fillStyle = `#${e}`),
+          s = (e, l, t, a) => Y.fillRect(e, l, t, a),
+          f = (e, a) => {
+            r(e);
+            s(l, t, oneCell, oneCell);
+            r(a);
+            s(l + 1, t + 1, halfCell - 2, halfCell - 2);
+            s(l + 1, t + halfCell + 1, halfCell - 2, halfCell - 2);
+            s(l + halfCell + 1, t + 1, halfCell - 2, halfCell - 2);
+            s(l + halfCell + 1, t + halfCell + 1, halfCell - 2, halfCell - 2);
+          },
+          o = (e, a, i) => {
+            f(a, i);
+            ue.push({ bitMask: _e.bitMask, type: e, x: l, y: t });
+          };
+        i(0, 0, canvasWidth, canvasHeight);
+        for (let h = 0; h < Ee.length; h++) {
+          e = Ee[h];
+          for (let d = 0; d < e.length; d++) {
+            _e = e[d];
+            _e.x = d * oneCell + (5 - be.width) * halfCell;
+            _e.y = h * oneCell + (5 - be.height) * halfCell;
+            if (_e.partOfPath) {
+              (l = _e.x), (t = _e.y);
+              h * oneCell + (5 - be.height) * halfCell;
+              if (_e.extra) {
+                if (Be() < 0.5) {
+                  o(m, "48c", "69c");
+                } else {
+                  o(S, "a95", "ba6");
+                }
+              } else {
+                f("595", "6a6");
+                if (_e.isFirstNode) {
+                  oe = nl(Ve(l + halfCell, t + halfCell), 6, 1, 0, 1);
+                  oe.inGoal = false;
+                  oe.draw = true;
+                } else if (_e.isLastNode) {
+                  de.C = Ve(l + halfCell, t + halfCell);
+                  Y.beginPath();
+                  Y.arc(de.C.x, de.C.y, 12, 0, 7);
+                  r("6a6");
+                  Y.fill();
+                  Y.stroke();
+                } else {
+                  if (Be() < ve.chanceToGenerateObstacle) {
+                    if (Be() < ve.chanceToGenerateWindmill) {
+                      ce = fl(Ve(l + halfCell, t + halfCell), 100, 8, 0, 1, 1);
+                      Be() < 0.5 ? (ce.v = 1.5) : (ce.v = -1.5);
+                      ce.isWindmill = true;
+                      ce.id = a++;
+                      ce.draw = true;
+                    } else {
+                      ce = fl(Ve(l + halfCell, t + halfCell), 25, 25, 0, 1, 1);
+                      tl(ce, n * 0.25);
+                      ce.isBlocker = true;
+                      ce.draw = true;
+                    }
+                  }
+                }
+              }
+              r("232");
+              let e = (e = 0) => {
+                  fl(Ve(l + e, t + halfCell), v, oneCell + 4, 0, 1, 1);
+                  s(l - 2 + e, t - 1, M, oneCell + 1);
+                },
+                d = (e = 0) => {
+                  fl(
+                    Ve(l + oneCell + e, t + halfCell - 1),
+                    v,
+                    oneCell + 2,
+                    0,
+                    1,
+                    1
+                  );
+                  s(l + oneCell + e - 4, t - 1, M, oneCell + 1);
+                },
+                c = (e = 0) => {
+                  fl(Ve(l + halfCell, t + 2 + e), oneCell, v, 0, 1, 1);
+                  s(l - 2, t - 2 + e, oneCell, M);
+                },
+                u = (e = 0) => {
+                  fl(
+                    Ve(l + halfCell, t + oneCell + e + 2),
+                    oneCell,
+                    v,
+                    0,
+                    1,
+                    1
+                  );
+                  s(l - 2, t - 2 + oneCell + e, oneCell + 2, M);
+                };
+              switch (_e.bitMask) {
+                case 1:
+                  e();
+                  d();
+                  if (_e.extra) {
+                    i(l - 2, t + halfCell, oneCell + 4, halfCell + 1);
+                    u(-halfCell);
+                  } else {
+                    u();
+                  }
+                  break;
+                case 2:
+                  u();
+                  c();
+                  if (_e.extra) {
+                    i(l - 2, t - 2, halfCell + 2, oneCell + 4);
+                    e(halfCell);
+                  } else {
+                    e();
+                  }
+                  break;
+                case 3:
+                  e();
+                  u();
+                  break;
+                case 4:
+                  e();
+                  d();
+                  if (_e.extra) {
+                    i(l - 2, t - 1, oneCell + 4, halfCell);
+                    c(halfCell);
+                  } else {
+                    c();
+                  }
+                  break;
+                case 5:
+                  e();
+                  d();
+                  break;
+                case 6:
+                  e();
+                  c();
+                  break;
+                case 7:
+                  e();
+                  break;
+                case 8:
+                  c();
+                  u();
+                  if (_e.extra) {
+                    i(l + halfCell, t - 2, halfCell, oneCell + 4);
+                    d(-halfCell);
+                  } else {
+                    d();
+                  }
+                  break;
+                case 9:
+                  d();
+                  u();
+                  break;
+                case 10:
+                  c();
+                  u();
+                  break;
+                case 11:
+                  u();
+                  break;
+                case 12:
+                  c();
+                  d();
+                  break;
+                case 13:
+                  d();
+                  break;
+                case 14:
+                  c();
+                  break;
+                default:
+                  break;
+              }
+            }
+          }
+        }
+      },
+      yl = (e, l, t, a, i, r, s, n, f, d, c, u = false) => {
+        V.push({
+          timeToLive: e,
+          counter: e,
+          rotation: a,
+          velocityX: h(a) * i,
+          velocityY: o(a) * i,
+          x: l,
+          y: t,
+          fades: r,
+          alpha: s,
+          originalAlpha: s,
+          shrinks: n,
+          grows: f,
+          scale: d,
+          originalScale: d,
+          clip: u,
+          textureRegion: c,
+          textureX: c[2] / 2,
+          textureY: c[3] / 2,
+        });
+      },
+      bl = () => {
+        yl(
+          0.5,
+          oe.C.x,
+          oe.C.y,
+          f * s.random(),
+          100,
+          true,
+          1,
+          true,
+          false,
+          1,
+          [1, 1, 32, 32]
+        );
+      },
+      El = () => {
+        let e = (e, l, t) => {
+            e.style.left = `${l}px`;
+            e.style.top = `${t}px`;
+          },
+          l = t.innerWidth / 2 - canvasWidth / 2,
+          a = t.innerHeight / 2 - canvasHeight / 2,
+          i = l - 210,
+          r = l + canvasWidth,
+          s = a + canvasHeight - 80;
+        e(X, l, a);
+        e(K, l, a);
+        e(Me("hd"), i, a);
+        e(Me("pd"), r, a);
+        e(Me("td"), i, s);
+        e(Me("ad"), r, s);
+      },
+      _l = () => {
+        Le("ht", Q.hole);
+        Le("pt", Q.putts);
+        Le("tt", Q.total);
+        Le("at", C(Q.total / Q.hole));
+      },
+      Dl = () => {
+        Ml();
+        Le("s1", `Holes in one: ${Q.holesInOne}`);
+        Le("s2", `Holes in two: ${Q.holesInTwo}`);
+        Le("s3", `Holes in three: ${Q.holesInThree}`);
+        Le("s4", `Close calls: ${Q.closeCalls}`);
+        Le("s5", `Bumps: ${Q.bumps}`);
+        Le("s6", `Flips: ${Q.flips}`);
+        Le("s7", `Rebounds: ${Q.rebounds}`);
+        Le("s8", `Sand shots: ${Q.beached}`);
+        Le("s9", `Water shots:  ${Q.splashes}`);
+      },
+      Tl = () => {
+        De = a.getItem(r);
+        if (!De) {
+          Q = {
+            seed: 11091968,
+            ball: null,
+            windmills: null,
+            hole: 1,
+            putts: 0,
+            total: 0,
+            beached: 0,
+            splashes: 0,
+            holesInOne: 0,
+            holesInTwo: 0,
+            holesInThree: 0,
+            closeCalls: 0,
+            bumps: 0,
+            flips: 0,
+            rebounds: 0,
+            playTime: 0,
+            mode: 0,
+          };
+          We.setSeed(Q.seed);
+          Ie(w, true);
+          return false;
+        } else {
+          Q = JSON.parse(De);
+          We.setSeed(Q.seed);
+          switch (Q.mode) {
+            case MODE_TITLE:
+              Ie(w, true);
+              Ue(MODE_TITLE);
+              break;
+            case MODE_INSTRUCTIONS:
+              Ie(A, true);
+              Ue(MODE_INSTRUCTIONS);
+              break;
+            default:
+              dl();
+              let e = (e) => {
+                for (let l = 0; l < je.length; l++) {
+                  ce = je[l];
+                  if (ce.isWindmill && ce.id === e) return ce;
+                }
+              };
+              if (Q.windmills) {
+                for (let l = 0; l < Q.windmills.length; l++) {
+                  De = Q.windmills[l];
+                  ce = e(De.id);
+                  ce.v = De.v;
+                  tl(ce, De.G);
+                }
+              }
+              if (Q.ball) {
+                je.splice(je.indexOf(oe), 1);
+                oe = Q.ball;
+                je.push(oe);
+                if (oe.inGoal) {
+                  oe.V = Ve(0, 0);
+                  we(0);
+                  Ue(MODE_NONE);
+                  hl();
+                } else {
+                  we(1);
+                  Ue(MODE_PLAY);
+                }
+              }
+              _l();
+              Ie(L, true);
+              pe = true;
+              break;
+          }
+        }
+      },
+      ml = () => {
+        if (je.length > 0) {
+          De = [];
+          for (let e = 0; e < je.length; e++) {
+            ce = je[e];
+            if (ce.isWindmill) {
+              De.push({ id: ce.id, v: ce.v, G: ce.G });
+            }
+          }
+          Q.windmills = De;
+        }
+        Q.ball = oe;
+        Q.mode = fe;
+        Q.playTime += (Date.now() - e) / 1e3;
+        a.setItem(r, JSON.stringify(Q));
+      };
+    (erasePutter = () => {
+      if (Oe) {
+        let e = Pe(Oe.x, 0, t.innerWidth),
+          l = ge.x - e,
+          a = Pe(Oe.y, 0, t.innerHeight),
+          i = ge.y;
+        -a;
+        if (ge.x < Oe.x) {
+          e = ge.x;
+          l = Oe.x - e;
+        }
+        if (ge.y < Oe.y) {
+          a = ge.y;
+          i = Oe.y - a;
+        }
+        z.clearRect(e - 8, a - 8, l + 16, i + 16);
+      }
+    }),
+      (resetPutter = () => {
+        erasePutter();
+        Oe = null;
+        ge = null;
+        xe = 0;
+      });
+    l.onmousedown = (e) => {
+      if (pe && e.button === 0 && fe === MODE_PLAY) {
+        if (He(oe.V) === 0) ge = Ve(e.x, e.y);
+      }
+    };
+    l.onmousemove = (e) => {
+      if (ge && pe && fe === MODE_PLAY) {
+        erasePutter();
+        let l = ge.x,
+          t = ge.y,
+          a = e.x,
+          i = e.y;
+        Ce = c(t - i, l - a);
+        let r = c(i - t, a - l);
+        let s = n * 0.25,
+          f = s * 2,
+          d = h(r - s) * 8,
+          u = o(r - s) * 8,
+          C = h(r + s) * 8,
+          x = o(r + s) * 8,
+          p = h(r - f) * 6,
+          g = o(r - f) * 6,
+          O = h(r + f) * 6,
+          N = o(r + f) * 6;
+        (xe = ze(ge, { x: a, y: i })), (putterColor = "fff");
+        if (xe > _) xe = _;
+        a = h(r) * xe + l;
+        i = o(r) * xe + t;
+        Oe = { x: a, y: i };
+        z.strokeStyle = "#fff";
+        z.lineWidth = 3;
+        z.beginPath();
+        let y = (e, l) => {
+            z.moveTo(e, l);
+          },
+          b = (e, l) => {
+            z.lineTo(e, l);
+          };
+        y(d + l, u + t);
+        b(l, t);
+        b(C + l, x + t);
+        y(l, t);
+        b(a, i);
+        y(p + a, g + i);
+        b(O + a, N + i);
+        z.stroke();
+      }
+    };
+    l.onmouseup = (e) => {
+      if (pe && e.button === 0 && ge && fe === MODE_PLAY) {
+        erasePutter();
+        Oe = null;
+        ge = null;
+        if (xe >= E) {
+          pe = false;
+          if (oe.inSand) {
+            fx_play(SOUND_SAND);
+            bl();
+          } else {
+            fx_play(SOUND_PUTT);
+          }
+          he = oe.C;
+          let e = xe / _;
+          oe.V = Ve(h(Ce) * (e * D), o(Ce) * (e * D));
+          xe = 0;
+          Q.putts++;
+          Q.total++;
+          _l();
+        }
+      }
+    };
+    l.onkeyup = (e) => {
+      if (fe === MODE_PLAY) {
+        switch (e.keyCode) {
+          case 32:
+            resetPutter();
+            e.preventDefault();
+            break;
+          case 16:
+            Ie(k, false);
+            Te = false;
+            e.preventDefault();
+            break;
+          case 8:
+            resetPutter();
+            pe = false;
+            Ie(P, true);
+            e.preventDefault();
+            break;
+          case 192:
+            resetPutter();
+            Ie(A, true);
+            W = true;
+            B = true;
+            e.preventDefault();
+            break;
+          default:
+            break;
+        }
+      }
+    };
+    l.onkeydown = (e) => {
+      if (e.keyCode === 16 && fe === MODE_PLAY && !Te) {
+        Dl();
+        Ie(k, true);
+        me = 0;
+        Te = true;
+        e.preventDefault();
+      }
+    };
+    t.onresize = El;
+    t.onbeforeunload = ml;
+    t.onload = () => {
+      k = Me("ss");
+      w = Me("ts");
+      I = Me("tsb");
+      L = Me("hud");
+      P = Me("rs");
+      U = Me("rsb");
+      A = Me("is");
+      G = Me("isb");
+      I.appendChild(
+        Ae("OK", () => {
+          fx_play(SOUND_BUTTON);
+          Ie(w, false);
+          Ue(MODE_INSTRUCTIONS);
+          Ie(A, true);
+        })
+      );
+      G.appendChild(
+        Ae("OK", () => {
+          fx_play(SOUND_BUTTON);
+          Ie(A, false);
+          W = false;
+          if (!B) {
+            we(0);
+            dl();
+            Ie(L, true);
+            Z = 0;
+            Ue(MODE_FADE_IN);
+          }
+        })
+      );
+      U.appendChild(
+        Ae("YES", () => {
+          Ie(P, false);
+          t.onbeforeunload = null;
+          a.removeItem(r);
+          location.reload();
+        })
+      );
+      U.appendChild(
+        Ae("NO", () => {
+          Ie(P, false);
+          pe = true;
+        })
+      );
+      R = Me("i");
+      X = Ge(canvasWidth, canvasHeight, "bg");
+      Y = X.ctx;
+      K = Ge(canvasWidth, canvasHeight, "bg");
+      J = K.ctx;
+      q = Ge(t.innerWidth, t.innerHeight, "fg");
+      z = q.ctx;
+      fx_add([
+        1, 409, 0.01, 0.09, 0.09, 1, 0.45, -11, 3.5, 0, 0, 0, 0, 0, 0, 0, 0.94,
+        0, 0,
+      ]);
+      fx_add([
+        1, 1888, 0, 0.01, 0.11, 4, 2.88, 0, -5.9, 0, 0, 0, 0, 143, 0, 0, 1,
+        0.11, 0,
+      ]);
+      fx_add([
+        1.99, 9, 0.01, 0, 0.01, 3, 1.94, 0, -0.3, 0, 0, 0, 0, 0, 0, 0.49, 1,
+        0.03, 0,
+      ]);
+      fx_add([
+        3.35, 1101, 0.02, 0, 0, 0, 2.14, 0, -27, 119, 0, 0.02, 1, 0, 0, 0.37, 1,
+        0, 0.42,
+      ]);
+      fx_add([
+        1.22, 681, 0.07, 0.15, 0.42, 0, 1.42, 0, 0.3, -377, 0.14, 0.11, 0, 0,
+        0.1, 0.04, 0.88, 0.23, 0,
+      ]);
+      fx_add([
+        1.62, 45, 0.02, 0.3, 0.34, 1, 1.21, 0, 0, 172, 0.02, 0.18, 0, 0, 0.1,
+        0.08, 0.85, 0.17, 0.22,
+      ]);
+      fx_add([
+        1, 233, 0, 0.11, 0.44, 1, 1.6, 0, -0.5, 0, 0, 0, 0, 5.1, 0, 0, 0.88,
+        0.15, 0,
+      ]);
+      fx_add([
+        1.02, 538, 0.01, 0.03, 0.18, 0, 1.42, 0.2, 0, 0, 0, 0, 0, 25, 0.1, 0,
+        0.68, 0.03, 0.12,
+      ]);
+      fx_add([
+        1, 47, 0.01, 0.09, 0.09, 4, 1.81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.57, 0.02,
+        0,
+      ]);
+      fx_add([
+        1, 377, 0.02, 0.01, 0.01, 3, 1.97, 0, -34, 613, 0.12, 0, 0, -84, 0, 0,
+        1, 0.02, 0.07,
+      ]);
+      fx_add([
+        1.88, 575, 0.09, 0.18, 0.41, 2, 0.09, -1.4, 0, 124, 0.18, 0.11, 0, 0, 0,
+        0.16, 0.81, 0.21, 0.46,
+      ]);
+      Tl();
+      El();
+      F = Date.now();
+      kl();
+    };
+    let Sl = () => {
+        let e = oe.C.x;
+        le = oe.C.y;
+        for (let l = 0; l < ue.length; l++) {
+          const t = ue[l];
+          if (e > t.x && e < t.x + oneCell && le > t.y && le < t.y + oneCell) {
+            if (t.type === S) {
+              if (!oe.inSand) {
+                bl();
+                fx_play(SOUND_SAND);
+                Q.beached++;
+              }
+              oe.inSand = true;
+              ne = 0.75;
+            } else {
+              switch (t.bitMask) {
+                case 1:
+                  e = t.x + halfCell;
+                  le = t.y - 8;
+                  te = t.x;
+                  ae = t.y;
+                  ie = oneCell;
+                  re = halfCell;
+                  break;
+                case 2:
+                  e = t.x + oneCell + 8;
+                  le = t.y + halfCell;
+                  te = t.x + halfCell;
+                  ae = t.y;
+                  ie = halfCell;
+                  re = oneCell;
+                  break;
+                case 4:
+                  e = t.x + halfCell;
+                  le = t.y + oneCell + 8;
+                  te = t.x;
+                  ae = t.y + halfCell;
+                  ie = oneCell;
+                  re = halfCell;
+                  break;
+                default:
+                  e = t.x - 8;
+                  le = t.y + halfCell;
+                  te = t.x;
+                  ae = t.y;
+                  ie = halfCell;
+                  re = oneCell;
+                  break;
+              }
+              yl(
+                0.5,
+                oe.C.x,
+                oe.C.y,
+                0,
+                0,
+                true,
+                1,
+                false,
+                true,
+                8,
+                [36, 1, 26, 26],
+                true
+              );
+              fx_play(SOUND_WATER);
+              oe.C = Ve(e, le);
+              oe.V = Ve(0, 0);
+              pe = true;
+              Q.splashes++;
+              Se = true;
+            }
+          } else {
+            oe.inSand = se;
+          }
+        }
+      },
+      vl = (e) =>
+        `${C(e / 3600)}h, ${C((e % 3600) / 60)}m, ${C((e % 3600) % 60)}s`,
+      Ml = () =>
+        Le("s0", `Play time: ${vl(Q.playTime + (Date.now() - e) / 1e3)}`),
+      kl = () => {
+        Se = false;
+        H = Date.now();
+        $ = (H - F) / 1e3;
+        F = H;
+        if (Te) {
+          me += $;
+          if (me >= 1) {
+            me -= 1;
+            Ml();
+          }
+        }
+        for (i = je.length; i--; ) {
+          let e = je[i];
+          e.V = Fe(e.V, Xe(e.A, $));
+          ll(e, Xe(e.V, $));
+          e.v += e.a * $;
+          tl(e, e.v * $);
+        }
+        ol();
+        switch (fe) {
+          case MODE_PLAY:
+            let e = oe.C.x,
+              l = oe.C.y,
+              t = false;
+            if (e > 0 || e < canvasWidth || l > 0 || l < canvasHeight) {
+              Ee = be.pathNodes;
+              _e = Ee[0][0];
+              let a = Ee[C((l - _e.y) / oneCell)][C((e - _e.x) / oneCell)];
+              if (!a.partOfPath) {
+                t = true;
+              }
+            } else {
+              t = true;
+            }
+            if (t) {
+              oe.C = he;
+              oe.V = Ve(0, 0);
+              Q.putts--;
+              Se = true;
+              pe = true;
+            }
+            let a = He(oe.V);
+            if (a > 0) {
+              ne = 0.985;
+              Sl();
+              oe.V = Xe(oe.V, ne);
+              let e = ze(oe.C, de.C);
+              if (a < 10) {
+                oe.V = Ve(0, 0);
+                if (oe.inGoal) {
+                  Z = 1;
+                  Ue(MODE_FADE_OUT);
+                } else {
+                  if (e < 25) {
+                    fx_play(SOUND_SOCLOSE);
+                    Q.closeCalls++;
+                    Se = true;
+                  }
+                  pe = true;
+                }
+              }
+              if (!oe.inGoal && e <= T) {
+                oe.V = Xe(oe.V, 0.5);
+                let e = de.C.x,
+                  l = de.C.y;
+                fl(Ve(e - 20, l), 16, 40, 0, 1, 1);
+                fl(Ve(e + 20, l), 16, 40, 0, 1, 1);
+                fl(Ve(e, l - 20), 40, 16, 0, 1, 1);
+                fl(Ve(e, l + 20), 40, 16, 0, 1, 1);
+                if (Q.putts === 1) {
+                  let e = 0;
+                  for (let l = 0; l < 9; l++) {
+                    yl(
+                      1.5,
+                      de.C.x,
+                      de.C.y,
+                      e,
+                      125,
+                      true,
+                      1,
+                      false,
+                      false,
+                      1,
+                      [63, 1, 24, 23]
+                    );
+                    e += f / 9;
+                  }
+                  fx_play(SOUND_HOLEINONE);
+                  Q.holesInOne++;
+                  Se = true;
+                } else {
+                  fx_play(SOUND_GOAL);
+                  if (Q.putts == 2) {
+                    Q.holesInTwo++;
+                    Se = true;
+                  } else if (Q.putts == 3) {
+                    Q.holesInThree++;
+                    Se = true;
+                  }
+                }
+                oe.inGoal = true;
+                pe = false;
+              } else if (oe.inGoal && e > 25) {
+                oe.C = de.C;
+              }
+            }
+            break;
+          case MODE_FADE_OUT:
+            Z -= $;
+            if (Z <= 0) {
+              Z = 0;
+              Ue(MODE_NONE);
+              hl();
+            }
+            we(Z);
+            break;
+          case MODE_FADE_IN:
+            Z += $;
+            if (Z >= 1) {
+              Z = 1;
+              Ue(MODE_PLAY);
+              pe = true;
+            }
+            we(Z);
+            break;
+          default:
+            break;
+        }
+        J.clearRect(0, 0, canvasWidth, canvasHeight);
+        J.strokeStyle = "#222";
+        J.lineJoin = "bevel";
+        for (i = je.length; i--; ) {
+          let e = je[i];
+          if (e.draw) {
+            J.save();
+            J.translate(e.C.x, e.C.y);
+            J.rotate(e.G);
+            if (e.T) {
+              J.fillStyle = "#aaa";
+              J.strokeRect(-e.W / 2, -e.H / 2, e.W, e.H);
+              J.fillRect(-e.W / 2, -e.H / 2, e.W, e.H);
+            } else {
+              J.fillStyle = "#eee";
+              J.beginPath();
+              J.arc(0, 0, e.B, 0, 7);
+              J.fill();
+              J.stroke();
+            }
+            J.restore();
+          }
+        }
+        for (let e = V.length - 1; e >= 0; e--) {
+          let l = V[e];
+          l.counter -= $;
+          if (l.counter <= 0) {
+            V.splice(e, 1);
+          } else {
+            l.x += l.velocityX * $;
+            l.y += l.velocityY * $;
+            ratio = l.counter / l.timeToLive;
+            if (l.fades) l.alpha = l.originalAlpha * ratio;
+            if (l.shrinks) l.scale = l.originalScale * ratio;
+            if (l.grows) l.scale = l.originalScale - l.originalScale * ratio;
+            J.save();
+            if (l.clip) {
+              J.beginPath();
+              J.rect(te, ae, ie, re);
+              J.clip();
+            }
+            J.globalAlpha = l.alpha;
+            J.translate(l.x, l.y);
+            J.scale(l.scale, l.scale);
+            J.rotate(l.rotation);
+            J.drawImage(
+              R,
+              l.textureRegion[0],
+              l.textureRegion[1],
+              l.textureRegion[2],
+              l.textureRegion[3],
+              -l.textureX,
+              -l.textureY,
+              l.textureRegion[2],
+              l.textureRegion[3]
+            );
+            J.restore();
+          }
+        }
+        if (Se) {
+          Dl();
+        }
+        requestAnimationFrame(kl);
+      };
+  </script>
+</html>

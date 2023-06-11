@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<meta name="theme-color" content="#111"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="msapplication-navbutton-color" content="#111"/>
+<link rel="manifest" href="manifest.json"/>
+<title>Pronto</title>
+<style>
+html, body {
+margin: 0; padding: 0;
+background: #111;
+font: 5vw sans-serif; color: #555;
+overflow: hidden;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-ms-touch-action: none;
+user-select: none;
+}
+canvas {
+position: fixed;
+width: 100%;
+height: 100%;
+}
+#Message {
+position: fixed;
+width: 100%;
+padding-top: 20vh;
+font-weight: bold;
+text-align: center;
+}
+.Score {
+font-size: 20vw;
+}
+p {
+margin: 0; padding: 0;
+}
+</style>
+</head>
+<body>
+<canvas id="Canvas">Sorry, this browser cannot render this content.</canvas>
+<div id="Message"></div>
+<script id="LightVertexShader" type="x-shader/x-vertex">
+attribute vec3 vertex;
+uniform mat4 lightProjMat;
+uniform mat4 lightModelViewMat;
+void main() {
+gl_Position = lightProjMat * lightModelViewMat * vec4(vertex, 1.0);
+}
+</script>
+<script id="LightFragmentShader" type="x-shader/x-fragment">
+precision mediump float;
+vec4 encodeFloat(float depth) {
+const vec4 bitShift = vec4(
+256 * 256 * 256,
+256 * 256,
+256,
+1.0
+);
+const vec4 bitMask = vec4(
+0,
+1.0 / 256.0,
+1.0 / 256.0,
+1.0 / 256.0
+);
+vec4 comp = fract(depth * bitShift);
+comp -= comp.xxyz * bitMask;
+return comp;
+}
+void main() {
+gl_FragColor = encodeFloat(gl_FragCoord.z);
+}
+</script>
+<script id="VertexShader" type="x-shader/x-vertex">
+attribute vec3 vertex;
+attribute vec3 normal;
+uniform mat4 projMat;
+uniform mat4 modelViewMat;
+uniform mat4 normalMat;
+uniform mat4 lightModelViewMat;
+uniform mat4 lightProjMat;
+uniform vec3 lightDirection;
+varying mediump float intensity;
+varying mediump float z;
+varying vec4 shadowPos;
+const mat4 texUnitConverter = mat4(
+0.5, 0.0, 0.0, 0.0,
+0.0, 0.5, 0.0, 0.0,
+0.0, 0.0, 0.5, 0.0,
+0.5, 0.5, 0.5, 1.0
+);
+void main() {
+gl_Position = projMat * modelViewMat * vec4(vertex, 1.);
+z = gl_Position.z;
+intensity = max(0., dot(normalize(mat3(normalMat) * normal),
+lightDirection));
+shadowPos = texUnitConverter * lightProjMat * lightModelViewMat *
+vec4(vertex, 1.0);
+}
+</script>
+<script id="FragmentShader" type="x-shader/x-fragment">
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+uniform float far;
+uniform vec4 sky;
+uniform vec4 color;
+uniform sampler2D shadowDepthTexture;
+varying mediump float intensity;
+varying mediump float z;
+varying vec4 shadowPos;
+float decodeFloat(vec4 c) {
+const vec4 bitShift = vec4(
+1.0 / (256.0 * 256.0 * 256.0),
+1.0 / (256.0 * 256.0),
+1.0 / 256.0,
+1
+);
+return dot(c, bitShift);
+}
+void main() {
+vec3 fragmentDepth = shadowPos.xyz;
+fragmentDepth.z -= 0.007;
+float texelSize = 1.0 / 1024.0;
+float amountInLight = 0.0;
+for (int x = -1; x <= 1; ++x) {
+for (int y = -1; y <= 1; ++y) {
+float texelDepth = decodeFloat(texture2D(shadowDepthTexture,
+fragmentDepth.xy + vec2(x, y) * texelSize));
+if (fragmentDepth.z < texelDepth) {
+amountInLight += 1.0;
+}
+}
+}
+amountInLight /= 9.0;
+amountInLight *= intensity;
+float f = z / far;
+gl_FragColor = vec4(
+(1. - f) * color.rgb * (.5 + amountInLight * .5) + f * sky.rgb,
+color.a);
+}
+</script>
+<script>
+var M=Math,D=document,W=window,FA=Float32Array,gl,message,messageVisible,idMat=new FA([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]),camMat=new FA(16),projMat=new FA(idMat),viewMat=new FA(idMat),modelViewMat=new FA(16),horizon=50,staticLightViewMat=new FA(16),lightProjMat=new FA(idMat),lightViewMat=new FA(idMat),lightDirection=[0,0,0],skyColor=[.9,.9,.9,1],shadowFramebuffer,shadowDepthTextureSize=1024,shadowDepthTexture,shadowProgram,program,setModel,drawModel,entitiesLength=0,entities=[],width,height,ymax,widthToGl,
+heightToGl,pointersLength,pointersX=[],pointersY=[],keysDown=[],tilesLength=8,tileMag=.5,tileSize=2*tileMag,tileSizeSq=tileSize*tileSize,tileHeight=.2*tileMag,tileColorEven=[0,.58,1,1],tileColorOdd=[0,.48,.9,1],stop,ready,lost,jump,wayX,wayY,wayZ,wayStraights,wayDir,wayIndex,speed,shift,targetX,score,cursor;M.PI2=M.PI2||M.PI/2;M.TAU=M.TAU||2*M.PI;
+function invert(a,b){var c=b[0],d=b[1],e=b[2],f=b[3],g=b[4],k=b[5],l=b[6],h=b[7],t=b[8],u=b[9],v=b[10],p=b[11],w=b[12],x=b[13],y=b[14],A=b[15],q=c*k-d*g,r=c*l-e*g,m=c*h-f*g,n=d*l-e*k,B=d*h-f*k,C=e*h-f*l,E=t*x-u*w,F=t*y-v*w,G=t*A-p*w,H=u*y-v*x,I=u*A-p*x,J=v*A-p*y,z=q*J-r*I+m*H+n*G-B*F+C*E;if(!z)return null;z=1/z;a[0]=(k*J-l*I+h*H)*z;a[1]=(e*I-d*J-f*H)*z;a[2]=(x*C-y*B+A*n)*z;a[3]=(v*B-u*C-p*n)*z;a[4]=(l*G-g*J-h*F)*z;a[5]=(c*J-e*G+f*F)*z;a[6]=(y*m-w*C-A*r)*z;a[7]=(t*C-v*m+p*r)*z;a[8]=(g*I-k*G+h*E)*z;
+a[9]=(d*G-c*I-f*E)*z;a[10]=(w*B-x*m+A*q)*z;a[11]=(u*m-t*B-p*q)*z;a[12]=(k*F-g*H-l*E)*z;a[13]=(c*H-d*F+e*E)*z;a[14]=(x*r-w*n-y*q)*z;a[15]=(t*n-u*r+v*q)*z}
+function multiply(a,b,c){var d=b[0],e=b[1],f=b[2],g=b[3],k=b[4],l=b[5],h=b[6],t=b[7],u=b[8],v=b[9],p=b[10],w=b[11],x=b[12],y=b[13],A=b[14];b=b[15];var q=c[0],r=c[1],m=c[2],n=c[3];a[0]=q*d+r*k+m*u+n*x;a[1]=q*e+r*l+m*v+n*y;a[2]=q*f+r*h+m*p+n*A;a[3]=q*g+r*t+m*w+n*b;q=c[4];r=c[5];m=c[6];n=c[7];a[4]=q*d+r*k+m*u+n*x;a[5]=q*e+r*l+m*v+n*y;a[6]=q*f+r*h+m*p+n*A;a[7]=q*g+r*t+m*w+n*b;q=c[8];r=c[9];m=c[10];n=c[11];a[8]=q*d+r*k+m*u+n*x;a[9]=q*e+r*l+m*v+n*y;a[10]=q*f+r*h+m*p+n*A;a[11]=q*g+r*t+m*w+n*b;q=c[12];r=
+c[13];m=c[14];n=c[15];a[12]=q*d+r*k+m*u+n*x;a[13]=q*e+r*l+m*v+n*y;a[14]=q*f+r*h+m*p+n*A;a[15]=q*g+r*t+m*w+n*b}
+function rotate(a,b,c,d,e,f){var g=M.sqrt(d*d+e*e+f*f),k,l,h,t,u,v,p,w,x,y,A,q,r,m,n,B,C,E,F,G;1E-6>M.abs(g)||(g=1/g,d*=g,e*=g,f*=g,k=M.sin(c),l=M.cos(c),h=1-l,c=b[0],g=b[1],t=b[2],u=b[3],v=b[4],p=b[5],w=b[6],x=b[7],y=b[8],A=b[9],q=b[10],r=b[11],m=d*d*h+l,n=e*d*h+f*k,B=f*d*h-e*k,C=d*e*h-f*k,E=e*e*h+l,F=f*e*h+d*k,G=d*f*h+e*k,d=e*f*h-d*k,f=f*f*h+l,a[0]=c*m+v*n+y*B,a[1]=g*m+p*n+A*B,a[2]=t*m+w*n+q*B,a[3]=u*m+x*n+r*B,a[4]=c*C+v*E+y*F,a[5]=g*C+p*E+A*F,a[6]=t*C+w*E+q*F,a[7]=u*C+x*E+r*F,a[8]=c*G+v*d+y*f,
+a[9]=g*G+p*d+A*f,a[10]=t*G+w*d+q*f,a[11]=u*G+x*d+r*f,b!==a&&(a[12]=b[12],a[13]=b[13],a[14]=b[14],a[15]=b[15]))}function scale(a,b,c,d,e){a[0]=b[0]*c;a[1]=b[1]*c;a[2]=b[2]*c;a[3]=b[3]*c;a[4]=b[4]*d;a[5]=b[5]*d;a[6]=b[6]*d;a[7]=b[7]*d;a[8]=b[8]*e;a[9]=b[9]*e;a[10]=b[10]*e;a[11]=b[11]*e;a[12]=b[12];a[13]=b[13];a[14]=b[14];a[15]=b[15]}
+function translate(a,b,c,d,e){if(b===a)a[12]=b[0]*c+b[4]*d+b[8]*e+b[12],a[13]=b[1]*c+b[5]*d+b[9]*e+b[13],a[14]=b[2]*c+b[6]*d+b[10]*e+b[14],a[15]=b[3]*c+b[7]*d+b[11]*e+b[15];else{var f,g,k,l,h,t,u,v,p,w,x,y;f=b[0];g=b[1];k=b[2];l=b[3];h=b[4];t=b[5];u=b[6];v=b[7];p=b[8];w=b[9];x=b[10];y=b[11];a[0]=f;a[1]=g;a[2]=k;a[3]=l;a[4]=h;a[5]=t;a[6]=u;a[7]=v;a[8]=p;a[9]=w;a[10]=x;a[11]=y;a[12]=f*c+h*d+p*e+b[12];a[13]=g*c+t*d+w*e+b[13];a[14]=k*c+u*d+x*e+b[14];a[15]=l*c+v*d+y*e+b[15]}}
+function transpose(a,b){if(a===b){var c=b[1],d=b[2],e=b[3],f=b[6],g=b[7],k=b[11];a[1]=b[4];a[2]=b[8];a[3]=b[12];a[4]=c;a[6]=b[9];a[7]=b[13];a[8]=d;a[9]=f;a[11]=b[14];a[12]=e;a[13]=g;a[14]=k}else a[0]=b[0],a[1]=b[4],a[2]=b[8],a[3]=b[12],a[4]=b[1],a[5]=b[5],a[6]=b[9],a[7]=b[13],a[8]=b[2],a[9]=b[6],a[10]=b[10],a[11]=b[14],a[12]=b[3],a[13]=b[7],a[14]=b[11],a[15]=b[15]}
+function setOrthogonal(a,b,c,d,e,f,g){var k=1/(b-c),l=1/(d-e),h=1/(f-g);a[0]=-2*k;a[1]=0;a[2]=0;a[3]=0;a[4]=0;a[5]=-2*l;a[6]=0;a[7]=0;a[8]=0;a[9]=0;a[10]=2*h;a[11]=0;a[12]=(b+c)*k;a[13]=(e+d)*l;a[14]=(g+f)*h;a[15]=1}function setPerspective(a,b,c,d,e){b=1/M.tan(b);var f=d-e;a[0]=b/c;a[1]=0;a[2]=0;a[3]=0;a[4]=0;a[5]=b;a[6]=0;a[7]=0;a[8]=0;a[9]=0;a[10]=(e+d)/f;a[11]=-1;a[12]=0;a[13]=0;a[14]=2*e*d/f;a[15]=0}
+function setLight(a,b,c){translate(lightViewMat,staticLightViewMat,a,b,c);lightDirection[0]=lightViewMat[2];lightDirection[1]=lightViewMat[6];lightDirection[2]=lightViewMat[10]}function setCamera(a,b,c){translate(viewMat,camMat,a,b,c);setLight(a,b,c)}function drawCameraModel(a,b,c){gl.uniform4fv(b.color,c);gl.drawElements(gl.TRIANGLES,a,gl.UNSIGNED_SHORT,0)}function drawShadowModel(a){gl.drawElements(gl.TRIANGLES,a,gl.UNSIGNED_SHORT,0)}
+function setCameraModel(a,b){multiply(modelViewMat,lightViewMat,b);gl.uniformMatrix4fv(a.lightModelViewMat,!1,modelViewMat);multiply(modelViewMat,viewMat,b);gl.uniformMatrix4fv(a.modelViewMat,!1,modelViewMat);invert(modelViewMat,b);transpose(modelViewMat,modelViewMat);gl.uniformMatrix4fv(a.normalMat,!1,modelViewMat)}function setShadowModel(a,b){multiply(modelViewMat,lightViewMat,b);gl.uniformMatrix4fv(a.lightModelViewMat,!1,modelViewMat)}
+function bindModel(a,b){gl.bindBuffer(gl.ARRAY_BUFFER,b.vertices);gl.vertexAttribPointer(a.vertex,3,gl.FLOAT,!1,0,0);gl.bindBuffer(gl.ARRAY_BUFFER,b.normals);gl.vertexAttribPointer(a.normal,3,gl.FLOAT,!1,0,0);gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,b.indicies)}function drawEntities(a,b){for(var c,d=entitiesLength;d--;){var e=entities[d];c!=e.model&&(c=e.model,bindModel(b,c));setModel(a,e.matrix);drawModel(c.count,a,e.color)}}
+function drawCameraView(){var a=program.uniforms,b=program.attribs;gl.useProgram(program);gl.viewport(0,0,width,height);gl.clearColor(skyColor[0],skyColor[1],skyColor[2],skyColor[3]);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.uniformMatrix4fv(a.projMat,!1,projMat);gl.uniformMatrix4fv(a.lightProjMat,!1,lightProjMat);gl.uniform3fv(a.lightDirection,lightDirection);gl.uniform4fv(a.sky,skyColor);gl.uniform1f(a.far,horizon);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,shadowDepthTexture);
+gl.uniform1i(a.shadowDepthTexture,0);drawEntities(a,b)}function drawShadowMap(){var a=shadowProgram.attribs,b=shadowProgram.uniforms;gl.useProgram(shadowProgram);gl.bindFramebuffer(gl.FRAMEBUFFER,shadowFramebuffer);gl.viewport(0,0,shadowDepthTextureSize,shadowDepthTextureSize);gl.clearColor(0,0,0,1);gl.clearDepth(1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.uniformMatrix4fv(b.lightProjMat,!1,lightProjMat);drawEntities(b,a);gl.bindFramebuffer(gl.FRAMEBUFFER,null)}
+function draw(){setModel=setShadowModel;drawModel=drawShadowModel;drawShadowMap();setModel=setCameraModel;drawModel=drawCameraModel;drawCameraView()}function setMessage(a){message.innerHTML=a}function gameOver(){messageVisible||(messageVisible=!0,setMessage('<p>You made</p><p class="Score">'+score+"</p><p>points!</p>"))}function pursue(){0<--wayStraights||.5<M.random()?(wayDir=M.random(),wayZ-=tileSize):(wayX+=.5<wayDir?tileSize:-tileSize,wayStraights=2+M.round(4*M.random()));++wayIndex}
+function getTileColor(){return wayIndex%2?tileColorEven:tileColorOdd}function distSq(a,b,c,d,e,f){a-=d;b-=e;c-=f;return a*a+b*b+c*c}function isTileNear(a,b,c){for(var d=tilesLength;d--;){var e=entities[d].origin;if(distSq(e[12],e[13],e[14],a,b,c)<tileSizeSq)return!0}return!1}
+function update(){for(var a=Date.now(),b=entitiesLength;b--;)entities[b].update(a);if(ready){var c=cursor.origin,d=c[12],e=c[13],f=c[14];!lost&&jump&&(jump=!1,targetX=d,isTileNear(d-tileSize,c[13],c[14])?(shift=-.3,targetX-=tileSize):(shift=.3,targetX+=tileSize));b=M.abs(d-targetX);.1>b&&(shift=b*(0<shift?4:-4));translate(c,c,shift,0,speed);.1>b&&(shift=0);-.35<speed&&(speed-=.001);setCamera(-d,0,-f);for(var g=!1,k=!0,b=tilesLength;b--;){var l=entities[b],h=l.origin,t=h[12],u=h[13],v=h[14],p=v-f;
+!g&&distSq(t,u,v,d,e,f)<tileSizeSq&&(g=!0);k&&-100<l.base&&(k=!1);!lost&&3<p?(translate(h,idMat,wayX,wayY,wayZ),scale(h,h,tileMag,tileHeight,tileMag),l.base=10/M.abs(speed),l.drop=!1,l.color=getTileColor(),pursue()):1<p&&(l.drop=!0,--l.base)}k&&(stop=!0);lost||g||(lost=a,score=M.abs(M.round(f/(2*tileSize))));lost&&(-15>e?gameOver():translate(c,c,0,-.5,0))}}function run(){!stop&&requestAnimationFrame(run);update();draw()}
+function tryJump(){if(!lost)jump=!0;else if(2E3<Date.now()-lost){var a=stop;reset();a&&run()}}
+function setPointer(a,b){var c=a.touches;if(b)if(a.touches)for(var d=pointersLength=c.length;d--;){var e=c[d];pointersX[d]=e.pageX;pointersY[d]=e.pageY}else pointersLength=1,pointersX[0]=a.pageX,pointersY[0]=a.pageY;else pointersLength=c?c.length:0;if(b)for(d=pointersLength;d--;)pointersX[d]=pointersX[d]*widthToGl-1,pointersY[d]=-(pointersY[d]*heightToGl-ymax);a.preventDefault();a.stopPropagation();a.cancelBubble=!0;a.returnValue=!1}function pointerCancel(a){setPointer(a,!1)}
+function pointerUp(a){setPointer(a,!1);tryJump()}function pointerMove(a){setPointer(a,pointersLength)}function pointerDown(a){setPointer(a,!0)}function setKey(a,b){keysDown[a.keyCode]=b;a.preventDefault()}function keyUp(a){keysDown[82]?W.location.reload(!0):keysDown[83]?stop?(stop=!1,run()):stop=!0:keysDown[32]&&tryJump();setKey(a,!1)}function keyDown(a){setKey(a,!0)}
+function resize(){width=gl.canvas.clientWidth;height=gl.canvas.clientHeight;gl.canvas.width=width;gl.canvas.height=height;ymax=height/width;widthToGl=2/width;heightToGl=2*ymax/height;setPerspective(projMat,.125*M.PI,width/height,.1,horizon)}
+function calculateNormals(a,b){for(var c=[],d=0,e=b.length;d<e;){var f=3*b[d++],g=3*b[d++],k=3*b[d++],l=a[f],h=a[f+1],t=a[f+2],u=a[g]-l,v=a[g+1]-h,p=a[g+2]-t,l=a[k]-l,h=a[k+1]-h,w=a[k+2]-t,t=v*w-p*h,p=p*l-u*w,u=u*h-v*l;c[f]=t;c[f+1]=p;c[f+2]=u;c[g]=t;c[g+1]=p;c[g+2]=u;c[k]=t;c[k+1]=p;c[k+2]=u}return c}
+function createModel(a,b){var c={count:b.length};c.vertices=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,c.vertices);gl.bufferData(gl.ARRAY_BUFFER,new FA(a),gl.STATIC_DRAW);c.normals=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,c.normals);gl.bufferData(gl.ARRAY_BUFFER,new FA(calculateNormals(a,b)),gl.STATIC_DRAW);c.indicies=gl.createBuffer();gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,c.indicies);gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(b),gl.STATIC_DRAW);return c}
+function createCube(){return createModel([-1,-1,1,1,-1,1,-1,1,1,1,1,1,1,-1,1,1,-1,-1,1,1,1,1,1,-1,1,-1,-1,-1,-1,-1,1,1,-1,-1,1,-1,-1,-1,-1,-1,-1,1,-1,1,-1,-1,1,1,-1,-1,-1,1,-1,-1,-1,-1,1,1,-1,1,-1,1,1,1,1,1,-1,1,-1,1,1,-1],[0,1,3,0,3,2,4,5,7,4,7,6,8,9,11,8,11,10,12,13,15,12,15,14,16,17,19,16,19,18,20,21,23,20,23,22])}
+function createEntities(){entities=[];for(var a=createCube(),b=tilesLength;b--;){var c=new FA(idMat);translate(c,c,wayX,wayY,wayZ);scale(c,c,tileMag,tileHeight,tileMag);entities.push({origin:new FA(c),matrix:c,model:a,color:getTileColor(),delta:M.sin(b),base:-256,drop:!1,update:function(a){translate(this.matrix,this.origin,0,this.base+M.sin(this.delta+.002*a),0);this.drop||0==this.base||(this.base*=.9,.1>M.abs(this.base)&&(this.base=0,ready||(ready=!0)))}});pursue()}c=new FA(idMat);translate(c,c,
+0,.5,0);scale(c,c,.25,.25,.25);entities.push(cursor={origin:c,matrix:new FA(c),model:a,color:[1,1,1,1],roll:8,update:function(a){ready&&(this.roll+=speed/-.1);rotate(this.matrix,this.origin,-.05*this.roll,1,.1,.1)}});entitiesLength=entities.length}function reset(){score=0;speed=-.1;targetX=shift=0;jump=ready=stop=!1;wayX=wayY=wayZ=lost=0;wayStraights=3;wayDir=M.random();wayIndex=0;setLight(0,0,0);setCamera(0,0,0);createEntities();messageVisible=!1;setMessage("")}
+function cacheUniformLocations(a,b){void 0===a.uniforms&&(a.uniforms={});for(var c=0,d=b.length;c<d;++c){var e=b[c],f=gl.getUniformLocation(a,e);if(!f)throw'uniform "'+e+'" not found';a.uniforms[e]=f}}function cacheAttribLocations(a,b){void 0===a.attribs&&(a.attribs={});for(var c=0,d=b.length;c<d;++c){var e=b[c],f=gl.getAttribLocation(a,e);if(0>f)throw'attribute "'+e+'" not found';gl.enableVertexAttribArray(f);a.attribs[e]=f}}
+function cacheLocations(a,b,c){cacheAttribLocations(a,b);cacheUniformLocations(a,c)}function compileShader(a,b){var c=gl.createShader(b);gl.shaderSource(c,a);gl.compileShader(c);var d=gl.getShaderInfoLog(c);if(0<d.length)throw d;if(!gl.getShaderParameter(c,gl.COMPILE_STATUS))throw"cannot compile shader";return c}
+function linkProgram(a,b){var c=gl.createProgram();gl.attachShader(c,a);gl.attachShader(c,b);gl.linkProgram(c);if(!gl.getProgramParameter(c,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(c));return c}function buildProgram(a,b){return linkProgram(compileShader(a,gl.VERTEX_SHADER),compileShader(b,gl.FRAGMENT_SHADER))}
+function createPrograms(){shadowProgram=buildProgram(D.getElementById("LightVertexShader").textContent,D.getElementById("LightFragmentShader").textContent);cacheLocations(shadowProgram,["vertex"],["lightProjMat","lightModelViewMat"]);program=buildProgram(D.getElementById("VertexShader").textContent,D.getElementById("FragmentShader").textContent);cacheLocations(program,["vertex","normal"],"projMat modelViewMat normalMat lightProjMat lightModelViewMat lightDirection far sky color shadowDepthTexture".split(" "));
+shadowProgram.attribs.normal=1}
+function createShadowBuffer(){shadowFramebuffer=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,shadowFramebuffer);shadowDepthTexture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,shadowDepthTexture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.REPEAT);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.REPEAT);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,shadowDepthTextureSize,
+shadowDepthTextureSize,0,gl.RGBA,gl.UNSIGNED_BYTE,null);var a=gl.createRenderbuffer();gl.bindRenderbuffer(gl.RENDERBUFFER,a);gl.renderbufferStorage(gl.RENDERBUFFER,gl.DEPTH_COMPONENT16,shadowDepthTextureSize,shadowDepthTextureSize);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,shadowDepthTexture,0);gl.framebufferRenderbuffer(gl.FRAMEBUFFER,gl.DEPTH_ATTACHMENT,gl.RENDERBUFFER,a);gl.bindTexture(gl.TEXTURE_2D,null);gl.bindRenderbuffer(gl.RENDERBUFFER,null);gl.bindFramebuffer(gl.FRAMEBUFFER,
+null)}function createLight(){setOrthogonal(lightProjMat,-10,10,-10,10,-20,60);translate(staticLightViewMat,idMat,0,0,-55);rotate(staticLightViewMat,staticLightViewMat,.25*M.PI2,1,.5,0)}function createCamera(){translate(camMat,idMat,0,0,-10);rotate(camMat,camMat,.9,1,0,0)}function getContext(){for(var a=D.getElementById("Canvas"),b,c=["webgl","experimental-webgl"],d=c.length,e=0;e<d;++e)if(b=a.getContext(c[e],{alpha:!1}))return b}
+function init(){(gl=getContext())?(message=D.getElementById("Message"),createCamera(),createLight(),createShadowBuffer(),createPrograms(),reset(),gl.enable(gl.DEPTH_TEST),gl.enable(gl.BLEND),gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA),W.onresize=resize,resize(),D.onkeydown=keyDown,D.onkeyup=keyUp,D.onmousedown=pointerDown,D.onmousemove=pointerMove,D.onmouseup=pointerUp,D.onmouseout=pointerCancel,"ontouchstart"in D&&(D.ontouchstart=pointerDown,D.ontouchmove=pointerMove,D.ontouchend=pointerUp,
+D.ontouchleave=pointerCancel,D.ontouchcancel=pointerCancel),run()):alert("WebGL not available")}W.onload=init;
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pirates of the Wind</title>
+        <script src="min.js/item.min.js"></script>
+        <script src="min.js/player.min.js"></script>
+        <script src="min.js/obstacle.min.js"></script>
+        <script src="min.js/island.min.js"></script>
+        <script src="min.js/level.min.js"></script>
+        <script src="min.js/levels.min.js"></script>
+        <script src="min.js/wind.min.js"></script>
+        <script src="min.js/game.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="min.css/game.min.css">
+    </head>
+    <body>
+    <div class="header">
+        <span id="title">Pirates of the Wind</span>
+        <span class="separator">|</span>
+        <span id="levelNum"></span>
+        <span class="separator">|</span>
+        <span id="levelWindDirection"></span>
+    </div>
+    <div id="presentation">
+        <div class="title">PIRATES OF WIND !!</div>
+        <div class="explanation">The game is simple, in the beginning is a ship in a point A (randomly), use the arrow keys to move it to navigate and don't fall down into the hungry swirls, move to the island and get to safety.</div>
+        <img class="image" src="assets/presentation.png">
+        <input id="startButton" type="button" value="START">
+    </div>
+    <div id="information">
+        <div id="information_title"></div>
+        <div id="information_explanation"></div>
+        <input id="information_action" type="button" value="">
+    </div>
+    <canvas id="canvasPlayer" height="480" width="860"></canvas>
+    <canvas id="canvasIsland" height="480" width="860"></canvas>
+    <canvas id="canvasObstacles" height="480" width="860"></canvas>
+    <canvas id="canvasBackground" height="480" width="860"></canvas>
+    <canvas id="canvasWind" height="480" width="860"></canvas>
+    <canvas id="canvasGrid" height="480" width="860"></canvas>
+    </body>
+</html>

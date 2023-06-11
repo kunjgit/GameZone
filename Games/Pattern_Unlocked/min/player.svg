@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="219" height="358">
+<style><![CDATA[.B{stroke:#000}.C{stroke-width:6.5}]]></style>
+<path fill="none" d="M-1-1h221v360H-1z"/>
+<g fill="none" class="B C">
+<path transform="rotate(156 114 267.422)" d="M125.5 214.422l-23 106"/>
+<path d="M72.5 218.422l-23 106"/>
+</g>
+<g stroke-width="3.5" class="B">
+<g fill="red"><ellipse ry="8" rx="8.5" cy="347.422" cx="52"/>
+<ellipse ry="8" rx="8.5" cy="347.422" cx="168"/>
+</g>
+<path transform="rotate(0.817 112.5 327.211)" d="M41 311.422L211 312l-23 31-174-1 27-30.578z" fill="#b77d37"/>
+</g>
+<g fill="none" class="C B"><path d="M72.5 218.422l-23 106"/>
+<path transform="rotate(156 114 267.422)" d="M125.5 214.422l-23 106"/>
+<path transform="rotate(156 125 176.422)" d="M136.5 123.422l-23 106"/>
+</g>
+<g fill="#fff" class="B"><path transform="rotate(277 93.335 130.605)" d="M2.995 136.33c1.852 76.577 181.5-22.75 181.192-22.985.31.234-192.922-51.927-181.192 22.985z" stroke-width="4"/>
+<ellipse ry="54" rx="53" cy="65.922" cx="85.5" class="C"/>
+<ellipse ry="16" rx="14.5" cy="64.422" cx="89" stroke-width="4.5"/>
+<ellipse ry="16" rx="14.5" cy="63.422" cx="127" stroke-width="5.5"/>
+</g>
+<path fill="none" d="M44.5 229.422l23-106" class="B C"/>
+</svg>

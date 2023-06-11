@@ -1,0 +1,41 @@
+{
+  "name": "fewa",
+  "version": "1.1.2",
+  "description": "Shooter game for the js13k contest",
+  "authors": [
+    "Csaba <csaba.tuncsik@gmail.com>",
+    "Zoltán <zoltan.t.pasztor@gmail.com>"
+  ],
+  "scripts": {
+    "build": "gulp build && NODE_DEBUG=gh-pages yarn deploy",
+    "dev": "gulp",
+    "deploy": "gh-pages -d dist"
+  },
+  "license": "WTFPL",
+  "repository": "cstuncsik/fewa.git",
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "gh-pages": "^1.2.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-cached": "^1.1.0",
+    "gulp-changed": "^3.2.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-less": "^4.0.1",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-plumber": "^1.1.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-rev": "^8.1.1",
+    "gulp-size": "^3.0.0",
+    "gulp-uglify": "^3.0.1",
+    "gulp-usemin": "^0.3.23",
+    "gulp-using": "0.1.1",
+    "gulp-util": "^3.0.7",
+    "gulp-zip": "^4.2.0",
+    "jshint": "^2.9.6",
+    "jshint-stylish": "^2.2.0",
+    "run-sequence": "^2.2.1"
+  }
+}

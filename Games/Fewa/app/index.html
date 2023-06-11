@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>FEWA</title>
+    <!-- build:css(tmp/) c.css -->
+    <link rel="stylesheet" href="common.css">
+    <!-- endbuild -->
+</head>
+
+<body>
+<canvas id="b"></canvas>
+<div id="b1"></div>
+<div id="b2"></div>
+<div id="b3"></div>
+<div id="f"></div>
+<div id="cnt">
+    <div id="r">
+        <div id="hud">
+            LEVEL: <b id="lv"></b>
+            SCORE: <b id="sc"></b>
+        </div>
+        <canvas id="c"></canvas>
+        <div id="msg"></div>
+        <div id="hlp">
+            <h2>Controls</h2>
+
+            <p>Swap/Move elements: Click highlighted column to select an element and click to drop to another
+                column </p>
+
+            <p>Pause: <strong>P</strong>, Mute: <strong>M</strong>,<br/> Stop bg anim: <strong>B</strong><br/> (because
+                of performance issues on some devices)</p>
+        </div>
+      
+        <div id="mnu">
+            <h1>★<span>FE<span>WA</span></span>★</h1>
+            <ul>
+                <li id="re">RESUME</li>
+                <li id="ng">NEW GAME</li>
+                <li id="hl">HELP</li>
+               
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- build:remove(tmp/) -->
+<script src="scripts/stats.js"></script>
+<!-- endbuild -->
+<!-- build:js(tmp/) j.js -->
+<script src="scripts/game.js"></script>
+<script src="scripts/raf.js"></script>
+<script src="scripts/utils.js"></script>
+<script src="scripts/config.js"></script>
+<script src="scripts/sprites.js"></script>
+<script src="scripts/jsfxr.js"></script>
+<script src="scripts/sonantx.js"></script>
+<script src="scripts/music.js"></script>
+<script src="scripts/audio.js"></script>
+<script src="scripts/entity.js"></script>
+<script src="scripts/particle.js"></script>
+<script src="scripts/explosion.js"></script>
+<script src="scripts/bullet.js"></script>
+<script src="scripts/tower.js"></script>
+<script src="scripts/brick.js"></script>
+<script src="scripts/stars.js"></script>
+<script src="scripts/core.js"></script>
+<!-- endbuild -->
+</body>
+
+</html>

@@ -270,15 +270,12 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 165 | [Beyonder](https://github.com/kunjgit/GameZone/tree/main/Games/Beyonder)|
 | 166 | [Shpere](https://github.com/kunjgit/GameZone/tree/main/Games/Shpere)|
 | 167 | [Short Circuit](https://github.com/kunjgit/GameZone/tree/main/Games/Short%20Circuit)|
-
-  
-  
-  
-
-
-
-| * | [Uxu](https://github.com/kunjgit/GameZone/tree/main/Games/Uxu)|
-  
+| 168 | [Johnny Smiter](https://github.com/kunjgit/GameZone/tree/main/Games/Johnny_Smiter)|
+| 169 | [Rectangular](https://github.com/kunjgit/GameZone/tree/main/Games/Rectangular)|
+| 170 | [Canon_Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Canon_Defense)|
+| 171 | [Trashem](https://github.com/kunjgit/GameZone/tree/main/Games/Trashem)|
+| 172 | [Get The Pigeon](https://github.com/kunjgit/GameZone/tree/main/Games/Get_The_Pigeon)|
+| 173 | [Uxu](https://github.com/kunjgit/GameZone/tree/main/Games/Uxu)|
 </center>
 
 <br>

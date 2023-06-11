@@ -1,0 +1,54 @@
+.text {
+    position: absolute;
+    z-index: 2;
+    font-size: 0.75em;
+    font-family: 'Courier New', monospace;
+    color: white;
+}
+
+.popup{
+    position: absolute;
+    z-index: 3;
+    background-color: black;
+}
+
+
+
+#intro {
+    right: -2em;
+}
+
+#title {
+    top: -5em;
+}
+
+#score {
+    left: -5em;
+    top: 10em;
+}
+
+#credits {
+    bottom: -10em;
+    top: 23.5em;
+    right: 20em;
+}
+
+#instructions {
+    right: 15em;
+    top: 7em;
+}
+
+
+kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: .85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+   }

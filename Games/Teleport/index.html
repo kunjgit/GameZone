@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teleport</title>
+    <script src="./aframe.js"></script>    
+    <script src="./main.js"></script>
+    
+  </head>
+  <body>
+    <a-scene game background="color: #090909" shadow="type: basic" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .clickable">
+
+      <a-light type="ambient" color="#555577"></a-light>
+      <a-entity light="type: directional; color: #EEE; intensity: 0.8" position="-1 1 0"></a-entity>      
+
+      <a-entity id="player" rotation="0 0 0" position="0 0 0">
+
+        <a-circle id="player-shadow" color="#CCC" radius="0.2"  rotation="-90 0 0" position="0 0.005 0" opacity="0.4"></a-circle>
+        <a-box id="player-collision-box" color="#fff" position="0 0.5 0" scale="0.3 0.7 0.3" visible="false" wireframe="true"></a-box>
+
+        <a-entity id="camera-offset" position="0 0 0">
+          <a-camera id="camera" look-controls="reverseMouseDrag: true"></a-camera>
+          <a-entity id="laser-right" controller-connected laser-controls="hand: right" raycaster="objects: .vr-clickable">
+            <a-entity id="right-info" rotation="-100 0 0" scale="0.1 0.1 0.1" position="-0.13 0 0">
+            </a-entity>
+          </a-entity>
+
+          <a-entity id="laser-left" controller-connected laser-controls="hand: left"  raycaster="objects: .vr-clickable">
+            <a-entity id="left-info" rotation="-100 0 0" scale="0.1 0.1 0.1" position="0.13 0 0">
+            </a-entity>
+
+          </a-entity>
+        </a-entity>
+      </a-entity>
+
+
+      <a-entity id="playfield-holder" rotation="0 0 0"  scale="1.0 1.0 1.0" position="0 0 0">
+        <a-entity id="level-info">
+          <a-text id="level-text" position="0 0.9 -0.27" value="The Level" color="#bbb" align="left" scale="1 1 1" rotation="0 -90 0"  side="double"></a-text>        
+          <a-entity id="start-button" position="0 0.89 -0.47"></a-entity>
+        </a-entity>
+
+        <a-entity id="playfield">
+
+        </a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>

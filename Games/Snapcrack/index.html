@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Snap Crack</title>
+		<style>
+			#wrap {
+				width: 642px;
+				height: 960px;
+				margin : 0 auto;
+				background: #dddddd;
+				background: -moz-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dddddd), color-stop(100%,#ffffff));
+				background: -webkit-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+				background: -o-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+				background: -ms-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+				background: linear-gradient(to bottom, #dddddd 0%, #ffffff 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#ffffff', GradientType=0);
+			}
+			canvas {
+				margin: 0 auto;
+				display: block;
+				border: 1px solid #c9c9c9;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<canvas id="snap-crack" width="640" height="960"></canvas>
+		</div>
+		<script>
+			// Main game object.
+			var snap = {
+				// Brick.
+				Brick: function (e) {
+					this.image = new Image();
+					this.image.src = 'img/brick.svg';
+					this.width = 100;
+					this.height = 143;
+					this.x = (canvas.width - this.width) / 2;
+					this.xRate = 5;
+					this.y = 100;
+					this.yRate = 8;
+
+					this.flipping = false;
+					this.flipFrames = [];
+					this.flipIndex = 0;
+					this.flipTicks = 0;
+					this.ticksPerFrame = 6;
+
+					this.moveLeft = false;
+					this.moveRight = false;
+
+					this.deadFrame = null;
+					this.deadSound = false;
+				},
+
+				// Coins.
+				Coin: function (x, y) {
+					this.width = 28;
+					this.height = 28;
+					this.x = x;
+
+					this.yPos = 960 + y;
+					this.yRate = 7;
+					this.y = function () {
+						return this.yPos -= this.yRate;
+					}
+
+					this.val = 13;
+				},
+
+				// Clouds.
+				Cloud: function () {
+					this.width = snap.randNum(250, 350);
+					this.height = 100;
+					this.x = -150 + snap.altSign(snap.randNum(0, 640));
+
+					this.yPos = 960 + (snap.altSign(snap.randNum(0, 1) * 50));
+					this.yRate = 5;
+					this.y = function () {
+						return this.yPos -= this.yRate;
+					};
+				},
+
+				// Blood.
+				Blood: function () {
+					this.size = snap.randNum(5, 20);
+					this.color = 'rgba(255, 0, 0, .7)';
+
+					snap.Graviject.apply(this, arguments);
+				},
+
+				// Poot.
+				Poot: function () {
+					this.size = snap.randNum(5, 30);
+					this.color = 'rgba(255, 255, 255, .5)';
+
+					this.x = snap.player.getX() + snap.randSign(snap.randNum(0, 25));
+					this.yPos = snap.player.getY();
+					this.yRate = snap.randNum(2, 3);
+
+					this.y = function () {
+						return this.yPos -= this.yRate;
+					};
+				},
+
+				// Particles.
+				Particle: function () {
+					this.size = snap.randNum(5, 15);
+					this.color = 'rgba(0, 0, 0, ' + (snap.randNum(1, 4) / 10) + ')';
+
+					this.x = snap.randNum(0, 640);
+
+					this.yPos = 960;
+					this.yRate = snap.randNum(2, 5);
+					this.y = function () {
+						return this.yPos -= this.yRate;
+					};
+				},
+
+				// Floor.
+				Floor: function () {
+					this.width = 670;
+					this.height = 185;
+					this.x = -15;
+					this.y = 960;
+					this.yRate = 5;
+				},
+
+				// Score.
+				Score: function () {
+					this.val = 0;
+					this.flipBonus = 0;
+					this.landing = 0;
+
+					// Store the previous and new scores for consecutive games.
+					this.prevScore = -1300;
+					this.newScore = 0;
+				},
+
+				// Timer.
+				Timer: function () {
+					this.limit = snap.time;
+				},
+
+				// Gravity affected objects.
+				Graviject: function (xRate, yRate, xRateRate, yRateRate, rotateRate) {
+					this.baseLine = 750;
+					this.landed = false;
+					
+					this.xPos = null;
+					this.x = function () {
+						return this.xPos += this.xRate();
+					};
+
+					this.initialXRate = xRate;
+					this.xRateRate = xRateRate;
+					this.xRate = function () {
+						if (this.yPos < this.baseLine) {
+							return xRate;
+						} else {
+							return 0;
+						}
+					};
+
+					this.yPos = null;
+					this.y = function () {
+						if (this.yPos < this.baseLine) {
+							return this.yPos -= this.yRate();
+						} else {
+							this.landed = true;
+							return this.yPos;
+						}
+					};
+
+					this.initialYRate = yRate;
+					this.yRateRate = yRateRate;
+					this.yRate = function () {
+						return this.initialYRate -= this.yRateRate;
+					};
+
+					this.initialAngle = rotateRate;
+					this.angle = function () {
+						if (this.yPos < this.baseLine) {
+							return this.initialAngle += rotateRate;
+						} else {
+							return this.initialAngle;
+						}
+					};
+				},
+
+				// Controls.
+				controls: function (e) {
+					switch (e.keyCode) {
+						// Space bar.
+						case 32:
+							if (!snap.spaceHeld) {
+								snap.sfx.hits.push(new Audio('audio/spin.wav').play());
+								snap.player.flipping = true;
+								snap.spaceHeld = true;
+							}
+							if (e.type === 'keyup') {
+								snap.spaceHeld = false;
+							}
+
+							// For intro screen only:
+							if (snap.startScreen) {
+								snap.startScreen = false;
+								snap.sfx.hits.push(new Audio('audio/win.wav').play());
+							}
+							break;
+						// Left arrow.
+						case 37:
+							snap.player.moveLeft = true;
+							if (e.type === 'keyup') {
+								snap.player.moveLeft = false;
+							}
+							break;
+						// Right arrow.
+						case 39:
+							snap.player.moveRight = true;
+							if (e.type === 'keyup') {
+								snap.player.moveRight = false;
+							}
+							break;
+					}
+				},
+
+				// Control for new continued game.
+				playAgain: function (e) {
+					switch (e.keyCode) {
+						// Space bar.
+						case 32:
+							// Reset game stage.
+							snap.setup();
+							snap.timer.init();
+							snap.init(snap.fps);
+							clearTimeout(snap.enditLoop);
+							window.removeEventListener('keydown', snap.playAgain);
+
+							// Clear active scores.
+							snap.score.val = 0;
+							snap.score.flipBonus = 0;
+							snap.score.landing = 0;
+							snap.score.newScore = 0;
+							break;
+					}
+				},
+
+				// Global helpers.
+				startScreen: true,
+				endScreen: false,
+				resultsScreen: false,
+				spaceHeld: false,	// Helper to disable space-down.
+				lastSign: false,	// Helper for altSign utility function.
+
+				// Game settings.
+				fps: 40,
+				maxTime: function () {
+					return this.randNum(5000, 15000);
+				},
+				startTime: 0,
+				time: 0,
+				penalties: {
+					win: 150,
+					lose: 2000,
+					calc: function () {
+						this.win = Math.ceil(snap.startTime * 0.01);
+						this.lose = Math.ceil(snap.startTime * 0.25);
+					}
+				},
+
+				// Utility.
+				randNum: function (low, high) {
+					var result = Math.floor(Math.random() * (high + 1));
+					if (result < low) {
+						return this.randNum(low, high);
+					} else {
+						return result;
+					}
+				},
+				randSign: function (value) {
+					if (Math.round(Math.random()) === 0) {
+						return -value;
+					} else {
+						return value;
+					}
+				},
+				altSign: function (value) {
+					if (this.lastSign) {
+						this.lastSign = false;
+						return -value;
+					} else {
+						this.lastSign = true;
+						return value;
+					}
+				},
+				drawText: function (object) {
+					// This function accepts an object with settings:
+					// strings: font, fill, text, align, x, y
+					if (object.hasOwnProperty('font')) {
+						ctx.font = object['font'];
+					}
+					if (object.hasOwnProperty('fill')) {
+						ctx.fillStyle = object['fill'];
+					}
+					if (object.hasOwnProperty('text')) {
+						ctx.textAlign = object['align'];
+						ctx.fillText(object['text'], object.x, object.y);
+					} else {
+						return 'Supply text, alignment, x and y.';
+					}
+				},
+				// A bounce object should be generated and associated width
+				// whatever object it's being used for.
+				Bounce: function (low, high, increment) {
+					this.low = low;
+					this.high = high;
+					this.increment = increment;
+					this.range = [];
+
+					this.lastIndex = 0;
+
+					// Build the range array which we will iterate through
+					// to get the "bounce" effect between 2 values.
+					for (var i = this.low, j = this.high; i <= j; i += this.increment) {
+						this.range.push(i);
+					}
+					for (var i = this.high, j = this.low; i >= j; i -= this.increment) {
+						this.range.push(i);
+					}
+				},
+
+				// Active objects.
+				player: null,
+				floor: null,
+				timer: null,
+				score: null,
+
+				clouds: [],
+				coins: [],
+				blood: [],
+				poot: [],
+				particles: [],
+
+				// Sound effects.
+				sfx: {
+					coins: [],
+					hits: [],
+					switches: {
+						score: false,
+						flipBonus: false,
+						landing: false,
+						total: false
+					}
+				},
+
+				// The encouragement.
+				currentPhrase: null,
+				phrases: [
+					'You daredevil, you! Play again?',
+					'Fancy another dance with death?',
+					'Did someone say space bar?',
+					'Looks like that\'s the end of that...',
+					'Let\'s go again!'
+				],
+
+				// Game setup.
+				setup: function () {
+					// Clear all game objects.
+					this.player = null;
+					this.floor = null;
+					this.timer = null;
+
+					// Clear sounds.
+					this.sfx.coins = [];
+					this.sfx.hits = [];
+					this.sfx.switches.score = false;
+					this.sfx.switches.flipBonus = false;
+					this.sfx.switches.landing = false;
+					this.sfx.switches.total = false;
+
+					// Clear active game states.
+					this.endScreen = false;
+					this.resultsScreen = false;
+
+					// Mop up blood. Clear poot.
+					this.blood.length = 0;
+					this.blood.made = false;
+					this.poot.length = 0;
+
+					// Transfer any saved scores.
+					if (this.score !== null) {
+						this.score.saved = false;
+						this.score.prevScore += this.score.newScore;
+					}
+
+					// Generate a new phrase.
+					this.currentPhrase = snap.phrases[snap.randNum(0, (snap.phrases.length - 1))];
+
+					// Generate new player.
+					this.player = new snap.Brick();
+					// Populate player flip frames.
+					for (var i = 0; i < 8; i++) {
+						this.player.flipFrames[i] = i * 100;
+					}
+					// Generate player splat objects.
+					this.player.splats = {
+						updated: false,
+						winHead: new snap.Graviject(0, 0, 0, 0, 0),
+						dieHead: new snap.Graviject(
+							this.randSign(this.randNum(1, 3) / 5), this.randNum(2, 6),
+							(this.randNum(1, 3) / 50), (this.randNum(1, 3) / 20),
+							(this.randNum(1, 5) / 100)),
+						spleen: new snap.Graviject(
+							this.randSign(this.randNum(1, 3) / 3), this.randNum(3, 9),
+							(this.randNum(1, 3) / 50), (this.randNum(1, 3) / 25),
+							(this.randNum(1, 5) / 70)),
+						leftLeg: new snap.Graviject(
+							this.randSign(this.randNum(2, 4) / 2), this.randNum(4, 6),
+							(this.randNum(1, 3) / 50), (this.randNum(1, 3) / 25),
+							(this.randNum(1, 5) / 20)),
+						rightLeg: new snap.Graviject(
+							this.randSign(this.randNum(1, 4) / 2), this.randNum(1, 3),
+							(this.randNum(1, 3) / 50), (this.randNum(1, 3) / 25),
+							(this.randNum(1, 5) / 50))
+					};
+					this.player.splats.winHead.draw = function () {
+						ctx.save();
+						ctx.translate(this.x() + 50, this.y() + 90);
+						ctx.rotate(Math.PI);
+						ctx.drawImage(snap.player.image, 0, 43, 100, 98, -50, -35, 100, 98);
+						ctx.restore();
+					};
+					this.player.splats.dieHead.draw = function () {
+						ctx.save();
+						ctx.translate(this.x() + 50, this.y() + 58);
+						ctx.rotate(this.angle());
+						ctx.drawImage(snap.player.image, 0, 58, 100, 85, -50, -35, 100, 85);
+						ctx.restore();
+					};
+					this.player.splats.spleen.draw = function () {
+						ctx.save();
+						ctx.translate(this.x() + 50, this.y() + 82);
+						ctx.rotate(this.angle());
+						ctx.fillStyle = '#4d4d4d';
+						ctx.fillRect(-7, -7, 15, 15);
+						ctx.restore();
+					};
+					this.player.splats.leftLeg.draw = function () {
+						ctx.save();
+						ctx.translate(this.x(), this.y() + 80);
+						ctx.rotate(this.angle());
+						ctx.fillStyle = '#4d4d4d';
+						ctx.fillRect(-7, -15, 15, 30);
+						ctx.restore();
+					};
+					this.player.splats.rightLeg.draw = function () {
+						ctx.save();
+						ctx.translate(this.x() + 100, this.y() + 80);
+						ctx.rotate(this.angle());
+						ctx.fillStyle = '#4d4d4d';
+						ctx.fillRect(-7, -15, 15, 30);
+						ctx.restore();
+					};
+
+					// Make a bounce object for intro screen.
+					this.introBounce = new snap.Bounce(0.2, 0.8, 0.003);
+
+					// Generate a timer.
+					this.time = this.maxTime();
+					this.startTime = this.time;
+					this.timer = new snap.Timer();
+
+					// Generate a score object if it doesn't already exist.
+					if (this.score === null) {
+						this.score = new snap.Score();
+					}
+
+					this.score.switches.score = false;
+					this.score.switches.flipBonus = false;
+					this.score.switches.landing = false;
+					this.score.switches.total = false;
+					this.score.switches.again = false;
+
+					// Generate floor.
+					this.floor = new snap.Floor();
+
+					// Assign event listeners.
+					window.addEventListener('keydown', this.controls);
+					window.addEventListener('keyup', this.controls);
+				},
+
+				// Intro screen.
+				startit: function (fps) {
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+					// Tapping space bar will start the game.
+					if (this.startScreen) {
+
+
+						// Draw clouds.
+						this.clouds.draw();
+
+						// Draw player.
+						this.player.draw();
+
+						// Draw particles.
+						this.particles.draw();
+
+						// Draw intro text.
+						this.drawText({
+							font: 'bold 76px Arial',
+							fill: 'rgba(0,0,0,.8)',
+							align: 'center',
+							x: 320,
+							y: 390,
+							text: 'Snap Crack'
+						});
+						this.drawText({
+							font: '22px Arial',
+							align: 'center',
+							x: 320,
+							y: 480,
+							text: 'Collect coins to offset your medical bills.'
+						});
+						this.drawText({
+							align: 'center',
+							x: 320,
+							y: 525,
+							text: 'Entertain us! Grab them mid-spin for a flip bonus.'
+						});
+						this.drawText({
+							align: 'center',
+							x: 320,
+							y: 570,
+							text: 'Land on your feet to mitigate fall damage!'
+						});
+						this.drawText({
+							font: '30px Arial',
+							fill: 'rgba(0,0,0,' + this.introBounce.get() + ')',
+							align: 'center',
+							x: 320,
+							y: 725,
+							text: 'Hit space to spin and start!'
+						});
+
+						this.startitLoop = setTimeout(function () {
+							snap.startit();
+						}, 1000 / fps);
+					} else {
+						snap.timer.init();
+						this.init(fps);
+						clearTimeout(snap.startitLoop);
+					}
+				},
+
+				// Game loop.
+				init: function (fps) {
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+					// Main game loop tied to timer.
+					if (this.timer.get() > 0) {
+						// When we get close to time out, activate the floor.
+						if (this.timer.get() < 0.5) {
+							if (this.floor.y > 805) {
+								this.floor.y -= this.floor.yRate;
+							}
+							this.floor.draw();
+							// And activate the end sequence (player actually falls).
+							if (this.player.y < 715) {
+								this.player.y += this.player.yRate;
+								this.player.xRate = 0;
+							} else {
+								this.player.deadFrame = this.player.flipIndex;
+								// Remove event listeners.
+								window.removeEventListener('keydown', this.controls);
+								window.removeEventListener('keyup', this.controls);
+							}
+						}
+
+						// Draw clouds.
+						this.clouds.draw();
+
+						// Draw coins.
+						this.coins.draw();
+
+						// Draw the player.
+						this.player.draw();
+
+						// Draw particles.
+						this.particles.draw();
+
+						// Draw the altitude (timer).
+						this.timer.draw();
+
+						// Draw the score.
+						this.score.draw();
+
+						this.initLoop = setTimeout(function () {
+							snap.init();
+						}, 1000 / fps);
+					} else {
+						this.endit(fps);
+						clearTimeout(snap.initLoop);
+					}
+				},
+
+				// Game end.
+				endit: function (fps) {
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+					// Draw the floor.
+					this.floor.draw();
+
+					// Draw the player.
+					this.player.draw();
+
+					// Draw particles.
+					this.particles.draw();
+
+					// Draw the altitude (timer).
+					this.timer.draw();
+
+					// Draw the score.
+					this.score.draw();
+
+					// Grey out the play area.
+					if (!this.endScreen) {
+						if (this.player.splats.spleen.landed &&
+							this.player.splats.leftLeg.landed &&
+							this.player.splats.rightLeg.landed) {
+							this.endScreen = true;
+							results();
+						}
+
+						function results() {
+							var results = setTimeout(function () {
+								snap.resultsScreen = true;
+								clearTimeout(results);
+							}, 0);
+							// Set staggered display times for results sheet.
+							var scoreIn = setTimeout(function () {
+								snap.score.switches.score = true;
+								clearTimeout(scoreIn);
+							}, 1000);
+							var flipBonusIn = setTimeout(function () {
+								snap.score.switches.flipBonus = true;
+								clearTimeout(flipBonusIn);
+							}, 1700);
+							var landingIn = setTimeout(function () {
+								snap.score.switches.landing = true;
+								clearTimeout(landingIn);
+							}, 2000);
+							var totalIn = setTimeout(function () {
+								snap.score.switches.total = true;
+								clearTimeout(totalIn);
+							}, 2300);
+							var againIn = setTimeout(function () {
+								snap.score.switches.again = true;
+								clearTimeout(againIn);
+
+								// Set event listener to restart game.
+								window.addEventListener('keydown', snap.playAgain);
+							}, 2600);
+						}
+					}
+
+					this.enditLoop = setTimeout(function () {
+						snap.endit();
+					}, 1000 / fps);
+				}
+			};
+
+			snap.Bounce.prototype = {
+				constructor: snap.Bounce,
+				// Return the next value in the bounce sequence per call.
+				get: function () {
+					if (this.lastIndex < this.range.length - 1) {
+						var result = this.range[this.lastIndex];
+						this.lastIndex += 1;
+						return result;
+					} else {
+						this.lastIndex = 0;
+						return this.range[this.lastIndex];
+					}
+				}
+			};
+
+			snap.Brick.prototype = {
+				constructor: snap.Brick,
+				// Unless spacebar pressed, default to falling image.
+				draw: function () {
+					// Draw function handles all player states.
+					// If the main game loop has ended, splat the player.
+					if (this.deadFrame !== null) {
+						this.splat();
+					} else {
+						// Depending on 'flipping' flag, serves different images.
+						if (!this.flipping) {
+							this.fall();
+						} else {
+							this.flip();
+						}
+
+						// Listen for left/right movement flags.
+						if (this.moveLeft) {
+							this.x -= this.xRate;
+						} else if (this.moveRight) {
+							this.x += this.xRate;
+						}
+						// If x-coord moves out of bounds, set x to bound limits.
+						if (this.x <= 0) {
+							this.x = 0;
+						} else if (this.x >= 540) {
+							this.x = 540;
+						}
+
+						// Draw poot bubbles.
+						snap.poot.draw();
+					}
+				},
+				fall: function () {
+					ctx.drawImage(this.image, 0, 0, 100, 142, 
+						this.x + snap.randSign(snap.randNum(1, 2)),
+						this.y + snap.randSign(snap.randNum(1, 3)), 
+						100, 142);
+				},
+				flip: function () {
+					if (this.flipIndex > 7) {
+						ctx.drawImage(this.image, 0, 0, 100, 142, this.x, this.y, 100, 142);
+						this.flipping = false;
+						this.flipIndex = 0;
+					} else {
+						this.flipTicks += 1;
+
+						if (this.flipTicks > this.ticksPerFrame) {
+							this.flipTicks = 0;
+							this.flipIndex += 1;
+						}
+
+						ctx.drawImage(this.image,
+							this.flipFrames[this.flipIndex],
+							0, 100, 142, this.x, this.y, 100, 142);
+					}
+				},
+				splat: function () {
+					// Calculate penalties.
+					snap.penalties.calc();
+
+					// Draw splatted player.
+					if (!this.splats.updated) {
+						this.splats.winHead.updatePos();
+						this.splats.dieHead.updatePos();
+						this.splats.spleen.updatePos();
+						this.splats.leftLeg.updatePos();
+						this.splats.rightLeg.updatePos();
+						this.splats.updated = true;
+					}
+					if (this.deadFrame < 3 || this.deadFrame > 5) {
+						this.splats.dieHead.draw();
+						snap.score.landing = -snap.penalties.lose;
+						if (!this.deadSound) {
+							snap.sfx.hits.push(new Audio('audio/hitt.wav').play());
+							this.deadSound = true;
+						}
+					} else {
+						this.splats.winHead.draw();
+						snap.score.landing = snap.penalties.win;
+						if (!this.deadSound) {
+							snap.sfx.hits.push(new Audio('audio/miniwin.wav').play());
+							setTimeout(function () {
+								snap.sfx.hits.push(new Audio('audio/miniwin.wav').play());
+							}, 300);
+							setTimeout(function () {
+								snap.sfx.hits.push(new Audio('audio/win.wav').play());
+							}, 460);
+							this.deadSound = true;
+						}
+					}
+					this.splats.spleen.draw();
+					this.splats.leftLeg.draw();
+					this.splats.rightLeg.draw();
+
+					// Draw blood splats.
+					snap.blood.draw();
+				},
+				getX: function () {
+					return this.x;
+				},
+				getY: function () {
+					return this.y;
+				}
+			};
+
+			snap.Coin.prototype = {
+				constructor: snap.Coin,
+			};
+			snap.coins.draw = function () {
+				// Coin generation is based on RNG, game timer and last in-array coin.
+				if (this.length > 0 && this[this.length - 1].yPos <= 920) {
+					this.generating = false;
+				}
+
+				if (!snap.coins.generating &&
+					(snap.randNum(0, 100) === 50 && snap.timer.get() > 1)) {
+					snap.coins.generate();
+				}
+
+				if (snap.coins.length === 0) {
+					return;
+				}
+
+				// Remove coins that are out of bounds or collected.
+				for (c in snap.coins) {
+					if (snap.coins[c]['yPos'] < -30) {
+						snap.coins.splice(c, 1);
+					}
+					if (snap.coins[c] != undefined && snap.coins.collisionCheck(snap.coins[c])) {
+						snap.coins.splice(c, 1);
+					}
+				}
+
+				// Draw coins to canvas.
+				for (var i = 0, j = this.length; i < j; i++) {
+					var coin = this[i];
+					ctx.fillStyle = snap.coins.color;
+					ctx.fillRect(coin.x, coin.y(), coin.width, coin.height);
+				}
+			};
+			snap.coins.generating = false;
+			snap.coins.generate = function () {
+				var pattern = function () {
+					return snap.randNum(0, 6);
+				};
+
+				switch (pattern()) {
+					case 1:
+						this.generating = true;
+						var numCoins = snap.randNum(5, 10);
+						var xPos = snap.randNum(70, 540);
+						for (var i = 0, y = 0; i < numCoins; i++) {
+							snap.coins.push(new snap.Coin(xPos, y));
+							y += snap.coins.yGap;
+						}
+						break;
+					case 2:
+						this.generating = true;
+						var numCoins = snap.randNum(3, 5);
+						var xPos = snap.randNum(70, 100);
+						for (var i = 0, y = 0; i < numCoins; i++) {
+							snap.coins.push(new snap.Coin(xPos, y));
+							y += snap.coins.yGap;
+							xPos += snap.coins.xGap;
+						}
+						break;
+					case 3:
+						this.generating = true;
+						var numCoins = snap.randNum(3, 5);
+						var xPos = snap.randNum(510, 540);
+						for (var i = 0, y = 0; i < numCoins; i++) {
+							snap.coins.push(new snap.Coin(xPos, y));
+							y += snap.coins.yGap;
+							xPos -= snap.coins.xGap;
+						}
+						break;
+					case 4:
+						this.generating = true;
+						var numLines = snap.randNum(3, 5);
+						var numCoins = numLines * 13;
+						var xPos = 70;
+						for (var i = 0, y = 0; i < numLines; i++) {
+							for (var j = 0; j < 13; j++) {
+								snap.coins.push(new snap.Coin(xPos, y));
+								xPos += snap.coins.xGap;
+							}
+							y += snap.coins.yGap;
+							xPos = 70;
+						}
+						break;
+				}
+			};
+			snap.coins.collisionCheck = function (coin) {
+				var coinLeft = coin.x,
+					coinRight = coin.x + coin.width,
+					coinTop = coin.yPos,
+					coinBottom = coin.yPos + coin.height;
+				var playerLeft = snap.player.x,
+					playerRight = snap.player.x + snap.player.width,
+					playerTop = snap.player.y,
+					playerBottom = snap.player.y + snap.player.height;
+
+				// Check top/bottom bounds, then left/right bounds.
+				if (playerBottom > coinTop && playerTop < coinBottom) {
+					if (playerRight > coinLeft && playerLeft < coinRight) {
+						// Update the score.
+						snap.score.update(coin);
+						// Play sound.
+						snap.sfx.coins.push(new Audio('audio/win.wav').play());
+						for (var sound in snap.sfx.coins) {
+							if (snap.sfx.coins[sound] == undefined) {
+								snap.sfx.coins.splice(sound, 1);
+							}
+						}
+						// Remove the coin.
+						return true;
+					}
+				} else {
+					return false;
+				}
+			};
+			snap.coins.color = '#999';
+			snap.coins.yGap = 70;
+			snap.coins.xGap = 40;
+			Object.defineProperties(snap.coins, {
+				'draw': {enumerable: false},
+				'generating': {enumerable: false},
+				'generate': {enumerable: false},
+				'collisionCheck': {enumerable: false},
+				'color': {enumerable: false},
+				'yGap': {enumerable: false},
+				'xGap': {enumerable: false}
+			});
+
+			snap.Cloud.prototype = {
+				constructor: snap.Cloud
+			};
+			snap.clouds.draw = function () {
+				// Generate cloud clusters every so often.
+				if (snap.clouds.ticks > snap.clouds.maxTicks && snap.timer.get() > 1) {
+					snap.clouds.ticks = 0;
+					snap.clouds.make();
+				} else {
+					snap.clouds.ticks += 1;
+				}
+				// Remove clouds from game that leave canvas area.
+				for (cloud in snap.clouds) {
+					if (snap.clouds[cloud]['yPos'] < -100) {
+						snap.clouds.splice(cloud, 1);
+					}
+				}
+
+				for (var i = 0; i < this.length; i++) {
+					var cloud = this[i];
+					ctx.fillStyle = '#fff';
+					ctx.fillRect(cloud.x, cloud.y(), cloud.width, cloud.height);
+				}
+			};
+			// Logic to make random cloud shapes.
+			snap.clouds.make = function () {
+				for (var i = 0; i < 2; i++) {
+					snap.clouds.push(new snap.Cloud());
+				}
+			};
+			// Logic to pace cloud generation.
+			snap.clouds.maxTicks = 100;
+			snap.clouds.ticks = snap.clouds.maxTicks;
+
+			snap.Floor.prototype = {
+				constructor: snap.Floor,
+				draw: function () {
+					ctx.fillStyle = '#ccc';
+					ctx.fillRect(this.x, this.y, this.width, this.height);
+				}
+			};
+
+			snap.Blood.prototype = {
+				constructor: snap.Graviject,
+				updatePos: function () {
+					this.xPos = snap.player.getX();
+					this.yPos = snap.player.getY();
+				}
+			};
+			snap.blood.made = false;
+			snap.blood.draw = function () {
+				if (!this.made) {
+					this.make();
+					for (var splat in this) {
+						this[splat].updatePos();
+					}
+				}
+
+				for (var splat in this) {
+					ctx.save();
+					ctx.translate(this[splat].x() + 50, this[splat].y() + 82);
+					ctx.rotate(this[splat].angle());
+					ctx.fillStyle = this[splat].color;
+					ctx.fillRect(-this[splat].size/2, -this[splat].size/2,
+						this[splat].size, this[splat].size);
+					ctx.restore();
+				}
+			}
+			snap.blood.make = function () {
+				if (snap.player.deadFrame < 3 || snap.player.deadFrame > 5) {
+					// Lose
+					var bloodNum = snap.randNum(25, 40);
+				} else {
+					// Win
+					var bloodNum = snap.randNum(10, 15);
+				}
+
+				for (var i = 0; i < bloodNum; i++) {
+					this.push(new snap.Blood(
+						snap.randSign(snap.randNum(1, 4) / 2), snap.randNum(2, 5),
+						(snap.randNum(1, 3) / 20), (snap.randNum(1, 3) / 20),
+						(snap.randNum(1, 5) / 20))
+					);
+				}
+
+				this.made = true;
+			}
+			Object.defineProperties(snap.blood, {
+				'draw': {enumerable: false},
+				'made': {enumerable: false},
+				'make': {enumerable: false}
+			});
+
+			snap.Poot.prototype = {
+				constructor: snap.Graviject
+			};
+			snap.poot.ticks = 0;
+			snap.poot.draw = function () {
+				this.make();
+
+				for (var poot in this) {
+					// Remove off-screen poots.
+					if (this[poot].y() < -20) {
+						this.splice(poot, 1);
+					}
+
+					ctx.fillStyle = this[poot].color;
+					ctx.fillRect(
+						this[poot].x + (50 - this[poot].size/2),
+						this[poot].y() + 10,
+						this[poot].size, this[poot].size);
+				}
+			}
+			snap.poot.make = function () {
+				// Every x number of ticks, poot.
+				this.ticks += 1;
+				if (this.ticks >= 8) {
+					this.ticks = 0;
+					this.push(new snap.Poot());
+				}
+			};
+			Object.defineProperties(snap.poot, {
+				'draw': {enumerable: false},
+				'make': {enumerable: false},
+				'ticks': {enumerable: false}
+			});
+
+			snap.Particle.prototype = {
+				constructor: snap.Particle
+			};
+			snap.particles.draw = function () {
+				this.make();
+
+				for (var particle in this) {
+					// Remove off-screen particles.
+					if (this[particle].y() < -20) {
+						this.splice(particle, 1);
+					}
+
+					if (this[particle]) {
+						ctx.fillStyle = this[particle].color;
+						ctx.fillRect(
+							(this[particle].x - this[particle].size/2), this[particle].yPos,
+							this[particle].size, this[particle].size);
+					}
+				}
+			}
+			snap.particles.make = function () {
+				// Dont make particles towards the end.
+				if (snap.time < 2500) {
+					return;
+				}
+
+				// If there are less than 8 active particles, make a new one.
+				if (this.length < 8) {
+					this.push(new snap.Particle());
+				}
+			}
+			Object.defineProperties(snap.particles, {
+				'draw': {enumerable: false},
+				'make': {enumerable: false}
+			});
+
+			snap.Timer.prototype = {
+				constructor: snap.Timer,
+				init: function () {
+					if (snap.time > 0) {
+						setTimeout(function () {
+							snap.time -= 100;
+							snap.timer.init();
+						}, 100);
+					}
+				},
+				get: function () {
+					return snap.time / 1000;
+				},
+				draw: function () {
+					// Altitude backing (altitude is timer).
+					ctx.fillStyle = 'rgba(0,0,0,.8)';
+					ctx.fillRect(500, 20, 120, 55);
+					// Altitude text.
+					snap.drawText({
+						font: '23px Arial',
+						fill: '#fff',
+						align: 'right',
+						x: 595,
+						y: 55,
+						text: Math.ceil((this.get() * 10)) + 'm'
+					});
+				}
+			};
+
+			snap.Graviject.prototype = {
+				constructor: snap.Graviject,
+				updatePos: function () {
+					this.xPos = snap.player.getX();
+					this.yPos = snap.player.getY();
+				}
+			}
+
+			snap.Score.prototype = {
+				constructor: snap.Score,
+				saved: false,
+				switches: {
+					score: false,
+					flipBonus: false,
+					landing: false,
+					total: false,
+				},
+				update: function (coin) {
+					if (snap.player.flipping) {
+						// Apply flip bonus.
+						this.val += coin.val;
+						this.flipBonus += coin.val;
+					} else {
+						this.val += coin.val;
+					}
+				},
+				draw: function () {
+					// Score backing.
+					ctx.fillStyle = 'rgba(0,0,0,.8)';
+					ctx.fillRect(20, 20, 195, 55);
+					// Score text.
+					snap.drawText({
+						font: '23px Arial',
+						fill: '#fff',
+						align: 'left',
+						x: 40,
+						y: 55,
+						text: 'Score:'
+					});
+					snap.drawText({
+						align: 'right',
+						x: 195,
+						y: 55,
+						text: this.val
+					});
+
+					// Balance backing.
+					ctx.fillStyle = 'rgba(0,0,0,.8)';
+					ctx.fillRect(20, 85, 195, 55);
+					// Balance text.
+					var balance = 'Debt:',
+						amount = '$' + this.prevScore;
+					if (snap.score.prevScore > 0) {
+						balance = 'Profit:';
+					} else if (snap.score.prevScore < 0) {
+						amount = '-$' + (this.prevScore * -1);
+					}
+					snap.drawText({
+						fill: '#fff',
+						align: 'left',
+						x: 40,
+						y: 119,
+						text: balance
+					});
+					snap.drawText({
+						align: 'right',
+						x: 195,
+						y: 119,
+						text: amount
+					});
+
+					// If the results screen timeout has fired, we bang in
+					// with results.
+					if (snap.resultsScreen) {
+						ctx.fillStyle = 'rgba(0,0,0,.8)';
+						ctx.fillRect(0, 0, 640, 960);
+
+						if (snap.score.switches.score) {
+							// Score text.
+							snap.drawText({
+								font: '35px Arial',
+								fill: '#fff',
+								align: 'center',
+								x: 320,
+								y: 290,
+								text: 'Score: ' + this.val
+							});
+							if (!snap.sfx.switches.score) {
+								snap.sfx.hits.push(new Audio('audio/hitt.wav').play());
+								snap.sfx.switches.score = true;
+							}
+						}
+						if (snap.score.switches.flipBonus) {
+							// Score text.
+							snap.drawText({
+								align: 'center',
+								x: 320,
+								y: 350,
+								text: 'Flip bonus: ' + this.flipBonus
+							});
+							if (!snap.sfx.switches.flipBonus) {
+								snap.sfx.hits.push(new Audio('audio/hitt.wav').play());
+								snap.sfx.switches.flipBonus = true;
+							}
+						}
+						if (snap.score.switches.landing) {
+							// Score text.
+							snap.drawText({
+								align: 'center',
+								x: 320,
+								y: 410,
+								text: 'Landing: ' + this.landing
+							});
+							if (!snap.sfx.switches.landing) {
+								snap.sfx.hits.push(new Audio('audio/hitt.wav').play());
+								snap.sfx.switches.landing = true;
+							}
+						}
+						// Calculate the total score, taking into consideration
+						// any existing scores.
+						var total = function () {
+							var thisPrev = snap.score.prevScore,
+								thisNet = snap.score.val + snap.score.flipBonus
+									+ snap.score.landing,
+								thisGross = thisPrev + thisNet;
+							// Save the newly computed score into memory for the next game.
+							if (!snap.score.saved) {
+								snap.score.newScore += thisNet;
+								snap.score.saved = true;
+							}
+							// Set either 'Debt' or 'Profit' depending on +/- score.
+							if (thisGross > 0) {
+								return 'Profit: $' + thisGross;
+							} else {
+								return 'Debt: -$' + thisGross * -1;
+							}
+						};
+						if (snap.score.switches.total) {
+							// Score text.
+							snap.drawText({
+								font: '70px Arial',
+								align: 'center',
+								x: 320,
+								y: 550,
+								text: total()
+							});
+							if (!snap.sfx.switches.total) {
+								snap.sfx.hits.push(new Audio('audio/hitt.wav').play());
+								snap.sfx.switches.total = true;
+							}
+							// Play again text.
+							snap.drawText({
+								font: '24px Arial',
+								fill: 'rgba(255,255,255,' + snap.introBounce.get() + ')',
+								align: 'center',
+								x: 320,
+								y: 600,
+								text: snap.currentPhrase
+							});
+						}
+					}
+				}
+			};
+
+			// Start the game loop.
+			var canvas = document.getElementById('snap-crack');
+			ctx = canvas.getContext('2d');
+
+			snap.setup();
+			snap.startit(snap.fps);
+
+			/*
+				------------
+				RANDOM IDEAS
+				------------
+
+				- Randomly generate a timer limit every round.
+				- Difficulty levels: Baby[1], Amateur [2], Hardcore [3] - set score penalty rates.
+
+			*/
+
+		</script>
+	</body>
+</html>

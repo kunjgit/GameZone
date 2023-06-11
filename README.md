@@ -243,6 +243,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 138 | [Slide Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Slide_Puzzle)|
 | 139 | [Diamond_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Diamond_Run)|
 | 140 | [Everyones Sky](https://github.com/kunjgit/GameZone/tree/main/Games/Everyones_Sky)|
+| 141 | [Line Of Fire](https://github.com/kunjgit/GameZone/tree/main/Games/Line_Of_Fire)|
+ 
 </center>
 
 <br>

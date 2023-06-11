@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<script src="main.js" type="text/javascript"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			margin-top: 1em;
+		}
+		
+		#gamearea {
+				height: 300px;
+				margin: 1em auto 50px auto;
+				position: relative;
+		}
+
+		#ccont, #c {
+			position: relative;
+			z-index: 2;
+		}
+		.stripe {
+			width: 100%;
+			height: 150px;
+			display: block;
+			background-color: #F7B019;
+			z-index: -1;
+		}
+		.orange {
+			background-color: #FF6E00;
+		}
+		.blue {
+			background-color: #14C77A;
+		}
+		small {
+			color: #14C77A;
+			text-align: right;
+		}
+		/*
+			yellowy: F7B019
+			grey: 999285
+			orange: FF6E00
+			blue: 40FFE0
+			green: 14C77A
+		*/
+		.faded {
+			opacity: 0.5;
+		}
+		#progress {
+			font-size: 150%;
+		}
+		#progress span {
+			border-right: 2px solid white;
+		}
+		#progress .current{
+			color: #40FFE0;
+			background-color: #40FFE0;
+		}
+		#progress .unfinished {
+			color: #999285;
+			background-color: #999285;
+		}
+		#progress .finished {
+			color: #14C77A;
+			background-color: #14C77A;
+		}
+		h3, small, #cstripe, #ccont {
+			width: 1000px;
+			margin: 0 auto;
+			display: block;
+		}
+		h3 {
+			color: #40FFE0;
+			text-align: left;
+		}
+
+		.squished  #cstripe {
+			width: 200px !important;
+		}
+
+		.squished #ccont {
+			width: 200px;
+			overflow: hidden;
+		}
+
+		.squished #c {
+			margin-left: -200px;
+		}
+
+		#mute, a {
+			color: #14C77A;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h3>
+		<span id="progress"></span>
+		<span id="title"></span>
+	</h3>
+	<div id="gamearea">
+		<div style="position: absolute; width: 100%;">
+			<div class="faded stripe"></div>
+			<div class="faded orange stripe"></div>
+
+			<div id="cstripe" style="margin-top: -300px; ">
+				<div class="stripe"></div>
+				<div class="orange stripe"></div>
+			</div>
+		</div>
+
+		<div id="ccont">
+			<canvas id="c" width="1000" height="300">
+				Your <a href="http://www.whatbrowser.org/">browser</a> is old and doesn't support this awesome game!
+			</canvas>
+		</div>
+	</div>
+	<audio id="l" src="low.ogg"></audio>
+	<audio id="h" src="high.ogg"></audio>
+	<small>
+		<div id="mute">mute</div>
+	</small>
+</body>
+</html>

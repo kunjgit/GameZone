@@ -1,0 +1,172 @@
+/*-----------------------------------reset------------------------------------*/
+body, div{
+	margin: 0px;
+	padding: 0px;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+ul li{
+	list-style: none;
+}
+
+/*---------------------------------main styles--------------------------------*/
+body{
+	background: #000;
+	overflow: hidden;
+	color: #aaa;
+	font-family: "Avenir Oblique", monospace;
+}
+
+h1{
+	font-size: 64px;
+}
+
+.welcome-screen{
+	position: absolute;
+	z-index: 1000;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: #000000;
+	text-align: center;
+	padding: 50px 10%;
+}
+
+.welcome-screen p{
+	margin: 50px 0px;
+}
+
+.welcome-screen a{
+	font-size: 36px;
+	color: darkorange;
+}
+.welcome-screen a:hover{
+	color: orange;
+}
+
+.welcome-screen.hidden{
+	display: none;
+}
+
+#notes{
+	width: 50%;
+	height: 28%;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	line-height: 14px;
+	overflow: hidden;
+}
+#notes .note{
+	margin: 6px 0px;
+}
+
+#notes-wrapper{
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	bottom: 0px;
+}
+
+.system-thought, .item{
+	color: darkorange;
+}
+.level{
+	color: green;
+}
+.place{
+	color: yellow;
+}
+.thought{
+	color: darkslategray;
+}
+.dead{
+	color: red;
+}
+.win{
+	color: orange;
+	font-size: 28px;
+}
+#inventory{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 25%;
+	min-width: 120px;
+}
+
+.default-item{
+	font-style: italic;
+}
+
+#controlls{
+	position: absolute;
+	bottom: 50px;
+	right: 50px;
+	text-align: right;
+}
+
+#controlls a{
+	font-size: 20px;
+	border: 1px solid #222;
+	color: #aaa;
+	line-height: 50px;
+	padding: 5px;
+	border-radius: 20px;
+	white-space: nowrap;
+	display: none;
+ }
+
+#controlls a:hover{
+	color: #ddd;
+}
+
+.footer{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 20px;
+	text-align: right;
+}
+.developed-by{
+	font-size: 12px;
+	line-height: 12px;
+	padding-right: 3px;
+}
+
+#game{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#ui-touch-block{
+	position: absolute;
+	left: 25px;
+	bottom: 25px;
+	border-radius: 60px;
+	width: 120px;
+	height: 120px;
+	border: 3px solid #aaaaaa;
+	display: none;
+}
+
+.touches #ui-touch-block{
+	display: block;
+}
+
+#ui-touch-handler{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	margin-left: 40px;
+	margin-top: 40px;
+	width: 40px;
+	height: 40px;
+	background: #aaaaaa;
+	border-radius: 20px;
+}

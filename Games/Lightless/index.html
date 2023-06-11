@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lightless </title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/lightless.css">
+
+</head>
+<body onselectstart="return false;">
+	<div class="welcome-screen">
+		<h1>Lightless.js</h1>
+		<p>Imagine, that You are in the dark cave. It`s easy to imagine, but it`s not so easy for man, who is there... You should try to help him to find out. You cannot see anything. There are no fire, no lights...He just can hold in memory a few last corners for a certain time and if he has no water, it will be hard to concentrate on it. You should help him to go through dark cave and search some useful things which will help him to save his live. Don`t forget that he cannot live too much time without food and water...I think he will find a water, but food...Just try to go out.</p>
+		<p>Through the adventure: you can see his <span class="thought">thoughts</span>; <span class="item">items</span>, that he will find; <span class="level">changing depth information</span>, when he will fall down or climb up; some special <span class="place">places</span> that he will find; <span class="dead">bad news</span> ...I hope You won`t see it :)</p>
+		<p>Ah, Yep...Controls... You can use keyboard arrows for controls. Sometimes You will see link at the right-bottom, You can use mouse to click on it. If you have a touchscreen, you will see controller at the left-bottom.</p>
+		<a id="start-game-link" href="#">Play the Game!</a>
+		<p>Be very careful and Good Luck!!!</p>
+	</div>
+	<canvas id="game"></canvas>
+	<div id="notes">
+		<div id="notes-wrapper">
+		</div>
+	</div>
+	<ul id="controlls">
+		<li><a id="use-link" href="#">Use rope</a></li>
+		<li><a id="drink-link" href="#">Drink water</a></li>
+	</ul>
+	<div id="ui-touch-block">
+		<div id="ui-touch-handler"></div>
+	</div>
+	<div id="inventory"><span class="main-title">I have: </span><span id="inventory-list"><span class="default-item">no items</span></span></div>
+	
+	<script src="javascript/lightless.js"></script>
+</body>
+</html>

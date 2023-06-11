@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reculer</title>
+    <meta name="description" content="Reculer">
+    <script src="./aframe.js"></script>
+    <script type="text/javascript">
+    	AFRAME.registerComponent('x-button-listener', {
+			  init: function () {
+			    this.el.addEventListener('xbuttondown', function (evt) {
+					x = (document.getElementById("actor").getAttribute("position").x)
+				  	y = (document.getElementById("actor").getAttribute("position").y)
+				  	z = (document.getElementById("actor").getAttribute("position").z)
+				
+			    	//BACK
+			    	
+		  	document.getElementById('actor').setAttribute('position',x+' '+y+' '+(z+0.05));
+			    });
+			    this.el.addEventListener('bbuttondown', function (evt) {
+					x = (document.getElementById("actor").getAttribute("position").x)
+				  	y = (document.getElementById("actor").getAttribute("position").y)
+				  	z = (document.getElementById("actor").getAttribute("position").z)
+				
+			    	//BACK
+			    	
+		  	document.getElementById('actor').setAttribute('position',(x+0.02)+' '+(y)+' '+z);
+		  
+			    });
+			    	this.el.addEventListener('abuttondown', function (evt) {
+					x = (document.getElementById("actor").getAttribute("position").x)
+				  	y = (document.getElementById("actor").getAttribute("position").y)
+				  	z = (document.getElementById("actor").getAttribute("position").z)
+				
+			    	
+			    	
+		  	document.getElementById('actor').setAttribute('position',(x-0.02)+' '+(y)+' '+z);
+
+			    });
+			  }
+			});
+    	
+    	AFRAME.registerComponent('win', {
+			  dependencies: ['raycaster'],
+
+			  init: function () {
+			
+			    this.el.addEventListener('raycaster-intersection', function () {	
+			    	console.log('win')
+			      	document.getElementById('actor').setAttribute('position',"0 1.252 -3");
+			      		//console.log('YOU LO0SE');
+			      		document.getElementById('cam').setAttribute('rotation',"0 0 0");
+			      		document.getElementById('txt').setAttribute('text','font: mozillavr;color:#2196F3; value: You Finally Finished the game\n You can START AGAIN');
+			    });
+			  }
+			});
+    	AFRAME.registerComponent('collider', {
+    		
+			  dependencies: ['raycaster'],
+
+			  init: function (data) {
+			
+			    this.el.addEventListener('raycaster-intersection', function () {	
+			    	console.log(data)
+			      	document.getElementById('actor').setAttribute('position',"0 1.252 -3");
+			      		console.log('YOU LO0SE');
+			      		document.getElementById('cam').setAttribute('rotation',"0 0 0");
+			      		document.getElementById('txt').setAttribute('text','font: mozillavr;color:#2196F3; value: OOPS! YOU TOUCHED A RED OBJECT!\n START AGAIN');
+			    });
+			  }
+			});
+    	AFRAME.registerComponent('outside', {
+    		
+			  dependencies: ['raycaster'],
+
+			  init: function () {
+			
+			    this.el.addEventListener('raycaster-intersection', function () {	
+			      	document.getElementById('actor').setAttribute('position',"0 1.252 -3");
+			      		console.log('YOU LO0SE');
+			      		document.getElementById('cam').setAttribute('rotation',"0 0 0");
+			      		document.getElementById('txt').setAttribute('text',"font: mozillavr;color:#2196F3; value: Don't Cheat! \nIt seems that you touched the Wall");
+			    });
+			  }
+			});
+    	AFRAME.registerComponent('rotation-reader', {
+    		tick: function(){
+    			//console.log(document.getElementById("cam").getAttribute('rotation'))
+    			y = document.getElementById("cam").getAttribute('rotation').y
+    			if(y!=0){
+    			if(y>80){
+    				document.getElementById('txt').setAttribute('text','font: mozillavr;color:#2196F3; value: Told You Not to see Back');
+    				document.getElementById('actor').setAttribute('position',"0 1.252 -3");
+	//console.log('YOU LO0SE');
+	document.getElementById('cam').setAttribute('rotation',"0 0 0");
+
+    				
+    				return 0
+//    				console.log('You LO0SE')
+    			}
+    			else if(y<(-80)){
+    				//console.log('YOU LO0SE')
+    				document.getElementById('txt').setAttribute('text','font: mozillavr;color:#2196F3; value: Told You Not to see Back');
+document.getElementById('actor').setAttribute('position',"0 1.252 -3");
+	//console.log('YOU LO0SE');
+	document.getElementById('cam').setAttribute('rotation',"0 0 0");
+    				return 0
+    			}
+    			else{
+    				//console.log('NP')
+    			}
+    		}
+    		}
+    		});
+    </script>
+    <a-scene background="color: white" light="defaultLightsEnabled: true">
+    		<a-entity id='txt' text="font: mozillavr;color:#2196F3; value: INSTRUCTIONS\n You have to move backwards using ASD Keys, W won't work, Make sure you won't touch those RED objects. And you are not allowed to see back.\n FOR VR(ONLY FOR OCULUS GO), MOVE LEFT/RIGHT with A and B, \n Move Back with X \n START BY MOVING Back;" position="0 1.6 -4.8" scale="3 3 3"></a-entity>  
+
+    	<a-box oculus-touch-controls x-button-listener class="actor" collider raycaster="objects: .col "id='actor' position="0 1.252 -3" color="#E91E63" depth="0.1" height="0.1" width="0.1" rotation="0 0 0" >
+    	<a-camera id='cam' rotation-reader wasd-controls-enabled="false" look-controls position="0 0 0"></a-camera>
+    	</a-box>
+    	
+    	<a-box  position="0 1.6 -5" color="#2C3E50" depth="0.25" height="4" width="2" rotation="0 0 90"></a-box>
+    	<a-box  position="0 2.6 5" color="#2C3E50" depth="0.25" height="4" width="20" rotation="90 0 90"></a-box>
+    	<a-box 	 position="0 0.5 5" color="#2C3E50" depth="0.25" height="4" width="20" rotation="90 0 90"></a-box>
+    	<!-- OBJECTS -->
+    	<a-box   position="2 1.5 5" color="#2C3E50" depth="0.25" height="4" width="20" rotation="0 90 0" scale="1 0.67 1"></a-box>
+    	<a-box  position="-2 1.5 5" color="#2C3E50" depth="0.25" height="4" width="20" rotation="0 90 0" scale="1 0.67 1"></a-box>
+    	<a-box class="col" position="-2 1.5 0" color="#F44336" depth="1" height ="1" width="1" scale="2 2 2"></a-box>
+    	<a-box class="col" position="2 1.5 0" color="#F44336" depth="1" height ="1" width="1" scale="2 2 2"></a-box>
+
+        <a-box class="col" position="-1.20 1.5 5.758" color="#F44336" depth="0.2" height ="1" width="1" scale="2 2 2"></a-box>
+        <a-box class="col" position="1.823 1.500 5.758" color="#F44336" depth="1" height ="1" width="1" scale="2 2 2"></a-box>
+        <a-box class="col" position="1.008 1.500 12" color="#F44336" depth="1" height ="1" width="1" scale="2.493 2 0.416"></a-box>
+        
+    	<a-box win raycaster="objects: .actor" position="0 1.6 13" color="#5AB963" depth="0.25" height="4" width="2" rotation="0 0 90"></a-box>
+
+    </a-scene>
+   
+    <script src="script.js"></script>	
+  </body>
+</html>

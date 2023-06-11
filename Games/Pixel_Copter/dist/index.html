@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Pixel-copter</title>
+    <style>
+        * { font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif; padding: 0; margin: 0; }
+        html, body { height: 100%; margin: 0 auto; }
+        body { -webkit-user-select: none; }
+
+
+        #canvas{
+            margin-top: 0px;
+        }
+
+        #container {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 948px;
+            height: 548px;
+            margin: 0 auto;
+            border: 2px solid #333;
+        }
+
+
+        #header { position: relative; width: 948px; height: 35px; margin: 0;  }
+
+            #fuel, #remaining { z-index: 5000;  position: absolute; top: 10px; right: 10px; width: 100px; height: 16px;  }
+            #fuel { border: 2px solid #333333; display: none; background: #CCCCCC;  }
+            #fuel:after { z-index: 5005; content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('images/fuel_icon_22.png'); background-repeat: no-repeat; background-position: center center; }
+                #remaining { display: block; top: 0; left: 0; background: #666666; }
+            #distance { z-index: 5000; display: none; position: absolute; top: 10px; left: 10px; font-size: 13px; color:#191919;}
+
+
+        #inner-wrapper { position: absolute; top: 0; left: 475px; width: 948px; height: 100%; margin-left: -320px; }
+
+        #intro, #end { display: none; position: absolute; top: 95px; left: 50px; width: 500px; height: 300px; background: #999999; color: #333333; padding: 20px 25px; border: 2px solid #333333; }
+            h1 { margin-bottom: .5em; }
+            p, dl { margin-bottom: 1em; }
+            p { line-height: 1.3em; }
+            button { clear: both; display: block; background: #666666; border: 2px outset #999999; padding: 6px 12px; cursor: pointer; }
+            button:active { border-style: inset; }
+            dl { overflow: hidden; }
+                dt { clear: both; float: left; width: 250px; margin-bottom: 5px; }
+                dd { float: left; color: #333333; }
+            span.key { display: inline-block; background: #FFFFFF; color: #666666; padding: 0 20px; border: 1px outset #CCCCCC; }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!--  Canvas -->
+    <canvas id="canvas"></canvas>
+
+    <!--  Container -->
+    <div id="container">
+        <div id ="header">
+            <div id="distance"></div>
+            <div id="fuel"><span id="remaining"></span></div>
+        </div>
+        <div id="inner-wrapper">
+
+            <div id="intro">
+                <h1>Pixel-copter</h1>
+                <p>To navigate through, watch out for the tricky gravity with pressing <span class="key">space</span> bar to add thrust to your pixel-copter and release it before hitting the top and don't forget to collect fuel power-ups to not to get out of petrol. That's all you need to do.</p>
+                <p><small>Looking for a good score? While trying to fly as straight as possible is a bit easier, it will not result in such a high score. Try to do some daring manouvers to receive some extra distance.<br/>Good Luck!</small></p>
+                <button id="begin">Begin</button>
+            </div>
+
+            <div id="end">
+                <h1>Pixel-copter</h1>
+                <p>Your Pixel-copter is down!</p>
+                <p id="end-info"></p>
+                <dl>
+                    <dt>You traveled:</dt>
+                    <dd id="end-distance"></dd>
+
+                    <dt id='end-highScore'>Your high score:</dt>
+                    <dd id="best-distance"></dd>
+
+                    <dt></dt>
+                    <dd id="end-color"></dd>
+                </dl>
+                <button id="again">Play Again</button>
+            </div>
+        </div>
+
+    </div>
+
+<script src="js/main.min.js"></script>
+
+<script type="text/javascript">
+
+    //getting the 2d canvas element
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    // setting the stage size
+    var width = 950;
+    var height = 550;
+    var fullWidth = width;
+    var fullHeight = height;
+    canvas.width = fullWidth;
+    canvas.height = fullHeight;
+
+    //creating our game
+    var game = new HelicopterGame.Game();
+
+    HelicopterGame.UI.showIntro();
+
+    //adding a ship
+    //game.startGame();
+
+</script>
+
+</body>
+</html>

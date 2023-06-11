@@ -258,7 +258,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 153 | [Unlock_The_Lock](https://github.com/kunjgit/GameZone/tree/main/Games/Unlock_The_Lock)|
 | 154 | [Gnomedom](https://github.com/kunjgit/GameZone/tree/main/Games/Gnomedom)|
 | 155 | [Lost In The Maze 3D](https://github.com/kunjgit/GameZone/tree/main/Games/Lost_In_The_Maze_3D)|
-| 156 | [PONG BALL]( https://github.com/mridul588/GameZone/tree/main/Games/Pong_Ball)|
+| 156 | [PONG BALL]( https://github.com/kunjgit/GameZone/tree/main/Games/Pong_Ball)|
+| 157 | [Projectile Motion Game](https://github.com/kunjgit/GameZone/tree/main/Games/Projectile_Motion_Game)|
 </center>
 
 <br>

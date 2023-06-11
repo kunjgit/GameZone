@@ -257,6 +257,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 152 | [Poker_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Poker_Dice)| 
 | 153 | [Unlock_The_Lock](https://github.com/kunjgit/GameZone/tree/main/Games/Unlock_The_Lock)|
 | 154 | [Gnomedom](https://github.com/kunjgit/GameZone/tree/main/Games/Gnomedom)|
+| 155 | [Lost In The Maze 3D](https://github.com/kunjgit/GameZone/tree/main/Games/Lost_In_The_Maze_3D)|
 </center>
 
 <br>

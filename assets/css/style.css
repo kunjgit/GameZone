@@ -1350,6 +1350,14 @@ main {
   transition: var(--transition-1);
 }
 
+
+#joystick {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-1);
+} 
+
 .project-item>a:hover img {
   transform: scale(1.1);
 }

@@ -1,0 +1,892 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"render",
+				"renderPlayhead"
+			],
+			[
+				"wallVel",
+				"wallVelocityIncrease"
+			],
+			[
+				"colo",
+				"color-dark"
+			],
+			[
+				"col",
+				"color-mid"
+			],
+			[
+				"color-",
+				"color-light"
+			],
+			[
+				"tr",
+				"transition-duration"
+			],
+			[
+				"color",
+				"color-light"
+			],
+			[
+				"fadeEle",
+				"fadeElemsLength"
+			],
+			[
+				"sy",
+				"sy"
+			],
+			[
+				"radiu",
+				"radiusEyeball"
+			],
+			[
+				"Enity",
+				"EntityBlastLine"
+			],
+			[
+				"Enti",
+				"EntitySnakeBlock"
+			],
+			[
+				"En",
+				"EntitySnakeBlock"
+			],
+			[
+				"resi",
+				"resizeGame"
+			],
+			[
+				"Entity",
+				"EntityDeathExplosion"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/js/states/play.js",
+			"settings":
+			{
+				"buffer_size": 24039,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Documents and Settings/Jack/Desktop/index/index.html",
+			"settings":
+			{
+				"buffer_size": 52720,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/css/main.css",
+			"settings":
+			{
+				"buffer_size": 22816,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/entities/tile.js",
+			"settings":
+			{
+				"buffer_size": 941,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/entities/enemy.js",
+			"settings":
+			{
+				"buffer_size": 4232,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/data/waves.js",
+			"settings":
+			{
+				"buffer_size": 1131,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdo",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"brows",
+				"Preferences: Browse Packages"
+			],
+			[
+				"list pa",
+				"Package Control: List Packages"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"upg",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"list ",
+				"Package Control: List Packages"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"upgr",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"upd",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"bro",
+				"Preferences: Browse Packages"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 386.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp/www/games/elematter-js13k/game",
+		"/C/wamp/www/games/elematter-js13k/game/build",
+		"/C/wamp/www/games/elematter-js13k/game/src",
+		"/C/wamp/www/games/elematter-js13k/game/src/css",
+		"/C/wamp/www/games/elematter-js13k/game/src/js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/data",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/entities",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/g",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/states",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/vendor",
+		"/C/wamp/www/games/elematter-js13k/game/src/temp"
+	],
+	"file_history":
+	[
+		"/C/Documents and Settings/Jack/Desktop/desc.txt",
+		"/C/wamp/www/games/elematter-js13k/game/src/css/main.css",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/data/waves.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/data/towers.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/entities/tower.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/index.php",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/data/map.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/g/audio.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/entities/wave.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/entities/bullet.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/game.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/imports.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/entities/splash.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/entities/tile.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/g/pool.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/g/util.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/data/audio.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/entities/enemy.js",
+		"/C/Documents and Settings/Jack/Desktop/index/index.html",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/data/enemies.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/temp/_full.js",
+		"/C/wamp/www/games/elematter-js13k/game/build/index.html",
+		"/C/wamp/www/games/elematter-js13k/game/gulpfile.js",
+		"/C/wamp/www/games/elematter-js13k/game/.gitignore",
+		"/C/wamp/www/games/elematter-js13k/game/elematter.sublime-project",
+		"/C/Documents and Settings/Jack/Application Data/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/wamp/www/games/elematter-js13k/game/.sublime-project",
+		"/C/Documents and Settings/Jack/Application Data/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/g/storage.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/g/time.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/states/gameover.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/states/menu.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/g/states.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/g/state.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/temp/_.js",
+		"/C/wamp/www/clients/the-firm-graphics/voodoo/deploy-2014/js/main.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/g/g.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/g/group.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/data/attacks.js",
+		"/C/wamp/www/games/elematter-js13k/game/README.md",
+		"/C/wamp/www/games/elematter-js13k/game/package.json",
+		"/C/Documents and Settings/Jack/Desktop/join-dog-sitting",
+		"/C/Documents and Settings/Jack/Desktop/nerdbox/demo.html",
+		"/C/Documents and Settings/Jack/Desktop/level-test.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/states/splash.js",
+		"/C/wamp/www/games/elematter-js13k/game/src/js/entities/button.js",
+		"/C/wamp/www/games/elematter-js13k/README.md",
+		"/C/wamp/www/games/elematter-js13k/package.json",
+		"/C/Documents and Settings/Jack/Application Data/Sublime Text 3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/C/Documents and Settings/Jack/Desktop/test.md",
+		"/C/Documents and Settings/Jack/Local Settings/Temp/17.html",
+		"/C/Documents and Settings/Jack/Local Settings/Temp/tmp77ey4e.html",
+		"/C/Documents and Settings/Jack/Local Settings/Temp/tmpsxs52d.html",
+		"/C/Documents and Settings/Jack/Desktop/tones-master/tones-master/tones.js",
+		"/C/Documents and Settings/Jack/Desktop/tones-master/tones-master/demo.js",
+		"/C/Documents and Settings/Jack/Desktop/test.sfs",
+		"/C/Documents and Settings/Jack/Desktop/tones-master/tones-master/demo_require.html",
+		"/C/Documents and Settings/Jack/Desktop/tones-master/tones-master/demo.html",
+		"/C/wamp/www/games/radius-raid-js13k/full-upgrades/js/definitions.js",
+		"/C/wamp/www/games/radius-raid-js13k/full-upgrades/js/game.js",
+		"/C/wamp/www/games/space-blaster/src/js/g/time.js",
+		"/C/wamp/www/games/space-blaster/src/js/g/util.js",
+		"/C/wamp/www/games/space-blaster/gulpfile.js",
+		"/C/wamp/www/games/js13k-boilerplate/gulpfile.js",
+		"/C/wamp/www/games/space-blaster/build/game.zip",
+		"/C/wamp/www/games/space-blaster/src/js/g/g.js",
+		"/C/wamp/www/games/space-blaster/build/index.html",
+		"/C/wamp/www/games/space-blaster/src/index.php",
+		"/C/Documents and Settings/Jack/Application Data/Sublime Text 3/Packages/SFTP/Default (Windows).sublime-keymap",
+		"/C/Documents and Settings/Jack/Application Data/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/wamp/www/games/js13k-boilerplate/node_modules/gulp-rimraf/node_modules/gulp-util/node_modules/minimist/test/whitespace.js",
+		"/C/wamp/www/games/js13k-boilerplate/node_modules/gulp/node_modules/chalk/node_modules/escape-string-regexp/package.json",
+		"/C/wamp/www/games/js13k-boilerplate/node_modules/gulp-rename/test/rename.spec.js",
+		"/C/wamp/www/games/js13k-boilerplate/node_modules/gulp-minify-css/node_modules/clean-css/lib/text/name-quotes.js",
+		"/C/wamp/www/games/js13k-boilerplate/node_modules/gulp-notify/lib/notify.js",
+		"/C/wamp/www/games/js13k-boilerplate/package.json",
+		"/C/wamp/www/games/js13k-boilerplate/build/index.html",
+		"/C/wamp/www/games/js13k-boilerplate/build/game.zip",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/imports.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/g/group.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/g/pool.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/g/util.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/states/splash.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/game.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/states/play.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/states/menu.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/g/time.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/g/storage.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/g/states.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/js/g/state.js",
+		"/C/wamp/www/games/js13k-boilerplate/src/index.php",
+		"/C/wamp/www/games/js13k-boilerplate/src/css/main.css",
+		"/C/Documents and Settings/Jack/Desktop/codepen-logo.svg",
+		"/C/wamp/www/games/js13k-boilerplate/game/node_modules/gulp/node_modules/liftoff/artwork/liftoff-icon.svg",
+		"/C/wamp/www/games/js13k-boilerplate/game/node_modules/gulp/node_modules/liftoff/artwork/liftoff.svg",
+		"/C/wamp/www/games/js13k-boilerplate/game/src/index.php",
+		"/C/wamp/www/games/js13k-boilerplate/game/gulpfile.js",
+		"/C/wamp/www/games/js13k-boilerplate/game/package.json",
+		"/C/wamp/www/games/phaser-boilerplate/gulpfile.js",
+		"/C/wamp/www/games/js13k-boilerplate/game/src/js/lib/jsfxr.js",
+		"/C/wamp/www/games/js13k-boilerplate/game/src/js/states/splash.js",
+		"/C/wamp/www/games/js13k-boilerplate/game/src/js/engine/entity.js",
+		"/C/wamp/www/games/js13k-boilerplate/game/src/js/engine/entities.js",
+		"/C/wamp/www/games/js13k-boilerplate/game/src/js/states/gameover.js",
+		"/C/wamp/www/games/js13k-boilerplate/game/src/css/main.css",
+		"/C/wamp/www/games/js13k-boilerplate/game/index.html",
+		"/C/wamp/www/games/phaser-boilerplate/.gitignore",
+		"/C/Documents and Settings/Jack/Desktop/gulp-testing/src/index.html",
+		"/C/Documents and Settings/Jack/Desktop/gulp-testing/src/index.php",
+		"/C/Documents and Settings/Jack/Desktop/gulp-testing/src/min-js.js",
+		"/C/wamp/www/games/block-css/game/s.css",
+		"/C/wamp/www/games/block-css/game/css/style.css",
+		"/C/Documents and Settings/Jack/Desktop/test.txt",
+		"/C/Documents and Settings/Jack/Desktop/contact.html",
+		"/C/Documents and Settings/Jack/Desktop/contactengine.php",
+		"/C/Documents and Settings/Jack/Desktop/contactthanks.php",
+		"/C/wamp/www/plugins/intense-images/demo/css/styles.css",
+		"/C/Documents and Settings/Jack/Application Data/Sublime Text 3/Packages/User/SFTP.sublime-settings",
+		"/C/Documents and Settings/Jack/Application Data/Sublime Text 3/Packages/BracketHighlighter/bh_core.sublime-settings",
+		"/C/Documents and Settings/Jack/Application Data/Sublime Text 3/Packages/User/Monokai Soda Alt.tmTheme",
+		"/C/wamp/www/games/phaser-launch/src/scss/main.scss",
+		"/C/wamp/www/projects/itchaskitch/site/css/style.min.css",
+		"/C/wamp/www/games/phaser-launch/src/js/states/Menu.js",
+		"/C/wamp/www/games/phaser-launch/gulpfile.js",
+		"/C/wamp/www/games/phaser-launch/build/js/main.min.js",
+		"/C/wamp/www/games/phaser-launch/src/js/imports.js",
+		"/C/wamp/www/games/phaser-launch/src/js/game.js",
+		"/C/wamp/www/games/phaser-boilerplate/package.json"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"",
+			"-node_modules/**/*",
+			"-node_modules",
+			"!node_modules",
+			"",
+			"imports.js",
+			"",
+			"Preload.js",
+			"Boot.js",
+			"style.css",
+			"",
+			"C:\\wamp\\www\\games\\snakely-css",
+			"",
+			"dnbradio-waveform.js",
+			"",
+			"boot.js",
+			"keymap.js",
+			"font.js",
+			"",
+			"play.js",
+			"",
+			"C:\\wamp\\www\\kirby"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"earlyAmt",
+			"sendEa",
+			"wave:",
+			"tower-info",
+			"//",
+			"splash",
+			"mute",
+			"splash",
+			"onSendClick",
+			"onSendClock",
+			"advanceWave",
+			"this.advanceWave",
+			"onsendclick",
+			"this.next",
+			"next",
+			"isPlaying",
+			"updateWaves",
+			"advanceWave",
+			"play",
+			"send",
+			"lives",
+			"gameover",
+			"won",
+			"exit",
+			"this.won",
+			"win",
+			"bullet",
+			"activate",
+			"activat",
+			"activa",
+			"bullet",
+			"g.B",
+			"slow",
+			"setFragment",
+			"setFragments",
+			"update",
+			"hover-tower-upgrade",
+			"range",
+			"consol",
+			"console.log",
+			"reclaim",
+			"updateTowerMenuText",
+			"setFragments",
+			"updateTowerMenuText",
+			"console.log",
+			"lastClickedTower",
+			"getByVal",
+			"updateTowerUpgradeAvailability",
+			"this",
+			"costToup",
+			"updateTowerUpgradeAvailability",
+			"this.frag",
+			"updateTowerMenuText",
+			"setFragment",
+			"setFragments",
+			"setSta",
+			"updateTowerMenuAvailability",
+			"updateTowerMenuA",
+			"this.lastClickedTower",
+			"this.lastClicked",
+			"updateTowerMenuAvailability",
+			"this.fragm",
+			"updateTowerUpgradeAvailability",
+			"hover-tower-button",
+			"tower-stat",
+			"updateTower",
+			"updateTowerMenuText",
+			"towerCost",
+			"title",
+			"label",
+			"damage",
+			"path",
+			"advanceWa",
+			"wave",
+			"laser",
+			"mouseenter",
+			"hideBu",
+			"ui-l",
+			"hideBu",
+			"audio.play",
+			"click",
+			"mouseenter",
+			".play",
+			"play",
+			"consol",
+			"updateBuildMenuAvail",
+			"updateBuil",
+			"updateTowerMenuAvailability",
+			"setFragm",
+			"animation",
+			"build-d",
+			"enemy-wrap",
+			"lvl",
+			".hit",
+			"moveUpd",
+			"slow",
+			"tower-sta",
+			"tower-title",
+			"select",
+			"selectbutt",
+			"select",
+			"remove(",
+			"removeAt(",
+			"removeAt",
+			"hsl(120, 50%, 10%)",
+			"50%",
+			"margin",
+			"_",
+			"data",
+			"bullet",
+			"tick",
+			"time",
+			"tick",
+			"time",
+			"isObje",
+			"toggle",
+			"guid",
+			"config",
+			"this.wp",
+			"advan",
+			"tile",
+			"desc",
+			"-moz",
+			"webkit",
+			"s1",
+			"scale",
+			"target",
+			"byval"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"150ms",
+			"</i>",
+			"<i",
+			"rte",
+			"dmg",
+			"rng",
+			"4",
+			"g.qs",
+			"build",
+			"Play",
+			"Menu",
+			"Gameover",
+			"a",
+			"",
+			"// import('",
+			"');",
+			"#000000",
+			"LOADING...",
+			"Loading...",
+			"333",
+			"../fonts/opensans/OpenSans-",
+			"../fonts/OpenSans-",
+			"================================================*/",
+			"/*================================================",
+			"/*==========================================================",
+			"==========================================================*/",
+			"scanlines",
+			"\"",
+			"self",
+			".ogg",
+			".mp3",
+			"( 0 )",
+			",",
+			":",
+			"",
+			"g.KeyMap",
+			"'",
+			" 0",
+			"0 ",
+			"g.currentState()",
+			"$.ctx.",
+			"ctx",
+			"PE",
+			"........................................",
+			"source",
+			"fit",
+			"ypos",
+			"xpos",
+			"$"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/js/states/play.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24039,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13176,
+								13176
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6025.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Documents and Settings/Jack/Desktop/index/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 52720,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/css/main.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22816,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20066,
+								20066
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 13054.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/js/entities/tile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 941,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								829,
+								829
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/js/entities/enemy.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1528,
+								1528
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 84.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/js/data/waves.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1131,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								187,
+								187
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 252.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 508.0
+	},
+	"output.sftp":
+	{
+		"height": 108.0
+	},
+	"project": "elematter.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\wamp\\www\\alien-js13k\\game\\alien-js13k.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"",
+				"pause"
+			]
+		],
+		"width": 378.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 231.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

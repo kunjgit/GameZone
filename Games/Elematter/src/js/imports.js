@@ -1,0 +1,17 @@
+//import('vendor/jsfxr.js');
+//import('g/g.js');
+//import('g/audio.js');
+//import('g/group.js');
+//import('g/pool.js');
+//import('g/util.js');
+//import('data/audio.js');
+//import('data/map.js');
+//import('data/towers.js');
+//import('data/waves.js');
+//import('entities/bullet.js');
+//import('entities/enemy.js');
+//import('entities/tile.js');
+//import('entities/tower.js');
+//import('entities/wave.js');
+//import('states/play.js');
+//import('game.js');

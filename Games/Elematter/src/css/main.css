@@ -1,0 +1,1125 @@
+/*==============================================================================
+
+General
+
+==============================================================================*/
+
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	transition-duration: 500ms;
+	transition-property: none;
+	-webkit-touch-callout: none;
+	-moz-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background: #0c0c0c;
+	font-family: helvetica, sans-serif;
+	overflow: hidden;
+	
+}
+
+/*==============================================================================
+
+Game
+
+==============================================================================*/
+
+.g {
+	box-shadow: 0 0 0 20px #000, 0 0 0 21px #222;
+	left: 50%;
+	opacity: 0;
+	overflow: hidden;
+	pointer-events: none;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	transition: opacity 500ms;
+	top: 50%;
+}
+
+.g.loaded {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.s {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+/*==============================================================================
+
+Play State - Tiles - Base
+
+==============================================================================*/
+
+.tile {
+	background: #222;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transition-property: background;
+}
+
+.tile:hover {
+	background: #666;
+	transition-duration: 0ms;
+}
+
+/*==============================================================================
+
+Play State - Tiles - Path
+
+==============================================================================*/
+
+.tile.path {
+	background: #111;
+}
+
+.tile.path:hover {
+	cursor: not-allowed;
+}
+
+/*==============================================================================
+
+Play State - Buttons - General
+
+==============================================================================*/
+
+.row {
+	background: #000;
+	height: 40px;
+	left: 0;
+	position: absolute;
+	transform: translateZ(0);
+	width: 100%;
+	z-index: 200;
+}
+
+.top-row {
+	top: 0;
+}
+
+.bot-row {
+	bottom: 0;
+	padding-top: 1px;
+}
+
+.game-title {
+	background: #090909;
+	box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.05);
+	color: #fff;
+	display: block;
+	float: left;
+	font-size: 15px;
+	font-weight: bold;
+	height: 39px;
+	line-height: 37px;
+	margin-right: 1px;
+	position: relative;
+	text-align: center;
+	text-shadow: 0 1px 1px #000;
+	width: 360px;
+}
+
+.game-title span {
+	color: hsla(0, 0%, 100%, 0.3);
+	font-size: 11px;
+	font-weight: normal;
+	margin-left: 10px;
+}
+
+.game-title:before {
+	background: linear-gradient(to bottom, transparent 0%, hsla(0, 0%, 100%, 0.075) 100%);
+	content: '';
+	height: 50%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.b {
+	background: #333;
+	box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.15);
+	color: hsla(0, 0%, 100%, 0.6);
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-size: 13px;
+	height: 39px;
+	line-height: 37px;
+	margin: 0 1px 0 0;
+	position: relative;
+	text-align: center;
+	text-shadow: 0 1px 1px #000;
+	transition-property:
+		background,
+		box-shadow,
+		color,
+		opacity
+	;
+}
+
+.b:before {
+	background: linear-gradient(to bottom, transparent 0%, hsla(0, 0%, 100%, 0.075) 100%);
+	content: '';
+	height: 50%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.b:hover {
+	background: #444;
+	color: #fff;
+	transition-duration: 0ms;
+}
+
+.s1 { width: 39px; }
+.s2 { width: 79px; }
+.s2:last-child { margin-right: 0; }
+.s3 { width: 119px; }
+.s4 { width: 159px; }
+.s4:last-child { width: 160px; margin-right: 0; }
+.s5 { width: 199px; };
+.s6 { width: 239px; }
+
+.b i {
+	display: inline-block;
+	font-size: 16px;
+	font-style: normal;
+	margin-right: 3px;
+}
+
+/*==============================================================================
+
+Play State - Buttons - Play/Pause
+
+==============================================================================*/
+
+.playing .b-play {
+	background: #222;
+	box-shadow:
+		inset 0 0 0 1px #333,
+		inset 0 0 10px hsla(0, 0%, 0%, 0.75)
+	;
+	color: #fff;
+}
+
+.playing .b-play:hover {
+	background: #333;
+}
+
+/*==============================================================================
+
+Play State - Buttons - Speed
+
+==============================================================================*/
+
+.x1 .b-x1,
+.x1 .b-x1:hover,
+.x2 .b-x2,
+.x2 .b-x2:hover,
+.x3 .b-x3,
+.x3 .b-x3:hover {
+	background: #222;
+	box-shadow:
+		inset 0 0 0 1px #333,
+		inset 0 0 10px hsla(0, 0%, 0%, 0.75)
+	;
+	color: #fff;
+	cursor: default;
+}
+
+/*==============================================================================
+
+Play State - Buttons - Send Next Early
+
+==============================================================================*/
+
+.b-send {
+	opacity: 0.25;
+}
+
+.playing .b-send:hover {
+	background: #444;
+	color: #fff;
+	cursor: pointer;
+}
+
+.b-send:hover,
+.no-more-waves.playing .b-send {
+	background: #333;
+	color: hsla(0, 0%, 100%, 0.6);
+	cursor: not-allowed;
+	opacity: 0.25;
+}
+
+.playing .b-send {
+	opacity: 1;
+}
+
+/*==============================================================================
+
+Play State - Labels and Displays
+
+==============================================================================*/
+
+.l,
+.d {
+	background: #090909;
+	box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.05);
+	color: hsla(0, 0%, 100%, 0.6);
+	display: block;
+	float: left;
+	font-size: 13px;
+	height: 39px;
+	line-height: 37px;
+	margin: 0 1px 0 0;
+	position: relative;
+	text-align: center;
+	text-shadow: 0 1px 1px #000;
+	transition-property:
+		background,
+		box-shadow,
+		color
+	;
+}
+
+.l:before,
+.d:before {
+	background: linear-gradient(to bottom, transparent 0%, hsla(0, 0%, 100%, 0.075) 100%);
+	content: '';
+	height: 50%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.l i,
+.d i {
+	font-size: 16px;
+	font-style: normal;
+}
+
+.l {
+	background: #111;
+}
+
+.d {
+}
+
+.w {
+	margin: 0 2px;
+}
+
+.w-e {
+	color: hsl(120, 90%, 60%);
+}
+
+.w-w {
+	color: hsl(200, 90%, 60%);
+}
+
+.w-a {
+	color: hsl(60, 90%, 60%);
+}
+
+.w-f {
+	color: hsl(0, 90%, 60%);
+}
+
+/*==============================================================================
+
+Play State - Tower Select/Build Menu
+
+==============================================================================*/
+
+.build-menu-wrap,
+.tower-menu-wrap {
+	background: hsla(0, 0%, 10%, 0.6);
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	visibility: hidden;
+	z-index: 200;
+}
+
+.build-menu-open .build-menu-wrap,
+.tower-menu-open .tower-menu-wrap {
+	visibility: visible;
+}
+
+.build-menu,
+.tower-menu {
+	cursor: default;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 280px;
+}
+
+.build-buttons,
+.tower-buttons {
+	background: hsla(0, 0%, 0%, 0.75);
+	height: 80px;
+	position: relative;
+	width: 100%;
+}
+
+.build-buttons:before,
+.tower-buttons:before {
+	background: linear-gradient(to bottom, transparent 0%, hsla(0, 0%, 100%, 0.1) 100%);
+	content: '';
+	height: 50%;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
+.build-button,
+.tower-button {
+	background: #fff;
+	border: 2px solid transparent;
+	box-shadow: inset 0 0 0 20px hsla(0, 0%, 100%, 0);
+	cursor: pointer;
+	height: 40px;
+	position: absolute;
+	top: 20px;
+	transition:
+		background 150ms,
+		border-color 150ms,
+		opacity 150ms
+	;
+	width: 40px;
+}
+
+.build-button:hover,
+.tower-button:hover {
+	border-color: #fff;
+	opacity: 0.75;
+}
+
+.build-d.anim {
+	background: hsla(0, 0%, 100%, 0.15);
+	border: 2px dashed #fff;
+	cursor: default;
+	-webkit-animation: pulse 500ms ease-in-out infinite alternate;
+	animation: pulse 500ms ease-in-out infinite alternate;
+}
+
+.build-d { background: #fff; }
+.build-e { background: hsl(120, 90%, 60%); }
+.build-w { background: hsl(200, 90%, 60%); }
+.build-a { background: hsl(60, 90%, 60%); }
+.build-f { background: hsl(0, 90%, 60%); }
+
+.no-b-e .build-e,
+.no-b-w .build-w,
+.no-b-a .build-a,
+.no-b-f .build-f,
+.no-b-e.hover-e .build-info > *,
+.no-b-w.hover-w .build-info > *,
+.no-b-a.hover-a .build-info > *,
+.no-b-f.hover-f .build-info > *,
+.no-upgrade .tower-button.upgrade,
+.no-upgrade.hover-tower-upgrade .tower-info > * {
+	cursor: not-allowed;
+	opacity: 0.2;
+}
+
+.no-upgrade.maxed-upgrade.hover-tower-upgrade .tower-info > * {
+	opacity: 1;
+}
+
+.pos-w .build-d { left: 20px; }
+.pos-w .build-e { left: 70px; }
+.pos-w .build-w { left: 120px; }
+.pos-w .build-a { left: 170px; }
+.pos-w .build-f { left: 220px; }
+
+.pos-e .build-d { left: 220px; }
+.pos-e .build-e { left: 20px; }
+.pos-e .build-w { left: 70px; }
+.pos-e .build-a { left: 120px; }
+.pos-e .build-f { left: 170px; }
+
+.build-info,
+.tower-info {
+	background: hsla(0, 0%, 0%, 0.75);
+	font-size: 13px;
+	height: 140px;
+	left: 0;
+	line-height: 1.7;
+	opacity: 0;
+	padding: 15px 20px;
+	pointer-events: none;
+	position: absolute;
+	transform: scale(0.75);
+	transition: 
+		opacity 150ms 150ms,
+		transform 150ms 150ms;
+	width: 100%;
+}
+
+.hover-build-button .build-info,
+.hover-tower-button .tower-info {
+	opacity: 1;
+	transform: scale(1);
+	transition-delay: 0ms;
+}
+
+.pos-n .build-info,
+.pos-n .tower-info {
+	top: 81px;
+}
+
+.pos-s .build-info,
+.pos-s .tower-info {
+	bottom: 81px;
+}
+
+.build-title,
+.tower-title {
+	border-bottom: 1px solid #333;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 7px;
+	padding-bottom: 7px;
+}
+
+.build-title i,
+.tower-title i {
+	color: #fff;
+	font-style: normal;
+	margin-right: 14px;
+}
+
+.hover-e .build-type { color: hsl(120, 90%, 60%); }
+.hover-w .build-type { color: hsl(200, 90%, 60%); }
+.hover-a .build-type { color: hsl(60, 90%, 60%); }
+.hover-f .build-type { color: hsl(0, 90%, 60%); }
+
+.build-cost,
+.tower-cost {
+	color: #fff;
+}
+
+.build-stat,
+.tower-stat {
+	color: #aaa;
+}
+
+.build-stat strong,
+.tower-stat strong {
+	display: inline-block;
+	margin-right: 3px;
+	text-align: right;
+	width: 58px;
+}
+
+.build-mtr {
+	display: inline-block;
+	margin-right: 3px;
+	vertical-align: top;
+}
+
+.build-mtr span {
+	background: #444;
+	display: inline-block;
+	height: 12px;
+	margin-right: 1px;
+	position: relative;
+	top: 6px;
+	vertical-align: top;
+	width: 8px;
+}
+
+.hover-e .build-mtr span { background: hsl(120, 90%, 60%); }
+.hover-w .build-mtr span { background: hsl(200, 90%, 60%); }
+.hover-a .build-mtr span { background: hsl(60, 90%, 60%); }
+.hover-f .build-mtr span { background: hsl(0, 90%, 60%); }
+
+.dmg1 .build-dmg-wrap .build-mtr span:nth-child(2),
+.dmg1 .build-dmg-wrap .build-mtr span:nth-child(3),
+.rng1 .build-rng-wrap .build-mtr span:nth-child(2),
+.rng1 .build-rng-wrap .build-mtr span:nth-child(3),
+.rte1 .build-rte-wrap .build-mtr span:nth-child(2),
+.rte1 .build-rte-wrap .build-mtr span:nth-child(3),
+.dmg2 .build-dmg-wrap .build-mtr span:nth-child(3),
+.rng2 .build-rng-wrap .build-mtr span:nth-child(3),
+.rte2 .build-rte-wrap .build-mtr span:nth-child(3) { background: #444; }
+
+/*==============================================================================
+
+Play State - Tower Upgrade/Reclaim Menu
+
+==============================================================================*/
+
+.tower-button.highlight.anim {
+	background: hsla(0, 0%, 100%, 0.15);
+	border: 2px solid #fff;
+	cursor: default;
+	-webkit-animation: pulse 500ms ease-in-out infinite alternate;
+	animation: pulse 500ms ease-in-out infinite alternate;
+}
+
+.t-menu-e .tower-button.highlight { border-color: hsl(120, 90%, 60%); }
+.t-menu-w .tower-button.highlight { border-color: hsl(200, 90%, 60%); }
+.t-menu-a .tower-button.highlight { border-color: hsl(60, 90%, 60%); }
+.t-menu-f .tower-button.highlight { border-color: hsl(0, 90%, 60%); }
+
+.tower-button.upgrade {
+}
+
+.t-menu-e .tower-button.upgrade { background: hsl(120, 90%, 60%); }
+.t-menu-w .tower-button.upgrade { background: hsl(200, 90%, 60%); }
+.t-menu-a .tower-button.upgrade { background: hsl(60, 90%, 60%); }
+.t-menu-f .tower-button.upgrade { background: hsl(0, 90%, 60%); }
+
+.tower-button.reclaim {
+	background: #444;
+}
+
+.tower-button .icon {
+	bottom: 0;
+	height: 22px;
+	left: 0;
+	margin: auto;
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20px;
+}
+
+.tower-button.reclaim .icon {
+	transform: rotate(180deg);
+}
+
+.tower-button .icon div {
+	border-color: transparent;
+	border-style: solid;
+	left: 50%;
+	position: absolute;
+}
+
+.tower-button .icon div:nth-child(1),
+.tower-button .icon div:nth-child(3),
+.tower-button .icon div:nth-child(5) {
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+.tower-button .icon div:nth-child(2),
+.tower-button .icon div:nth-child(4),
+.tower-button .icon div:nth-child(6) {
+	border-bottom-color: #444;
+	border-width: 5px;
+	margin-left: -5px;
+}
+
+.tower-button .icon div:nth-child(1) { border-bottom-color: hsla(0, 0%, 0%, 0.8); top: -10px; }
+.tower-button .icon div:nth-child(2) { top: 0; }
+.tower-button .icon div:nth-child(3) { border-bottom-color: hsla(0, 0%, 0%, 0.55); top: -4px; }
+.tower-button .icon div:nth-child(4) { top: 6px; }
+.tower-button .icon div:nth-child(5) { border-bottom-color: hsla(0, 0%, 0%, 0.3); top: 2px; }
+.tower-button .icon div:nth-child(6) { top: 12px; }
+
+.t-menu-e .tower-button.upgrade .icon div:nth-child(2),
+.t-menu-e .tower-button.upgrade .icon div:nth-child(4),
+.t-menu-e .tower-button.upgrade .icon div:nth-child(6) {
+	border-bottom-color: hsl(120, 90%, 60%);
+}
+
+.t-menu-w .tower-button.upgrade .icon div:nth-child(2),
+.t-menu-w .tower-button.upgrade .icon div:nth-child(4),
+.t-menu-w .tower-button.upgrade .icon div:nth-child(6) {
+	border-bottom-color: hsl(200, 90%, 60%);
+}
+
+.t-menu-a .tower-button.upgrade .icon div:nth-child(2),
+.t-menu-a .tower-button.upgrade .icon div:nth-child(4),
+.t-menu-a .tower-button.upgrade .icon div:nth-child(6) {
+	border-bottom-color: hsl(60, 90%, 60%);
+}
+
+.t-menu-f .tower-button.upgrade .icon div:nth-child(2),
+.t-menu-f .tower-button.upgrade .icon div:nth-child(4),
+.t-menu-f .tower-button.upgrade .icon div:nth-child(6) {
+	border-bottom-color: hsl(0, 90%, 60%);
+}
+
+.pos-w .tower-button.highlight { left: 20px; }
+.pos-w .tower-button.upgrade   { left: 70px; }
+.pos-w .tower-button.reclaim   { left: 120px; }
+
+.pos-e .tower-button.highlight { left: 220px; }
+.pos-e .tower-button.upgrade   { left: 120px; }
+.pos-e .tower-button.reclaim   { left: 170px; }
+
+.t-menu-e .tower-label { color: hsl(120, 90%, 60%); }
+.t-menu-w .tower-label { color: hsl(200, 90%, 60%); }
+.t-menu-a .tower-label { color: hsl(60, 90%, 60%); }
+.t-menu-f .tower-label { color: hsl(0, 90%, 60%); }
+
+.tower-stat i {
+	color: #fff;
+	font-style: normal;
+}
+
+.hover-tower-reclaim .tower-stat i,
+.hover-tower-reclaim .tower-stat span:last-child {
+	display: none;
+}
+
+.t-menu-e .tower-stat span:last-child { color: hsl(120, 90%, 60%); }
+.t-menu-w .tower-stat span:last-child { color: hsl(200, 90%, 60%); }
+.t-menu-a .tower-stat span:last-child { color: hsl(60, 90%, 60%); }
+.t-menu-f .tower-stat span:last-child { color: hsl(0, 90%, 60%); }
+
+/*==============================================================================
+
+Towers
+
+==============================================================================*/
+
+.t-wrap,
+.t-wrap div {
+	position: absolute;
+}
+
+.t-tower,
+.t-slab,
+.t-base,
+.t-core {
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.t-wrap {
+	height: 40px;
+	transition: background 300ms;
+	width: 40px;
+	z-index: 100;
+}
+
+.t-wrap:before,
+.t-wrap:after {
+	content: '';
+	opacity: 0;
+	right: 0;
+	position: absolute;
+	top: 0;
+	transition: opacity 400ms;
+}
+
+.t-wrap.upgradable:before,
+.t-wrap.upgradable:after {
+	background: #fff;
+	opacity: 1;
+}
+
+.t-wrap:before {
+	height: 2px;
+	top: 3px;
+	width: 8px;
+}
+
+.t-wrap:after {
+	height: 8px;
+	right: 3px;
+	width: 2px;
+}
+
+.t-wrap.targeting {
+	background: hsla(0, 0%, 100%, 0.2);
+}
+
+.t-wrap:hover {
+	transition-duration: 0ms;
+	z-index: 101;
+}
+
+	.t-wrap.t-type-e:hover { background: hsla(120, 50%, 50%, 0.2); }
+	.t-wrap.t-type-w:hover { background: hsla(200, 50%, 50%, 0.2); }
+	.t-wrap.t-type-a:hover { background: hsla(60, 50%, 50%, 0.2); }
+	.t-wrap.t-type-f:hover { background: hsla(0, 50%, 50%, 0.2); }
+
+.t-tower {
+	cursor: pointer;
+	height: 28px;
+	margin: auto;
+	width: 28px;
+}
+
+.t-range {
+	border: 2px solid transparent;
+	border-radius: 100%;
+	left: 50%;
+	opacity: 0;
+	pointer-events: none;
+	top: 50%;
+	transform: translate(-50%, -50%) scale(0.5);
+	transition: all 150ms ease-in-out;
+	z-index: 1;
+}
+
+	.t-type-e .t-range {
+		background: hsla(120, 100%, 90%, 0.1);
+		border-color: hsla(120, 100%, 70%, 0.3);
+	}
+	.t-type-w .t-range {
+		background: hsla(200, 100%, 90%, 0.1);
+		border-color: hsla(200, 100%, 70%, 0.3);
+	}
+	.t-type-a .t-range {
+		background: hsla(60, 100%, 90%, 0.1);
+		border-color: hsla(60, 100%, 70%, 0.3);
+	}
+	.t-type-f .t-range {
+		background: hsla(0, 100%, 90%, 0.1);
+		border-color: hsla(0, 100%, 70%, 0.3);
+	}
+
+.t-wrap.selected .t-range,
+.t-wrap:hover .t-range {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1);
+	/*transition-duration: 0ms;*/
+}
+
+.t-slab {
+	background: #121;
+	border: 1px solid transparent;
+}
+
+	.t-type-e .t-slab {
+		background: hsl(120, 50%, 10%);
+		border-color: hsl(120, 60%, 30%);
+	}
+	.t-type-w .t-slab {
+		background: hsl(200, 50%, 10%);
+		border-color: hsl(200, 60%, 30%);
+	}
+	.t-type-a .t-slab {
+		background: hsl(60, 50%, 10%);
+		border-color: hsl(60, 60%, 30%);
+	}
+	.t-type-f .t-slab {
+		background: hsl(0, 50%, 10%);
+		border-color: hsl(0, 60%, 30%);
+	}
+
+.t-base {
+	border: 4px solid #111;
+	border-radius: 50%;
+}
+
+	.t-type-e .t-base {
+		background: hsl(120, 40%, 30%);
+		box-shadow: 0 0 0 1px hsl(120, 40%, 30%);
+	}
+	.t-type-w .t-base {
+		background: hsl(200, 40%, 30%);
+		box-shadow: 0 0 0 1px hsl(200, 40%, 30%);
+	}
+	.t-type-a .t-base {
+		background: hsl(60, 40%, 30%);
+		box-shadow: 0 0 0 1px hsl(60, 40%, 30%);
+	}
+	.t-type-f .t-base {
+		background: hsl(0, 40%, 30%);
+		box-shadow: 0 0 0 1px hsl(0, 40%, 30%);
+	}
+
+.t-turret {
+	background: #6c6;
+	height: 50%;
+	left: 0;
+	top: 0;
+	transform-origin: 100% 100%;
+	width: 50%;
+}
+
+	.t-type-e .t-turret { background: hsl(120, 70%, 70%); }
+	.t-type-w .t-turret { background: hsl(200, 70%, 70%); }
+	.t-type-a .t-turret { background: hsl(60, 70%, 70%); }
+	.t-type-f .t-turret { background: hsl(0, 70%, 70%); }
+
+.t-core {
+	border-radius: 50%;
+	margin: auto;
+}
+
+	.t-type-e .t-core {
+		background: hsl(120, 100%, 70%);
+	}
+	.t-type-w .t-core {
+		background: hsl(200, 100%, 70%);
+	}
+	.t-type-a .t-core {
+		background: hsl(60, 100%, 70%);
+	}
+	.t-type-f .t-core {
+		background: hsl(0, 100%, 70%);
+	}
+
+.t-lvl-bar {
+	background: hsla(0, 0%, 100%, 0.25);
+	bottom: 0;
+	height: 2px;
+	width: 12px;
+}
+
+.t-lvl-bar-0 { left: 0px; }
+.t-lvl-bar-1 { left: 13px; width: 13px; }
+.t-lvl-bar-2 { left: 27px;}
+
+.t-type-e.t-lvl-0 .t-lvl-bar-0,
+.t-type-e.t-lvl-1 .t-lvl-bar-0,
+.t-type-e.t-lvl-1 .t-lvl-bar-1,
+.t-type-e.t-lvl-2 .t-lvl-bar-0,
+.t-type-e.t-lvl-2 .t-lvl-bar-1,
+.t-type-e.t-lvl-2 .t-lvl-bar-2 { background: hsl(120, 80%, 60%); }
+
+.t-type-w.t-lvl-0 .t-lvl-bar-0,
+.t-type-w.t-lvl-1 .t-lvl-bar-0,
+.t-type-w.t-lvl-1 .t-lvl-bar-1,
+.t-type-w.t-lvl-2 .t-lvl-bar-0,
+.t-type-w.t-lvl-2 .t-lvl-bar-1,
+.t-type-w.t-lvl-2 .t-lvl-bar-2 { background: hsl(200, 80%, 60%); }
+
+.t-type-a.t-lvl-0 .t-lvl-bar-0,
+.t-type-a.t-lvl-1 .t-lvl-bar-0,
+.t-type-a.t-lvl-1 .t-lvl-bar-1,
+.t-type-a.t-lvl-2 .t-lvl-bar-0,
+.t-type-a.t-lvl-2 .t-lvl-bar-1,
+.t-type-a.t-lvl-2 .t-lvl-bar-2 { background: hsl(60, 80%, 60%); }
+
+.t-type-f.t-lvl-0 .t-lvl-bar-0,
+.t-type-f.t-lvl-1 .t-lvl-bar-0,
+.t-type-f.t-lvl-1 .t-lvl-bar-1,
+.t-type-f.t-lvl-2 .t-lvl-bar-0,
+.t-type-f.t-lvl-2 .t-lvl-bar-1,
+.t-type-f.t-lvl-2 .t-lvl-bar-2 { background: hsl(0, 80%, 60%); }
+
+/*==============================================================================
+
+Enemies
+
+==============================================================================*/
+
+.enemy {
+	border-style: solid;
+	border-width: 4px;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	transition:
+		box-shadow 100ms,
+		opacity 100ms
+	;
+	z-index: 100;
+}
+
+.enemy.slow {
+	box-shadow: 0 0 0 8px hsla(200, 100%, 30%, 0.5);
+	opacity: 0.5;
+}
+
+.hp {
+	border: 1px solid hsla(0, 0%, 100%, 0.5);
+	border-top: none;
+	border-right: none;
+	height: 300%;
+	left: -8px;
+	position: absolute;
+	bottom: -8px;
+	width: 300%;
+	z-index: 5
+}
+
+.enemy.boss .hp {
+	left: -10px;
+	bottom: -10px;
+}
+
+.enemy.type-e .hp {	border-color: hsl(120, 100%, 80%); }
+.enemy.type-w .hp {	border-color: hsl(200, 100%, 80%); }
+.enemy.type-a .hp {	border-color: hsl(60, 100%, 80%); }
+.enemy.type-f .hp {	border-color: hsl(0, 100%, 80%); }
+
+.hl {
+	border: 1px solid #fff;
+	border-bottom: none;
+	border-left: none;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	top: 0;
+}
+
+.enemy.boss {
+	border-width: 6px;
+}
+
+.enemy.type-e {
+	border-color: hsl(120, 80%, 60%);
+	border-top-color: hsl(120, 70%, 15%);
+	border-right-color: hsl(120, 70%, 15%);
+}
+
+.enemy.type-w {
+	border-color: hsl(200, 80%, 60%);
+	border-top-color: hsl(200, 70%, 15%);
+	border-right-color: hsl(200, 70%, 15%);
+}
+
+.enemy.type-a {
+	border-color: hsl(60, 80%, 60%);
+	border-top-color: hsl(60, 70%, 15%);
+	border-right-color: hsl(60, 70%, 15%);
+}
+
+.enemy.type-f {
+	border-color: hsl(0, 80%, 60%);
+	border-top-color: hsl(0, 70%, 15%);
+	border-right-color: hsl(0, 70%, 15%);
+}
+
+.enemy.type-e .hl { border-color: hsl(120, 80%, 60%); }
+.enemy.type-w .hl { border-color: hsl(200, 80%, 60%); }
+.enemy.type-a .hl { border-color: hsl(60, 80%, 60%); }
+.enemy.type-f .hl { border-color: hsl(0, 80%, 60%); }
+
+.enemy.boss:before {
+	border: 2px solid transparent;
+	border-left: none;
+	border-bottom: none;
+	border-radius: 100%;
+	bottom: -18px;
+	content: '';
+	left: -18px;
+	right: -18px;
+	position: absolute;
+	top: -18px;
+}
+
+.enemy.type-e:before { border-color: hsl(120, 80%, 60%); }
+.enemy.type-w:before { border-color: hsl(200, 80%, 60%); }
+.enemy.type-a:before { border-color: hsl(60, 80%, 60%); }
+.enemy.type-f:before { border-color: hsl(0, 80%, 60%); }
+
+.enemy:after {
+	background: hsla(0, 0%, 100%, 0.5);
+	bottom: -4px;
+	content: '';
+	left: -4px;
+	right: -4px;
+	opacity: 0;
+	position: absolute;
+	top: -4px;
+	transition: opacity 300ms ease-out;
+}
+
+.enemy.boss:after {
+	bottom: -6px;
+	left: -6px;
+	right: -6px;
+	top: -6px;
+}
+
+.enemy.hit:after {
+	opacity: 1;
+	transition-duration: 0ms;
+}
+
+.enemy.type-e:after {
+	box-shadow: 0 0 0 4px hsl(120, 100%, 80%);
+}
+
+.enemy.type-w:after {
+	box-shadow: 0 0 0 4px hsl(200, 100%, 80%);
+}
+
+.enemy.type-a:after {
+	box-shadow: 0 0 0 4px hsl(60, 100%, 80%);
+}
+
+.enemy.type-f:after {
+	box-shadow: 0 0 0 4px hsl(0, 100%, 80%);
+}
+
+/*==============================================================================
+
+Bullets
+
+==============================================================================*/
+
+.bullet {
+	border-radius: 10px 10px 10px 0;
+	left: 0;
+	position: absolute;
+	top: 0;
+	z-index: 150;
+}
+
+.bullet.type-e {
+	background: hsl(120, 100%, 80%);
+}
+
+.bullet.type-w {
+	background: hsl(200, 100%, 80%);
+}
+
+.bullet.type-a {
+	background: hsl(60, 100%, 80%);
+}
+
+.bullet.type-f {
+	background: hsl(0, 100%, 80%);
+}
+
+/*==============================================================================
+
+Keyframes
+
+==============================================================================*/
+
+@-webkit-keyframes pulse {
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes pulse {
+	to {
+		opacity: 0;
+	}
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />    -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, target-densitydpi=device-dpi" />-->
+
+    <meta name="viewport" content="width=960,target-densitydpi=device-dpi,user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="landscape"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+
+    <!--<meta name="viewport" content="width=device-width">-->
+
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <div id="title">
+    	</br>
+    	</br>
+    	</br>
+    	<h1>Elemental Drop Down</h1>
+	<div class="box">
+	<p>Press (left or a) and (right or d) to move. (w, space, or up) to jump.</p>
+	<p>You can lso use the on screen buttons for movement.<p>
+	<p>Avoid fire. Hit air and water for special powers.</p>
+
+      	<button id="go">Go</button>
+
+	</div>
+    </div>
+
+    <div id="title-overlay">
+    </div>
+
+    <div id="game-over-overlay">
+    </div>
+
+    <div id="game-over">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+      <h1>GAME OVER</h1>
+      <div id="end-score"></div>
+      <div id="best-score"></div>
+
+      <br/>
+
+      <button id="play-again">Play Again</button>
+    </div>
+
+    <div class="wrapper">
+      <div id="score"></div>
+    </div>
+
+    <script type="text/javascript" src="resources.js"></script>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="sprite.js"></script>
+    <script type="text/javascript" src="jsfxr-min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

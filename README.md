@@ -248,6 +248,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 143 | [Save The Forest](https://github.com/kunjgit/GameZone/tree/main/Games/Save_The_Forest)|
 | 144 | [Dragon World Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_World_Game)|
 | 145 | [DuckHunt](https://github.com/kunjgit/GameZone/tree/main/Games/DuckHunt)|
+| 146 | [Plankman](https://github.com/kunjgit/GameZone/tree/main/Games/Plankman)|
+| 147 | [Hold_The_Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Hold_The_Cloud)|
+| 148 | [Labyrinth](https://github.com/kunjgit/GameZone/tree/main/Games/Labyrinth)|
 | * | [Offline Hacker](https://github.com/kunjgit/GameZone/tree/main/Games/Offline_Hacker)|
 </center>
 

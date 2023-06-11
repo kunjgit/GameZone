@@ -1,0 +1,51 @@
+<html>
+<head title="spellCastAway">
+    <script src="myScript.js"></script>
+</head>
+<body>
+    <div style="margin:auto; width:800px">
+        <button id="earth1">[1] Fix boat!</button>  <button id="air1">[2] Get fish!</button> <button id="fire1">[3] Hit shark!</button>
+    </div>
+    <div>
+        <canvas id="canvas" width="800" height="480"
+                style="margin:auto; border:1px solid black; display: block;
+touch-action: none; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+ cursor: inherit"></canvas>
+    </div>
+    <br />
+
+</body>
+</html>
+
+
+
+<script language="Javascript">
+
+    /* ---- GLOBLAS (+) ----- */
+    var startTime = new Date(Date.now());
+    var xpto = -1;
+    var frameCount = 0;
+    var color = "#FF0000";
+
+    var c = document.getElementById('canvas');
+    var intervals = [];
+
+    var shapeList = [];
+    var currentLevel = [];
+
+    var hud = null;
+    var magePlayer = null;
+
+    var opacity = 0.8;
+    var fishToEat = 0;
+    var showBoundingBoxs = false;
+    var scrollLeft = true;
+
+    var waves;
+
+
+    /* ---- GLOBALS (-) ----- */
+
+    
+
+</script>

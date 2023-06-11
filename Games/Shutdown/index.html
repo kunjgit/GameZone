@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=650,user-scalable=no" />
+    <title>Shutdown</title>
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        -moz-user-select: none;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+        width: 100%;
+      }
+      body {
+        background-color: #fcffed;
+        text-align: center;
+      }
+      canvas {
+        background: #d5fcff;
+        height: 100%;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        width: 100%;
+      }
+      #end_game,
+      #end_game_overlay,
+      #screen_overlay {
+        display: none;
+      }
+      #end_game_overlay,
+      #screen_overlay {
+        background: 0 0;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+      #screen .content {
+        padding: 8vmin;
+        text-align: left;
+        font-size: 7vmin;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      #screen .content .apps {
+        font-size: 4vmin;
+        font-family: "Courier New", Courier, monospace;
+      }
+      #end_game,
+      #screen {
+        background: teal;
+        border-radius: 20px;
+        box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.5);
+        height: 80vmin;
+        margin: 10vmin auto;
+        overflow: hidden;
+        position: relative;
+        width: 80vmin;
+      }
+      #info,
+      #p {
+        background: #bbb;
+        border-radius: 10px;
+        box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.5);
+        display: none;
+        margin: 100px 25% 0 25%;
+        padding: 10px;
+        position: absolute;
+        width: 50%;
+        z-index: 2;
+      }
+      #info button,
+      #p button {
+        border-radius: 10px;
+        font-size: 14px;
+        margin: 10px;
+        padding: 10px;
+      }
+      #d,
+      #u {
+        background: #fafafa;
+        box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.5);
+        color: #000;
+        display: none;
+        overflow: visible;
+        position: absolute;
+        text-align: left;
+        width: 100%;
+      }
+      #d ul,
+      #u ul {
+        z-index: 1;
+      }
+      #d {
+        bottom: 0;
+      }
+      #d ul {
+        bottom: 30px;
+      }
+      li,
+      ul {
+        background: #fafafa;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+      }
+      #d > ul,
+      #u > ul {
+        display: inline-block;
+      }
+      #d > ul li,
+      #u > ul li {
+        padding: 10px;
+      }
+      li ul {
+        display: none;
+        position: absolute;
+      }
+      #screen li ul {
+        margin: 8px 0;
+      }
+      #screen > * > ul ul {
+        left: 0;
+      }
+      #screen li li {
+        padding: 10px;
+      }
+      #end_game {
+        color: #fff;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 6vmin;
+        padding: 6vmin 0;
+        z-index: 3;
+      }
+      #end_game p {
+        margin: 0.2em 0;
+      }
+      #end_game span {
+        color: #000;
+        cursor: pointer;
+        font-size: 0.8em;
+      }
+      @keyframes flicker {
+        0% {
+          opacity: 0.43346;
+        }
+        40% {
+          opacity: 0.23063;
+        }
+        70% {
+          opacity: 0.11019;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @media all and (min-width: 1024px) {
+        #screen::before {
+          background: linear-gradient(
+              rgba(18, 16, 16, 0) 50%,
+              rgba(0, 0, 0, 0.25) 50%
+            ),
+            linear-gradient(
+              90deg,
+              rgba(255, 0, 0, 0.06),
+              rgba(0, 255, 0, 0.02),
+              rgba(0, 0, 255, 0.3)
+            );
+        }
+      }
+      @media all and (max-width: 1023px) {
+        #screen::before {
+          background: rgba(0, 0, 0, 0.2);
+        }
+      }
+      #screen::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
+      @keyframes turn-off {
+        60% {
+          transform: scale(1, 0.001);
+          filter: brightness(2);
+        }
+        100% {
+          animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+          transform: scale(0, 0.001);
+          filter: brightness(3);
+        }
+      }
+      @keyframes infected {
+        100% {
+          animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+          transform: scale(0, 0);
+          filter: brightness(0);
+        }
+      }
+      #screen {
+        animation: flicker 0.15s linear;
+        animation-fill-mode: forwards;
+      }
+      #screen.turn-off {
+        animation: turn-off 1s linear;
+        animation-fill-mode: forwards;
+      }
+      #screen.infected {
+        animation: infected 1s linear;
+        animation-fill-mode: forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <div id="end_game_overlay"><div id="end_game"></div></div>
+    <div id="screen_overlay">
+      <div id="screen">
+        <div id="u">
+          <ul>
+            <li class="start">
+              Start
+              <ul>
+                <li class="info">System info</li>
+                <li class="shutdown">Shutdown</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div id="p"></div>
+        <div id="info"></div>
+        <div id="d">
+          <ul>
+            <li class="start">
+              <ul>
+                <li class="info">System info</li>
+                <li class="shutdown">Shutdown</li>
+              </ul>
+              Start
+            </li>
+          </ul>
+        </div>
+        <div class="content"></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      !(function (e) {
+        var t = {};
+        function n(i) {
+          if (t[i]) return t[i].exports;
+          var o = (t[i] = { i: i, l: !1, exports: {} });
+          return e[i].call(o.exports, o, o.exports, n), (o.l = !0), o.exports;
+        }
+        (n.m = e),
+          (n.c = t),
+          (n.d = function (e, t, i) {
+            n.o(e, t) ||
+              Object.defineProperty(e, t, { enumerable: !0, get: i });
+          }),
+          (n.r = function (e) {
+            "undefined" != typeof Symbol &&
+              Symbol.toStringTag &&
+              Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
+              Object.defineProperty(e, "__esModule", { value: !0 });
+          }),
+          (n.t = function (e, t) {
+            if ((1 & t && (e = n(e)), 8 & t)) return e;
+            if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+            var i = Object.create(null);
+            if (
+              (n.r(i),
+              Object.defineProperty(i, "default", { enumerable: !0, value: e }),
+              2 & t && "string" != typeof e)
+            )
+              for (var o in e)
+                n.d(
+                  i,
+                  o,
+                  function (t) {
+                    return e[t];
+                  }.bind(null, o)
+                );
+            return i;
+          }),
+          (n.n = function (e) {
+            var t =
+              e && e.__esModule
+                ? function () {
+                    return e.default;
+                  }
+                : function () {
+                    return e;
+                  };
+            return n.d(t, "a", t), t;
+          }),
+          (n.o = function (e, t) {
+            return Object.prototype.hasOwnProperty.call(e, t);
+          }),
+          (n.p = ""),
+          n((n.s = 1));
+      })([
+        function (e, t) {
+          var n = (function () {
+            function e(e, t) {
+              for (var n = 0; n < t.length; n++) {
+                var i = t[n];
+                (i.enumerable = i.enumerable || !1),
+                  (i.configurable = !0),
+                  "value" in i && (i.writable = !0),
+                  Object.defineProperty(e, i.key, i);
+              }
+            }
+            return function (t, n, i) {
+              return n && e(t.prototype, n), i && e(t, i), t;
+            };
+          })();
+          function i(e, t) {
+            if (!(e instanceof t))
+              throw new TypeError("Cannot call a class as a function");
+          }
+          (kontra = {
+            init: function (e) {
+              var t = (this.canvas =
+                document.getElementById(e) ||
+                e ||
+                document.querySelector("canvas"));
+              this.context = t.getContext("2d");
+            },
+            _noop: new Function(),
+            _tick: new Function(),
+          }),
+            (kontra.gameLoop = function (e) {
+              var t = void 0,
+                n = void 0,
+                i = void 0,
+                o = void 0,
+                a = (e = e || {}).fps || 60,
+                r = 0,
+                s = 1e3 / a,
+                c = 1 / a,
+                u =
+                  !1 === e.clearCanvas
+                    ? kontra._noop
+                    : function () {
+                        kontra.context.clearRect(
+                          0,
+                          0,
+                          kontra.canvas.width,
+                          kontra.canvas.height
+                        );
+                      };
+              function l() {
+                if (
+                  ((n = requestAnimationFrame(l)),
+                  (i = performance.now()),
+                  (o = i - t),
+                  (t = i),
+                  !(o > 1e3))
+                ) {
+                  for (kontra._tick(), r += o; r >= s; ) d.update(c), (r -= s);
+                  u(), d.render();
+                }
+              }
+              var d = {
+                update: e.update,
+                render: e.render,
+                isStopped: !0,
+                start: function () {
+                  (t = performance.now()),
+                    (this.isStopped = !1),
+                    requestAnimationFrame(l);
+                },
+                stop: function () {
+                  (this.isStopped = !0), cancelAnimationFrame(n);
+                },
+              };
+              return d;
+            }),
+            (function () {
+              var e = (function () {
+                function e(t, n) {
+                  i(this, e), (this._x = t || 0), (this._y = n || 0);
+                }
+                return (
+                  n(e, [
+                    {
+                      key: "add",
+                      value: function (e, t) {
+                        (this.x += (e.x || 0) * (t || 1)),
+                          (this.y += (e.y || 0) * (t || 1));
+                      },
+                    },
+                    {
+                      key: "clamp",
+                      value: function (e, t, n, i) {
+                        (this._c = !0),
+                          (this._a = e),
+                          (this._b = t),
+                          (this._d = n),
+                          (this._e = i);
+                      },
+                    },
+                    {
+                      key: "x",
+                      get: function () {
+                        return this._x;
+                      },
+                      set: function (e) {
+                        this._x = this._c
+                          ? Math.min(Math.max(this._a, e), this._d)
+                          : e;
+                      },
+                    },
+                    {
+                      key: "y",
+                      get: function () {
+                        return this._y;
+                      },
+                      set: function (e) {
+                        this._y = this._c
+                          ? Math.min(Math.max(this._b, e), this._e)
+                          : e;
+                      },
+                    },
+                  ]),
+                  e
+                );
+              })();
+              (kontra.vector = (t, n) => new e(t, n)),
+                (kontra.vector.prototype = e.prototype);
+              var t = (function () {
+                function e() {
+                  i(this, e);
+                }
+                return (
+                  n(e, [
+                    {
+                      key: "init",
+                      value: function (e, t, n, i) {
+                        for (t in ((e = e || {}),
+                        (this.position = kontra.vector(e.x, e.y)),
+                        (this.velocity = kontra.vector(e.dx, e.dy)),
+                        (this.acceleration = kontra.vector(e.ddx, e.ddy)),
+                        (this.width = this.height = 0),
+                        (this.context = kontra.context),
+                        e))
+                          this[t] = e[t];
+                        if ((n = e.image))
+                          (this.image = n),
+                            (this.width = n.width),
+                            (this.height = n.height);
+                        else if ((n = e.animations)) {
+                          for (t in n)
+                            (this.animations[t] = n[t].clone()),
+                              (i = i || n[t]);
+                          (this._ca = i),
+                            (this.width = i.width),
+                            (this.height = i.height);
+                        }
+                        return this;
+                      },
+                    },
+                    {
+                      key: "isAlive",
+                      value: function () {
+                        return this.ttl > 0;
+                      },
+                    },
+                    {
+                      key: "collidesWith",
+                      value: function (e) {
+                        return (
+                          this.x < e.x + e.width &&
+                          this.x + this.width > e.x &&
+                          this.y < e.y + e.height &&
+                          this.y + this.height > e.y
+                        );
+                      },
+                    },
+                    {
+                      key: "update",
+                      value: function (e) {
+                        this.advance(e);
+                      },
+                    },
+                    {
+                      key: "render",
+                      value: function () {
+                        this.draw();
+                      },
+                    },
+                    {
+                      key: "playAnimation",
+                      value: function (e) {
+                        (this._ca = this.animations[e]),
+                          this._ca.loop || this._ca.reset();
+                      },
+                    },
+                    {
+                      key: "advance",
+                      value: function (e) {
+                        this.velocity.add(this.acceleration, e),
+                          this.position.add(this.velocity, e),
+                          this.ttl--,
+                          this._ca && this._ca.update(e);
+                      },
+                    },
+                    {
+                      key: "draw",
+                      value: function () {
+                        this.image
+                          ? this.context.drawImage(this.image, this.x, this.y)
+                          : this._ca
+                          ? this._ca.render(this)
+                          : ((this.context.fillStyle = this.color),
+                            this.context.fillRect(
+                              this.x,
+                              this.y,
+                              this.width,
+                              this.height
+                            ));
+                      },
+                    },
+                    {
+                      key: "x",
+                      get: function () {
+                        return this.position.x;
+                      },
+                      set: function (e) {
+                        this.position.x = e;
+                      },
+                    },
+                    {
+                      key: "y",
+                      get: function () {
+                        return this.position.y;
+                      },
+                      set: function (e) {
+                        this.position.y = e;
+                      },
+                    },
+                    {
+                      key: "dx",
+                      get: function () {
+                        return this.velocity.x;
+                      },
+                      set: function (e) {
+                        this.velocity.x = e;
+                      },
+                    },
+                    {
+                      key: "dy",
+                      get: function () {
+                        return this.velocity.y;
+                      },
+                      set: function (e) {
+                        this.velocity.y = e;
+                      },
+                    },
+                    {
+                      key: "ddx",
+                      get: function () {
+                        return this.acceleration.x;
+                      },
+                      set: function (e) {
+                        this.acceleration.x = e;
+                      },
+                    },
+                    {
+                      key: "ddy",
+                      get: function () {
+                        return this.acceleration.y;
+                      },
+                      set: function (e) {
+                        this.acceleration.y = e;
+                      },
+                    },
+                  ]),
+                  e
+                );
+              })();
+              (kontra.sprite = (e) => new t().init(e)),
+                (kontra.sprite.prototype = t.prototype);
+            })(),
+            (function () {
+              var e = void 0,
+                t = /(jpeg|jpg|gif|png)$/,
+                n = /(wav|mp3|ogg|aac)$/,
+                i = /^no$/,
+                o = /^\//,
+                a = /\/$/,
+                r = new Audio(),
+                s = {
+                  wav: "",
+                  mp3: r.canPlayType("audio/mpeg;").replace(i, ""),
+                  ogg: r
+                    .canPlayType('audio/ogg; codecs="vorbis"')
+                    .replace(i, ""),
+                  aac: r.canPlayType("audio/aac;").replace(i, ""),
+                };
+              function c(e, t) {
+                return [e.replace(a, ""), e ? t.replace(o, "") : t]
+                  .filter((e) => e)
+                  .join("/");
+              }
+              function u(e) {
+                return e.split(".").pop();
+              }
+              function l(e) {
+                var t = e.replace("." + u(e), "");
+                return 2 == t.split("/").length ? t.replace(o, "") : t;
+              }
+              function d(t, n) {
+                return new Promise(function (i, o) {
+                  var a = new Image();
+                  (n = c(e.imagePath, t)),
+                    (a.onload = function () {
+                      (e.images[l(t)] = e.images[n] = this), i(this);
+                    }),
+                    (a.onerror = function () {
+                      o(n);
+                    }),
+                    (a.src = n);
+                });
+              }
+              function h(t, n, i) {
+                return new Promise(function (o, a) {
+                  if (
+                    (t = [].concat(t).reduce(function (e, t) {
+                      return s[u(t)] ? t : e;
+                    }, i))
+                  ) {
+                    var r = new Audio();
+                    (n = c(e.audioPath, t)),
+                      r.addEventListener("canplay", function () {
+                        (e.audio[l(t)] = e.audio[n] = this), o(this);
+                      }),
+                      (r.onerror = function () {
+                        a(n);
+                      }),
+                      (r.src = n),
+                      r.load();
+                  } else a(t);
+                });
+              }
+              function p(t, n) {
+                return (
+                  (n = c(e.dataPath, t)),
+                  fetch(n)
+                    .then(function (e) {
+                      if (!e.ok) throw e;
+                      return e
+                        .clone()
+                        .json()
+                        .catch(function () {
+                          return e.text();
+                        });
+                    })
+                    .then(function (i) {
+                      return (e.data[l(t)] = e.data[n] = i), i;
+                    })
+                );
+              }
+              e = kontra.assets = {
+                images: {},
+                audio: {},
+                data: {},
+                imagePath: "",
+                audioPath: "",
+                dataPath: "",
+                load: function () {
+                  var e = void 0,
+                    i = void 0,
+                    o = void 0,
+                    a = void 0,
+                    r = [];
+                  for (o = 0; (i = arguments[o]); o++)
+                    (a = (e = u([].concat(i)[0])).match(t)
+                      ? d(i)
+                      : e.match(n)
+                      ? h(i)
+                      : p(i)),
+                      r.push(a);
+                  return Promise.all(r);
+                },
+              };
+            })(),
+            (function () {
+              var e = void 0,
+                t = [],
+                n = [],
+                i = {},
+                o = [],
+                a = {},
+                r = { 0: "left", 1: "middle", 2: "right" };
+              function s(t) {
+                var n = e.x - Math.max(t.x, Math.min(e.x, t.x + t.width)),
+                  i = e.y - Math.max(t.y, Math.min(e.y, t.y + t.height));
+                return n * n + i * i < e.radius * e.radius;
+              }
+              function c() {
+                for (
+                  var i = void 0, o = n.length ? n : t, a = o.length - 1;
+                  a >= 0;
+                  a--
+                )
+                  if (
+                    (i = o[a]).collidesWithPointer
+                      ? i.collidesWithPointer(e)
+                      : s(i)
+                  )
+                    return i;
+              }
+              function u(e) {
+                (a[r[e.button]] = !0), d(e, "onDown");
+              }
+              function l(e) {
+                (a[r[e.button]] = !1), d(e, "onUp");
+              }
+              function d(t, n) {
+                if (kontra.canvas) {
+                  var o = void 0,
+                    a = void 0,
+                    r = void 0;
+                  -1 !== t.type.indexOf("mouse")
+                    ? ((o = t.clientX), (a = t.clientY))
+                    : ((o = (t.touches[0] || t.changedTouches[0]).clientX),
+                      (a = (t.touches[0] || t.changedTouches[0]).clientY)),
+                    (e.x = o - kontra.canvas.offsetLeft),
+                    (e.y = a - kontra.canvas.offsetTop),
+                    t.target === kontra.canvas && (r = c()) && r[n] && r[n](),
+                    i[n] && i[n](t, r);
+                }
+              }
+              addEventListener("mousedown", u),
+                addEventListener("touchstart", u),
+                addEventListener("mouseup", l),
+                addEventListener("touchend", l),
+                addEventListener("blur", function (e) {
+                  a = {};
+                }),
+                addEventListener("mousemove", function (e) {
+                  d(e, "onOver");
+                }),
+                (e = kontra.pointer =
+                  {
+                    x: 0,
+                    y: 0,
+                    radius: 5,
+                    track: function (e) {
+                      [].concat(e).map(function (e) {
+                        e._r ||
+                          ((e._r = e.render),
+                          (e.render = function () {
+                            t.push(this), this._r();
+                          }),
+                          o.push(e));
+                      });
+                    },
+                    untrack: function (e, t) {
+                      [].concat(e).map(function (e) {
+                        (e.render = e._r), (e._r = t);
+                        var n = o.indexOf(e);
+                        -1 !== n && o.splice(n, 1);
+                      });
+                    },
+                    over: (e) => -1 !== o.indexOf(e) && c() === e,
+                    onDown: function (e) {
+                      i.onDown = e;
+                    },
+                    onUp: function (e) {
+                      i.onUp = e;
+                    },
+                    pressed: (e) => !!a[e],
+                  }),
+                (kontra._tick = function () {
+                  (n.length = 0),
+                    t.map(function (e) {
+                      n.push(e);
+                    }),
+                    (t.length = 0);
+                });
+            })(),
+            (kontra.assets.loadB64 = (e) => {
+              var t = [],
+                n = void 0,
+                i = void 0,
+                o = void 0;
+              for (n in e)
+                (i = e[n]),
+                  (o = n),
+                  t.push(
+                    new Promise(function (e) {
+                      var t = new Image();
+                      (t.src = "data:image/png;base64," + i),
+                        (kontra.assets.images[o] = t),
+                        e(t);
+                    })
+                  );
+              return Promise.all(t);
+            });
+        },
+        function (e, t, n) {
+          "use strict";
+          n.r(t);
+          n(0);
+          var i = 0,
+            o = 1,
+            a = 2,
+            r = 3,
+            s = 4,
+            c = [
+              { i: 1, t: 30 },
+              { i: 2, t: 20 },
+              { i: 3, t: 10 },
+            ],
+            u = 0.25,
+            l = [
+              { num: 1, speeds: [1], vars: [1] },
+              { num: 3, speeds: [1, 1], vars: [u, 0.75] },
+              { num: 5, speeds: [1 / 3, 1 / 3, 1 / 3], vars: [u, u, 0.5] },
+              { num: 5, speeds: [0.5, 0.5], vars: [0, u, 0.5, u] },
+              { num: 1, speeds: [1], vars: [0, 0, 0, 0, 1] },
+              { num: 8, speeds: [0.5, 0.5], vars: [0, u, u, u] },
+              { num: 5, speeds: [0.5, 0.5], vars: [0.2, 0.2, 0.2, 0.2, 0.2] },
+              { num: 5, speeds: [0, 0.5, 0.5], vars: [0, u, u, 0.5] },
+              { num: 5, speeds: [0, 0.5, 0.5], vars: [0, 0, 0.5, 0.5] },
+              {
+                num: 5,
+                speeds: [0, 0.5, 0.5],
+                vars: [1 / 3, 0, 0, 1 / 3, 1 / 3],
+              },
+            ],
+            d = document.getElementById("screen"),
+            h = Array.from(document.getElementsByClassName("shutdown")),
+            p = document.getElementById("p"),
+            f = document.createElement("div"),
+            v = document.createElement("button"),
+            y = document.getElementById("screen_overlay"),
+            m = Array.from(document.getElementsByClassName("start")),
+            g = document.getElementById("info"),
+            k = document.createElement("button"),
+            A = (e, t) => {
+              e.stopPropagation(), M(t, !0);
+            },
+            w = (e) => {
+              (f.innerText = "Waiting for programs to close"),
+                (k.innerText = "Force"),
+                (v.innerText = "Cancel"),
+                (v.onclick = () => M(e, null)),
+                (k.onclick = (t) => A(t, e)),
+                T(!0),
+                b();
+            },
+            x = null,
+            b = () => {
+              p.style.display = "block";
+            },
+            E = () => {
+              (p.innerHTML = ""), (p.style.display = "none");
+            };
+          function T(e) {
+            p.appendChild(f),
+              e && p.appendChild(k),
+              p.appendChild(v),
+              e || p.appendChild(k);
+          }
+          var M = (e, t) => {
+              null !== x && (clearInterval(x), (x = null)),
+                h.forEach((e) => (e.parentNode.style.display = "none")),
+                !1 === t
+                  ? d.classList.add("infected")
+                  : d.classList.add("turn-off"),
+                setTimeout(() => {
+                  m.forEach((e) => {
+                    (e.onclick = () => {}),
+                      (e.parentNode.parentNode.style.display = "none");
+                  }),
+                    (g.style.display =
+                      y.style.display =
+                      d.style.display =
+                        "none"),
+                    (d.className = ""),
+                    E();
+                }, 1e3),
+                t ? K.spriteSaved(e) : !1 === t && K.spriteLost(e);
+            },
+            L = (e) => {
+              var t = 30,
+                n = (e) => "shutdown in " + e + " seconds";
+              (f.innerText = n(t)),
+                (x = setInterval(() => {
+                  t--, (f.innerText = n(t)), t || M(e, !1);
+                }, 1e3)),
+                b();
+            },
+            C = {},
+            O = document.getElementById("screen_overlay"),
+            B = O.querySelector(".content"),
+            S = document.getElementById("screen"),
+            P = Array.from(document.getElementsByClassName("start")),
+            _ =
+              "💺 🔝 🚞 😁 😾 🚸 ☸ 🍛 🔖 🗃 🦁 💠 🛀 ♓ 🙎 🙀 🛃 💔 🐌 🐠 🌲 🗓 🐒 😑 🚏 🏺 🏭 🗝 🌼 🚩 🍾 🕢 🌁 🔱 🔘 📵 🕟 🦂 🚇 ❗ 🐱 🕋 📯 💓 😣 🏆 💅 👴 🦃 🚀 🐹\n 😄 🚴 ⏸ ❎ 🕵 🎠 🏃 🍎 🍦 🏏 🌳 💜 🐈 👿 🔕 🕛 😈 🍒 ⛹ 🚚 🏢 🕌 💁 ⛪ 🔠 🌶 🏄 🌙 ♈ 🤒 📚 👳 🖱 🏉 📛 👄 🔗 🌈 😧 🀄 🗳 ⏩ 🌯 🎞 🙈 😗 🤐 🔀 ⛔ ⛄ ☘ 🐽 🌡 🔃 🌚 🏑\n 🚼 🍈 🏊 👟 😀 📶 🕰 🐗 🙎 🏄 💁‍ 🙍 👎 👮 🕉 😹 🎖 😻 💚 👷 ✅ 🌗 🤕 🏤 👔 ⛰ 🙋 🗂 🚣 🎍 🏊 👩 🍄 👙 🚫 🙆 😅 🏞 💻 🏌 🙎‍ 🙏 🎫 🏄‍ 💆 💁‍ 👨 🚠 🔫 👦 👰 👃 🚧 👊\n 👩‍ 💅 🛢 🚣‍ 🐕 😛".split(
+                " "
+              ),
+            j = 40,
+            N = (e) => Math.floor(e / j),
+            Y = (e) => Math.round((Math.random() * (e - j)) / N(e)) * N(e),
+            H = (e) => {
+              var t = c[e.s],
+                n = kontra.assets.images["c" + t.i],
+                i = kontra.canvas.width,
+                o = kontra.canvas.height,
+                a = Y(i),
+                r = Y(o);
+              if ((C[a] || (C[a] = {}), C[a][r])) return H(e);
+              C[a][r] = 1;
+              var s = 0;
+              return [
+                kontra.sprite({
+                  x: a,
+                  y: r,
+                  image: n,
+                  ttl: t.t * K.fps,
+                  color: "transparent",
+                  onDown: () => D(e),
+                  render: function () {
+                    this.draw(), (this.width = j), (this.height = 35);
+                  },
+                  update: function () {
+                    s * K.fps >= this.ttl && M(e, !1);
+                  },
+                }),
+                kontra.sprite({
+                  height: 5,
+                  x: a,
+                  y: r + j - 5,
+                  ttl: t.t * K.fps,
+                  onDown: () => D(e),
+                  render: function () {
+                    this.draw(),
+                      this.context.strokeRect(
+                        this.x,
+                        this.y,
+                        this.width,
+                        this.height
+                      );
+                  },
+                  update: function () {
+                    s += 1 / K.fps;
+                    var e = R(t, s);
+                    (this.color = U(e)), (this.width = Math.max(0, j * e));
+                  },
+                }),
+              ];
+            },
+            I = () => {
+              for (
+                var e = Math.round(20 * Math.random()), t = [], n = 0;
+                n < e;
+                n++
+              ) {
+                var i = _[Math.floor(Math.random() * _.length)];
+                t.push(i), Math.random() > 0.8 && t.push("<br />");
+              }
+              return t;
+            },
+            D = (e) => {
+              B.innerHTML = '<p class="apps">Applications</p>' + I().join(" ");
+              var t = P[Math.floor(Math.random() * P.length)],
+                n = t.querySelector(".shutdown");
+              switch (
+                ((t.querySelector(".info").onclick = () =>
+                  ((e) => {
+                    var t = document.getElementById("info");
+                    (t.style.display = "block"), console.log(e.s);
+                    var n = document.createElement("button");
+                    (t.innerHTML =
+                      "I'm a " +
+                      (0 === e.s ? "slow" : 1 === e.s ? "medium" : "fast") +
+                      " computer.<br/>"),
+                      (n.innerText = "Okay"),
+                      t.appendChild(n),
+                      (n.onclick = (e) => {
+                        e.stopPropagation(),
+                          (t.style.display = "none"),
+                          (t.innerHTML = "");
+                      });
+                  })(e)),
+                (t.parentNode.parentNode.style.display = "block"),
+                (O.style.display = S.style.display = "block"),
+                (t.onclick = () => {
+                  n.parentNode.style.display = "block";
+                }),
+                e.v)
+              ) {
+                case i:
+                  n.onclick = (t) => A(t, e);
+                  break;
+                case o:
+                  n.onclick = () =>
+                    ((e) => {
+                      (k.innerText = "Shut down now"),
+                        (v.innerText = "Cancel"),
+                        (k.onclick = (t) => A(t, e)),
+                        (v.onclick = () => M(e, null)),
+                        L(e),
+                        T(!1),
+                        b();
+                    })(e);
+                  break;
+                case a:
+                  n.onclick = () => w(e);
+                  break;
+                case r:
+                  n.onclick = () =>
+                    ((e) => {
+                      (f.innerText = "You have unsaved changes!"),
+                        (k.innerText = "Save"),
+                        (v.innerText = "Cancel"),
+                        (v.onclick = E),
+                        (k.onclick = () => {
+                          (k.onclick = (e) => w(e)),
+                            (f.innerText = "Waiting for programs to close"),
+                            (k.innerText = "Force"),
+                            (k.onclick = (t) => A(t, e)),
+                            T(!1);
+                        }),
+                        T(!0),
+                        b();
+                    })(e);
+                  break;
+                case s:
+                  var c = ((e) => {
+                    k.onclick = (t) => A(t, e);
+                    var t = document.createElement("div");
+                    (t.style.background = "#fff"),
+                      (t.style.left = "20px"),
+                      (t.style.position = "absolute"),
+                      (t.style.top = "60px"),
+                      (t.style.width = "30vmin"),
+                      (t.innerHTML =
+                        "<ul><li>hey</li><li>u there</li><li>i miss u</li></ul>");
+                    var n = t.querySelector("ul"),
+                      i = document.createElement("input");
+                    (i.type = "text"), (i.style.border = "1px solid #aaa");
+                    var o = document.createElement("button");
+                    t.appendChild(i), t.appendChild(o), (o.innerText = ">");
+                    var a = () => {
+                      var t = i.value;
+                      i.value = "";
+                      var o = document.createElement("li");
+                      (o.style.textAlign = "right"),
+                        (o.innerText = t),
+                        n.appendChild(o),
+                        t.match(/l(ove|uv) (you|u)/gi) && K.updateScoreBonus(e);
+                    };
+                    return (
+                      (i.onkeyup = (e) => (13 === e.keyCode ? a() : void 0)),
+                      (o.onclick = a),
+                      d.appendChild(t),
+                      t
+                    );
+                  })(e);
+                  n.onclick = (t) => {
+                    A(t, e), c.parentNode.removeChild(c);
+                  };
+              }
+            },
+            U = (e) => (e < 0.25 ? "red" : e < 0.7 ? "#FF0" : "#0F0"),
+            R = (e, t) => 1 - t / e.t,
+            F = H;
+          function V(e) {
+            var t = void 0,
+              n = void 0;
+            t = e.map(Number);
+            var i = e.length,
+              o = [],
+              a = [];
+            for (
+              (t = t.map((e) => e * i)).forEach((e, t) => {
+                e > 1 ? o.push(t) : e < 1 && a.push(t);
+              }),
+                n = [];
+              o.length || a.length;
+
+            )
+              if (o.length && a.length)
+                (n[a[0]] = o[0]),
+                  (t[o[0]] += t[a[0]] - 1),
+                  a.shift(),
+                  t[o[0]] > 1
+                    ? o.push(o.shift())
+                    : t[o[0]] < 1
+                    ? a.push(o.shift())
+                    : o.shift();
+              else {
+                var r = o.length > 0 ? o : a;
+                r.forEach((e) => (t[e] = 1)), (r.length = 0);
+              }
+            return () => {
+              var e = Math.random,
+                i = Math.floor(e() * t.length);
+              return e() < t[i] ? i : n[i];
+            };
+          }
+          var Q = (function () {
+            function e(e, t) {
+              for (var n = 0; n < t.length; n++) {
+                var i = t[n];
+                (i.enumerable = i.enumerable || !1),
+                  (i.configurable = !0),
+                  "value" in i && (i.writable = !0),
+                  Object.defineProperty(e, i.key, i);
+              }
+            }
+            return function (t, n, i) {
+              return n && e(t.prototype, n), i && e(t, i), t;
+            };
+          })();
+          var W = (function () {
+              function e() {
+                !(function (e, t) {
+                  if (!(e instanceof t))
+                    throw new TypeError("Cannot call a class as a function");
+                })(this, e);
+              }
+              return (
+                Q(e, null, [
+                  {
+                    key: "init",
+                    value: function () {
+                      return e.makeLevel(0);
+                    },
+                  },
+                  {
+                    key: "removeSprite",
+                    value: function (t) {
+                      delete e.sp[t], e.makeSprites();
+                    },
+                  },
+                  {
+                    key: "spriteLost",
+                    value: function (t) {
+                      --e.numLeft, e.removeSprite(t.i);
+                    },
+                  },
+                  {
+                    key: "spriteSaved",
+                    value: function (t) {
+                      ++e.wins,
+                        --e.numLeft,
+                        e.updateScore(t),
+                        e.removeSprite(t.i);
+                    },
+                  },
+                  {
+                    key: "makeSprites",
+                    value: function () {
+                      e.spArr = Object.values(e.sp).reduce(
+                        (e, t) => e.concat(t),
+                        []
+                      );
+                    },
+                  },
+                  {
+                    key: "checkEnd",
+                    value: function () {
+                      return !e.numLeft;
+                    },
+                  },
+                  {
+                    key: "updateScore",
+                    value: function (t) {
+                      ++e.score;
+                    },
+                  },
+                  {
+                    key: "updateScoreBonus",
+                    value: function (t) {
+                      ++e.chatWins;
+                    },
+                  },
+                  {
+                    key: "makeLevel",
+                    value: function (t) {
+                      (e.level = t),
+                        (e.elapsed = 0),
+                        (e.sp = ((e) => {
+                          for (
+                            var t = {},
+                              n = e.num,
+                              i = e.vars,
+                              o = V(e.speeds),
+                              a = V(i),
+                              r = 0;
+                            r < n;
+                            r++
+                          )
+                            t[r] = F({ s: o(), v: a(), i: r });
+                          return t;
+                        })(l[t]));
+                      var n = Object.keys(e.sp).length;
+                      (e.numTotal += n), (e.numLeft = n), e.makeSprites();
+                    },
+                  },
+                  {
+                    key: "nextLevel",
+                    value: function () {
+                      return e.makeLevel(++e.level), e.level;
+                    },
+                  },
+                  {
+                    key: "gameLoop",
+                    set: function (t) {
+                      var n = t.update;
+                      (t.update = () => {
+                        (e.elapsed += 1 / e.fps), n();
+                      }),
+                        (e.loop = t);
+                    },
+                  },
+                ]),
+                e
+              );
+            })(),
+            K = W;
+          (W.level = 0),
+            (W.elapsed = 0),
+            (W.score = 0),
+            (W.chatWins = 0),
+            (W.wins = 0),
+            (W.numTotal = 0),
+            (W.numLeft = 0),
+            (W.spArr = null),
+            (W.sp = null),
+            (W.fps = 30);
+          var q = document.getElementsByTagName("canvas")[0];
+          (q.width = document.body.clientWidth),
+            (q.height = document.body.clientHeight);
+          var J = document.getElementById("end_game_overlay"),
+            X = document.getElementById("end_game");
+          (J.style.display = X.style.display = "block"),
+            (X.innerHTML =
+              "Please turn computers off<br/>before they are infected<br/><br/>Click or tap anywhere to start"),
+            (X.innerHTML +=
+              '<br /><br /><p class="start-icons" style="text-align: left; padding-left: 10px;">' +
+              I().join(" ") +
+              "</p>"),
+            kontra.init(),
+            (kontra.context.strokeStyle = "transparent"),
+            (J.onclick = function () {
+              (J.style.display = X.style.display = "none"),
+                (kontra.canvas.onclick = () => {}),
+                kontra.assets.loadB64({ c1: G, c2: Z, c3: z }).then(() => {
+                  K.init(), K.spArr.map((e) => kontra.pointer.track(e));
+                  var e = kontra.gameLoop({
+                    update: function () {
+                      var t = K.checkEnd(),
+                        n = !!l[K.level + 1];
+                      if ((K.spArr.map((e) => e.update()), t))
+                        if (n)
+                          K.nextLevel(),
+                            K.spArr.map((e) => kontra.pointer.track(e));
+                        else {
+                          e.stop();
+                          var i = K.numTotal,
+                            o = K.wins,
+                            a = o / i;
+                          (X.innerHTML =
+                            "<p>Thank you for " +
+                            (a < 0.5 ? "trying to save" : "saving") +
+                            " us.</p>"),
+                            (X.innerHTML +=
+                              "<p>Of " +
+                              i +
+                              " computers<br/> you saved " +
+                              o +
+                              "."),
+                            (X.innerHTML +=
+                              "<br />That's a " +
+                              Math.round(100 * a) +
+                              "% success rate."),
+                            (X.innerHTML += K.chatWins
+                              ? "<br />You got " +
+                                K.chatWins +
+                                " bonus" +
+                                (K.chatWins > 1 ? "es" : "") +
+                                "."
+                              : ""),
+                            (X.innerHTML +=
+                              '<br/><br /><span onclick="window.location.reload()">Play again?</span>'),
+                            (J.style.display = X.style.display = "block");
+                        }
+                    },
+                    render: function () {
+                      K.spArr.map((e) => e.render());
+                    },
+                    fps: K.fps,
+                  });
+                  e.start(), (K.gameLoop = e);
+                });
+            });
+          var G =
+              "iVBORw0KGgoAAAANSUhEUgAAACgAAAAjCAYAAADmOUiuAAABUUlEQVRYR2NkwAGmT877j0uOFuKZuZMYsZmLVRDmuNRkL1q4BcPM2XO3gcWwORKnA+nlOJhrQY6kigPjkrooCtVF88qw6qeKA0GOu3PvC9wCFRUVOHvXrl1EOdzNRY8BmyMpdiDMcciOwuYiYhyKzZF0cyDM0fgcSjMHMjBJEBWNIEWD3oH4HDkoQnDUgegFNbj8IyENjobgaAiiVXlUKaiHVRockIIa1FAgVBcPaFVHjAMHrLEACplB3dyCRd2gabCCHESvZj/JfRKQ4wZ1rw4WnTBHHj56heh2ICkKba11cPbmYOYw4gopXI66c+cpKW7AUKuiIo1VP8yx6JI4HYiskNYhiM/HYAfSKzOQGvSgzDPqQFJDDVn90AxBWKGJ7nNqpFOY2TCziOGjpEFsjkPOwbjGVYiNRpD5IPNg5hDDH80kxIYuNnXwTEKJIbTWCwAtNHuwokUhvgAAAABJRU5ErkJggg",
+            Z =
+              "iVBORw0KGgoAAAANSUhEUgAAACgAAAAjCAYAAADmOUiuAAABVUlEQVRYR+2XvQqDMBDH67s4ufkkhY5OrgXByadwEoSuLjoWHFyFPoGbk+/SctIT0UtMiMa0xMl83OWXf5LLxbkwvjRN36y2I+qTJHEov2QlwoVheATLymdRFGMdBckE1AWHtAC5C2D9rJVUvd6upP0ugACXP/JpAM/zpv++74XAo3t0oSCVARFuDkURiYBSkNoAEZoHehhg+2qFlhE6GQ/IgzRCQQu4DNRwimX2oFXQKri48nYJ1H+1B08J1JAobN3Fp151IoCnJQugDGzksizNTLeQypiEFYB0pf3SbxKAM/pVh8sZBIGWp2dVVeTjDTgcnlJd1zET1GEYhJNX6Oi6LrO/7/vMNi4gZcWDFiHmwVD2I6CuwyAygXkfODwWUFa131cwjmNy0lmWqYgx2qJv9LVVXu1BCm4eTpqmUYIE/+AP/WyV7SFRkvubPUkHatVBZe0/ONKXEyCY6tAAAAAASUVORK5CYII",
+            z =
+              "iVBORw0KGgoAAAANSUhEUgAAACgAAAAjCAYAAADmOUiuAAABaklEQVRYR+2YOw6DMAyGw2XatQti4SwIscHEUZhg5ywsiKULQ3uZVkZ1BQEaOw+garNBHOfL7zztCankef6Q/1G+i6LwKHZcm4lTgEvTlOWjqqrB3jmgLlwQBKJt2x8HNFEPwutcwUMDmsI5V1B3W4HFgcVpiL9CQe7elyQJa680MfZ0FATApmlM+iW1DcNQTACzLPvYsCzLoR4BwYGrAgLMAKmdjQHjOH436/t+1UXXdYt1vu/P/oOtdUAdOJkMYTcFXFNuTWqAtA64ph4XDqAPD4jKWp2DSwrqqDcO+x/w8ApCuEwgrYYYYGzPw00AdVR0ss3g6jPdD52eJCaQ8nls9SShXjC4dlbmILdTrr3RdYvbma691o0a0h34aKI8mMa3dmjLSZNMAKMoEnVdKweLgBQ4cGYNUEn2MtgN8HI6i+v9puTkZrR2URBGQZ1LuwBS4MZZC3x7o/rUAQ4JTG76gwqnSghQVvQTR9vbQ8Z7rhUAAAAASUVORK5CYII";
+          n(2), n(7);
+        },
+        function (e, t) {},
+        ,
+        ,
+        ,
+        ,
+        function (e, t) {},
+      ]);
+    </script>
+  </body>
+</html>

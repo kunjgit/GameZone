@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Return</title>
+    <script src="./aframe.js"></script>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #141414" logic
+      ><a-assets
+        ><a-asset-item
+          id="cockpit"
+          src="./cockpit_v3.obj"
+        ></a-asset-item></a-assets
+      ><a-entity id="startMenu" visible="false"
+        ><a-text
+          value="Return"
+          position="0 1.92 -1"
+          align="center"
+          anchor="center"
+        ></a-text
+        ><a-text
+          position="0 1.2 -1"
+          width="2"
+          anchor="center"
+          wrap-count="70"
+          value="You were one of the select few chosen to trial a new hyperspace jump drive. You reach towards the red jump button in the front of your cockpit as directed; there is a whooshing noise as the jump drive spins up. Space and time warps around you, suddenly there is a bang and the ship drops out of hyperspace. “This isn’t the correct destination” you think to yourself, the jump drive must be faulty.\n
+        After assessing the damage to the ship it seems the jump drive will be capable of shorter jumps. Time to find your way back home! ('Home' is the blue planet of course, a.k.a Earth).\n
+        The ship is equipped with a fuel scoop. This can be activated by pressing the yellow button. (However, make sure you are at a yellow fuel star, orange stars are older so no longer give any fuel). Your fuel gauge is the green bar on the front panel.\n
+        Choose a destination to jump to by selecting it from the map panel on your right. Once selected the jump cost is shown by the blue bar on the front panel. Press the red button to make the jump. (Stow away the fuel scoop first).\n
+        You will need to find and scan navigation beacons to reveal nearby stars to jump to. Nav beacons are the grey triangles on the map. Jump to them and press the blue scan button.\n
+        Good luck, hopefully you will find your way back!"
+        ></a-text
+        ><a-plane
+          id="playButton"
+          class="clickable"
+          position="0 0.45 -1"
+          width="0.5"
+          height="0.2"
+          ><a-text
+            value="Play!"
+            align="center"
+            anchor="center"
+            width="3"
+          ></a-text></a-plane></a-entity
+      ><a-entity id="gameOverMenu" visible="false"
+        ><a-text
+          value="Game Over!"
+          position="0 1.4 -1"
+          align="center"
+          anchor="center"
+        ></a-text
+        ><a-plane
+          id="retryButton"
+          class="clickable"
+          position="0 1 -1"
+          width="0.5"
+          height="0.2"
+          ><a-text
+            value="Retry"
+            align="center"
+            anchor="center"
+            width="3"
+          ></a-text></a-plane></a-entity
+      ><a-text
+        id="winText"
+        value="You win!"
+        position="0 1.4 -1"
+        align="center"
+        anchor="center"
+        visible="false"
+      ></a-text
+      ><a-entity id="winMenu" visible="false"
+        ><a-text
+          value="You win!"
+          position="0 1.4 -1"
+          align="center"
+          anchor="center"
+        ></a-text
+        ><a-plane
+          id="playAgainButton"
+          class="clickable"
+          position="0 1 -1"
+          width="0.7"
+          height="0.2"
+          ><a-text
+            value="Play again"
+            align="center"
+            anchor="center"
+            width="3"
+          ></a-text></a-plane></a-entity
+      ><a-entity id="game"
+        ><a-entity id="main1" visible="false"
+          ><a-sphere
+            position="5 2 -6"
+            radius="5"
+            color="#fd8"
+            material="emissive: #f8a300; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere></a-entity
+        ><a-entity id="main2" visible="false"
+          ><a-sphere
+            position="-3 0 -15"
+            radius="3"
+            color="#fd8"
+            material="emissive: #f8a300; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere></a-entity
+        ><a-entity id="main3" visible="false"
+          ><a-sphere
+            position="-11 0 -3"
+            radius="4"
+            color="#fd8"
+            material="emissive: #f8a300; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere></a-entity
+        ><a-entity id="out1" visible="false"
+          ><a-sphere
+            position="-9 4 1"
+            radius="3"
+            color="#ffc488"
+            material="emissive: #f93200; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere></a-entity
+        ><a-entity id="out2" visible="false"
+          ><a-sphere
+            position="-6 6 -5"
+            radius="6"
+            color="#ffc488"
+            material="emissive: #f93200; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere></a-entity
+        ><a-entity id="out3" visible="false"
+          ><a-sphere
+            position="-1 1 -10"
+            radius="2"
+            color="#ffc488"
+            material="emissive: #f93200; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere></a-entity
+        ><a-entity id="navmain1" visible="false"
+          ><a-sphere
+            position="5 2 -6"
+            radius="0.5"
+            color="#fd8"
+            material="emissive: #f8a300; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere
+          ><a-box
+            position="-1 2 -4"
+            animation="property: rotation; to: 360 360 360; dur: 10000; loop: true; easing: linear"
+          ></a-box></a-entity
+        ><a-entity id="navmain2" visible="false"
+          ><a-sphere
+            position="-2 3 -7"
+            radius="0.8"
+            color="#fd8"
+            material="emissive: #f8a300; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere
+          ><a-box
+            position="3 1 -3.5"
+            animation="property: rotation; to: 360 360 360; dur: 10000; loop: true; easing: linear"
+          ></a-box></a-entity
+        ><a-entity id="navout1" visible="false"
+          ><a-sphere
+            position="1 1.5 -5"
+            radius="1"
+            color="#ffc488"
+            material="emissive: #f93200; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere
+          ><a-box
+            position="-4 2 -4"
+            animation="property: rotation; to: 360 360 360; dur: 10000; loop: true; easing: linear"
+          ></a-box></a-entity
+        ><a-entity id="navout2" visible="false"
+          ><a-sphere
+            position="-5 3 -3"
+            radius="0.8"
+            color="#ffc488"
+            material="emissive: #f93200; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere
+          ><a-box
+            position="1.2 1 -5"
+            animation="property: rotation; to: 360 360 360; dur: 10000; loop: true; easing: linear"
+          ></a-box></a-entity
+        ><a-entity id="finish" visible="false"
+          ><a-sphere
+            position="1 1.5 -6"
+            radius="0.6"
+            color="#fd8"
+            material="emissive: #f8a300; emissiveIntensity: .7"
+            light="castShadow: true"
+          ></a-sphere
+          ><a-sphere
+            position="-2 1.6 -2.5"
+            radius="0.8"
+            color="#6adaff"
+          ></a-sphere
+          ><a-sphere
+            position="-3 1.5 -1"
+            radius="0.1"
+            color="#c5b694"
+          ></a-sphere></a-entity
+        ><a-entity id="ship"
+          ><a-entity
+            rotation="0 -90 0"
+            obj-model="obj: #cockpit"
+            material="color: #3f3f3f"
+            shadow
+          ></a-entity
+          ><a-entity position="0 .8 -1.75" rotation="-51.34 0 0"
+            ><a-box
+              postition="0 0 -0.1"
+              height=".3"
+              width=".3"
+              depth=".1"
+              shadow
+              ><a-cylinder
+                id="launchButton"
+                class="clickable"
+                color="red"
+                height=".1"
+                radius=".1"
+                position="0 0 .05"
+                rotation="90 0 0"
+                shadow
+                button="pressed: true"
+                animation__in="property: object3D.position.z; startEvents: in; from: .05; to: .01; dur: 100"
+                animation__out="property: object3D.position.z; startEvents: out; from: .01; to: .05; dur: 100"
+              ></a-cylinder></a-box
+            ><a-plane
+              id="fuelGuage"
+              color="#0f0"
+              position="-.3 0 .01"
+              width=".1"
+              height=".5"
+            ></a-plane
+            ><a-plane
+              color="#000"
+              position="-.3 0 .009"
+              width=".1"
+              height=".5"
+            ></a-plane
+            ><a-plane
+              id="jumpCostGuage"
+              color="#00f"
+              position=".3 0 .01"
+              width=".1"
+              height=".5"
+            ></a-plane
+            ><a-plane
+              color="#000"
+              position=".3 0 .009"
+              width=".1"
+              height=".5"
+            ></a-plane></a-entity
+          ><a-plane
+            id="map"
+            color="#333"
+            height="1"
+            width="1.5"
+            position="1.2 1.25 0"
+            rotation="0 -90 0"
+            opacity="0.8"
+            shadow
+            ><a-entity id="location" position="0 0 .003" visible="false"
+              ><a-plane width=".03" height=".01"></a-plane
+              ><a-plane width=".01" height=".03"></a-plane
+              ><a-plane width=".03" height=".01"></a-plane
+              ><a-plane width=".01" height=".03"></a-plane
+              ><a-plane width=".03" height=".01"></a-plane
+              ><a-plane width=".01" height=".03"></a-plane
+              ><a-plane width=".03" height=".01"></a-plane
+              ><a-plane width=".01" height=".03"></a-plane></a-entity
+            ><a-entity id="target" position="0 0 .003" visible="false"
+              ><a-plane width=".01" height=".02"></a-plane
+              ><a-plane width=".02" height=".01"></a-plane
+              ><a-plane width=".01" height=".02"></a-plane
+              ><a-plane width=".02" height=".01"></a-plane></a-entity
+            ><a-entity id="mapObjects"></a-entity></a-plane
+          ><a-box
+            position="-1.26 .79 .25"
+            rotation="-52 90 0"
+            height=".3"
+            width=".3"
+            depth=".1"
+            shadow
+            ><a-cylinder
+              id="scanButton"
+              class="clickable"
+              color="blue"
+              height=".1"
+              radius=".1"
+              position="0 0 .05"
+              rotation="90 0 0"
+              shadow
+              button="resetTime: 100"
+              animation__in="property: object3D.position.z; startEvents: in; from: .05; to: .01; dur: 100"
+              animation__out="property: object3D.position.z; startEvents: out; from: .01; to: .05; dur: 100"
+            ></a-cylinder></a-box
+          ><a-box
+            position="-1.26 .79 -.25"
+            rotation="-52 90 0"
+            height=".3"
+            width=".3"
+            depth=".1"
+            shadow
+            ><a-cylinder
+              id="scoopButton"
+              class="clickable"
+              color="yellow"
+              height=".1"
+              radius=".1"
+              position="0 0 .05"
+              rotation="90 0 0"
+              shadow
+              button="resetTime: 100"
+              animation__in="property: object3D.position.z; startEvents: in; from: .05; to: .01; dur: 100"
+              animation__out="property: object3D.position.z; startEvents: out; from: .01; to: .05; dur: 100"
+            ></a-cylinder></a-box></a-entity></a-entity
+      ><a-entity id="cameraRig" rotation="0 0 0"
+        ><a-entity
+          camera
+          look-controls="pointerLockEnabled: true"
+          position="0 1.2 0"
+          ><a-entity
+            id="cursor"
+            cursor="fuse: false"
+            position="0 0 -1"
+            geometry="primitive: ring; radiusInner: 0.0001; radiusOuter: 0.005"
+            material="color: white; shader: flat"
+            raycaster="objects: #game .clickable"
+            animation__mouseenter__inner="property: geometry.radiusInner; startEvents: mouseenter; easing: easeInCubic; dur: 150; from: 0.0001; to: 0.02"
+            animation__mouseenter__outer="property: geometry.radiusOuter; startEvents: mouseenter; easing: easeInCubic; dur: 150; from: 0.005; to: 0.025"
+            animation__mouseleave__inner="property: geometry.radiusInner; startEvents: mouseleave; easing: easeInCubic; dur: 300; from: 0.02; to: 0.0001"
+            animation__mouseleave__outer="property: geometry.radiusOuter; startEvents: mouseleave; easing: easeInCubic; dur: 300; from: 0.025; to: 0.005"
+          ></a-entity
+          ><a-sky
+            id="mask"
+            color="#111"
+            opacity="0"
+            radius="0.25"
+            fader
+            animation__out="property: material.opacity; startEvents: fadeOut; from: 0; to: 1; dur: 1000"
+            animation__in="property: material.opacity; startEvents: fadeIn; from: 1; to: 0; dur: 1000"
+          ></a-sky></a-entity></a-entity
+      ><a-light
+        position="0 1.8 0"
+        intensity=".3"
+        light="castShadow: true"
+      ></a-light
+      ><a-light type="ambient" color="#d2e3fc" intensity=".5"></a-light
+      ><a-entity stars></a-entity
+    ></a-scene>
+  </body>
+</html>

@@ -1,0 +1,1170 @@
+<html>
+  <head>
+    <title>Marshmallow Playback</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <style>
+      body,
+      html {
+        background: #222;
+        overscroll-behavior: none;
+        font-family: "Trebuchet MS";
+        font-size: 16pt;
+      }
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      #hint {
+        position: fixed;
+        bottom: 1em;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 1000;
+        color: #aaa;
+      }
+      #hint b {
+        color: #fff;
+      }
+      #tip {
+        position: fixed;
+        top: 42%;
+        width: 30%;
+        left: 35%;
+        text-align: center;
+        background: #ffffff;
+        color: #000;
+        padding: 0.2em;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.2s, top 0.2s;
+      }
+      #tip.active {
+        opacity: 1;
+        top: 40%;
+      }
+    </style>
+    <script>
+      "use strict";
+      const DEBUG = 1,
+        OBJ_STARTPOINT = 0,
+        OBJ_DOOR = 1,
+        OBJ_SWITCH = 2,
+        OBJ_GOAL = 3,
+        OBJ_SPIKE = 4,
+        GAME_OBJECT_COORDINATE_SCALE = 50,
+        DIRECTION_UP = 0,
+        DIRECTION_RIGHT = 1,
+        DIRECTION_DOWN = 2,
+        DIRECTION_LEFT = 3,
+        CONTROL_UP = 0,
+        CONTROL_RIGHT = 1,
+        CONTROL_DOWN = 2,
+        CONTROL_LEFT = 3,
+        CONTROL_ACTION_1 = 4,
+        CONTROL_ACTION_2 = 5,
+        CONTROL_ACTION_3 = 6,
+        INPUT_KEY_STATE = 0,
+        INPUT_KEY_CHANGED = 1,
+        INPUT_KEY_EVENTS = 2,
+        GAME_MODE_ROOM_SELECT = 0,
+        GAME_MODE_ROOM_WAITING = 1,
+        GAME_MODE_ROOM_PLAYING = 2,
+        SVG_FILE_HEADER =
+          '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g stroke-linecap="round" stroke-linejoin="round" stroke-width="4">',
+        SVG_FILE_FOOTER = "</g></svg>",
+        SVG_PLAYER_FRONT_BODY = 0,
+        SVG_PLAYER_FRONT_EYES = 1,
+        SVG_PLAYER_FRONT_EYES_BLINK = 2,
+        SVG_STAR = 3,
+        SVG_PLAYER_LEFT_BODY = 4,
+        SVG_PLAYER_LEFT_LEGS_RUN1 = 5,
+        SVG_PLAYER_LEFT_LEGS_RUN2 = 6,
+        SVG_PLAYER_LEFT_LEGS_FLYING = 7,
+        SVG_SWITCH_OFF = 8,
+        SVG_SWITCH_ON = 9,
+        SVG_DOOR_CLOSED = 10,
+        SVG_DOOR_OPEN = 11,
+        SVG_SPIKE_FLOOR = 12,
+        SVG_SPIKE_LEFT = 13,
+        SVG_SPIKE_TOP = 14,
+        SVG_PLAYER_FRONT_BODY_DEAD = 15;
+      let _levels = [
+        {
+          width: 10,
+          height: 10,
+          walls:
+            "0011110111100100000001111011110100111001010000000101000000010110000011111111111011001000001110110000",
+          roomMap:
+            "1111111111111111111111111111111000111001100000000110000000011000000001110000000111111111111111111111",
+          times: [[180, 1, 7, 3]],
+          objects: [
+            [0, 7, 6],
+            [3, 3, 6],
+          ],
+          tips: [
+            [30, 120, "Oh, hello!"],
+            [180, 120, "*hicup* Nice to meet you!"],
+            [330, 180, "Erm, this place is a bit... loopy?"],
+            [
+              540,
+              300,
+              "Anyway, could you help me get that shiny star? I kinda like it.",
+            ],
+          ],
+        },
+        {
+          width: 10,
+          height: 10,
+          walls:
+            "1111111110100000011010000000111000000011100000111111111111001100000111000011111000100001111111011110",
+          roomMap:
+            "0000000000000000000000000000000000000000000000000000000001111111111111111111101111111110111111111011",
+          times: [[180, 1, 3, 1]],
+          objects: [
+            [0, 6, 3],
+            [3, 2, 2],
+          ],
+          tips: [
+            [30, 180, "I have some friends somewhere, you know."],
+            [240, 120, "I hope we can find them."],
+            [390, 120, "I think I can jump in the air... and off the wall?"],
+          ],
+        },
+        {
+          width: 10,
+          height: 10,
+          walls:
+            "0011111111011000110101000000011111100001110011110101000001111100000001110000111101111111101100100011",
+          roomMap:
+            "2222222222200000000220000000022000000002211100000221111110022111111112211111111221111111222222222222",
+          times: [
+            [200, 1, 4, 1],
+            [200, 1, 2, 4],
+          ],
+          objects: [
+            [0, 2, 2],
+            [0, 6, 6],
+            [3, 2, 5],
+            [3, 8, 4],
+          ],
+          tips: [
+            [30, 120, "Oh, look! It's Frank!"],
+            [160, 120, "Hey Frank!"],
+            [290, 120, "Now you can decide who you want to help."],
+            [600, 180, "Select one of us!"],
+          ],
+        },
+        {
+          width: 10,
+          height: 10,
+          walls:
+            "1111111111110011100111000000011111111111000111100111110000011001000011100111001111000000111111111110",
+          roomMap:
+            "0000000000000000000000000000000000000000222000011211111111111111111111111111111111111111111111111112",
+          times: [
+            [200, 1, 7, 1],
+            [200, 1, 7, 5],
+          ],
+          objects: [
+            [0, 8, 2],
+            [0, 5, 6],
+            [1, 4, 8, 1],
+            [3, 2, 8],
+            [2, 2, 2, 1, 0, 0],
+          ],
+          tips: [
+            [30, 120, "Hey, that's Bob!"],
+            [160, 180, "Poor Bob locked his star. Can we help him?"],
+          ],
+        },
+        {
+          width: 10,
+          height: 10,
+          walls:
+            "0111111111010011000101000000010111111111010000111101000010010100001001011100000100111000010001111111",
+          roomMap:
+            "2222222222200000000220000000022000000002211111000221111111122111111112211111111222111111122221111112",
+          times: [
+            [240, 1, 6, 1],
+            [240, 1, 7, 5],
+          ],
+          objects: [
+            [0, 8, 2],
+            [0, 2, 6],
+            [4, 4, 7, 1],
+            [2, 7, 8, 1, 0, 0],
+            [3, 7, 6],
+            [3, 2, 1],
+            [1, 5, 2, 1],
+          ],
+          tips: [[30, 180, "That looks too spiky..."]],
+        },
+        {
+          width: 10,
+          height: 10,
+          walls:
+            "011111111101001111010100010101011111000101111111010100001001010000101101001110010100001001011111111110",
+          roomMap:
+            "2222200000202210000020222000002022200000100000000011111110001111111000111111100011111110001111111000",
+          times: [
+            [300, 1, 4, 5],
+            [300, 1, 7, 7],
+            [300, 1, 2, 1],
+          ],
+          objects: [
+            [0, 6, 3],
+            [0, 5, 6],
+            [2, 2, 2, 2, 0, 0],
+            [2, 4, 2, 1, 0, 0],
+            [0, 3, 2],
+            [4, 3, 5, 4],
+            [4, 2, 5, 6],
+            [1, 7, 3, 1],
+            [1, 4, 8, 2],
+            [3, 8, 5],
+            [3, 8, 8],
+            [3, 2, 1],
+            [3, 5, 8],
+          ],
+        },
+        {
+          width: 10,
+          height: 10,
+          walls:
+            "1111111111100000000110111111011000000001101111111110010000011101000001100111011110000100011111111111",
+          roomMap:
+            "2222222222000000000200000000020000000002000000000200011111120001111112000111111200000111120000011112",
+          times: [
+            [400, 1, 3, 1],
+            [400, 1, 7, 5],
+          ],
+          objects: [
+            [0, 2, 3],
+            [0, 5, 6],
+            [4, 1, 5, 1],
+            [3, 2, 1],
+            [3, 1, 8],
+            [0, 3, 8],
+            [4, 6, 8, 3],
+            [4, 6, 7, 2],
+            [4, 8, 8, 1],
+            [4, 7, 8, 1],
+            [3, 7, 5],
+          ],
+        },
+        {
+          width: 10,
+          height: 10,
+          walls:
+            "1111111111111001110111100000011111110111111111111110011000011011100001101111100110000000011111111111",
+          roomMap:
+            "0000000000000000000000000000000000000000000000000011111111111111111111111111111111111111111111111111",
+          times: [
+            [400, 1, 3, 1],
+            [400, 1, 7, 5],
+          ],
+          objects: [
+            [0, 8, 2],
+            [0, 6, 6],
+            [1, 4, 8, 1],
+            [2, 6, 3, 1, 0, 0],
+            [3, 2, 5],
+            [4, 1, 8, 1],
+            [4, 3, 8, 4],
+            [4, 5, 2, 4],
+            [4, 6, 2, 4],
+            [4, 7, 2, 4],
+            [3, 3, 2],
+          ],
+          tips: [[240, 180, "What if... maybe I can dash below it?"]],
+        },
+        {
+          width: 10,
+          height: 10,
+          walls:
+            "0011111100111100011101010001010101100001010000000101000000010110000001011111111101001000110110110010",
+          roomMap:
+            "1111111111111000000111000000011000000001100000000110000000011000000001110000000111111111111111111111",
+          times: [[180, 1, 30, 0]],
+          objects: [
+            [0, 7, 6],
+            [3, 30, 0],
+          ],
+          tips: [
+            [30, 180, "Well, it looks like that was the last level."],
+            [240, 180, "It was nice to see you."],
+            [450, 180, "Thanks for everything!"],
+            [860, 180, "It's fine, I'll be OK!"],
+            [1270, 180, "Byeee!"],
+          ],
+        },
+      ];
+      const _svgs =
+        '<path d="m21 12c0-9 57-15 58 5 1 20 7 53-2 62s-37 8-52 2c-14-6-4-60-3-69z" fill="#f0e0d1" stroke="#917c6f"/><path d="m26 18c19 11 43 0 48 0" fill="none" stroke="#917c6f"/><path d="m45 47c7 5 12-0 14-1" stroke="#483e37"/><path d="m20 46c-5 0-13 14-13 22" stroke="#000"/><path d="m79 44c5 1 12 13 13 24" stroke="#000"/><path d="m39 78c0 7-0 12-3 19" stroke="#000"/><path d="m63 77c1 9 0 14 1 20" stroke="#000"/>;<circle cx="63" cy="35" r="2" stroke="#483e37"/><circle cx="38" cy="35" r="2" stroke="#483e37"/>;<path d="m28 39c5-4 8-5 14-1" stroke="#483e37"/><path d="m58 37c5-4 7-2 13 1" stroke="#483e37"/>;<path transform="matrix(.44 .11 -.11 .44 44 50)" d="m25 29c-6 3-14 29-21 28-7-0-8-28-13-33-5-4-32-4-33-11-1-7 24-16 27-22 3-6-5-32 0-35 6-3 23 17 30 18 7 0 28-15 34-10 5 4-9 27-8 34 1 7 23 22 20 29-3 6-29-0-35 2z" fill="#fd5" stroke="#fc0"/>;<path d="m27 13c2-8 46-9 41 10-4 19-3 17 0 40 4 23-31 22-43 11-11-10-1-53 1-62z" fill="#f0e0d1" stroke="#917c6f"/><path d="m34 18c19 10 28 4 32 1" fill="none" stroke="#917c6f"/><path d="m24 46c5 0 8-2 9-4" stroke="#483e37"/><path transform="matrix(.7 .2 -.2 .7 14 -.23)" d="m39 31a3 3 0 1 1 -6 0 3 3 0 1 1 6 0z" fill="#483e37" stroke="#483e37"/><path d="m49 52c6 1 16 3 26 10" stroke="#000"/>;<path d="m37 75c-5-1-19 3-11 20" fill="none" stroke="#000"/><path d="m52 88c0 3 6 4 12 5" stroke="#000"/>;<path d="m40 77c-5-1-11 8-1 20" fill="none" stroke="#000"/><path d="m48 87c-2-0-8 3-0 5" stroke="#000"/>;<path d="m54 87c3 3 10 3 15 3" fill="none" stroke="#000"/><path d="m52 78c6 6 15 5 28 6" stroke="#000"/>;<path d="m5 63h55l33-20-57-0z" fill="#333" stroke="#333"/><path d="m10 57h49l29-18-51-0z" fill="#888" stroke="#888"/>;<path d="m5 63h55l33-20-57-0z" fill="#F83" stroke="#F83"/><path d="m10 57h49l29-18-51-0z" fill="#888" stroke="#888"/>;<path d="m36 33 0 63 30-20 0-63z" fill="#a40" stroke="#803300"/>;<path d="m36 97 30-20z" fill="none" stroke="#00000066"/><path d="m31 13 0 63 35-0 0-63z" fill="#803300" stroke="#520"/>;<path d="m21 93 9-7 7 7 7-12 5 14 8-9 6 8 3-14 9 13" fill="none" stroke="#ffe680"/>;<path d="m10 21 13 9-12 9 16 4-14 9 14 3-12 11 11 4-14 11" fill="none" stroke="#ffe680"/>;<path d="m23 12 10 19 5-17 8 17 3-17 6 17 7-19 1 13 6-13" fill="none" stroke="#ffe680"/>;<path d="m31 10c2-8 59-0 55 20-3 20-6 53-18 59-11 5-38-1-51-11-12-9 11-59 14-68z" fill="#f0e0d1" stroke="#917c6f"/><path d="m35 17c16 16 42 11 46 12" fill="none" stroke="#917c6f"/><path d="m21 42c-4 11 6 15 2 28" fill="none" stroke="#000"/><path d="m76 54c5 2-2 16 5 28" fill="none" stroke="#000"/><path transform="matrix(.5 .15879 -.15879 .59407 28 28)" d="m39 31a3 3 0 1 1 -6 0 3 3 0 1 1 6 0z" fill="#483e37" stroke="#483e37"/><path d="m60 38c3 3 4 6 6 10" fill="none" stroke="#483e37"/><path d="m58 46c5-2 7-2 12-3" fill="none" stroke="#483e37"/><path d="m35 32c3 3 4 6 6 10" fill="none" stroke="#483e37"/><path d="m33 39c5-2 5-3 12-3" fill="none" stroke="#483e37"/>'.split(
+          ";"
+        );
+      var _raf = window.requestAnimationFrame;
+      function _copy(a) {
+        return JSON.parse(JSON.stringify(a));
+      }
+      function bindEvent(a, b, c) {
+        a.addEventListener
+          ? a.addEventListener(b, c)
+          : a.attachEvent("on" + b, c);
+      }
+      function aabb(a, b) {
+        return !(
+          a.x + a.width / 2 < b.x - b.width / 2 ||
+          a.y + a.height / 2 < b.y - b.height / 2 ||
+          a.x - a.width / 2 > b.x + b.width / 2 ||
+          a.y - a.height / 2 > b.y + b.height / 2
+        );
+      }
+      class Gfx {
+        constructor() {
+          this.canvas = document.getElementById("canvas-main");
+          this.canvasWallBack = document.getElementById("canvas-back");
+          this.canvasWallFront = document.getElementById("canvas-front");
+          this.canvasTransition = document.getElementById("canvas-transition");
+          this.ctx = this.canvas.getContext("2d");
+          this.ctxWallBack = this.canvasWallBack.getContext("2d");
+          this.ctxWallFront = this.canvasWallFront.getContext("2d");
+          this.ctxTransition = this.canvasTransition.getContext("2d");
+          this.svgImages = [];
+          this.wallHue = 1;
+        }
+        resize() {
+          _zoom = Math.min(window.innerWidth / 600, window.innerHeight / 600);
+          _zoom = Math.floor(5 * _zoom) / 5;
+          _canvasWidth = window.innerWidth;
+          _canvasHeight = window.innerHeight;
+          _padX = Math.floor((window.innerWidth - 600 * _zoom) / 2);
+          _padY = Math.floor((window.innerHeight - 600 * _zoom) / 2);
+          this.canvas.width = _canvasWidth;
+          this.canvas.height = _canvasHeight;
+          this.canvasWallBack.width = _canvasWidth;
+          this.canvasWallBack.height = _canvasHeight;
+          this.canvasWallFront.width = _canvasWidth;
+          this.canvasWallFront.height = _canvasHeight;
+          this.canvasTransition.width = _canvasWidth;
+          this.canvasTransition.height = _canvasHeight;
+          this.renderSvgs();
+          this.drawWallBlocks();
+        }
+        clearCtx(a) {
+          a.resetTransform();
+          a.clearRect(0, 0, a.canvas.width, a.canvas.height);
+          a.transform(1, 0, 0, 1, _padX, _padY);
+          a.transform(_zoom, 0, 0, _zoom, 0, 0);
+        }
+        frameStart() {
+          this.clearCtx(this.ctx);
+        }
+        drawDebugRectangle(a, b, c, d, e) {
+          DEBUG &&
+            ((this.ctx.fillStyle = e),
+            this.ctx.fillRect(a - c / 2, b - d / 2, c, d));
+        }
+        drawDebugCross(a, b, c, d, e) {
+          DEBUG &&
+            ((this.ctx.strokeStyle = e),
+            (this.ctx.lineWidth = 1),
+            this.ctx.beginPath(),
+            this.ctx.moveTo(
+              a + 0.5 * GAME_OBJECT_COORDINATE_SCALE + 0.5,
+              b + 0.5 * GAME_OBJECT_COORDINATE_SCALE - d / 2 + 0.5
+            ),
+            this.ctx.lineTo(
+              a + 0.5 * GAME_OBJECT_COORDINATE_SCALE + 0.5,
+              b + 0.5 * GAME_OBJECT_COORDINATE_SCALE + d / 2 + 0.5
+            ),
+            this.ctx.moveTo(
+              a + 0.5 * GAME_OBJECT_COORDINATE_SCALE - c / 2 + 0.5,
+              b + 0.5 * GAME_OBJECT_COORDINATE_SCALE + 0.5
+            ),
+            this.ctx.lineTo(
+              a + 0.5 * GAME_OBJECT_COORDINATE_SCALE + c / 2 + 0.5,
+              b + 0.5 * GAME_OBJECT_COORDINATE_SCALE + 0.5
+            ),
+            this.ctx.stroke());
+        }
+        drawDebugProgressBar(a, b, c, d, e, f) {
+          DEBUG &&
+            ((this.ctx.fillStyle = f),
+            this.ctx.fillRect(a, b, c * e, d),
+            this.ctx.fillRect(a, b + d - 1, c, 1));
+        }
+        renderSvgs() {
+          let a, b;
+          this.svgImages.length = 0;
+          for (a of _svgs)
+            (b = new Image(50, 50)),
+              (b.src =
+                "data:image/svg+xml," +
+                encodeURIComponent(SVG_FILE_HEADER + a + SVG_FILE_FOOTER)),
+              this.svgImages.push(b);
+        }
+        drawSvg(a, b, c, d, e) {
+          void 0 === e && (e = 1);
+          this.ctx.save();
+          this.ctx.transform(d ? -1 : e, 0, 0, e, b, c);
+          this.ctx.drawImage(this.svgImages[a], -25, -25, 50, 50);
+          this.ctx.restore();
+        }
+        drawShapePlaceholder(a, b, c, d, e) {
+          this.ctx.lineCap = "round";
+          this.ctx.lineJoin = "round";
+          this.ctx.save();
+          this.ctx.transform(d, 0, 0, d, b, c);
+          this.ctx.transform(1, 0, 0, 1, -25, -25);
+          DEBUG &&
+            (this.ctx.beginPath(),
+            (this.ctx.strokeStyle = "#aaa"),
+            (this.ctx.lineWidth = 0.5),
+            this.ctx.setLineDash([1, 1]),
+            this.ctx.rect(0, 0, 50, 50),
+            this.ctx.stroke(),
+            this.ctx.setLineDash([]));
+          this.ctx.restore();
+        }
+        drawTransition(a) {
+          let b, c;
+          let d, e;
+          this.clearCtx(_gfx.ctxTransition);
+          _gfx.ctxTransition.fillStyle = "#222";
+          _gfx.ctxTransition.beginPath();
+          for (c = 0; 12 > c; c++)
+            for (b = 0; 12 > b; b++) {
+              var f = 1 - b / 12;
+              f = 0.5 > a ? 4 * a + (f - 1) : 2 - 4 * (a - 0.5) + -1 * f;
+              f = 32 * Math.min(Math.max(f, 0), 1);
+              d = 50 * b - 50;
+              e = 50 * c + (b % 2) * 25 - 50;
+              _gfx.ctxTransition.moveTo(d, e);
+              _gfx.ctxTransition.arc(d, e, f, 0, 2 * Math.PI);
+            }
+          _gfx.ctxTransition.fill();
+        }
+        randomizeWallHue() {
+          this.wallHue = 360 * Math.random();
+        }
+        drawWallBlocks() {
+          function a(a, b, d, e) {
+            let f, g;
+            f = document.createElement("canvas");
+            g = f.getContext("2d");
+            f.width = c;
+            f.height = c;
+            g.fillStyle = "hsla(" + a + "," + b + "%," + d + "%, 1)";
+            g.fillRect(0, 0, c, c);
+            g.fillStyle =
+              "hsla(" + (a + 30) + "," + 0.8 * b + "%," + d + "%, 1)";
+            for (a = 0; 4 > a; a++) g.fillRect((c / 2) * a, 0, 13, c);
+            g.fillStyle = "rgba(32,32,32," + e + ")";
+            g.fillRect(0, 0, c, c);
+            return f;
+          }
+          function b(a, b, d, e, f) {
+            a -= 60;
+            b -= 33;
+            var g = _gfx.ctxWallFront,
+              l = c / 2 + a,
+              h = c / 3 + b;
+            g.save();
+            g.transform(1, 0, 0, 1, l, h);
+            g.drawImage(d, 0, 0);
+            g.restore();
+            d = _gfx.ctxWallBack;
+            g = c + a;
+            l = 0 + b;
+            d.save();
+            d.transform(1, 0, -0.5, 0.33, g, l);
+            d.drawImage(e, 0, 0);
+            d.restore();
+            e = _gfx.ctxWallBack;
+            a = (3 * c) / 2 + a;
+            b = c / 3 + b;
+            e.save();
+            e.transform(0.5, -0.33, 0, 1, a, b);
+            e.drawImage(f, 0, 0);
+            e.restore();
+          }
+          let c;
+          c = 50;
+          this.clearCtx(_gfx.ctxWallBack);
+          this.clearCtx(_gfx.ctxWallFront);
+          var d = this.wallHue;
+          let e = a(d, d + 20, 40, 0),
+            f = a(d, d + 20, 25, 0),
+            m = a(d, d + 20, 30, 0);
+          d = a(d, d + 20, 15, 0);
+          let h, k;
+          k = [];
+          for (h of _game.objects)
+            h instanceof GameObjectWall && k.push({ x: h.x, y: h.y });
+          k.sort(function (a, b) {
+            return a.y == b.y ? a.x - b.x : b.y - a.y;
+          });
+          (function (a, b, d, e, f, g) {
+            let h, k;
+            for (h = 0; h < e; h++)
+              for (k = 0; k < f; k++) a.drawImage(g, b + h * c, d + k * c);
+          })(_gfx.ctxWallBack, 0, 0, 12, 10, d);
+          for (h of k) b(h.x, h.y, e, f, m);
+        }
+      }
+      let _inputControls = [
+        [!1, !1, ["arrowup", "w", " "]],
+        [!1, !1, ["arrowright", "d"]],
+        [!1, !1, ["arrowdown", "s"]],
+        [!1, !1, ["arrowleft", "a"]],
+        [!1, !1, ["1"]],
+        [!1, !1, ["2"]],
+        [!1, !1, ["3"]],
+      ];
+      function inputAcknowledge() {
+        let a;
+        for (a of _inputControls) a[INPUT_KEY_CHANGED] = !1;
+      }
+      function inputInit() {
+        bindEvent(window, "keydown", inputKeyEvent);
+        bindEvent(window, "keyup", inputKeyEvent);
+      }
+      function inputHandleEvent(a, b) {
+        let c;
+        for (c of _inputControls)
+          if (-1 != c[INPUT_KEY_EVENTS].indexOf(a))
+            return (
+              (c[INPUT_KEY_CHANGED] = c[INPUT_KEY_STATE] != b),
+              (c[INPUT_KEY_STATE] = b),
+              !0
+            );
+        DEBUG && console.log('unknown event: "' + a + '"');
+        return !1;
+      }
+      function inputKeyEvent(a) {
+        (DEBUG && _game.paused) ||
+          (inputHandleEvent(a.key.toLowerCase(), "keydown" == a.type) &&
+            a.preventDefault());
+      }
+      class GameObject {
+        constructor(a, b, c, d, e) {
+          this.startingX = Math.round(a * GAME_OBJECT_COORDINATE_SCALE);
+          this.startingY = Math.round(b * GAME_OBJECT_COORDINATE_SCALE);
+          this.y = this.x = 0;
+          this.width = Math.round(c * GAME_OBJECT_COORDINATE_SCALE);
+          this.height = Math.round(d * GAME_OBJECT_COORDINATE_SCALE);
+          this.room = e;
+          this.name = "";
+          DEBUG && (this.color = "#333");
+          this.svgIndex = -1;
+          this.svgScale = 1;
+          this.collisionTarget = this.collisionActor = this.gravity = !1;
+          this.overlappedObjects = [];
+          this.overlappedObjectBlocks = !1;
+          this.ticks = this.speedY = this.speedX = 0;
+          this.drawRound = this.tickRound = 2;
+          this.destroyed = !1;
+          this.dashTicksLeft = 0;
+          this.collidedObjects = [null, null, null, null];
+        }
+        draw() {
+          this.destroyed ||
+            (DEBUG && -1 == this.svgIndex) ||
+            _gfx.drawSvg(this.svgIndex, this.x, this.y, !1, this.svgScale);
+        }
+        updateOverlap() {
+          let a;
+          this.overlappedObjects.length = 0;
+          this.overlappedObjectBlocks = !1;
+          for (a of _game.objects)
+            a != this &&
+              aabb(this, a) &&
+              (this.overlappedObjects.push(a),
+              (this.overlappedObjectBlocks =
+                this.overlappedObjectBlocks || a.collisionTarget),
+              a.overlappedBy(this));
+        }
+        updateCollisions() {
+          this.collidedObjects = [
+            _game.getObjectAt(this.x, this.y - this.height / 2 - 1),
+            _game.getObjectAt(this.x + this.width / 2 + 1, this.y),
+            _game.getObjectAt(this.x, this.y + this.height / 2 + 1),
+            _game.getObjectAt(this.x - this.width / 2 - 1, this.y),
+          ];
+        }
+        moveAndCheckCollisions() {
+          let a, b, c, d;
+          a = Math.round(Math.abs(this.speedX));
+          b = Math.sign(this.speedX);
+          c = Math.round(Math.abs(this.speedY));
+          for (d = Math.sign(this.speedY); 0 < a || 0 < c; )
+            0 < a &&
+              ((this.x += b),
+              this.updateOverlap(),
+              this.overlappedObjectBlocks &&
+                ((this.x -= b), (this.speedX = b = a = 0)),
+              a--),
+              0 < c &&
+                ((this.y += d),
+                this.updateOverlap(),
+                this.overlappedObjectBlocks &&
+                  ((this.y -= d), (this.speedY = d = c = 0)),
+                c--);
+          this.updateCollisions();
+        }
+        defaultTick() {
+          this.ticks++;
+          this.gravity && !this.dashTicksLeft && (this.speedY += 10 / 60);
+          0 < this.dashTicksLeft && (this.speedY = 0);
+          this.moveAndCheckCollisions();
+        }
+        tick() {
+          this.defaultTick();
+        }
+        defaultReset() {
+          this.x = this.startingX;
+          this.y = this.startingY;
+          this.ticks = this.speedY = this.speedX = 0;
+          this.destroyed = !1;
+        }
+        reset() {
+          this.defaultReset();
+        }
+        overlappedBy(a) {}
+      }
+      class GameObjectSwitch extends GameObject {
+        constructor(a, b, c, d, e, f) {
+          super(a, b + 0.5, 1, 0.2, f);
+          this.collisionTarget = this.active = !1;
+          this.activationGroup = c;
+          this.svgIndex = SVG_SWITCH_OFF;
+          this.sticky = d;
+          this.inverted = e;
+          this.stickyHandled = !1;
+        }
+        reset() {
+          this.active = this.inverted;
+          this.defaultReset();
+        }
+        tick() {
+          let a, b;
+          b = !1;
+          for (a of _game.objects)
+            a instanceof GameObjectPlayer &&
+              -1 !== a.overlappedObjects.indexOf(this) &&
+              (b = !0);
+          this.sticky
+            ? (!this.stickyHandled &&
+                b &&
+                ((this.active = !this.active), (this.stickyHandled = !0)),
+              this.stickyHandled && !b && (this.stickyHandled = !1))
+            : ((this.active = this.inverted),
+              b && (this.active = !this.active));
+          this.color = "#151";
+          this.svgIndex = SVG_SWITCH_OFF;
+          this.active &&
+            ((this.svgIndex = SVG_SWITCH_ON), (this.color = "#3c3"));
+        }
+      }
+      class GameObjectWall extends GameObject {
+        constructor(a, b) {
+          super(a, b, 1, 1, -1);
+          DEBUG && (this.color = "#666");
+          this.collisionTarget = !0;
+        }
+      }
+      class GameObjectDoor extends GameObject {
+        constructor(a, b, c) {
+          super(a, b, 0.2, 1, -1);
+          DEBUG && (this.color = "#886");
+          this.svgIndex = SVG_DOOR_CLOSED;
+          this.svgScale = 1.4;
+          this.collisionTarget = !0;
+          this.activationGroup = c;
+          this.tickRound = 3;
+          this.open = !1;
+        }
+        tick() {
+          this.open = !1;
+          this.color = "#886";
+          this.svgIndex = SVG_DOOR_CLOSED;
+          _game.isActivationGroupActive(this.activationGroup) &&
+            ((this.open = !0),
+            (this.color = "#332"),
+            (this.svgIndex = SVG_DOOR_OPEN));
+          this.collisionTarget = !this.open;
+        }
+      }
+      class GameObjectPlayer extends GameObject {
+        constructor(a, b, c) {
+          super(a, b, 0.4, 0.8, c);
+          DEBUG && (this.color = "#0e4");
+          this.killed = !1;
+          this.gravity = !0;
+          this.recording = this.doubleJumped = !1;
+          this.tickRound = 1;
+          this.drawRound = 3;
+          this.recordedControls = [];
+        }
+        handleControls(a) {
+          if (
+            (a[CONTROL_UP][INPUT_KEY_STATE] &&
+              a[CONTROL_UP][INPUT_KEY_CHANGED]) ||
+            (a[CONTROL_ACTION_1][INPUT_KEY_STATE] &&
+              a[CONTROL_ACTION_1][INPUT_KEY_CHANGED])
+          )
+            this.collidedObjects[DIRECTION_DOWN]
+              ? (this.speedY = -4.5)
+              : this.collidedObjects[DIRECTION_LEFT]
+              ? ((this.speedY = -4.5), (this.speedX = 4))
+              : this.collidedObjects[DIRECTION_RIGHT]
+              ? ((this.speedY = -4.5), (this.speedX = -4))
+              : this.doubleJumped ||
+                ((this.speedY = -4.5), (this.doubleJumped = !0));
+          this.collidedObjects[DIRECTION_DOWN] &&
+            (a[CONTROL_LEFT][INPUT_KEY_STATE] && (this.speedX += -0.4),
+            a[CONTROL_RIGHT][INPUT_KEY_STATE] && (this.speedX += 0.4));
+          a[CONTROL_ACTION_2][INPUT_KEY_STATE] &&
+            a[CONTROL_ACTION_2][INPUT_KEY_CHANGED] &&
+            this.collidedObjects[DIRECTION_DOWN] &&
+            0 != this.speedX &&
+            ((this.dashTicksLeft = 10), (this.y -= 2));
+          a[CONTROL_ACTION_3][INPUT_KEY_STATE] &&
+            a[CONTROL_ACTION_3][INPUT_KEY_CHANGED] &&
+            this.recording &&
+            (this.stopRecording(), _game.deactivateRoom());
+        }
+        draw() {
+          this.killed
+            ? (_gfx.drawSvg(SVG_PLAYER_FRONT_BODY_DEAD, this.x, this.y),
+              _gfx.drawSvg(SVG_PLAYER_LEFT_LEGS_RUN1, this.x, this.y))
+            : 0 == Math.round(this.speedX, 2)
+            ? (_gfx.drawSvg(SVG_PLAYER_FRONT_BODY, this.x, this.y),
+              _gfx.drawSvg(
+                125 > this.ticks % 130
+                  ? SVG_PLAYER_FRONT_EYES
+                  : SVG_PLAYER_FRONT_EYES_BLINK,
+                this.x,
+                this.y
+              ))
+            : (_gfx.drawSvg(
+                SVG_PLAYER_LEFT_BODY,
+                this.x,
+                this.y,
+                0 < this.speedX
+              ),
+              this.collidedObjects[DIRECTION_DOWN]
+                ? _gfx.drawSvg(
+                    4 > this.ticks % 8
+                      ? SVG_PLAYER_LEFT_LEGS_RUN1
+                      : SVG_PLAYER_LEFT_LEGS_RUN2,
+                    this.x,
+                    this.y,
+                    0 < this.speedX
+                  )
+                : _gfx.drawSvg(
+                    SVG_PLAYER_LEFT_LEGS_FLYING,
+                    this.x,
+                    this.y,
+                    0 < this.speedX
+                  ));
+        }
+        tick() {
+          let a;
+          this.recording &&
+            (this.recordedControls[this.ticks] = _copy(_inputControls));
+          a = this.recordedControls[this.ticks];
+          0 < this.dashTicksLeft &&
+            ((this.speedX = 0 > this.speedX ? -10 : 10), this.dashTicksLeft--);
+          this.updateCollisions();
+          this.updateOverlap();
+          this.dashing && (this.dashing = !1);
+          a && !this.killed && this.handleControls(a);
+          this.collidedObjects[DIRECTION_DOWN] &&
+            ((this.speedX *= 0.9), (this.doubleJumped = !1));
+          this.speedX *= 0.99;
+          this.defaultTick();
+        }
+        startRecording() {
+          this.recording = !0;
+          this.recordedControls.length = 0;
+        }
+        stopRecording() {
+          this.recording = !1;
+        }
+        reset() {
+          this.killed = this.recording = this.doubleJumped = !1;
+          this.defaultReset();
+        }
+      }
+      class GameObjectGoal extends GameObject {
+        constructor(a, b, c) {
+          super(a, b, 0.2, 0.2, c);
+          DEBUG && (this.color = "#ea0");
+          this.collisionTarget = !1;
+          this.tickRound = 3;
+          this.svgIndex = SVG_STAR;
+        }
+        overlappedBy(a) {
+          this.destroyed = !0;
+        }
+      }
+      class GameObjectSpike extends GameObject {
+        constructor(a, b, c, d) {
+          super(a, b, 1, 1, d);
+          this.directions = c;
+          this.svgIndex = SVG_SPIKE_FLOOR;
+        }
+        reset() {
+          this.defaultReset();
+        }
+        draw() {
+          this.directions & 1 && _gfx.drawSvg(SVG_SPIKE_FLOOR, this.x, this.y);
+          this.directions & 2 && _gfx.drawSvg(SVG_SPIKE_LEFT, this.x, this.y);
+          this.directions & 4 && _gfx.drawSvg(SVG_SPIKE_TOP, this.x, this.y);
+        }
+        tick() {
+          let a;
+          for (a of _game.objects)
+            a instanceof GameObjectPlayer &&
+              (this.directions & 1 &&
+                aabb(a, {
+                  x: this.x,
+                  y: this.y + 0.33 * this.height,
+                  width: 0.6 * this.width,
+                  height: 0.25 * this.height,
+                }) &&
+                0 < Math.round(a.speedY) &&
+                (a.killed = !0),
+              this.directions & 2 &&
+                aabb(a, {
+                  x: this.x - 0.33 * this.width,
+                  y: this.y,
+                  width: 0.25 * this.width,
+                  height: 0.6 * this.height,
+                }) &&
+                0 > Math.round(a.speedX) &&
+                (a.killed = !0),
+              this.directions & 4 &&
+                aabb(a, {
+                  x: this.x,
+                  y: this.y - 0.33 * this.height,
+                  width: 0.6 * this.width,
+                  height: 0.25 * this.height,
+                }) &&
+                0 > Math.round(a.speedY) &&
+                (a.killed = !0));
+        }
+      }
+      class Game {
+        constructor() {
+          this.level = null;
+          this.objects = [];
+          this.activeRoomIndex = -1;
+          this.highlightedRoomIndex = 0;
+          this.mode = GAME_MODE_ROOM_SELECT;
+          this.won = !1;
+          this.ticks = 0;
+          this.paused = !1;
+          this.lastHint = this.hint = "";
+          this.resizeNeeded = !0;
+          this.lastTickTime = null;
+          this.transitionTicksLeft = this.nextLevelIndex = this.levelIndex = 0;
+        }
+        hideTip() {
+          document.getElementById("tip").className = "";
+        }
+        showTip(a) {
+          let b;
+          b = document.getElementById("tip");
+          b.innerHTML = a;
+          b.className = "active";
+        }
+        setHint(a, b, c, d, e) {
+          this.hint =
+            a +
+            "<br/><b>[Arrows/WASD/Space]</b> " +
+            b +
+            " &middot; <b>[1]</b> " +
+            c +
+            " &middot; <b>[2]</b> " +
+            d +
+            " &middot; <b>[3]</b> " +
+            e;
+          this.hint != this.lastHint &&
+            (this.lastHint = document.getElementById("hint").innerHTML =
+              this.hint);
+        }
+        loadLevel(a) {
+          var b;
+          let c, d;
+          d = [
+            GameObjectPlayer,
+            GameObjectDoor,
+            GameObjectSwitch,
+            GameObjectGoal,
+            GameObjectSpike,
+          ];
+          this.level = a;
+          for (b = this.objects.length = 0; b < this.level.height; b++)
+            for (a = 0; a < this.level.width; a++)
+              1 == this.level.walls[b * this.level.width + a] &&
+                this.objects.push(new GameObjectWall(a, b));
+          for (c of this.level.objects)
+            (b = this.level.roomMap[c[2] * this.level.width + c[1]]),
+              (a = c.slice(1)),
+              a.push(b),
+              this.objects.push(new d[c[0]](...a));
+          for (c of this.objects) c.reset();
+          this.ticks = 0;
+          this.won = !1;
+          this.activeRoomIndex = -1;
+          this.highlightedRoomIndex = 0;
+          this.hideTip();
+          this.mode = GAME_MODE_ROOM_SELECT;
+          _gfx.randomizeWallHue();
+          _gfx.drawWallBlocks();
+          1 == this.level.times.length &&
+            ((this.highlightedRoomIndex = this.activeRoomIndex = 0),
+            (this.mode = GAME_MODE_ROOM_WAITING));
+        }
+        isActivationGroupActive(a) {
+          let b;
+          for (b of this.objects)
+            if (b.active && b.activationGroup == a) return !0;
+          return !1;
+        }
+        handleRoomSelectInput() {
+          if (
+            (_inputControls[CONTROL_UP][INPUT_KEY_STATE] &&
+              _inputControls[CONTROL_UP][INPUT_KEY_CHANGED]) ||
+            (_inputControls[CONTROL_LEFT][INPUT_KEY_STATE] &&
+              _inputControls[CONTROL_LEFT][INPUT_KEY_CHANGED])
+          )
+            this.highlightedRoomIndex =
+              (this.highlightedRoomIndex + this.level.times.length - 1) %
+              this.level.times.length;
+          if (
+            (_inputControls[CONTROL_DOWN][INPUT_KEY_STATE] &&
+              _inputControls[CONTROL_DOWN][INPUT_KEY_CHANGED]) ||
+            (_inputControls[CONTROL_RIGHT][INPUT_KEY_STATE] &&
+              _inputControls[CONTROL_RIGHT][INPUT_KEY_CHANGED])
+          )
+            this.highlightedRoomIndex =
+              (this.highlightedRoomIndex + 1) % this.level.times.length;
+          _inputControls[CONTROL_ACTION_1][INPUT_KEY_STATE] &&
+            _inputControls[CONTROL_ACTION_1][INPUT_KEY_CHANGED] &&
+            ((this.mode = GAME_MODE_ROOM_WAITING),
+            (this.activeRoomIndex = this.highlightedRoomIndex));
+        }
+        handleRoomWaitingInput() {
+          _inputControls[CONTROL_ACTION_3][INPUT_KEY_STATE] &&
+            _inputControls[CONTROL_ACTION_3][INPUT_KEY_CHANGED] &&
+            this.deactivateRoom();
+        }
+        handleResize() {
+          this.resizeNeeded = !0;
+        }
+        drawRoomHighlights() {
+          let a, b, c;
+          for (b = 0; b < this.level.height; b++)
+            for (a = 0; a < this.level.width; a++)
+              0 == this.level.walls[b * this.level.width + a] &&
+                ((c = null),
+                this.level.roomMap[b * this.level.width + a] ==
+                this.activeRoomIndex
+                  ? (c =
+                      this.mode == GAME_MODE_ROOM_PLAYING
+                        ? "0,255,0"
+                        : 20 > this.ticks % 40
+                        ? "255,255,0"
+                        : "200,200,0")
+                  : this.level.roomMap[b * this.level.width + a] ==
+                      this.highlightedRoomIndex &&
+                    (c = 20 > this.ticks % 40 ? "255,255,255" : "200,200,200"),
+                c &&
+                  _gfx.drawDebugRectangle(
+                    a * GAME_OBJECT_COORDINATE_SCALE,
+                    b * GAME_OBJECT_COORDINATE_SCALE,
+                    1 * GAME_OBJECT_COORDINATE_SCALE,
+                    1 * GAME_OBJECT_COORDINATE_SCALE,
+                    "rgba(" + c + ",0.3)"
+                  ));
+        }
+        getObjectAt(a, b) {
+          let c;
+          for (c of this.objects)
+            if (
+              c.x - c.width / 2 <= a &&
+              c.x + c.width / 2 >= a &&
+              c.y - c.height / 2 <= b &&
+              c.y + c.height / 2 >= b
+            )
+              return c;
+          return null;
+        }
+        deactivateRoom() {
+          this.activeRoomIndex = -1;
+          this.mode = GAME_MODE_ROOM_SELECT;
+        }
+        resetRoom(a) {
+          let b;
+          this.activeRoomIndex == a &&
+            (this.mode == GAME_MODE_ROOM_WAITING
+              ? (this.mode = GAME_MODE_ROOM_PLAYING)
+              : this.mode == GAME_MODE_ROOM_PLAYING &&
+                1 != this.level.times.length &&
+                this.deactivateRoom());
+          for (b of this.objects)
+            b.room == a &&
+              (b.reset(),
+              this.activeRoomIndex == a &&
+                b instanceof GameObjectPlayer &&
+                b.startRecording());
+        }
+        goToNextLevel() {
+          this.nextLevelIndex = this.levelIndex + 1;
+          this.transitionTicksLeft = 60;
+        }
+        goToNextLevel2() {
+          this.levelIndex = this.nextLevelIndex;
+          this.loadLevel(_levels[this.levelIndex]);
+        }
+        checkWin() {
+          let a, b;
+          b = !0;
+          for (a of this.objects)
+            a instanceof GameObjectGoal && !a.destroyed && (b = !1);
+          (this.won = b) && this.goToNextLevel();
+        }
+        tick() {
+          let a, b;
+          0 < this.transitionTicksLeft &&
+            (30 == this.transitionTicksLeft && this.goToNextLevel2(),
+            this.transitionTicksLeft--);
+          if (!this.won) {
+            this.ticks++;
+            1 == this.level.times.length &&
+              (this.highlightedRoomIndex = this.activeRoomIndex = 0);
+            for (a in this.level.times)
+              this.ticks % this.level.times[a][0] == this.level.times[a][1] &&
+                this.resetRoom(a);
+            for (b = 0; 3 >= b; b++)
+              for (a of this.objects) a.tickRound == b && a.tick();
+            if (this.level.tips)
+              for (a of this.level.tips)
+                a[0] + a[1] == this.ticks && this.hideTip(),
+                  a[0] == this.ticks && this.showTip(a[2]);
+            this.checkWin();
+            this.mode == GAME_MODE_ROOM_SELECT
+              ? (this.setHint(
+                  "Select a room to play",
+                  "Toggle rooms",
+                  "Play",
+                  "(none)",
+                  "(none)"
+                ),
+                this.handleRoomSelectInput())
+              : this.mode == GAME_MODE_ROOM_WAITING
+              ? (this.setHint(
+                  "Wait...",
+                  "(none)",
+                  "(none)",
+                  "(none)",
+                  "Cancel"
+                ),
+                this.handleRoomWaitingInput())
+              : this.setHint(
+                  "Play this room",
+                  "Walk/jump",
+                  "Jump",
+                  "Dash",
+                  "Finish room"
+                );
+            inputAcknowledge();
+          }
+        }
+        renderFrame() {
+          let a;
+          var b;
+          this.resizeNeeded && (_gfx.resize(), (this.resizeNeeded = !1));
+          _gfx.frameStart();
+          this.drawRoomHighlights();
+          for (b = 0; 3 >= b; b++)
+            for (a of this.objects) a.drawRound == b && a.draw();
+          for (a of this.level.times)
+            (b = (this.ticks % a[0]) / a[0]),
+              _gfx.drawDebugProgressBar(
+                a[2] * GAME_OBJECT_COORDINATE_SCALE,
+                a[3] * GAME_OBJECT_COORDINATE_SCALE,
+                50,
+                8,
+                b,
+                "#ccc"
+              );
+          DEBUG && _editor && this.paused && _editor.draw();
+          0 < this.transitionTicksLeft &&
+            _gfx.drawTransition(1 - (this.transitionTicksLeft - 1) / 60);
+        }
+        frame() {
+          let a, b, c;
+          a = new Date().getTime();
+          if (this.paused) this.lastTickTime = a;
+          else if (
+            (null === this.lastTickTime
+              ? (b = 1)
+              : ((b = (a - this.lastTickTime) / (1e3 / 60)),
+                (b = Math.floor(Math.min(b, 60)))),
+            0 < b)
+          ) {
+            for (c = 0; c < b; c++) this.tick();
+            this.lastTickTime = a;
+          }
+          DEBUG && _editor && this.paused && _editor.tick();
+          this.renderFrame();
+          _raf(this.frame.bind(this));
+        }
+        init() {
+          bindEvent(window, "resize", this.handleResize.bind(this));
+          bindEvent(window, "oreintationchange", this.handleResize.bind(this));
+          _raf(this.frame.bind(this));
+        }
+      }
+      let _gfx,
+        _game,
+        _editor,
+        _zoom = 1,
+        _padX = 0,
+        _padY = 0,
+        _canvasWidth = 1200,
+        _canvasHeight = 900,
+        _wallFrontCtx,
+        _wallBackCtx,
+        _transitionCtx;
+      function startEditor(a) {
+        a.parentNode.removeChild(a);
+        _editor || ((_editor = new Editor()), _editor.init());
+      }
+      function init() {
+        inputInit();
+        _gfx = new Gfx();
+        _game = new Game();
+        _game.init();
+        _game.transitionTicksLeft = 30;
+      }
+      bindEvent(window, "load", init);
+    </script>
+  </head>
+  <body>
+    <canvas id="canvas-back"></canvas><canvas id="canvas-main"></canvas
+    ><canvas id="canvas-front"></canvas><canvas id="canvas-transition"></canvas>
+    <div id="hint"></div>
+    <div id="tip"></div>
+  </body>
+</html>

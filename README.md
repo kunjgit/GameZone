@@ -278,6 +278,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 173 | [Uxu](https://github.com/kunjgit/GameZone/tree/main/Games/Uxu)|
 | 174 | [Soul Jumper](https://github.com/kunjgit/GameZone/tree/main/Games/Soul_Jumper)|
 | 175 | [Infernal Throne](https://github.com/kunjgit/GameZone/tree/main/Games/Infernal_Throne)|
+| 176 | [Dead Again](https://github.com/kunjgit/GameZone/tree/main/Games/Dead_Again)|
 </center>
 
 <br>

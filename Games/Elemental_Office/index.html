@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    body
+    {
+      height: 100%;
+      overflow: hidden;
+      font-family: arial,sans-serif;
+      font-size: 13px;
+      color: #000;
+      background-color: #fff;
+      padding:0px;
+      margin:0px;
+    }
+    canvas:focus
+    {
+      outline:none;
+    }
+  </style>
+  <script language='javascript'>
+  
+    var hitUp = false, hitDown = false, hitLeft = false, hitRight = false, hitCall = false, hitPower = false, hitPause = false;
+    var levelMap;
+    var levelStyle = 'black';
+    var scale = 1;
+    // 0 = player, 1-x = baddies
+    var px;
+    var py;
+    var pmx;
+    var pmy;
+    var pState;
+    var pLast; // last choice
+    var pTime;
+    var pAngle;
+    var dAngle;
+    var pType;
+    var pLife;
+    var elevators = 0;
+    var ex, emx, ey, emy, eState, eFloor, eMinY, eMaxY, eIn;
+    var hearts = 0;
+    var fx, fy, fState;
+    var pHearts = 0;
+    var baddies = 0;
+    //var bx, by, bmx, bmy, bState, bTime, bType, bAngle;
+    var bSpawn = 0;
+    var maxBSpawn = 0;
+    var maxBaddies = 0;
+    var randSeed;
+    var gameStarted;
+    var currentLevel;
+    var levelTime;
+    var totalTime = 0;
+    var waitKey;
+    var showingMenu;
+    var menuState;
+    var keyOk;
+    var lastBaddie;
+    
+    window.onkeydown = KeyDown;
+    window.onkeyup = KeyUp;
+    
+    function Resize()
+    {
+      var c = document.getElementById('GameCanvas');
+      c.width=window.innerWidth;
+      c.height=window.innerHeight;
+      scaleX = c.width / 672;
+      scaleY = c.height / 480;
+      if (scaleX < scaleY)
+        scale = scaleX;
+      else
+        scale = scaleY;
+      if (!gameStarted)
+      {
+        gameStarted = true;
+        InitGame();
+      }
+    }
+    
+    function InitGame()
+    {
+      // show the menu, set initial states
+      SelectLevel(1);
+      totalTime = 0;
+      ShowMenu(1);
+      Game();
+    }
+    
+    function Game()
+    {
+      HandlePlayerKeys();
+      if (showingMenu)
+      {
+        ProcessMenu();
+      }
+      else
+      {
+        ProcessAI();
+        MoveThings();
+      }
+      Draw();
+      if (showingMenu) DrawMenu();
+      setTimeout('Game();',25);
+    }
+
+    function KeyDown(e)
+    {
+      var keycode;
+      if (window.event)
+        keycode = window.event.keyCode;
+      else if (e)
+        keycode = e.which;
+      if (keycode == 87) hitUp = true;
+      if (keycode == 83) hitDown = true;
+      if (keycode == 65) hitLeft = true;
+      if (keycode == 68) hitRight = true;
+      if (keycode == 73) hitCall = true;
+      if (keycode == 79) hitPower = true;
+      if (keycode == 80) hitPause = true;
+    }
+    
+    function KeyUp(e)
+    {
+      var keycode;
+      if (window.event)
+        keycode = window.event.keyCode;
+      else if (e)
+        keycode = e.which;
+      if (keycode == 87) hitUp = false;
+      if (keycode == 83) hitDown = false;
+      if (keycode == 65) hitLeft = false;
+      if (keycode == 68) hitRight = false;
+      if (keycode == 73) hitCall = false;
+      if (keycode == 79) hitPower = false;
+      if (keycode == 80) hitPause = false;
+      if ((waitKey == 1) && (keyOK)) waitKey = 2; // if it's ready, set it.
+    }
+    
+    function HandlePlayerKeys()
+    {
+      if (hitLeft && (pState[0] == 0) && CheckClear(px[0],py[0],-1)) pState[0] = 1;
+      if (hitRight && (pState[0] == 0) && CheckClear(px[0],py[0],1)) pState[0] = 2;
+      if (hitCall && (pState[0] == 0)) pState[0] = 3;
+      if (hitPower && (pState[0] == 0)) pState[0] = 4;
+      if (!hitPower && (pState[0] == 5)) pState[0] = 6;
+      if (hitUp) ProcessElevator(0,1);
+      if (hitDown) ProcessElevator(0,2);
+      if ((hitPause) && (!showingMenu)) ShowMenu(6);
+    }
+
+    function ProcessElevator(lp,dir)
+    {
+      if (dir == 1)
+      {
+        if ((pState[lp] == 7) || (pState[lp] == 8))
+        {
+          if (ChangeElevator(lp,1))
+            pState[lp] = 7;
+        }
+        else if (pState[lp] == 0)
+        {
+          if (BoardElevator(lp))
+          {
+            if (ChangeElevator(lp,1))
+              pState[lp] = 7;
+          }
+        }
+      }
+      else
+      {
+        if ((pState[lp] == 7) || (pState[lp] == 8))
+        {
+          if (ChangeElevator(lp,2))
+            pState[lp] = 8;
+        }
+        else if (pState[lp] == 0)
+        {
+          if (BoardElevator(lp))
+          {
+            if (ChangeElevator(lp,2))
+              pState[lp] = 8;
+          }
+        }
+      }
+    }
+    
+    function ProcessAI()
+    {
+      for (p = 1; p < maxBaddies; p++)
+      {
+        if ((pType[p] != 0) && (pState[p] == 0))
+        {
+          // see if we can attack the player? or just randomly go for it
+          pTime[p] = 0;
+          ok = false;
+          while (!ok)
+          {
+            schoice = Rand(3);
+            if (schoice == 2)
+              choice = Rand(4);
+            else
+              choice = pLast[p];
+            switch (choice)
+            {
+              case 0: // move left
+                if (CheckClear(px[p],py[p],-1))
+                {
+                  ok = true;
+                  pState[p] = 20;
+                  // if fire or water, see if attack
+                  schoice = Rand(4);
+                  if ((schoice == 0) && (pLast[p] == 0))
+                  {
+                    if (CheckClear(px[p],py[p],-2))
+                    {
+                      if (pType[p] == 3)
+                        pState[p] = 50;
+                      else if (pType[p] == 5)
+                        pState[p] = 60;
+                    }
+                  }
+                }
+                break;
+              case 1:
+                if (CheckClear(px[p],py[p],1))
+                {
+                  ok = true;
+                  pState[p] = 21;
+                  // if fire or water, see if attack
+                  schoice = Rand(4);
+                  if ((schoice == 0) && (pLast[p] == 1))
+                  {
+                    if (CheckClear(px[p],py[p],2))
+                    {
+                      if (pType[p] == 3)
+                        pState[p] = 51;
+                      else if (pType[p] == 5)
+                        pState[p] = 61;
+                    }
+                  }
+                }
+                break;
+              case 2: ok = true; ProcessElevator(p,1); break;
+              case 3: ok = true; ProcessElevator(p,2); break;
+              case 4: // despawn
+                if (pLife[p] < 0)
+                {
+                  pTime[p] = 15;
+                  if (pType[p] > 3)
+                    pState[p] = 41;
+                  else
+                    pState[p] = 40;
+                  ok = true;
+                }
+                pLast[p] = 0;
+                break;
+            }
+          }
+          pLast[p] = choice;
+        }
+      }
+    }
+
+    function CheckClear(ccmx,ccmy,cxdif)
+    {
+      ccmx = Math.floor((ccmx-24)/48)+1+cxdif;
+      ccmy = Math.floor((ccmy-16)/72);
+      if (ccmy < 0)
+        return false;
+      if (ccmy > 5)
+        return false;
+      if (ccmx < 0)
+        ccmx += 15;
+      if (ccmx > 14)
+        ccmx -= 15;
+      switch (levelMap[ccmy][ccmx])
+      {
+        case 0:
+        case 2:
+        case 22:
+        case 3:
+        case 4:
+        case 5:
+          return true;
+      }
+      return false;
+    }
+    
+    function BoardElevator(lin) //lx,ly,lin)
+    {
+      lx = px[lin];
+      ly = py[lin];
+      // checks to see if an elevator lines up with the location of the player/enemy
+      lmx = 1+Math.floor((lx-24)/48);
+      lmy = Math.floor((ly-16)/72);
+      // check to see if currently in square with elevator car
+      for (e = 0; e < elevators; e++)
+      {
+        if ((eState[e] == 0) && (eIn[e] == -1) && (emx[e] == lmx) && (emy[e] == lmy))
+        {
+          // you're now in the elevator!
+          eIn[e] = lin;
+          return true;
+        }
+      }
+      return false;
+    }
+    
+    function MoveThings()
+    {
+      levelTime += 0.025;
+      totalTime += 0.025;
+      for (p = 0; p < maxBaddies; p++)
+      {
+        if (pType[p] != 0)
+        {
+          pLife[p]--;
+          switch (pState[p])
+          {
+            case 0: // nothing
+              //pAngle = 135*0.0174532925;
+              if (pType[p] > 3)
+                dAngle[p] = 315*0.0174532925;
+              else
+                dAngle[p] = 135*0.0174532925;
+              break;
+            case 1: // hop left
+              pTime[p]++;
+              if (pTime[p] <= 4)
+              {
+                px[p]-=6;
+                py[p]-=6;
+                dAngle[p] = 90*0.0174532925;
+              }
+              else if (pTime[p] <= 8)
+              {
+                px[p]-=6;
+                py[p]+=6;
+                dAngle[p] = 0*0.0174532925;
+              }
+              else
+              {
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+            case 2: // hop right
+              pTime[p]++;
+              if (pTime[p] <= 4)
+              {
+                px[p]+=6;
+                py[p]-=6;
+                dAngle[p] = 180*0.0174532925;
+              }
+              else if (pTime[p] <= 8)
+              {
+                px[p]+=6;
+                py[p]+=6;
+                dAngle[p] = 270*0.0174532925;
+              }
+              else
+              {
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+            case 3: // push call button
+              // first do logic to see if button exists in current area
+              pmx[p] = 1+Math.floor((px[p]-24)/48);
+              pmy[p] = Math.floor((py[p]-16)/72);
+              pTime[p] = 0;
+              if (levelMap[pmy[p]][pmx[p]] == 2)
+              {
+                pState[p] = 31;
+              }
+              else
+              {
+                pState[p] = 0;
+              }
+              break;
+            case 31: // continue for call button
+              pTime[p]++;
+              if (pTime[p] <= 4)
+              {
+                py[p]-=10;
+                dAngle[p] = 135*0.0174532925;
+              }
+              else if (pTime[p] == 5)
+              {
+                // alert the elevator if it's not here
+                for (e = 0; e < elevators; e++)
+                {
+                  if (((emx[e] == (pmx[p]-1)) || (emx[e] == (pmx[p]+1))) && (py[p] >= eMinY[e]) && (py[p] <= eMaxY[e]))
+                  {
+                    eFloor[e] = 1+16+pmy[p]*72;
+                    if (ey[e] > eFloor[e]) { eState[e] = 1; }
+                    if (ey[e] < eFloor[e]) { eState[e] = 2; }
+                    if (eState[e] != 0)
+                    {
+                      levelMap[pmy[p]][pmx[p]] = 22;
+                    }
+                    break;
+                  }
+                }
+                // turn off any other call buttons in this column (or on the
+                // other side of the elevator) -- for this elevator!
+                TurnOffCall(e,false);
+                dAngle[p] = 315*0.0174532925;
+              }
+              else if (pTime[p] <= 9)
+              {
+                py[p]+=10;
+                dAngle[p] = 315*0.0174532925;
+              }
+              else
+              {
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+            case 4: // hide at the top
+              pTime[p]++;
+              if (pTime[p] <= 8)
+              {
+                py[p]-=6;
+                dAngle[p] = 135*0.0174532925;
+              }
+              else
+              {
+                pState[p] = 5;
+                pTime[p] = -3; //-8;
+              }
+              break;
+            case 5: // stay at top
+              if (pTime[p] < 0)
+              {
+                py[p]--;
+                pTime[p]++;
+              }
+              dAngle[p] = 315*0.0174532925;
+              break;
+            case 6: // come back down
+              pTime[p]++;
+              if (pTime[p] <= 0)
+              {
+                py[p]+=pTime[p];
+                pTime[p] = 1;
+              }
+              if (pTime[p] <= 4)
+              {
+                py[p]+=12;
+                dAngle[p] = 315*0.0174532925;
+              }
+              else
+              {
+                py[p] = ((Math.floor((py[p]-16)/72)+1)*72)+7;
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+            case 7: // make elevator go up
+              break;
+            case 8: // make elevator go down
+              break;
+            case 10: // spawn from floor
+            case 11: // spawn from ceiling
+              pTime[p]++;
+              if (pTime[p] == 15)
+              {
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+            case 20: // move left
+              pTime[p]++;
+              if (pTime[p] <= 8)
+              {
+                px[p]-=6;
+                dAngle[p] = 45*0.0174532925;
+              }
+              else
+              {
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+            case 21: // move right
+              pTime[p]++;
+              if (pTime[p] <= 8)
+              {
+                px[p]+=6;
+                dAngle[p] = 225*0.0174532925;
+              }
+              else
+              {
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+            case 40: // fall back into floor
+            case 41: // fall back into ceiling
+              pTime[p]--;
+              if (pTime[p] == 0)
+              {
+                pState[p] = 0;
+                pType[p] = 0;
+                if (p == 0)
+                {
+                  px[0] = 24-24+48*1;
+                  py[0] = 16-10+72*6;
+                  pmx[0] = 0;
+                  pmy[0] = 0;
+                  pTime[0] = 0;
+                  pType[0] = 1;
+                  pState[0] = 10;
+                  pAngle[0] = 135*0.0174532925;
+                  dAngle[0] = 135*0.0174532925;
+                  pLife[0] = 1000;
+                  pLast[0] = 0;
+                  levelTime += 5;
+                  totalTime += 5;
+                }
+                else
+                  baddies--;
+              }
+              break;
+            case 50: // fire attack left
+              pTime[p]++;
+              if (pTime[p] <= 8)
+              {
+                px[p]-=6;
+                py[p]-=6;
+                dAngle[p] = 90*0.0174532925;
+              }
+              else if (pTime[p] <= 16)
+              {
+                px[p]-=6;
+                py[p]+=6;
+                dAngle[p] = 0*0.0174532925;
+              }
+              else
+              {
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+            case 51: // fire attack right
+              pTime[p]++;
+              if (pTime[p] <= 8)
+              {
+                px[p]+=6;
+                py[p]-=6;
+                dAngle[p] = 180*0.0174532925;
+              }
+              else if (pTime[p] <= 16)
+              {
+                px[p]+=6;
+                py[p]+=6;
+                dAngle[p] = 270*0.0174532925;
+              }
+              else
+              {
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+            case 60: // water attack left
+              pTime[p]++;
+              if (pTime[p] <= 8)
+              {
+                px[p]-=6;
+                py[p]+=6;
+                dAngle[p] = 0*0.0174532925;
+              }
+              else if (pTime[p] <= 16)
+              {
+                px[p]-=6;
+                py[p]-=6;
+                dAngle[p] = 90*0.0174532925;
+              }
+              else
+              {
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+            case 61: // water attack right
+              pTime[p]++;
+              if (pTime[p] <= 8)
+              {
+                px[p]+=6;
+                py[p]+=6;
+                dAngle[p] = 270*0.0174532925;
+              }
+              else if (pTime[p] <= 16)
+              {
+                px[p]+=6;
+                py[p]-=6;
+                dAngle[p] = 180*0.0174532925;
+              }
+              else
+              {
+                pState[p] = 0;
+                pTime[p] = 0;
+              }
+              break;
+          }
+          // handle pAngle
+          if (pAngle[p] != dAngle[p])
+          {
+            pAngle[p] += (dAngle[p]-pAngle[p])/3;
+          }
+          // handle wraparound
+          if (px[p] < 0)
+          {
+            px[p] += 672;
+          }
+          if (px[p] > 672)
+            px[p] -= 672;
+        }
+      }
+      for (e = 0; e < elevators; e++)
+      {
+        // check each elevator's state
+        switch (eState[e])
+        {
+          case 0: // nothing
+            DisembarkElevator(e);
+            break;
+          case 1: // going up
+            ey[e] -= 8;
+            if (ey[e] <= eFloor[e])
+            {
+              ey[e] = eFloor[e];
+              DisembarkElevator(e);
+              // turn off any call button as necessary
+              TurnOffCall(e,true);
+            }
+            else
+            {
+              // check to see if hit anything above or on sides (but not occupant)
+              for (b = 0; b < maxBaddies; b++)
+              {
+                if (pType[b] != 0)
+                {
+                  if ((pState[b] != 40) && (pState[b] != 41))
+                  {
+                    if (b != eIn[e])
+                    {
+                      // we don't have to worry about wraparound on this one because elevators are never on those tiles.
+                      if (((px[b]+10) >= ex[e]) && ((px[b]-10) <= (ex[e]+48)) && ((py[b]+10) >= ey[e]) && ((py[b]-10) <= (ey[e]+72)))
+                      {
+                        pTime[b] = 15;
+                        if (pType[b] > 3)
+                          pState[b] = 41;
+                        else
+                          pState[b] = 40;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            if (eIn[e] != -1) MatchElevator(e);
+            break;
+          case 2: // going down
+            ey[e] += 8;
+            if (ey[e] >= eFloor[e])
+            {
+              ey[e] = eFloor[e];
+              DisembarkElevator(e);
+              // turn off any call button as necessary
+              TurnOffCall(e,true);
+            }
+            else
+            {
+              // check to see if hit anything below or on sides (but not occupant)
+              for (b = 0; b < maxBaddies; b++)
+              {
+                if (pType[b] != 0)
+                {
+                  if ((pState[b] != 40) && (pState[b] != 41))
+                  {
+                    if (b != eIn[e])
+                    {
+                      // we don't have to worry about wraparound on this one because elevators are never on those tiles.
+                      if (((px[b]+10) >= ex[e]) && ((px[b]-10) <= (ex[e]+48)) && ((py[b]+10) >= ey[e]) && ((py[b]-10) <= (ey[e]+72)))
+                      {
+                        pTime[b] = 15;
+                        if (pType[b] > 3)
+                          pState[b] = 41;
+                        else
+                          pState[b] = 40;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            if (eIn[e] != -1) MatchElevator(e);
+            break;
+        }
+        // emx[e] never changes
+        emy[e] = Math.round((ey[e]-16)/72);
+      }
+      // check for hearts
+      for (f = 0; f < hearts; f++)
+      {
+        if (fState[f] == 1)
+        {
+          if ((Math.abs(fx[f]-px[0]) < 20) && (Math.abs(fy[f]-py[0]) < 20))
+          {
+            fState[f] = 0;
+            pHearts++;
+            if (pHearts == hearts)
+            {
+              FinishLevel();
+            }
+          }
+        }
+      }
+      // check for collisions with others
+      // "he who is on top wins"
+      if (pState[0] != 40)
+      {
+        for (b = 1; b < maxBaddies; b++)
+        {
+          if (pType[b] != 0)
+          {
+            if ((pState[b] != 40) && (pState[b] != 41))
+            {
+              if (Math.abs(py[0]-py[b]) < 20)
+              {
+                // potential hit
+                x1 = px[b];
+                x2 = px[b]+672;
+                x3 = px[b]-672;
+                if ((Math.abs(x1-px[0]) < 20) || (Math.abs(x2-px[0]) < 20) || (Math.abs(x3-px[0]) < 20))
+                {
+                  // see who jumped on who
+                  if (py[b] < py[0])
+                  {
+                    // killing them when they spawn is ok, but they can't kill you
+                    if ((pState[b] != 10) && (pState[b] != 11))
+                    {
+                      pTime[0] = 15;
+                      pState[0] = 40;
+                    }
+                  }
+                  else
+                  {
+                    // you got them
+                    pTime[b] = 15;
+                    if (pType[b] > 3)
+                      pState[b] = 41;
+                    else
+                      pState[b] = 40;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      // spawn baddies
+      if (baddies < maxBaddies)
+      {
+        bSpawn++;
+        if (bSpawn > maxBSpawn)
+        {
+          ok = false;
+          while (!ok)
+          {
+            bmx = Rand(13)+1;
+            bmy = Rand(6);
+            switch (levelMap[bmy][bmx])
+            {
+              case 0:
+              case 2:
+              case 22:
+              case 3:
+              case 4:
+              case 5:
+                ok = true;
+                break;
+            } 
+          }
+          // find open baddie first
+          bad = baddies;
+          for (b = 1; b < maxBaddies; b++)
+          {
+            if (pType[b] == 0)
+            {
+              bad = b;
+              break;
+            }
+          }
+          lastBaddie += 1;
+          if (lastBaddie == 6) lastBaddie = 2;
+          pType[bad] = lastBaddie; //Rand(4)+2;
+          px[bad] = (bmx*48);
+          pLast[bad] = 0;
+          switch (pType[bad])
+          {
+            case 1: pLife[bad] = 1000; break;
+            case 3: pLife[bad] = 700; break;
+            case 4: pLife[bad] = 500; break;
+            case 5: pLife[bad] = 800; break;
+          }
+          if (pType[bad] > 3)
+          {
+            py[bad] = ((bmy+1)*72)+10-55;
+            pState[bad] = 11;
+            pAngle[bad] = 315*0.0174532925;
+            dAngle[bad] = 315*0.0174532925;
+          }
+          else
+          {
+            py[bad] = ((bmy+1)*72)+6;
+            pState[bad] = 10;
+            pAngle[bad] = 135*0.0174532925;
+            dAngle[bad] = 135*0.0174532925;
+          }
+          pTime[bad] = 0;
+          baddies++;
+          bSpawn = 0;
+        }
+      }
+      else
+        bSpawn = 0;
+    }
+
+    function ChangeElevator(whichin,whichdir)
+    {
+      for (e = 0; e < elevators; e++)
+      {
+        if (eIn[e] == whichin)
+        {
+          switch (whichdir)
+          {
+            case 1:
+              if ((eFloor[e]-1) > eMinY[e])
+              {
+                eState[e] = 1;
+                eFloor[e] = 1+16+(emy[e]-1)*72;
+                return true;
+              }
+              else
+                return false;
+              break;
+            case 2:
+              if ((eFloor[e]+71) < eMaxY[e])
+              {
+                eState[e] = 2;
+                eFloor[e] = 1+16+(emy[e]+1)*72;
+                return true;
+              }
+              else
+                return false;
+              break;
+          }
+        }
+      }
+    }
+
+    function MatchElevator(e)
+    {
+      // move the object, too
+      lp = eIn[e];
+      if (lp != -1)
+      {
+        // player
+        if (eState[e] == 0)
+          pState[lp] = 0;
+        else 
+        {
+          if (pType[lp] > 3)
+            py[lp] = ey[e]+72-6-55;
+          else
+            py[lp] = ey[e]+72-10;
+        }
+      }
+    }
+
+    function DisembarkElevator(e)
+    {
+      if (eIn[e] != -1) MatchElevator(e);
+      eState[e] = 0;
+      if (eIn[e] != -1) MatchElevator(e);
+      eIn[e] = -1;
+    }
+    
+    function TurnOffCall(e,inclrow)
+    {
+      lmx = emx[e];
+      lemy = Math.floor((eFloor[e]-16)/72);
+      if (inclrow)
+      {
+        ly = lemy;
+        if (levelMap[ly][lmx-1] == 22)
+        {
+          levelMap[ly][lmx-1] = 2;
+        }
+        if (levelMap[ly][lmx+1] == 22)
+        {
+          levelMap[ly][lmx+1] = 2;
+        }
+      }
+      for (ly = lemy+1; ly < 6; ly++)
+      {
+        if (levelMap[ly][lmx] == 3)
+        {
+          if (levelMap[ly][lmx-1] == 22)
+          {
+            levelMap[ly][lmx-1] = 2;
+          }
+          if (levelMap[ly][lmx+1] == 22)
+          {
+            levelMap[ly][lmx+1] = 2;
+          }
+        }
+        else
+        {
+          break;
+        }
+      }
+      for (ly = lemy-1; ly >= 0; ly--)
+      {
+        if (levelMap[ly][lmx] == 3)
+        {
+          if (levelMap[ly][lmx-1] == 22)
+          {
+            levelMap[ly][lmx-1] = 2;
+          }
+          if (levelMap[ly][lmx+1] == 22)
+          {
+            levelMap[ly][lmx+1] = 2;
+          }
+        }
+        else
+        {
+          break;
+        }
+      }
+    }
+    
+    function Draw()
+    {
+      var canvas = document.getElementById('GameCanvas');
+      if (canvas.getContext)
+      {
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.fillStyle = "gainsboro";
+        yHeight = 72*scale;
+        xWidth = 48*scale;
+        ctx.fillRect(0,0,(48*scale)+(xWidth*13),(32*scale)+(yHeight*6));
+        ctx.fillStyle = levelStyle;
+        ctx.strokeStyle = levelStyle;
+        ctx.fillRect(0,16*scale,672*scale,16*scale);
+        sHalf = (0.5)*scale;
+        for (var y = 0; y < 6; y++)
+        {
+          yStep = (32*scale+y*yHeight);
+          ctx.fillRect(0,yStep-sHalf,672*scale,scale);
+          if (levelMap[y][0] == 1) { ctx.fillRect(0,yStep,24*scale,yHeight); }
+          for (var x = 1; x < 14; x++)
+          {
+            xStep = (24*scale+(x-1)*xWidth);
+            switch (levelMap[y][x])
+            {
+              case 2: // call button
+                ctx.fillStyle = 'green';
+                ctx.strokeStyle = 'black';
+                ctx.beginPath();
+                ctx.arc(xStep+(xWidth/2), yStep+20*scale, 6*scale, 0, 360, false);
+                ctx.fill();
+                ctx.stroke();
+                ctx.fillStyle = levelStyle;
+                ctx.strokeStyle = levelStyle;
+                break;
+              case 22: // button called
+                ctx.fillStyle = 'lime';
+                ctx.strokeStyle = 'black';
+                ctx.beginPath();
+                ctx.arc(xStep+(xWidth/2), yStep+20*scale, 6*scale, 0, 360, false);
+                ctx.fill();
+                ctx.stroke();
+                ctx.fillStyle = levelStyle;
+                ctx.strokeStyle = levelStyle;
+                break;
+              case 3: // elevator shaft
+                ctx.fillStyle = 'blue';
+                ctx.fillRect(xStep,yStep-sHalf,xWidth,scale);
+                ctx.fillRect(xStep,yStep+yHeight-sHalf,xWidth,scale);
+                ctx.fillRect(xStep-sHalf,yStep,scale,yHeight);
+                ctx.fillRect(xStep+xWidth-sHalf,yStep,scale,yHeight);
+                ctx.fillStyle = levelStyle;
+                break;
+              case 4: // heart
+                break;
+              case 5: // elevator car
+                break;
+              case 6: // thin inner wall
+                ctx.fillRect(xStep+(xWidth/2)-5,yStep,5,yHeight);
+                break;
+              case 7: // thick inner wall
+                ctx.fillRect(xStep,yStep,xWidth,yHeight);
+                break;
+            }
+          }
+          if (levelMap[y][14] == 1) { ctx.fillRect(648*scale,yStep,24*scale,yHeight); }
+        }
+        ctx.fillStyle = levelStyle;
+        ctx.fillRect(0,464*scale,672*scale,16*scale);
+        // hearts
+        ctx.fillStyle = 'red';
+        ctx.strokeStyle = 'black';
+        for (f = 0; f < hearts; f++)
+        {
+          if (fState[f] == 1)
+          {
+            ctx.beginPath();
+            ctx.arc((fx[f]-8)*scale, (16+fy[f])*scale, 8*scale, 180*0.0174532925, 0, false);
+            ctx.arc((fx[f]+8)*scale, (16+fy[f])*scale, 8*scale, 180*0.0174532925, 0, false);
+            ctx.lineTo(fx[f]*scale, (fy[f]+32)*scale);
+            ctx.lineTo((fx[f]-16)*scale, (16+fy[f])*scale);
+            ctx.fill();
+            ctx.stroke();
+          }
+        }
+        // elevators
+        for (e = 0; e < elevators; e++)
+        {
+          ctx.fillStyle = 'darkblue';
+          ctx.strokeStyle = 'black';
+          ctx.fillRect(ex[e]*scale,16*scale+ey[e]*scale,46*scale,70*scale);
+          ctx.fillStyle = 'lime';
+          ctx.fillRect(ex[e]*scale,16*scale+eFloor[e]*scale,5*scale,5*scale);
+          ctx.strokeRect(ex[e]*scale,16*scale+eFloor[e]*scale,5*scale,5*scale);
+          ctx.fillStyle = levelStyle;
+        }
+        // player and baddies
+        for (b = maxBaddies-1; b >= 0; b--) // we want player displayed last
+        {
+          if (pType[b] != 0)
+          {
+            switch (pType[b])
+            {
+              case 1: ctx.fillStyle = 'pink'; break;
+              case 2: ctx.fillStyle = 'brown'; break; // earth
+              case 3: ctx.fillStyle = 'darkorange'; break; // fire
+              case 4: ctx.fillStyle = 'cyan'; break; // wind
+              case 5: ctx.fillStyle = 'blue'; break; // water
+            }
+            DrawBaddie(b,0);
+            if (px[b] < 10) DrawBaddie(b,672);
+            if (px[b] > 662) DrawBaddie(b,-672);
+          }
+        }
+        // clean up any outside baddies or player artifacts
+        ctx.clearRect(672*scale,0,30*scale,canvas.height);
+        ctx.fillStyle = "black";
+        ctx.font = Math.floor(10*scale)+"pt Arial";
+        ctx.fillText("Level "+currentLevel,10*scale,12*scale);
+        ctx.fillText("Level Time "+Math.floor(levelTime*100)/100,300*scale,12*scale);
+        ctx.fillText("Total Time "+Math.floor(totalTime*100)/100,550*scale,12*scale);
+      }
+    }
+
+    function DrawBaddie(b,dx)
+    {
+      var angleDiff = Math.PI+(Math.PI)/2; // End point on circle
+      canvas = document.getElementById('GameCanvas');
+      ctx = canvas.getContext('2d');
+      if ((pState[b] == 10) || (pState[b] == 40))
+      {
+        // 'gopher hole' from the floor so they can pop up anywhere - ru
+        sz = 20-pTime[b];
+        ctx.fillRect((px[b]+dx-sz)*scale, (py[b]+26-pTime[b])*scale, sz*2*scale, pTime[b]*scale);
+        ctx.strokeRect((px[b]+dx-sz)*scale, (py[b]+26-pTime[b])*scale, sz*2*scale, pTime[b]*scale);
+      }
+      else if ((pState[b] == 11) || (pState[b] == 41))
+      {
+        // ceiling version of 'gopher hole'
+        sz = 20-pTime[b];
+        ctx.fillRect((px[b]+dx-sz)*scale, (py[b]+10)*scale, sz*2*scale, pTime[b]*scale);
+        ctx.strokeRect((px[b]+dx-sz)*scale, (py[b]+10)*scale, sz*2*scale, pTime[b]*scale);
+      }
+      else
+      {
+        ctx.beginPath();
+        ctx.arc((px[b]+dx)*scale, (16+py[b])*scale, 10*scale, pAngle[b], pAngle[b]+angleDiff, false);
+        ctx.strokeStyle = 'black';
+        ctx.fill();
+        ctx.stroke();
+      }
+    }
+
+    function ShowMenu(menu)
+    {
+      showingMenu = true;
+      menuState = menu;
+      waitKey = 1;
+      keyOK = false;
+      setTimeout('keyOK = true;',500);
+    }
+    
+    function DrawMenu()
+    {
+      canvas = document.getElementById('GameCanvas');
+      ctx = canvas.getContext('2d');
+      ctx.font = Math.floor(20*scale)+"pt Arial";
+      tangle = 135*0.0174532925;
+      angleDiff = Math.PI+(Math.PI)/2; // End point on circle
+      switch (menuState)
+      {
+        case 1:
+          ctx.fillStyle = "lightcyan";
+          ctx.fillRect(120*scale,100*scale,400*scale,300*scale);
+          ctx.strokeRect(120*scale,100*scale,400*scale,300*scale);
+          ctx.fillStyle = "black";
+          ctx.fillText("Elemental Office!",200*scale,200*scale);
+          ctx.fillText("Press any key for instructions",140*scale,250*scale);
+          break;
+        case 2:
+          ctx.fillStyle = "lightcyan";
+          ctx.fillRect(120*scale,100*scale,450*scale,300*scale);
+          ctx.strokeRect(120*scale,100*scale,450*scale,300*scale);
+          ctx.fillStyle = "black";
+          ctx.fillText("You play as Bob, the custodian.",140*scale,150*scale);
+          ctx.fillText("The other employees went crazy,",140*scale,220*scale);
+          ctx.fillText("and you must prevent chaos by",140*scale,250*scale);
+          ctx.fillText("collecting all the hearts in each",140*scale,280*scale);
+          ctx.fillText("building.",140*scale,310*scale);
+          ctx.fillStyle = 'pink';
+          ctx.beginPath();
+          ctx.arc(300*scale, 180*scale, 10*scale, tangle, tangle+angleDiff, false);
+          ctx.strokeStyle = 'black';
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = 'red';
+          ctx.strokeStyle = 'black';
+          ctx.beginPath();
+          ctx.arc((300-8)*scale, (16+330)*scale, 8*scale, 180*0.0174532925, 0, false);
+          ctx.arc((300+8)*scale, (16+330)*scale, 8*scale, 180*0.0174532925, 0, false);
+          ctx.lineTo(300*scale, (330+32)*scale);
+          ctx.lineTo((300-16)*scale, (16+330)*scale);
+          ctx.fill();
+          ctx.stroke();
+          break;
+        case 3:
+          ctx.fillStyle = "lightcyan";
+          ctx.fillRect(120*scale,100*scale,450*scale,300*scale);
+          ctx.strokeRect(120*scale,100*scale,450*scale,300*scale);
+          ctx.fillStyle = "black";
+          ctx.fillText("Employees:",140*scale,150*scale);
+          ctx.fillText("Earth, moves along the ground",200*scale,200*scale);
+          ctx.fillText("Fire, jumps up into the air",200*scale,240*scale);
+          ctx.fillText("Wind, moves along the ceiling",200*scale,280*scale);
+          ctx.fillText("Water, falls down from above",200*scale,320*scale);
+          ctx.strokeStyle = 'black';
+          ctx.fillStyle = 'brown';
+          ctx.beginPath();
+          ctx.arc(160*scale, 192*scale, 10*scale, tangle, tangle+angleDiff, false);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = 'darkorange';
+          ctx.beginPath();
+          ctx.arc(160*scale, 232*scale, 10*scale, tangle, tangle+angleDiff, false);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = 'cyan';
+          ctx.beginPath();
+          ctx.arc(160*scale, 272*scale, 10*scale, tangle, tangle+angleDiff, false);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = 'blue';
+          ctx.beginPath();
+          ctx.arc(160*scale, 312*scale, 10*scale, tangle, tangle+angleDiff, false);
+          ctx.fill();
+          ctx.stroke();
+          break;
+        case 4:
+          ctx.fillStyle = "lightcyan";
+          ctx.fillRect(120*scale,100*scale,450*scale,300*scale);
+          ctx.strokeRect(120*scale,100*scale,450*scale,300*scale);
+          ctx.fillStyle = "black";
+          ctx.fillText("Bob has the ability to:",140*scale,140*scale);
+          ctx.fillText("A and D: Hop left and right",140*scale,200*scale);
+          ctx.fillText("I: Call an elevator",140*scale,230*scale);
+          ctx.fillText("W and S: Move elevator up/down",140*scale,260*scale);
+          ctx.fillText("O: Jump and hold on to the ceiling",140*scale,290*scale);
+          ctx.fillText("P: Pause the game",140*scale,320*scale);
+          break;
+        case 5:
+          ctx.fillStyle = "lightcyan";
+          ctx.fillRect(100*scale,100*scale,500*scale,300*scale);
+          ctx.strokeRect(100*scale,100*scale,500*scale,300*scale);
+          ctx.fillStyle = "black";
+          ctx.fillText("You are timed per level and overall.",140*scale,140*scale);
+          ctx.font = Math.floor(16*scale)+"pt Arial";
+          ctx.fillText("If an employee catches you, or hits you with an",120*scale,190*scale);
+          ctx.fillText("elevator, you'll get a time penalty and be sent back",120*scale,215*scale);
+          ctx.fillText("to the beginning of the level. You can temporarily",120*scale,240*scale);
+          ctx.fillText("remove employees by jumping on them or hitting",120*scale,265*scale);
+          ctx.fillText("them with an elevator. Try to complete all the levels",120*scale,290*scale);
+          ctx.fillText("in the fastest time!",120*scale,315*scale);
+          ctx.font = Math.floor(20*scale)+"pt Arial";
+          ctx.fillText("Press any key to start!",200*scale,380*scale);
+          break;
+        case 6:
+          ctx.fillStyle = "lightcyan";
+          ctx.fillRect(120*scale,100*scale,400*scale,300*scale);
+          ctx.strokeRect(120*scale,100*scale,400*scale,300*scale);
+          ctx.fillStyle = "black";
+          ctx.fillText("Paused",140*scale,140*scale);
+          ctx.fillText("Press any key to continue",140*scale,200*scale);
+          break;
+        case 7:
+          ctx.fillStyle = "lightcyan";
+          ctx.fillRect(120*scale,100*scale,400*scale,300*scale);
+          ctx.strokeRect(120*scale,100*scale,400*scale,300*scale);
+          ctx.fillStyle = "black";
+          ctx.fillText("Level "+currentLevel+" complete!",200*scale,140*scale);
+          ctx.fillText("Level Time "+Math.floor(levelTime*100)/100,200*scale,200*scale);
+          ctx.fillText("Total Time "+Math.floor(totalTime*100)/100,200*scale,230*scale);
+          ctx.fillText("Press any key to continue",180*scale,300*scale);
+          break;
+        case 8:
+          ctx.fillStyle = "lightcyan";
+          ctx.fillRect(120*scale,100*scale,400*scale,300*scale);
+          ctx.strokeRect(120*scale,100*scale,400*scale,300*scale);
+          ctx.fillStyle = "black";
+          ctx.fillText("Game complete!",200*scale,140*scale);
+          ctx.fillText("Level Time "+Math.floor(levelTime*100)/100,200*scale,200*scale);
+          ctx.fillText("Total Time "+Math.floor(totalTime*100)/100,200*scale,230*scale);
+          ctx.fillText("Congratulations and",200*scale,300*scale);
+          ctx.fillText("thanks for playing!",200*scale,330*scale);
+          break;
+      }
+    }
+
+    function ProcessMenu()
+    {
+      if (waitKey == 2)
+      {
+        waitKey = 0;
+        switch (menuState)
+        {
+          case 1: ShowMenu(2); break;
+          case 2: ShowMenu(3); break;
+          case 3: ShowMenu(4); break;
+          case 4: ShowMenu(5); break;
+          case 5: showingMenu = false; menuState = 0; break;
+          case 6: showingMenu = false; menuState = 0; break;
+          case 7: showingMenu = false; menuState = 0; SelectLevel(currentLevel+1); break;
+        }
+      }
+    }
+    
+    function Rand(amt)
+    {
+      randSeed = ((randSeed*9301)+49297) % 233280
+      return Math.floor(randSeed/(233280.0)*amt)
+    }
+
+    function FinishLevel()
+    {
+      // add some flavor text showing time/score whatnot
+      if (currentLevel == 7)
+        ShowMenu(8);
+      else
+        ShowMenu(7);
+    }
+    
+    function SelectLevel(l)
+    {
+      // 0 = space
+      // 1 = outside wall
+      // 2 = call button 
+      // (22 = button used and elevator coming)
+      // 3 = elevator shaft
+      // 4 = heart
+      // 5 = elevator car
+      // 6 = ][ thin inner wall
+      // 7 = [] thick inner wall
+      switch(l)
+      {
+        case 1:
+          levelStyle = 'yellow';
+          levelMap = [[1,2,3,0,4,0,4,4,4,0,4,0,5,2,1],
+                      [1,2,3,4,0,3,2,4,2,3,0,4,3,2,1],
+                      [1,2,3,0,4,3,2,4,2,5,4,0,3,2,1],
+                      [1,2,3,4,0,5,2,4,2,3,0,4,3,2,1],
+                      [1,2,3,0,4,3,2,4,2,3,4,0,3,2,1],
+                      [1,2,5,4,0,0,4,4,4,0,0,4,3,2,1]];
+          maxBaddies = 5;
+          maxBSpawn = 60;
+          randSeed = 1000;
+          break;
+        case 2:
+          levelStyle = 'purple';
+          levelMap = [[0,4,0,4,2,5,4,6,4,5,2,4,0,4,0],
+                      [1,7,7,7,2,3,4,6,4,3,2,7,7,7,1],
+                      [0,4,0,4,2,3,4,6,4,3,2,4,0,4,0],
+                      [0,4,0,4,2,3,4,6,4,3,2,4,0,4,0],
+                      [1,7,7,7,2,3,4,6,4,3,2,7,7,7,1],
+                      [0,0,0,4,2,3,4,6,4,3,2,4,0,4,0]];
+          maxBaddies = 6;
+          maxBSpawn = 60;
+          randSeed = 2000;
+          break;
+        case 3:
+          levelStyle = 'darkcyan';
+          levelMap = [[0,4,0,4,0,6,4,3,2,0,0,4,0,4,0],
+                      [1,7,7,0,4,0,2,3,4,0,4,0,7,7,1],
+                      [1,7,7,0,4,0,4,3,2,0,4,0,7,7,1],
+                      [1,7,7,0,4,0,2,5,4,0,4,0,7,7,1],
+                      [1,7,7,0,4,0,4,3,2,0,4,0,7,7,1],
+                      [0,0,0,4,0,0,2,3,4,6,0,4,0,4,0]];
+          maxBaddies = 6;
+          maxBSpawn = 60;
+          randSeed = 3000;
+          break;
+        case 4:
+          levelStyle = 'green';
+          levelMap = [[0,4,4,4,0,0,2,3,2,0,0,4,4,4,0],
+                      [0,0,0,4,4,0,2,5,2,0,4,4,0,0,0],
+                      [0,2,3,0,4,4,2,3,2,4,4,0,3,2,0],
+                      [0,2,3,0,0,4,4,0,4,4,0,0,3,2,0],
+                      [1,2,3,4,6,0,4,4,4,0,0,0,3,2,1],
+                      [1,2,5,4,6,0,0,4,0,0,0,0,5,2,1]];
+          maxBaddies = 8;
+          maxBSpawn = 60;
+          randSeed = 4000;
+          break;
+        case 5:
+          levelStyle = 'firebrick';
+          levelMap = [[1,4,4,3,2,0,0,2,3,0,0,0,0,4,1],
+                      [0,0,2,3,4,6,0,2,3,0,0,3,2,4,0],
+                      [0,0,2,3,4,6,4,2,5,4,6,5,2,4,0],
+                      [0,0,2,3,4,6,4,2,3,4,6,3,2,4,0],
+                      [1,0,2,3,4,6,0,4,4,4,0,3,2,4,1],
+                      [1,0,2,5,4,6,0,4,4,4,0,3,2,4,1]];
+          maxBaddies = 10;
+          maxBSpawn = 60;
+          randSeed = 5000;
+          break;
+        case 6:
+          levelStyle = 'gray';
+          levelMap = [[0,2,3,0,6,3,2,4,4,4,6,4,4,0,0],
+                      [0,0,5,2,0,3,2,6,4,4,4,4,4,0,0],
+                      [1,2,3,0,2,5,4,4,2,3,4,4,4,4,1],
+                      [1,4,4,4,4,3,2,4,4,5,2,4,3,2,1],
+                      [0,0,4,4,4,4,4,6,2,3,4,2,5,0,0],
+                      [0,0,4,4,6,4,4,4,2,3,6,0,3,2,0]];
+          maxBaddies = 12;
+          maxBSpawn = 60;
+          randSeed = 6000;
+          break;
+        case 7:
+          levelStyle = 'gold';
+          levelMap = [[1,0,2,3,0,4,0,4,0,3,2,4,4,4,1],
+                      [0,0,4,3,6,4,0,4,0,5,2,4,4,4,0],
+                      [0,0,4,3,6,4,0,4,0,3,2,4,4,4,0],
+                      [0,0,4,5,6,4,2,3,0,4,0,4,4,4,0],
+                      [0,0,4,3,6,4,2,5,0,4,0,4,4,4,0],
+                      [1,0,2,3,0,4,4,4,4,4,0,4,4,4,1]];
+          maxBaddies = 15;
+          maxBSpawn = 60;
+          randSeed = 7000;
+          break;
+          /*
+          levelMap = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+                      */
+      }
+      currentLevel = l;
+      levelTime = 0;
+      elevators = 0;
+      hearts = 0;
+      pHearts = 0;
+      hitUp = false;
+      hitDown = false;
+      hitLeft = false;
+      hitRight = false;
+      hitCall = false;
+      hitPower = false;
+      ex = new Array();
+      emx = new Array();
+      ey = new Array();
+      emy = new Array();
+      eMinY = new Array();
+      eMaxY = new Array();
+      eState = new Array();
+      eFloor = new Array();
+      eIn = new Array();
+      fx = new Array();
+      fy = new Array();
+      fState = new Array();
+      baddies = 1;
+      px = new Array();
+      py = new Array();
+      pmx = new Array();
+      pmy = new Array();
+      pState = new Array();
+      pTime = new Array();
+      pType = new Array();
+      pAngle = new Array();
+      dAngle = new Array();
+      pLife = new Array();
+      pLast = new Array();
+      bSpawn = 0;
+      px[0] = 24-24+48*1;
+      py[0] = 16-10+72*6;
+      pmx[0] = 0;
+      pmy[0] = 0;
+      pTime[0] = 0;
+      pType[0] = 1;
+      pState[0] = 10;
+      pAngle[0] = 135*0.0174532925;
+      dAngle[0] = 135*0.0174532925;
+      pLife[0] = 1000;
+      pLast[0] = 0;
+      lastBaddie = 1;
+      for (b = 1; b < maxBaddies; b++)
+        pType[b] = 0;
+      for (y = 0; y < 6; y++)
+      {
+        for (x = 1; x < 15; x++)
+        {
+          if (levelMap[y][x] == 5)
+          {
+            ex[elevators] = 25+(x-1)*48;
+            emx[elevators] = x;
+            ey[elevators] = 17+y*72;
+            emy[elevators] = y;
+            eState[elevators] = 0;
+            eFloor[elevators] = ey[elevators]+1;
+            eIn[elevators] = -1;
+            eMinY[elevators] = 17+y*72;
+            for (checky = y-1; checky >= 0; checky--)
+            {
+              if (levelMap[checky][x] == 3)
+                eMinY[elevators] = 17+(checky)*72;
+              else
+                break;
+            }
+            eMaxY[elevators] = 16+(y+1)*72;
+            for (checky = y+1; checky <= 5; checky++)
+            {
+              if (levelMap[checky][x] == 3)
+                eMaxY[elevators] = 16+(checky+1)*72;
+              else
+                break;
+            }
+            elevators++;
+            levelMap[y][x] = 3;
+          }
+          else if (levelMap[y][x] == 4)
+          {
+            fx[hearts] = 48+(x-1)*48;
+            fy[hearts] = 60+y*72;
+            fState[hearts] = 1;
+            hearts++;
+            levelMap[y][x] = 0;
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body onpageshow="Resize();" onresize="Resize();">
+  <canvas id="GameCanvas" onclick="this.focus();" oncontextmenu="return false;" width=960 height=480 tabindex=1></canvas><br>
+</body>
+</html>

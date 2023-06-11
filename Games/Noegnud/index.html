@@ -1,0 +1,2321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"
+    />
+    <style>
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #483b3a;
+        overflow: hidden;
+      }
+      .images {
+        display: none;
+      }
+      #controller {
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+      }
+      canvas {
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div id="controller"></div>
+    <div class="images">
+      <img
+        id="c"
+        src="data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAAaBAMAAAA03Ji8AAAAElBMVEUAAAAiIiLaTjj99+1y1s5BcImafx0EAAAAAXRSTlMAQObYZgAAAn1JREFUeNrN14Gt2jAQxvF4g/scGCBmgaYe4YUBouL9VymO85csXeCBhCROpaeDhP76nVP1Db9XtOGrK0zf7ft+YPx6YLJvB34oQmuvt0tSbYHuPv8QMMzt9W6FlLYdRrqk9gH9QysO2YZxfj/JqLRFFOgNWsWtq9YrAEkyAEdAaZzfSVKmeh+HjA50Sm0+LcvP/ArwXEqxBwASMKCvfOGyzvuNkg3sEmi0uAOvpawioWdASWKVx2cpbcCYxpmEngGvYwMuy5JtAAA0AD9da4Qk5KHM4TzmPPuEWHlIOV1sT1IkdABllvIOLKXIHJT5dL3XTEL0Htbg0qgsAMBYOUCSJKEDKHPMAG9V4qDMAEmIDgxwTA0IABiJhqQ0GVASOoAyR2XtwNvtnzkoM0CR0N6BAZZaBwiMM8f7AEnIQZnjOa8d0EGZOYMkpAgQGLNG9asExtM73stIkoQOoMyxOOBh5ykmoTj1MODbyiUBBNafOak2oAAdlBkgiT0ELstSbyQhqXVgwHloSMitdJCG1tQBPNQD+zPnVh1USrnJSIgODDhAEgLWAUP7fb7XHwD0I1hKxr+DP+agzGGtn58NQAWW1YABJjESAkaiJMh1QJ70cMkNWBMyB2UOpfZiAOnAmN1ZA0aivB8UJxkJPQPmv12CQN0ctJUBAPSokyAw3me1/B+dhDyUuZ0gQA+hFEC6T26oExAH4zp+yiEhD2WO0tRWLBVAvlMORO+A3V/Ew0KStusoElJOW+K6JBlz7Ra2Htb7rw56vi3LdWXugUOQhzJTQDoYs4UOSEI1sC3KmO81MXNRe/iDdQBtVWeWdnQdMGaK+x52ioT4Hv5cZuo/Mgfb1dQFYesAAAAASUVORK5CYII="
+      />
+      <img
+        id="w"
+        src="data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAATBAMAAAB4ntAIAAAAJ1BMVEUAAAAiIiK2y8////8AAAD99+39DQn/gy765kX61EBBSFn6vzn7rTjLMs7wAAAAAXRSTlMAQObYZgAAAIJJREFUCNdjEBQUFGCAASEh1UA4R5ARzEHIsDiwODCkpQE5SqqBzibOJmzl5QkQjrGxSXr19jIwh8XY2CF9RieEw+BswpDe0YGDg6KMraI9AcGpnJ4AN40h5xjQOUAAtAeoqYyBQSqQAagKpC6BgUF0IQMD2G0gIIVwM1gGARgFEGwAc3gkM0P+/O8AAAAASUVORK5CYII="
+      />
+      <img
+        id="l"
+        src="data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAAQBAMAAADaP+8jAAAAD1BMVEUAAAAiIiJIOzqqjXp3XFU2YJycAAAAAXRSTlMAQObYZgAAAWJJREFUeNrFk4lxhTAMREkHkXAD2tAAcQUw6r+mCAkRc+U+fO2fv0ZvzOKOmAgilFpUdbKupVEbfX3stvZQx74W98Kt49HvblrW7RjehlbFOrhVyBnM7oX7cXDW7bACU9n/JoBbBRG1hYkMLAlmAx/9W3DUPYPpph1P9J5/B879zaueA5yh7vQ648lMG+UzGWfd1xMrzYvyGip2ep0xhy+fydjrEZAnBhOcHGAB9vqTYBGiDTxQID6asYFaN8GfzxiLigKRgJIe9AKsxSxfPgFW1QC3X3UxzJqsSaOX14nAZvlCn7hOgBARt+CBQYVlBe714joxlu6+fPw6QXB61dOi/5Gx/yxa1MZxTmcQqZYp5gWYblrWTPDANkJNGMcpfe3rc1+tjU91dDDAsnTgAtzuX5Z8Lms2YNnAzA5PFTA72EbUCLAAEvtuwLk/lngu63Y6D4POqjZd6aZdgJv2cTCt7QWZTbIkYjCyOwAAAABJRU5ErkJggg=="
+      />
+    </div>
+    <script>
+      !(function (t) {
+        var e = {};
+        function i(s) {
+          if (e[s]) return e[s].exports;
+          var h = (e[s] = { i: s, l: !1, exports: {} });
+          return t[s].call(h.exports, h, h.exports, i), (h.l = !0), h.exports;
+        }
+        (i.m = t),
+          (i.c = e),
+          (i.d = function (t, e, s) {
+            i.o(t, e) ||
+              Object.defineProperty(t, e, { enumerable: !0, get: s });
+          }),
+          (i.r = function (t) {
+            "undefined" != typeof Symbol &&
+              Symbol.toStringTag &&
+              Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }),
+              Object.defineProperty(t, "__esModule", { value: !0 });
+          }),
+          (i.t = function (t, e) {
+            if ((1 & e && (t = i(t)), 8 & e)) return t;
+            if (4 & e && "object" == typeof t && t && t.__esModule) return t;
+            var s = Object.create(null);
+            if (
+              (i.r(s),
+              Object.defineProperty(s, "default", { enumerable: !0, value: t }),
+              2 & e && "string" != typeof t)
+            )
+              for (var h in t)
+                i.d(
+                  s,
+                  h,
+                  function (e) {
+                    return t[e];
+                  }.bind(null, h)
+                );
+            return s;
+          }),
+          (i.n = function (t) {
+            var e =
+              t && t.__esModule
+                ? function () {
+                    return t.default;
+                  }
+                : function () {
+                    return t;
+                  };
+            return i.d(e, "a", e), e;
+          }),
+          (i.o = function (t, e) {
+            return Object.prototype.hasOwnProperty.call(t, e);
+          }),
+          (i.p = ""),
+          i((i.s = 4));
+      })([
+        function (t, e, i) {
+          "use strict";
+          Object.defineProperty(e, "__esModule", { value: !0 });
+          class s {
+            constructor(t) {
+              let e = {
+                container: document.body,
+                width: 50,
+                height: 50,
+                left: 0,
+                top: 50,
+              };
+              (this.options = Object.assign({}, e, t)), this.createElement();
+            }
+            createElement() {
+              this.el = document.createElement("div");
+              this.options.container.getBoundingClientRect();
+              (this.el.style.position = "absolute"),
+                (this.el.style.width = this.options.width + "vw"),
+                (this.el.style.height = this.options.height + "vh"),
+                (this.el.style.left = this.options.left + "vw"),
+                (this.el.style.top = this.options.top + "vh"),
+                (this.el.style.background = "#999999AA");
+            }
+            show() {
+              this.options.container.appendChild(this.el);
+            }
+            hide() {
+              this.options.container.removeChild(this.el);
+            }
+          }
+          class h {
+            constructor(t) {
+              let e = {
+                "button-color": "#FF0000",
+                "track-color": "#00FF0099",
+                "button-size": 12.5,
+                "button-stroke-size": 0,
+                "track-size": 15,
+                "track-stroke-size": 2,
+                "track-stroke-color": "#FFFFFF",
+                "track-stroke-size": 2,
+                "tracking-element": document.body,
+              };
+              (this.options = Object.assign({}, e, t)),
+                (this._isAttached = !1),
+                (this.x = 0),
+                (this.y = 0),
+                this.createCanvas();
+            }
+            createCanvas() {
+              (this.ratio = window.devicePixelRatio),
+                (this.canvas = document.createElement("canvas"));
+              const t =
+                this.options["track-size"] +
+                2 * this.options["track-stroke-size"];
+              (this.canvas.width = t * this.ratio),
+                (this.canvas.height = t * this.ratio),
+                (this.canvas.style.width = t + "px"),
+                (this.canvas.style.height = t + "px"),
+                (this.context = this.canvas.getContext("2d"));
+            }
+            start(t) {
+              this._isAttached &&
+                ((this.x = 0), (this.y = 0), (this.px = 0), (this.py = 0));
+            }
+            getAngle(t, e) {
+              return 0 == t ? 0 : Math.atan(e / t);
+            }
+            getMultiplier(t) {
+              return t < 0 ? -1 : 1;
+            }
+            getAxisDelta(t) {
+              let e = this.getMultiplier(t);
+              return t * e > 0.5 ? 1 * e : 0;
+            }
+            getAxis() {
+              return {
+                x: this.x,
+                y: this.y,
+                dx: this.getAxisDelta(this.x),
+                dy: this.getAxisDelta(this.y),
+              };
+            }
+            move(t, e) {
+              if (!this._isAttached) return;
+              (this.px = this.px + t), (this.py = this.py + e);
+              Math.sqrt(this.px * this.px + this.py * this.py);
+              let i = this.getAngle(this.px, this.py),
+                s = Math.abs(Math.cos(i)),
+                h = Math.abs(Math.sin(i));
+              1 == s && (h = 1);
+              let n = this.options["track-size"] / (2 * this.ratio),
+                o = Math.min(s, this.px / n),
+                r = Math.min(h, this.py / n);
+              (this.x = Math.max(-s, o)), (this.y = Math.max(-h, r));
+            }
+            end(t) {
+              (this.x = 0), (this.y = 0);
+            }
+            hide() {
+              (this._isAttached = !1),
+                this.canvas.parentNode.removeChild(this.canvas);
+            }
+            show() {
+              (this._isAttached = !0),
+                this.options["tracking-element"].appendChild(this.canvas);
+            }
+            setPosition(t, e) {
+              this.canvas.style.position = "absolute";
+              let i = this.options["track-size"] / (2 * this.ratio);
+              (this.canvas.style.left = t - i + "px"),
+                (this.canvas.style.top = e - i + "px");
+            }
+            draw() {
+              if (!this._isAttached) return;
+              this.context.clearRect(
+                0,
+                0,
+                this.canvas.width,
+                this.canvas.height
+              );
+              const t = this.options["track-size"] / 2;
+              this.drawCircle(
+                t + this.options["track-stroke-size"],
+                t + this.options["track-stroke-size"],
+                t,
+                this.options["track-color"],
+                this.options["track-stroke-size"] * this.ratio,
+                this.options["track-stroke-color"]
+              );
+              let e =
+                (this.options["track-size"] - this.options["button-size"]) / 2;
+              this.drawCircle(
+                t + this.x * e + this.options["track-stroke-size"],
+                t + this.y * e + this.options["track-stroke-size"],
+                this.options["button-size"] / 2,
+                this.options["button-color"],
+                this.options["button-stroke-size"] * this.ratio,
+                this.options["button-stroke-color"]
+              );
+            }
+            drawCircle(t, e, i, s, h, n) {
+              this.context.beginPath(),
+                this.context.arc(t, e, i, 0, 2 * Math.PI, !1),
+                (this.context.fillStyle = s),
+                (this.context.lineWidth = h),
+                (this.context.strokeStyle = n),
+                this.context.fill(),
+                this.context.stroke();
+            }
+          }
+          const n = class {
+            constructor(t) {
+              let e = {
+                element: document.body,
+                start: (t) => {},
+                move: (t) => {},
+                end: (t) => {},
+                width: 100,
+                height: 100,
+                left: 0,
+                top: 0,
+                sticks: [],
+              };
+              (this.currentTouches = []),
+                (this.options = Object.assign({}, e, t)),
+                (this.startFn = (t) => this.start(t)),
+                (this.moveFn = (t) => this.move(t)),
+                (this.endFn = (t) => this.end(t)),
+                this.bindEvents();
+            }
+            addStick(t) {
+              this.options.sticks.push(t);
+            }
+            removeStick(t) {
+              let e = this.options.sticks.indexOf(t);
+              e >= -1 && this.options.sticks.splice(e, 1);
+            }
+            bindEvents() {
+              let t = this.options.element;
+              t.addEventListener("touchstart", this.startFn, { passive: !1 }),
+                t.addEventListener("touchmove", this.moveFn, { passive: !1 }),
+                t.addEventListener("touchend", this.endFn, { passive: !1 }),
+                t.addEventListener("touchcancel", this.endFn, { passive: !1 });
+            }
+            unbindEvents() {
+              let t = this.options.element;
+              t.removeEventListener("touchstart", this.startFn),
+                t.removeEventListener("touchmove", this.moveFn),
+                t.removeEventListener("touchend", this.endFn),
+                t.removeEventListener("touchcancel", this.endFn);
+            }
+            inRange(t, e, i) {
+              let s = this.options.element.getBoundingClientRect(),
+                h = s.width * (i.options.width / 100),
+                n = s.height * (i.options.height / 100),
+                o = s.width * (i.options.left / 100),
+                r = s.width * (i.options.top / 100);
+              return !(t < o || t > o + h) && !(e < r || e > r + n);
+            }
+            findStick(t, e) {
+              let i = !1;
+              return (
+                this.options.sticks.forEach((s) => {
+                  this.inRange(t, e, s) && (i = s);
+                }),
+                i
+              );
+            }
+            start(t) {
+              for (let e = 0; e < t.targetTouches.length; e++) {
+                let i = t.targetTouches[e];
+                if (this.addTouchToStick(i)) return t.preventDefault(), !1;
+              }
+            }
+            hasCurrentTouch(t) {
+              for (let e = 0; e < this.currentTouches.length; e++) {
+                if (this.currentTouches[e].stick == t) return !0;
+              }
+              return !1;
+            }
+            addTouchToStick(t) {
+              let e = this.findStick(t.pageX, t.pageY);
+              return (
+                !this.hasCurrentTouch(e) &&
+                !(!e || this.findTouch(this.currentTouches, t.identifier)) &&
+                (this.currentTouches.push({
+                  identifier: t.identifier,
+                  stick: e,
+                  x: t.pageX,
+                  y: t.pageY,
+                }),
+                e.start(t),
+                !0)
+              );
+            }
+            findTouch(t, e) {
+              for (let i = 0; i < t.length; i++)
+                if (t[i].identifier == e) return t[i];
+              return !1;
+            }
+            endOldTouches(t) {
+              for (let e = 0; e < this.currentTouches.length; e++)
+                this.findTouch(t, this.currentTouches[e].identifier) ||
+                  (this.currentTouches[e].stick.end(),
+                  this.currentTouches.splice(e, 1));
+            }
+            move(t) {
+              if (this.currentTouches.length)
+                for (let e = 0; e < t.changedTouches.length; e++) {
+                  let i = t.changedTouches[e],
+                    s = this.findTouch(this.currentTouches, i.identifier);
+                  if (s) {
+                    let e = i.pageX - s.x,
+                      h = i.pageY - s.y;
+                    return (
+                      s.stick.move(e, h),
+                      (s.x = i.pageX),
+                      (s.y = i.pageY),
+                      t.preventDefault(),
+                      !1
+                    );
+                  }
+                }
+            }
+            end(t) {
+              if (this.currentTouches.length)
+                return (
+                  this.endOldTouches(t.targetTouches), t.preventDefault(), !1
+                );
+            }
+          };
+          class o {
+            constructor(t) {
+              const e = {
+                container: document.body,
+                left: 0,
+                top: 0,
+                width: 100,
+                height: 100,
+                "track-size": 180,
+                "button-size": 100,
+                "button-color": "#FFFFFF99",
+                "button-stroke-color": "#FFFFFF",
+                "button-stroke-size": 2,
+                "track-color": "#00000099",
+                "track-stroke-color": "#FFFFFF",
+                "track-stroke-size": 2,
+                "touch-handler": null,
+              };
+              (this.options = Object.assign({}, e, t)),
+                this.options["touch-handler"] ||
+                  (this.options["touch-handler"] = new n({
+                    element: this.options.container,
+                  })),
+                (this.container = new s()),
+                (this.stick = new h({
+                  "tracking-element": this.options.container,
+                  "button-size": this.options["button-size"],
+                  "button-color": this.options["button-color"],
+                  "track-color": this.options["track-color"],
+                  "track-size": this.options["track-size"],
+                  "track-stroke-color": this.options["track-stroke-color"],
+                  "track-stroke-size": this.options["track-stroke-size"],
+                })),
+                this.options["touch-handler"].addStick(this);
+            }
+            start(t) {
+              this.stick.setPosition(t.pageX, t.pageY),
+                this.stick.show(),
+                this.stick.start();
+            }
+            move(t, e) {
+              this.stick.move(t, e);
+            }
+            end() {
+              this.stick.hide(), this.stick.end();
+            }
+            draw() {
+              this.stick.draw();
+            }
+            unbind() {
+              this.options["touch-handler"].removeStick(this);
+            }
+            getAxis() {
+              return this.stick.getAxis();
+            }
+          }
+          (e.TouchHandler = n), (e.VirtualStick = o), (e.default = o);
+        },
+        function (t, e) {
+          window.AudioContext =
+            window.AudioContext || window.webkitAudioContext;
+        },
+        function (t, e) {
+          (zzfx_v = 0.5),
+            (zzfx_x = new AudioContext()),
+            (zzfx = (t, e, i, s = 1, h = 0.1, n = 0, o = 0, r = 0, a = 0) => {
+              let c = 44100,
+                l = Math.PI;
+              (i *= (2 * l) / c),
+                (i *= 1 + e * (2 * Math.random() - 1)),
+                (n *= (1e3 * l) / c ** 2),
+                (h *= 0 | (s = 0 < s ? (c * (10 < s ? 10 : s)) | 0 : 1)),
+                (r *= (2 * l) / c),
+                (a *= l),
+                (e = []);
+              for (var d = 0, u = 0, p = 0; p < s; ++p)
+                (e[p] =
+                  t *
+                  zzfx_v *
+                  Math.cos(d * i * Math.cos(u * r + a)) *
+                  (p < h ? p / h : 1 - (p - h) / (s - h))),
+                  (d += 1 + o * (2 * Math.random() - 1)),
+                  (u += 1 + o * (2 * Math.random() - 1)),
+                  (i += n);
+              return (
+                (t = zzfx_x.createBuffer(1, s, c)),
+                (i = zzfx_x.createBufferSource()),
+                t.getChannelData(0).set(e),
+                (i.buffer = t),
+                i.connect(zzfx_x.destination),
+                i.start(),
+                i
+              );
+            });
+        },
+        function (t, e, i) {},
+        function (t, e, i) {
+          "use strict";
+          i.r(e);
+          i(1), i(2);
+          let s,
+            h,
+            n = {};
+          function o(t, ...e) {
+            n[t] && n[t].map((t) => t(...e));
+          }
+          function r() {
+            return s;
+          }
+          function a() {
+            return h;
+          }
+          const c = () => {};
+          function l() {
+            let t = r();
+            a().clearRect(0, 0, t.width, t.height);
+          }
+          class d {
+            constructor(t = 0, e = 0) {
+              (this._x = t), (this._y = e);
+            }
+            add(t, e = 1) {
+              return u(this.x + (t.x || 0) * e, this.y + (t.y || 0) * e, this);
+            }
+            clamp(t, e, i, s) {
+              (this._c = !0),
+                (this._a = t),
+                (this._b = e),
+                (this._d = i),
+                (this._e = s);
+            }
+            get x() {
+              return this._x;
+            }
+            get y() {
+              return this._y;
+            }
+            set x(t) {
+              this._x = this._c ? Math.min(Math.max(this._a, t), this._d) : t;
+            }
+            set y(t) {
+              this._y = this._c ? Math.min(Math.max(this._b, t), this._e) : t;
+            }
+          }
+          function u(t, e, i = {}) {
+            let s = new d(t, e);
+            return (
+              i._c && (s.clamp(i._a, i._b, i._d, i._e), (s.x = t), (s.y = e)), s
+            );
+          }
+          (u.prototype = d.prototype), (u.class = d);
+          class p {
+            constructor(t) {
+              this.init(t);
+            }
+            init(t = {}) {
+              let {
+                x: e,
+                y: i,
+                dx: s,
+                dy: h,
+                ddx: n,
+                ddy: o,
+                width: r,
+                height: c,
+                image: l,
+              } = t;
+              (this.position = u(e, i)),
+                (this.velocity = u(s, h)),
+                (this.acceleration = u(n, o)),
+                (this._fx = this._fy = 1),
+                (this.width = this.height = this.rotation = 0),
+                (this.ttl = 1 / 0),
+                (this.anchor = { x: 0, y: 0 }),
+                (this.context = a());
+              for (let e in t) this[e] = t[e];
+              l &&
+                ((this.width = void 0 !== r ? r : l.width),
+                (this.height = void 0 !== c ? c : l.height)),
+                (this.sx = 0),
+                (this.sy = 0);
+            }
+            get x() {
+              return this.position.x;
+            }
+            get y() {
+              return this.position.y;
+            }
+            get dx() {
+              return this.velocity.x;
+            }
+            get dy() {
+              return this.velocity.y;
+            }
+            get ddx() {
+              return this.acceleration.x;
+            }
+            get ddy() {
+              return this.acceleration.y;
+            }
+            get animations() {
+              return this._a;
+            }
+            get viewX() {
+              return this.x - this.sx;
+            }
+            get viewY() {
+              return this.y - this.sy;
+            }
+            get width() {
+              return this._w;
+            }
+            get height() {
+              return this._h;
+            }
+            set x(t) {
+              this.position.x = t;
+            }
+            set y(t) {
+              this.position.y = t;
+            }
+            set dx(t) {
+              this.velocity.x = t;
+            }
+            set dy(t) {
+              this.velocity.y = t;
+            }
+            set ddx(t) {
+              this.acceleration.x = t;
+            }
+            set ddy(t) {
+              this.acceleration.y = t;
+            }
+            set animations(t) {
+              let e, i;
+              for (e in ((this._a = {}), t))
+                (this._a[e] = t[e].clone()), (i = i || this._a[e]);
+              (this.currentAnimation = i),
+                (this.width = this.width || i.width),
+                (this.height = this.height || i.height);
+            }
+            set viewX(t) {}
+            set viewY(t) {}
+            set width(t) {
+              let e = t < 0 ? -1 : 1;
+              (this._fx = e), (this._w = t * e);
+            }
+            set height(t) {
+              let e = t < 0 ? -1 : 1;
+              (this._fy = e), (this._h = t * e);
+            }
+            isAlive() {
+              return this.ttl > 0;
+            }
+            collidesWith(t) {
+              if (this.rotation || t.rotation) return null;
+              let e = this.x - this.width * this.anchor.x,
+                i = this.y - this.height * this.anchor.y,
+                s = t.x,
+                h = t.y;
+              return (
+                t.anchor &&
+                  ((s -= t.width * t.anchor.x), (h -= t.height * t.anchor.y)),
+                e < s + t.width &&
+                  e + this.width > s &&
+                  i < h + t.height &&
+                  i + this.height > h
+              );
+            }
+            update(t) {
+              this.advance(t);
+            }
+            render() {
+              this.draw();
+            }
+            playAnimation(t) {
+              (this.currentAnimation = this.animations[t]),
+                this.currentAnimation.loop || this.currentAnimation.reset();
+            }
+            advance(t) {
+              (this.velocity = this.velocity.add(this.acceleration, t)),
+                (this.position = this.position.add(this.velocity, t)),
+                this.ttl--,
+                this.currentAnimation && this.currentAnimation.update(t);
+            }
+            draw() {
+              let t = -this.width * this.anchor.x,
+                e = -this.height * this.anchor.y;
+              if (
+                (this.context.save(),
+                this.context.translate(this.viewX, this.viewY),
+                this.rotation && this.context.rotate(this.rotation),
+                -1 == this._fx || -1 == this._fy)
+              ) {
+                let i = this.width / 2 + t,
+                  s = this.height / 2 + e;
+                this.context.translate(i, s),
+                  this.context.scale(this._fx, this._fy),
+                  this.context.translate(-i, -s);
+              }
+              this.image
+                ? this.context.drawImage(
+                    this.image,
+                    0,
+                    0,
+                    this.image.width,
+                    this.image.height,
+                    t,
+                    e,
+                    this.width,
+                    this.height
+                  )
+                : this.currentAnimation
+                ? this.currentAnimation.render({
+                    x: t,
+                    y: e,
+                    width: this.width,
+                    height: this.height,
+                    context: this.context,
+                  })
+                : ((this.context.fillStyle = this.color),
+                  this.context.fillRect(t, e, this.width, this.height)),
+                this.context.restore();
+            }
+          }
+          function y(t) {
+            return new p(t);
+          }
+          (y.prototype = p.prototype), (y.class = p);
+          class f {
+            constructor({
+              spriteSheet: t,
+              frames: e,
+              frameRate: i,
+              loop: s = !0,
+            } = {}) {
+              (this.spriteSheet = t),
+                (this.frames = e),
+                (this.frameRate = i),
+                (this.loop = s);
+              let { width: h, height: n, margin: o = 0 } = t.frame;
+              (this.width = h),
+                (this.height = n),
+                (this.margin = o),
+                (this._f = 0),
+                (this._a = 0);
+            }
+            clone() {
+              return x(this);
+            }
+            reset() {
+              (this._f = 0), (this._a = 0);
+            }
+            update(t = 1 / 60) {
+              if (this.loop || this._f != this.frames.length - 1)
+                for (this._a += t; this._a * this.frameRate >= 1; )
+                  (this._f = ++this._f % this.frames.length),
+                    (this._a -= 1 / this.frameRate);
+            }
+            render({
+              x: t,
+              y: e,
+              width: i = this.width,
+              height: s = this.height,
+              context: h = a(),
+            } = {}) {
+              let n = (this.frames[this._f] / this.spriteSheet._f) | 0,
+                o = this.frames[this._f] % this.spriteSheet._f | 0;
+              h.drawImage(
+                this.spriteSheet.image,
+                o * this.width + (2 * o + 1) * this.margin,
+                n * this.height + (2 * n + 1) * this.margin,
+                this.width,
+                this.height,
+                t,
+                e,
+                i,
+                s
+              );
+            }
+          }
+          function x(t) {
+            return new f(t);
+          }
+          function g(t) {
+            if (+t === t) return t;
+            let e = [],
+              i = t.split(".."),
+              s = +i[0],
+              h = +i[1],
+              n = s;
+            if (s < h) for (; n <= h; n++) e.push(n);
+            else for (; n >= h; n--) e.push(n);
+            return e;
+          }
+          (x.prototype = f.prototype), (x.class = f);
+          class m {
+            constructor({
+              image: t,
+              frameWidth: e,
+              frameHeight: i,
+              frameMargin: s,
+              animations: h,
+            } = {}) {
+              if (!t)
+                throw Error("You must provide an Image for the SpriteSheet");
+              (this.animations = {}),
+                (this.image = t),
+                (this.frame = { width: e, height: i, margin: s }),
+                (this._f = (t.width / e) | 0),
+                this.createAnimations(h);
+            }
+            createAnimations(t) {
+              let e, i;
+              for (i in t) {
+                let { frames: s, frameRate: h, loop: n } = t[i];
+                if (((e = []), void 0 === s))
+                  throw Error(
+                    "Animation " + i + " must provide a frames property"
+                  );
+                [].concat(s).map((t) => {
+                  e = e.concat(g(t));
+                }),
+                  (this.animations[i] = x({
+                    spriteSheet: this,
+                    frames: e,
+                    frameRate: h,
+                    loop: n,
+                  }));
+              }
+            }
+          }
+          function w(t) {
+            return new m(t);
+          }
+          (w.prototype = m.prototype), (w.class = m);
+          const v = [0, Math.PI, Math.PI / 2, -Math.PI / 2];
+          function k(t) {
+            return y({
+              type: "a",
+              height: 3,
+              width: 20,
+              a: 1,
+              da: 0.01,
+              anchor: { x: 0.5, y: 0.5 },
+              distance: 50,
+              update() {
+                this.advance(),
+                  (this.color = `rgba(200, 200, 200, ${this.a})`),
+                  (this.a += this.da),
+                  this.a <= 0.3
+                    ? (this.da = 0.01)
+                    : this.a >= 1 && (this.da = -0.01),
+                  this.rotation ||
+                    (this.rotation =
+                      v[
+                        t.skills
+                          .filter((t) => t && "a" === t.type)
+                          .findIndex((t) => t === this)
+                      ]),
+                  (this.rotation += 0.02);
+                const e = {
+                  x: t.playerSprite.x + t.playerSprite.width / 2,
+                  y: t.playerSprite.y + t.playerSprite.height / 2 + 8,
+                };
+                if (this.y) {
+                  const t = Math.cos(this.rotation),
+                    i = {
+                      x: Math.sin(this.rotation) * this.distance + e.x,
+                      y: t * -this.distance + e.y,
+                    };
+                  (this.x = i.x), (this.y = i.y);
+                } else (this.x = e.x), (this.y = e.y - this.distance);
+              },
+            });
+          }
+          function S(t, e, i) {
+            const s = i.x + e.width - (e.x + e.width / 2),
+              h = i.y + e.height - (e.y + e.height / 2),
+              n = Math.sqrt(s * s + h * h);
+            return {
+              dx: (s / n) * t,
+              dy: (h / n) * t,
+              angle: Math.atan2(h, s),
+            };
+          }
+          function b(t, e) {
+            const i = document.querySelector("#canvas"),
+              s = { width: window.innerWidth, height: window.innerHeight };
+            return (
+              (i.width = t || s.width),
+              (i.height = e || s.height),
+              (i.style.marginLeft = `${~~((s.width - i.width) / 2)}px`),
+              (i.style.marginTop = `${~~((s.height - i.height) / 2)}px`),
+              s
+            );
+          }
+          function _(t, e) {
+            return (
+              t &&
+              e &&
+              t.x < e.x + e.width &&
+              t.x + t.width > e.x &&
+              t.y < e.y + e.height &&
+              t.y + t.height > e.y
+            );
+          }
+          (k.title = "Shield"), (k.type = "a");
+          class M {
+            constructor(t) {
+              (this.player = t), this.syncPosition(t.getPlayerSprite());
+            }
+            syncPosition({ x: t, y: e }) {
+              const i = this.gS();
+              this.animate || ((i.x = t + 20), (i.y = e + 15));
+            }
+            gS() {
+              if (!this.sprite) {
+                const t = this,
+                  e = this.player,
+                  i = w({
+                    image: document.querySelector("#w"),
+                    frameWidth: 8,
+                    frameHeight: 19,
+                    animations: { weapon: { frames: "0..0", frameRate: 1 } },
+                  }),
+                  s = r();
+                this.sprite = y({
+                  entity: t,
+                  type: "w",
+                  x: 40,
+                  y: 50,
+                  dx: 0,
+                  height: 19,
+                  width: 8,
+                  animations: i.animations,
+                  anchor: { x: 0.5, y: 0.5 },
+                  rotation: 0,
+                  rotationDelta: e.swordSpeed,
+                  update() {
+                    this.advance(),
+                      t.animate &&
+                        ((this.x < 6 ||
+                          this.x > s.width / 2 - 20 ||
+                          this.y < 16 ||
+                          this.y > s.height / 2 - 48) &&
+                          (this.ttl = 0),
+                        (this.rotation = this.rotation + e.swordSpeed));
+                  },
+                });
+              }
+              return this.sprite;
+            }
+            throw(t) {
+              const { dx: e, dy: i } = S(5, this.sprite, t);
+              (this.sprite.dx = e),
+                (this.sprite.dy = i),
+                (this.animate = !0),
+                (this.sprite.ttl = 75);
+            }
+          }
+          function A(t) {
+            const e = t.hit.bind(t);
+            t.hit = () => {
+              if (t.primaryWeapon && t.target && !t.target.hidden) {
+                e();
+                const i = new M(t);
+                i.throw({ x: t.target.x, y: t.target.y }),
+                  (i.sprite.dx *= -1),
+                  (i.sprite.dy *= -1),
+                  t.weapons.push(i);
+              }
+            };
+            const i = y({ type: "sba" });
+            return (
+              (i.undo = () => {
+                t.hit = e;
+              }),
+              i
+            );
+          }
+          function z(t) {
+            const e = t.getPlayerSprite(),
+              i = new D(t.game, t.controller, []),
+              s = i.getPlayerSprite();
+            var h, n;
+            return (
+              (function (t, e) {
+                (t.prevX = t.x), (t.x = e.x), (t.y = e.y);
+              })(s, e),
+              (i.d *= 0.25),
+              (i.type = s.type = "x"),
+              (s.render =
+                ((h = s.render),
+                (n = (t) => {
+                  s.context.save(),
+                    (s.context.globalAlpha = 0.5),
+                    t.call(s),
+                    s.context.restore();
+                }),
+                function () {
+                  n(h);
+                })),
+              (s.update = function () {
+                this.advance(),
+                  i.primaryWeapon &&
+                    (i.primaryWeapon.syncPosition(this),
+                    (i.primaryWeapon.sprite.render = function () {
+                      this.context.save(),
+                        (this.context.globalAlpha = 0.5),
+                        this.draw(),
+                        this.context.restore();
+                    }.bind(i.primaryWeapon.sprite))),
+                  (this.dx = e.dx),
+                  (this.x = e.x + 40),
+                  (this.y = e.y + 40);
+              }.bind(s)),
+              (t.onHit = function () {
+                (i.target = t.target), i.hit();
+              }),
+              i
+            );
+          }
+          (A.limit = 1),
+            (A.type = "sba"),
+            (A.title = "Backwards Attack"),
+            (z.title = "Shadow"),
+            (z.type = "x"),
+            (z.limit = 1);
+          const T = [k, A, z];
+          const C = (t) => {
+            const e = t.game.getClosest(t.playerSprite, "m");
+            e && e.distance && (t.setTarget(e.sprite), t.hit());
+          };
+          function F(t, { x: e = 0, color: i = "rgba(0, 0, 0, 0.5)" } = {}) {
+            const s = t.render.bind(t);
+            (t.shadowColor = i),
+              (t.render = function () {
+                this.context.save(),
+                  this.context.beginPath(),
+                  (this.context.shadowColor = this.context.fillStyle =
+                    t.shadowColor),
+                  this.context.ellipse(
+                    this.x + this.width / 2 + e,
+                    this.y + this.height,
+                    this.width / 2,
+                    5,
+                    0,
+                    0,
+                    2 * Math.PI
+                  ),
+                  (this.context.shadowBlur = 10),
+                  this.context.fill(),
+                  this.context.restore(),
+                  s();
+              }.bind(t));
+          }
+          function E(t, e, i) {
+            const s = e.update.bind(e),
+              h = e.render.bind(e),
+              n = { x: 0, y: 0, ...i };
+            (e.update = function () {
+              t.prevHealth &&
+                t.prevHealth !== t.health &&
+                (this.playAnimation("ouch"),
+                setTimeout(() => {
+                  this.playAnimation("walk");
+                }, 500)),
+                (t.prevHealth = t.health),
+                s();
+            }.bind(e)),
+              (e.render = function () {
+                if (t.health < 100) {
+                  const i = e.x + n.x,
+                    s = e.y + n.y,
+                    h = e.width,
+                    o = 5;
+                  this.context.save(),
+                    this.context.beginPath(),
+                    (this.context.strokeStyle = "#000"),
+                    (this.context.fillStyle = "rgba(100,100,100,0.7)"),
+                    this.context.rect(i, s, h, o),
+                    this.context.fill(),
+                    this.context.stroke(),
+                    this.context.closePath(),
+                    this.context.beginPath(),
+                    (this.context.fillStyle = (function (t) {
+                      return t.health > 70
+                        ? "rgba(100, 250, 100, 0.7)"
+                        : t.health > 40
+                        ? "rgba(255, 255, 100, 0.7)"
+                        : "rgba(255, 100, 100, 0.7)";
+                    })(t)),
+                    this.context.rect(i, s, (h / 100) * t.health, o),
+                    this.context.fill(),
+                    this.context.restore();
+                }
+                h();
+              }.bind(e));
+          }
+          class P {
+            constructor({ level: t = 10 } = {}) {
+              (this.level = t), (this.weapons = []);
+            }
+            get health() {
+              return ~~((this.healthPoints / this.baseHealth) * 100);
+            }
+          }
+          class D extends P {
+            constructor(t, e, i) {
+              super();
+              const s = r();
+              (this.healthPoints = this.baseHealth = 100 * this.level),
+                (this.game = t),
+                (this.controller = e),
+                (this.y = ~~((s.height / 2) * 0.75)),
+                (this.swordSpeed = 0.3),
+                (this.skills =
+                  i ||
+                  (function (t, e) {
+                    let i = [];
+                    const s = (t) =>
+                      !t.limit || t.limit > i.filter((e) => e.type === t.type);
+                    for (let n = 0; n < e; n++) {
+                      const e = h(s),
+                        n = e(t);
+                      (n.title = e.title), i.push(n);
+                    }
+                    function h(t) {
+                      let e;
+                      do {
+                        t((e = T[~~(Math.random() * T.length)])) || (e = null);
+                      } while (!e);
+                      return e;
+                    }
+                    return i;
+                  })(this, 4)),
+                (this.weapons = [new M(this)]),
+                (this.target = null),
+                (this.d = 50);
+            }
+            climb(t) {
+              this.originalUpdate = this.playerSprite.update.bind(
+                this.playerSprite
+              );
+              const e = this;
+              (this._c = !0),
+                (this.playerSprite.x = t.x - 5),
+                (this.playerSprite.y = t.y + t.height),
+                (this.playerSprite.dy = -1),
+                (this.playerSprite.dx = 0),
+                (this.playerSprite.update = function () {
+                  this.advance(),
+                    this.y < t.y - t.height - 5 && (this.dy = 0),
+                    e.primaryWeapon && e.primaryWeapon.syncPosition(this);
+                }.bind(this.playerSprite));
+            }
+            resetClimb() {
+              const t = r();
+              (this._c = !1),
+                (this.playerSprite.update = this.originalUpdate),
+                (this.playerSprite.x = t.width / 4 - 16),
+                (this.playerSprite.y = ~~((t.height / 2) * 0.75));
+            }
+            get isMoving() {
+              const t = this.getPlayerSprite();
+              return (t.prevX || t.x) !== t.x || (t.prevY || t.y) !== t.y;
+            }
+            gS() {
+              const t = this.weapons.flatMap((t) => t.gS());
+              return this.skills
+                .flatMap((t) => (t.gS ? t.gS() : t))
+                .filter((t) => !!t)
+                .concat(this.getPlayerSprite())
+                .concat(t);
+            }
+            hit() {
+              this.primaryWeapon &&
+                this.target &&
+                !this.target.hidden &&
+                (this.onHit && this.onHit(),
+                zzfx(0.3, 0.1, 1100, 0.2, 0.33, 0.8, 1.5, 0, 0.05),
+                this.primaryWeapon.throw({
+                  x: this.target.x,
+                  y: this.target.y,
+                }),
+                setTimeout(() => {
+                  this.weapons.push(new M(this));
+                }, 500));
+            }
+            resetTarget() {
+              this.target && (this.target.targeted = !1), (this.target = null);
+            }
+            setTarget(t) {
+              (this.target = this.target || t), (this.target.targeted = !0);
+            }
+            getPlayerSprite() {
+              if (!this.playerSprite) {
+                const t = r(),
+                  e = w({
+                    image: document.querySelector("#c"),
+                    frameWidth: 16,
+                    frameHeight: 26,
+                    animations: {
+                      walk: { frames: "0..3", frameRate: 8 },
+                      ouch: { frames: "4..4", frameRate: 1 },
+                    },
+                  });
+                (this.playerSprite = y({
+                  entity: this,
+                  type: "p",
+                  x: t.width / 4 - 16,
+                  y: this.y,
+                  width: 16,
+                  height: 26,
+                  animations: e.animations,
+                  direction: "right",
+                  render() {
+                    this.dx < 0 && "right" === this.direction
+                      ? ((this.width = -16), (this.direction = "left"))
+                      : this.dx > 0 &&
+                        "left" === this.direction &&
+                        ((this.width = 16), (this.direction = "right")),
+                      this.draw();
+                  },
+                })),
+                  F(this.playerSprite),
+                  E(this, this.playerSprite),
+                  (function (t) {
+                    const e = t.playerSprite.update.bind(t.playerSprite),
+                      i = r();
+                    t.playerSprite.update = function () {
+                      (this.prevX = this.x), (this.prevY = this.y);
+                      const s = t.controller.getAxis();
+                      (this.dx = 2 * s.x),
+                        (this.dy = 2 * s.y),
+                        ((this.x < 6 && this.dx < 0) ||
+                          (this.x > i.width / 2 - 20 && this.dx > 0)) &&
+                          (this.dx = 0),
+                        ((this.y < 16 && this.dy < 0) ||
+                          (this.y > i.height / 2 - 48 && this.dy > 0)) &&
+                          (this.dy = 0),
+                        e(),
+                        t.isMoving
+                          ? (t.primaryWeapon &&
+                              t.primaryWeapon.syncPosition(this),
+                            t.resetTarget())
+                          : C(t);
+                    }.bind(t.playerSprite);
+                  })(this),
+                  (function (t) {
+                    const e = r(),
+                      i = t.playerSprite;
+                    e.addEventListener("touchstart", (e) => {
+                      t.resetTarget();
+                    }),
+                      e.addEventListener("touchmove", (t) => {
+                        t.preventDefault();
+                      }),
+                      e.addEventListener(
+                        "touchend",
+                        (e) => {
+                          (i.dx = 0), (i.dy = 0), C(t);
+                        },
+                        !1
+                      );
+                  })(this);
+              }
+              return this.playerSprite;
+            }
+            get primaryWeapon() {
+              return this.weapons.find((t) => !t.animate);
+            }
+          }
+          class R extends P {
+            constructor({
+              level: t = 10,
+              attack: e = () => {},
+              shouldAttack: i = () => !1,
+              baseHealth: s,
+              damage: h,
+              dx: n = 3 * Math.random() - 2,
+              dy: o = 3 * Math.random() - 2,
+              update: r = function () {},
+              walk: a,
+              ouch: c,
+            } = {}) {
+              super({ level: t }),
+                (this.healthPoints = this.baseHealth = s),
+                (this.attack = e),
+                (this.shouldAttack = i),
+                (this.d = h),
+                (this.dx = n),
+                (this.dy = o),
+                (this.optionalUpdate = r),
+                (this.walkFrames = a),
+                (this.ouchFrames = c);
+            }
+            gS() {
+              return this.weapons.concat(this.getMonsterSprite());
+            }
+            getMonsterSprite() {
+              const t = this;
+              if (!this.sprite) {
+                const e = w({
+                    image: document.querySelector("#c"),
+                    frameWidth: 16,
+                    frameHeight: 26,
+                    animations: {
+                      walk: { frames: this.walkFrames, frameRate: 8 },
+                      ouch: { frames: this.ouchFrames, frameRate: 1 },
+                    },
+                  }),
+                  i = r();
+                (this.sprite = y({
+                  entity: this,
+                  type: "m",
+                  x: Math.min(30, Math.random() * (i.width / 2 - 30)),
+                  y: Math.max(30, Math.random() * (i.height / 2 - 60)),
+                  dx: this.dx,
+                  dy: this.dy,
+                  height: 26,
+                  width: 16,
+                  animations: e.animations,
+                  direction: "right",
+                  render() {
+                    this.dx < 0 && "right" === this.direction
+                      ? ((this.width = -16), (this.direction = "left"))
+                      : this.dx > 0 &&
+                        "left" === this.direction &&
+                        ((this.width = 16), (this.direction = "right")),
+                      this.hidden || this.draw();
+                  },
+                  update() {
+                    this.advance(),
+                      t.optionalUpdate.call(this),
+                      this.targeted
+                        ? (this.shadowColor = "rgba(250, 100, 100, 0.7)")
+                        : (this.shadowColor = "rgba(0, 0, 0, 0.5)"),
+                      (this.x < 6 || this.x > i.width / 2 - 20) &&
+                        (this.dx *= -1),
+                      (this.y < 16 || this.y > i.height / 2 - 48) &&
+                        (this.dy *= -1),
+                      t.shouldAttack(t, this) && t.attack(t, this);
+                  },
+                })),
+                  F(this.sprite, { x: 0 }),
+                  E(this, this.sprite, { x: -2, y: 3 });
+              }
+              return this.sprite;
+            }
+          }
+          function H(t) {
+            const e = w({
+              image: document.querySelector("#w"),
+              frameWidth: 8,
+              frameHeight: 19,
+              animations: { weapon: { frames: "2..2", frameRate: 1 } },
+            });
+            return new R({
+              baseHealth: 250,
+              damage: 250,
+              walk: "10..13",
+              ouch: "14..14",
+              shouldAttack: (t) => {
+                const e = t.attackAt && t.attackAt < ~~new Date();
+                return (
+                  (!t.attackAt || t.attackAt < ~~new Date()) &&
+                    (t.attackAt = 5e3 + ~~new Date()),
+                  e
+                );
+              },
+              attack: (i, s) => {
+                const {
+                  dx: h,
+                  dy: n,
+                  angle: o,
+                } = S(5, i.sprite, t.playerSprite);
+                i.weapons.push(
+                  y({
+                    monster: i,
+                    type: "mw",
+                    x: s.x - 5,
+                    y: s.y + s.height / 2 + 10,
+                    dx: h,
+                    dy: n,
+                    rotation: o + 1.5,
+                    height: 19,
+                    width: 8,
+                    animations: e.animations,
+                    anchor: { x: 0.5, y: 0.5 },
+                  })
+                ),
+                  zzfx(1, 0.1, 131, 1, 0.4, 0, 4.3, 0, 0.05);
+              },
+            });
+          }
+          function O() {
+            const t = w({
+              image: document.querySelector("#w"),
+              frameWidth: 8,
+              frameHeight: 19,
+              animations: { weapon: { frames: "1..1", frameRate: 1 } },
+            });
+            return new R({
+              baseHealth: 500,
+              damage: 100,
+              walk: "5..8",
+              ouch: "9..9",
+              shouldAttack: (t) => {
+                const e = t.attackAt && t.attackAt < ~~new Date();
+                return (
+                  (!t.attackAt || t.attackAt < ~~new Date()) &&
+                    (t.attackAt = 5e3 + ~~new Date()),
+                  e
+                );
+              },
+              attack: (e, i) => {
+                const s = {
+                  monster: e,
+                  type: "mw",
+                  x: i.x - 5,
+                  y: i.y + i.height / 2 + 10,
+                  dx: -2,
+                  height: 10,
+                  width: 4,
+                  animations: t.animations,
+                  anchor: { x: 0.5, y: 0.5 },
+                  rotation: 0,
+                  rotationDelta: 1,
+                  update() {
+                    this.advance(), (this.rotation = this.rotation + 0.3);
+                  },
+                };
+                e.weapons.push(y({ ...s })),
+                  e.weapons.push(y({ ...s, dx: 2, x: i.x + i.width })),
+                  e.weapons.push(
+                    y({
+                      ...s,
+                      dx: 0,
+                      dy: -2,
+                      x: i.x + i.width / 2 - 5,
+                      y: i.y + 10,
+                    })
+                  ),
+                  e.weapons.push(
+                    y({
+                      ...s,
+                      dx: 0,
+                      dy: 2,
+                      x: i.x + i.width / 2 - 5,
+                      y: i.y + i.height + 5,
+                    })
+                  ),
+                  zzfx(1, 0.1, 1216, 0.4, 0.08, 4.3, 2.4, 0.7, 0.02);
+              },
+            });
+          }
+          function W(t) {
+            let e = new Date();
+            return new R({
+              baseHealth: 1250,
+              damage: 10,
+              walk: "15..18",
+              ouch: "19..19",
+              update() {
+                new Date() - (e || 0) > 5e3 &&
+                  ((this.hidden = !0),
+                  setTimeout(() => {
+                    this.hidden = !1;
+                  }, 2e3),
+                  (e = new Date()));
+              },
+              shouldAttack: (t) => {
+                const e = t.attackAt && t.attackAt < ~~new Date();
+                return (
+                  (!t.attackAt || t.attackAt < ~~new Date()) &&
+                    (t.attackAt = 2e3 + ~~new Date()),
+                  e
+                );
+              },
+              attack: (e, i) => {
+                const {
+                  dx: s,
+                  dy: h,
+                  angle: n,
+                } = S(5, e.sprite, t.playerSprite);
+                e.weapons.push(
+                  y({
+                    monster: e,
+                    type: "mw",
+                    x: i.x - 5,
+                    y: i.y + i.height / 2 + 10,
+                    dx: s,
+                    dy: h,
+                    rotation: n + 1.5,
+                    height: 19,
+                    width: 8,
+                    anchor: { x: 0.5, y: 0.5 },
+                    render() {
+                      this.context.save(),
+                        (this.context.shadowColor = "#000"),
+                        (this.context.shadowBlur = 10),
+                        (this.context.fillStyle = "#97da3f"),
+                        this.context.fillRect(this.x, this.y, 3, 3),
+                        this.context.restore();
+                    },
+                  })
+                ),
+                  zzfx(0.5, 0.1, 1059, 0.1, 0.52, 5.4, 1.5, 43.1, 0.79);
+              },
+            });
+          }
+          const j = 16,
+            Y = 32,
+            q = {
+              10: (t) => [W(t), O(), O(), H(t)],
+              9: (t) => [H(t), H(t), O(), O()],
+              8: (t) => [H(t), W(t)],
+              7: (t) => [O(), O(), O(), O()],
+              6: (t) => [W(t), W(t), O()],
+              5: (t) => [O(), O(), O(), O()],
+              4: (t) => [H(t), H(t)],
+              3: (t) => [W(t), O(), O()],
+              2: (t) => [H(t)],
+              1: (t) => [W(t), O()],
+            };
+          class L {
+            constructor(t, e, i = 10) {
+              (this.height = 1 + ~~(e / Y)),
+                (this.width = ~~(t / Y) - 1),
+                (this.difficulty = 10);
+            }
+            getMonsters(t) {
+              return q[this.difficulty](t);
+            }
+            reset() {
+              this.setData(),
+                (this.tileEngine = (function (t = {}) {
+                  let {
+                      width: e,
+                      height: i,
+                      tilewidth: s,
+                      tileheight: h,
+                      context: n = a(),
+                      tilesets: o,
+                      layers: c,
+                    } = t,
+                    l = e * s,
+                    d = i * h,
+                    u = document.createElement("canvas"),
+                    p = u.getContext("2d");
+                  (u.width = l), (u.height = d);
+                  let y = {},
+                    f = {},
+                    x = [],
+                    g = Object.assign(
+                      {
+                        context: n,
+                        mapwidth: l,
+                        mapheight: d,
+                        _sx: 0,
+                        _sy: 0,
+                        _d: !1,
+                        get sx() {
+                          return this._sx;
+                        },
+                        get sy() {
+                          return this._sy;
+                        },
+                        set sx(t) {
+                          (this._sx = Math.min(Math.max(0, t), l - r().width)),
+                            x.forEach((t) => (t.sx = this._sx));
+                        },
+                        set sy(t) {
+                          (this._sy = Math.min(Math.max(0, t), d - r().height)),
+                            x.forEach((t) => (t.sy = this._sy));
+                        },
+                        render() {
+                          this._d && ((this._d = !1), this._p()), k(u);
+                        },
+                        renderLayer(t) {
+                          let e = f[t],
+                            i = y[t];
+                          e ||
+                            (((e = document.createElement("canvas")).width = l),
+                            (e.height = d),
+                            (f[t] = e),
+                            g._r(i, e.getContext("2d"))),
+                            k(e);
+                        },
+                        layerCollidesWith(t, e) {
+                          let i = e.x,
+                            s = e.y;
+                          e.anchor &&
+                            ((i -= e.width * e.anchor.x),
+                            (s -= e.height * e.anchor.y));
+                          let h = m(s),
+                            n = w(i),
+                            o = m(s + e.height),
+                            r = w(i + e.width),
+                            a = y[t];
+                          for (let t = h; t <= o; t++)
+                            for (let e = n; e <= r; e++)
+                              if (a.data[e + t * this.width]) return !0;
+                          return !1;
+                        },
+                        tileAtLayer(t, e) {
+                          let i = e.row || m(e.y),
+                            s = e.col || w(e.x);
+                          return y[t] ? y[t].data[s + i * g.width] : -1;
+                        },
+                        setTileAtLayer(t, e, i) {
+                          let s = e.row || m(e.y),
+                            h = e.col || w(e.x);
+                          y[t] &&
+                            ((this._d = !0), (y[t].data[h + s * g.width] = i));
+                        },
+                        addObject(t) {
+                          x.push(t), (t.sx = this._sx), (t.sy = this._sy);
+                        },
+                        removeObject(t) {
+                          let e = x.indexOf(t);
+                          -1 !== e && (x.splice(e, 1), (t.sx = t.sy = 0));
+                        },
+                        _r: function (t, e) {
+                          e.save(),
+                            (e.globalAlpha = t.opacity),
+                            t.data.map((t, i) => {
+                              if (!t) return;
+                              let s;
+                              for (
+                                let e = g.tilesets.length - 1;
+                                e >= 0 &&
+                                !(t / (s = g.tilesets[e]).firstgid >= 1);
+                                e--
+                              );
+                              let h = s.tilewidth || g.tilewidth,
+                                n = s.tileheight || g.tileheight,
+                                o = s.margin || 0,
+                                r = s.image,
+                                a = t - s.firstgid,
+                                c = s.columns || (r.width / (h + o)) | 0,
+                                l = (i % g.width) * h,
+                                d = ((i / g.width) | 0) * n,
+                                u = (a % c) * (h + o),
+                                p = ((a / c) | 0) * (n + o);
+                              e.drawImage(r, u, p, h, n, l, d, h, n);
+                            }),
+                            e.restore();
+                        },
+                        _p: v,
+                        layerCanvases: f,
+                      },
+                      t
+                    );
+                  function m(t) {
+                    return (t / g.tileheight) | 0;
+                  }
+                  function w(t) {
+                    return (t / g.tilewidth) | 0;
+                  }
+                  function v() {
+                    g.layers &&
+                      g.layers.map((t) => {
+                        (y[t.name] = t), !1 !== t.visible && g._r(t, p);
+                      });
+                  }
+                  function k(t) {
+                    const { width: e, height: i } = r(),
+                      s = Math.min(t.width, e),
+                      h = Math.min(t.height, i);
+                    g.context.drawImage(t, g.sx, g.sy, s, h, 0, 0, s, h);
+                  }
+                  return (
+                    g.tilesets.map((e) => {
+                      let i =
+                        (window.__k ? window.__k.dm.get(t) : "") ||
+                        window.location.href;
+                      if (e.source) {
+                        if (!window.__k)
+                          throw Error(
+                            'You must use "load" or "loadData" to resolve tileset.source'
+                          );
+                        let t = window.__k.d[window.__k.u(e.source, i)];
+                        if (!t)
+                          throw Error(
+                            `You must load the tileset source "${e.source}" before loading the tileset`
+                          );
+                        Object.keys(t).map((i) => {
+                          e[i] = t[i];
+                        });
+                      }
+                      if ("" + e.image === e.image) {
+                        if (!window.__k)
+                          throw Error(
+                            'You must use "load" or "loadImage" to resolve tileset.image'
+                          );
+                        let t = window.__k.i[window.__k.u(e.image, i)];
+                        if (!t)
+                          throw Error(
+                            `You must load the image "${e.image}" before loading the tileset`
+                          );
+                        e.image = t;
+                      }
+                    }),
+                    v(),
+                    g
+                  );
+                })({
+                  type: "t",
+                  isAlive: () => !0,
+                  tilewidth: j,
+                  tileheight: j,
+                  width: this.width + 1,
+                  height: this.height,
+                  tilesets: [
+                    { firstgid: 1, image: document.querySelector("#l") },
+                  ],
+                  layers: [
+                    { name: "ground", data: this.tilesGround },
+                    { name: "walls", data: this.tilesWalls },
+                  ],
+                }));
+            }
+            gS() {
+              return this.tileEngine || this.reset(), [this.tileEngine];
+            }
+            setData() {
+              let t = [],
+                e = [];
+              for (let i = 0; i < this.height; i++)
+                for (let s = 0; s <= this.width; s++) {
+                  const h =
+                      1 + (Math.random() < 0.2 ? ~~(2 * Math.random()) : 0),
+                    n = 1 + (Math.random() < 0.2 ? 14 + ~~Math.random() : 3);
+                  0 === i
+                    ? (e.push(0),
+                      0 === s
+                        ? t.push(12)
+                        : s === this.width
+                        ? t.push(13)
+                        : t.push(12))
+                    : 1 === i
+                    ? (e.push(0),
+                      0 === s
+                        ? t.push(8)
+                        : s === this.width
+                        ? t.push(9)
+                        : t.push(n))
+                    : i === this.height - 2
+                    ? (t.push(h),
+                      0 === s
+                        ? e.push(6)
+                        : s === this.width
+                        ? e.push(7)
+                        : e.push(13))
+                    : i === this.height - 1
+                    ? (e.push(0),
+                      0 === s
+                        ? t.push(3)
+                        : s === this.width
+                        ? t.push(5)
+                        : t.push(n))
+                    : (t.push(h),
+                      0 === s
+                        ? e.push(10)
+                        : s === this.width
+                        ? e.push(11)
+                        : e.push(0));
+                }
+              (this.tilesGround = t), (this.tilesWalls = e);
+            }
+          }
+          var I = i(0),
+            B = i.n(I);
+          class $ {
+            gS() {
+              if (!this.ladder) {
+                const t = r().width / 2;
+                this.ladder = y({
+                  type: "l",
+                  color: "#b69c8a",
+                  x: Math.min(30, 60 + Math.random() * t - 60),
+                  y: 18,
+                  height: 2,
+                  width: 6,
+                  render() {
+                    this.context.save(),
+                      (this.context.shadowColor = "#000"),
+                      (this.context.strokeStyle = this.color),
+                      this.context.beginPath(),
+                      this.context.moveTo(this.x, this.y),
+                      this.context.lineTo(this.x, this.y + this.height),
+                      this.context.moveTo(this.x + this.width, this.y),
+                      this.context.lineTo(
+                        this.x + this.width,
+                        this.y + this.height
+                      );
+                    for (let t = 2; t < this.height; t += 2)
+                      this.context.moveTo(this.x, this.y + t),
+                        this.context.lineTo(this.x + this.width, this.y + t);
+                    (this.context.shadowBlur = 10),
+                      this.context.stroke(),
+                      this.context.restore();
+                  },
+                  update() {
+                    this.advance(), this.height < 19 && (this.height += 0.1);
+                  },
+                });
+              }
+              return [this.ladder];
+            }
+          }
+          class X {
+            constructor(t, e, i) {
+              (this.content = t),
+                (this.onClick = e),
+                (this.lines = []),
+                (this.options = { lineHeight: 20, fontSize: 10, ...i }),
+                (this._hide = !1);
+            }
+            hide() {
+              (document.querySelector("#controller-disabled").id =
+                "controller"),
+                (this._hide = !0),
+                canvas.removeEventListener("click", this.onCanvasClick);
+            }
+            get hidden() {
+              return this._hide;
+            }
+            gS() {
+              if (this._hide) return [];
+              if (!this.sprite) {
+                const t = r(),
+                  e = this;
+                (document.querySelector("#controller").id =
+                  "controller-disabled"),
+                  (this.onCanvasClick = (t) => {
+                    const i = t.clientY / 2 + e.options.lineHeight,
+                      s = this.lines.find(
+                        (t) => t.y < i && t.y + e.options.lineHeight > i
+                      );
+                    this.onClick(s, t);
+                  }),
+                  t.addEventListener("click", this.onCanvasClick),
+                  (this.sprite = y({
+                    x: 0,
+                    y: 0,
+                    height: t.height,
+                    width: t.width,
+                    opacity: 0,
+                    render() {
+                      const i =
+                        "function" == typeof e.content
+                          ? e.content()
+                          : e.content;
+                      (e.lines = i.map((i, s) => {
+                        let h = 50 + s * e.options.lineHeight;
+                        if ("function" == typeof i)
+                          return { y: h, text: i, options: {} };
+                        {
+                          const e = [i].flat()[0],
+                            s = [i].flat()[1] || {};
+                          return (
+                            s.footer && (h = t.height / 2 - 30),
+                            { y: h, text: e, options: s }
+                          );
+                        }
+                      })),
+                        this.context.save(),
+                        (this.context.globalAlpha = this.opacity),
+                        (this.context.fillStyle = "black"),
+                        this.context.fillRect(
+                          this.x,
+                          this.y,
+                          this.width,
+                          this.height
+                        ),
+                        e.lines.forEach(
+                          ({ y: i, text: s, options: h = {} }) => {
+                            const n = h.fontSize || e.options.fontSize;
+                            if (
+                              ((this.context.font = `${n}px Marker Felt`),
+                              (this.context.fillStyle = h.color || "white"),
+                              (this.context.textAlign =
+                                h.textAlign || "center"),
+                              "function" == typeof s)
+                            )
+                              s.call(this, this.context, t, { y: i });
+                            else if (
+                              (this.context.fillText(s, this.width / 4, i),
+                              h.underline)
+                            ) {
+                              const t = this.context.measureText(s).width;
+                              this.context.fillRect(
+                                this.width / 4 - t / 2,
+                                i + 2,
+                                t,
+                                2
+                              );
+                            }
+                          }
+                        ),
+                        this.context.restore();
+                    },
+                    update() {
+                      this.advance(),
+                        this.opacity < 0.75 && (this.opacity += 0.02);
+                    },
+                  }));
+              }
+              return [this.sprite];
+            }
+          }
+          function G(t, e) {
+            const i = t.skills.find((t) => "x" === t.type);
+            return [
+              [`You finished level ${e.difficulty}!`, { fontSize: 14 }],
+              "",
+              ["Current player stats", { underline: !0 }],
+              `❤ ${t.healthPoints} / ${t.baseHealth}`,
+              `🔪 ${t.d}` + (i ? ` + ${i.d}` : ""),
+            ];
+          }
+          const U = 10;
+          class N {
+            constructor(t) {
+              this.object = t;
+            }
+            gS() {
+              const { x: t, y: e } = this.object;
+              if (!this.sprites) {
+                const i = [1, 2, 3, 4, 5].map(
+                  () => U * Math.min(0.8, Math.random())
+                );
+                (this.sprites = y({
+                  type: "tombstone",
+                  x: this.object.x,
+                  y: this.object.y,
+                  width: 1.6 * U,
+                  height: 1.25 * U,
+                  render() {
+                    this.context.beginPath(),
+                      this.context.lineTo(t, e + 1.25 * U),
+                      this.context.lineTo(t + U, e + 1.25 * U),
+                      this.context.lineTo(t + U, e),
+                      this.context.lineTo(t + 0.75 * U, e - 0.25 * U),
+                      this.context.lineTo(t + 0.25 * U, e - 0.25 * U),
+                      this.context.lineTo(t, e),
+                      this.context.closePath(),
+                      (this.context.strokeStyle = "RGBA(113, 93, 138, 1.00)"),
+                      (this.context.fillStyle = "RGBA(162, 140, 186, 1.00)"),
+                      this.context.fill(),
+                      this.context.stroke(),
+                      (this.context.fillStyle = "RGBA(113, 93, 138, 1.00)"),
+                      i.forEach((i, s) => {
+                        this.context.fillRect(
+                          t + 0.1 * U,
+                          e + U * (0.2 + 0.2 * s),
+                          i,
+                          1
+                        );
+                      });
+                  },
+                })),
+                  F(this.sprites, { x: -3 });
+              }
+              return [this.sprites];
+            }
+          }
+          const { width: V, height: J } = b(),
+            K = new (class {
+              constructor() {
+                this.layers = {};
+              }
+              add(t, e = 10) {
+                this.layers[e] = (this.layers[e] || []).concat(t);
+              }
+              remove(t, e = 10) {
+                this.layers[e] = (this.layers[e] || []).filter((e) => e != t);
+              }
+              gS(t = () => !0) {
+                return Object.keys(this.layers)
+                  .sort()
+                  .filter(t)
+                  .sort((t, e) => parseInt(t) - parseInt(e))
+                  .flatMap((t) => {
+                    return this.layers[t].flatMap((t) => t.gS());
+                  })
+                  .flat()
+                  .filter((t) => t.isAlive());
+              }
+              getClosest(t, e) {
+                const i = this.gS((t) => "t" !== t.type).filter(
+                    (i) => i !== t && i.type === e
+                  ),
+                  s = (t, e) =>
+                    Math.sqrt(
+                      Math.pow(Math.abs(t.x - e.x), 2) +
+                        Math.pow(Math.abs(t.y - e.y), 2)
+                    ),
+                  h = i.sort((e, i) => s(t, e) - s(t, i));
+                return h[0] && { distance: s(t, h[0]), sprite: h[0] };
+              }
+              findCurrentPlatform(t) {
+                return this.entities.find(
+                  (e) => "platform" === e.type && e.x <= t && e.x + e.width >= t
+                );
+              }
+            })(),
+            Q = new B.a({
+              container: document.querySelector("#controller"),
+              "button-size": 40,
+              "track-size": 80,
+              "track-color": "#72d6ce99",
+              "track-stroke-color": "#222222",
+            });
+          function Z({ x: t, y: e }, i) {
+            const s = [
+                "#44D9CF",
+                "#30718C",
+                "#EC402B",
+                "#B1CCD0",
+                "#FDE700",
+                "#FF7B00",
+              ],
+              h = s[~~(Math.random() * s.length)],
+              n = y({
+                x: t,
+                y: e,
+                dx: 3 * Math.random() - 1.5,
+                dy: 3 * Math.random() - 1.5,
+                fontSize: 10,
+                opacity: 1,
+                render() {
+                  this.context.save(),
+                    (this.context.globalAlpha = this.opacity),
+                    (this.context.font = `${this.fontSize}px Marker Felt`),
+                    (this.context.fillStyle = h),
+                    this.context.fillText(i, this.x, this.y),
+                    this.context.restore();
+                },
+                update() {
+                  this.advance(),
+                    (this.opacity -= 0.01),
+                    (this.fontSize -= 0.1),
+                    this.opacity < 0.25 && (this.ttl = 0);
+                },
+              });
+            K.add({ gS: () => [n] });
+          }
+          let tt, et, it, st;
+          const ht = new (class {
+            constructor(t, e) {
+              (this.assets = t),
+                (this.loaded = []),
+                (this.callback = e),
+                this.load();
+            }
+            load() {
+              const t = (t) => {
+                this.loaded.push(t), this.verify();
+              };
+              this.assets.forEach((e) => {
+                e.complete
+                  ? t(e)
+                  : (e.onload = () => {
+                      t(e);
+                    });
+              });
+            }
+            verify() {
+              this.loaded.length === this.assets.length &&
+                setTimeout(() => {
+                  this.callback();
+                }, 1e3);
+            }
+            gS() {
+              return [];
+            }
+          })(document.querySelectorAll("img"), () => {
+            (tt = new D(K, Q)),
+              (it = new L(V, J)),
+              b(2 * (et = it.gS()[0]).mapwidth, 2 * et.mapheight),
+              (K.loaded = !0),
+              K.remove(ht),
+              (st = new X(
+                [
+                  "Welcome to the",
+                  (() => {
+                    let t = "NOEGNUD",
+                      e = new Date(),
+                      i = 2e3;
+                    return function (s, h, n) {
+                      new Date() - e > i &&
+                        ((t = t
+                          .split("")
+                          .sort(() => (Math.random() > 0.5 ? -1 : 1))
+                          .join("")),
+                        Math.random() < 0.2
+                          ? (t = "DUNGEON")
+                          : Math.random() > 0.8 && (t = "NOEGNUD"),
+                        (e = new Date()),
+                        (i = 250)),
+                        s.fillText(t, this.width / 4, n.y);
+                    };
+                  })(),
+                  "",
+                  "",
+                  "",
+                  ["Touch to start!"],
+                  [
+                    "(The game will ask for access to your audio system!)",
+                    { footer: !0, fontSize: 8 },
+                  ],
+                ],
+                () => {
+                  const t = () => {
+                    st.hide(), K.add(it.getMonsters(tt));
+                  };
+                  (function () {
+                    var t = new (window.AudioContext ||
+                        window.webkitAudioContext)(),
+                      e = t.createScriptProcessor(1024, 1, 1);
+                    return (
+                      e.connect(t.destination),
+                      navigator.mediaDevices
+                        .getUserMedia({ audio: !0, video: !1 })
+                        .then(function (i) {
+                          t.createMediaStreamSource(i).connect(e);
+                          var s = !1;
+                          e.onaudioprocess = function (t) {
+                            s || ((s = !0), console.log("Received audio", t));
+                          };
+                        })
+                    );
+                  })().then(t, t);
+                },
+                { fontSize: 14, lineHeight: 30 }
+              )),
+              K.add(st, 12),
+              K.add(it, 0),
+              K.add(tt, 2);
+          });
+          !(function (t) {
+            if (
+              !(s =
+                document.getElementById(t) ||
+                t ||
+                document.querySelector("canvas"))
+            )
+              throw Error("You must provide a canvas element for the game");
+            ((h = s.getContext("2d")).imageSmoothingEnabled = !1), o("init");
+          })(),
+            K.add(ht),
+            (function ({
+              fps: t = 60,
+              clearCanvas: e = !0,
+              update: i,
+              render: s,
+            } = {}) {
+              if (!i || !s)
+                throw Error("You must provide update() and render() functions");
+              let h,
+                n,
+                r,
+                a,
+                d,
+                u = 0,
+                p = 1e3 / t,
+                y = 1 / t,
+                f = e ? l : c;
+              function x() {
+                if (
+                  ((n = requestAnimationFrame(x)),
+                  (r = performance.now()),
+                  (a = r - h),
+                  (h = r),
+                  !(a > 1e3))
+                ) {
+                  for (o("tick"), u += a; u >= p; ) d.update(y), (u -= p);
+                  f(), d.render();
+                }
+              }
+              return (d = {
+                update: i,
+                render: s,
+                isStopped: !0,
+                start() {
+                  (h = performance.now()),
+                    (this.isStopped = !1),
+                    requestAnimationFrame(x);
+                },
+                stop() {
+                  (this.isStopped = !0), cancelAnimationFrame(n);
+                },
+                _frame: x,
+                set _last(t) {
+                  h = t;
+                },
+              });
+            })({
+              update() {
+                const t = K.gS(),
+                  e = t.filter((t) => "m" === t.type),
+                  i = t.filter((t) => "p" === t.type)[0],
+                  s = t.filter((t) => "a" === t.type);
+                let h;
+                function n(t, e, s) {
+                  (t.healthPoints -= e.d),
+                    Z(t, e.d),
+                    t.healthPoints <= 0 &&
+                      (s
+                        .filter((t) => ["p", "x", "w", "a"].includes(t.type))
+                        .forEach((t) => (t.ttl = 0)),
+                      K.add(new N(i)),
+                      K.add(
+                        new X(
+                          [
+                            "Oh noez :(",
+                            "",
+                            ["You died!", { fontSize: 20 }],
+                            ["Press to restart!", { footer: !0 }],
+                          ],
+                          () => {
+                            document.location.reload();
+                          }
+                        ),
+                        11
+                      ));
+                }
+                K.loaded &&
+                  st.hidden &&
+                  !e.length &&
+                  !t.find((t) => "l" === t.type) &&
+                  ((h = new $()), K.add(h, 1)),
+                  t.forEach((h) => {
+                    if ("w" === h.type && h.entity.animate)
+                      e.forEach((t) => {
+                        _(t, h) &&
+                          (zzfx(0.3, 0.1, 94, 0.1, 0.14, 0, 0, 5, 0.29),
+                          (t.entity.healthPoints -= tt.d),
+                          Z(t, tt.d),
+                          t.entity.healthPoints <= 0 &&
+                            ((t.ttl = 0), K.add(new N(t)), tt.resetTarget()),
+                          (h.ttl = 0));
+                      });
+                    else if ("mw" === h.type)
+                      _(i, h)
+                        ? (n(tt, h.monster, t), (h.ttl = 0))
+                        : s.find((t) => _(h, t)) &&
+                          ((h.ttl = 0),
+                          zzfx(1, 0.1, 327, 0.1, 0.08, 7.4, 0.2, 5.9, 0.49));
+                    else if (h === i)
+                      e.forEach((e) => {
+                        _(e, h) &&
+                          new Date() - (e.lastCollisionAt || 0) > 1e3 &&
+                          ((e.lastCollisionAt = new Date()),
+                          n(tt, e.entity, t));
+                      });
+                    else if ("l" === h.type && _(i, h) && !tt._c) {
+                      let t;
+                      tt.climb(h),
+                        (t =
+                          1 === it.difficulty
+                            ? (function (t, e) {
+                                return new X(
+                                  G(e, t).concat([
+                                    "",
+                                    "",
+                                    ["Congratulations!", { fontSize: 20 }],
+                                    "You won the game!",
+                                    ["Press to restart!", { footer: !0 }],
+                                  ]),
+                                  () => {
+                                    document.location.reload();
+                                  }
+                                );
+                              })(it, tt)
+                            : (function (t, e, i) {
+                                const s = e.difficulty % 2 == 1,
+                                  h =
+                                    (t.skills.find((t) => "x" === t.type),
+                                    G(t, e)
+                                      .concat([
+                                        "",
+                                        ["Player skills", { underline: !0 }],
+                                      ])
+                                      .concat(t.skills.map((t) => t.title))
+                                      .concat([
+                                        [
+                                          s
+                                            ? "Remove skill and resume run!"
+                                            : "You can keep all skills this round!",
+                                          { footer: !0 },
+                                        ],
+                                      ]));
+                                return new X(h, (e) => {
+                                  const h =
+                                    e &&
+                                    t.skills.find((t) => t.title === e.text);
+                                  if (!s) return i();
+                                  h &&
+                                    (h.undo && h.undo(),
+                                    (t.skills = t.skills.filter(
+                                      (t) => t !== h
+                                    )),
+                                    i());
+                                });
+                              })(tt, it, () => {
+                                t.hide(),
+                                  tt.resetClimb(),
+                                  it.difficulty--,
+                                  it.reset(),
+                                  (K.layers[1] = K.layers[10] = []),
+                                  K.add(it.getMonsters(tt));
+                              })),
+                        K.add(t);
+                    }
+                    h.update && h.update();
+                  });
+              },
+              render() {
+                const t = a();
+                K.gS().forEach((e) => {
+                  t.save(), t.scale(2, 2), e.render(), t.restore();
+                }),
+                  Q.draw();
+              },
+            }).start();
+          i(3);
+        },
+      ]);
+    </script>
+  </body>
+</html>

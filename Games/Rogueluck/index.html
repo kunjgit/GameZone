@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Rougeluck</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<style>
+		body {
+			background-color: #000;
+		}
+		div {
+			-moz-user-select: none; 
+			-khtml-user-select: none; 
+			-webkit-user-select: none; 
+			-o-user-select: none; 
+		}
+		#logo {
+			margin: 0 auto;
+			margin-top: 10px;
+		}
+		#game {
+			margin-top: 20px;
+			background-color: #000;
+			cursor: pointer;
+			image-rendering: optimizeSpeed;             // Older versions of FF
+			image-rendering: -moz-crisp-edges;          // FF 6.0+
+			image-rendering: -webkit-optimize-contrast; // Webkit
+			image-rendering: -o-crisp-edges;            // OS X & Windows Opera (12.02+)
+			image-rendering: optimize-contrast;         // Possible future browsers.
+			-ms-interpolation-mode: nearest-neighbor;   // IE
+		}
+		</style>
+		<script src="game.js"></script>
+	</head>
+	<body>
+		<div style="text-align: center;">
+			<img id="logo" src="img/logo.png" />
+		</div>
+		<div style="text-align: center;">
+			<canvas id="game" width="640" height="320"></canvas>
+		</div>
+		<div style="text-align: center; font-size: 12px; font-family: Consolas; color: #fff; margin-top: 30px;">
+			Controls: SPACE or LEFT MOUSE CLICK
+		</div>
+	</body>
+</html>

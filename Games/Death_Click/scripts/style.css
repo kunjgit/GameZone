@@ -1,0 +1,113 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: fantasy;
+}
+
+body{
+    background: linear-gradient(180deg, rgba(92,128,255,100), rgba(37,101,200,100));
+    width: 100vw;
+    height: 100vh;
+    transition: 1s;
+}
+
+.menu{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu h1{
+    font-size: 10vw;
+    color: aliceblue;
+}
+
+.menu a{
+    text-decoration: none;
+}
+
+
+@keyframes play{
+    from{color: rgba(240,248,255,0);}
+    to{color: rgba(240,248,255,100);}
+}
+.menu p{
+
+    animation: play 1s infinite alternate;
+    font-size: 5vh;
+}
+
+/*Game Style*/
+/*#############################################*/
+
+.game{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.header{
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.placar{
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+}
+
+p{
+    color: aliceblue;
+    font-size: 35px;
+    margin: 15px;
+}
+
+.timer{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+}
+
+button{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    border: none;
+    margin: 10px;
+    background-color: black;
+}
+
+.maxScore{
+    display: flex;
+}
+
+
+@media (max-width: 900px) {
+    button{
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+    }
+
+    .buttons{
+        width: 100vw;
+        justify-content: space-around;
+    }
+
+
+}

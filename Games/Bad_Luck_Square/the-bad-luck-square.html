@@ -1,0 +1,1855 @@
+
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>The Bad Luck Square</title>
+
+	<style>
+	* {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+
+		cursor: default;
+	}
+
+	body {
+		background: #111;
+		color: #333;
+		font-family: sans-serif;
+	}
+
+	#main {
+		background: #EEE;
+		display: block;
+		height: 452px;
+		margin: -250px 0 0 -400px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 802px;
+		z-index: 10;
+	}
+
+	h1 {
+		position: absolute;
+		margin: 35px 0 0 36px;
+		font-size: 35px;
+	}
+
+	h1 span {
+		color: #FF9212;
+	}
+
+	h2 {
+		position: absolute;
+		font-size: 15px;
+		margin: 78px 0 0 38px;
+	}
+
+	h2 a {
+		color: #5B7071;
+		text-decoration: none;
+	}
+
+	h2 a:hover {
+		text-decoration: underline;
+	}
+
+	.father {
+		position: absolute;
+		width: 123px;
+		height: 182px;
+		background: #496D83;
+		margin: 138px 0 0 50px;
+	}
+
+	.info {
+		color: #555;
+		position: absolute;
+		width: 160px;
+		font-size: 13px;
+		font-weight: bold;
+		line-height: 20px;
+		margin: 138px 0 0 190px;
+	}
+
+	.info span {
+		color: #000;
+		font-size: 13px;
+	}
+
+	.levels {
+		bottom: 0;
+		position: absolute;
+	}
+
+	.levels span {
+		cursor: default;
+		background: #CFD5D5;
+		border-top: 5px solid #C0C9C9;
+		color: #868A8A;
+		font-size: 27px;
+		display: block;
+		float: left;
+		margin: 0;
+		padding: 0;
+		width: 61.53846153846154px;
+		height: 75px;
+		line-height: 70px;
+		opacity: 0.3;
+		text-align: center;
+	}
+
+	.levels span:nth-child(odd){
+		background: #CACCD1;
+		border-top: 5px solid #C0C2C9;
+	}
+		
+	canvas {
+		background: #eee;
+		border: 1px solid #222;
+		display: block;
+		height: 450px;
+		margin: -250px 0 0 -400px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 800px;
+	}
+
+	.shop {
+		color: #555;
+		height: 180px;
+		margin: 106px 0 0 398px;
+		width: 340px;
+	}
+
+	.shop h3 {
+		font-size: 16px;
+	}
+
+	.shop-item {
+		background: #fff;
+		border: 1px solid #ccc;
+		font-size: 11px;
+		float: left;
+		margin: 0 10px 10px 0;
+		text-align: center;
+		width: 155px;
+	}
+
+	.shop-item p {
+		display: block;
+		line-height: 10px;
+	}
+
+	.shop-item span {
+		background: #ddd;
+		border-top: 1px solid #ccc;
+		color: #000;
+		display: block;
+		padding: 4px 0;
+	}
+
+	.shop-item span:hover {
+		background: #ccc;
+		cursor: pointer;
+	}
+
+	.shop-item em {
+		background: #ccc;
+		display: inline-block;
+		height: 4px;
+		margin: 0 2px;
+		width: 13px;
+	}
+
+	#coins {
+		font-size: 20px;
+		font-weight: bold;
+		margin: 103px 79px 0 0;
+		position: absolute;
+		right: 0;
+	}
+
+	#youlose, #youwin, #finish {
+		background: #555;
+		display: none;
+		color: #fff;
+		position: absolute;
+		height: 452px;
+		width: 802px;
+		z-index: 20;
+		opacity: 0;
+		top: 50%;
+		left: 50%;
+		margin: -250px 0 0 -400px;	
+	}
+
+	#finish {
+		background: #000;
+	}
+
+	#youlose h3, #youwin h3, #finish h3 {
+		text-align: center;
+		line-height: 452px;
+		margin: 0;
+		padding: 0;
+		text-transform: uppercase;
+		font-size: 40px;
+	}
+
+	#youwin {
+		background: #FFF;
+		color: #000;
+	}
+
+	#p-stage-money {
+		display: block;
+		color: #000;
+		position: absolute;
+		height: 40px;
+		width: 782px;
+		z-index: 5;
+		top: 50%;
+		left: 50%;
+		margin: -250px 0 0 -400px;
+		padding: 20px 20px 0 0;
+		text-align: right;
+		font-weight: bold;
+	}
+
+	#reload-button {
+		display: none;
+	}
+	
+	#finish-message {
+		background: #222;
+		border: none;
+		display: none;
+		color: #fff;
+		position: absolute;;
+		right: 80px;
+		top: 41px;
+		padding: 6px 10px;
+		cursor: pointer;
+		font-weight: bold;
+	}
+
+	#finish-message:hover {
+		background: #555;
+	}
+
+	.active {
+		opacity: 1 !important;
+		cursor: pointer !important;
+	}
+
+	.active:hover {
+		border-top: 5px solid #496D83 !important;
+	}
+
+	#tip span {
+		background: #ffd500;
+		border: 1px solid #D5AF00;
+		display: inline-block;
+		width: 5px;
+		height: 5px;
+		margin: 0 10px 0 0;
+	}
+
+	#tip {
+		font-size: 10px;
+		background: #DADADA;
+		position: absolute;
+		padding: 4px 8px;
+		border-radius: 8px;
+		margin: 317px 0 0 398px;
+		color: #555;
+	}
+
+	#finish h4 {
+		font-size: 24px;
+		padding: 44px 0 0 60px;
+	}
+
+	#finish p {
+		padding: 0 0 0 60px;
+		line-height: 30px;
+		font-weight: bold;
+		color: #aaa;
+	}
+
+	#finish p a {
+		color: #FFF;
+		text-decoration: none;
+		padding: 0 0 0 6px;
+	}
+
+	#finish p a:hover {
+		text-decoration: underline;
+	}
+
+	#finish button {
+		background: #496D83;
+		border: none;
+		color: #FFF;
+		padding: 10px 20px;
+		margin: 27px 0 0 59px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	#finish button:hover {
+		background: #5F8AA5;
+		cursor: pointer;
+	}
+
+	</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+<section id="main">
+	<button id="finish-message">Thank you ></button>
+
+	<div id="tip"><span></span> < These are money, so take them all :)</div>
+
+	<h1>The Bad Luck <span>Square</span></h1>
+
+	
+	<div class="father"></div>
+
+	<div class="info">
+		You are a bad luck square, you need to protect yourself.
+		<br><br>
+		<span>
+			WASD to move. <br>
+			Arrow keys (or mouse) to shoot.
+		</span>
+		<br><br>
+		Good Luck!
+	</div>
+
+	<p id="coins"></p>
+
+	<div class="shop">
+		<h3>Hey, prepare yourself:</h3>
+
+		<div class="shop-item" id="shooting">
+			<p><b>Level 1</b></p>
+			<p>Shooting Velocity</p>
+			<span>500$</span>
+		</div>
+
+		<div class="shop-item" id="hearts">
+			<p><b>Level 1</b></p>
+			<p>Number of Hearts</p>
+			<span>500$</span>
+		</div>
+
+		<div class="shop-item" id="velocity">
+			<p><b>Level 1</b></p>
+			<p>Square Velocity</p>
+			<span>500$</span>
+		</div>
+
+		<div class="shop-item" id="value">
+			<p><b>Level 1</b></p>
+			<p>Coin Value</p>
+			<span>500$</span>
+		</div>
+	</div>
+
+	<div class="levels">
+		<span id="level1">1</span>
+		<span id="level2">2</span>
+		<span id="level3">3</span>
+		<span id="level4">4</span>
+		<span id="level5">5</span>
+		<span id="level6">6</span>
+		<span id="level7">7</span>
+		<span id="level8">8</span>
+		<span id="level9">9</span>
+		<span id="level10">10</span>
+		<span id="level11">11</span>
+		<span id="level12">12</span>
+		<span id="level13">13</span>
+	</div>
+</section>
+
+<p id="p-stage-money"></p>
+
+<div id="youlose">
+	<h3>You Lose</h3>
+</div>
+
+<div id="youwin">
+	<h3>Stage clear</h3>
+</div>
+
+<div id="finish">
+	<h4>Hey, you beated this game! Congratulations!</h4>
+	<p>
+		This is my very first game, I hope you had a good time playing it. <br>
+		Give me your feedback at my <a href="https://twitter.com/oneliojr" target="_blank">twitter account</a>
+	</p>
+	<button id="finish-button">Back to game</button>
+</div>
+
+<button onClick="window.location.reload(0)" id="reload-button">Reload</button>
+
+<script>
+
+/**
+ * Sumary
+ * -------------------
+ * Helper Functions
+ * Handle collisions
+ * Screen Shake
+ * Local Storage
+ * Config
+ * Shop
+ * Game Time
+ * Mouse Handler
+ * Keys Handler
+ * UI
+ * Init Game
+ * Game Over
+ * Defining Canvas
+ * Debris
+ * Bullets
+ * Hearts
+ * Player
+ * Mines
+ * Coins
+ * Enemies
+ * BOSS
+ * Loop
+ * Init
+ * ------------------- 
+ */
+
+// source - http://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript
+String.prototype.shuffle = function () {
+    var a = this.split(""),
+        n = a.length;
+
+    for(var i = n - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
+    return a.join("");
+};
+
+var theBadLuckSquare = function(){
+
+	// reference
+	var self = this,
+		doc  = document;
+
+	/* ===================================================================== */
+	/* Helper Functions */
+	/* ===================================================================== */
+	// robust requestAnimationFrame polyfill - source http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+	(function() {
+	    var lastTime = 0;
+	    var vendors = ['webkit', 'moz'];
+	    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+	        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+	        window.cancelAnimationFrame =
+	          window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+	    }
+
+	    if (!window.requestAnimationFrame)
+	        window.requestAnimationFrame = function(callback, element) {
+	            var currTime = new Date().getTime();
+	            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+	            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+	              timeToCall);
+	            lastTime = currTime + timeToCall;
+	            return id;
+	        };
+
+	    if (!window.cancelAnimationFrame)
+	        window.cancelAnimationFrame = function(id) {
+	            clearTimeout(id);
+	        };
+	}());
+
+	self.rand = function( min, max ){
+		return ~~(Math.random() * (max-min+1) + min);
+	};
+
+	// simple collides function - source http://www.html5rocks.com/en/tutorials/canvas/notearsgame/
+	self.collides = function( a, b ){
+	  return a.x < b.x + b.w &&
+	         a.x + a.w > b.x &&
+	         a.y < b.y + b.h &&
+	         a.y + a.h > b.y;
+	};
+
+	// this function take a object with the number of every kind of enemies
+	// and transform into to a array of enemies to be create in the level
+	self.levelEnemiesArray = function( levelObj ){
+		var key, allEnemies = '';
+
+		// create a string based upon the obj
+		for (key in levelObj) {
+		    if (levelObj.hasOwnProperty(key)) {
+		    	for (var i = 0; i < levelObj[key]; i++) {
+		    		allEnemies += key;
+		    	};
+		    }
+		}
+
+		// shuffle the string and trasform into a array of numbers
+		allEnemies = allEnemies.shuffle().split('');
+		for(var i=allEnemies.length; i--;) allEnemies[i] = allEnemies[i]|0;
+
+		return allEnemies;
+	};
+
+	self.renderAll = function( array ){
+		var i = array.length;
+		while (i--) {
+			array[i].render();
+		}
+	};
+
+	self.updateAll = function( array ){
+		var i = array.length;
+		while (i--) {
+			array[i].update();
+		}
+	};
+
+	self.killAll = function( array ){
+		var i = array.length;
+		while (i--) {
+			array[i].kill( i );
+		}
+	};
+
+	// degrees to radians
+	self.dToR = function(degrees){
+		return degrees * (Math.PI / 180);
+	};
+
+	self.get = function(id){
+		return doc.getElementById(id);
+	};
+
+	// fade source - http://stackoverflow.com/questions/5104053/fade-effect-using-javascript-no-jquery
+	self.fadeIn = function(what, duration, callback){
+		what.opct = 0;
+		what.style.display = 'block';
+		what.style.opacity = 0;
+
+		if ( typeof callback === 'undefined' ) { callback = function(){} };
+
+		what.ih = window.setInterval(function() {
+			what.opct++;
+			if (what.opct < 100) {
+				what.style.opacity = what.opct / 100;
+			} else {
+				window.clearInterval(what.ih);
+				callback();
+			}
+		}, 10 * duration);
+	};
+
+	self.fadeOut = function(what, duration, callback){
+		what.opct = 100;
+		what.style.display = 'block';
+		what.style.opacity = 1;
+
+		if ( typeof callback === 'undefined' ) { callback = function(){} };
+
+		what.ih = window.setInterval(function() {
+			what.opct--;
+			if (what.opct) {
+				what.style.opacity = what.opct / 100;
+			} else {
+				window.clearInterval(what.ih);
+				what.style.display = 'none';
+				callback();
+			}
+		}, 10 * duration);
+	};
+
+
+
+	/* ===================================================================== */
+	/* Handle collisions */
+	/* ===================================================================== */
+	self.handleCollisions = function() {
+		// collision between bullet and enemy
+		self.bullets.forEach(function( bullet ) {
+			self.enemies.forEach(function(enemy) {
+				if (self.collides(bullet, enemy)) {
+					if ( enemy.active && bullet.evil === false ) {
+						enemy.hit();
+						bullet.mustDie = true;
+					}
+				}
+			});
+		});
+
+		// collision between enemy and player
+		self.enemies.forEach(function( enemy ) {
+			if (self.collides(enemy, self.player)) {
+				if ( enemy.active ) {
+					self.player.hit();
+				}
+			}
+		});
+
+		// collision between evil bullet and player
+		self.bullets.forEach(function( bullet ) {
+			if (self.collides(bullet, self.player)) {
+				if ( bullet.evil ) {
+					self.player.hit();
+					bullet.mustDie = true;
+				}
+			}
+		});
+
+		// collision between coin and player
+		self.coins.forEach(function( coin ) {
+			if (self.collides(coin, self.player)) {
+				self.player.takeCoin();
+				coin.mustDie = true;
+			}
+		});
+
+		
+	};
+
+
+
+	/* ===================================================================== */
+	/* Screen Shake */
+	/* ===================================================================== */
+	self.shake = function(level, times){
+		self.rumbleLevel = level;
+		self.rumble = times;
+		self.ctx.save();
+	};
+
+
+
+	/* ===================================================================== */
+	/* Local Storage */
+	/* ===================================================================== */
+
+	/*
+	 * From SpacePi source - https://github.com/jackrugile/SpacePi-js13k
+	 */
+
+	// local storage helpers - source: http://stackoverflow.com/questions/2010892/storing-objects-in-html5-localstorage/3146971#3146971
+	Storage.prototype.setObject = function(key, value) {
+		this.setItem(key, JSON.stringify(value));
+	}
+	
+	Storage.prototype.getObject = function(key) {
+		var value = this.getItem(key);
+		return value && JSON.parse(value);
+	}
+	
+	Storage.prototype.removeObject = function(key) {
+		this.removeItem(key);
+	}
+
+	self.setupUser = function(){
+		// get the user or create a user with defaults
+		self.user = localStorage.getObject('theBadLuckSquare') || {
+			finish: false,
+			level: 1,
+			money: 0,
+			upgrades: {
+				shooting: 1,
+				hearts: 1,
+				velocity: 1,
+				value: 1
+			}
+		};
+	};
+
+	self.updateUser = function(){
+		
+		self.user.money = self.money;
+
+		if ( self.levelPassed >= self.user.level ) {
+			self.user.level = parseInt(self.levelPassed) + 1;
+			if ( self.user.level > 13) {
+				self.user.level = 13;
+				self.user.finish = true;
+			}
+		}
+	};
+
+	self.setupUser();
+
+
+
+	/* ===================================================================== */
+	/* Config */
+	/* ===================================================================== */
+	// setting variables
+	var bulletDelay = [500, 300, 200, 100, 50],
+		hearts = [1, 2, 3, 4, 5],
+		velocity = [130, 170, 200, 250, 300],
+		value = [10, 20, 30, 40, 50];
+
+	// configuration object for the game and upgrades
+	self.updateConfig = function(){
+		self.config = {
+			player: {
+				bulletDelay: bulletDelay[ self.user.upgrades.shooting - 1 ],
+				hearts: hearts[ self.user.upgrades.hearts - 1 ],
+				velocity: velocity[ self.user.upgrades.velocity - 1 ],
+				height: 24,
+				width: 16
+			},
+			bullet: {
+				color: 'hsla(10, 70%, 50%, 1)',
+				height: 5,
+				velocity: 600,
+				width: 5
+			},
+			hearts: {
+				color: 'hsla(10, 70%, 50%, 1)'
+			},
+			enemies: {
+				bulletDelay: 2000
+			},
+			coin: {
+				color: 50,
+				value: value[ self.user.upgrades.value - 1 ]
+			}
+		};
+	};
+
+	self.updateConfig();
+
+
+
+	/* ===================================================================== */
+	/* Shop */
+	/* ===================================================================== */
+	self.shop = function(item) {
+		if ( item === 'shooting' ) {
+			var price = self.priceList[ self.user.upgrades.shooting - 1];
+			if ( self.money >= price ) {
+				self.user.upgrades.shooting++;
+				self.money -= price;
+			}
+		}
+
+		if ( item === 'hearts' ) {
+			var price = self.priceList[ self.user.upgrades.hearts - 1];
+			if ( self.money >= price ) {
+				self.user.upgrades.hearts++;
+				self.money -= price;
+			}
+		}
+
+		if ( item === 'velocity' ) {
+			var price = self.priceList[ self.user.upgrades.velocity - 1];
+			if ( self.money >= price ) {
+				self.user.upgrades.velocity++;
+				self.money -= price;
+			}
+		}
+
+		if ( item === 'value' ) {
+			var price = self.priceList[ self.user.upgrades.value - 1];
+			if ( self.money >= price ) {
+				self.user.upgrades.value++;
+				self.money -= price;
+			}
+		}
+
+		self.updateUser();
+		localStorage.setObject('theBadLuckSquare', self.user);
+		self.updateConfig();
+		self.updateDOM();
+		self.reloadButton.click();
+	};
+
+
+
+	/* ===================================================================== */
+	/* Game Time */
+	/* ===================================================================== */
+	self.gameTime = function(){
+		self.oldTime = Date.now();
+		self.time = Date.now();
+		self.mod = (self.time - self.oldTime) / 1000;
+	};
+
+
+
+	/* ===================================================================== */
+	/* Mouse Handler */
+	/* ===================================================================== */
+	self.mouse = {
+		x: 0,
+		y: 0,
+		down: false
+	};
+
+	window.addEventListener('mousedown', function(e){
+		self.mouse.down = true;
+	});
+
+	window.addEventListener('mouseup', function(e){
+		self.mouse.down = false;
+	});
+
+	window.addEventListener('mousemove', function(e){
+		if ( self.state === true ) {
+			self.mouse.x = e.clientX - self.canvas.offsetLeft;
+			self.mouse.y = e.clientY - self.canvas.offsetTop;
+		}
+	});
+
+
+
+	/* ===================================================================== */
+	/* Keys Handler */
+	/* ===================================================================== */
+	self.keydown = {};
+
+	// left 		= 65
+	// right 		= 68
+	// up 			= 87
+	// down 		= 83
+	// shift 		= 16
+	// bulletUp 	= 38
+	// bulletDown 	= 40
+	// bulletLeft 	= 37
+	// bulletRight 	= 39
+
+	self.keyHandler = function(e){
+		var keycode = e.keyCode,
+			bool    = e.type === 'keydown' ? true : false;
+
+		if ( keycode === 65 ) self.keydown.left = bool;
+		if ( keycode === 68 ) self.keydown.right = bool;
+		if ( keycode === 87 ) self.keydown.up = bool;
+		if ( keycode === 83 ) self.keydown.down = bool;
+		if ( keycode === 16 ) self.keydown.shift = bool;
+		if ( keycode === 38 ) self.keydown.bulletUp = bool;
+		if ( keycode === 40 ) self.keydown.bulletDown = bool;
+		if ( keycode === 37 ) self.keydown.bulletLeft = bool;
+		if ( keycode === 39 ) self.keydown.bulletRight = bool;
+	};
+
+	window.addEventListener('keydown', self.keyHandler, false);
+	window.addEventListener('keyup', self.keyHandler, false);
+
+
+
+
+	/* ===================================================================== */
+	/* UI */
+	/* ===================================================================== */
+	self.stagesButtons = function(stage, loop){
+		// add event to level buttons
+
+		if (loop) {		
+			for (var i = 1; i <= stage; i++) {
+				var levelButtonName = 'levelButton' + i;
+				self[levelButtonName] = self.get('level' + i); 
+
+				self[levelButtonName].addEventListener('click', function(){
+					self.initGame( this.innerText );
+				}, false);
+
+				self[levelButtonName].classList.add('active');
+			} 
+		} else {		
+			var i = stage;
+
+			var levelButtonName = 'levelButton' + i;
+			self[levelButtonName] = self.get('level' + i); 
+
+			self[levelButtonName].addEventListener('click', function(){
+				self.initGame( this.innerText );
+			}, false);
+
+			self[levelButtonName].classList.add('active');
+		}
+	};
+
+	self.prepareUI = function(){
+		/*
+		get all elements of the dom and add events to it
+		reset values
+		take properties of local storage
+		*/
+
+		self.mainUI = self.get('main');
+		self.coinsText = self.get('coins');
+
+		self.reloadButton = self.get('reload-button');
+
+		self.youwin = self.get('youwin');
+		self.youlose = self.get('youlose');
+		self.finish = self.get('finish');
+		self.finishButton = self.get('finish-button');
+		self.finishMessage = self.get('finish-message');
+
+		if ( self.user.finish ) {
+			self.finishMessage.style.display = 'block';			
+		}
+
+		self.finishButton.addEventListener('click', function(){
+			self.fadeOut( self.finish, 1 );
+		}, false);
+
+		self.finishMessage.addEventListener('click', function(){
+			self.fadeIn ( self.finish, 1 );
+		}, false);
+
+		self.uishooting = self.get('shooting');
+		self.uihearts = self.get('hearts');
+		self.uivelocity = self.get('velocity');
+		self.uivalue = self.get('value');
+
+		self.pStageMoney = self.get('p-stage-money');
+		self.pStageMoney.innerText = self.stageMoney + '$';
+
+
+		self.uishooting.addEventListener('click', function(){
+			self.shop('shooting');
+		}, false);
+
+		self.uihearts.addEventListener('click', function(){
+			self.shop('hearts');
+		}, false);
+
+		self.uivelocity.addEventListener('click', function(){
+			self.shop('velocity');
+		}, false);
+
+		self.uivalue.addEventListener('click', function(){
+			self.shop('value');
+		}, false);
+
+
+		self.coinsText.innerText = self.money + '$';
+
+		self.priceList = [100, 500, 1000, 2000];
+
+		self.stagesButtons(self.user.level, true);
+	};
+
+	self.disableUI = function(){
+		self.mainUI.style.display = 'none';
+	};
+
+	self.enableUI = function(){
+		self.mainUI.style.display = 'block';
+	};
+
+	self.updateDOM = function(){
+		// update the value of the coins
+		self.coinsText.innerText = self.money + '$';
+
+
+		// shooting
+		self.uishooting.querySelector(':root p b').innerText = 'Level ' + self.user.upgrades.shooting;
+		var shootingMessage = self.user.upgrades.shooting === 5 ? 'LEVEL MAX' :
+			self.priceList[ self.user.upgrades.shooting - 1 ] + '$';
+		self.uishooting.querySelector(':root span').innerText = shootingMessage;
+
+		// hearts
+		self.uihearts.querySelector(':root p b').innerText = 'Level ' + self.user.upgrades.hearts;
+		var heartsMessage = self.user.upgrades.hearts === 5 ? 'LEVEL MAX' :
+			self.priceList[ self.user.upgrades.hearts - 1 ] + '$';
+		self.uihearts.querySelector(':root span').innerText = heartsMessage;
+
+		// velocity
+		self.uivelocity.querySelector(':root p b').innerText = 'Level ' + self.user.upgrades.velocity;
+		var velocityMessage = self.user.upgrades.velocity === 5 ? 'LEVEL MAX' :
+			self.priceList[ self.user.upgrades.velocity - 1 ] + '$';
+		self.uivelocity.querySelector(':root span').innerText = velocityMessage;
+
+		// value
+		self.uivalue.querySelector(':root p b').innerText = 'Level ' + self.user.upgrades.value;
+		var valueMessage = self.user.upgrades.value === 5 ? 'LEVEL MAX' :
+			self.priceList[ self.user.upgrades.value - 1 ] + '$';
+		self.uivalue.querySelector(':root span').innerText = valueMessage;
+
+		// if the player finished the game, show thanks button
+		if ( self.user.finish ) {
+			self.finishMessage.style.display = 'block';			
+		}
+
+	};
+
+
+
+
+	/* ===================================================================== */
+	/* Init Game */
+	/* ===================================================================== */
+	self.initGame = function(level){
+		// setting the current level
+		if ( level === 'undefined' ) { level = 1 }
+		self.level = level;
+
+		self.boss = null;  
+		self.state = true; // state of game is true
+		self.disableUI();  // hide UI
+		self.gameTime();   // start game time
+		// reseting the stage money
+		self.stageMoney = 0;
+		self.pStageMoney.innerText = self.stageMoney + '$';
+
+		// restore the original position of the player
+		// give the hearts of the player back
+		self.player.x = self.cw / 2 - self.player.w / 2;
+		self.player.y = self.ch / 2 - self.player.h / 2;
+		self.player.hearts = self.config.player.hearts;
+		self.player.createHearts();
+
+		// make each level diferent
+		// setting the spawn velocity and the number of the enemies
+		// level 1
+		if ( self.level === '1' )
+			self.levelEnemies = new self.createEnemies( 2000, {'0': 5, '1': 0, '2': 5, '3': 0} );
+
+		// level 2
+		if ( self.level === '2' )
+			self.levelEnemies = new self.createEnemies( 2000, {'0': 10, '1': 2, '2': 10, '3': 0} );
+
+		// level 3
+		if ( self.level === '3' )
+			self.levelEnemies = new self.createEnemies( 1600, {'0': 15, '1': 10, '2': 10, '3': 0} );
+
+		// level 4
+		if ( self.level === '4' )
+			self.levelEnemies = new self.createEnemies( 1300, {'0': 20, '1': 30, '2': 20, '3': 0} );
+
+		// level 5
+		if ( self.level === '5' )
+			self.levelEnemies = new self.createEnemies( 2000, {'0': 0, '1': 0, '2': 0, '3': 30} );
+
+		// level 6
+		if ( self.level === '6' )
+			self.levelEnemies = new self.createEnemies( 1600, {'0': 10, '1': 10, '2': 10, '3': 20} );
+
+		// level 7
+		if ( self.level === '7' )
+			self.levelEnemies = new self.createEnemies( 1300, {'0': 10, '1': 20, '2': 20, '3': 30} );
+
+		// level 8
+		if ( self.level === '8' )
+			self.levelEnemies = new self.createEnemies( 1000, {'0': 10, '1': 30, '2': 30, '3': 30} );
+
+		// level 9
+		if ( self.level === '9' )
+			self.levelEnemies = new self.createEnemies( 800, {'0': 10, '1': 40, '2': 40, '3': 30} );
+
+		// level 10
+		if ( self.level === '10' )
+			self.levelEnemies = new self.createEnemies( 700, {'0': 10, '1': 50, '2': 30, '3': 30} );
+
+		// level 11
+		if ( self.level === '11' )
+			self.levelEnemies = new self.createEnemies( 600, {'0': 40, '1': 30, '2': 40, '3': 30} );
+
+		// level 12
+		if ( self.level === '12' )
+			self.levelEnemies = new self.createEnemies( 600, {'0': 0, '1': 10, '2': 10, '3': 200} );
+
+		// level 13 (13th levels because of js13kgames)
+		// most difficult that I can do 
+		if ( self.level === '13' )
+			self.levelEnemies = new self.createEnemies( 400, {'0': 0, '1': 80, '2': 80, '3': 60} );
+			// self.levelEnemies = new self.Boss(); // here was a boss, but I didn't finish that :( 
+
+		// start loop
+		self.loop( self.time, true );
+	};
+
+	self.stopGame = function(){
+		// set the state of the game equals false
+		self.state = false;
+
+		// remove all itens of the entities
+		self.bullets = [];
+		self.enemies = [];
+		self.debris = [];
+		self.hearts = [];
+		self.coins = [];
+	};
+
+
+
+	/* ===================================================================== */
+	/* Game Over */
+	/* ===================================================================== */
+	self.gameOver = function(passed){
+
+		if ( passed ) {
+			self.fadeIn(self.youwin, 1, function(){
+				// show the UI again
+				self.enableUI();
+				self.fadeOut(self.youwin, 2);
+
+				// show end message
+				if ( self.level === '13' ) {
+					self.fadeIn(self.finish, 1);
+				}
+
+				// add event to next level button
+				if ( self.level + 1 > self.user.level ) {
+					self.stagesButtons( parseInt(self.user.level) );
+				};
+			});
+		} else {
+			self.fadeIn(self.youlose, 1, function(){
+				// show the UI again
+				self.enableUI();
+				self.fadeOut(self.youlose, 1);
+			});
+		}
+
+		if ( passed ) {
+			// if stage passed take the stage money and add to total user money
+			self.money += self.stageMoney;
+			self.levelPassed = self.level;
+		}
+
+		self.stageMoney = 0;
+		self.pStageMoney.innerText = self.stageMoney + '$';
+
+
+		self.updateUser();
+		localStorage.setObject('theBadLuckSquare', self.user);
+		self.updateConfig();
+		self.updateDOM();
+
+		self.stopGame();
+	};
+
+
+
+	/* ===================================================================== */
+	/* Defining Canvas */
+	/* ===================================================================== */
+	self.defineCanvas = function(){
+		self.canvas = document.getElementById('canvas');
+		self.cw  = self.canvas.width  = 800;
+		self.ch  = self.canvas.height = 450;
+		self.ctx = self.canvas.getContext('2d');
+		self.ctx.save();
+	};
+
+
+
+	/* ===================================================================== */
+	/* Debris */
+	/* ===================================================================== */
+	// From SpacePi code - https://github.com/jackrugile/SpacePi-js13k
+	self.Debris = function(x, y, hue, lightness, power){
+		this.x = x;
+		this.y = y;
+		this.size = self.rand(1, 3)/2;
+		this.speed = (self.rand(0, power)-(power/2))/20;
+		this.angle = self.rand(0, 360);
+		this.hue = hue;
+		this.saturation = 100;
+		this.lightness = lightness;
+		this.alpha = self.rand(75, 100)/100;
+		this.decay = self.rand(50, 100)/5000;
+	};
+	
+	self.Debris.prototype = {
+		update: function(i){
+			
+			var radians = self.dToR(this.angle);
+			var vx = Math.cos(radians) * (this.speed * this.alpha);
+			var vy = Math.sin(radians) * (this.speed * this.alpha);
+			
+			this.x += vx * self.mod;
+			this.y += vy * self.mod;
+			
+			this.alpha -= (this.decay * self.mod) * 150;
+			
+			if(this.alpha <= 0){
+				self.debris.splice(i, 1);
+			}
+		},
+		render: function(){
+			self.ctx.fillStyle = 'hsla('+this.hue+', '+this.saturation+'%, '+this.lightness+'%, '+this.alpha+')';
+			self.ctx.fillRect(this.x, this.y, this.size, this.size);
+		}
+	};
+	
+	self.makeDebrisgroup = function(x, y, hue, lightness, maxRadius, count){
+		while(count--){
+			var newRadius = Math.random() * maxRadius;
+			var newAngle = Math.random() * (Math.PI * 2);
+			var newX = x + Math.cos(newAngle) * newRadius;
+			var newY = y + Math.sin(newAngle) * newRadius;
+			self.debris.push(new self.Debris(newX, newY, hue, lightness, 100));
+		}
+	};
+
+
+
+	/* ===================================================================== */
+	/* Bullets */
+	/* ===================================================================== */
+	self.Bullet = function(x, y, dir, evil){
+
+		// see if the bullet was send by a enemy
+		this.evil = evil || false;
+
+		this.x = x;
+		this.y = y;
+
+		// save the bullet start position
+		this.initX = x;
+		this.initY = y;
+
+		// save the player start position
+		this.playerX = self.player.x;
+		this.playerY = self.player.y;
+
+		// save the mouse position when this Bullet was create
+		// that way the bullet path doesn't change on mousemove
+		this.initMouseX = self.mouse.x;
+		this.initMouseY = self.mouse.y;
+
+		/* Direction of bullets:
+		   - Up = 1
+		   - Down = 2
+		   - Left = 3
+		   - Right = 4
+		   - Mouse = 5 */
+		this.dir = dir;
+	};
+
+	self.Bullet.prototype = {
+		// default values
+		w: self.config.bullet.width,
+		h: self.config.bullet.height,
+		vel: function(){
+			return this.evil ? 40 : self.config.bullet.velocity;
+		},
+		mustDie: false,
+
+		render: function(){
+			self.ctx.fillStyle = this.evil ? 'blue' : self.config.bullet.color;
+			self.ctx.fillRect(this.x, this.y, this.w, this.h)
+		},
+		update: function(){
+			// going up
+			if ( this.dir === 1 ) this.y -= this.vel() * self.mod;
+
+			// going down
+			if ( this.dir === 2 ) this.y += this.vel() * self.mod;
+
+			// going left
+			if ( this.dir === 3 ) this.x -= this.vel() * self.mod;
+
+			// going right
+			if ( this.dir === 4 ) this.x += this.vel() * self.mod;
+
+			// bullet going towards the mouse
+			if ( this.dir === 5 ) {
+				var dX = this.initMouseX - this.initX,
+					dY = this.initMouseY - this.initY,
+					dist = Math.sqrt(dX * dX + dY * dY);
+
+				var thsDX = dX / dist,
+					thsDY = dY / dist;
+
+				this.x += thsDX * (this.vel() * self.mod);
+				this.y += thsDY * (this.vel() * self.mod);
+			}
+
+			// going after the enemy
+			if ( this.dir === 6 ) {
+				var dX = this.playerX - this.initX,
+					dY = this.playerY - this.initY,
+					dist = Math.sqrt(dX * dX + dY * dY);
+
+				var thsDX = dX / dist,
+					thsDY = dY / dist;
+
+				this.x += thsDX * (this.vel() * self.mod);
+				this.y += thsDY * (this.vel() * self.mod);
+			}
+
+			// if it goes out of canvas remove it
+			if ( this.y < -5 || this.y > self.ch || this.x < -5 || this.x > self.cw ) {
+				this.mustDie = true;
+			}
+		},
+		kill: function( index ){
+			if ( this.mustDie === true ) {
+				self.bullets.splice(index, 1);
+			}
+		}
+	};
+
+
+
+	/* ===================================================================== */
+	/* Hearts */
+	/* ===================================================================== */
+	self.Hearts = function( index ){
+		// set the index because is more easy to exclude later on
+		this.index = index;
+		
+		// for 100% width
+		this.heartSize = (self.cw / this.pieces) + 1;
+	};
+
+	self.Hearts.prototype = {
+		pieces: self.config.player.hearts,
+
+		render: function(){
+			self.ctx.fillStyle = self.config.hearts.color;
+			self.ctx.fillRect(this.heartSize * this.index, 0, this.heartSize, 5);
+		},
+		update: function(){}
+	};
+
+
+
+	/* ===================================================================== */
+	/* Player */
+	/* ===================================================================== */
+	self.Player = function(x, y){
+		this.y = y;
+		this.x = x;
+	};
+
+	self.Player.prototype = {
+		// default values
+		w: self.config.player.width,
+		h: self.config.player.height,
+		vel: self.config.player.velocity,
+		bulletDelay: self.config.player.bulletDelay,
+		hearts: self.config.player.hearts,
+
+		createHearts: function(){
+			// hearts
+			for (var i = 0; i < this.hearts; i++) {
+				self.hearts.push( new self.Hearts(i) );
+			};
+		},
+
+		render: function(){
+			self.ctx.fillStyle = 'hsla(203, 28%, 40%, 1)';
+			self.ctx.fillRect(this.x, this.y, this.w, this.h);
+		},
+		update: function(){
+
+			// directions
+			// ---------------------------------------------------
+			// going up
+			if (self.keydown.up && this.y > 0) this.y -= this.vel * self.mod;
+
+			// going down
+			if (self.keydown.down && this.y < (self.ch - this.h)) this.y += this.vel * self.mod;
+
+			// going left
+			if (self.keydown.left && this.x > 0) this.x -= this.vel * self.mod;
+
+			// going right
+			if (self.keydown.right && this.x < (self.cw - this.w)) this.x += this.vel * self.mod;
+
+
+			// bullets
+			// ---------------------------------------------------
+			// shooting with bulletDelay
+			if (  ( Date.now() - self.bulletTimer ) > this.bulletDelay ) {
+
+				// defining the center of the player
+				var centerY = (this.h + this.y) - (5 * 3),
+					centerX = (this.w + this.x) - (5 * 2);
+
+				// bullet up
+				if ( self.keydown.bulletUp ) {
+					self.bullets.push( new self.Bullet(centerX, this.y - 5, 1) );
+					self.bulletTimer = Date.now();
+				}
+
+				// bullet down
+				// else if for not allow double shoot
+				else if ( self.keydown.bulletDown ) {
+					self.bullets.push( new self.Bullet(centerX, this.y + this.h, 2) );
+					self.bulletTimer = Date.now();
+				}
+
+				// bullet left
+				else if ( self.keydown.bulletLeft ) {
+					self.bullets.push( new self.Bullet(this.x - 5, centerY, 3) );
+					self.bulletTimer = Date.now();
+				}
+
+				// bullet right
+				else if ( self.keydown.bulletRight ) {
+					self.bullets.push( new self.Bullet(this.x + this.w, centerY, 4) );
+					self.bulletTimer = Date.now();
+				}
+
+				// bullet towards the mouse
+				else if ( self.mouse.down ) {
+					self.bullets.push( new self.Bullet(centerX, centerY, 5) );
+					self.bulletTimer = Date.now();
+				}
+
+			}
+		},
+		hit: function(){
+			// remove the last heart
+			self.hearts.pop();
+
+			// if there is hearts remain kill enemies in area
+			// if doesn't gameover()
+			if ( self.hearts.length <= 0 ) {
+				self.shake(20, 2);
+				self.gameOver(false);
+			} else {
+				for (var i = 0; i < self.enemies.length; i++) {
+					self.enemies[i].mustDie = true;
+					self.shake(20, 2);
+				};
+			}
+		},
+		takeCoin: function(){
+			self.stageMoney += self.config.coin.value;
+			self.pStageMoney.innerText = self.stageMoney + '$';
+		}
+	};
+
+
+
+	/* ===================================================================== */
+	/* Mines */
+	/* ===================================================================== */
+	/**
+	 * If there is more time I will make a enemy that plants mines on the
+	 * scenario, but as you can see that enemy only exists in my dreams
+	 *
+
+	self.Mines = function(x, y){
+		this.x = x;
+		this.y = y;
+	};
+
+	self.Mines.prototype = {
+		lightness: 30,
+		mustDie: false,
+		hue: 54,
+		h: 5,
+		w: 5,
+
+		render: function(){
+			self.ctx.fillStyle = 'hsla('+this.hue+', 100%, '+this.lightness+'%, 1)';
+			self.ctx.fillRect(this.x, this.y, this.w, this.h);
+		},
+
+		update: function(){
+			if ( this.lightness < 60 ) {
+				this.lightness++;
+			} else {
+				this.lightness--;
+			}
+		},
+
+		kill: function(){
+			if ( this.mustDie ) {
+				self.enemies.splice(index, 1);
+				if ( this.type === 2 ) {
+					self.enemies.push( new self.Enemy(this.x, this.y, 1) );
+				}
+				self.makeDebrisgroup(this.x, this.y, this.hue, 20, 120, 90);
+				self.shake(20, 2);
+			}
+		}
+	};
+	*/
+
+
+
+	/* ===================================================================== */
+	/* Coins */
+	/* ===================================================================== */
+	self.Coin = function(x, y){
+		this.x = x;
+		this.y = y;
+	};
+
+	self.Coin.prototype = {
+		hue: self.config.coin.color,
+		lightness: 50,
+		mustDie: false,
+		w: 5,
+		h: 5,
+
+		render: function(){
+			self.ctx.fillStyle = 'hsla(' + this.hue + ', 100%, ' + this.lightness + '%, 1)';
+			self.ctx.strokeStyle = 'hsla(' + this.hue + ', 100%, 40%, 1)';
+			self.ctx.fillRect(this.x, this.y, this.w, this.h);
+			self.ctx.strokeRect(this.x, this.y, this.w, this.h);
+		},
+		update: function(){
+			if ( this.lightness === 70 ) {
+				this.lightness--;
+			} else if ( this.lightness === 30 ) {
+				this.lightness++;
+			}
+
+			var dX = self.rand(0, self.cw) - this.x,
+				dY = self.rand(0, self.ch) - this.y,
+				dist = Math.sqrt(dX * dX + dY * dY);
+
+			var thsDX = dX / dist,
+				thsDY = dY / dist;
+
+			this.x += thsDX / 10;
+			this.y += thsDY / 10;
+
+		},
+		kill: function( index ){
+			if ( this.mustDie ) {
+				self.coins.splice(index, 1);
+			}
+		}
+	};
+
+	self.createCoins = function(x, y){
+		var chance = self.rand(1, 2);
+		if ( chance === 1 ) {
+			self.coins.push( new self.Coin(x, y) );
+		};
+	};
+
+
+
+	/* ===================================================================== */
+	/* Enemies */
+	/* ===================================================================== */
+	self.Enemy = function(x, y, type, active){
+		this.x = x;
+		this.y = y;
+
+		this.active = active;
+
+		this.bullet = Date.now();
+
+		/* Type of the enemy:
+		   - pulsate = 0
+		   - follow = 1
+		   - pulsate-follow = 2
+		   - area = 3 */
+		this.type = type || 0;
+
+		if ( this.type === 0 || this.type === 1 || this.type === 2 ) {
+			this.w = 10;
+			this.h = 15;
+			this.light = 13;
+		}
+
+		if ( this.type === 1 ) {
+			this.ligth = 100
+		};
+
+		if ( this.type === 3 ) {
+			this.w = 10;
+			this.h = 30;
+			this.radius = 30;
+		}
+
+		if ( this.type === 0 ) this.hue = 30;
+		if ( this.type === 1 ) this.hue = 80;
+		if ( this.type === 2 ) this.hue = 30;
+		if ( this.type === 3 ) this.hue = 150;
+	};
+
+	self.Enemy.prototype = {
+		// default values
+		mustDie: false,
+		delay: 1,
+		lightness: 0,
+
+		render: function(){
+			if ( this.type === 0 || this.type === 2 || this.type === 1 ) {
+				self.ctx.fillStyle = 'hsla('+this.hue+', 100%, '+this.light+'%, '+this.lightness+')';
+				self.ctx.fillRect(this.x, this.y, this.w, this.h);
+			}
+
+			if ( this.type === 3 ) {
+				self.ctx.beginPath();
+				self.ctx.fillStyle = 'hsla('+this.hue+', 20%, 60%, '+this.lightness/5+')';
+				self.ctx.strokeStyle = 'hsla('+this.hue+', 20%, 60%, '+this.lightness/2+')';
+				self.ctx.arc(this.x + this.w / 2, this.y + this.h / 2, this.radius, 0, Math.PI*2, false);
+				self.ctx.fill();
+				self.ctx.stroke();
+
+				self.ctx.fillStyle = 'hsla('+this.hue+', 20%, 60%, '+this.lightness+')';
+				self.ctx.fillRect(this.x, this.y, this.w, this.h);
+			}
+		},
+		update: function(){
+			
+			if ( this.delay <= 0 || this.active ) {
+				this.lightness = 1;
+				this.active = true;
+
+				if ( this.type === 0 || this.type === 2 ) {
+					/* make sure that the enemy doesn't go outside of canvas */
+					if (this.y > (self.ch - this.h)) this.y--;
+					if (this.y < 0) this.y++;
+					if (this.x > (self.cw - this.w)) this.x--;
+					if (this.x < 0) this.x++;
+
+					/* make a shake moviment */
+					this.x += Math.random()*3-1.5;
+					this.y += Math.random()*3-1.5;
+				}
+
+				if ( this.type === 1 ) {
+					// source - http://stackoverflow.com/questions/14419317/relative-movemaent-for-independant-bullets-html5-javascript
+					var dX = self.player.x - this.x,
+						dY = self.player.y - this.y,
+						dist = Math.sqrt(dX * dX + dY * dY);
+
+					var thsDX = dX / dist,
+						thsDY = dY / dist;
+
+					this.x += thsDX * 2;
+					this.y += thsDY * 2;
+				}
+
+				if ( this.type === 3 ) {
+					this.x += (self.player.x - this.x) * 1 / 2000;
+					this.y += (self.player.y - this.y) * 1 / 2000;
+
+					if (  ( Date.now() - this.bullet ) > self.config.enemies.bulletDelay ) {
+						self.bullets.push( new self.Bullet(this.x, this.y, 6, true) );
+						this.bullet = Date.now();
+					}
+				}
+
+			} else {
+				this.delay -= self.mod;
+				this.lightness += self.mod;
+			}
+		},
+		hit: function() {
+			this.mustDie = true;
+			self.createCoins(this.x, this.y);
+		},
+		kill: function( index ){
+			if ( this.mustDie ) {
+				self.enemies.splice(index, 1);
+				if ( this.type === 2 ) {
+					self.enemies.push( new self.Enemy(this.x, this.y, 1, true) );
+				}
+				self.makeDebrisgroup(this.x, this.y, this.hue, 20, 120, 90);
+				self.shake(20, 2);
+			}
+		}
+	}
+
+	self.createEnemies = function( spawnTime, levelObj ){
+		this.spawnTime = spawnTime;
+		this.list = self.levelEnemiesArray( levelObj );
+		this.n = 0;
+	};
+
+	self.createEnemies.prototype = {
+		render: function(){
+			if (  ( Date.now() - self.enemiesTimer ) > this.spawnTime || self.enemies.length === 0 ) {
+				// this.spawnTime -= 400 * self.mod;
+				if ( this.n < this.list.length ) {
+
+					self.enemies.push( new self.Enemy(self.rand(0, self.cw - 20), self.rand(0, self.ch - 20), this.list[this.n], false) );
+					this.n++;
+					self.enemies.push( new self.Enemy(self.rand(0, self.cw - 20), self.rand(0, self.ch - 20), this.list[this.n], false) );
+					this.n++;
+					self.enemies.push( new self.Enemy(self.rand(0, self.cw - 20), self.rand(0, self.ch - 20), this.list[this.n], false) );
+					this.n++;
+
+				} else if ( self.enemies.length === 0 ){
+					self.gameOver(true);
+				}
+				self.enemiesTimer = Date.now();
+			}
+		},
+		update: function(){ }
+	};
+
+
+
+	/* ===================================================================== */
+	/* BOSS */
+	/* ===================================================================== */
+	/**
+	 * I also planned a final Boss, but I didn't have time to finish
+	 *
+	self.Boss = function(){};
+
+	self.Boss.prototype = {
+		hue: 50,
+		lightness: 1,
+		x: 50,
+		y: 350,
+		w: 700,
+		h: 600,
+
+		render: function(){
+			self.ctx.fillStyle = 'hsla('+this.hue+', 100%, 15%, '+this.lightness+')';
+			self.ctx.fillRect(this.x, this.y, this.w, this.h);
+			self.ctx.fillStyle = 'hsla(0, 100%, 10%, '+this.lightness+')';
+		},
+
+		update: function(){
+			this.hue++;
+		}
+	};
+	*/
+
+
+	/* ===================================================================== */
+	/* Loop */
+	/* ===================================================================== */
+	self.loop = function( now ){
+
+		// time
+		self.time = Date.now();
+		self.mod = (self.time - self.oldTime) / 1000;
+
+		// clear
+		self.ctx.clearRect(0, 0, self.cw, self.ch);
+
+		// bullets
+		self.updateAll( self.bullets );
+		self.renderAll( self.bullets );
+		self.killAll( self.bullets );
+
+		// player
+		self.player.render();
+		self.player.update();
+
+		// hearts
+		self.updateAll( self.hearts );
+		self.renderAll( self.hearts );
+
+		// debris
+		self.renderAll( self.debris );
+		self.updateAll( self.debris );
+
+		// createEnemies
+		self.levelEnemies.render();
+		self.levelEnemies.update();
+
+		// coins
+		self.renderAll( self.coins );
+		self.updateAll( self.coins );
+		self.killAll( self.coins );
+
+		// enemies
+		if ( self.enemies.length ) {
+			self.renderAll( self.enemies );
+			self.updateAll( self.enemies );
+			self.killAll( self.enemies );
+		}
+
+		// // boss
+		// if ( self.boss ) {
+		// 	self.boss.render();
+		// 	self.boss.update();
+		// }
+
+		// collisions
+		self.handleCollisions();
+
+		if ( self.rumble ) {
+			self.ctx.translate(self.rand(0, self.rumbleLevel/4)-self.rumbleLevel/8, self.rand(0, self.rumbleLevel/4)-self.rumbleLevel/8);
+			self.rumble--;
+		} else {
+			self.ctx.restore();
+		}
+
+		// time and loop again
+		self.oldTime = self.time;
+		if (self.state) {
+			requestAnimationFrame( self.loop );
+		}
+	};
+
+
+
+	/* ===================================================================== */
+	/* Init */
+	/* ===================================================================== */
+	self.init = function(){
+		self.defineCanvas();
+
+		// set properties
+		self.debris = [];
+		self.bulletTimer = Date.now();
+		self.bullets = [];
+		self.hearts = [];
+		self.enemiesTimer = Date.now();
+		self.enemies = [];
+		self.coins = [];
+		// self.mines = [];
+		// self.boss = null;
+
+		self.levelPassed = 0;
+
+		self.setupUser();
+		self.updateConfig();
+
+		self.stageMoney = 0;
+
+		localStorage.setObject('theBadLuckSquare', self.user);
+
+		self.money = self.user.money;
+
+		self.player = new self.Player(
+			50, // initial X
+			50 // initial Y
+		);
+
+		self.level = 1;
+		self.state = false;
+		self.prepareUI();
+		self.updateDOM();
+
+		if ( self.state ) {
+			self.initGame();
+		};
+	};
+
+	self.init();
+
+};
+
+var game = new theBadLuckSquare();
+
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,1730 @@
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1"
+    />
+    <style>
+      body {
+        margin: 0;
+        text-align: center;
+        background: #000;
+      }
+      body,
+      canvas {
+        touch-action: none;
+        user-select: none;
+      }
+    </style>
+    <title>Stand By Me</title>
+  </head>
+  <body>
+    <canvas id="c" width="662" height="496"></canvas>
+    <script>
+      (() => {
+        var e = {},
+          t = (t) => e[t] || 0,
+          a = (t) => delete e[t];
+        addEventListener("keydown", (t) => {
+          t.preventDefault(), t.repeat || (e[t.code] = performance.now());
+        }),
+          addEventListener("keyup", (e) => a(e.code));
+        var n = (...e) => Math.max(...e.map((e) => t(e))),
+          i = () => Object.keys(e).filter((e) => t(e)),
+          o = () => i().length,
+          r = (e) => !!t(e) && a(e),
+          h = Math.random,
+          s = (e, t, a) => Math.max(t, Math.min(e, a));
+        function l(e, t, a) {
+          return 0 > a ? e : a > 1 ? t : e * (1 - a) + t * a;
+        }
+        function m(e) {
+          return new Promise((t) => {
+            var a = new Image();
+            (a.onload = () => {
+              t(a);
+            }),
+              (a.src = e);
+          });
+        }
+        var d = 0,
+          w = 0,
+          y = 0,
+          x = 0,
+          g = 0,
+          f = 0,
+          u = 0,
+          v = 0,
+          p = 0,
+          A = { pageX: 0, pageY: 0 };
+        addEventListener("pointerdown", (e) => {
+          e.preventDefault(),
+            (A = e),
+            (p = performance.now()),
+            ([d, w] = [u, v] = [g, f] = b());
+        }),
+          addEventListener("pointermove", (e) => {
+            e.preventDefault(),
+              (A = e),
+              ([d, w] = b()),
+              p &&
+                (d > u
+                  ? (y = l(0, 1, ((u = d) - g) / 30))
+                  : g > d
+                  ? (y = -l(0, 1, (u - (g = d)) / 30))
+                  : u > d && y >= 0
+                  ? ((g = d), (y = 0))
+                  : d > g && 0 >= y && ((u = d), (y = 0)),
+                w > v
+                  ? (x = l(0, 1, ((v = w) - f) / 30))
+                  : f > w
+                  ? (x = -l(0, 1, (v - (f = w)) / 30))
+                  : v > w && x >= 0
+                  ? ((f = w), (x = 0))
+                  : w > f && 0 >= x && ((v = w), (x = 0)));
+          }),
+          addEventListener("pointerup", (e) => {
+            e.preventDefault(), (A = e), (p = 0), (y = x = g = f = u = v = 0);
+          });
+        var I,
+          k,
+          T,
+          b = () => [Math.floor(A.pageX), Math.floor(A.pageY)],
+          M = () => p,
+          D = () => !!M() && ((p = 0), !0),
+          R =
+            (navigator,
+            (song = {
+              songData: [
+                {
+                  i: [
+                    0, 0, 140, 0, 0, 0, 140, 0, 0, 255, 158, 158, 158, 0, 0, 0,
+                    0, 51, 2, 1, 2, 25, 98, 183, 32, 88, 6, 157, 2,
+                  ],
+                  p: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                  c: [
+                    {
+                      n: [147],
+                      f: [
+                        ,
+                        27,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        6,
+                      ],
+                    },
+                  ],
+                },
+                {
+                  i: [
+                    0, 0, 140, 0, 0, 0, 140, 0, 0, 255, 0, 40, 95, 0, 0, 0, 0,
+                    51, 2, 1, 2, 20, 102, 127, 80, 88, 1, 88, 5,
+                  ],
+                  p: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                  c: [
+                    {
+                      n: [
+                        ,
+                        ,
+                        ,
+                        ,
+                        147,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        147,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        147,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        147,
+                      ],
+                      f: [],
+                    },
+                  ],
+                },
+                {
+                  i: [
+                    0, 255, 116, 64, 0, 255, 120, 0, 64, 127, 4, 6, 35, 0, 0, 0,
+                    0, 0, 0, 0, 2, 33, 15, 10, 32, 0, 0, 99, 1,
+                  ],
+                  p: [1, 1, 1, 1, 1, 1, 1, 1, , , 1, 1, 1],
+                  c: [
+                    {
+                      n: [
+                        135,
+                        ,
+                        ,
+                        ,
+                        135,
+                        ,
+                        ,
+                        ,
+                        135,
+                        ,
+                        ,
+                        ,
+                        135,
+                        ,
+                        ,
+                        ,
+                        135,
+                        ,
+                        ,
+                        ,
+                        135,
+                        ,
+                        ,
+                        ,
+                        135,
+                        ,
+                        ,
+                        ,
+                        135,
+                      ],
+                      f: [],
+                    },
+                  ],
+                },
+                {
+                  i: [
+                    0, 221, 128, 64, 0, 210, 128, 0, 64, 255, 4, 6, 73, 79, 0,
+                    0, 0, 64, 7, 1, 3, 38, 15, 86, 100, 20, 0, 24, 3,
+                  ],
+                  p: [1, 1, 1, 1, 1, 1, 1, 1, , , 1, 1, 1],
+                  c: [
+                    {
+                      n: [
+                        ,
+                        ,
+                        ,
+                        ,
+                        147,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        147,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        147,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        ,
+                        147,
+                      ],
+                      f: [],
+                    },
+                  ],
+                },
+                {
+                  i: [
+                    2, 100, 128, 0, 3, 201, 128, 0, 0, 0, 0, 40, 29, 0, 0, 0, 0,
+                    195, 4, 1, 3, 5, 184, 119, 214, 147, 6, 44, 6,
+                  ],
+                  p: [1, 1, 1, 1, 1, 1, 1, 1, , , 1, 1, 1],
+                  c: [
+                    {
+                      n: [
+                        99,
+                        ,
+                        99,
+                        ,
+                        99,
+                        99,
+                        ,
+                        ,
+                        99,
+                        ,
+                        ,
+                        ,
+                        99,
+                        ,
+                        99,
+                        ,
+                        99,
+                        99,
+                        ,
+                        ,
+                        105,
+                        ,
+                        ,
+                        105,
+                        ,
+                        105,
+                        105,
+                        ,
+                        105,
+                        105,
+                        ,
+                        105,
+                      ],
+                      f: [],
+                    },
+                  ],
+                },
+                {
+                  i: [
+                    3, 146, 140, 0, 1, 224, 128, 3, 0, 0, 0, 27, 43, 0, 0, 0, 3,
+                    179, 5, 1, 2, 124, 135, 11, 32, 150, 3, 157, 6,
+                  ],
+                  p: [, , 1, 2, 1, 2, , , 1, 2, 2],
+                  c: [
+                    { n: [111, , , , , , , , , , , , , , , , 105], f: [] },
+                    { n: [99, , , , , , , , , , , , 106, , , , 105], f: [] },
+                  ],
+                },
+              ],
+              rowLen: 5088,
+              patternLen: 32,
+              endPattern: 12,
+              numChannels: 6,
+            })),
+          X = (CPlayer = function () {
+            var e,
+              t,
+              a,
+              n,
+              i,
+              o = (e) => Math.sin(6.283184 * e),
+              r = (e) => 0.003959503758 * 2 ** ((e - 128) / 12),
+              h = (e, t, a) => {
+                var n,
+                  i,
+                  o,
+                  h,
+                  l,
+                  m,
+                  d = s[e.i[0]],
+                  c = e.i[1],
+                  w = e.i[3] / 32,
+                  y = s[e.i[4]],
+                  x = e.i[5],
+                  g = e.i[8] / 32,
+                  f = e.i[9],
+                  u = e.i[10] * e.i[10] * 4,
+                  v = e.i[11] * e.i[11] * 4,
+                  p = e.i[12] * e.i[12] * 4,
+                  A = 1 / p,
+                  I = -e.i[13] / 16,
+                  k = e.i[14],
+                  T = a * 2 ** (2 - e.i[15]),
+                  b = new Int32Array(u + v + p),
+                  M = 0,
+                  D = 0;
+                for (n = 0, i = 0; u + v + p > n; n++, i++)
+                  0 > i ||
+                    ((i -= T),
+                    (l = r(
+                      t +
+                        (15 & (k = (k >> 8) | ((255 & k) << 4))) +
+                        e.i[2] -
+                        128
+                    )),
+                    (m = r(t + (15 & k) + e.i[6] - 128) * (1 + 8e-4 * e.i[7]))),
+                    (o = 1),
+                    u > n
+                      ? (o = n / u)
+                      : u + v > n ||
+                        (o = (1 - (o = (n - u - v) * A)) * 3 ** (I * o)),
+                    (h = d((M += l * o ** w)) * c),
+                    (h += y((D += m * o ** g)) * x),
+                    f && (h += (2 * Math.random() - 1) * f),
+                    (b[n] = (80 * h * o) | 0);
+                return b;
+              },
+              s = [
+                o,
+                (e) => (0.5 > e % 1 ? 1 : -1),
+                (e) => (e % 1) * 2 - 1,
+                (e) => {
+                  var t = (e % 1) * 4;
+                  return 2 > t ? t - 1 : 3 - t;
+                },
+              ];
+            (this.init = (o) => {
+              (e = o),
+                (a = 0),
+                (n = o.rowLen * o.patternLen * ((t = o.endPattern) + 1) * 2),
+                (i = new Int32Array(n));
+            }),
+              (this.generate = () => {
+                var r,
+                  l,
+                  m,
+                  d,
+                  c,
+                  w,
+                  y,
+                  x,
+                  g,
+                  f,
+                  u,
+                  v,
+                  p,
+                  A,
+                  I = new Int32Array(n),
+                  k = e.songData[a],
+                  T = e.rowLen,
+                  b = e.patternLen,
+                  M = 0,
+                  D = 0,
+                  R = !1,
+                  X = [];
+                for (m = 0; t >= m; ++m)
+                  for (y = k.p[m], d = 0; b > d; ++d) {
+                    var Y = y ? k.c[y - 1].f[d] : 0;
+                    Y &&
+                      ((k.i[Y - 1] = k.c[y - 1].f[d + b] || 0),
+                      17 > Y && (X = []));
+                    var P = s[k.i[16]],
+                      E = k.i[17] / 512,
+                      L = 2 ** (k.i[18] - 9) / T,
+                      K = k.i[19],
+                      N = k.i[20],
+                      B = (135.82764118168 * k.i[21]) / 44100,
+                      F = 1 - k.i[22] / 255,
+                      z = 1e-5 * k.i[23],
+                      G = k.i[24] / 32,
+                      C = k.i[25] / 512,
+                      Z = (6.283184 * 2 ** (k.i[26] - 9)) / T,
+                      O = k.i[27] / 255,
+                      J = (k.i[28] * T) & -2;
+                    for (u = (m * b + d) * T, c = 0; 4 > c; ++c)
+                      if ((w = y ? k.c[y - 1].n[d + c * b] : 0)) {
+                        X[w] || (X[w] = h(k, w, T));
+                        var H = X[w];
+                        for (l = 0, r = 2 * u; H.length > l; l++, r += 2)
+                          I[r] += H[l];
+                      }
+                    for (l = 0; T > l; l++)
+                      (f = I[(x = 2 * (u + l))]) || R
+                        ? ((v = B),
+                          K && (v *= P(L * x) * E + 0.5),
+                          (D +=
+                            (v = 1.5 * Math.sin(v)) *
+                            (p = F * (f - D) - (M += v * D))),
+                          (f = 3 == N ? D : 1 == N ? p : M),
+                          z &&
+                            ((f =
+                              1 > (f *= z) ? (f > -1 ? o(0.25 * f) : -1) : 1),
+                            (f /= z)),
+                          (R = (f *= G) * f > 1e-5),
+                          (A = f * (1 - (g = Math.sin(Z * x) * C + 0.5))),
+                          (f *= g))
+                        : (A = 0),
+                        J > x || ((A += I[x - J + 1] * O), (f += I[x - J] * O)),
+                        (I[x] = 0 | A),
+                        (I[x + 1] = 0 | f),
+                        (i[x] += 0 | A),
+                        (i[x + 1] += 0 | f);
+                  }
+                return ++a / e.numChannels;
+              }),
+              (this.createAudioBuffer = (e) => {
+                for (var t = e.createBuffer(2, n / 2, 44100), a = 0; 2 > a; a++)
+                  for (var o = t.getChannelData(a), r = a; n > r; r += 2)
+                    o[r >> 1] = i[r] / 65536;
+                return t;
+              }),
+              (this.createWave = () => {
+                var e = 44 + 2 * n - 8,
+                  t = e - 36,
+                  a = new Uint8Array(44 + 2 * n);
+                a.set([
+                  82,
+                  73,
+                  70,
+                  70,
+                  255 & e,
+                  (e >> 8) & 255,
+                  (e >> 16) & 255,
+                  (e >> 24) & 255,
+                  87,
+                  65,
+                  86,
+                  69,
+                  102,
+                  109,
+                  116,
+                  32,
+                  16,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  2,
+                  0,
+                  68,
+                  172,
+                  0,
+                  0,
+                  16,
+                  177,
+                  2,
+                  0,
+                  4,
+                  0,
+                  16,
+                  0,
+                  100,
+                  97,
+                  116,
+                  97,
+                  255 & t,
+                  (t >> 8) & 255,
+                  (t >> 16) & 255,
+                  (t >> 24) & 255,
+                ]);
+                for (var o = 0, r = 44; n > o; ++o) {
+                  var h = i[o];
+                  (a[r++] =
+                    255 & (h = -32767 > h ? -32767 : h > 32767 ? 32767 : h)),
+                    (a[r++] = (h >> 8) & 255);
+                }
+                return a;
+              }),
+              (this.getData = (e, t) => {
+                for (
+                  var a = 2 * Math.floor(44100 * e), n = Array(t), o = 0;
+                  2 * t > o;
+                  o += 1
+                ) {
+                  var r = a + o;
+                  n[o] = e > 0 && i.length > r ? i[r] / 32768 : 0;
+                }
+                return n;
+              });
+          }),
+          Y = { play() {} },
+          P = () => {
+            Y.play();
+          },
+          E = () => {
+            Y.pause();
+          };
+        function L(e, t, a, n = 0, i = 1) {
+          const o = 5 * i,
+            r = e.length * o + (e.length - 1) * i,
+            h = 2 === n ? r : 1 === n ? r / 2 : 0;
+          [...e].forEach((e, n) => {
+            T.drawImage(
+              I,
+              5 *
+                "abcdefghijklmnopqrstuvwxyz0123456789.:!-%,/#[]UDLR?'=".indexOf(
+                  e
+                ),
+              0,
+              5,
+              5,
+              t + n * i * 6 - h,
+              a,
+              o,
+              o
+            );
+          });
+        }
+        var K,
+          N,
+          B,
+          F,
+          z,
+          G,
+          C = [
+            "ArrowUp",
+            "ArrowUp",
+            "ArrowDown",
+            "ArrowDown",
+            "ArrowLeft",
+            "ArrowRight",
+            "ArrowLeft",
+            "ArrowRight",
+            "KeyB",
+            "KeyA",
+          ],
+          Z = 0,
+          O = 0,
+          J = ["scout", "tank"],
+          H = 0,
+          j = 0,
+          S = 240,
+          Q = 180,
+          U = c.getContext("2d"),
+          q = c.cloneNode(),
+          W = q.getContext("2d");
+        (q.width = 640), (q.height = 480);
+        var V = c.cloneNode(),
+          $ = V.getContext("2d");
+        (V.width = 640), (V.height = 480);
+        var ee,
+          te,
+          ae,
+          ne,
+          ie,
+          oe,
+          re,
+          he,
+          se,
+          [le, me] =
+            ((ee = c),
+            ((k = ee.cloneNode()).width = 240),
+            (k.height = 180),
+            ((T = k.getContext("2d")).imageSmoothingEnabled = !1),
+            [k, T]),
+          de = "#e6d6c2",
+          ce = "#1c467a",
+          we = {
+            hero: {
+              attackRate: 0.1,
+              hitPoints: 100,
+              speed: 75,
+              w: 16,
+              h: 16,
+              idle: { x: 0, y: 48, w: 16, h: 16 },
+              torso_forward: { x: 16, y: 48, w: 16, h: 9 },
+              torso_backward: { x: 32, y: 48, w: 16, h: 9 },
+              frameIndex1: 0,
+              frameIndex1Time: 0,
+              legs: [
+                { x: 16, y: 57, w: 16, h: 7 },
+                { x: 32, y: 57, w: 16, h: 7 },
+                { x: 48, y: 57, w: 16, h: 7 },
+                { x: 64, y: 57, w: 16, h: 7 },
+              ],
+              gun: { x: 48, y: 48, w: 11, h: 7 },
+              frameIndex2: 0,
+              frameIndex2Time: 0,
+              muzzle_flash: [
+                { x: 64, y: 48, w: 6, h: 8 },
+                { x: 71, y: 48, w: 5, h: 8 },
+                { x: 77, y: 48, w: 3, h: 8 },
+              ],
+            },
+            AI: {
+              angle: 0,
+              hitPoints: 10,
+              speed: Math.PI,
+              w: 8,
+              h: 8,
+              sprite: { x: 96, y: 112, w: 8, h: 8 },
+              health: [
+                { x: 112, y: 96, w: 16, h: 16 },
+                { x: 96, y: 96, w: 16, h: 16 },
+                { x: 80, y: 96, w: 16, h: 16 },
+                { x: 112, y: 80, w: 16, h: 16 },
+                { x: 96, y: 80, w: 16, h: 16 },
+                { x: 80, y: 80, w: 16, h: 16 },
+                { x: 112, y: 64, w: 16, h: 16 },
+                { x: 96, y: 64, w: 16, h: 16 },
+                { x: 80, y: 64, w: 16, h: 16 },
+                { x: 80, y: 112, w: 16, h: 16 },
+                { x: 112, y: 112, w: 16, h: 16 },
+              ],
+            },
+            bullet: { damage: 1, speed: 400, ttl: 1 / 0, w: 10, h: 1 },
+            blast: { speed: 400, maxRadius: 200, w: 20 },
+            scout: {
+              damage: 2,
+              hitPoints: 1,
+              speed: 110,
+              w: 16,
+              h: 10,
+              hit: { x: 128, y: 38, w: 16, h: 10 },
+              blood: { x: 32, y: 112, w: 16, h: 10 },
+              frameIndex1: 0,
+              frameIndex1Time: 0,
+              bite: [
+                { x: 0, y: 38, w: 16, h: 10 },
+                { x: 16, y: 38, w: 16, h: 10 },
+              ],
+              frameIndex2: 0,
+              frameIndex2Time: 0,
+              walk: [
+                { x: 32, y: 38, w: 16, h: 10 },
+                { x: 48, y: 38, w: 16, h: 10 },
+                { x: 64, y: 38, w: 16, h: 10 },
+              ],
+            },
+            tank: {
+              damage: 10,
+              hitPoints: 10,
+              speed: 45,
+              w: 32,
+              h: 32,
+              hit: { x: 128, y: 0, w: 32, h: 32 },
+              blood: { x: 48, y: 96, w: 32, h: 32 },
+              frameIndex1: 0,
+              frameIndex1Time: 0,
+              bite: [
+                { x: 0, y: 0, w: 32, h: 32 },
+                { x: 32, y: 0, w: 32, h: 32 },
+              ],
+              frameIndex2: 0,
+              frameIndex2Time: 0,
+              walk: [
+                { x: 64, y: 0, w: 32, h: 32 },
+                { x: 96, y: 0, w: 32, h: 32 },
+                { x: 96, y: 32, w: 32, h: 32 },
+              ],
+            },
+            ingresses: [
+              {
+                name: 1,
+                x: 32,
+                y: 48,
+                odds: { tank: 0, scout: 1 },
+                rate: 1e3,
+                openTime: 5e3,
+                closeTime: 15e3,
+              },
+              {
+                name: 6,
+                x: 272,
+                y: 432,
+                odds: { tank: 0, scout: 1 },
+                rate: 750,
+                openTime: 17500,
+                closeTime: 27500,
+              },
+              {
+                name: 3,
+                x: 560,
+                y: 48,
+                odds: { tank: 0.1, scout: 0.9 },
+                rate: 750,
+                openTime: 3e4,
+                closeTime: 4e4,
+              },
+              {
+                name: 7,
+                x: 48,
+                y: 432,
+                odds: { tank: 0.9, scout: 0.1 },
+                rate: 1250,
+                openTime: 42500,
+                closeTime: 55e3,
+              },
+              {
+                name: 4,
+                x: 576,
+                y: 160,
+                odds: { tank: 0.15, scout: 0.85 },
+                rate: 1e3,
+                openTime: 42500,
+                closeTime: 55e3,
+              },
+              {
+                name: 2,
+                x: 368,
+                y: 48,
+                odds: { tank: 0.15, scout: 0.85 },
+                rate: 900,
+                openTime: 5e4,
+                closeTime: 62500,
+              },
+              {
+                name: 5,
+                x: 592,
+                y: 432,
+                odds: { tank: 0.8, scout: 0.2 },
+                rate: 900,
+                openTime: 57500,
+                closeTime: 7e4,
+              },
+              {
+                name: 8,
+                x: 32,
+                y: 256,
+                odds: { tank: 0.25, scout: 0.75 },
+                rate: 800,
+                openTime: 57500,
+                closeTime: 7e4,
+              },
+              {
+                name: 2,
+                x: 368,
+                y: 48,
+                odds: { tank: 0.15, scout: 0.85 },
+                rate: 700,
+                openTime: 67500,
+                closeTime: 8e4,
+              },
+              {
+                name: 3,
+                x: 560,
+                y: 48,
+                odds: { tank: 0.1, scout: 0.9 },
+                rate: 650,
+                openTime: 75e3,
+                closeTime: 1e5,
+              },
+              {
+                name: 7,
+                x: 48,
+                y: 432,
+                odds: { tank: 0.9, scout: 0.1 },
+                rate: 800,
+                openTime: 9e4,
+                closeTime: 115e3,
+              },
+              {
+                name: 5,
+                x: 592,
+                y: 432,
+                odds: { tank: 0.25, scout: 0.75 },
+                rate: 500,
+                openTime: 95e3,
+                closeTime: 13e4,
+              },
+              {
+                name: 1,
+                x: 32,
+                y: 48,
+                odds: { tank: 0, scout: 1 },
+                rate: 400,
+                openTime: 12e4,
+                closeTime: 15e4,
+              },
+              {
+                name: 4,
+                x: 576,
+                y: 160,
+                odds: { tank: 0.15, scout: 0.85 },
+                rate: 300,
+                openTime: 13e4,
+                closeTime: 18e4,
+              },
+              {
+                name: 6,
+                x: 272,
+                y: 432,
+                odds: { tank: 0.1, scout: 0.9 },
+                rate: 200,
+                openTime: 14e4,
+                closeTime: 21e4,
+              },
+              {
+                name: 3,
+                x: 560,
+                y: 48,
+                odds: { tank: 0.1, scout: 0.9 },
+                rate: 100,
+                openTime: 15e4,
+                closeTime: 24e4,
+              },
+              {
+                name: 8,
+                x: 32,
+                y: 256,
+                odds: { tank: 0.25, scout: 0.75 },
+                rate: 50,
+                openTime: 16e4,
+                closeTime: 3e5,
+              },
+            ],
+            tiles: {
+              0: { x: 0, y: 112 },
+              1: { x: 0, y: 64 },
+              2: { x: 16, y: 64 },
+              3: { x: 32, y: 64 },
+              4: { x: 0, y: 80 },
+              5: { x: 16, y: 80 },
+              6: { x: 32, y: 80 },
+              7: { x: 0, y: 96 },
+              8: { x: 16, y: 96 },
+              9: { x: 32, y: 96 },
+              11: { x: 128, y: 96 },
+              12: { x: 144, y: 96 },
+              13: { x: 128, y: 112 },
+              14: { x: 144, y: 112 },
+              10: { x: 48, y: 69 },
+              15: { x: 80, y: 48 },
+            },
+          },
+          ye = {
+            9: "s.h.e.i.l.d. protocol activated!",
+            8: "hey, that was weird...",
+            7: "did you feel that too?",
+            6: "outch, that really hurt!",
+            5: "whats... what's happening to me?",
+            4: "i'm scared!",
+            3: "i don't feel so good...",
+            2: "am i going to die?",
+            1: "please, don't leave me!",
+            0: "[segfault] access violation",
+          },
+          xe = 0.1,
+          ge = !0;
+        function fe(e) {
+          D(), i().forEach(r), (O = e);
+        }
+        function ue(e, t) {
+          const a = {
+            left: e.x - (t.x + t.w),
+            right: e.x + e.w - t.x,
+            top: e.y - (t.y + t.h),
+            bottom: e.y + e.h - t.y,
+            entity1MaxX: e.x + e.w,
+            entity1MaxY: e.y + e.h,
+            entity2MaxX: t.x + t.w,
+            entity2MaxY: t.y + t.h,
+          };
+          return (
+            (a.collide =
+              0 > a.left && a.right > 0 && 0 > a.top && a.bottom > 0),
+            a
+          );
+        }
+        function ve(e, t, a, n) {
+          const i = Math.sqrt(Math.pow(a - e, 2) + Math.pow(n - t, 2)),
+            o = a - e,
+            r = n - t;
+          return [o / i, r / i, Math.atan2(r / i, o / i)];
+        }
+        var pe = (e) => ({
+            type: "ingress",
+            ...e,
+            spawnTime: 0,
+            openTime: e.openTime + ie,
+            closeTime: e.closeTime + ie,
+          }),
+          Ae = (e) => ({
+            startTime: ie,
+            text: e,
+            ttl: ie + 5e3,
+            type: "text",
+            x: 4 * N.w + 5,
+            y: 10,
+          });
+        function Ie(e, t = 0, a = 0) {
+          return {
+            ...we[e],
+            moveDown: 0,
+            moveLeft: 0,
+            moveRight: 0,
+            moveUp: 0,
+            velX: 0,
+            velY: 0,
+            type: e,
+            x: t,
+            y: a,
+          };
+        }
+        var ke = (e) => ie >= e.openTime && e.closeTime >= ie;
+        function Te(e) {
+          if (ke(e) && ie > e.spawnTime) {
+            let t = 0;
+            Object.entries(e.odds).find(([a, n]) => {
+              if (((t += n), ((e = 0, t = 1) => h() * (t + 1 - e) + e)() < t))
+                return z.push(Ie(a, e.x, e.y)), (e.spawnTime = ie + e.rate), !0;
+            });
+          }
+        }
+        function be(e) {
+          if (e.velX || e.velY) {
+            const t =
+              e.speed * oe * (e.velX && e.velY ? 0.7071067811865476 : 1);
+            (e.x += t * e.velX), (e.y += t * e.velY);
+          }
+          e.maxRadius && (e.radius += e.speed * oe),
+            e === N && ((e.angle += e.speed * oe), (e.angle %= 2 * Math.PI));
+        }
+        function Me(e) {
+          if (e.hitPoints > 0) {
+            const t = e.x + e.w / 2,
+              a = e.y + e.h / 2,
+              n = K.x + K.w / 2,
+              i = K.y + K.h / 2;
+            [e.velX, e.velY, _] = ve(t, a, n, i);
+          } else e.velX = e.velY = 0;
+        }
+        function De(e) {
+          switch (
+            (ie > e.invincibleEndTime &&
+              ((e.invincible = !1),
+              e.hitPoints > 0 ||
+                ((e.ttl = -1),
+                e === K && ((K.ded = !0), (se = ie + 1e3)),
+                J.includes(e.type) &&
+                  ((e) => {
+                    const t = we[e.type].blood;
+                    $.drawImage(
+                      ae,
+                      t.x,
+                      t.y,
+                      t.w,
+                      t.h,
+                      Math.round(e.x),
+                      Math.round(e.y),
+                      t.w,
+                      t.h
+                    );
+                  })(e))),
+            e.radius > e.maxRadius && ((e.ttl = -1), (F = 0)),
+            e !== N || N.hitPoints > 0 || (e.ttl = -1),
+            e.type)
+          ) {
+            case "hero":
+              (K.movingRight = K.velX >= 0),
+                (K.aimingRight =
+                  K.gunAngle > -Math.PI / 2 && Math.PI / 2 > K.gunAngle),
+                (K.movingForward =
+                  (K.aimingRight && K.movingRight) ||
+                  (!K.aimingRight && !K.movingRight)),
+                (e.frameIndex1Time += oe),
+                (e.frameIndex2Time += oe),
+                e.frameIndex1Time > xe &&
+                  ((e.frameIndex1Time -= xe),
+                  (e.frameIndex1 += K.movingForward ? 1 : -1),
+                  (e.frameIndex1 += we.hero.legs.length),
+                  (e.frameIndex1 %= we.hero.legs.length)),
+                e.frameIndex2Time > xe &&
+                  ((e.frameIndex2Time -= xe),
+                  (e.frameIndex2 += 1),
+                  (e.frameIndex2 %= we.hero.muzzle_flash.length));
+              break;
+            case "scout":
+            case "tank":
+              (e.movingRight = e.velX >= 0),
+                (e.frameIndex1Time += oe),
+                (e.frameIndex2Time += oe),
+                e.frameIndex1Time > xe &&
+                  ((e.frameIndex1Time -= xe),
+                  (e.frameIndex1 += 1),
+                  (e.frameIndex1 %= we.tank.bite.length)),
+                e.frameIndex2Time > xe &&
+                  ((e.frameIndex2Time -= xe),
+                  (e.frameIndex2 += 1),
+                  (e.frameIndex2 %= we.tank.walk.length));
+              break;
+            case "ingress":
+              !e.announced &&
+                ke(e) &&
+                ((e.announced = !0), z.push(Ae("breach in sector " + e.name)));
+          }
+        }
+        function Re() {
+          const e = K.aimingRight ? ae : ne;
+          if (
+            (W.save(),
+            W.translate(K.w / 2, K.h / 2),
+            W.rotate(K.gunAngle),
+            W.translate(K.w / 4, 0),
+            W.drawImage(
+              e,
+              we.hero.gun.x,
+              we.hero.gun.y,
+              we.hero.gun.w,
+              we.hero.gun.h,
+              0,
+              K.aimingRight ? -2 : -4,
+              we.hero.gun.w,
+              we.hero.gun.h
+            ),
+            W.translate(we.hero.gun.w, 2),
+            K.attacking)
+          ) {
+            const t = we.hero.muzzle_flash[K.frameIndex2];
+            W.drawImage(
+              e,
+              t.x,
+              t.y,
+              t.w,
+              t.h,
+              -1,
+              K.aimingRight ? -6 : -5,
+              t.w,
+              t.h
+            );
+          }
+          W.restore();
+        }
+        function Xe() {
+          const e = K.aimingRight ? ae : ne;
+          if (K.velX || K.velY) {
+            const t =
+              we.hero[K.movingForward ? "torso_forward" : "torso_backward"];
+            W.drawImage(e, t.x, t.y, t.w, t.h, 0, 0, t.w, t.h);
+            const a = we.hero.legs[K.frameIndex1];
+            W.drawImage(e, a.x, a.y, a.w, a.h, 0, t.h, a.w, a.h);
+          } else
+            W.drawImage(
+              e,
+              we.hero.idle.x,
+              we.hero.idle.y,
+              we.hero.idle.w,
+              we.hero.idle.h,
+              0,
+              0,
+              we.hero.idle.w,
+              we.hero.idle.h
+            );
+        }
+        function Ye() {
+          ge &&
+            ((he = requestAnimationFrame(Ye)),
+            (ie = performance.now()),
+            (oe = (ie - re) / 1e3),
+            (() => {
+              switch (O) {
+                case 0:
+                  r(C[Z]) && Z++, (o() || D()) && fe(1);
+                  break;
+                case 1:
+                  (o() || D()) &&
+                    (((e) => {
+                      h = ((e) => {
+                        for (var t = 0, a = 2166136261; e.length > t; t++)
+                          a = Math.imul(a ^ e.charCodeAt(t), 16777619);
+                        (a += a << 13),
+                          (a ^= a >>> 7),
+                          (a += a << 3),
+                          (a ^= a >>> 17);
+                        let n = (a += a << 5) >>> 0,
+                          i = () =>
+                            ((2 ** 31 - 1) & (n = Math.imul(48271, n))) /
+                            2 ** 31;
+                        return i(), i;
+                      })(e);
+                      const t = new URL(location);
+                      t.searchParams.set("seed", e),
+                        history.pushState({}, "", t);
+                    })(""),
+                    (Z = 0),
+                    (H = 160),
+                    (j = 116),
+                    (K = Ie("hero", 256, 208)),
+                    (N = { type: "AI", ...we.AI }),
+                    (G = !0),
+                    (B = { x: 0, y: 0 }),
+                    (F = 0),
+                    (z = [...we.ingresses.map(pe), K, N]),
+                    (se = 0),
+                    (te = (() => {
+                      let e, t;
+                      ($.fillStyle = de), $.fillRect(0, 0, V.width, V.height);
+                      let a = [
+                        { x: -32, y: -32, w: 32 + V.width + 32, h: 64 },
+                        {
+                          x: -32,
+                          y: V.height - 16,
+                          w: 32 + V.width + 32,
+                          h: 48,
+                        },
+                        { x: -32, y: -32, w: 48, h: 32 + V.height + 32 },
+                        {
+                          x: V.width - 16,
+                          y: -32,
+                          w: 48,
+                          h: 32 + V.height + 32,
+                        },
+                      ];
+                      return (
+                        "5555555555555555555555555555555555555555B8888888888888888888888888888CB88888888C600000000000000000000000000004600000000460F00000000000000000000F00000460000F000460000000000001300000000000000790000000046000000000000460000000000000000000000004D222230000000790000000000000000000000004B88889000000000000000000000000001222300460000000000000000000000000000000788890046000000000012222300000012222300000000004600000000004555560000004555560000000F004600000000004B88890000007888C600000000004600000000007900000000000000460000000000460000000000000000000000000079000000000046000000000000000000A00000000000000000004600001300000000000000000000000000000000460F00790000130000000000000000000000000046000000000046000000000000001300000000004600000000004D22230000001222E600000000004600000000007888890000007888890000000000460000000000000000000000000000000000000046000000000000000000000000000000000000004600000000000000000000013000000001222222E600122222300000000000046000000007888888C600788888900000000000079000000000000000460000000000000000000000000000000000000046000000000000130000000000000000000000004600F0000000004600F0000000000000000000F046000000000000460000000000000000000000004D222222222222ED222222222222222222222222E"
+                          .split("")
+                          .forEach((n, i) => {
+                            if (
+                              ((e = i % (V.width / 16)),
+                              (t = Math.floor(i / (V.width / 16))),
+                              [
+                                1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14,
+                              ].includes((n = parseInt(n, 16))))
+                            ) {
+                              const i = { x: 16 * e, y: 16 * t, w: 16, h: 16 };
+                              $.drawImage(
+                                ae,
+                                we.tiles[n].x,
+                                we.tiles[n].y,
+                                16,
+                                16,
+                                i.x,
+                                i.y,
+                                16,
+                                16
+                              ),
+                                ((0 !== e && e !== V.width / 16 - 1) ||
+                                  (0 !== t && t !== V.height / 16 - 1)) &&
+                                  a.push(i);
+                            }
+                            10 === n &&
+                              ($.drawImage(
+                                ae,
+                                we.tiles[n].x,
+                                we.tiles[n].y,
+                                32,
+                                27,
+                                16 * e,
+                                16 * t,
+                                32,
+                                27
+                              ),
+                              a.push({ x: 16 * e, y: 16 * t, w: 32, h: 27 })),
+                              15 === n &&
+                                $.drawImage(
+                                  ae,
+                                  we.tiles[n].x,
+                                  we.tiles[n].y,
+                                  16,
+                                  16,
+                                  16 * e,
+                                  16 * t,
+                                  16,
+                                  16
+                                );
+                          }),
+                        a
+                      );
+                    })()),
+                    P(),
+                    fe(2));
+                  break;
+                case 2:
+                  if (ie > se) {
+                    if (K.ded) return E(), void fe(3);
+                    ([B.x, B.y] = (() => {
+                      const [e, t] =
+                        ((a = c.width),
+                        (n = c.height),
+                        [
+                          s((A.x || A.pageX) - (innerWidth - a) / 2, 0, a),
+                          s(A.y || A.pageY, 0, n),
+                        ].map(Math.round));
+                      var a, n;
+                      return [
+                        (e * S) / c.width + H,
+                        (t * Q) / c.height + j,
+                      ].map(Math.round);
+                    })()),
+                      (K.attacking = M()),
+                      (K.moveLeft = n("ArrowLeft", "KeyA", "KeyQ")),
+                      (K.moveRight = n("ArrowRight", "KeyD")),
+                      (K.moveUp = n("ArrowUp", "KeyW", "KeyZ")),
+                      (K.moveDown = n("ArrowDown", "KeyS")),
+                      (K.velX =
+                        K.moveLeft || K.moveRight
+                          ? (K.moveLeft > K.moveRight ? -1 : 1) *
+                            l(
+                              0,
+                              1,
+                              (ie - Math.max(K.moveLeft, K.moveRight)) / 150
+                            )
+                          : 0),
+                      (K.velY =
+                        K.moveDown || K.moveUp
+                          ? (K.moveUp > K.moveDown ? -1 : 1) *
+                            l(0, 1, (ie - Math.max(K.moveUp, K.moveDown)) / 150)
+                          : 0),
+                      (() => {
+                        const e = K.x + K.w / 2,
+                          t = K.y + K.h / 2,
+                          [a, n, i] = ve(e, t, B.x, B.y);
+                        if (((K.gunAngle = i), K.attacking)) {
+                          if (
+                            ((K.attackTime ||= K.attackRate),
+                            (K.attackTime += oe),
+                            K.attackTime > K.attackRate)
+                          ) {
+                            K.attackTime %= K.attackRate;
+                            const [o, r] = ((e, t, a, n) => [
+                              e + a * Math.cos(n),
+                              t + a * Math.sin(n),
+                            ])(e, t, K.w, i);
+                            z.unshift({
+                              ...Ie("bullet", o, r),
+                              angle: i,
+                              velX: a,
+                              velY: n,
+                            });
+                          }
+                        } else K.attackTime = 0;
+                      })(),
+                      (ingresses = z.filter((e) => "ingress" === e.type)),
+                      ingresses.forEach(Te),
+                      z.forEach(be),
+                      (enemies = z.filter((e) => J.includes(e.type))),
+                      enemies.forEach(Me),
+                      (bullets = z.filter((e) => "bullet" === e.type)),
+                      (t = bullets),
+                      (a = enemies),
+                      t.forEach((e) => {
+                        e.ttl > 0 &&
+                          a.find((t) => {
+                            if (!t.invincible && ue(e, t).collide)
+                              return (
+                                (t.hitPoints -= e.damage),
+                                (t.invincible = !0),
+                                (t.invincibleEndTime = ie + 150),
+                                (e.ttl = -1),
+                                !0
+                              );
+                          });
+                      }),
+                      F &&
+                        enemies.forEach((e) => {
+                          F.radius >
+                            Math.sqrt(
+                              Math.pow(e.x + e.w / 2 - F.x, 2) +
+                                Math.pow(e.y + e.h / 2 - F.y, 2)
+                            ) &&
+                            ((e.hitPoints = 0),
+                            (e.invincible ||= !0),
+                            (e.invincibleEndTime ||= ie + 150));
+                        }),
+                      ((e) => {
+                        K.invincible ||
+                          e.find((e) => {
+                            if (e.hitPoints > 0 && ue(e, K).collide)
+                              return (
+                                (e.attacking = !0),
+                                G && N.hitPoints > 0
+                                  ? ((N.hitPoints -= 1),
+                                    (z = z.filter(
+                                      (e) => "text" !== e.type
+                                    )).push(Ae(ye[N.hitPoints])))
+                                  : (K.hitPoints -= e.damage),
+                                (K.invincible = !0),
+                                (K.invincibleEndTime = ie + 150),
+                                (se = ie + 75),
+                                !F &&
+                                  N.hitPoints > 0 &&
+                                  ((F = {
+                                    type: "blast",
+                                    ...we.blast,
+                                    radius: K.w,
+                                    x: K.x + K.w / 2,
+                                    y: K.y + K.h / 2,
+                                  }),
+                                  z.unshift(F)),
+                                !0
+                              );
+                          });
+                      })(enemies),
+                      (e = [...enemies, K]).forEach((t, a) => {
+                        e.slice(a + 1).forEach((e) => {
+                          const a = ue(t, e);
+                          a.collide &&
+                            ((e, t, a) => {
+                              const {
+                                  entity1MaxX: n,
+                                  entity1MaxY: i,
+                                  entity2MaxX: o,
+                                  entity2MaxY: r,
+                                } = a,
+                                h = n - t.x,
+                                s = i - t.y,
+                                l = o - e.x,
+                                m = r - e.y;
+                              e.velX > 0 && e.velY > 0
+                                ? s > h
+                                  ? ((e.x -= h / 2), (t.x += h / 2))
+                                  : ((e.y -= s / 2), (t.y += s / 2))
+                                : e.velX > 0 && 0 > e.velY
+                                ? m > h
+                                  ? ((e.x -= h / 2), (t.x += h / 2))
+                                  : ((e.y += m / 2), (t.y -= m / 2))
+                                : e.velX > 0
+                                ? ((e.x -= h / 2), (t.x += h / 2))
+                                : 0 > e.velX && e.velY > 0
+                                ? s > l
+                                  ? ((e.x += l / 2), (t.x -= l / 2))
+                                  : ((e.y -= s / 2), (t.y += s / 2))
+                                : 0 > e.velX && 0 > e.velY
+                                ? m > l
+                                  ? ((e.x += l / 2), (t.x -= l / 2))
+                                  : ((e.y += m / 2), (t.y -= m / 2))
+                                : 0 > e.velX
+                                ? ((e.x += l / 2), (t.x -= l / 2))
+                                : e.velY > 0
+                                ? ((e.y -= s / 2), (t.y += s / 2))
+                                : 0 > e.velY &&
+                                  ((e.y += m / 2), (t.y -= m / 2));
+                            })(t, e, a);
+                        });
+                      }),
+                      ((e) => {
+                        e.forEach((e) => {
+                          te.forEach((t) => {
+                            const a = ue(e, t);
+                            a.collide &&
+                              ("bullet" === e.type
+                                ? (e.ttl = -1)
+                                : ((e, t, a) => {
+                                    const {
+                                        entity1MaxX: n,
+                                        entity1MaxY: i,
+                                        entity2MaxX: o,
+                                        entity2MaxY: r,
+                                      } = a,
+                                      h = n - t.x,
+                                      s = i - t.y,
+                                      l = o - e.x,
+                                      m = r - e.y;
+                                    e.velX > 0 && e.velY > 0
+                                      ? s > h
+                                        ? (e.x -= h)
+                                        : (e.y -= s)
+                                      : e.velX > 0 && 0 > e.velY
+                                      ? m > h
+                                        ? (e.x -= h)
+                                        : (e.y += m)
+                                      : e.velX > 0
+                                      ? (e.x -= h)
+                                      : 0 > e.velX && e.velY > 0
+                                      ? s > l
+                                        ? (e.x += l)
+                                        : (e.y -= s)
+                                      : 0 > e.velX && 0 > e.velY
+                                      ? m > l
+                                        ? (e.x += l)
+                                        : (e.y += m)
+                                      : 0 > e.velX
+                                      ? (e.x += l)
+                                      : e.velY > 0
+                                      ? (e.y -= s)
+                                      : 0 > e.velY && (e.y += m);
+                                  })(e, t, a));
+                          });
+                        });
+                      })([...bullets, ...enemies, K]),
+                      z.forEach(De),
+                      H > 0 && H + 96 > K.x
+                        ? (H = Math.max(0, K.x - 96))
+                        : V.width > H + 96 + 48 &&
+                          K.x + K.w > H + 96 + 48 &&
+                          (H = Math.min(V.width - S, K.x + K.w - 144)),
+                      j > 0 && j + 64 > K.y
+                        ? (j = Math.max(0, K.y - 64))
+                        : V.height > j + 64 + 52 &&
+                          K.y + K.h > j + 64 + 52 &&
+                          (j = Math.min(V.height - Q, K.y + K.h - 116)),
+                      (z = z.filter((e) => !e.ttl || e.ttl > ie));
+                  }
+                  break;
+                case 3:
+                  r("KeyT") &&
+                    (async (e) => {
+                      if (navigator.canShare && navigator.canShare(e))
+                        try {
+                          await navigator.share(e);
+                        } catch {}
+                      else
+                        open(
+                          `https://=${encodeURIComponent(
+                            e.text
+                          )}&url=${encodeURIComponent(e.url)}`,
+                          "_blank"
+                        );
+                    })({
+                      title: document.title,
+                      text: "I died facing fearful odds while playing Stand By Me",
+                      url: "",
+                    }),
+                    (o() || D()) && fe(0);
+              }
+              var e, t, a;
+            })(),
+            (() => {
+              let e;
+              switch ((T.clearRect(0, 0, k.width, k.height), O)) {
+                case 0:
+                  (W.fillStyle = de),
+                    W.fillRect(0, 0, q.width, q.height),
+                    (e = we.AI.health[10]),
+                    me.drawImage(
+                      ae,
+                      e.x,
+                      e.y,
+                      e.w,
+                      e.h,
+                      120 - e.w,
+                      5,
+                      2 * e.w,
+                      2 * e.h
+                    ),
+                    L("stand by me", 120, 50, 1, 3),
+                    L("click / press any key", 120, 105, 1),
+                    L("proudly made in canada", 120, 150, 1),
+                    L("jerome lecomte - js13kgames 2022", 120, 160, 1),
+                    L("music by ryan malm", 120, 170, 1);
+                  break;
+                case 1:
+                  (W.fillStyle = de),
+                    W.fillRect(0, 0, q.width, q.height),
+                    (e = we.AI.health[9]),
+                    me.drawImage(
+                      ae,
+                      e.x,
+                      e.y,
+                      e.w,
+                      e.h,
+                      120 - e.w,
+                      5,
+                      2 * e.w,
+                      2 * e.h
+                    ),
+                    L("i am your defense module companion!", 120, 50, 1),
+                    L("i will stand by your side while", 120, 60, 1),
+                    L("you protect the central core", 120, 70, 1),
+                    L("from parasite contamination.", 120, 80, 1),
+                    L("use wasd/ULDR to move", 120, 120, 1),
+                    L("use your mouse to aim/fire", 120, 130, 1),
+                    L("press any key to start", 120, 140, 1);
+                  break;
+                case 2:
+                  W.drawImage(V, 0, 0, q.width, q.height),
+                    z.forEach((e) =>
+                      ((e, t = W) => {
+                        switch ((t.save(), e.type)) {
+                          case "hero":
+                            t.translate(Math.round(e.x), Math.round(e.y)),
+                              0 > e.gunAngle ? (Re(), Xe()) : (Xe(), Re());
+                            break;
+                          case "AI":
+                            t.translate(K.x + K.w / 2, K.y + K.h / 2),
+                              t.rotate(e.angle),
+                              t.translate(2.5 * e.w, 0),
+                              t.rotate(-e.angle),
+                              t.drawImage(
+                                ae,
+                                we.AI.sprite.x,
+                                we.AI.sprite.y,
+                                we.AI.sprite.w,
+                                we.AI.sprite.h,
+                                -e.w / 2,
+                                -e.h / 2,
+                                we.AI.sprite.w,
+                                we.AI.sprite.h
+                              );
+                            break;
+                          case "bullet":
+                            t.translate(e.x, e.y),
+                              t.rotate(e.angle + Math.PI / 2),
+                              (t.fillStyle = "#e1e"),
+                              t.fillRect(0, 0, e.h, e.w);
+                            break;
+                          case "blast":
+                            t.beginPath(),
+                              (t.lineWidth = e.w),
+                              t.arc(
+                                e.x,
+                                e.y,
+                                e.radius - e.w / 2,
+                                0,
+                                2 * Math.PI
+                              ),
+                              (t.strokeStyle = "#1ee"),
+                              t.stroke(),
+                              t.closePath();
+                            break;
+                          case "scout":
+                          case "tank":
+                            const a =
+                              e.invincible || 0 >= e.hitPoints
+                                ? we[e.type].hit
+                                : we[e.type][e.attacking ? "bite" : "walk"][
+                                    e.attacking ? e.frameIndex1 : e.frameIndex2
+                                  ];
+                            t.drawImage(
+                              e.movingRight ? ae : ne,
+                              a.x,
+                              a.y,
+                              a.w,
+                              a.h,
+                              Math.round(e.x),
+                              Math.round(e.y),
+                              a.w,
+                              a.h
+                            );
+                            break;
+                          case "text":
+                            (me.fillStyle = ce),
+                              me.fillRect(
+                                3 * N.w + 5,
+                                5,
+                                S - (3 * N.w + 10),
+                                15
+                              ),
+                              ((e, t, a, n, i, o = 0, r = 1) => {
+                                L(
+                                  e.substring(
+                                    0,
+                                    Math.floor(l(0, e.length, (i - n) / 500))
+                                  ),
+                                  t,
+                                  a,
+                                  o,
+                                  r
+                                );
+                              })(
+                                e.text,
+                                e.x,
+                                e.y,
+                                e.startTime,
+                                ie,
+                                e.align,
+                                e.scale
+                              );
+                            break;
+                          case "ingress":
+                            ke(e) &&
+                              t.drawImage(ae, 80, 32, 16, 16, e.x, e.y, 16, 16);
+                        }
+                        t.restore();
+                      })(e)
+                    ),
+                    (() => {
+                      (W.strokeStyle = ce), (W.lineWidth = 2);
+                      const e = K.attacking ? 10 : 12,
+                        t = K.attacking ? 5 : 6;
+                      W.strokeRect(B.x - 1, B.y - 1, 2, 2),
+                        W.strokeRect(B.x - t, B.y - t, e, e);
+                    })(),
+                    (() => {
+                      const e = we.AI.health[Math.max(0, N.hitPoints)];
+                      me.drawImage(ae, e.x, e.y, e.w, e.h, 5, 5, e.w, e.h);
+                    })();
+                  break;
+                case 3:
+                  (W.fillStyle = de),
+                    W.fillRect(0, 0, q.width, q.height),
+                    (e = we.AI.health[0]),
+                    me.drawImage(
+                      ae,
+                      e.x,
+                      e.y,
+                      e.w,
+                      e.h,
+                      120 - e.w,
+                      5,
+                      2 * e.w,
+                      2 * e.h
+                    ),
+                    L("how can one die better", 120, 50, 1),
+                    L("than facing fearful odds", 120, 60, 1),
+                    L("for the ashes of their ancestors", 120, 70, 1),
+                    L("and the temples of their gods?", 120, 80, 1),
+                    L("[t]weet", 120, 160, 1),
+                    L("[r]estart", 120, 170, 1);
+              }
+              U.drawImage(q, H, j, S, Q, 0, 0, c.width, c.height),
+                U.drawImage(le, 0, 0, S, Q, 0, 0, c.width, c.height);
+            })(),
+            (re = ie));
+        }
+        function Pe(e) {
+          (ge = e)
+            ? ((re = performance.now()), Ye())
+            : cancelAnimationFrame(he);
+        }
+        (onload = async () => {
+          (document.title = "Stand By Me"),
+            onresize(),
+            await (async () => {
+              I = await m(
+                "data:image/webp;base64,UklGRtwAAABXRUJQVlA4TNAAAAAvCAEBEA8wfQNPIGmLt/3zH+AHlG3bzr+in79tNjP9j1/727ZmW8m2jWovL+4T/FcXF5ltvhH9D/T3glZlee7h4P2XrG7pyXpT+f1vpQBO4GqQKqZMeMBmhJ454slp0xJG5tfl6H5BDR2Xp1JxjD3jmmpGcQ1oui+BiDupttiTmV+nmfJNXI5yzBxoJ3I1FwgJALAZqWdJfcLttBk8/IICn88jn1j3UamwMWfkts/gruDp62NyFZ3LDhkOx83c4p31QzawchYEXAmxQaqY4gIA"
+              );
+            })(),
+            (ae = await m(
+              "data:image/webp;base64,UklGRvIFAABXRUJQVlA4TOYFAAAvn8AfECdAJm1T/8ZKDeyeLIJsmwFNbFiXOwdBts0MZzPAK11g/gOw73emDGA3sh1VQoIELpDAsxwA6BKAMTf/oOxzFxbN/Eb0H4LbNpIkZaZruuYo9VHpbO8Phr8ypMf0pgf3GC2tPBORTO958EItjIfkRD3keQ/zCQ+kKC06p5c8NvWkHRtJM/HeNGgyPDAmzyvswaRjNDaTeyyiN1theixNawl4GK25KsngnMDD4AkP1dqrOc0ampSHioc8WmuvFpcCyEm0A8WluGw+qbEDDKTGKS20h0tyIQ8BmvaBiIu4iAu7ZNc7o+cqsizg4ZJdFo/iUmzPRzw2n2RwAKmFTXJJLvR1xKbNC7F5xINt9nHIDu0w2/geNeKxOBhewFIVs+s9Iz/f4y68SMcS/bkeKeDhwno71Xk+dSzR5Hn8Yh5LYFpK1gfiNykPFZq4R5Cajf1WJ/TQNI9iUwGxPFz2jlj7TQbwMGgeRYCsPLztlMGDu6e9GyIeItAjlpfZBrKkh7gIkDsVdwNgtqEsaVGzBDxARBpqNwxiUcXPkgwYRyXViEc/kgoZgJJSVV4dbqvGdbqb5ZpgWyXXOgU88EKZG7oKKc0CvARNlp2Ye++y7yMylS7VBXwPy1xksCiqalKMW6+amkAHlZSA66EQERNQcEqw0RL4Z8KvO1+mSKTufPvZHm7d+f6eFb/uDBs+1kqdQnUnMzuGObp9RSab2kmTX3dCZttHu515lxgk5gaVs7OG6k6Y4yaZmE9vIqIFneYGFTLIkbppd9YFKatzpvTdb21QWfWpXjw2n0RydIqQ7Kc65gBNavPOyfxaSR7kIWleOyKJlIBAPdPAPN6sJ/O8Fw/2kJxTF5ZcobwuTQQGyHnGn6vdy5yX2YEXcj6S1QUtqytbVtcQKO+S4WMeZw947mNguokSEBUFD7v2sY+zt4B4ZF4re5WZbxAVnvRMNjSEZD2nhvuWW3dGKFkXHNCtNdZuOWg2PR0CdWeEWflkOPBaI0tOFZPMxsPG+DVAslF3hpB5pbNR8kmUp6I0RKpIp/W2jrE9K1yqs1m3JYmQkyIhqdN9m6O9Iqn+oI4Vu+4Moc5r6Wo/7O5+MlnA4Z1P+vUJYhaOdzAnlOGHWOnlhEJZTGocMQZQhLIwnSsRojvkxhX3/gAdUlRNnV5l7ZwOEkHv1ycGkI7g7M26Lo1RRYAqglQBb0kVFyljwUyrzkuqTTXIUJChqP1a8mTm2dKfhof0TqsuDdHEcN6YLiiuNHPkLNN1aYh+jAUGsF1QVlvcyKQRJBzRukQmfwCflYJxBrYXfcQfIEC0DbBiXXL6A7yI8nEHeJGMVH+A5yA38sEWfDX4egF00BwXclyKgx/m1BKrghG+XlrYGp/gtFnpAx/xPD4Dt8DmfU68Edk7rs9wsHp5dWonV3eAZ+Fr/QHc0NcCf4AnOfiCoaBZ43nyOebmL/Opfkx+H6C1yuFoze/9vDvvLL2DgeX3ft5NBAMd/V1mSu/n3dQaZvhmb1OGHf7meZ8SkYYoNfh6mzTT3tcX+qVkLo7ruF7BKvdTStbCHOY6nsWKANYwT/LzmN3j9cZ1xuMLeddp5i/gNPQJrJczEb2fd3FAa7z38y658b06MY5RGMjdUGzqr7Mbdad4eU5SOKzv882680F4bK/H3jneqjsfZGOGFe6vmG/UnQ8uOoz3itlA58lXgNcj3nvm8RNso3kv+wPgu60b7rmHYIhnV/D3BoYPePsjtLg9j4zf2xC8Hrz8ETbiGz80jNvH6G+YxPPuw/PcJJ53H53nIxuMN/KkD6nw81nDfscE7zo8y8YmODONvLuqHO/mXaIwvYd5NMHZaeRbEcDNuyJh1GS0H7BhOs/m66hmHn4ITLkWbt7tGPP0PkrfZlTeIvwKw2ADFwbg6N5XzSk9zDZuPGLK1f/HU8jV1mr/oacXm7orjiPqF3ad9PCKF3jZGn20x/Ns8DbzN+ARP8ffwBrjE7ifgm6vzjQ8niAaRt71Pd7Bzou+h4sA"
+            )),
+            (ne = await m(
+              "data:image/webp;base64,UklGRtwDAABXRUJQVlA4TM8DAAAvn8AfECdAJm1T/8ZKDeyeLIJsmwFNbFiXOwdBts0MZzPAK11g/gOw73emDChGslW3tlRlEtgWCYgiAKlIwOyz8s/pwt5rI/t+3zei/xAlSarbzDmR34wAwfoXtp9hvTDrkx5nm0W1RORQfM7jbDLqIjfIrKL4mMf447dXFieWPuRx7uJuD4vsInuTo8B5GKYH97rhcYove8DVZpEThdViHtcQu1Y93GN+eGVCAe3GN3nYx8HhJZ6jKH38Po9TGFdMMuwiGdaDseoR8pg0wz4ohtYwKk8PzppHiDi+ABgQAsqiR0gLvdX0+wV066mEZY+QKyYxz3d5hDwmX4TCKaHHseQRIt8lmQN+nbzJ49zDN1LMwDKsR73tEXANr8uw4Hl4nssey+BqAXg6Te9R7nq0+KvcPD8cr+I0icfzpscZ8/TDoCiY2Ao9HMTjDpX0m9ZJtZbMg5O4Bwx7uLKB9RswPYx27KFWJA2v4DyjF64t6gikdQ+YJ4DAC1hbKRECjj/UidqOu4MMoJWB2MN0nAVOA5UwRVp4YdbiRsaw4DE7wuE21ullTdKE7NMyt5hx1lVhzrFU3bYFD9MTAy0gMcd4DZNkNsL9mk+2Jrt551CcamkKLHmYA7w1eyJ5hv5MTo/TAYDIxR4eUx4mYzAZzAu8scTVdrN+BpDc+R3QgSzCcufH6Xb3oLnz08CU8Ny5yNuGoBs0L+TOcHa+smha/32QKDopOc6d5y7Xgx/3dmAVSGJf1+3TOc6d5hKn5NZE3VUYkgX26wxiiXPnLiJXAMxDiPS0xSPAvq5n80JEcjwoX5AyyDvErtpIDhG1X9cT+1iQOx0S0I8C04AUYGq7HsfABs0D8PM+Ao7GB1uKDl9MsaqYDejcX155CiQjVhX+uoxzZ/SjzO9q6nc3v8eo29/T5nzE1ULu3CV6M9yqgqjcapO8zyIlmevoTQuua8wP8TLLv5JdM4mKVBAelDB3Lp0/jS9gIoAChJOtu5WjCxivY2C0mEhFNRrtMTek8+HXXZo7FYtk6Qe+oSJZkxdJWUS6XbbOtp1t/GlBFp47tS5T1GJ+eBmRBEHuiT5A0aNAgtyJNdw0H3YHyZlq5yd9S6/PLofmIHfqLVwDdACDL+pFukgZVMrax3weX2XziPQsklms0yXIrnu/gYkYxsFTP0ue9AnuYvr3DQ0IJhCWS9VkqSWAqkED1YBa7D8tdt2VjCwslxYTT5ZImwGuAU0u4JF1RBPLJTSXIm1r1LT56wEGJuQElK5DLJfeWhBfcHPC9CtZKT0IALB9d/W///ytzAYA"
+            )),
+            ([audio, data] = (() => {
+              const e = new X();
+              e.init(R);
+              let t = 0;
+              for (; 1 > t; )
+                (t = e.generate()), console.log(`loaded ${100 * t}%`);
+              let a = e.createWave();
+              return [
+                document.createElement("audio"),
+                URL.createObjectURL(new Blob([a], { type: "audio/wav" })),
+              ];
+            })()),
+            ((Y = audio).src = data),
+            (Y.loop = !0),
+            (Y.volume = 0.15),
+            Pe(!0);
+        }),
+          (onresize = onrotate =
+            () => {
+              (scaleToFit = Math.min(
+                innerWidth / q.width,
+                innerHeight / q.height
+              )),
+                (c.width = q.width * scaleToFit),
+                (c.height = q.height * scaleToFit),
+                (U.imageSmoothingEnabled =
+                  $.imageSmoothingEnabled =
+                  W.imageSmoothingEnabled =
+                    !1),
+                window.focus();
+            }),
+          (document.onvisibilitychange = (e) => {
+            Pe(!e.target.hidden), e.target.hidden ? E() : P();
+          }),
+          addEventListener("keydown", (e) => {
+            e.repeat || 2 !== O || "KeyP" !== e.code || Pe(!ge);
+          });
+      })();
+    </script>
+  </body>
+</html>

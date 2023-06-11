@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #000;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        color: #eee;
+        background: #000;
+        font-family: sans-serif;
+      }
+      body.loading {
+        display: flex;
+      }
+      #canvas {
+        width: 600px;
+        height: 600px;
+        background: #333;
+      }
+    </style>
+  </head>
+  <body class="loading">
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <script type="text/javascript">
+      !(function (t) {
+        var e = {};
+        function i(s) {
+          if (e[s]) return e[s].exports;
+          var n = (e[s] = { i: s, l: !1, exports: {} });
+          return t[s].call(n.exports, n, n.exports, i), (n.l = !0), n.exports;
+        }
+        (i.m = t),
+          (i.c = e),
+          (i.d = function (t, e, s) {
+            i.o(t, e) ||
+              Object.defineProperty(t, e, { enumerable: !0, get: s });
+          }),
+          (i.r = function (t) {
+            "undefined" != typeof Symbol &&
+              Symbol.toStringTag &&
+              Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }),
+              Object.defineProperty(t, "__esModule", { value: !0 });
+          }),
+          (i.t = function (t, e) {
+            if ((1 & e && (t = i(t)), 8 & e)) return t;
+            if (4 & e && "object" == typeof t && t && t.__esModule) return t;
+            var s = Object.create(null);
+            if (
+              (i.r(s),
+              Object.defineProperty(s, "default", { enumerable: !0, value: t }),
+              2 & e && "string" != typeof t)
+            )
+              for (var n in t)
+                i.d(
+                  s,
+                  n,
+                  function (e) {
+                    return t[e];
+                  }.bind(null, n)
+                );
+            return s;
+          }),
+          (i.n = function (t) {
+            var e =
+              t && t.__esModule
+                ? function () {
+                    return t.default;
+                  }
+                : function () {
+                    return t;
+                  };
+            return i.d(e, "a", e), e;
+          }),
+          (i.o = function (t, e) {
+            return Object.prototype.hasOwnProperty.call(t, e);
+          }),
+          (i.p = ""),
+          i((i.s = 0));
+      })([
+        function (t, e, i) {
+          "use strict";
+          i.r(e);
+          const s = 10,
+            n = 0,
+            a = 1,
+            o = 2,
+            r = 3,
+            h = 4,
+            l = 5,
+            c = 6,
+            u = 16,
+            f = 32,
+            y = u * f,
+            x = 1,
+            d = 0,
+            p = 1,
+            m = 2,
+            g = 3,
+            w = 4,
+            v = "rgba(255, 255, 255,0.2)",
+            b = "yellow",
+            T = "rgb(139,0,0)",
+            E = "black",
+            F = "black",
+            S = "ebody",
+            C = "ehead",
+            I = "player",
+            k = "hit",
+            D = "move",
+            B = "shot",
+            A = 8,
+            q = 40,
+            R = 180,
+            P = 30,
+            _ = 3,
+            M = 4,
+            N = "press enter",
+            { random: O, ceil: G, floor: j, abs: H, PI: V } = Math;
+          function W(t, e) {
+            return O() * (e - t) + t;
+          }
+          function U(t, e) {
+            return (t = G(t)), (e = j(e) + 1), j(O() * (e - t)) + t;
+          }
+          function X(t, e) {
+            const i = document.createElement("canvas");
+            return (
+              (i.width = t),
+              (i.height = e),
+              { canvas: i, context: i.getContext("2d") }
+            );
+          }
+          function Y(t, e) {
+            return t.map(({ x: t, y: i, w: s, h: n }) => ({
+              x: t * e,
+              y: i * e,
+              w: s * e,
+              h: n * e,
+            }));
+          }
+          function L(t) {
+            return (t * V) / 180;
+          }
+          function $(t) {
+            const e = new Image();
+            return (e.src = t), e;
+          }
+          function z(t, e) {
+            return Object.assign(t, e);
+          }
+          function J(t, e, i, s, n) {
+            t.moveTo(e, i), t.lineTo(s, n);
+          }
+          const K = X(y, y),
+            Q = K.canvas,
+            Z = K.context;
+          function tt(t, e) {
+            t.save(), t.beginPath(), (t.fillStyle = e);
+          }
+          function et(t) {
+            t.restore();
+          }
+          function it(t, e, i) {
+            const s = U(0, 3);
+            if (2 === s || 3 === s) return;
+            const n = U(0, 10) % 2 == 0 ? 1 : -1,
+              a = W(5, 50) * n,
+              o = W(5, 20),
+              r = W(4, 6) * n;
+            (e += n),
+              t.beginPath(),
+              t.moveTo(e, i),
+              t.lineTo(e + r, i),
+              t.lineTo(e + a, i - o),
+              t.closePath(),
+              t.fill();
+          }
+          const st = 20,
+            nt = 60;
+          function at(t, e, i, s, n) {
+            if (s <= 0) {
+              for (let s = 0; s < 10; s++) it(t, e, i + 2);
+              return;
+            }
+            const a = W(st + 10 * s, nt + 10 * s);
+            t.rect(e - 1, i + 2, n + 1, 2);
+            const o = U(0, 10);
+            for (let s = 0; s < o; s++) it(t, e, i + 2);
+            t.fillRect(e, i - a, n, a), at(t, e, i - a - 6, s - 1, n);
+          }
+          function ot(t, e) {
+            tt(t, `rgba(${20 + e}, ${30 + e}, ${30 + e}, 0.78)`);
+            for (let e = 0; e < y; e += 10)
+              U(0, 5) < 3 && at(t, e + U(-10, 10), y, U(3, 6), U(3, 6));
+            et(t);
+          }
+          function rt(t) {
+            if ((Z.clearRect(0, 0, y, y), ot(Z, 10), ot(Z, 0), t)) {
+              const e = Y(t, u);
+              !(function (t, e) {
+                tt(t, E),
+                  e.forEach(({ x: e, y: i, w: s, h: n }) =>
+                    t.fillRect(e, i, s, n)
+                  ),
+                  et(t);
+              })(Z, e),
+                (function (t, e) {
+                  tt(t, "rgba(20, 30, 30, 0.78)"),
+                    e.forEach(({ x: e, y: i, w: s }) => {
+                      t.fillRect(e, i, s, 5);
+                      for (let n = e; n < e + s; n += 6)
+                        t.fillRect(n, i + 2, 2, 5);
+                    }),
+                    et(t);
+                })(Z, e);
+            }
+            return $(Q.toDataURL());
+          }
+          const ht = (t) => (t / u) | 0,
+            lt = (t) =>
+              Y(t, u).reduce(
+                (t, e) => [
+                  ...t,
+                  ...(({ x: t, y: e, w: i, h: s }) => {
+                    const n = [],
+                      a = [
+                        [t, e],
+                        [t + i, e],
+                        [t + i, e + s],
+                        [t, e + s],
+                      ];
+                    return (
+                      a.forEach((t, e) => {
+                        const i = (e + 1) % a.length;
+                        n.push({
+                          start: { x: a[e][0], y: a[e][1] },
+                          end: { x: a[i][0], y: a[i][1] },
+                        });
+                      }),
+                      n
+                    );
+                  })(e),
+                ],
+                []
+              ),
+            ct = (t) => {
+              const e = (function (t, e) {
+                return Array.from({ length: t }).map(() =>
+                  Array.from({ length: t }).map(() => e)
+                );
+              })(f, 0);
+              return (
+                t.forEach(({ x: t, y: i, w: s, h: n }) =>
+                  (function (t, [e, i], [s, n], a) {
+                    for (let o = e; o < i; o++)
+                      for (let e = s; e < n; e++) a(t, o, e);
+                  })(e, [t, t + s], [i, i + n], (t, e, i) => (t[e][i] = x))
+                ),
+                e
+              );
+            };
+          var ut = class {
+            constructor() {
+              (this.x = 0), (this.y = 0), (this.img = rt(null));
+            }
+            load(t) {
+              (this.edges = lt(t)), (this.blocks = ct(t)), (this.img = rt(t));
+            }
+            getOuterMost({ x: t, y: e, width: i, height: s }, n) {
+              const l = ht(t + i / 2),
+                c = ht(e + s / 2),
+                { blocks: d } = this;
+              switch (n) {
+                case r:
+                  for (let t = l; t >= 0; t--)
+                    if (d[t][c] === x) return { x: (t + 1) * u, y: e };
+                  return { x: 0, y: e };
+                case a:
+                  for (let e = c; e >= 0; e--)
+                    if (d[l][e] === x) return { x: t, y: (e + 1) * u };
+                  return { x: t, y: 0 };
+                case o:
+                  for (let e = c; e < f; e++)
+                    if (d[l][e] === x) return { x: t, y: e * u - s };
+                  return { x: t, y: y - s };
+                case h:
+                  for (let t = l; t < f; t++)
+                    if (d[t][c] === x) return { x: t * u - i, y: e };
+                  return { x: y - i, y: e };
+              }
+            }
+            hasBlockAt(t, e) {
+              return (
+                t < 0 ||
+                e < 0 ||
+                t >= y ||
+                e >= y ||
+                this.blocks[ht(t)][ht(e)] === x
+              );
+            }
+            renderReady(t) {
+              (this.x += 0.5), this.x >= y - 1 && (this.x = 0);
+              const { x: e, img: i } = this;
+              t.drawImage(i, 0, 0, y - e, y, e, 0, y - e, y),
+                t.drawImage(i, y - e, 0, e, y, 0, 0, e, y);
+            }
+            render(t) {
+              t.drawImage(this.img, 0, 0);
+            }
+          };
+          var ft = {
+            player: { x: 0, y: 10 },
+            map: [
+              { x: 0, y: 31, w: 32, h: 1 },
+              { x: 0, y: 12, w: 10, h: 2 },
+              { x: 0, y: 0, w: 32, h: 1 },
+            ],
+            enemies: [
+              {
+                x: 20,
+                y: 29,
+                cmd: [
+                  { action: h, until: { x: 28 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                  { action: r, until: { x: 5 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                ],
+              },
+            ],
+          };
+          var yt = {
+            player: { x: 0, y: 29 },
+            map: [
+              { x: 0, y: 31, w: 32, h: 1 },
+              { x: 8, y: 22, w: 16, h: 2 },
+              { x: 15, y: 1, w: 2, h: 4 },
+              { x: 0, y: 0, w: 32, h: 1 },
+            ],
+            enemies: [
+              {
+                x: 10,
+                y: 20,
+                cmd: [
+                  { action: h, until: { x: 20 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                  { action: r, until: { x: 10 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                ],
+              },
+            ],
+          };
+          var xt = {
+            player: { x: 0, y: 29 },
+            map: [
+              { x: 0, y: 31, w: 32, h: 1 },
+              { x: 0, y: 0, w: 32, h: 1 },
+              { x: 22, y: 15, w: 10, h: 2 },
+              { x: 0, y: 24, w: 20, h: 2 },
+              { x: 10, y: 10, w: 2, h: 9 },
+            ],
+            enemies: [
+              {
+                x: 25,
+                y: 13,
+                init: { offset: -180 },
+                cmd: [
+                  { action: c, until: { offset: -200 } },
+                  { action: n, until: { time: 30 } },
+                  { action: l, until: { offset: -130 } },
+                  { action: n, until: { time: 30 } },
+                ],
+              },
+            ],
+          };
+          var dt = {
+            player: { x: 0, y: 29 },
+            map: [
+              { x: 0, y: 31, w: 32, h: 1 },
+              { x: 0, y: 0, w: 32, h: 1 },
+              { x: 0, y: 22, w: 20, h: 2 },
+              { x: 16, y: 14, w: 16, h: 2 },
+              { x: 14, y: 14, w: 2, h: 5 },
+              { x: 0, y: 10, w: 2, h: 2 },
+              { x: 22, y: 4, w: 2, h: 8 },
+            ],
+            enemies: [
+              {
+                x: 4,
+                y: 20,
+                cmd: [
+                  { action: h, until: { x: 16 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                  { action: r, until: { x: 4 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                ],
+              },
+              {
+                x: 0,
+                y: 8,
+                cmd: [
+                  { action: l, until: { offset: -40 } },
+                  { action: n, until: { time: 20 } },
+                  { action: l, until: { offset: 50 } },
+                  { action: n, until: { time: 20 } },
+                ],
+              },
+            ],
+          };
+          var pt = {
+            player: { x: 0, y: 29 },
+            map: [
+              { x: 0, y: 31, w: 32, h: 1 },
+              { x: 0, y: 0, w: 32, h: 1 },
+              { x: 16, y: 29, w: 2, h: 3 },
+              { x: 0, y: 23, w: 20, h: 2 },
+              { x: 4, y: 16, w: 28, h: 2 },
+              { x: 18, y: 21, w: 2, h: 2 },
+            ],
+            enemies: [
+              {
+                x: 20,
+                y: 29,
+                cmd: [
+                  { action: h, until: { x: 28 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                  { action: r, until: { x: 22 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                ],
+              },
+              {
+                x: 5,
+                y: 21,
+                init: { offset: -180 },
+                cmd: [
+                  { action: r, until: { x: 3 } },
+                  { action: n, until: { time: 100 } },
+                  { action: l, until: { offset: 0 } },
+                  { action: h, until: { x: 10 } },
+                  { action: n, until: { time: 100 } },
+                  { action: c, until: { offset: -180 } },
+                ],
+              },
+            ],
+          };
+          var mt = {
+            player: { x: 0, y: 29 },
+            map: [
+              { x: 0, y: 31, w: 32, h: 1 },
+              { x: 0, y: 0, w: 32, h: 1 },
+              { x: 0, y: 25, w: 20, h: 2 },
+              { x: 0, y: 20, w: 2, h: 2 },
+              { x: 8, y: 18, w: 12, h: 2 },
+              { x: 16, y: 8, w: 2, h: 4 },
+              { x: 6, y: 8, w: 14, h: 2 },
+              { x: 8, y: 0, w: 2, h: 4 },
+            ],
+            enemies: [
+              {
+                x: 10,
+                y: 23,
+                init: { offset: -180 },
+                cmd: [
+                  { action: r, until: { x: 2 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                  { action: h, until: { x: 10 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                ],
+              },
+              {
+                x: 8,
+                y: 16,
+                cmd: [
+                  { action: h, until: { x: 16 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                  { action: r, until: { x: 8 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                ],
+              },
+              {
+                x: 8,
+                y: 6,
+                init: { offset: -180 },
+                cmd: [
+                  { action: r, until: { x: 8 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                  { action: h, until: { x: 16 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                ],
+              },
+            ],
+          };
+          var gt = {
+            player: { x: 0, y: 29 },
+            map: [
+              { x: 0, y: 31, w: 32, h: 1 },
+              { x: 0, y: 0, w: 32, h: 1 },
+              { x: 7, y: 25, w: 2, h: 7 },
+              { x: 5, y: 25, w: 6, h: 2 },
+              { x: 15, y: 20, w: 6, h: 2 },
+              { x: 17, y: 20, w: 2, h: 12 },
+              { x: 26, y: 22, w: 6, h: 2 },
+              { x: 6, y: 4, w: 2, h: 4 },
+              { x: 8, y: 4, w: 10, h: 2 },
+              { x: 22, y: 4, w: 8, h: 2 },
+            ],
+            enemies: [
+              {
+                x: 6,
+                y: 23,
+                init: { offset: -180 },
+                cmd: [
+                  { action: r, until: { x: 5 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                  { action: h, until: { x: 9 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                ],
+              },
+              {
+                x: 28,
+                y: 20,
+                init: { offset: 0 },
+                cmd: [
+                  { action: h, until: { x: 30 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                  { action: r, until: { x: 28 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                ],
+              },
+              {
+                x: 10,
+                y: 2,
+                init: { offset: 0 },
+                cmd: [
+                  { action: h, until: { x: 12 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                  { action: r, until: { x: 8 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                ],
+              },
+            ],
+          };
+          var wt = {
+            player: { x: 0, y: 29 },
+            map: [
+              { x: 0, y: 31, w: 32, h: 1 },
+              { x: 0, y: 0, w: 32, h: 1 },
+              { x: 6, y: 24, w: 6, h: 2 },
+              { x: 20, y: 24, w: 12, h: 2 },
+              { x: 6, y: 10, w: 9, h: 2 },
+              { x: 20, y: 10, w: 8, h: 2 },
+              { x: 8, y: 0, w: 2, h: 4 },
+              { x: 8, y: 24, w: 2, h: 8 },
+            ],
+            enemies: [
+              {
+                x: 6,
+                y: 22,
+                init: { offset: -180 },
+                cmd: [
+                  { action: r, until: { x: 5 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                  { action: h, until: { x: 9 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                ],
+              },
+              {
+                x: 6,
+                y: 8,
+                init: { offset: -180 },
+                cmd: [
+                  { action: r, until: { x: 5 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                  { action: h, until: { x: 9 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                ],
+              },
+              {
+                x: 22,
+                y: 8,
+                init: { offset: 0 },
+                cmd: [
+                  { action: h, until: { x: 24 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                  { action: r, until: { x: 20 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                ],
+              },
+              {
+                x: 22,
+                y: 22,
+                init: { offset: 0 },
+                cmd: [
+                  { action: h, until: { x: 24 } },
+                  { action: n, until: { time: 50 } },
+                  { action: c, until: { offset: -180 } },
+                  { action: r, until: { x: 20 } },
+                  { action: n, until: { time: 50 } },
+                  { action: l, until: { offset: 0 } },
+                ],
+              },
+            ],
+          };
+          var vt = function (t) {
+            switch (t) {
+              case 1:
+                return ft;
+              case 2:
+                return yt;
+              case 3:
+                return xt;
+              case 4:
+                return dt;
+              case 5:
+                return pt;
+              case 6:
+                return mt;
+              case 7:
+                return gt;
+              case 8:
+                return wt;
+            }
+          };
+          const bt = {},
+            Tt = {},
+            Et = "./assets/";
+          var Ft = {
+            loadImages: function (t) {
+              t.forEach((t) => bt[t] || (bt[t] = $(Et + t + ".png")));
+            },
+            draw: function (t, e, i, s, n, a, o, r, h, l) {
+              t.drawImage(bt[e], i, s, n, a, o, r, h, l);
+            },
+            loadAudios: function (t) {
+              t.forEach((t) => Tt[t] || (Tt[t] = new Audio(Et + t + ".mp3")));
+            },
+            play: function (t) {
+              Tt[t].paused && Tt[t].play();
+            },
+          };
+          var St = class {
+            constructor(t, e, i, s, n, a) {
+              (this.id = t),
+                (this.sh = (a / e) | 0),
+                (this.sw = n),
+                (this.frame = 0),
+                (this.x = i),
+                (this.y = s),
+                (this.isFlipH = !1),
+                (this.isFlipV = !1),
+                (this.angleDeg = 0),
+                (this.offsetY = 0),
+                (this.offsetX = 0);
+            }
+            pos(t, e) {
+              (this.x = t), (this.y = e);
+            }
+            render(t) {
+              const {
+                x: e,
+                y: i,
+                frame: s,
+                sw: n,
+                sh: a,
+                offsetX: o,
+                offsetY: r,
+                isFlipV: h,
+                isFlipH: l,
+                angleDeg: c,
+                id: u,
+              } = this;
+              t.save(),
+                t.translate(e + n / 2 + o, i + a / 2 + r),
+                t.rotate(L(c)),
+                t.scale(l ? -1 : 1, h ? -1 : 1),
+                Ft.draw(t, u, 0, s * a, n, a, -n / 2 - o, -a / 2 - r, n, a),
+                t.restore();
+            }
+          };
+          var Ct = class {
+            constructor(t, e = 30, i = F, s = 3, n = 5, a = 10) {
+              (this.time = e),
+                (this.color = i),
+                (this.alive = !1),
+                (this.particles = Array.from({ length: t }, () => ({
+                  r: W(n, a),
+                  xs: W(-s, s),
+                  ys: W(-s, s / 3),
+                  t: W(20, e),
+                  x: 0,
+                  y: 0,
+                })));
+            }
+            init() {
+              (this.time = 30), (this.alive = !1);
+            }
+            generate(t, e) {
+              const { alive: i, particles: s } = this;
+              i ||
+                ((this.alive = !0),
+                s.forEach((i) => {
+                  (i.x = t), (i.y = e);
+                }));
+            }
+            update(t) {
+              const { alive: e, particles: i } = this;
+              e &&
+                ((this.time -= t),
+                this.time < 0 && ((this.alive = !1), (this.time = 30)),
+                i.forEach((t) => {
+                  (t.x += t.xs), (t.y += t.ys);
+                }));
+            }
+            render(t) {
+              const { alive: e, color: i, particles: s } = this;
+              e &&
+                ((t.fillStyle = i),
+                s.forEach((e) => {
+                  t.beginPath(), t.arc(e.x, e.y, e.r, 0, 2 * Math.PI), t.fill();
+                }));
+            }
+          };
+          var It = class {
+            constructor(t, e, i, s, n, a, o) {
+              z(this, { width: i, height: s, maxSpeed: n, accel: a, map: o }),
+                this.init(t, e);
+            }
+            init(t, e) {
+              z(this, {
+                x: t,
+                y: e,
+                dx: t,
+                dy: e,
+                velocity: 0,
+                alive: !0,
+                moving: n,
+              });
+            }
+            update(t) {
+              const { moving: e, accel: i, maxSpeed: s, dx: l, dy: c } = this,
+                u = i * t * (e === a || e === r) ? -1 : 1;
+              e !== n && (this.velocity += u),
+                this.velocity > s && (this.velocity = s),
+                this.velocity < -s && (this.velocity = -s);
+              const f = this.velocity * t;
+              (e === a || e === o) && (this.y += f),
+                (e === r || e === h) && (this.x += f),
+                e === a || e === o
+                  ? ((this.y += f),
+                    e === a
+                      ? this.y < c && this.stop()
+                      : e === o && this.y > c && this.stop())
+                  : (e !== r && e !== h) ||
+                    ((this.x += f),
+                    e === r
+                      ? this.x < l && this.stop()
+                      : e === h && this.x > l && this.stop());
+            }
+            moveUntil(t, e, i) {
+              (this.moving = t), (this.dx = e), (this.dy = i);
+            }
+            stop() {
+              (this.moving = n),
+                (this.velocity = 0),
+                (this.x = this.dx),
+                (this.y = this.dy);
+            }
+          };
+          const kt = 2;
+          var Dt = class extends It {
+            constructor(t, e, i) {
+              super(t, e, 32, 32, 8, 1.5, i),
+                (this.sprite = new St(I, 1, t, e, 32, 32)),
+                (this.dieScatter = new Ct(30)),
+                (this.attackedScatter = new Ct(10, 10, F, 5, 2, 4)),
+                (this.hp = y),
+                (this._lT = { x: t + kt, y: e + kt }),
+                (this._rT = { x: t + this.width - kt, y: e + kt }),
+                (this._lB = { x: t + kt, y: e + this.height - kt }),
+                (this._rB = {
+                  x: t + this.width - kt,
+                  y: e + this.height - kt,
+                }),
+                (this.edges = [
+                  [this._lT, this._rT],
+                  [this._rT, this._rB],
+                  [this._rB, this._lB],
+                  [this._lB, this._lT],
+                ]),
+                this.updateEdges();
+            }
+            init(t, e) {
+              super.init(t, e);
+              const { sprite: i, edges: s } = this;
+              i && ((i.angleDeg = 0), (i.isFlipV = !1)),
+                z(this, { hp: y }),
+                s && this.updateEdges();
+            }
+            move(t) {
+              if (this.moving === n) {
+                Ft.play(D);
+                const { x: e, y: i } = this.map.getOuterMost(this, t);
+                this.moveUntil(t, e, i);
+              }
+            }
+            stop() {
+              super.stop();
+              const {
+                x: t,
+                y: e,
+                width: i,
+                height: s,
+                map: n,
+                sprite: a,
+              } = this;
+              let o = !1,
+                r = 0;
+              n.hasBlockAt(t + i / 2, e + s + 4)
+                ? (o = !1)
+                : n.hasBlockAt(t + i / 2, e - 4)
+                ? (o = !0)
+                : n.hasBlockAt(t - 4, e + s / 2)
+                ? (r = 90)
+                : n.hasBlockAt(t + i + 4, e + s / 2) && (r = -90),
+                (a.isFlipV = o),
+                (a.angleDeg = r);
+            }
+            attacked() {
+              const {
+                alive: t,
+                dieScatter: e,
+                attackedScatter: i,
+                x: s,
+                y: n,
+              } = this;
+              t &&
+                (i.generate(s, n),
+                (this.hp -= 20),
+                Ft.play(B),
+                this.hp <= 0 &&
+                  (Ft.play(k),
+                  (this.hp = 0),
+                  (this.alive = !1),
+                  e.generate(s, n)));
+            }
+            update(t) {
+              const {
+                alive: e,
+                dieScatter: i,
+                attackedScatter: s,
+                x: n,
+                y: a,
+              } = this;
+              e
+                ? (super.update(t), s.update(n, a), this.updateEdges())
+                : i.update(t);
+            }
+            updateEdges() {
+              const {
+                x: t,
+                y: e,
+                width: i,
+                height: s,
+                _lT: n,
+                _rT: a,
+                _lB: o,
+                _rB: r,
+              } = this;
+              (n.x = t + kt),
+                (n.y = e + kt),
+                (a.x = t + i - kt),
+                (a.y = e + kt),
+                (o.x = t + kt),
+                (o.y = e + s - kt),
+                (r.x = t + i - kt),
+                (r.y = e + s - kt);
+            }
+            render(t) {
+              this.renderHp(t);
+              const {
+                alive: e,
+                dieScatter: i,
+                x: s,
+                y: a,
+                sprite: o,
+                moving: r,
+                dx: h,
+                dy: l,
+                width: c,
+                height: u,
+              } = this;
+              if (e) {
+                if (r !== n) {
+                  t.fillStyle = "black";
+                  let e = (s - h + 2) % 200,
+                    i = (a - l + 2) % 200,
+                    n = s + c / 2,
+                    o = a + u / 2;
+                  t.fillRect(n, o, e, i),
+                    t.fillRect(n + 5, o + 5, e, i),
+                    t.fillRect(n + -5, o + -5, e, i);
+                }
+                o.pos(s, a), o.render(t);
+              } else i.render(t);
+            }
+            renderHp(t) {
+              (t.fillStyle = T), t.fillRect(0, 0, this.hp, 5);
+            }
+          };
+          function Bt(t, e, i = 1) {
+            let s = e[0].x,
+              n = e[1].x,
+              a = e[0].y,
+              o = e[1].y;
+            return (
+              s > n && ([s, n] = [n, s]),
+              a > o && ([a, o] = [o, a]),
+              t.x >= s - i && t.x <= n + i && t.y >= a - i && t.y <= o + i
+            );
+          }
+          function At(t, e) {
+            let i = t[1].y - t[0].y,
+              s = t[0].x - t[1].x,
+              n = i * t[0].x + s * t[0].y,
+              a = e[1].y - e[0].y,
+              o = e[0].x - e[1].x,
+              r = a * e[0].x + o * e[0].y,
+              h = i * o - a * s;
+            if (0 !== h) {
+              let l = { x: (o * n - s * r) / h, y: (i * r - a * n) / h };
+              if (Bt(l, t, 1) && Bt(l, e, 1)) return l;
+            }
+          }
+          function qt(t, e, i) {
+            if (!e) return i;
+            const s = t.x - e.x,
+              n = t.y - e.y,
+              a = s * s + n * n,
+              o = t.x - i.x,
+              r = t.y - i.y;
+            return a > o * o + r * r ? i : e;
+          }
+          var Rt = class {
+            constructor(t, e, i, s, n) {
+              (this.origin = { x: t, y: e }),
+                (this.mapEdges = i),
+                (this.angleDeg = s),
+                (this.radius = n);
+            }
+            getIntersectionRange(t) {
+              let e = null,
+                i = null;
+              const { rayEnds: s, origin: n } = this;
+              return (
+                s.forEach((s) => {
+                  t.forEach((t) => {
+                    let a = At([n, s], t);
+                    a && i && (i = a), a && !e && ((e = a), (i = a));
+                  });
+                }),
+                e ? [e, i] : null
+              );
+            }
+            update(t, e, i) {
+              const { origin: s, angleDeg: n, radius: a, mapEdges: o } = this;
+              (s.x = t), (s.y = e);
+              const r = i + n / 2;
+              let h = 0,
+                l = i - n / 2;
+              for (
+                this.rayEnds = [], this.rayEnds.length = (n / 2) | 0;
+                l < r;
+
+              ) {
+                const t = L(l),
+                  e = { x: s.x + Math.cos(t) * a, y: s.y + Math.sin(t) * a };
+                o.forEach((t) => {
+                  const i = At([s, e], [t.start, t.end]);
+                  this.rayEnds[h] = qt(s, this.rayEnds[h], i || e);
+                }),
+                  (l += 2),
+                  h++;
+              }
+            }
+            render(t) {
+              const { origin: e, rayEnds: i } = this;
+              (t.fillStyle = v),
+                t.beginPath(),
+                t.moveTo(e.x, e.y),
+                i.forEach((e) => e && t.lineTo(e.x, e.y)),
+                t.closePath(),
+                t.fill();
+            }
+          };
+          function Pt(t, e, i) {
+            for (let s = 0; s < 5; s++)
+              J(t, e, i, e + W(-10, 10), i + W(-10, 10));
+          }
+          var _t = class extends It {
+            constructor(t, e, i, s, n) {
+              super(t, e, 32, 32, 0.5, 0.1, i),
+                z(this, {
+                  body: new St(S, 3, t, e, 32, 72),
+                  head: new St(C, 1, t, e, 32, 16),
+                  dieScatter: new Ct(20),
+                  bulletTimer: 0,
+                  offset: 0,
+                  frameTime: 0,
+                  cmd: s,
+                  cmdFullFill: !1,
+                  cmdIndex: 0,
+                  timer: 0,
+                  player: n.player,
+                  vision: new Rt(t, e, i.edges, 30, 1e3),
+                }),
+                (this.head.offsetY = 8),
+                (this.head.offsetX = 5);
+            }
+            initialSetup({ offset: t }) {
+              this.offset = t;
+            }
+            update(t) {
+              if (!this.alive) return void this.dieScatter.update(t);
+              super.update(t);
+              const {
+                player: e,
+                width: i,
+                height: s,
+                x: n,
+                y: a,
+                vision: o,
+                dieScatter: r,
+              } = this;
+              n < e.x + e.width &&
+                n + i > e.x &&
+                a < e.y + e.height &&
+                a + s > e.y &&
+                (Ft.play(k), (this.alive = !1), r.generate(n, a)),
+                this.updateSprite(t),
+                o.update(n + i / 2, a, this.offset);
+              const h = o.getIntersectionRange(e.edges);
+              if (h && e.alive) {
+                const t = (h[0].x + h[1].x) / 2,
+                  s = (h[0].y + h[1].y) / 2,
+                  o = L(this.offset),
+                  r = e.y + e.height / 2 - a,
+                  l = e.x + e.width / 2 - n - this.width / 2;
+                (this.offset = (function (t) {
+                  return (180 * t) / V;
+                })(Math.atan2(r, l))),
+                  (this.ox = n + i / 2 + 21 * Math.cos(o)),
+                  (this.oy = a + 7 + 21 * Math.sin(o)),
+                  (this.tx = t),
+                  (this.ty = s),
+                  this.bulletTimer <= 0 && (this.bulletTimer = 5),
+                  e.attacked();
+              } else this.updateViaCmd(t);
+              this.bulletTimer > 0
+                ? (this.bulletTimer -= t)
+                : (this.bulletTimer = 0);
+            }
+            updateSprite(t) {
+              const { head: e, offset: i, body: s, x: n, y: a } = this;
+              let o = i % 360;
+              o > 0 && (o -= 360),
+                o < -90 && o >= -270
+                  ? ((e.angleDeg = o + 180),
+                    (e.isFlipH = !1),
+                    (s.isFlipH = !1),
+                    (s.offsetX = 0))
+                  : ((e.angleDeg = o),
+                    (e.isFlipH = !0),
+                    (s.isFlipH = !0),
+                    (s.offsetX = 5)),
+                (this.frameTime += t),
+                this.frameTime > 10 && ((this.frameTime = 0), s.frame++),
+                (s.frame %= 3),
+                s.pos(n, a + 8),
+                e.pos(n, a - 4);
+            }
+            updateViaCmd(t) {
+              const { cmd: e, x: i, y: s } = this,
+                { action: a, until: o } = e[this.cmdIndex];
+              a === n
+                ? ((this.timer += t), (this.cmdFullFill = this.timer > o.time))
+                : a === h || a === r
+                ? ((this.cmdFullFill = i === 16 * o.x),
+                  this.moveUntil(a, 16 * o.x, s))
+                : (a !== l && a !== c) ||
+                  ((this.offset += o.offset - this.offset < 0 ? -1 : 1),
+                  (this.cmdFullFill = (function (t, e) {
+                    return H(t - e) <= 2;
+                  })(this.offset, o.offset)),
+                  this.cmdFullFill && (this.offset = o.offset)),
+                this.cmdFullFill &&
+                  ((this.timer = 0),
+                  (this.cmdFullFill = !1),
+                  this.cmdIndex++,
+                  (this.cmdIndex %= e.length));
+            }
+            render(t, e) {
+              const {
+                alive: i,
+                dieScatter: s,
+                vision: n,
+                head: a,
+                body: o,
+              } = this;
+              i
+                ? (a.render(t), o.render(t), this.renderBullet(t), n.render(e))
+                : s.render(t);
+            }
+            renderBullet(t) {
+              const { bulletTimer: e, ox: i, oy: s, tx: n, ty: a } = this;
+              e > 0 &&
+                (t.beginPath(),
+                (t.strokeStyle = b),
+                Pt(t, i, s),
+                J(t, i, s, n, a),
+                Pt(t, n, a),
+                t.stroke());
+            }
+          };
+          const Mt = { 38: a, 40: o, 37: r, 39: h, 13: s };
+          let Nt = {},
+            Ot = !1;
+          document.addEventListener("keydown", (t) => {
+            t.preventDefault();
+            const e = Mt[t.keyCode];
+            Nt[e] && Nt[e]();
+          });
+          var Gt = function (t) {
+            Ot || z(Nt, t);
+          };
+          const jt = {
+            A: [
+              [, 1],
+              [1, , 1],
+              [1, , 1],
+              [1, 1, 1],
+              [1, , 1],
+            ],
+            B: [
+              [1, 1],
+              [1, , 1],
+              [1, 1, 1],
+              [1, , 1],
+              [1, 1],
+            ],
+            C: [[1, 1, 1], [1], [1], [1], [1, 1, 1]],
+            D: [
+              [1, 1],
+              [1, , 1],
+              [1, , 1],
+              [1, , 1],
+              [1, 1],
+            ],
+            E: [[1, 1, 1], [1], [1, 1, 1], [1], [1, 1, 1]],
+            F: [[1, 1, 1], [1], [1, 1], [1], [1]],
+            G: [[, 1, 1], [1], [1, , 1, 1], [1, , , 1], [, 1, 1]],
+            H: [
+              [1, , 1],
+              [1, , 1],
+              [1, 1, 1],
+              [1, , 1],
+              [1, , 1],
+            ],
+            I: [
+              [1, 1, 1],
+              [, 1],
+              [, 1],
+              [, 1],
+              [1, 1, 1],
+            ],
+            J: [
+              [1, 1, 1],
+              [, , 1],
+              [, , 1],
+              [1, , 1],
+              [1, 1, 1],
+            ],
+            K: [
+              [1, , , 1],
+              [1, , 1],
+              [1, 1],
+              [1, , 1],
+              [1, , , 1],
+            ],
+            L: [[1], [1], [1], [1], [1, 1, 1]],
+            M: [
+              [1, 1, 1, 1, 1],
+              [1, , 1, , 1],
+              [1, , 1, , 1],
+              [1, , , , 1],
+              [1, , , , 1],
+            ],
+            N: [
+              [1, , , 1],
+              [1, 1, , 1],
+              [1, , 1, 1],
+              [1, , , 1],
+              [1, , , 1],
+            ],
+            O: [
+              [1, 1, 1],
+              [1, , 1],
+              [1, , 1],
+              [1, , 1],
+              [1, 1, 1],
+            ],
+            P: [[1, 1, 1], [1, , 1], [1, 1, 1], [1], [1]],
+            Q: [
+              [0, 1, 1],
+              [1, , , 1],
+              [1, , , 1],
+              [1, , 1, 1],
+              [1, 1, 1, 1],
+            ],
+            R: [
+              [1, 1],
+              [1, , 1],
+              [1, , 1],
+              [1, 1],
+              [1, , 1],
+            ],
+            S: [[1, 1, 1], [1], [1, 1, 1], [, , 1], [1, 1, 1]],
+            T: [
+              [1, 1, 1],
+              [, 1],
+              [, 1],
+              [, 1],
+              [, 1],
+            ],
+            U: [
+              [1, , 1],
+              [1, , 1],
+              [1, , 1],
+              [1, , 1],
+              [1, 1, 1],
+            ],
+            V: [
+              [1, , , , 1],
+              [1, , , , 1],
+              [, 1, , 1],
+              [, 1, , 1],
+              [, , 1],
+            ],
+            W: [
+              [1, , , , 1],
+              [1, , , , 1],
+              [1, , , , 1],
+              [1, , 1, , 1],
+              [1, 1, 1, 1, 1],
+            ],
+            X: [
+              [1, , , , 1],
+              [, 1, , 1],
+              [, , 1],
+              [, 1, , 1],
+              [1, , , , 1],
+            ],
+            Y: [
+              [1, , 1],
+              [1, , 1],
+              [, 1],
+              [, 1],
+              [, 1],
+            ],
+            Z: [
+              [1, 1, 1, 1, 1],
+              [, , , 1],
+              [, , 1],
+              [, 1],
+              [1, 1, 1, 1, 1],
+            ],
+            0: [
+              [1, 1, 1],
+              [1, , 1],
+              [1, , 1],
+              [1, , 1],
+              [1, 1, 1],
+            ],
+            1: [
+              [, 1],
+              [, 1],
+              [, 1],
+              [, 1],
+              [, 1],
+            ],
+            2: [
+              [1, 1, 1],
+              [0, 0, 1],
+              [1, 1, 1],
+              [1, 0, 0],
+              [1, 1, 1],
+            ],
+            3: [
+              [1, 1, 1],
+              [0, 0, 1],
+              [1, 1, 1],
+              [0, 0, 1],
+              [1, 1, 1],
+            ],
+            4: [
+              [1, 0, 1],
+              [1, 0, 1],
+              [1, 1, 1],
+              [0, 0, 1],
+              [0, 0, 1],
+            ],
+            5: [
+              [1, 1, 1],
+              [1, 0, 0],
+              [1, 1, 1],
+              [0, 0, 1],
+              [1, 1, 1],
+            ],
+            6: [
+              [1, 1, 1],
+              [1, 0, 0],
+              [1, 1, 1],
+              [1, 0, 1],
+              [1, 1, 1],
+            ],
+            7: [
+              [1, 1, 1],
+              [0, 0, 1],
+              [0, 0, 1],
+              [0, 0, 1],
+              [0, 0, 1],
+            ],
+            8: [
+              [1, 1, 1],
+              [1, 0, 1],
+              [1, 1, 1],
+              [1, 0, 1],
+              [1, 1, 1],
+            ],
+            9: [
+              [1, 1, 1],
+              [1, 0, 1],
+              [1, 1, 1],
+              [0, 0, 1],
+              [1, 1, 1],
+            ],
+            " ": [
+              [, ,],
+              [, ,],
+              [, ,],
+              [, ,],
+              [, ,],
+            ],
+          };
+          function Ht(t, e, i, s, n) {
+            var a = [];
+            e = e.toUpperCase();
+            for (var o = 0; o < e.length; o++) {
+              var r = jt[e.charAt(o)];
+              r && a.push(r);
+            }
+            t.fillStyle = "white";
+            var h = s;
+            for (o = 0; o < a.length; o++) {
+              r = a[o];
+              for (var l = n, c = 0, u = 0; u < r.length; u++) {
+                for (var f = r[u], y = 0; y < f.length; y++)
+                  f[y] && t.fillRect(h + y * i, l, i, i);
+                (c = Math.max(c, f.length * i)), (l += i);
+              }
+              h += i + c;
+            }
+          }
+          var Vt = class {
+              constructor(t, e, i, s) {
+                (this.text = t),
+                  (this.progress = 0),
+                  (this.time = 1),
+                  (this.x = e),
+                  (this.y = i),
+                  (this.size = s),
+                  (this.fullFill = !1);
+              }
+              init() {
+                (this.fullFill = !1), (this.progress = 0), (this.time = 2);
+              }
+              update(t) {
+                (this.time -= t),
+                  this.time < 0 &&
+                    (this.progress++,
+                    this.progress > this.text.length &&
+                      ((this.progress = this.text.length),
+                      (this.fullFill = !0)),
+                    (this.time = 2));
+              }
+              render(t) {
+                Ht(
+                  t,
+                  this.text.substr(0, this.progress),
+                  this.size,
+                  this.x,
+                  this.y
+                );
+              }
+            },
+            Wt = 440 * Math.pow(Math.pow(2, 1 / 12), -9),
+            Ut = /^[0-9.]+$/,
+            Xt = /\s+/,
+            Yt = /(\d+)/,
+            Lt = {};
+          function $t(t) {
+            var e = t.split(Xt);
+            (this.frequency = $t.getFrequency(e[0]) || 0),
+              (this.duration = $t.getDuration(e[1]) || 0);
+          }
+          function zt(t, e, i) {
+            (this.ac = t || new AudioContext()),
+              this.createFxNodes(),
+              (this.tempo = e || 120),
+              (this.loop = !0),
+              (this.smoothing = 0),
+              (this.staccato = 0),
+              (this.notes = []),
+              this.push.apply(this, i || []);
+          }
+          "B#-C|C#-Db|D|D#-Eb|E-Fb|E#-F|F#-Gb|G|G#-Ab|A|A#-Bb|B-Cb"
+            .split("|")
+            .forEach(function (t, e) {
+              t.split("-").forEach(function (t) {
+                Lt[t] = e;
+              });
+            }),
+            ($t.getFrequency = function (t) {
+              var e = t.split(Yt),
+                i = Lt[e[0]],
+                s = (e[1] || 4) - 4;
+              return Wt * Math.pow(Math.pow(2, 1 / 12), i) * Math.pow(2, s);
+            }),
+            ($t.getDuration = function (t) {
+              return Ut.test(t)
+                ? parseFloat(t)
+                : t
+                    .toLowerCase()
+                    .split("")
+                    .reduce(function (t, e) {
+                      return (
+                        t +
+                        ("w" === e
+                          ? 4
+                          : "h" === e
+                          ? 2
+                          : "q" === e
+                          ? 1
+                          : "e" === e
+                          ? 0.5
+                          : "s" === e
+                          ? 0.25
+                          : 0)
+                      );
+                    }, 0);
+            }),
+            (zt.prototype.createFxNodes = function () {
+              var t = (this.gain = this.ac.createGain());
+              return (
+                [
+                  ["bass", 100],
+                  ["mid", 1e3],
+                  ["treble", 2500],
+                ].forEach(
+                  function (e, i) {
+                    ((i = this[e[0]] = this.ac.createBiquadFilter()).type =
+                      "peaking"),
+                      (i.frequency.value = e[1]),
+                      t.connect((t = i));
+                  }.bind(this)
+                ),
+                t.connect(this.ac.destination),
+                this
+              );
+            }),
+            (zt.prototype.push = function () {
+              return (
+                Array.prototype.forEach.call(
+                  arguments,
+                  function (t) {
+                    this.notes.push(t instanceof $t ? t : new $t(t));
+                  }.bind(this)
+                ),
+                this
+              );
+            }),
+            (zt.prototype.createCustomWave = function (t, e) {
+              e || (e = t),
+                (this.waveType = "custom"),
+                (this.customWave = [new Float32Array(t), new Float32Array(e)]);
+            }),
+            (zt.prototype.createOscillator = function () {
+              return (
+                this.stop(),
+                (this.osc = this.ac.createOscillator()),
+                this.customWave
+                  ? this.osc.setPeriodicWave(
+                      this.ac.createPeriodicWave.apply(this.ac, this.customWave)
+                    )
+                  : (this.osc.type = this.waveType || "square"),
+                this.osc.connect(this.gain),
+                this
+              );
+            }),
+            (zt.prototype.scheduleNote = function (t, e) {
+              var i = (60 / this.tempo) * this.notes[t].duration,
+                s = i * (1 - (this.staccato || 0));
+              return (
+                this.setFrequency(this.notes[t].frequency, e),
+                this.smoothing &&
+                  this.notes[t].frequency &&
+                  this.slide(t, e, s),
+                this.setFrequency(0, e + s),
+                e + i
+              );
+            }),
+            (zt.prototype.getNextNote = function (t) {
+              return this.notes[t < this.notes.length - 1 ? t + 1 : 0];
+            }),
+            (zt.prototype.getSlideStartDelay = function (t) {
+              return t - Math.min(t, (60 / this.tempo) * this.smoothing);
+            }),
+            (zt.prototype.slide = function (t, e, i) {
+              var s = this.getNextNote(t),
+                n = this.getSlideStartDelay(i);
+              return (
+                this.setFrequency(this.notes[t].frequency, e + n),
+                this.rampFrequency(s.frequency, e + i),
+                this
+              );
+            }),
+            (zt.prototype.setFrequency = function (t, e) {
+              return this.osc.frequency.setValueAtTime(t, e), this;
+            }),
+            (zt.prototype.rampFrequency = function (t, e) {
+              return this.osc.frequency.linearRampToValueAtTime(t, e), this;
+            }),
+            (zt.prototype.play = function (t) {
+              return (
+                (t = "number" == typeof t ? t : this.ac.currentTime),
+                this.createOscillator(),
+                this.osc.start(t),
+                this.notes.forEach(
+                  function (e, i) {
+                    t = this.scheduleNote(i, t);
+                  }.bind(this)
+                ),
+                this.osc.stop(t),
+                (this.osc.onended = this.loop ? this.play.bind(this, t) : null),
+                this
+              );
+            }),
+            (zt.prototype.stop = function () {
+              return (
+                this.osc &&
+                  ((this.osc.onended = null),
+                  this.osc.disconnect(),
+                  (this.osc = null)),
+                this
+              );
+            });
+          var Jt = { Note: $t, Sequence: zt };
+          const Kt = new AudioContext(),
+            Qt = new Jt.Sequence(Kt, 240, [
+              "Gb4  w",
+              "B3  h",
+              "Db4  h",
+              "D4  e",
+              "E4  e",
+              "D4  e",
+              "C4  h",
+              "B3  h",
+              "Gb4  w",
+              "B3  h",
+              "Db4  h",
+              "D4  e",
+              "E4  e",
+              "D4  e",
+              "F4  h",
+              "G4  h",
+              "Gb4  w",
+              "B3  h",
+              "Db4  h",
+              "D4  e",
+              "E4  e",
+              "D4  e",
+              "C4  h",
+              "B3  h",
+              "Gb4  w",
+              "G4  h",
+              "F4  h",
+              "E4  w",
+              "D4  h",
+              "E4  h",
+            ]);
+          Qt.createCustomWave([-2, 2, 0.8]),
+            (Qt.loop = !0),
+            (Qt.gain.gain.value = 0.1),
+            (Qt.waveType = "square");
+          var Zt = new (class {
+            constructor() {}
+            init() {
+              (this.canvas = (function (t) {
+                return document.getElementById(t);
+              })("canvas")),
+                (this.canvas.width = y),
+                (this.canvas.height = y),
+                (this.ctx = this.canvas.getContext("2d"));
+              const t = X(y, y);
+              (this.novCanvas = t.canvas),
+                (this.novCtx = t.context),
+                (this.readyTexts = [
+                  new Vt("This is the Ninja Forest", q, R, _),
+                  new Vt("Invaders have entered", q, R + P, _),
+                  new Vt("they have brought a gun cowardly", q, R + 2 * P, _),
+                  new Vt("Get rid of them in the dark", q, R + 3 * P, _),
+                ]),
+                (this.readyTextIdx = -1),
+                (this.overText = new Vt("you lose", 200, 200, M)),
+                (this.clearText = new Vt("clear", 220, 200, M)),
+                (this.allClearTexts = [
+                  new Vt("No enemies are left", q, R, 3),
+                  new Vt("The forest is safe", q, R + P, _),
+                  new Vt("You win", q, R + 2 * P, _),
+                  new Vt("Thanks for playing", q, R + 3 * P, _),
+                ]),
+                (this.allClearTextIdx = 0),
+                (this.pressEnterShowTime = 40),
+                (this.nextEnable = !0),
+                (this.nextms = 0),
+                (this.state = d),
+                (this.stageNum = 1),
+                (this.isSongPlaying = !1),
+                Ft.loadImages([I, C, S]),
+                Ft.loadAudios([D, k, B]),
+                (this.map = new ut(this.ctx)),
+                (this.player = new Dt(y / 2 - 16, y - 32, this.map)),
+                Gt({
+                  [s]: () => {
+                    if (this.nextEnable)
+                      switch (this.state) {
+                        case d:
+                          this.isSongPlaying ||
+                            ((this.isSongPlaying = !0), Qt.play()),
+                            this.readyTextIdx < this.readyTexts.length - 1
+                              ? ((this.nextEnable = !1), this.readyTextIdx++)
+                              : ((this.nextEnable = !1),
+                                (this.readyTextIdx =
+                                  this.readyTexts.length - 1),
+                                this.load(this.stageNum),
+                                (this.state = p));
+                          break;
+                        case p:
+                          break;
+                        case g:
+                          this.load(this.stageNum), (this.state = p);
+                          break;
+                        case m:
+                          this.stageNum++,
+                            this.load(this.stageNum),
+                            (this.state = p);
+                          break;
+                        case w:
+                          this.init();
+                      }
+                  },
+                });
+            }
+            load(t) {
+              const { player: e, map: i } = this,
+                s = vt(t);
+              i.load(s.map),
+                e.init(s.player.x * u, s.player.y * u),
+                (this.enemies = s.enemies.map(
+                  ({ x: t, y: e, cmd: s, init: n = null }) => {
+                    const a = new _t(t * u, e * u, i, s, this);
+                    return n && a.initialSetup(n), a;
+                  }
+                )),
+                Gt({
+                  [a]: () => e.move(a),
+                  [o]: () => e.move(o),
+                  [r]: () => e.move(r),
+                  [h]: () => e.move(h),
+                });
+            }
+            update(t) {
+              const { player: e, enemies: i, state: s } = this;
+              e.update(t),
+                i.forEach((e) => e.update(t)),
+                i.every((t) => !t.alive) && s === p && this.stageClear(),
+                e.hp <= 0 && s === p && this.gameOver();
+            }
+            start() {
+              window.requestAnimationFrame(this.render.bind(this));
+            }
+            renderReady(t) {
+              const { ctx: e, map: i, player: s } = this;
+              e.clearRect(0, 0, y, y),
+                i.renderReady(e),
+                s.render(e),
+                Ht(e, "Back Attacker", 8, 50, 100);
+            }
+            renderPlaying(t) {
+              const {
+                ctx: e,
+                map: i,
+                player: s,
+                novCtx: n,
+                enemies: a,
+                novCanvas: o,
+              } = this;
+              e.clearRect(0, 0, y, y),
+                i.render(e),
+                s.render(e),
+                n.clearRect(0, 0, y, y),
+                (n.fillStyle = "rgba(0,0,0,0.4)"),
+                n.fillRect(0, 0, y, y),
+                a.forEach((t) => t.render(e, n)),
+                e.save(),
+                (e.globalCompositeOperation = "darken"),
+                e.drawImage(o, 0, 0),
+                e.restore();
+            }
+            updateText(t) {
+              const {
+                state: e,
+                readyTextIdx: i,
+                readyTexts: s,
+                overText: n,
+                clearText: a,
+                allClearTexts: o,
+              } = this;
+              if (e === d)
+                for (let e = 0; e <= i; e++)
+                  s[e].update(t), s[i].fullFill && (this.nextEnable = !0);
+              else if (e === g)
+                n.update(t), n.fullFill && (this.nextEnable = !0);
+              else if (e === m)
+                a.update(t), a.fullFill && (this.nextEnable = !0);
+              else if (e === w)
+                for (let e = 0, i = this.allClearTextIdx; e <= i; e++)
+                  o[e].update(t),
+                    o[this.allClearTextIdx].fullFill &&
+                      this.allClearTextIdx < o.length - 1 &&
+                      this.allClearTextIdx++,
+                    o[o.length - 1].fullFill && (this.nextEnable = !0);
+              this.pressEnterShowTime--,
+                this.pressEnterShowTime < 0 && (this.pressEnterShowTime = 40);
+            }
+            renderText(t) {
+              const {
+                  state: e,
+                  readyTexts: i,
+                  readyTextIdx: s,
+                  overText: n,
+                  clearText: a,
+                  pressEnterShowTime: o,
+                  allClearTexts: r,
+                  allClearTextIdx: h,
+                } = this,
+                l = o > 20;
+              if (e === d) {
+                for (let e = 0; e <= s; e++) i[e].render(t);
+                l &&
+                  Ht(
+                    t,
+                    N + (s === i.length - 1 ? " to start" : ""),
+                    2,
+                    s === i.length - 1 ? 180 : 200,
+                    220 + 30 * s
+                  );
+              } else if (e === g)
+                n.render(t), l && Ht(t, N + " to retry", 2, 180, 250);
+              else if (e === m)
+                a.render(t), l && Ht(t, N + " to next", 2, 180, 250);
+              else if (e === w) for (let e = 0; e <= h; e++) r[e].render(t);
+            }
+            render(t) {
+              const { state: e, ctx: i } = this;
+              let s = ((t - this.nextms) / 1e3) * 60;
+              (this.nextms = t),
+                this.updateText(s),
+                e === d
+                  ? this.renderReady(t)
+                  : (this.update(s), this.renderPlaying(t)),
+                this.renderText(i),
+                window.requestAnimationFrame(this.render.bind(this));
+            }
+            gameOver() {
+              this.overText.init(), (this.state = g);
+            }
+            stageClear() {
+              (this.nextEnable = !1),
+                this.clearText.init(),
+                (this.state = this.stageNum >= A ? w : m);
+            }
+          })();
+          Zt.init(), Zt.start();
+        },
+      ]);
+    </script>
+  </body>
+</html>

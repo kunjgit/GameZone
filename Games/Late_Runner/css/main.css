@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111111;
+    overflow:hidden;
+    position:relative;
+    font-family: courier;
+    color: #FFF;
+}
+
+#canvasContainer {
+    position:absolute;
+    top:50%;
+    left:50%;
+    max-width:770px;
+    max-height:200px;
+    width: 100%;
+    height: 100%;
+}
+
+#timer {
+    position:absolute;
+    color:#000;
+    display: inline-block;
+}
+
+#subtitles {
+    text-align:center;
+    margin-top:10px;
+}

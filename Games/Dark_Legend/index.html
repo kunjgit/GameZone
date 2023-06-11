@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Dark Legend</title>
+        <style>
+        html {
+         background-color: black;
+         color: white;
+            
+        }
+        .gamediv {
+            position: relative;
+            width: 640px;
+            height: 480px;
+            margin: 0 auto;
+        }
+
+        .gamediv canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+            
+        .gamediv #background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #66664B;
+        }
+        </style>
+    </head>
+    <body>
+        <h3 align="center">Dark Legend</h3>
+        <div class="gamediv">
+            <div id="background" width="640" height="480"></div>
+            <canvas id="game" width="640" height="480">Please update to a browser that supports canvas.</canvas>
+            <canvas id="darkness" width="640" height="480">Please update to a browser that supports canvas.</canvas>
+        </div>
+        <div>
+            <p>A portal to the dark realm has opened releasing a hoard of shadowy demons and plunges the world into eternal darkness.  These creatures are weak to light which turns your flashlight into a weapon.  However your flashlight has limited batteries and using it messes with your eyes adjustment to this perpetual darkness.  So use with care and survive as long as you can.  The game ends when you run out of battery for your flashlight.</p>
+            <strong>Controls</strong>
+            <ul>
+                <li>WASD - Movement</li>
+                <li>F - Flashlight Toggle</li>
+                <li>T - Place a torch</li>
+            </ul>
+        </div>
+        <script src="game-min.js" lang="javascript">         
+        </script>
+    </body>
+</html>

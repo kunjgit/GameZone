@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <title>Life of Blobb</title>
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                background-color: #000;
+            }
+
+            #c {
+                border: 3px solid #fff;
+                position: absolute;;
+                top: 50%;
+                left: 50%;
+            }
+
+            .dialog {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 500px;
+                height: 700px;
+                margin: -350px 0 0 -250px;
+                border: 8px solid #394344;
+                background-color: rgba(64,75,77,0.98);
+                font-family: Arial, sans-serif;
+                color: #fff;
+            }
+
+            h1 {
+                text-align: center;
+                color: #f2f2f2;
+                position: relative;
+            }
+
+            h1 .blob {
+                position: absolute;
+                background-color: #ea4a18;
+                border: 3px solid #ffac2c;
+                width: 14px;
+                height: 14px;
+                left: 50%;
+                margin: 12px 0 0 40px;
+            }
+
+            #info {
+                text-align: center;
+            }
+
+            #info strong {
+                color: #ea4a18;
+            }
+
+            #info em {
+                color: #ffac2c;
+                font-style: normal;
+            }
+
+            #scores {
+                text-align: center;
+            }
+
+            .levels {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .levels > li {
+                background-color: #ffac2c;
+                font-weight: bold;
+                width: 20px;
+                height: 20px;
+                margin: 0 0 17px 295px;
+                border: 3px solid #ea4a18;
+                border-radius: 50%;
+                position: relative;
+            }
+
+            .levels > li:before {
+                content: "";
+                display: block;
+                width: 1px;
+                height: 18px;
+                position: absolute;
+                bottom: 22px;
+                left: 8px;
+                border-left: 3px solid #ea4a18;
+            }
+
+            .levels > .unavailable:before {
+                border-left-color: #fff;
+            }
+
+            .levels > li:first-child:before {
+                display: none;
+            }
+
+            .levels > .reached:hover {
+                background-image:url("flare.png");
+                border: 3px solid #ffac2c;
+            }
+
+            .levels > .unavailable {
+                background-color: #333;
+                border-color: #82c0cf;
+            }
+
+            .levels .description {
+                position: absolute;
+                left: -270px;
+                font-size: 12px;
+                line-height: 13px;
+                width: 245px;
+                padding: 4px 110px 4px 10px;
+                text-align: right;
+                color: #ea4a18;
+                cursor: default;
+            }
+
+            .levels .reached .description:hover {
+                cursor: pointer;
+                color: #fff;
+            }
+
+            .levels .score {
+                position: absolute;
+                right: 0;
+                font-size: 14px;
+                color: #ff931e;
+            }
+
+            .blob {
+                border: 3px solid #fff;
+                border-radius: 50%;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .blob-cell {
+                width: 70px;
+                height: 70px;
+                line-height: 70px;
+                display: inline-block;
+                text-align: center;
+                position: relative;
+                vertical-align: middle;
+            }
+
+            .tiny {
+                height: 20px;
+                width: 20px;
+                background-color: #99f;
+            }
+
+            .perfect {
+                height: 40px;
+                width: 40px;
+                background-color: #ccc;
+            }
+
+            .huge {
+                height: 60px;
+                width: 60px;
+                background-color: #f99;
+            }
+
+            .blob:before {
+                display: block;
+                font-size: 16px;
+                line-height: 20px;
+                text-align: center;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                border: 1px solid #ccc;
+                bottom: 0;
+                left: 0;
+            }
+
+            .tiny:before,
+            .huge:before {
+                content: "\2716";
+                background-color: #ea4a18;
+            }
+
+            .perfect:before {
+                content: "\2714";
+                background-color: #00ee00;
+            }
+
+            .weakling {
+                margin: 5px 0 0 9px;
+                height: 16px;
+                width: 16px;
+                background-color: #317393;
+                border-color: #82c0cf;
+            }
+
+            .toughling {
+                height: 32px;
+                width: 32px;
+                background-color: #ea4a18;
+                border-color: #ffac2c;
+            }
+
+            .pill {
+                height: 16px;
+                width: 16px;
+                margin: 7px 0 0 12px;
+                border-width: 0;
+                background-color: #00aa00;
+            }
+
+            .pill .inner {
+                width: 8px;
+                height: 16px;
+                display: inline-block;
+                vertical-align: top;
+                background-color: #00ee00;
+                border-radius: 50% 0 0 50%;
+            }
+
+            .wall .left, .wall .right {
+                display: inline-block;
+                height: 20px;
+                border: 1px solid #ffac2c;
+                background-color: #ea4a18;
+            }
+
+            .wall .left {
+                width: 65%;
+            }
+
+            .wall .right {
+                margin: 0 0 0 7%;
+                width: 27%;
+            }
+
+            .left-info {
+                padding-left: 145px;
+                line-height: 32px;
+                text-align: left;
+            }
+
+            .left-info .blob {
+                position: absolute;
+                left: 80px;
+            }
+
+            button {
+                color: #fff;
+                background-color: #ea4a18;
+                border: 3px solid #ffac2c;
+                border-radius: 5px;
+                padding: 0 1em;
+                font: bold 16px/32px Arial, sans-serif;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #ff6432;
+            }
+
+            button:active {
+                background-color: #b71700;
+            }
+
+        </style>
+    </head>
+    <body>
+        <canvas id="c"></canvas>
+
+        <div id="info" class="dialog">
+            <h1>Life of Blobb<span class="blob"></span></h1>
+
+            <p>Finish levels in <em>the perfect size</em>:</p>
+            <p>
+                <span class="blob-cell"><span class="tiny blob"></span></span>
+                <span class="blob-cell"><span class="perfect blob"></span></span>
+                <span class="blob-cell"><span class="huge blob"></span></span>
+            </p>
+            <p class="left-info">
+                <span class="toughling blob"></span>
+                Beware of toughlings who <em>consume you</em>
+            </p>
+            <p class="left-info">
+                <span class="weakling blob"></span>
+                Consume weaklings to <em>become bigger</em>
+            </p>
+            <p class="left-info">
+                <span class="pill blob"><span class="inner"></span></span>
+                Pills <em>split you in half</em>
+            </p>
+            <div class="wall"><div class="left"></div><div class="right"></div></div>
+            <p style="margin-bottom: 2em">Walls <em>kill you instantly</em>, so go through the <em>gap</em></p>
+            <p><em>Score points</em> by <em>growing and shrinking</em> Blobb</p>
+            <p>Finish levels faster to earn <em>bonus points</em></p>
+
+            <p>Move with <strong>arrow keys</strong> or <strong>ASDW</strong>.</p>
+            <p>Show the <em>high scores</em> with <strong>Esc / P</strong></p>
+            <p>Show this <em>info screen</em> with <strong>I</strong>.</p>
+
+            <p><button id="play"><u>P</u>lay</button></p>
+        </div>
+
+        <script src="klass.min.js"></script>
+        <script src="game.js"></script>
+        <script>
+            game.init(document.getElementById("c"));
+        </script>
+    </body>
+</html>
+

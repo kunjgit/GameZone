@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes">
+<title>Incredibird</title>
+<style type="text/css">
+	html, body {
+		margin: 0;
+		padding: 0;
+		overflow:hidden;
+		width:100%;
+		height:100%;
+		background: #eee;
+		font-family: "helvetica neue", helvetica, arial, sans-serif;
+		line-height: 1.4;
+		font-size: 32px;
+	}
+	
+	input {
+		-webkit-appearance: none;
+		-webkit-border-radius: 0;
+	}
+	canvas {
+	    image-rendering: optimizeSpeed;
+	    image-rendering: -moz-cr-edges;
+	    image-rendering: -webkit-optimize-contrast;
+	    image-rendering: -o-cr-edges; 
+	    image-rendering: cr-edges;
+	    -ms-interpolation-mode: nearest-neighbor; 
+	}
+	
+	#canvasContainer {
+		background : yellow;
+		display:table-cell;
+		top: 0;
+		bottom: 0;
+		margin:auto;
+	}
+
+	#maxiCanvas {
+		display: none;
+	}
+	
+	canvas {
+		display: block;
+		margin: auto;
+		width:100%;
+		height:93%;
+	}
+
+	.buttons {
+		display: table-cell;
+		background: #9bbc0f;
+		width:15%;
+		vertical-align: middle;
+	}
+
+	.button {
+		width: 90%;
+		margin:auto;
+		height: 20%;
+		margin-top: 1vh;
+		margin-bottom:1vh;
+		border-radius: 3px;
+	}
+	
+	#statsbar {
+		width: 100%;
+		height: 7%;
+		display:block;
+		margin:auto;
+		text-align: center;
+	}
+	
+	#wrapper {
+		width: 228.5px;
+		height : 154px;
+		display: table;
+		margin:auto;
+		margin-top:10px;
+		box-shadow: 1px 1px 10px #ccc;
+	}
+	
+	.d {
+		opacity: 0.6;
+	}
+	#veil {
+		background:rgba(0,255,0,0.5);
+		position:absolute;
+		display:table-cell;
+	}
+	#points {
+		text-align: center;
+	}
+	button {
+		width: 30%;
+		height: 10%;
+		margin:auto;
+		font-size: inherit;
+		display: block;
+		margin-top:1em;
+		font-weight: bold;
+	}
+	#social{
+		width: 80%;
+		margin:auto;
+		font-weight: bold;
+		margin-top:1em;
+	}
+	a {
+		color: #befedc;
+		margin-left:1em;
+		margin-right:1em;
+	}
+	h1, #instructions {
+		margin: 4vh 0 4vh 0; 
+		color: #befedc;
+		text-align: center;
+		background: #306230;
+	}
+</style>
+</head>
+
+<body>
+<img src="a.png" id="imglol" style="display:none" />
+<div id="wrapper">
+	<div id="veil">
+		<h1> INCREDIBIRD </h1>
+		<button id="startbutton" style="margin-top:2em">Play</button>
+		<button id="crbutton" >Graphics: High</button>
+		<button id="mutebutton" >Sounds: On</button>
+		<div id="instructions">Touch to control; <br />
+		W,S to move, H,J,K,L to shoot, SPACE to time-warp/start game.</div>
+		<div id="social"><a href="http://twitter.com/share?text=%23incredibird%20is%20...">#incredibird</a><a href="https://twitter.com/alex_on_the_web" style="float:right">@Alex</a></div>
+	</div>
+	<div class="buttons left-side">
+		<canvas class="button" id="87t"></canvas>
+		<canvas class="button" id="32s"> </canvas>
+		<canvas class="button" id="83b"></canvas>
+	</div>
+	<div id="canvasContainer">
+		<div id="statsbar"><span id="points"></span></div>
+		<canvas id="miniCanvas" width="160" height="144" ></canvas>
+	</div>
+	<div class="buttons right-side">
+		<canvas class="button" id="72b"></canvas>
+		<canvas class="button" id="74b"></canvas>
+		<canvas class="button" id="75b"></canvas>
+		<canvas class="button" id="76b"></canvas>
+	</div>
+</div>
+<script src="jsfxr.js"></script>
+<script src="mini.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+{
+  "name": "param-case",
+  "version": "1.0.1",
+  "description": "Param case a string",
+  "main": "param-case.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeembrey/param-case.git"
+  },
+  "keywords": [
+    "param",
+    "case",
+    "dash",
+    "hyphen"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakeembrey/param-case/issues"
+  },
+  "homepage": "https://github.com/blakeembrey/param-case",
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "sentence-case": "^1.0.2"
+  },
+  "_id": "param-case@1.0.1",
+  "_shasum": "c004bb594d4235f6a122cb6c7cc732e8f878c354",
+  "_from": "param-case@^1.0.0",
+  "_npmVersion": "1.4.9",
+  "_npmUser": {
+    "name": "blakeembrey",
+    "email": "hello@blakeembrey.com"
+  },
+  "maintainers": [
+    {
+      "name": "blakeembrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
+  "dist": {
+    "shasum": "c004bb594d4235f6a122cb6c7cc732e8f878c354",
+    "tarball": "http://registry.npmjs.org/param-case/-/param-case-1.0.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/param-case/-/param-case-1.0.1.tgz"
+}

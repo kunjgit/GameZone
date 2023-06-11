@@ -1,0 +1,56 @@
+{
+  "name": "is-upper-case",
+  "version": "1.0.1",
+  "description": "Check if a string is upper cased",
+  "main": "is-upper-case.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeembrey/is-upper-case.git"
+  },
+  "keywords": [
+    "cases",
+    "upper",
+    "uppercase",
+    "check"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakeembrey/is-upper-case/issues"
+  },
+  "homepage": "https://github.com/blakeembrey/is-upper-case",
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "upper-case": "^1.0.0"
+  },
+  "_id": "is-upper-case@1.0.1",
+  "_shasum": "5eec31efbf214062f8449094e2b38f70a190f1f2",
+  "_from": "is-upper-case@^1.0.0",
+  "_npmVersion": "1.4.9",
+  "_npmUser": {
+    "name": "blakeembrey",
+    "email": "hello@blakeembrey.com"
+  },
+  "maintainers": [
+    {
+      "name": "blakeembrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
+  "dist": {
+    "shasum": "5eec31efbf214062f8449094e2b38f70a190f1f2",
+    "tarball": "http://registry.npmjs.org/is-upper-case/-/is-upper-case-1.0.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/is-upper-case/-/is-upper-case-1.0.1.tgz"
+}

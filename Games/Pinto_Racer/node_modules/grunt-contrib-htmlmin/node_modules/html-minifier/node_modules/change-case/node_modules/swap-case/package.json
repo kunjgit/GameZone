@@ -1,0 +1,53 @@
+{
+  "name": "swap-case",
+  "version": "1.0.2",
+  "description": "Swap the case of a string",
+  "main": "swap-case.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeembrey/swap-case.git"
+  },
+  "keywords": [
+    "swap",
+    "case",
+    "reverse",
+    "switch"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakeembrey/swap-case/issues"
+  },
+  "homepage": "https://github.com/blakeembrey/swap-case",
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "mocha": "^1.18.2"
+  },
+  "_id": "swap-case@1.0.2",
+  "_shasum": "bfa58432ecff4bc9c4f2d3f905974d05aae81de9",
+  "_from": "swap-case@^1.0.0",
+  "_npmVersion": "1.4.9",
+  "_npmUser": {
+    "name": "blakeembrey",
+    "email": "hello@blakeembrey.com"
+  },
+  "maintainers": [
+    {
+      "name": "blakeembrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
+  "dist": {
+    "shasum": "bfa58432ecff4bc9c4f2d3f905974d05aae81de9",
+    "tarball": "http://registry.npmjs.org/swap-case/-/swap-case-1.0.2.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/swap-case/-/swap-case-1.0.2.tgz"
+}

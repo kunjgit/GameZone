@@ -1,0 +1,63 @@
+{
+  "name": "relateurl",
+  "description": "Minify URLs by converting them from absolute to relative.",
+  "version": "0.2.5",
+  "homepage": "https://github.com/stevenvachon/relateurl",
+  "author": {
+    "name": "Steven Vachon",
+    "email": "contact@svachon.com",
+    "url": "http://www.svachon.com/"
+  },
+  "main": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stevenvachon/relateurl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stevenvachon/relateurl/issues"
+  },
+  "devDependencies": {
+    "browserify": "^5.9",
+    "chai": "^1.9",
+    "mocha": "^1.21",
+    "uglify-js": "^2.4"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "scripts": {
+    "browserify": "browserify lib/ --standalone RelateUrl | uglifyjs --compress --mangle -o relateurl-browser.js",
+    "test": "mocha test/ --bail --reporter spec --check-leaks"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "url",
+    "minifier",
+    "minify",
+    "lint",
+    "relative",
+    "absolute"
+  ],
+  "_id": "relateurl@0.2.5",
+  "_shasum": "c0e489b7beb8d7a9db371260e224ed86a1bdd482",
+  "_resolved": "https://registry.npmjs.org/relateurl/-/relateurl-0.2.5.tgz",
+  "_npmVersion": "1.4.9",
+  "_npmUser": {
+    "name": "stevenvachon",
+    "email": "contact@svachon.com"
+  },
+  "maintainers": [
+    {
+      "name": "stevenvachon",
+      "email": "contact@svachon.com"
+    }
+  ],
+  "dist": {
+    "shasum": "c0e489b7beb8d7a9db371260e224ed86a1bdd482",
+    "tarball": "http://registry.npmjs.org/relateurl/-/relateurl-0.2.5.tgz"
+  },
+  "directories": {},
+  "_from": "relateurl@0.2.x"
+}

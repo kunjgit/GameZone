@@ -1,0 +1,56 @@
+{
+  "name": "pascal-case",
+  "version": "1.0.0",
+  "description": "Pascal case a string",
+  "main": "pascal-case.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeembrey/pascal-case.git"
+  },
+  "keywords": [
+    "pascal",
+    "case"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakeembrey/pascal-case/issues"
+  },
+  "homepage": "https://github.com/blakeembrey/pascal-case",
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "camel-case": "^1.0.0",
+    "upper-case-first": "^1.0.0"
+  },
+  "gitHead": "cb38b0fa3eef0a039d1190c2b5ea2cc5af4ea7c1",
+  "_id": "pascal-case@1.0.0",
+  "_shasum": "ff706e85ed360c36b34f7de7c4a4b10af9c72195",
+  "_from": "pascal-case@^1.0.0",
+  "_npmVersion": "1.4.14",
+  "_npmUser": {
+    "name": "blakeembrey",
+    "email": "hello@blakeembrey.com"
+  },
+  "maintainers": [
+    {
+      "name": "blakeembrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
+  "dist": {
+    "shasum": "ff706e85ed360c36b34f7de7c4a4b10af9c72195",
+    "tarball": "http://registry.npmjs.org/pascal-case/-/pascal-case-1.0.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/pascal-case/-/pascal-case-1.0.0.tgz"
+}

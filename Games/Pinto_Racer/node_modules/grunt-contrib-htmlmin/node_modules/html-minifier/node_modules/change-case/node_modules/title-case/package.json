@@ -1,0 +1,55 @@
+{
+  "name": "title-case",
+  "version": "1.0.1",
+  "description": "Title case a string",
+  "main": "title-case.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeembrey/title-case.git"
+  },
+  "keywords": [
+    "title",
+    "case"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakeembrey/title-case/issues"
+  },
+  "homepage": "https://github.com/blakeembrey/title-case",
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "sentence-case": "^1.0.2",
+    "upper-case": "^1.0.0"
+  },
+  "_id": "title-case@1.0.1",
+  "_shasum": "18716ecd45a55d3873507568bb3933d35976ecb1",
+  "_from": "title-case@^1.0.0",
+  "_npmVersion": "1.4.9",
+  "_npmUser": {
+    "name": "blakeembrey",
+    "email": "hello@blakeembrey.com"
+  },
+  "maintainers": [
+    {
+      "name": "blakeembrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
+  "dist": {
+    "shasum": "18716ecd45a55d3873507568bb3933d35976ecb1",
+    "tarball": "http://registry.npmjs.org/title-case/-/title-case-1.0.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/title-case/-/title-case-1.0.1.tgz"
+}

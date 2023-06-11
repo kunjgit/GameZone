@@ -1,0 +1,211 @@
+<html>
+<head>
+  <title>Super Pinto Rally Racer</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <div class='bg-gradient'></div>
+  <div class="game-container">
+    <div id="game-canvas">
+      <div id="game-camera" class="game-camera"></div>
+    </div>
+    <div class='views'>
+      <div class='view title-view'>
+        <div class='view-content'>
+          <article>
+            <h1>
+              Super Pinto Rally Racer
+            </h1>
+            <button class='btn-primary' onclick="javascript:game.setView('instructions-view')">
+              PLAY!
+            </button>
+            <section class='directions'>
+              CONTROLS
+              <p>
+                <kbd>A</kbd>
+                <kbd>D</kbd>
+                <small>or</small>
+                <kbd>&larr;</kbd>
+                <kbd>&rarr;</kbd>
+              </p>
+            </section>
+          </article>
+        </div>
+      </div>
+
+      <div class='view instructions-view'>
+        <div class='view-content'>
+          <article>
+            <h1>
+              INSTRUCTIONS
+            </h1>
+            <ul>
+              <li>Hit <em>ALL</em> the cones!</li>
+              <li>Gold cones are worth <em>x4</em> points</li>
+              <li><em>BIGGER</em> combos = extra speed</li>
+            </ul>
+            <button class='btn-primary' onclick="javascript:game.setView('level-select-view')">
+              CONTINUE
+            </button>
+          </article>
+        </div>
+      </div>
+
+      <div class='view level-select-view'>
+        <div class='view-content'>
+          <article>
+            <h1>
+              PICK A LEVEL
+            </h1>
+            <div class='levels'></div>
+          </article>
+        </div>
+      </div>
+
+      <div class='view hud-view'>
+        <div class='view-content'>
+          <button onclick="javascript:game.setView('pause-view')" class='icon-pause'></button>
+          <div class='progress'>
+            <div class='progress-fill'></div>
+          </div>
+          <div class='combo-counter-animate'>
+            <div class='combo-counter bounce'>0</div>
+          </div>
+          <div id="timer" class='timer'>0:00</div>
+        </div>
+      </div>
+
+      <div class='view pause-view'>
+        <div class='view-content'>
+          <article>
+            <button class='btn-primary' onclick="javascript:game.setView('hud-view')">
+              RESUME
+            </button>
+            <button onclick="javascript:game.restartLevel()">
+              RESTART
+            </button>
+            <button onclick="javascript:game.setView('level-select-view')">
+              LEVEL SELECT
+            </button>
+            <button onclick="javascript:game.exit()">
+              EXIT
+            </button>
+          </article>
+        </div>
+      </div>
+
+      <div class='view complete-view'>
+        <div class='view-content'>
+          <article>
+            <h1>
+              WOOHOO! YOU MADE IT!
+            </h1>
+            <div id='completed-rating' class='completed-rating'>
+            </div>
+            <h1 id='completed-time' class="completed-time"></h1>
+            <button class='btn-primary btn-next-level' onclick="javascript:game.nextLevel()">
+              NEXT LEVEL
+            </button>
+            <button onclick="javascript:game.restartLevel()">
+              RESTART
+            </button>
+            <button onclick="javascript:game.setView('level-select-view')">
+              LEVEL SELECT
+            </button>
+            <button onclick="javascript:game.exit()">
+              EXIT
+            </button>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class='credits'>
+    <a href='https://twitter.com/blacktoooth'>@blacktooth</a> |
+    <a href='https://github.com/blacktoooth'>github</a>
+  </p>
+
+
+  <template id="player-template">
+    <div class='car-animate'>
+      <b class='body body-bottom'></b>
+      <b class='body body-right-top'></b>
+      <b class='body body-right'></b>
+      <b class='body body-left-top'></b>
+      <b class='body body-left'></b>
+      <b class='body body-front'></b>
+      <b class='body body-hood'></b>
+      <b class='body body-front-windshield'>
+        <svg width="34px" height="21px" viewBox="0 0 34 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path d="M2.02264404,0.0328979492 L0,20 L33,20 L31.0097046,0.0009765625 L2.02264404,0.0328979492 Z" id="Rectangle-1" fill-opacity="1" fill="#666666" transform="translate(16.500000, 10.000000) rotate(-180.000000) translate(-16.500000, -10.000000) "></path>
+          </g>
+        </svg>
+      </b>
+      <b class='body body-top'></b>
+      <b class='body body-back-windshield'>
+        <svg width="33px" height="29px" viewBox="0 0 33 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <path id="path-1" d="M2.02264404,0.0477020264 L0,29 L33,29 L31.0097046,0.00141601563 L2.02264404,0.0477020264 Z"></path>
+          </defs>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Rectangle-1-+-Rectangle-2">
+              <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+              </mask>
+              <use id="Rectangle-1" stroke="#B3E7AC" stroke-width="2" fill="#8C8C8C" xlink:href="#path-1"></use>
+              <rect id="Rectangle-2" fill="#B3E7AC" mask="url(#mask-2)" x="-9" y="20" width="50" height="15"></rect>
+            </g>
+          </g>
+        </svg>
+      </b>
+      <b class='body body-back'></b>
+
+      <b class='wheel wheel-f-l'></b>
+      <b class='wheel wheel-f-r'></b>
+      <b class='wheel wheel-r-l'></b>
+      <b class='wheel wheel-r-r'></b>
+    </div>
+  </template>
+
+  <template id="wheel-template">
+    <b class='rim'></b>
+    <b class='f f1'></b>
+    <b class='f f2'></b>
+    <b class='f f3'></b>
+    <b class='f f4'></b>
+    <b class='f f5'></b>
+    <b class='f f6'></b>
+  </template>
+
+  <template id="cone-template">
+    <div class='cone-animate'>
+      <b class='cone-base'></b>
+      <div class='cone-transform'>
+        <b class='f f1'></b>
+        <b class='f f2'></b>
+      </div>
+    </div>
+  </template>
+
+  <template id="level-menu-item-template">
+    <div class='level-title'></div>
+    <div class='level-time'></div>
+    <div class='level-combo'></div>
+  </template>
+
+  <template id="level-template">
+    <b class='road'></b>
+  </template>
+
+  <template id="pinto-side-template">
+
+  </template>
+
+
+  <script src="main.js"></script>
+  <script>
+    game.start();
+  </script>
+</body>
+</html>

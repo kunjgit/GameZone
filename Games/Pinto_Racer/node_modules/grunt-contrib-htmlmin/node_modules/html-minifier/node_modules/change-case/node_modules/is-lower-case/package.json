@@ -1,0 +1,57 @@
+{
+  "name": "is-lower-case",
+  "version": "1.0.0",
+  "description": "Check if a string is lower cased",
+  "main": "is-lower-case.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeembrey/is-lower-case.git"
+  },
+  "keywords": [
+    "cases",
+    "lower",
+    "lowercase",
+    "check"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakeembrey/is-lower-case/issues"
+  },
+  "homepage": "https://github.com/blakeembrey/is-lower-case",
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "lower-case": "^1.0.0"
+  },
+  "gitHead": "14d25f5d0d72f4486df2e7c85f4506f47be19647",
+  "_id": "is-lower-case@1.0.0",
+  "_shasum": "07a267db46630d3a23a74e98661b90717465e696",
+  "_from": "is-lower-case@^1.0.0",
+  "_npmVersion": "1.4.14",
+  "_npmUser": {
+    "name": "blakeembrey",
+    "email": "hello@blakeembrey.com"
+  },
+  "maintainers": [
+    {
+      "name": "blakeembrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
+  "dist": {
+    "shasum": "07a267db46630d3a23a74e98661b90717465e696",
+    "tarball": "http://registry.npmjs.org/is-lower-case/-/is-lower-case-1.0.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/is-lower-case/-/is-lower-case-1.0.0.tgz"
+}

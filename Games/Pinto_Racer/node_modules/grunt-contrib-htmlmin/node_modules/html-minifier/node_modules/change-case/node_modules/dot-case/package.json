@@ -1,0 +1,55 @@
+{
+  "name": "dot-case",
+  "version": "1.0.1",
+  "description": "Dot case a string",
+  "main": "dot-case.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeembrey/dot-case.git"
+  },
+  "keywords": [
+    "dot",
+    "case",
+    "period"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakeembrey/dot-case/issues"
+  },
+  "homepage": "https://github.com/blakeembrey/dot-case",
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "sentence-case": "^1.0.2"
+  },
+  "_id": "dot-case@1.0.1",
+  "_shasum": "9b1d393d810a2c16ca9ee0affde5a9e4657435b7",
+  "_from": "dot-case@^1.0.0",
+  "_npmVersion": "1.4.9",
+  "_npmUser": {
+    "name": "blakeembrey",
+    "email": "hello@blakeembrey.com"
+  },
+  "maintainers": [
+    {
+      "name": "blakeembrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
+  "dist": {
+    "shasum": "9b1d393d810a2c16ca9ee0affde5a9e4657435b7",
+    "tarball": "http://registry.npmjs.org/dot-case/-/dot-case-1.0.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/dot-case/-/dot-case-1.0.1.tgz"
+}

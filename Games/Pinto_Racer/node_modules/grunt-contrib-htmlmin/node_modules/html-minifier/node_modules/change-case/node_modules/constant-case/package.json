@@ -1,0 +1,56 @@
+{
+  "name": "constant-case",
+  "version": "1.0.0",
+  "description": "Constant case a string",
+  "main": "constant-case.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeembrey/constant-case.git"
+  },
+  "keywords": [
+    "constant",
+    "case",
+    "upper"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakeembrey/constant-case/issues"
+  },
+  "homepage": "https://github.com/blakeembrey/constant-case",
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "snake-case": "^1.0.0"
+  },
+  "gitHead": "c5e8d755cf0526c59c003f344e3fc40779653098",
+  "_id": "constant-case@1.0.0",
+  "_shasum": "af988d7919ae1c60f5e79e661a74e281656cff46",
+  "_from": "constant-case@^1.0.0",
+  "_npmVersion": "1.4.14",
+  "_npmUser": {
+    "name": "blakeembrey",
+    "email": "hello@blakeembrey.com"
+  },
+  "maintainers": [
+    {
+      "name": "blakeembrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
+  "dist": {
+    "shasum": "af988d7919ae1c60f5e79e661a74e281656cff46",
+    "tarball": "http://registry.npmjs.org/constant-case/-/constant-case-1.0.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/constant-case/-/constant-case-1.0.0.tgz"
+}

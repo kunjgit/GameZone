@@ -1,0 +1,54 @@
+{
+  "name": "camel-case",
+  "version": "1.0.2",
+  "description": "Camel case a string",
+  "main": "camel-case.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeembrey/camel-case.git"
+  },
+  "keywords": [
+    "camel",
+    "case"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakeembrey/camel-case/issues"
+  },
+  "homepage": "https://github.com/blakeembrey/camel-case",
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "sentence-case": "^1.0.2"
+  },
+  "_id": "camel-case@1.0.2",
+  "_shasum": "700f8c6e3e4f242a0951ac709034ba12d28fd02a",
+  "_from": "camel-case@^1.0.0",
+  "_npmVersion": "1.4.9",
+  "_npmUser": {
+    "name": "blakeembrey",
+    "email": "hello@blakeembrey.com"
+  },
+  "maintainers": [
+    {
+      "name": "blakeembrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
+  "dist": {
+    "shasum": "700f8c6e3e4f242a0951ac709034ba12d28fd02a",
+    "tarball": "http://registry.npmjs.org/camel-case/-/camel-case-1.0.2.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/camel-case/-/camel-case-1.0.2.tgz"
+}

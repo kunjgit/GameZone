@@ -1,0 +1,54 @@
+{
+  "name": "lower-case",
+  "version": "1.0.2",
+  "description": "Lowercase a string",
+  "main": "lower-case.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/blakeembrey/lower-case.git"
+  },
+  "keywords": [
+    "cases",
+    "lower",
+    "lowercase",
+    "case"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakeembrey/lower-case/issues"
+  },
+  "homepage": "https://github.com/blakeembrey/lower-case",
+  "devDependencies": {
+    "istanbul": "^0.3.0",
+    "mocha": "^1.21.4"
+  },
+  "gitHead": "cc03d8f307aaa881b641c2311016050aaae7ac7d",
+  "_id": "lower-case@1.0.2",
+  "_shasum": "9698c23435cc915ca64abf770492d7a8379d80f1",
+  "_from": "lower-case@^1.0.0",
+  "_npmVersion": "1.4.14",
+  "_npmUser": {
+    "name": "blakeembrey",
+    "email": "hello@blakeembrey.com"
+  },
+  "maintainers": [
+    {
+      "name": "blakeembrey",
+      "email": "hello@blakeembrey.com"
+    }
+  ],
+  "dist": {
+    "shasum": "9698c23435cc915ca64abf770492d7a8379d80f1",
+    "tarball": "http://registry.npmjs.org/lower-case/-/lower-case-1.0.2.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/lower-case/-/lower-case-1.0.2.tgz"
+}

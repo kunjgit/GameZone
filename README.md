@@ -244,7 +244,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 139 | [Diamond_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Diamond_Run)|
 | 140 | [Everyones Sky](https://github.com/kunjgit/GameZone/tree/main/Games/Everyones_Sky)|
 | 141 | [Line Of Fire](https://github.com/kunjgit/GameZone/tree/main/Games/Line_Of_Fire)|
- 
+| 142 | [1024 Moves](https://github.com/kunjgit/GameZone/tree/main/Games/1024_Moves)|
 </center>
 
 <br>

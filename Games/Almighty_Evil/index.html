@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=false;">
+    <style type="text/css">
+    @font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Press Start 2P'), local('PressStart2P-Regular'), url(font.woff) format('woff');
+}
+    *,html,body{font-family: 'Press Start 2P', cursive;}
+
+    #tb1{
+      position:absolute;
+      background:white;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+      opacity:0;
+      z-index:1;
+      text-align: center;
+      margin-top: 10px;
+      transition: opacity .8s;
+      -webkit-transition: opacity .8s;
+      box-shadow: 1px 1px 2px #888888;
+      z-index:10;
+      -webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+
+    }
+    span {
+      padding-left:10px;padding-right: 10px;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;      
+    }
+
+    </style>
+    <script>
+       preventDefaultScroll = function(event) {
+        // Prevent scrolling on this element
+        event.preventDefault();
+        window.scroll(0,0);
+        return false;
+    };
+    
+    window.document.addEventListener('touchmove', preventDefaultScroll, false);
+    var voice = false;
+   
+
+    // global variables
+    var canvas;
+    var canvas2;
+    var ctx;
+    var ctx2;
+    var ctx3;
+    var move= true;
+    var score =0;
+    var rndNum;
+    var pause=false;
+    var objNum= 6;
+    var fontSize = 10;
+    var currLvlNm =1;
+    var prevLvlNm =0;
+    var pastLvlNm=0;
+
+    // turn false
+    var infection= false;
+
+    var highlight=false;
+    var spinner=false;
+ 
+    var $ = function(q){return document.getElementById(q)};
+    // JSON for objects positions and attributes
+
+var game={
+  started:false,
+  startedHover:false,
+    score:0,
+    infectionSpeed:.05,
+    runTime:70,
+    changeBG:false,
+    objNum:8,
+
+    infectedResolved:0,
+
+    colorStyle:{
+      spinner:'0,0,0',
+      highlight:'255,255,255',
+      current:'255,125,0',
+    },
+
+    levels:{
+      level1:{
+        colorStyle:'255,125,0',
+        objects:{
+            init:false,
+            saved:false,
+            infection:2,            
+            obj1:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj2:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+        },
+      },
+       level2:{
+        colorStyle:'125,255,0',
+        objects:{
+          init:false,
+            infection:4, 
+            saved:false,           
+            obj1:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj2:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj3:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj4:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+        },
+      },
+       level3:{
+        colorStyle:'0,255,255',
+        objects:{
+          init:false,
+            infection:5,
+            saved:false,            
+            obj1:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj2:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj3:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj4:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj5:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+        },
+      },
+       level4:{
+        colorStyle:'0,0,255',
+        objects:{
+          init:false,
+            infection:6,
+            saved:false,            
+            obj1:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj2:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj3:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj4:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj5:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj6:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+        },
+      },
+       level5:{
+        colorStyle:'255,0,255',
+        objects:{
+          init:false,
+            infection:7, 
+            saved:false,           
+            obj1:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj2:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj3:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj4:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj5:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj6:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj7:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+        },
+      },
+       level6:{
+        colorStyle:'255,0,0',
+        objects:{
+          init:false,
+            infection:8,
+            saved:false,            
+            obj1:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj2:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj3:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj4:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj5:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj6:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj7:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj8:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+        },
+      },
+       level7:{
+       colorStyle:'255,0,255',
+        objects:{
+          init:false,
+            infection:8,
+            saved:false,            
+            obj1:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj2:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj3:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj4:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj5:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj6:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj7:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj8:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+        },
+      },
+       level8:{
+         colorStyle:'0,0,255',
+        objects:{
+          init:false,
+            infection:8,
+            saved:false,            
+            obj1:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj2:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj3:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj4:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj5:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj6:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj7:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj8:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+        },
+      },
+       level9:{
+        colorStyle:'0,255,255',
+        objects:{
+          init:false,
+            infection:8,
+            saved:false,            
+            obj1:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj2:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj3:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj4:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj5:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj6:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj7:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj8:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+        },
+      },
+       level10:{
+        colorStyle:'255,125,0',
+        objects:{
+          init:false,
+            infection:8,
+            saved:false,            
+            obj1:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj2:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj3:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj4:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj5:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj6:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj7:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+            obj8:{x:-1,y:-1,opacity:0,locked:false,dead:false},
+        },
+      },
+    },
+
+    hud:{
+
+      pos:{x:0,y:0},
+      score:0,    
+      highestScore:0,
+      
+    },
+    gridObj:{
+        width:0,
+        height:0,
+    },
+    playerObj:{
+      pos:{x:3,y:1},
+    },
+
+    spinObj:{
+        pos:{x:10,y:10},
+      },
+
+    endObj:{
+      pos:{x:0,y:0},
+      size:{sX:0, sY:0}
+    },
+
+    }
+    var narr={
+    txt:{
+      txt1:'GAHHHH!!!!',
+      txt2:'Life sequence initiated. Stand by ... ',
+      txt3:'Hello. Welcome to existence. Hit arrow to the right to advance',
+      txt4:'I have a fun game in mind for you. Do you like fun games?',
+      txt5:'That was rhetorical, please do not verbally respond.',
+      txt6:'That white square is you! Neat right?',
+      txt7:'You are trying to avoid being selected by the Almighty Evil. Select a space wisely.',
+      txt8:'What have you done!? You released the Almighty Evil!!!',
+      txt9:'Quick, vanquish the evil by selecting or hovering over the dark spaces before they become solid!',
+      txt10:'Whew, everythings back to normal! Your score:<span id="score"></span>. Hit arrow to restart life sequence',
+      txt11:'',
+    },
+    step:{
+        step2:function(){game.score = 0;setTimeout("$('nxtTxtDiv').style.display='block';nxtTxt();",2500)},
+        step6:function(){highlight = true},
+        step7:function(){$('nxtTxtDiv').style.display='none';game.started=true;},
+        step8:function(){game.startedHover = true;setTimeout('nxtTxt();',2500)},
+        step9:function(){setTimeout("$('tb1').style.zIndex=-5",5000);setTimeout("$('tb1').style.opacity=0",4000)},
+        step10:function(){infection = false;$('nxtTxtDiv').style.display='block';$('score').innerHTML=game.score;game.started=false;game.startedHover = false;begGame =true; spinner=false;},
+        step11:function(){window.location.reload();},
+    },
+} 
+    var playerImg = new Image();
+    var pointImg = new Image();
+    var down = false;
+    var continuousBG = true;
+    function onclick(e){e.preventDefault()}
+    function init(){
+      canvas = document.getElementById('cvs');/**/
+      canvas.addEventListener('click',onclick);
+      window.addEventListener('click',onclick);
+      $('nxtTxtDiv').addEventListener('click',onclick);
+      canvas.addEventListener('mousedown',interactionDown);
+      canvas.addEventListener('touchstart',interactionDown);
+      canvas.addEventListener('MSPointerDown',interactionDown);
+      canvas.addEventListener('touchmove',interactionMove);
+      canvas.addEventListener('mousemove',interactionMove);
+      canvas.addEventListener('MSPointerMove',interactionMove);
+      ctx = canvas.getContext("2d");
+      canvas.width= window.innerWidth;
+      canvas.height= window.innerHeight;
+
+      // set txtBox atts
+      $('tb1').style.top= '2%';
+      $('tb1').style.left= '15px';
+      $('tb1').style.width= (canvas.width -30)+'px';
+      $('tb1').style.height= Math.floor((canvas.height/6))+'px';
+      $('tb1').style.lineHeight= Math.floor((canvas.height/7))+'px';
+      if(canvas.width>canvas.height){$('tb1').style.fontSize= Math.floor(((canvas.width/7)/7))+'px';}
+      else{$('tb1').style.fontSize= Math.floor((canvas.height/7)/5)+'px';}
+      //$('tb1').style.fontSize= Math.floor(((canvas.width/7))/10)+'px';
+      // position text to be centered
+      game.hud.pos.x= (canvas.width/2)-5;
+      game.hud.pos.y= 0;
+
+      // Now the canvas dimentions are set, set the corner coordinates into the JSON object for point spawning
+      
+      game.gridObj.width= canvas.width/8;
+      game.gridObj.height= canvas.height/4;
+
+      
+
+      ctx.fillStyle = "rgb("+game['colorStyle']['current']+");";
+      ctx.fillRect(0,0,canvas.width,(canvas.width/4));
+      ctx.fillRect(0,(canvas.height/4),canvas.width,(canvas.width/4));
+      ctx.fillRect(0,(canvas.height/2),canvas.width,(canvas.width/4));
+      ctx.fillRect(0,((canvas.height/4)*3),canvas.width,(canvas.width/4));
+
+      // Draw semi transparent circles
+      for (i=0;i<10;i++){
+          ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+          for (j=0;j<4;j++){
+            ctx.fillRect(i*canvas.width/8,j*canvas.height/4,canvas.width/8,canvas.height/4)
+          }
+        }
+       for (i=0;i<4;i++){
+            ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+            ctx.fillRect(0,i*canvas.height/4,canvas.width,canvas.height/4)
+          }
+      
+      // comment out for game!
+     gameLoop();
+      // start txt
+      nxtTxt();
+
+
+    }
+
+
+    var txtNm=1;
+    var stepIsFunc=false;
+    var txtChanging = false;
+    function nxtTxt(num){
+     // console.log('nxtTxt hit');
+      if(txtChanging){return}
+        txtChanging = true;
+        num!=undefined ? txtNm = num : txtNm++;
+        if(typeof(narr['step']['step'+(txtNm)]) == 'function'){stepIsFunc=true}
+        setTimeout("$('tb1').style.opacity=.7;txtChanging = false;stepIsFunc=false",1000);
+        setTimeout("$('tb2').innerHTML=narr['txt']['txt'+txtNm];if(stepIsFunc)narr['step']['step'+(txtNm)]();",900);
+        $('tb1').style.opacity=0;
+        
+    }
+
+    function checkPoint(){
+      // if the player pos is within a step of the point, give player the point and reset
+      if(Math.abs((game.playerObj.pos.x-game.endObj.pos.x))<step && Math.abs((game.playerObj.pos.y-game.endObj.pos.y))<step){
+          score++;
+          spawnPoint();
+      }
+    }
+    function changeBG(){
+      if(!continuousBG&&!transition){
+        if(currLvlNm==10){$('tb1').style.zIndex =10;nxtTxt(10); currLvlNm=1;prevLvlNm=10}else{prevLvlNm = currLvlNm;currLvlNm++}
+      }
+      else{setTimeout('changeBG()',1000);return}
+      
+      prevStr=game['levels']['level'+prevLvlNm]['colorStyle'];
+      p = prevStr.split(",");
+      
+      currStr=game['levels']['level'+currLvlNm]['colorStyle'];
+      c = currStr.split(",");
+      
+      transition = true;
+      };
+    var transition = false;
+    var continuousBG = false;
+    var p;
+    var c;
+    function transitionBG(p,c){
+          //console.log(p,c)
+         for (var i = p.length - 1; i >= 0; i--) {
+        
+          if(p[i]<c[i]){
+              p[i]=parseInt(p[i])+1;
+          }
+          else if(p[i]>c[i]){
+              p[i]=parseInt(p[i])-1;
+              
+          }
+          game['colorStyle']['current']= p[0]+','+p[1]+','+p[2];
+        }
+        ctx.fillStyle = "rgb("+game['colorStyle']['current']+");";
+        ctx.fillRect(0,0,canvas.width,(canvas.width/4));
+        ctx.fillRect(0,(canvas.height/4),canvas.width,(canvas.width/4));
+        ctx.fillRect(0,(canvas.height/2),canvas.width,(canvas.width/4));
+        ctx.fillRect(0,((canvas.height/4)*3),canvas.width,(canvas.width/4));
+
+         for (i=0;i<10;i++){
+            ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+          for (j=0;j<4;j++){
+            ctx.fillRect(i*canvas.width/8,j*canvas.height/4,canvas.width/8,canvas.height/4)
+          }
+        }
+
+        for (i=0;i<4;i++){
+            ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+            ctx.fillRect(0,i*canvas.height/4,canvas.width,canvas.height/4)
+        }
+
+        if(p[0]!=c[0]||p[1]!=c[1]||p[2]!=c[2]){}
+        else{transition = false;if(continuousBG)changeBG();}
+
+    }
+    function gameLoop(){
+
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+
+        if(game.infectedResolved==game['levels']['level'+currLvlNm]['objects']['infection']&&game.started){
+          game.infectedResolved=0;
+        // changeBG();
+          //highlight = true;
+
+         $('tb1').style.zIndex=0;
+         highlightSelected = false;
+         //nxtTxt();
+         highlight = false;
+         if(currLvlNm<8){game.infectionSpeed+=.01;}
+         changeBG();
+        }
+
+        if(transition){
+          transitionBG(p,c)
+        }
+
+        //standard
+        ctx.fillStyle = "rgb("+game['colorStyle']['current']+");";
+        ctx.fillRect(0,0,canvas.width,(canvas.height/4));
+        ctx.fillRect(0,(canvas.height/4),canvas.width,(canvas.height/4));
+        ctx.fillRect(0,(canvas.height/2),canvas.width,(canvas.height/4));
+        ctx.fillRect(0,((canvas.height/4)*3),canvas.width,(canvas.height/4));
+
+        // Draw semi transparent circles
+        for (i=0;i<10;i++){
+            ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+          for (j=0;j<4;j++){
+            ctx.fillRect(i*canvas.width/8,j*canvas.height/4,canvas.width/8,canvas.height/4)
+          }
+        }
+         for (i=0;i<4;i++){
+            ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+            ctx.fillRect(0,i*canvas.height/4,canvas.width,canvas.height/4)
+        }
+
+        // draw infection
+        
+        if(infection){drawInfection();}
+        if(highlight){drawHighlight(game.playerObj.pos.x,game.playerObj.pos.y)}
+        if(highlightSelected){drawSpinner(game.spinObj.pos.x,game.spinObj.pos.y);}
+
+        setTimeout('gameLoop()',game.runTime);
+    }
+
+    var oInfectionUp = true;
+    var oInfection = 0;
+
+    function drawInfection(){
+
+          if(oInfectionUp&&oInfection<=10){ oInfection+=game.infectionSpeed;   }
+          else if(oInfection>=0){ oInfectionUp=false; oInfection-=.5; }
+          else{oInfectionUp=true;}
+          
+          if(!game['levels']['level'+currLvlNm]['objects']['init']){
+
+            game['levels']['level'+currLvlNm]['objects']['init'] = true;
+
+            for(i = 1;i<=game['levels']['level'+currLvlNm]['objects']['infection'];i++){
+                game['levels']['level'+currLvlNm]['objects']['obj'+i]['x']= Math.floor(Math.random()*8);
+                game['levels']['level'+currLvlNm]['objects']['obj'+i]['y']= Math.floor(Math.random()*4);
+                var objX = game['levels']['level'+currLvlNm]['objects']['obj'+i]['x'];
+                if(objX==game['playerObj']['pos']['x']){
+                   if(objX>=7){game['levels']['level'+currLvlNm]['objects']['obj'+i]['x']--}else{game['levels']['level'+currLvlNm]['objects']['obj'+i]['x']++} 
+                }
+            }
+          }
+            
+            for(i =1;i<=game['levels']['level'+currLvlNm]['objects']['infection'];i++){
+                if(game['levels']['level'+currLvlNm]['objects']['obj'+i]['locked']){
+                  if(game['levels']['level'+currLvlNm]['objects']['obj'+i]['saved']){
+                    /*ctx.fillStyle = 'rgba(0,0,0,'+game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity']/10+')';
+                    ctx.fillRect((game['levels']['level'+currLvlNm]['objects']['obj'+i]['x']*game.gridObj.width),(game['levels']['level'+currLvlNm]['objects']['obj'+i]['y']*game.gridObj.height),game.gridObj.width,game.gridObj.height);*/
+                }
+                else if(!game['levels']['level'+currLvlNm]['objects']['obj'+i]['dead']){
+                    game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity']-=game.infectionSpeed*2;
+                    var IO =  game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity'];
+                    ctx.fillStyle = 'rgba(255,0,0,'+IO/10+')';
+                    ctx.fillRect((game['levels']['level'+currLvlNm]['objects']['obj'+i]['x']*game.gridObj.width),(game['levels']['level'+currLvlNm]['objects']['obj'+i]['y']*game.gridObj.height),game.gridObj.width,game.gridObj.height);
+                    if(IO<=0){game.infectedResolved++;game['levels']['level'+currLvlNm]['objects']['obj'+i]['dead']=true}
+                  }
+                }
+                else{
+                game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity']+= game.infectionSpeed;
+                var IO =  game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity'];
+              //  console.log('IO ='+IO+', Obj Nm='+i)
+                if(IO>=9){game['levels']['level'+currLvlNm]['objects']['obj'+i]['locked']=true;game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity']=10;game.score--;} 
+                  ctx.fillStyle = 'rgba(0,0,0,'+IO/10+')';
+                  ctx.fillRect((game['levels']['level'+currLvlNm]['objects']['obj'+i]['x']*game.gridObj.width),(game['levels']['level'+currLvlNm]['objects']['obj'+i]['y']*game.gridObj.height),game.gridObj.width,game.gridObj.height)
+              }
+
+            }
+          }
+ var inputX;
+    var inputY;
+
+    function interactionMove(e){
+      if(!game.startedHover){return}
+      inputX = Math.floor(e.pageX/game.gridObj.width);
+      inputY = Math.floor(e.pageY/game.gridObj.height);
+
+      for(i = 1;i<game['levels']['level'+currLvlNm]['objects']['infection']+1;i++){
+        if(inputX==game['levels']['level'+currLvlNm]['objects']['obj'+i]['x']&&inputY==game['levels']['level'+currLvlNm]['objects']['obj'+i]['y']&&!game['levels']['level'+currLvlNm]['objects']['obj'+i]['locked']){
+          //  console.log('yeshover');
+            if( game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity']<=0&&!game['levels']['level'+currLvlNm]['objects']['obj'+i]['locked']){ game['levels']['level'+currLvlNm]['objects']['obj'+i]['locked']=true; game.score++;game.infectedResolved++}
+            game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity']-=(game.infectionSpeed);
+        }
+        else{}
+      }
+    }
+    var begGame = true; 
+    function interactionDown(e){
+      if(!game.started){return}
+      inputX = Math.floor(e.pageX/game.gridObj.width);
+      inputY = Math.floor(e.pageY/game.gridObj.height);
+
+      if(begGame){
+          game.playerObj.pos.x = inputX;
+          game.playerObj.pos.y = inputY;
+          begGame = false;
+          highlightSelected = true
+      }
+
+      for(i = 1;i<game['levels']['level'+currLvlNm]['objects']['infection']+1;i++){
+        if(inputX==game['levels']['level'+currLvlNm]['objects']['obj'+i]['x']&&inputY==game['levels']['level'+currLvlNm]['objects']['obj'+i]['y']&&!game['levels']['level'+currLvlNm]['objects']['obj'+i]['locked']){
+            game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity']-=(game.infectionSpeed*10);
+            if( game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity']<=.5&&!game['levels']['level'+currLvlNm]['objects']['obj'+i]['locked']){ 
+              game['levels']['level'+currLvlNm]['objects']['obj'+i]['saved']=true;
+             // console.log(game['levels']['level'+currLvlNm]['objects']['obj'+i]['opacity']);
+             //mySource.connect(myAudioContext.destination); 
+             game['levels']['level'+currLvlNm]['objects']['obj'+i]['locked']=true; game.score++;game.infectedResolved++
+           }
+            
+        }
+        else{}
+      }
+    }
+
+    var oUp=true;
+    var oUp2=true;
+    var oUpE=new Array();
+    var o=0;
+    var o2=0;
+    var oE= new Array();
+    var enemies = new Array();
+    var highlightSelected = false;
+
+    function drawHighlight(x,y){
+          if(!highlightSelected){
+          
+            if(oUp&&o<=10){ o+=.5;   }
+            else if(o>=0){ oUp=false; o-=.5; }
+            else{oUp=true;}
+
+            ctx.fillStyle = 'rgba('+game['colorStyle']['highlight']+','+(o+1)/10+')';
+            ctx.fillRect((x*game.gridObj.width)-o/2,(y*game.gridObj.height)-o/2,game.gridObj.width+o,(game.gridObj.height)+o);
+          }
+          else{
+            ctx.fillStyle = 'rgba('+game['colorStyle']['highlight']+','+8/10+')';
+            ctx.fillRect((x*game.gridObj.width),(y*game.gridObj.height),game.gridObj.width,(game.gridObj.height));
+          }
+          //setTimeout('if(!'+highlightSelected+'){drawHighlight('+game.playerObj.pos.x+','+game.playerObj.pos.y+');}',50);
+    }
+
+
+    function drawSpinner(x,y){
+          if(!spinner){game.spinObj.pos.x=game.playerObj.pos.x;game.spinObj.pos.y=game.playerObj.pos.y;spin();}
+          spinner=true;
+          
+          if(oUp2&&o2<=5){ o2+=.2;   }
+          else if(o2>=0){ oUp2=false; o2-=.2; }
+          else{oUp2=true;}
+
+          ctx.fillStyle = 'rgba('+game['colorStyle']['spinner']+','+(o2+1)/10+')';
+          ctx.fillRect((x*game.gridObj.width)-o2/2,(y*game.gridObj.height)-o2/2,game.gridObj.width+o2,game.gridObj.height+o2);
+
+            /* for (i=0;i<4;i++){
+            ctx3.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+            ctx3.fillRect(0,i*canvas.height/4,canvas.width,canvas.height/4)
+        }*/
+          
+       
+         // setTimeout('drawSpinner('+game.spinObj.pos.x+','+game.spinObj.pos.y+');',game.runTime);
+    }
+  var spinTime=50;
+  var spinRevs=0;
+  function spin(){
+    if(game.spinObj.pos.x==7&&game.spinObj.pos.y==3){spinRevs++}
+    if(game.spinObj.pos.x<7){game.spinObj.pos.x++}
+    else{
+      game.spinObj.pos.x=0
+      if(game.spinObj.pos.y<=2){game.spinObj.pos.y++}
+      else{game.spinObj.pos.y=0}
+    }
+
+    if((Math.abs(game.playerObj.pos.y-game.spinObj.pos.y)<=2)&&spinRevs>=2){spinTime += 70 }
+
+    if(spinTime>1300){spinTime=1300}
+
+    if(spinRevs>=2&&game.spinObj.pos.x==game.playerObj.pos.x&&game.spinObj.pos.y==game.playerObj.pos.y){
+      setTimeout("highlightSelected = false;highlight = false;spinTime=50;spinRevs=0;nxtTxt();infection = true;",3000);
+     // clear();
+    }else{
+     setTimeout('spin()',spinTime)
+    }
+  }
+
+
+    </script>
+  </head>
+  <body onload='init();'>
+    <div id='tb1'><span id='tb2'></span><div id='nxtTxtDiv'ontouchstart='nxtTxt();' onmousedown = 'nxtTxt();' onmspointerdown = 'nxtTxt();'style='position: relative;top: -81%;left: 98%;height:40px;width:30px;display:none;cursor:pointer'>></div></div>
+    <audio></audio>
+    <canvas style='position:absolute;left:0px;top:0px;' id='cvs'></canvas>
+  </body>
+</html>

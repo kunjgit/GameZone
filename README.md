@@ -230,7 +230,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 125 | [Galaxy Rider](https://github.com/kunjgit/GameZone/tree/main/Games/Galaxy_Rider)||
 | 126 | [Squared Lines](https://github.com/kunjgit/GameZone/tree/main/Games/Squared%20Lines)|
 | 127 | [Space War](https://github.com/kunjgit/GameZone/tree/main/Games/Space_War)|
-| 128 | [Sciara of Colors](https://github.com/kunjgit/GameZone/tree/main/Games/Sciara_Of_Colors)|  
+| 128 | [Sciara of Colors](https://github.com/kunjgit/GameZone/tree/main/Games/Sciara_Of_Colors)|   
 | 129 | [JunoJs](https://github.com/kunjgit/GameZone/tree/main/Games/JunoJs)|
 | 130 | [Fall Down](https://github.com/kunjgit/GameZone/tree/main/Games/Fall_Down)|
 | 131 | [Cat Goric](https://github.com/kunjgit/GameZone/tree/main/Games/Cat_Goric)|
@@ -254,6 +254,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 149 | [RIP](https://github.com/kunjgit/GameZone/tree/main/Games/RIP)|
 | 150 | [Risky Nav](https://github.com/kunjgit/GameZone/tree/main/Games/Risky_Nav)|
 | 151 | [Pixels_From_Space](https://github.com/kunjgit/GameZone/tree/main/Games/Pixels_From_Space)|
+| 152 | [Poker_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Poker_Dice)| 
 </center>
 
 <br>

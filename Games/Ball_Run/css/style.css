@@ -1,0 +1,11 @@
+body {
+    text-align: center;
+    background: #333;
+}
+
+#canvas-container {
+    width: 800px;
+    height: 800px;
+    margin: auto;
+    cursor: crosshair;
+}

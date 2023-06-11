@@ -1,0 +1,23 @@
+<div id="v"></div>
+<canvas id="c"></canvas><canvas id="g"></canvas
+><style>
+  body {
+    background: #000;
+  }
+  #c,
+  #v {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  #g {
+    display: none;
+  }
+  #v {
+    background: radial-gradient(transparent, #000000c2);
+    z-index: 2;
+  }
+</style>
+<script src="minsrc.js"></script>

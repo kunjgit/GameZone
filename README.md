@@ -274,6 +274,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 169 | [Rectangular](https://github.com/kunjgit/GameZone/tree/main/Games/Rectangular)|
 | 170 | [Canon_Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Canon_Defense)|
 | 171 | [Trashem](https://github.com/kunjgit/GameZone/tree/main/Games/Trashem)|
+| 171 | [Chess](https://github.com/SoarinSkySagar/GameZone-GSSoC23/tree/main/Games/CHESS)|
 </center>
 
 <br>

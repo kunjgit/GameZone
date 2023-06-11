@@ -204,7 +204,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 99 | [Duck_Hunting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Duck_Hunting_Game)|
 | 100 | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher)|
 | 101 | [Catch_the_Bunny](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_Bunny)|
-| 102  | [Catch_me_game](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_me_game)|
+| 102 | [Catch_me_game](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_me_game)|
 | 103 | [Blank Detective](https://github.com/kunjgit/GameZone/tree/main/Games/Blanks%20Detective)|
 | 104 | [Falling Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Blocks)|
 | 105 | [Movie Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Movie_Guessing_Game)|
@@ -240,11 +240,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 135 | [Blast Zone](https://github.com/kunjgit/GameZone/tree/main/Games/BlastZone)|
 | 136 | [Free Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Free_Bird)|
 | 137 | [Maximise Boxes](https://github.com/kunjgit/GameZone/tree/main/Games/MaximiseBoxes)|
-
-  
-  
-
-| * | [Line Of Fire](https://github.com/kunjgit/GameZone/tree/main/Games/Line_Of_Fire)|
+| 138 | [Slide Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Slide_Puzzle)|
+| 139 | [Diamond_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Diamond_Run)|
+| 140 | [Everyones Sky](https://github.com/kunjgit/GameZone/tree/main/Games/Everyones_Sky)|
+| 141 | [Line Of Fire](https://github.com/kunjgit/GameZone/tree/main/Games/Line_Of_Fire)|
  
 </center>
 

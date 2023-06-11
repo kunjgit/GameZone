@@ -266,6 +266,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 161 | [Terror_Seventy](https://github.com/kunjgit/GameZone/tree/main/Games/Terror_Seventy)|
 | 162 | [Humming](https://github.com/kunjgit/GameZone/tree/main/Games/Humming)|
 | 163 | [Word Search Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Word_search_puzzle)|
+| 164 | [Ballarena](https://github.com/kunjgit/GameZone/tree/main/Games/Ballarena)|
 </center>
 
 <br>

@@ -1,0 +1,13 @@
+#game {
+  margin: 10px auto 0;
+  display: block;
+  border: 3px solid #555;
+  border-radius: 6px;
+}
+
+@font-face {
+  font-family: 'Tempesta Five';
+  font-style: normal;
+  font-weight: 400;
+  src: url(font/pf_tempesta_five.woff) format('woff'); 
+}

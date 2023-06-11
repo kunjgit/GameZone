@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Space Burn</title>
+        <link rel="stylesheet" href="build.css"/>
+    </head>
+    <body>
+       
+        <!-- All the audio! -->
+        <audio id='spacetronaut' autoplay loop='true'>
+          <source src='music/spacetronaut.mp3' type='audio/mpeg'>
+          <source src='music/spacetronaut.ogg' type='audio/ogg'>
+        </audio>
+        <audio id='spacewin' preload='auto' loop='true'>
+          <source src='music/spacewin.mp3' type='audio/mpeg'>
+          <source src='music/spacewin.ogg' type='audio/ogg'>
+        </audio>
+        <audio id='spacefail' preload='auto' loop='true'>
+          <source src='music/spacefail.mp3' type='audio/mpeg'>
+          <source src='music/spacefail.ogg' type='audio/ogg'>
+        </audio>
+        <audio id='shop' preload='auto' loop='true'>
+          <source src='music/shop.mp3' type='audio/mpeg'>
+          <source src='music/shop.ogg' type='audio/ogg'>
+        </audio>
+
+
+        <audio id='collect' preload='auto'>
+          <source src='sfx/collect.mp3' type='audio/mpeg'>
+          <source src='sfx/collect.ogg' type='audio/ogg'>
+        </audio>
+        <audio id='collide' preload='auto'>
+          <source src='sfx/collide.mp3' type='audio/mpeg'>
+          <source src='sfx/collide.ogg' type='audio/ogg'>
+        </audio>
+        <audio id='explode_meteor' preload='auto'>
+          <source src='sfx/explode_meteor.mp3' type='audio/mpeg'>
+          <source src='sfx/explode_meteor.ogg' type='audio/ogg'>
+        </audio>
+        <audio id='jetpack' preload='auto' loop='true'>
+          <source src='sfx/jetpack.mp3' type='audio/mpeg'>
+          <source src='sfx/jetpack.ogg' type='audio/ogg'>
+        </audio>
+        <!-- End of all the audio! -->
+
+        <canvas id="game" width="800" height="600"></canvas>
+        <script src="build.js"></script>
+    </body>
+</html>

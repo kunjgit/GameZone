@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    // Code style
+    "brace-style": [2, "1tbs"],
+    "quotes": [2, "single", "avoid-escape"],
+    "space-after-keywords": [2, "always"],
+    "space-unary-word-ops": 2,
+    // Best practices
+    "curly": 0,
+    "eqeqeq": [2, "smart"],
+    "no-floating-decimal": 2,
+    // Possible errors
+    "no-comma-dangle": 0,
+    "no-use-before-define": [2, "nofunc"],
+    // Strict mode
+    "strict": 0
+  }
+}

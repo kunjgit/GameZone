@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+	<style type="text/css">
+		html, body, div, p{
+			margin: 0;
+			padding: 0;
+			border: 0;
+		}
+		#w{
+			width:100%;
+			height:100%;
+		}
+		p{
+			position: absolute;
+			font-family:monospace;
+			font-size: 20px;
+			color: #fff;
+			width: 50%;
+			z-index:1;
+			padding: 10px 20px;
+		}
+		p em{
+			color: #f00;
+			display: inline-block;
+		}
+		#t{
+			text-align: right;
+			right: 0
+		}
+		#m{
+			width:50%;
+			top:10%;
+			left:25%;
+			border: 1px solid #fff;
+			padding: 20px;
+			background: rgba(0,0,0,.8);
+			cursor: pointer;
+		}
+		#n{
+			width:100%;
+			text-align: center;
+			padding: 20px 0;
+		}
+		#l::after{
+			color: red;
+			letter-spacing: 5px;
+			margin-left: 3px;
+			font-size: 1.5em;
+			line-height: 1em;
+		}
+		#l.l3::after{
+			content: '\2764\2764\2764';
+		}
+		#l.l2::after{
+			content: "\2764\2764";
+		}
+		#l.l1::after{
+			content: "\2764";
+		}
+		canvas{
+			position: absolute;
+			width:100%;
+			max-height: 100%;
+			background: #FF6600;
+		}
+	</style>
+</head>
+<body>
+	<div id=w>
+		<p id=t>TIME:00</p>
+		<p id=l class=l3>LIVES:</p>
+		<p id=m></p>
+		<p id=n></p>
+	</div>
+<script src="main.min.js"></script>
+</body></html>

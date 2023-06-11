@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<div
+  id="O"
+  style="
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    text-align: center;
+  "
+>
+  <h1>NUMERICAL ERROR</h1>
+  <h3>A rushed game</h3>
+  <div id="G">
+    <b>The plot so far:</b> An evil parasite was detected invading the
+    timeline.<br />It sealed itself in a dungeon, in medieval times.<br />We are
+    sending you back to the past to find it and defeat it.<br />However, as it
+    was going to be shown in a cutscene that there was no time to create, as
+    time and space are part of the same continuum, sending you back in time also
+    shrinked you to a fraction of your original size.<br />
+    Luckly, your ship is good enough to help you survive, even if you are tiny,
+    as long as you do not crash it.<br />
+    By the way, it looks like nothing is hapening but the game is loading,
+    really, it takes a while because traveling back in time takes a while, but I
+    assure you it is loading! (Your browser can become quite non-responsive
+    during this time! Sorry! The browsers are super super super slow building
+    shaders.)
+    <div id="L"></div>
+    <div></div>
+    <script>
+      class t {
+        constructor(t) {
+          (this.t = t),
+            (this.i = [0, 0, 0]),
+            (this.o = [0, 0, 0]),
+            (this.s = 0);
+        }
+        l(t, e, n, i, o) {
+          return [0, 0, 0];
+        }
+        u(t, e, n) {
+          (this.i[0] = this.o[0] = t),
+            (this.i[1] = this.o[1] = e),
+            (this.i[2] = this.o[2] = n);
+        }
+        update(t, e) {
+          let n = bt(this.o, this.i),
+            i = zt(n);
+          if (null != this.h) {
+            let o,
+              s = this.t.m.v(this.h),
+              r = zt(s);
+            null != i && null != r && (o = Mt(this.i, $t(i, s[3])));
+            let c = this.l(t, n, i, o, r),
+              a = this.o;
+            (this.o = e || Mt(bt($t(this.o, 2), this.i), c)), (this.i = a);
+          }
+          this.h = this.t.m.p(
+            ...this.i,
+            ...Mt(this.o, i ? $t(i, this.s) : [0, 0, 0])
+          );
+        }
+      }
+      class e extends t {
+        constructor(t) {
+          super(t),
+            this.u(0, 3.5, 0),
+            (this.M = [0, 0, 0, 1]),
+            (this.dir = [0, 0, -1]),
+            (this.$ = [0, 1, 0]);
+        }
+        S(t, e, n, i) {
+          (this.M = i),
+            (this.dir = zt(yt(this.M, [0, 0, -1]))),
+            (this.$ = zt(yt(this.M, [0, 1, 0])));
+          let o = bt(e, $t(this.dir, 0.5));
+          o = Mt(o, $t(this.$, 0.4));
+          let s = (function (t, e, n, i = [0, 0, 0]) {
+            return (
+              (i[0] = at(t[0], e[0], n)),
+              (i[1] = at(t[1], e[1], n)),
+              (i[2] = at(t[2], e[2], n)),
+              i
+            );
+          })(this.i, o, 30 * t);
+          return (
+            this.u(...s),
+            this.update(t, s),
+            (function (
+              t,
+              e,
+              n,
+              i = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+            ) {
+              let o = zt(bt(e, t)),
+                s = zt(gt(o, n)),
+                r = gt(s, o);
+              return (
+                (i[0] = s[0]),
+                (i[4] = s[1]),
+                (i[8] = s[2]),
+                (i[1] = r[0]),
+                (i[5] = r[1]),
+                (i[9] = r[2]),
+                (i[2] = -o[0]),
+                (i[6] = -o[1]),
+                (i[10] = -o[2]),
+                (i[12] = -St(s, t)),
+                (i[13] = -St(r, t)),
+                (i[14] = St(o, t)),
+                i
+              );
+            })(this.i, Mt(e, $t(this.dir, 5)), this.$)
+          );
+        }
+      }
+      const n = 1024,
+        i = `layout(std140) uniform DO {vec4 dynO[${n}];};`;
+      class o {
+        constructor(t) {
+          (this.data = new Float32Array(4 * n).fill(-1)),
+            (this.g = (function (t, e) {
+              let n = t.createBuffer();
+              return (
+                t.bindBuffer(t.UNIFORM_BUFFER, n),
+                t.bufferData(t.UNIFORM_BUFFER, e, t.DYNAMIC_DRAW),
+                n
+              );
+            })(t, 4 * n * 4)),
+            (this.P = 0);
+        }
+        O(t, e, n, i) {
+          let o = 4 * this.P++;
+          (this.data[o] = t),
+            (this.data[o + 1] = e),
+            (this.data[o + 2] = n),
+            (this.data[o + 3] = i);
+        }
+        k(t) {
+          (this.data[4 * this.P + 3] = -1),
+            (function (t, e, n) {
+              t.bindBuffer(t.UNIFORM_BUFFER, e),
+                t.bufferSubData(t.UNIFORM_BUFFER, 0, n);
+            })(t, this.g, this.data),
+            (this.P = 0);
+        }
+      }
+      class s extends t {
+        constructor(t) {
+          super(t),
+            this.u(0, 0, 0),
+            (this.M = [0, 0, 0, 1]),
+            (this.dir = [0, 0, -1]),
+            (this.$ = [0, 1, 0]),
+            (this.B = []);
+        }
+        l(t, e, n, i, o) {
+          if (0 != _) {
+            dt(xt(this.M, mt([0, 1, 0], 0.3 * t * -_)), this.M);
+          }
+          if (0 != E) {
+            dt(xt(this.M, mt([1, 0, 0], 0.3 * t * E)), this.M);
+          }
+          (this.dir = zt(yt(this.M, [0, 0, -1]))),
+            (this.$ = zt(yt(this.M, [0, 1, 0]))),
+            i &&
+              (!(function () {
+                Ut = null;
+                const t = document.createElement("div");
+                (t.id = "G"),
+                  (t.innerHTML =
+                    "<br><br><br><br><h1>GAME OVER!</h1><h2>Play again?</h2><h3>(Begins instantly as the shaders are already built!)</h3><br><button>PLAY</button>"),
+                  document.querySelector("#G").replaceWith(t),
+                  document
+                    .querySelector("button")
+                    .addEventListener("click", () => qt());
+              })(),
+              (this.i = i),
+              (this.o = Mt(this.i, $t(e, -0.8))));
+          const s = 20 * t;
+          let r = 0;
+          K(U) ? (r += s) : K(N) && (r -= s);
+          for (let t of this.B) this.t.V.R.O(...t);
+          return Mt($t(this.dir, r * t), $t(e, -2 * t));
+        }
+      }
+      class r {
+        async init(t, n) {
+          let i = _t.D;
+          (this.F = new s(this)),
+            (this.V = t),
+            (this.m = n),
+            (this.C = (function (t, e) {
+              return (function (t, e) {
+                let n = [[0, 0, 1, 1]];
+                for (; n.length < 20; ) {
+                  let t = ft(n),
+                    e = 0.1 * Math.random() + 0.45,
+                    i = t[2] / t[3] > 1 ? 0 : 1,
+                    o = t[2 + i];
+                  t[2 + i] = o * e;
+                  let s = [...t];
+                  (s[i] = t[i] + t[2 + i]), (s[2 + i] = o * (1 - e)), n.push(s);
+                }
+                n = n.map((t) => [
+                  t[0] + 0.5 * t[2],
+                  t[1] + 0.5 * t[3],
+                  0.4 * t[2],
+                  0.4 * t[3],
+                ]);
+                let i = new Float32Array(3 * e * e);
+                for (let t = 0; t < e; t++)
+                  for (let o = 0; o < e; o++) {
+                    let s = o / e,
+                      r = t / e,
+                      c = n.reduce(
+                        (t, e, n) => {
+                          let i = [
+                              Math.abs(s - e[0]) - e[2],
+                              Math.abs(r - e[1]) - e[3],
+                            ],
+                            o = Math.min(Math.max(i[0], i[1]), 0);
+                          return (
+                            (o += Vt([Math.max(0, i[0]), Math.max(0, i[1])])),
+                            (o -= 0.2 * Math.min(e[2], e[3])) < t[0]
+                              ? [o, n]
+                              : t
+                          );
+                        },
+                        [e * e, 0]
+                      ),
+                      a =
+                        c[1] % 4 == 0
+                          ? [0.738, 0.738, 0.738]
+                          : [0.519, 0.519, 0.519];
+                    (a = c[0] <= 0 ? a : [0.15, 0.07, 0]),
+                      (i[3 * (t * e + o)] = a[0]),
+                      (i[3 * (t * e + o) + 1] = a[1]),
+                      (i[3 * (t * e + o) + 2] = a[2]);
+                  }
+                return Tt(t, e, e, t.RGB32F, t.RGB, t.FLOAT, i);
+              })(t, e);
+            })(i, 1024)),
+            (this.G = new e(this)),
+            (this.T = 0);
+          let o = [...this.V.j[0].A];
+          (o[1] += 1),
+            this.F.u(...o),
+            this.G.u(...this.F.i),
+            (this._ = [...this.V.L.A]),
+            (this._[1] = this.V.L.floor + 1),
+            (this._[2] += 0.5 * this.V.L.U - 0.5),
+            (this._[3] = 1);
+        }
+        update(t) {
+          let e = _t.D;
+          if (
+            (K(H) && ((Et = 2), Yt()),
+            this.m.N(e),
+            this.F.update(1 / 60),
+            this._)
+          ) {
+            this.V.R.O(...this._),
+              wt(bt(this.F.i, this._)) < 1 &&
+                ((this._ = null),
+                (this.H = [...this.V.W.A]),
+                (this.H[1] = this.V.W.floor + 1),
+                (this.H[3] = 1));
+          }
+          if (null != this.H && !0 !== this.H) {
+            this.V.R.O(...this.H),
+              wt(bt(this.F.i, this.H)) < 1 && (this.H = !0);
+          }
+          let n = this.V.Y(this.G.i);
+          n == this.V.q &&
+            (function () {
+              Ut = null;
+              const t = document.createElement("div");
+              (t.id = "G"),
+                (t.innerHTML =
+                  "<br><br><br><br><h1>YOU WON!</h1> You reached the parasite room with the mirror item that was hidden in the lava room.<br> The idea was that the parasite would attack you as soon as you entered so you needed the mirror to bounce back it's shots.<br> Thanks for making it this far in ths hackish demo!"),
+                document.querySelector("#G").replaceWith(t);
+            })(),
+            (this.Z = n || this.Z),
+            (this.I = this.G.S(1 / 60, this.F.i, this.F.dir, this.F.M));
+          let i = (100 * Math.PI) / 180;
+          (this.K = (function (
+            t,
+            e,
+            n,
+            i,
+            o = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+          ) {
+            const s = Math.tan(t / 2);
+            return (
+              (o[0] = 1 / (e * s)),
+              (o[5] = 1 / s),
+              (o[10] = -(i + n) / (i - n)),
+              (o[11] = -1),
+              (o[14] = (-2 * i * n) / (i - n)),
+              o
+            );
+          })(i, _t.screen[0] / _t.screen[1], 0.01, 20)),
+            (this.X = X(this.K, this.I)),
+            (this.T += 1 / 60),
+            (this.J = [null == this._ ? 0 : 1, 0, 0, 0]);
+        }
+        tt() {
+          let t = _t.D;
+          this.m.et(t, this.T, this.J),
+            At(t, void 0, _t.screen),
+            this.V.R.k(t),
+            t.clear(t.COLOR_BUFFER_BIT),
+            t.disable(t.DEPTH_TEST);
+          let e = [{ nt: this.Z }],
+            n = [];
+          et([1.05, 1.05, 1.05]);
+          for (; e.length > 0; ) {
+            let t = e.pop(),
+              i = t.nt;
+            const o = i.points;
+            for (let t = 0; t < o.length; t++)
+              if (null != i.ot[t].it) {
+                let o = X(this.X, i.ot[t].st),
+                  s = [
+                    [-1, 1],
+                    [-1, -1],
+                    [1, -1],
+                    [1, 1],
+                  ].map((t) => J(o, [...t, 0, 1]));
+                if (
+                  s[0][0] * s[1][1] * s[2][3] +
+                    s[1][0] * s[2][1] * s[0][3] +
+                    s[2][0] * s[0][1] * s[1][3] -
+                    s[2][0] * s[1][1] * s[0][3] -
+                    s[1][0] * s[0][1] * s[2][3] -
+                    s[0][0] * s[2][1] * s[1][3] <=
+                  0
+                )
+                  continue;
+                let r = [0, 0, 0];
+                for (let t of s)
+                  for (let e = 0; e < 3; e++)
+                    t[e] < -t[3] ? r[e]-- : t[e] > t[3] && r[e]++;
+                let c = s.length;
+                if (Math.abs(r[0]) == c) continue;
+                if (Math.abs(r[1]) == c) continue;
+                if (Math.abs(r[2]) == c) continue;
+                null == n.find((e) => e.nt == i.ot[t].it) &&
+                  e.push({ nt: i.ot[t].it, clip: o });
+              }
+            n.unshift(t);
+          }
+          null == this.rt &&
+            ((n = this.V.j.map((t) => ({ nt: t }))), (this.rt = !0));
+          for (let e of n) {
+            let n = e.nt;
+            t.bindBuffer(t.ARRAY_BUFFER, _t.ct),
+              t.vertexAttribPointer(n.at, 2, t.FLOAT, !1, 0, 0),
+              t.enableVertexAttribArray(n.at),
+              t.useProgram(n.lt),
+              t.uniformMatrix4fv(n.ft, !1, this.I),
+              t.uniformMatrix4fv(n.ut, !1, this.K),
+              t.uniformMatrix4fv(
+                n.ht,
+                !1,
+                e.clip
+                  ? e.clip
+                  : [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+              ),
+              t.uniformMatrix4fv(n.vt, !1, nt(X(tt(this.F.i), pt(this.F.M)))),
+              t.uniform1f(n.dt, this.T),
+              t.uniform2iv(n.xt, _t.screen),
+              t.uniform4fv(n.yt, this.J),
+              t.bindTexture(t.TEXTURE_2D, this.C),
+              t.uniform1i(n.pt, 0),
+              t.drawArrays(t.TRIANGLE_STRIP, 0, 4);
+          }
+        }
+      }
+      const c = 3,
+        a = 4,
+        l = 2.5,
+        f = c + 1,
+        u = 30,
+        h = 8,
+        v = 40,
+        m = a + 1,
+        d = 10;
+      let x = { empty: 0, Mt: 1, W: 2, bt: 3, $t: 4, q: 5, L: 6, St: 7 };
+      function y(t, e, n, i, o) {
+        const s = 2 * i,
+          r = Math.sign(e.A[s] - n.A[s]);
+        o *= r;
+        const c = 0.5 * (e.A[s] + n.A[s]);
+        t.forEach((t) => {
+          if (!(t.A[s] < c * r)) {
+            t.A[s] += o;
+            for (let e of t.points) e[i] += o;
+          }
+        });
+      }
+      function p(t, e, n) {
+        let i = Math.abs(t.A[2 * n] - e.A[2 * n]);
+        return 0.5 * ([t.wt, t.U][n] + [e.wt, e.U][n]) + h - i;
+      }
+      function M(t, e, n, i) {
+        let o = p(e, n, i);
+        return o > 0 && (y(t, e, n, i, 0.5 * o), y(t, n, e, i, 0.5 * o), !0);
+      }
+      function b(t) {
+        let e = !1;
+        for (let n = 0; n < t.length; n++) {
+          let i = t[n];
+          for (let o = n + 1; o < t.length; o++) {
+            let n = t[o],
+              s = [p(i, n, 0), p(i, n, 1)];
+            s[0] > 0 && s[1] > 0
+              ? (e = s[0] < s[1] ? e || M(t, i, n, 0) : e || M(t, i, n, 1))
+              : s[0] > 0
+              ? (e = e || M(t, i, n, 0))
+              : s[1] > 0 && (e = e || M(t, i, n, 1));
+          }
+        }
+        return e;
+      }
+      function $(t) {
+        let e = (function (t) {
+          let e = Math.max(3, t),
+            n = [],
+            i = (t, n) =>
+              t >= 0 && n >= 0 && t < e && n < e ? n * e + t : null,
+            o = (t) => {
+              let n = Math.floor(t / e);
+              return [t - n * e, n];
+            },
+            s = (t, e) => {
+              if (0 == e) return [...t];
+              let n = t[1];
+              return s([t[0], [n[3], n[0], n[1], n[2]]], e - 1);
+            },
+            r = [
+              [x.empty, [0, 0, 0, 0]],
+              [x.Mt, [1, 2, 1, 2]],
+              [x.Mt, [1, 1, 2, 2]],
+            ],
+            y = [[x.bt, [1, 0, 1, 0]]],
+            p = (t, e) => t[0] == e[0] && t[1].every((t, n) => t == e[1][n]),
+            M = Array(e * e)
+              .fill(0)
+              .map((t) => {
+                let e = [];
+                for (let t of r) for (let n = 0; n < 4; n++) e.push(s(t, n));
+                return (
+                  y.forEach((t) => e.push(s(t, 0))),
+                  (function (t, e) {
+                    if (0 == t.length) return t;
+                    let n = [];
+                    for (; t.length > 0; ) {
+                      let i = t.shift();
+                      n.push(i), (t = t.filter((t) => !e(i, t)));
+                    }
+                    return n;
+                  })(e, p)
+                );
+              }),
+            b = (t) => {
+              const e = [0, 1, 0, -1];
+              return [e[t], e[(t + 3) % 4]];
+            },
+            $ = (t) => [2, 3, 0, 1][t],
+            S = (t, e) => {
+              let [n, i] = t < e ? [t, e] : [e, t];
+              return (
+                (0 == n && (0 == i || 2 == i)) ||
+                (1 == n && (1 == i || 2 == i)) ||
+                2 == n
+              );
+            },
+            w = (t, e, n) => {
+              let o = M[i(t, e)][0][1][n];
+              if (0 == o) return !1;
+              if (1 == o) return !0;
+              let [s, r] = b(n),
+                c = i(t + s, e + r);
+              if (null == c) return !1;
+              let a = M[c];
+              return 0 != a.length && 0 != a[0][1][$(n)];
+            },
+            z = (t, e) => {
+              let n = i(t, e);
+              if (null == n) return;
+              let o = M[n];
+              for (let n = 0; n < 4; n++) {
+                let [s, r] = b(n),
+                  c = i((s += t), (r += e));
+                o = o.filter((t) => {
+                  let e = t[1][n],
+                    i = !1;
+                  return (
+                    null == c || 0 == M[c].length
+                      ? (i = 1 != e)
+                      : M[c].forEach((t) => {
+                          let o = $(n);
+                          i = i || S(e, t[1][o]);
+                        }),
+                    i
+                  );
+                });
+              }
+              o.length < M[n].length && g(t, e, o);
+            },
+            g = (t, e, n) => {
+              (M[i(t, e)] = n),
+                z(t + 1, e),
+                z(t - 1, e),
+                z(t, e + 1),
+                z(t, e - 1);
+            };
+          for (
+            g(1, e - 1, [[x.L, [1, 0, 0, 0]]]),
+              g(e - 2, 0, [[x.W, [0, 1, 0, 1]]]),
+              g(0, 0, [[x.$t, [0, 1, 0, 0]]]),
+              g(e - 1, e - 1, [[x.q, [1, 0, 0, 0]]]);
+            ;
+
+          ) {
+            let t = M.filter((t) => t.length > 1).reduce(
+              (t, e) => (e.length < t ? e.length : t),
+              9999
+            );
+            if (9999 == t) break;
+            let e = ft(
+                M.map((t, e) => e).filter(
+                  (e) => M[e].length > 1 && M[e].length == t
+                )
+              ),
+              [n, i] = o(e);
+            g(n, i, [ft(M[e])]);
+          }
+          let P = 0.5 * (f + u),
+            O = 0.5 * (h + v);
+          for (let t = 0; t < e; t++)
+            for (let o = 0; o < e; o++) {
+              let e = 0,
+                s = ht(m, d),
+                r = ht(f, u),
+                h = ht(Math.max(f, r / l), Math.min(u, r * l)),
+                v = M[i(o, t)];
+              if (0 == v.length) continue;
+              let y = v[0];
+              if (y[0] == x.empty) continue;
+              y[0] == x.W && ((s -= e = -30), (h = 40), (r = 25)),
+                y[0] == x.bt &&
+                  ((s = a - 2 * (e = -5)), (h = 30), (r = a - 2 * e)),
+                y[0] == x.q && ((s -= e = -50), (h = 25), (r = 25)),
+                y[0] == x.L && ((s = 12 - (e = -5)), (h = 30), (r = 30));
+              let p = {
+                zt: i(o, t),
+                wt: r,
+                U: h,
+                gt: s,
+                A: [o * (P + O), e, t * (P + O)],
+                Pt: [],
+                Ot: y[0],
+              };
+              for (let e = 0; e < 4; e++) {
+                let [n, s] = b(e);
+                (n += o), (s += t);
+                let r = [p.U, p.wt, p.U, p.wt][e],
+                  a = 0.5 * (1 + c),
+                  l = ht(a, r - a);
+                (l = 0.5 * r), w(o, t, e) && p.Pt.push([e, i(n, s), l / r]);
+              }
+              n.push(p);
+            }
+          for (let t of n) {
+            (t.floor = t.A[1]),
+              (t.kt = t.A[1] + t.gt),
+              (t.points = [
+                [0.5, -0.5],
+                [-0.5, -0.5],
+                [-0.5, 0.5],
+                [0.5, 0.5],
+              ].map((e) => [e[0] * t.wt + t.A[0], e[1] * t.U + t.A[2]]));
+            let e = Array(4).fill(null),
+              i = (t) => [0, 3, 2, 1][t];
+            for (let o of t.Pt) {
+              let s = i(o[0]),
+                r = t.points[s],
+                a = Bt(t.points[(s + 1) % 4], r),
+                l = Vt(a),
+                f = (0.5 * c) / l;
+              e[s] = [
+                [...kt(r, Rt(a, o[2] - f)), n.find((t) => t.zt == o[1])],
+                [...kt(r, Rt(a, o[2] + f))],
+              ];
+            }
+            t.points = [].concat(
+              ...t.points.map((t, n) => [t, ...(e[n] ? e[n] : [])])
+            );
+          }
+          return n;
+        })(t);
+        for (let t = 0; t < 500 && b(e); t++);
+        for (let t of e)
+          for (let n of t.points) {
+            let i = n[2];
+            if (null != i && t.zt < i.zt) {
+              let n = t.points,
+                o = i.points,
+                s = n.findIndex((t) => t[2] == i),
+                r = o.findIndex((e) => e[2] == t),
+                c = ut(n, s),
+                l = ut(o, r + 1),
+                f = ut(o, r),
+                u = ut(n, s + 1),
+                h = {
+                  floor: 0,
+                  kt: a,
+                  zt: `${t.zt}_${i.zt}`,
+                  Ot: x.St,
+                  points: [
+                    [c[0], c[1]],
+                    [l[0], l[1], i],
+                    [f[0], f[1]],
+                    [u[0], u[1], t],
+                  ],
+                };
+              (f[2] = h), (c[2] = h), e.push(h);
+            }
+          }
+        return e.map((t) =>
+          (function (t) {
+            let e = t.points.reduce(
+              (e, n) => {
+                e.A = kt(e.A, Rt(n, 1 / t.points.length));
+                for (let t = 0; t < 2; t++) {
+                  let i = e.Bt[0][t];
+                  e.Bt[0][t] = null == i || n[t] < i ? n[t] : i;
+                  let o = e.Bt[1][t];
+                  e.Bt[1][t] = null == o || n[t] > o ? n[t] : o;
+                }
+                return e;
+              },
+              {
+                A: [0, 0],
+                Bt: [
+                  [null, null],
+                  [null, null],
+                ],
+              }
+            );
+            return (
+              (t.A = [e.A[0], 0.5 * (t.floor + t.kt), e.A[1]]),
+              (t.wt = e.Bt[1][0] - e.Bt[0][0]),
+              (t.U = e.Bt[1][1] - e.Bt[0][1]),
+              (t.gt = t.kt - t.floor),
+              t
+            );
+          })(t)
+        );
+      }
+      function S(t, e, n, i, o) {
+        let s = tt(t);
+        return (
+          (s = X(s, it([0, 1, 0], Math.atan2(-e[2], e[0])))),
+          (s = X(s, tt([0.5 * n, 0, 0]))),
+          (s = X(s, tt([0, 0.5 * o + i, 0])))
+        );
+      }
+      function w(t, e, n, i, o) {
+        return `sdfWall((${ot(nt(S(t, e, n, i, o)))}*pos4).xyz, ${Pt([
+          0.5 * n,
+          0.5 * o,
+        ])} )`;
+      }
+      function z(t, e) {
+        let n = {},
+          i = (t, e) => {
+            (n[e] = n[e] || []), n[e].push(t);
+          },
+          o = t.kt - t.floor;
+        const s = t.points,
+          r = t.ot;
+        for (let e = 0; e < s.length; e++) {
+          let n = s[e],
+            c = s[e == s.length - 1 ? 0 : e + 1],
+            a = bt(n, c),
+            l = wt(a);
+          if (null == r[e].it) i(w(c, a, l, t.floor, o), 0);
+          else {
+            let n = r[e].it;
+            if (
+              (n.floor > t.floor &&
+                i(w(c, a, l, t.floor, n.floor - t.floor), 0),
+              t.kt > n.kt)
+            ) {
+              let e = t.kt - n.kt;
+              i(w(c, a, l, t.kt - e, e), 0);
+            }
+            let o = Math.min(t.kt, n.kt),
+              s = Math.max(t.floor, n.floor),
+              f = o - s,
+              u = S(c, a, l, s, f);
+            r[e].st = X(u, et([l, f, 1]));
+          }
+        }
+        var l;
+        t.Ot == x.bt && i(`sdfGearsSet((${ot(nt(tt(t.A)))}*pos4).xyz)`, 1),
+          t.Ot == x.W &&
+            i(
+              `sdfLavaSafe((${ot(
+                nt(tt([t.A[0], t.floor + 1, t.A[2]]))
+              )}*pos4).xyz)`,
+              0
+            ),
+          t.Ot == x.q &&
+            (i(
+              `sdfBarsDoor((${ot(
+                nt(tt([t.A[0], 0.5 * a, t.A[2] - 0.5 * t.U + 0.1]))
+              )}*pos4).xyz,${
+                ((l = [1.5 * c, 0.35 * a, 0.1]),
+                `vec3(${rt(l[0])},${rt(l[1])},${rt(l[2])})`)
+              })`,
+              0
+            ),
+            i(
+              `sdBoss((${ot(nt(tt([t.A[0], t.floor + 2, t.A[2]])))}*pos4).xyz)`,
+              1
+            )),
+          t.Ot == x.L &&
+            i(
+              `sdfHex((${ot(
+                nt(
+                  X(
+                    tt(bt(t.A, [2, -0.5 * t.gt + 0.1, 0])),
+                    it([1, 0, 0], -0.5 * Math.PI)
+                  )
+                )
+              )}*pos4).xyz,${Pt([t.gt, t.wt])})`,
+              0
+            ),
+          i(`sdfRoomFloor${e}(pos)`, t.Ot == x.W ? 1 : 0),
+          i(`sdfRoomCeil${e}(pos)`, 0),
+          i("dynamicStuff(pos)", 2);
+        let f = (e) => [e[0] - t.A[0], 0, e[2] - t.A[2]],
+          u = `\nfloat sdfRoomShape${e}(vec3 p) {\nvec2 p2 = p.xy;\nfloat d2d = dot(p2-${Ot(
+            f(s[0])
+          )},p2-${Ot(
+            f(s[0])
+          )});\nfloat s = 1.0;\nvec2 e,w,b;\nbvec3 c;\n            ${s
+            .map((t, e) => {
+              let n = (e + 1) % s.length;
+              return `\ne=${Ot(bt(f(s[n]), f(s[e])))};\nw=p2-${Ot(
+                f(s[e])
+              )};\nb=w-e*clamp(dot(w,e)/dot(e,e),0.0,1.0);\nd2d=min(d2d,dot(b,b));\nc=bvec3(p2.y>=${rt(
+                f(s[e])[2]
+              )},p2.y<${rt(
+                f(s[n])[2]
+              )},e.x*w.y>e.y*w.x);\nif(all(c)||all(not(c)))s*=-1.0; \n`;
+            })
+            .join("")}\n\nreturn sdfOpExtrusion(p,s*sqrt(d2d),${rt(
+            0.2
+          )});\n}\n\nfloat sdfRoomFloor${e}(vec3 p) {\n    vec4 pos4=vec4(p,1.0);\n    return sdfRoomShape${e}((inverse(${ot(
+            tt([t.A[0], t.floor - 0.2, t.A[2]])
+          )}*${ot(
+            it([1, 0, 0], 0.5 * Math.PI)
+          )})*pos4).xyz);\n}\n\nfloat sdfRoomCeil${e}(vec3 p) {\n    vec4 pos4=vec4(p,1.0);\n    return sdfRoomShape${e}((inverse(${ot(
+            tt([t.A[0], t.kt + 0.2, t.A[2]])
+          )}*${ot(it([1, 0, 0], 0.5 * Math.PI))})*pos4).xyz);\n}\n`;
+        return {
+          Rt:
+            ((h = n),
+            (v = (t) => ct(t)),
+            Object.assign(
+              {},
+              ...Object.keys(h).map((t) => ({ [t]: v(h[t]) }))
+            )),
+          Vt: u,
+        };
+        var h, v;
+      }
+      function g(t) {
+        var e, n, i;
+        return {
+          Rt:
+            ((e = t.Rt),
+            (n = (t, e, n) =>
+              t + `{float sdfD=${e};if(sdfD<d){d=sdfD;mat=${rt(n)};}}`),
+            (i = ""),
+            Object.keys(e).reduce((t, i) => n(t, e[i], i), i)),
+          Vt: t.Vt,
+        };
+      }
+      function P(t, e) {
+        return `\n#define ZERO min(uScreenSize.x,0)\nvec3 calcNormal(vec3 p){vec3 n=vec3(.0);for(int i=ZERO;i<4;i++){vec3 e=0.5773*(2.0*vec3((((i+3)>>1)&1),((i>>1)&1),(i&1))-1.0);n+=e*${t}(p+0.0005*e)${
+          e || ""
+        };}return normalize(n);}`;
+      }
+      class O {
+        async init(t, e) {
+          (this.R = new o(t)), (this.j = []), (this.Dt = 0);
+          for (let n of e)
+            this.j.push(
+              (async () => {
+                (n.ot = n.points.map((t) => ({ it: t[2] }))),
+                  (n.points = n.points.map((t) => [t[0], 0, t[1]]));
+                let e = z(n, n.zt);
+                n.zt, (n.Ft = e);
+                let i = k(g(e));
+                return (
+                  n.Ot == x.L && (this.L = n),
+                  n.Ot == x.W && (this.W = n),
+                  n.Ot == x.q && (this.q = n),
+                  (n.lt = await Ft(t, jt(D), i)),
+                  n.zt,
+                  this.Dt++,
+                  (document.querySelector(
+                    "#L"
+                  ).innerHTML = `Loading ${Math.floor(
+                    (81 * this.Dt) / this.j.length
+                  )}%`),
+                  n
+                );
+              })()
+            );
+          (this.j = await Promise.all(this.j)), this.j;
+          for (let n of e) {
+            (n.at = t.getAttribLocation(n.lt, "aVertexPosition")),
+              (n.ut = Ct(t, n.lt, "uProjectionMatrix")),
+              (n.ft = Ct(t, n.lt, "uModelViewMatrix")),
+              (n.ht = Ct(t, n.lt, "uClipModelViewMatrix")),
+              (n.vt = Ct(t, n.lt, "uDynamicTransforms")),
+              (n.xt = Ct(t, n.lt, "uScreenSize")),
+              (n.dt = Ct(t, n.lt, "uTimeSeconds")),
+              (n.pt = Ct(t, n.lt, "uArraySampler")),
+              (n.yt = Ct(t, n.lt, "uGameData"));
+            let e = this.R.g,
+              i = t.getUniformBlockIndex(n.lt, "DO");
+            Gt(t, e, 0), t.uniformBlockBinding(n.lt, i, 0);
+          }
+        }
+        Ct() {
+          return jt(
+            `layout(location = 0) out vec4 fragColor;uniform float uTimeSeconds;uniform vec4 uGameData;uniform ivec2 uScreenSize;const float bigFloat=3.402823466e+38;${j}${this.j
+              .map((t) => t.Ft.Vt)
+              .join(
+                ""
+              )}float dynamicStuff(vec3 p){return bigFloat;}float worldSdf(vec3 pos){vec4 pos4=vec4(pos,1.0);return ${ct(
+              this.j.map((t) => ct(Object.values(t.Ft.Rt)))
+            )};}${P("worldSdf")}${T}`
+          );
+        }
+        Y(t) {
+          let e = [t[0], 0, t[2]];
+          for (let t of this.j) {
+            const n = t.points;
+            let i = 0;
+            for (let t = 0; t < n.length; t++) {
+              let o = n[t],
+                s = n[t == n.length - 1 ? 0 : t + 1],
+                r = zt(bt(o, e)),
+                c = zt(bt(s, e));
+              i += Math.acos(St(r, c));
+            }
+            if (Math.abs(i - 2 * Math.PI) < 1e-4) return t;
+          }
+        }
+      }
+      function k(t) {
+        return jt(
+          `\n    ${C}\n    ${i}\n    ${j}\n    ${A}\n    ${
+            t.Vt
+          }\n\n    vec2 room(vec3 pos){float d=3.402823466e+38;float mat=-1.0;vec4 pos4=vec4(pos,1.0);${
+            t.Rt
+          };return vec2(d,mat);}\n\n    ${P(
+            "room",
+            ".x"
+          )}\n    \n    ${G}\n    `
+        );
+      }
+      const B = 1024,
+        R = 2;
+      class V {
+        async init(t, e) {
+          (this.Gt = new Float32Array(4 * B).fill(st)),
+            (this.Tt = new Float32Array(3 * B * R).fill(st)),
+            (this.At = 0),
+            (this.lt = await Ft(t, jt(F), e.Ct())),
+            (this.jt = (function (t, e, n, i, o, s) {
+              let r = t.createFramebuffer();
+              t.bindFramebuffer(t.FRAMEBUFFER, r);
+              let c = Tt(t, e, n, i, o, s);
+              t.framebufferTexture2D(
+                t.FRAMEBUFFER,
+                t.COLOR_ATTACHMENT0,
+                t.TEXTURE_2D,
+                c,
+                0
+              ),
+                !1;
+              return { jt: r, _t: c };
+            })(t, B, 1, t.RGBA32F, t.RGBA, t.FLOAT)),
+            (this.at = t.getAttribLocation(this.lt, "aVertexPosition")),
+            (this.xt = Ct(t, this.lt, "uScreenSize")),
+            (this.Et = Ct(t, this.lt, "uPositionsSampler")),
+            (this.dt = Ct(t, this.lt, "uTimeSeconds")),
+            (this.yt = Ct(t, this.lt, "uGameData")),
+            (this.Lt = Tt(t, B, R, t.RGB32F, t.RGB, t.FLOAT));
+        }
+        p(t, e, n, i, o, s) {
+          let r = this.At++,
+            c = 3 * r;
+          return (
+            (this.Tt[c] = t),
+            (this.Tt[c + 1] = e),
+            (this.Tt[c + 2] = n),
+            (c += 3 * B),
+            (this.Tt[c] = i),
+            (this.Tt[c + 1] = o),
+            (this.Tt[c + 2] = s),
+            r
+          );
+        }
+        v(t) {
+          t *= 4;
+          let e = this.Gt;
+          return [e[t], e[t + 1], e[t + 2], e[t + 3]];
+        }
+        N(t) {
+          t.bindFramebuffer(t.FRAMEBUFFER, this.jt.jt),
+            t.readPixels(0, 0, B, 1, t.RGBA, t.FLOAT, this.Gt);
+        }
+        et(t, e, n) {
+          At(t, this.jt.jt, [B, 1]),
+            t.bindBuffer(t.ARRAY_BUFFER, _t.ct),
+            t.vertexAttribPointer(this.at, 2, t.FLOAT, !1, 0, 0),
+            t.enableVertexAttribArray(this.at),
+            t.useProgram(this.lt),
+            t.uniform2iv(this.xt, [B, 1]),
+            t.uniform1f(this.dt, e),
+            t.uniform4fv(this.yt, n),
+            t.bindTexture(t.TEXTURE_2D, this.Lt),
+            t.texSubImage2D(
+              t.TEXTURE_2D,
+              0,
+              0,
+              0,
+              B,
+              R,
+              t.RGB,
+              t.FLOAT,
+              this.Tt
+            ),
+            t.uniform1i(this.Et, 0),
+            t.drawArrays(t.TRIANGLE_STRIP, 0, 4),
+            (this.At = 0);
+        }
+      }
+      let D =
+          "in vec4 aVertexPosition;uniform mat4 uProjectionMatrix,uClipModelViewMatrix;out vec4 vViewVector;void main(){vec4 v=inverse(uProjectionMatrix)*vec4(aVertexPosition.xy,1.,1.);v/=v.w;vec4 n=inverse(uProjectionMatrix)*vec4(aVertexPosition.xy,-1.,1.);n/=n.w;vViewVector=v-n;gl_Position=uClipModelViewMatrix*vec4(aVertexPosition.xy,0.,1.);}",
+        F =
+          "in vec4 aVertexPosition;void main(){gl_Position=vec4(aVertexPosition.xy,0.,1.);}",
+        C =
+          "in vec4 vViewVector;uniform mat4 uModelViewMatrix;uniform ivec2 uScreenSize;uniform mat4 uDynamicTransforms[10];uniform float uTimeSeconds;uniform vec4 uGameData;const float bigFloat=3.40282e+38;layout(location=0)out vec4 fragColor;",
+        G =
+          "uniform sampler2D uArraySampler;vec2 hash(vec2 v){const vec2 n=vec2(.31831,.367879);v=v*n+n.yx;return-1.+2.*fract(16.*n*fract(v.x*v.y*(v.x+v.y)));}float noise(in vec2 v){vec2 u=floor(v),n=fract(v),d=n*n*(3.-2.*n);return mix(mix(dot(hash(u+vec2(0.,0.)),n-vec2(0.,0.)),dot(hash(u+vec2(1.,0.)),n-vec2(1.,0.)),d.x),mix(dot(hash(u+vec2(0.,1.)),n-vec2(0.,1.)),dot(hash(u+vec2(1.,1.)),n-vec2(1.,1.)),d.x),d.y);}float tex(vec2 v){v*=10.;mat2 n=mat2(1.6,1.2,-1.2,1.6);float f=.5*noise(v);v=n*v;f+=.25*noise(v);v=n*v;f+=.125*noise(v);v=n*v;f+=.0625*noise(v);v=n*v;return f*.5+.5;}vec3 lava(vec2 v){v*=.2;float n=noise(v*5.),d=noise(10.+v*20.)*.5+.5,u=n*3.1415;vec2 m=2.*vec2(cos(u),sin(u));float f=uTimeSeconds*.5+d,t=fract(f),x=fract(f+.5);vec2 z=m*.1*t,y=m*.1*x;vec3 s=vec3(n);float r=mix(tex(v+z),tex(v+y),abs(t*2.-1.));r=min(1.,max(0.,abs(r-.35)/.35));return mix(vec3(1.,0.,0.),vec3(1.,1.,0.),r);}vec3 shade(vec3 v,vec3 u,float n){if(n<.5){vec2 f=v.xy;vec3 d=cross(u,vec3(0.,0.,1.));if(length(d)>.0001){d=normalize(d);vec3 m=normalize(cross(u,d));f=(transpose(mat3(d,m,u))*v).xy;}return(.35+.65*tex(f*2.))*texture(uArraySampler,f/6.).xyz;}else if(n<1.5)return lava(v.xz);return vec3(1.,0.,0.);}uniform mat4 uProjectionMatrix;void main(){const float v=3.;vec3 f=vec3(0.),d;vec2 n;float u=0.;mat4 m=inverse(uModelViewMatrix);vec2 r=gl_FragCoord.xy/vec2(uScreenSize);vec4 s=inverse(uProjectionMatrix)*vec4(r.xy*2.-vec2(1),-1.,1.),i=inverse(uProjectionMatrix)*vec4(r.xy*2.-vec2(1),1.,1.);vec3 t=s.xyz/s.w;i/=i.w;vec3 y=normalize(i.xyz);for(int x=ZERO;x<64;x++){d=y*u;d=vec3(m*vec4(d,1.));n=room(d);float z=n.x;if(abs(z)<.001||u>-i.z)break;u+=z;}if(u<-i.z){vec3 z=normalize(vec3(1.,1.,1.)),x=calcNormal(d);f=shade(d,x,n.y);float l=1.;l*=max(0.,dot(z,x));f*=min(1.,.4+l);}else{discard;}fragColor=vec4(f.xyz,1.);}",
+        T =
+          "uniform sampler2D uPositionsSampler;void main(){vec3 v=vec3(texelFetch(uPositionsSampler,ivec2(gl_FragCoord.x,0),0)),i=v,l=vec3(texelFetch(uPositionsSampler,ivec2(gl_FragCoord.x,1),0)),t=l-v;float f=length(t);vec4 r=vec4(vec3(0),v.x);if(f!=0.){t/=f;float u=0.;f=max(.1,f);for(int s=ZERO;s<64;s++){float m=worldSdf(v+t*u);if(abs(m)<.001||u>f)break;u+=m;}if(u<f){vec3 m=calcNormal(v+t*u);r=vec4(m,u*.99);}}fragColor=r;}",
+        A =
+          "float sdfPlayerShip(vec3 v){return sdfOpSmoothUnion(sdfBox(v,vec3(.05,.05,.15)),sdfBox(v-vec3(0.,0.,.06),vec3(.3,.05,.05)),.1);}float sdOctahedron(in vec3 v,in float s){return v=abs(v),(v.x+v.y+v.z-s)*.57735;}float dcm(vec3 v,vec3 s,float i){if(i<1.5)return sdOctahedron(v-s,.4);else if(i<2.5){float f=length(v-s)-.15;const int d=25;for(int y=0;y<d;y++){vec2 c=vec2(float(y)/float(d),2.*float(y)/(1.+sqrt(5.))),u=vec2(acos(2.*c.x-1.)-1.57075,6.283*c.y);vec3 l=normalize(vec3(cos(u.x)*cos(u.y),cos(u.x)*sin(u.y),sin(u.x))),x=l*(.2+.08*sin(uTimeSeconds*3.+float(y)*3.1415));float a=length(v-s-x)-.025;const float e=.18;float w=clamp(.5+.5*(a-f)/e,0.,1.);f=mix(a,f,w)-e*w*(1.-w);}return f;}return length(v-s)-1.;}float dynamicStuff(vec3 v){int f=0;float s=sdfPlayerShip(vec3(uDynamicTransforms[0]*vec4(v,1.)));while(dynO[f].w>=0.)s=min(s,dcm(v,vec3(dynO[f]),dynO[f].w)),f++;return s;}",
+        j =
+          "float sdfPlane(vec3 s,vec3 v){return dot(s,v);}float sdfBox(vec3 s,vec3 v){vec3 m=abs(s)-v;return length(max(m,0.))+min(max(m.x,max(m.y,m.z)),0.);}float sdfRoundedBox(vec3 s,vec3 v,float y){vec3 m=abs(s)-v;return length(max(m,0.))-y+min(max(m.x,max(m.y,m.z)),0.);}float sdfOpIntersection(float s,float v){return max(s,v);}float sdfOpExtrusion(vec3 s,float m,float v){vec2 f=vec2(m,abs(s.z)-v);return min(max(f.x,f.y),0.)+length(max(f,0.));}vec3 sdfOpRepeat(vec3 s,vec3 v){return mod(s,v)-.5*v;}float sdfOpSmoothUnion(float s,float m,float v){float f=clamp(.5+.5*(m-s)/v,0.,1.);return mix(m,s,f)-v*f*(1.-f);}const vec3 brickSize=vec3(.3,.13,.03);float sdfBrick4x4(vec3 s){const float m=.95;vec3 v=sdfOpRepeat(s,vec3(brickSize.xy*4.,0.));return sdfRoundedBox(v,brickSize*vec3(.8*m,.5*m,1.),.05);}float sdfBrickRow(vec3 s){return min(sdfBrick4x4(s),sdfBrick4x4(s-vec3(brickSize.x*2.,0.,0.)));}float sdfWall(vec3 s,vec2 v){float m=sdfPlane(s,vec3(0.,0.,1.));return sdfOpIntersection(m,sdfBox(s,vec3(v,1.)));}float sdfGearsSet(vec3 s){return sdfBox(s,vec3(2.));}float sdfBarsDoor(vec3 s,vec3 v){if(uGameData.x>0.)return sdfBox(s,v);else return bigFloat;}float sdfLavaSafe(vec3 s){if(uGameData.x>0.)return sdfBox(s,vec3(2.,2.,2.));else return bigFloat;}float sdHexPrism(vec3 s,vec2 v){const vec3 m=vec3(-.866025,.5,.57735);s=abs(s);s.xy-=2.*min(dot(m.xy,s.xy),0.)*m.xy;vec2 f=vec2(length(s.xy-vec2(clamp(s.x,-m.z*v.x,m.z*v.x),v.x))*sign(s.y-v.x),s.z-v.y);return min(max(f.x,f.y),0.)+length(max(f,0.));}float sdfHex(vec3 s,vec2 v){float m=v.y/5.,f=bigFloat;for(int y=0;y<9;y++){for(int r=0;r<5;r++){float l=abs(sin((uGameData.x>0.?1.:-1.)*uTimeSeconds+1.57575*float(y)/9.));f=min(f,sdHexPrism(s-vec3(4.*m*(float(r)-2.+(y%2==0?0.:.5))/5.,2.*m*(float(y)-4.)/5.,-.5*v.x+l*v.x),vec2(m*.9*.25,.5*v.x)));}}return f;}float sdSphere(vec3 s,float v){return length(s)-v;}float sdCappedCylinder(vec3 s,float m,float v){vec2 f=abs(vec2(length(s.xz),s.y))-vec2(m,v);return min(max(f.x,f.y),0.)+length(max(f,0.));}vec3 sdfPreSymY(in vec3 s){return s.y=abs(s.y),s;}float sdBossLeg(vec3 s){float v=2.5*uTimeSeconds;s=sdfPreSymY(s);return sdfOpSmoothUnion(sdCappedCylinder(s,.3,6.),min(min(sdSphere(s-vec3(0.,2.,0.),.5+.1*sin(v)),sdSphere(s-vec3(0.,3.5,0.),.3+.1*sin(v+1.))),sdSphere(s-vec3(0.,6.,0.),.4+.1*sin(v+2.))),.25+.05*(1.+sin(v*.5)));}float sdBoss(vec3 s){return s/=2.,sdfOpSmoothUnion(min(sdBossLeg(s.xzy),sdBossLeg(s.zxy)),sdSphere(s,1.5),.5)*2.;}";
+      let _,
+        E,
+        L = {},
+        U = "KeyW",
+        N = "KeyS",
+        H = "Digit1",
+        W = 0,
+        Y = 0;
+      function q(t) {
+        L[t.code] = !0;
+      }
+      function Q(t) {
+        L[t.code] = !1;
+      }
+      function Z(t) {
+        t.movementX && (W += t.movementX), t.movementY && (Y += t.movementY);
+      }
+      function I() {
+        document.pointerLockElement === _t.D.canvas ||
+        document.mozPointerLockElement === _t.D.canvas
+          ? document.addEventListener("mousemove", Z, !1)
+          : document.removeEventListener("mousemove", Z, !1);
+      }
+      function K(t) {
+        return !!L[t];
+      }
+      function X(t, e, n = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]) {
+        for (let i = 0; i < 4; i++)
+          for (let o = 0; o < 4; o++) {
+            let s = 4 * o + i;
+            n[s] = 0;
+            for (let r = 0; r < 4; r++) n[s] += t[4 * r + i] * e[4 * o + r];
+          }
+        return n;
+      }
+      function J(t, e, n = [0, 0, 0, 0]) {
+        for (let i = 0; i < n.length; i++) {
+          n[i] = 0;
+          for (let o = 0; o < 4; o++) n[i] += t[4 * o + i] * e[o];
+        }
+        return n;
+      }
+      function tt(t, e = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]) {
+        return (e[12] = t[0]), (e[13] = t[1]), (e[14] = t[2]), e;
+      }
+      function et(t, e = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]) {
+        return (e[0] = t[0]), (e[5] = t[1]), (e[10] = t[2]), e;
+      }
+      function nt(t, e = []) {
+        let n = t[0],
+          i = t[1],
+          o = t[2],
+          s = t[3],
+          r = t[4],
+          c = t[5],
+          a = t[6],
+          l = t[7],
+          f = t[8],
+          u = t[9],
+          h = t[10],
+          v = t[11],
+          m = t[12],
+          d = t[13],
+          x = t[14],
+          y = t[15],
+          p = n * c - i * r,
+          M = n * a - o * r,
+          b = n * l - s * r,
+          $ = i * a - o * c,
+          S = i * l - s * c,
+          w = o * l - s * a,
+          z = f * d - u * m,
+          g = f * x - h * m,
+          P = f * y - v * m,
+          O = u * x - h * d,
+          k = u * y - v * d,
+          B = h * y - v * x,
+          R = p * B - M * k + b * O + $ * P - S * g + w * z;
+        return R
+          ? ((R = 1 / R),
+            (e[0] = (c * B - a * k + l * O) * R),
+            (e[1] = (o * k - i * B - s * O) * R),
+            (e[2] = (d * w - x * S + y * $) * R),
+            (e[3] = (h * S - u * w - v * $) * R),
+            (e[4] = (a * P - r * B - l * g) * R),
+            (e[5] = (n * B - o * P + s * g) * R),
+            (e[6] = (x * b - m * w - y * M) * R),
+            (e[7] = (f * w - h * b + v * M) * R),
+            (e[8] = (r * k - c * P + l * z) * R),
+            (e[9] = (i * P - n * k - s * z) * R),
+            (e[10] = (m * S - d * b + y * p) * R),
+            (e[11] = (u * b - f * S - v * p) * R),
+            (e[12] = (c * g - r * O - a * z) * R),
+            (e[13] = (n * O - i * g + o * z) * R),
+            (e[14] = (d * M - m * $ - x * p) * R),
+            (e[15] = (f * $ - u * M + h * p) * R),
+            e)
+          : null;
+      }
+      function it(t, e, n = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]) {
+        const i = Math.cos(e),
+          o = Math.sin(e),
+          s = 1 - i;
+        return (
+          (n[0] = i + t[0] * t[0] * s),
+          (n[1] = t[0] * t[1] * s + t[2] * o),
+          (n[2] = t[0] * t[2] * s - t[1] * o),
+          (n[4] = t[0] * t[1] * s - t[2] * o),
+          (n[5] = i + t[1] * t[1] * s),
+          (n[6] = t[1] * t[2] * s + t[0] * o),
+          (n[8] = t[0] * t[2] * s + t[1] * o),
+          (n[9] = t[1] * t[2] * s - t[0] * o),
+          (n[10] = i + t[2] * t[2] * s),
+          n
+        );
+      }
+      function ot(t) {
+        return `mat4(${t.map((t) => rt(t)).join(",")})`;
+      }
+      let st = 3402823466e29;
+      function rt(t) {
+        return `${(t = Number(t))}${t === Math.trunc(t) ? ".0" : ""}`;
+      }
+      function ct(t) {
+        return t.reduce((t, e) => `min(${t},${e})`);
+      }
+      function at(t, e, n) {
+        return (1 - n) * t + n * e;
+      }
+      function lt(t, e) {
+        return Math.floor(
+          (function (t, e) {
+            return t + Math.random() * (e - t);
+          })(t, e)
+        );
+      }
+      function ft(t) {
+        return t[lt(0, t.length)];
+      }
+      function ut(t, e) {
+        return t[e % t.length];
+      }
+      function ht(t, e, n) {
+        n = null == n ? 0.5 * (t + e) : n;
+        let i =
+          Math.sqrt(-2 * Math.log(Math.random())) *
+          Math.cos(2 * Math.PI * Math.random());
+        return (i = Math.min(3, Math.max(-3, i))) < 0
+          ? n + ((n - t) * i) / 3
+          : ((e - n) * i) / 3 + n;
+      }
+      function vt(t) {
+        return new Promise((e, n) => {
+          setTimeout(() => e(t()), 1);
+        });
+      }
+      function mt(t, e, n = [0, 0, 0, 1]) {
+        return (e *= 0.5), $t(t, Math.sin(e), n), (n[3] = Math.cos(e)), n;
+      }
+      function dt(t, e = [0, 0, 0, 1]) {
+        let n = (function (t) {
+          return Math.sqrt(
+            ((n = t),
+            (e = t)[0] * n[0] + e[1] * n[1] + e[2] * n[2] + e[3] * n[3])
+          );
+          var e, n;
+        })(t);
+        if (0 != n)
+          return (
+            (e[0] = t[0] / n),
+            (e[1] = t[1] / n),
+            (e[2] = t[2] / n),
+            (e[3] = t[3] / n),
+            e
+          );
+      }
+      function xt(t, e, n = [0, 0, 0, 1]) {
+        return (
+          (n[3] = t[3] * e[3] - t[0] * e[0] - t[1] * e[1] - t[2] * e[2]),
+          (n[0] = t[3] * e[0] + t[0] * e[3] + t[1] * e[2] - t[2] * e[1]),
+          (n[1] = t[3] * e[1] + t[1] * e[3] + t[2] * e[0] - t[0] * e[2]),
+          (n[2] = t[3] * e[2] + t[2] * e[3] + t[0] * e[1] - t[1] * e[0]),
+          n
+        );
+      }
+      function yt(t, e, n = [0, 0, 0]) {
+        let i = xt(
+          t,
+          xt(
+            [...e, 0],
+            (function (t, e = [0, 0, 0, 1]) {
+              return (
+                (e[0] = -t[0]), (e[1] = -t[1]), (e[2] = -t[2]), (e[3] = t[3]), e
+              );
+            })(t)
+          )
+        );
+        return (n[0] = i[0]), (n[1] = i[1]), (n[2] = i[2]), n;
+      }
+      function pt(t, e = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]) {
+        let n = t[0] * t[0],
+          i = t[1] * t[1],
+          o = t[2] * t[2],
+          s = t[0] * t[2],
+          r = t[0] * t[1],
+          c = t[1] * t[2],
+          a = t[3] * t[0],
+          l = t[3] * t[1],
+          f = t[3] * t[2];
+        return (
+          (e[0] = 1 - 2 * (i + o)),
+          (e[1] = 2 * (r + f)),
+          (e[2] = 2 * (s - l)),
+          (e[4] = 2 * (r - f)),
+          (e[5] = 1 - 2 * (n + o)),
+          (e[6] = 2 * (c + a)),
+          (e[8] = 2 * (s + l)),
+          (e[9] = 2 * (c - a)),
+          (e[10] = 1 - 2 * (n + i)),
+          e
+        );
+      }
+      function Mt(t, e, n = [0, 0, 0]) {
+        return (
+          (n[0] = t[0] + e[0]), (n[1] = t[1] + e[1]), (n[2] = t[2] + e[2]), n
+        );
+      }
+      function bt(t, e, n = [0, 0, 0]) {
+        return (
+          (n[0] = t[0] - e[0]), (n[1] = t[1] - e[1]), (n[2] = t[2] - e[2]), n
+        );
+      }
+      function $t(t, e, n = [0, 0, 0]) {
+        return (n[0] = t[0] * e), (n[1] = t[1] * e), (n[2] = t[2] * e), n;
+      }
+      function St(t, e) {
+        return t[0] * e[0] + t[1] * e[1] + t[2] * e[2];
+      }
+      function wt(t) {
+        return Math.hypot(t[0], t[1], t[2]);
+      }
+      function zt(t, e = [0, 0, 0]) {
+        let n = wt(t);
+        if (0 != n)
+          return (e[0] = t[0] / n), (e[1] = t[1] / n), (e[2] = t[2] / n), e;
+      }
+      function gt(t, e, n = [0, 0, 0]) {
+        return (
+          (n[0] = t[1] * e[2] - t[2] * e[1]),
+          (n[1] = t[2] * e[0] - t[0] * e[2]),
+          (n[2] = t[0] * e[1] - t[1] * e[0]),
+          n
+        );
+      }
+      function Pt(t) {
+        return `vec2(${rt(t[0])},${rt(t[1])})`;
+      }
+      function Ot(t) {
+        return `vec2(${rt(t[0])},${rt(t[2])})`;
+      }
+      function kt(t, e, n = [0, 0]) {
+        return (n[0] = t[0] + e[0]), (n[1] = t[1] + e[1]), n;
+      }
+      function Bt(t, e, n = [0, 0]) {
+        return (n[0] = t[0] - e[0]), (n[1] = t[1] - e[1]), n;
+      }
+      function Rt(t, e, n = [0, 0]) {
+        return (n[0] = t[0] * e), (n[1] = t[1] * e), n;
+      }
+      function Vt(t) {
+        return Math.hypot(t[0], t[1]);
+      }
+      function Dt(t, e, n) {
+        return vt(() => {
+          const i = t.createShader(e);
+          return t.shaderSource(i, n), t.compileShader(i), i;
+        });
+      }
+      async function Ft(t, e, n) {
+        return (function (t, e) {
+          return vt(() => {
+            const n = t.createProgram();
+            return e.forEach((e) => t.attachShader(n, e)), t.linkProgram(n), n;
+          });
+        })(t, [
+          await Dt(t, t.VERTEX_SHADER, e),
+          await Dt(t, t.FRAGMENT_SHADER, n),
+        ]);
+      }
+      function Ct(t, e, n) {
+        return t.getUniformLocation(e, n);
+      }
+      function Gt(t, e, n) {
+        t.bindBuffer(t.UNIFORM_BUFFER, e),
+          t.bindBufferBase(t.UNIFORM_BUFFER, n, e);
+      }
+      function Tt(t, e, n, i, o, s, r) {
+        let c = t.createTexture();
+        return (
+          t.bindTexture(t.TEXTURE_2D, c),
+          t.texImage2D(t.TEXTURE_2D, 0, i, e, n, 0, o, s, r),
+          t.texParameteri(t.TEXTURE_2D, t.TEXTURE_MIN_FILTER, t.NEAREST),
+          t.texParameteri(t.TEXTURE_2D, t.TEXTURE_MAG_FILTER, t.NEAREST),
+          c
+        );
+      }
+      function At(t, e, n) {
+        t.bindFramebuffer(t.FRAMEBUFFER, e), _t.D.viewport(0, 0, n[0], n[1]);
+      }
+      function jt(t) {
+        return `#version 300 es\nprecision highp float;\n${t}`;
+      }
+      let _t = {};
+      let Et = 2;
+      const Lt = 1;
+      let Ut,
+        Nt = 0,
+        Ht = [];
+      function Wt(t) {
+        _t.D;
+        const e = (t *= 0.001) - Nt;
+        Nt = t;
+        let n = 0;
+        Ht.push(e),
+          6 == Ht.length &&
+            (Ht.shift(),
+            (n = Ht.reduce((t, e) => t + e / Ht.length, 0)) > 1 / 45 &&
+              (n > 0.1
+                ? (Et *= 0.5)
+                : n > 0.05
+                ? (Et *= 0.75)
+                : n > 1 / 30
+                ? (Et *= 0.85)
+                : (Et -= 0.01),
+              Yt(),
+              (Ht = []))),
+          (_ = W),
+          (E = Y),
+          (W = 0),
+          (Y = 0),
+          Ut && Ut.update(e),
+          Ut && Ut.tt(),
+          Ut && requestAnimationFrame(Wt);
+      }
+      function Yt() {
+        let t = Lt * Et;
+        (_t.D.canvas.width = 640 * t),
+          (_t.D.canvas.height = 480 * t),
+          (_t.D.canvas.style.width = `${_t.D.canvas.width / Et}px`),
+          (_t.screen = [_t.D.canvas.width, _t.D.canvas.height]);
+      }
+      function qt() {
+        (Et = 2),
+          (Ut = new r()).init(_t.V, _t.m).then(() => {
+            document.querySelector("#G").replaceWith(_t.D.canvas),
+              document.body.addEventListener("keydown", q, !1),
+              document.body.addEventListener("keyup", Q, !1),
+              document.addEventListener("pointerlockchange", I, !1),
+              document.addEventListener("mozpointerlockchange", I, !1),
+              _t.D.canvas.addEventListener(
+                "click",
+                () =>
+                  (function () {
+                    let t = _t.D.canvas;
+                    (t.requestPointerLock =
+                      t.requestPointerLock || t.mozRequestPointerLock),
+                      t.requestPointerLock();
+                  })(),
+                !1
+              ),
+              requestAnimationFrame(Wt);
+          });
+      }
+      window.onload = function () {
+        const t = document.createElement("canvas");
+        t.id = "G";
+        let e = t.getContext("webgl2", { Ut: !1 });
+        (_t.D = e),
+          (function (t, e) {
+            if (!t.getExtension("EXT_color_buffer_float"))
+              throw new Error(`Needs ${e}`);
+          })(e, "EXT_color_buffer_float"),
+          Yt(),
+          e.clearColor(0, 1, 0, 1),
+          (function (t) {
+            const e = t.createBuffer();
+            t.bindBuffer(t.ARRAY_BUFFER, e),
+              t.bufferData(
+                t.ARRAY_BUFFER,
+                new Float32Array([-1, 1, -1, -1, 1, 1, 1, -1]),
+                t.STATIC_DRAW
+              ),
+              (_t.ct = e);
+          })(e),
+          (_t.V = new O()),
+          _t.V.init(e, $(2)).then(() => {
+            (_t.m = new V()), _t.m.init(e, _t.V).then(qt);
+          });
+      };
+    </script>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Radial</title>
+		<style type="text/css">
+			body, html {
+				overflow: hidden;
+				margin:0;
+				padding:0;
+				height:100%;
+				width:100%;
+			}
+
+			#a {
+				position: absolute;
+				top:34%;
+				height:33%;
+				cursor: pointer;
+				left:34%;
+				z-index: 3;
+				width:33%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id = 'a'></div>
+		<canvas id = 'c'></canvas>
+	</body>
+	<script src='js/render.js'></script>
+	<script src='js/WaveGen.js'></script>
+	<script src='js/Block.js'></script>
+	<script src='js/main.js'></script>
+	<script src='js/update.js'></script>
+	<script src='js/Player.js'></script>
+	<script src='js/CollisionDetection.js'></script>
+	<script src='js/initialization.js'></script>
+	<script type = 'text/javascript' charset = 'utf-8' src = 'cordova.js'></script>
+</html>

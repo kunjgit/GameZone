@@ -1,0 +1,105 @@
+clock {
+  display: block;
+  position: absolute;
+  top: calc(var(--vm)*5 - 30px);
+  right: calc(var(--vm)*5 - 30px);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 10px solid #111;
+  box-shadow:
+    -2px 2px 0 #202020,
+    -4px 4px 0 #181818,
+    -6px 6px 0 #101010,
+    -5px 8px 20px #000;
+  z-index: 6;
+}
+.slow clock {
+  background: #DDD;
+}
+clock::before {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 40% 40%, #DDD 40%, #666);
+  box-shadow: inset 3px 3px 6px #444;
+  border-radius: 50%;
+}
+
+clock :is(v,h) {
+  display: block;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+}
+clock v {
+  transform: rotate(90deg);
+}
+clock :is(v,h)::before, clock :is(v,h)::after {
+  width: 10px;
+  height: 10px;
+  left: 5px;
+  top: -5px;
+  border-radius: 50%;
+  background: #555;
+}
+clock :is(v,h)::after {
+  left: auto;
+  right: 5px;
+}
+
+clock cp {
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  background: #333;
+  border-radius: 50%;
+  z-index: 5;
+  transition: .6s linear;
+}
+clock cp.shadow {
+  top: 55px;
+  left: 55px;
+  opacity: .7;
+  filter: blur(4px);
+  z-index: 4;
+}
+.slow clock cp.shadow {
+  display: none;
+}
+
+clock cp::before,
+.slow clock cp::before {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -40px;
+  left: 7px;
+  border: 8px solid transparent;
+  border-bottom: 40px solid #333;
+}
+
+clock cp::after {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  background: #444;
+  box-shadow: 0 0 8px #000;
+}
+
+clock b {
+  position: absolute;
+  top: 66px;
+  left: 50px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 14px;
+  color: #777;
+  z-index: 2;
+}

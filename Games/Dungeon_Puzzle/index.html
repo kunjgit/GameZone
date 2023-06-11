@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Dungeon Puzzle</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="game-select.css" />
+  <link rel="stylesheet" href="clock.css" />
+</head>
+<body id="game">
+  <button id="forceGraphBtn" onclick="forceGraphicUp()">Upgrade Graphics</button>
+  <bg>
+    <modal>
+      <h1>Dungeon Puzzle</h1>
+      <p>
+        You must to overcome the Lord of Death in the stone catacombs.
+        You does not know the path, you create the path as you walk it,
+        however... be sure the lands of man will not touch the lands of death.
+        If your new step match the neighbor terrains,
+        each one will proffer you a new warrior.
+        And, no, you can't rotate terrains to help you to connect.
+      </p>
+      <p>
+        You will command our blue worriors with the help of a white wizard.
+        You can point where your heroes should go, but you do not control they.
+      </p>
+      <p>
+        And remember: You have <u>13 clock turns</u> to vanish the Lord of Death,
+        or we all will become their slaves.
+      </p>
+      <p>Now, choose the task difficulty:</p>
+      <btG class="lvl-opts">
+        <button onclick="initMap('easy')">Easy</button>
+        <button onclick="initMap('medium')">Medium</button>
+        <button onclick="initMap('hard')">Hard</button>
+        <button onclick="$('.lvl-opts').style.display='none';$('conf-lvl').style.display='block'">Custom</button>
+      </btG>
+      <conf-lvl style="display:none">
+        <label><span>Width:</span><input id="conf-width" value="13" type="number" min="5"></label>
+        <label><span>Height:</span><input id="conf-height" value="7" type="number" min="5"></label>
+        <label><span>Enemy Chance:</span><input id="conf-enemy-chance" value="15" type="number" min="1">%</label>
+        <button onclick="initMap()">Play it!</button>
+      </conf-lvl>
+    </modal>
+  </bg>
+  <ctrl>
+    <gold></gold>
+    <btG class="act">
+      <button data-act="cra">craven</button>
+      <button data-act="def">defensive</button>
+      <button data-act="agg">aggressive</button>
+    </btG>
+    <hr>
+    <magic>
+      <h2>Magic</h2>
+      <btG>
+        <button id="magic-rgn">Regenerate</button>
+        <button id="magic-frz">Freeze</button>
+      </btG>
+    </magic>
+    <hr>
+    <div id="avaliable"></div>
+    <hr>
+    <special>
+      <h2>You shouldn't...</h2>
+      <btG>
+        <button onclick="buyTime()" id="btBuyTime">Buy Time</button>
+        <button onclick="giveUp()">Give up</button>
+      </btG>
+    </special>
+  </ctrl>
+  <article class="hide">
+    <div></div> <!-- Layer where pieces are placed -->
+    <ul></ul> <!-- Layer where entities walk -->
+  </article>
+  <clock><v></v><h></h></clock>
+  <script src="constants.js"></script>
+  <script src="mkel.js"></script>
+  <script src="audio.js"></script>
+  <script src="piece.js"></script>
+  <script src="ui.js"></script>
+  <script src="init-map.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

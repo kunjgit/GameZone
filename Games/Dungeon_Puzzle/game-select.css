@@ -1,0 +1,86 @@
+bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /*
+  background: linear-gradient(-45deg,
+    rgba(255,255,255,.1) 25%,
+    rgba(0,0,0,.3) 26%,
+    rgba(0,0,0,.3) 50%,
+    rgba(255,255,255,.1) 51%,
+    rgba(255,255,255,.1) 75%,
+    rgba(0,0,0,.3) 76%
+  );
+  background-size: 150px 150px;
+  */
+  background: radial-gradient(transparent, #000 90%);
+  z-index: 100;
+}
+
+bg.hide {
+  pointer-events: none;
+  opacity: 0;
+  transition: 3s 1s;
+}
+
+modal {
+  position: relative;
+  top: 0;
+  display: block;
+  background: #544;
+  color: #DCC;
+  font-size: 20px;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: inset 0 0 50px #322, 10px 10px 50px #000, 1px 1px 10px #321;
+}
+
+bg.hide modal {
+  top: -100vh;
+  transition: 2s;
+}
+
+h1 {
+  font-size: 40px;
+  color: #766;
+  text-shadow: 2px 2px 2px #322;
+}
+
+modal p {
+  margin: 20px 0;
+  max-width: 30em;
+}
+
+conf-lvl {
+  text-align: center;
+}
+conf-lvl button {
+  margin-top: 5px;
+}
+
+modal label {
+  display: block;
+  text-align: left;
+  padding-bottom: 4px;
+}
+modal label span {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  padding-right: 5px;
+}
+modal label input {
+  width: 3em;
+  margin-right: 2px;
+  line-height: 1.3em;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  background: #877;
+  color: #322;
+}

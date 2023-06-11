@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright (c) 2013 by Mike Ferron
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+tested on: chrome 29, firefox 22, ie 10, safari 6 and mobile safari on iOS 6 iPhone 4S and iPad2, android 4.1.2, windows phone 8
+-->
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, user-scalable=0, user-scalable=no">
+    <title>Lucky Streak: A Game By Mike Ferron</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family:"Quantico", sans-serif;
+    }
+    body {
+        background:#555;
+        overflow:hidden;
+    }
+    canvas {
+        /*background:#222;*/
+        margin:0 auto;
+        display:block;
+        background: #111;
+    }
+    #gameWindow {
+        margin:0 auto;
+        position: relative;
+        width:800px;
+        height:600px;
+    }
+    .hud {
+        position: absolute;
+        font-size: 12px;
+        color: black;
+        opacity: 1;
+        background: #fff;
+        padding: 5px;
+        border: 1px solid #2c3e50;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #34495e, 0 2px 0 #34495e, 0 2px 3px #333;
+        -moz-box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #34495e, 0 2px 0 #34495e, 0 2px 3px #333;
+        box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #34495e, 0 2px 0 #34495e, 0 2px 3px #333;
+    }
+    .hud:hover {
+        opacity: 0.8;
+    }
+    #title {
+        position: absolute;
+        width: 600px;
+        left: 50%;
+        font-size: 75px;
+        color: #2ecc71;
+        font-weight: bold;
+        text-shadow: 1px 1px #fff;
+    }
+    #instructions {
+        color:white;
+        position: absolute;
+        width:500px;
+        left: 50%;
+        top: 15%;
+    }
+    #instructions ul {
+        text-align: center;
+        list-style: none;
+        margin-top: 15px;
+    }
+    .key {
+        display: inline-block;
+        color: #333;
+        font: bold 9pt Helvetica;
+        text-decoration: none;
+        text-align: center;
+        width: 44px;
+        height: 44px;
+        margin: 5px;
+        background: #ecf0f1;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        border-top: 1px solid #f5f5f5;
+        -webkit-box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #7f8c8d, 0 2px 0 #c9c9c9, 0 2px 3px #333;
+        -moz-box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #7f8c8d, 0 2px 0 #c9c9c9, 0 2px 3px #333;
+        box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #7f8c8d, 0 2px 0 #c9c9c9, 0 2px 3px #333;
+    }
+    .key span {
+        display: inline-block;
+        margin: 13px 0 0;
+        text-transform: uppercase;
+        font-size:18px;
+    }
+    .key.space {
+        width: 85px;
+    }
+    #start, #restart, #resume {
+        width:250px;
+        bottom: 10%;
+        left: 50%;
+        text-align: center;
+        padding:5px;
+        cursor: pointer;
+        font-size: 32px;
+        font-weight: bold;
+    }
+    #resume, #restart {
+        display: none;
+    }
+    #scorecard {
+        width: 300px;
+        top: 35%;
+        left: 50%;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        background: #222;
+        outline: none;
+        border: none;
+        color: #ecf0f1;
+        opacity: 1;
+        display:none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    #highscore {
+        font-style: italic;
+        font-weight: normal;
+        color:#e74c3c;
+        display:none;
+    }
+    .button {
+        width:125px;
+        height:125px;
+        position: absolute;
+        display:none;
+        font-size: 56px;
+    }
+    .button span {
+        font-size: 56px;
+    }
+    #btnLeft {
+        bottom: 15px;
+        left: 15px;
+    }
+    #btnRight {
+        bottom: 15px;
+        right: 15px;
+    }
+    #btnJump {
+        bottom: 15px;
+        right: 155px;
+    }
+    .center {
+        -webkit-transform: translate(-50%, 0);
+        -moz-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+    </style>
+</head>
+
+<body>
+    <div id='gameWindow'>
+        <div class="menu center" id="title">
+            LUCKY STREAK
+        </div>
+        <div class="menu center" id="instructions">
+            <div>
+                You're a block. You're naked (don't worry, it's censored). You're out for a jog. Run and jump as far as you can. Avoid stepping on cracks in the sidewalk or your luck may run out as the earth opens up to swallow you whole. Good luck!
+            </div>
+            <ul>
+                <li>Move Left:
+                    <div class="key">
+                        <span>a</span>
+                    </div>or
+                    <div class="key">
+                        <span>&#8592;</span>
+                    </div>
+                </li>
+                <li>Move Right:
+                    <div class="key">
+                        <span>d</span>
+                    </div>or
+                    <div class="key">
+                        <span>&#8594;</span>
+                    </div>
+                </li>
+                <li>Jump:
+                    <div class="key">
+                        <span>w</span>
+                    </div>,
+                    <div class="key space">
+                        <span>Space</span>
+                    </div>or
+                    <div class="key">
+                        <span>&#8593;</span>
+                    </div>
+                </li>
+                <li>Toggle Pause:
+                    <div class="key">
+                        <span>p</span>
+                    </div>
+                </li>
+                <li>Toggle Fullscreen:
+                    <div class="key">
+                        <span>f</span>
+                    </div>
+                </li>
+                <li>
+                    Mobile Controls: Buttons appear on screen!
+                </li>
+            </ul>
+        </div>
+        <div class="menu center hud" id="start">
+            Start Game
+        </div>
+        <div class="hud center" id="resume">
+            Resume Game
+        </div>
+        <div class="hud center" id="restart">
+            Go Again
+        </div>
+        <div class="hud center" id="scorecard">
+            Score:
+            <span id="score"></span>
+            <div id="highscore">New High Score!</div>
+        </div>
+        <div id="btnLeft" class="key button ">
+            <span>&#8592;</span>
+        </div>
+        <div id="btnJump" class="key button ">
+            <span>&#8593;</span>
+        </div>
+        <div id="btnRight" class="key button ">
+            <span>&#8594;</span>
+        </div>
+        <canvas id="c"></canvas>
+    </div>
+
+    <script type="text/javascript">
+    //the game object
+    var game;
+
+    //flags for key presses
+    var keyW = keyA = keyD = keySpace = keyUp = keyLeft = keyRight = false;
+    //the canvas
+    var canvas = document.getElementById("c");
+    //game width
+    var width = canvas.width = 800;
+    //game height
+    var height = canvas.height = 600;
+    //our drawing context
+    var ctx = canvas.getContext('2d');
+    //how much time has passed on update
+    var dt = 0;
+    //array of colors for our background buildings
+    var colors = ['#2c3e50', '#8e44ad', '#7f8c8d', '#c0392b', '#16a085'];
+    //angle for the isometric calculations
+    var ortho = 45 * Math.PI / 180;
+
+    //obstacle distribution
+    var ROWS = {
+        //Good Luck
+        "1": [
+            //[code, weight] 
+            ["TTT", 50],
+            ["CCC", 1],
+            ["TTC", 5],
+            ["TCT", 5],
+            ["CTT", 5],
+            ["CCT", 2],
+            ["TCC", 2],
+            ["CTC", 2]
+        ],
+        //Bad Luck
+        "2": [
+            //[code, weight] 
+            ["_TT", 10],
+            ["T_T", 10],
+            ["TT_", 10],
+            ["__T", 2],
+            ["_T_", 2],
+            ["T__", 2],
+            ["___", 1],
+            ["__C", 3],
+            ["_C_", 3],
+            ["C__", 3],
+            ["CC_", 6],
+            ["_CC", 6]
+        ]
+    };
+
+    //
+    //
+    //
+    //GAME OBJECT
+    //
+    //
+    //
+
+    function Game() {
+        //game speed
+        this.speed = 250;
+        //speed limit
+        this.speedLimit = 800;
+        //speed of gravity
+        this.gravSpeed = 4000;
+        //player object
+        this.player;
+        //luck value
+        this.luck = 100;
+        //how far the player has traveled (score)
+        this.distance = 0;
+        //the time, right now
+        this.currentTime = new Date().getTime();
+        //animation object
+        this.animationFrame;
+        //pause flag
+        this.paused = false;
+        //game over flag
+        this.over = false;
+        //local storage flag
+        this.storage;
+
+        this.init = function() {
+            this.storage = window['localStorage'];
+
+            //set our context font
+            ctx.font = "bold 18px sans-serif";
+
+            this.initObjects();
+
+            var that = this;
+            //pause the game if the user changes tabs
+            window.onblur = function(e) {
+                if (!that.over)
+                    that.pause();
+            };
+
+            //wire up click and touch events
+            document.getElementById("resume").addEventListener("click", function(e) {
+                that.resume();
+            });
+            document.getElementById("restart").addEventListener("click", function(e) {
+                that.restart();
+            });
+            if (this.isMobile) {
+                if (window.navigator.msPointerEnabled) {
+                    document.getElementById("btnLeft").addEventListener("MSPointerDown", function(e) {
+                        keyA = true;
+                    });
+
+                    document.getElementById("btnRight").addEventListener("MSPointerDown", function(e) {
+                        keyD = true;
+                    });
+
+                    document.getElementById("btnJump").addEventListener("MSPointerDown", function(e) {
+                        keySpace = true;
+                    });
+                }
+
+                document.getElementById("btnLeft").addEventListener("touchstart", function(e) {
+                    keyA = true;
+                });
+
+                document.getElementById("btnRight").addEventListener("touchstart", function(e) {
+                    keyD = true;
+                });
+
+                document.getElementById("btnJump").addEventListener("touchstart", function(e) {
+                    keySpace = true;
+                });
+            }
+
+            //turn on mobile buttons if mobile device
+            if (this.isMobile) {
+                this.toggleMobileControls(true);
+            }
+            this.started = true;
+            this.enable();
+        }
+
+        //great the rows, buildings, and player
+        this.initObjects = function() {
+            this.rows = [];
+            this.buildings = [];
+            this.colliders = [];
+            for (var i = 0; i < 60; i++) {
+                this.rows.push(new Row(-2000 + 50 * i, 0, -100));
+            }
+
+            for (var i = 0; i < 10; i++) {
+                this.buildings.push(new Building(-3000 + i * 100, 0, 10, 100, 100, 300, colors[Math.floor(Math.random() * colors.length)]));
+            }
+            this.player = new Player();
+        }
+
+        //start the game
+        this.enable = function() {
+            window.requestAnimFrame = (function() {
+                return window.requestAnimationFrame ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    window.oRequestAnimationFrame ||
+                    window.msRequestAnimationFrame
+            })();
+
+            //not sure which of these are actually real...does it matter?
+            //needed this for iPhone at least
+            window.cancelAnimationFrame = (function() {
+                return window.cancelAnimationFrame ||
+                    window.webkitCancelAnimationFrame ||
+                    window.mozCancelAnimationFrame ||
+                    window.oCancelAnimationFrame ||
+                    window.msCancelAnimationFrame
+            })();
+
+            this.currentTime = new Date().getTime();
+
+            this.animate(new Date().getTime());
+        }
+
+        //stop the game
+        this.disable = function() {
+            window.cancelAnimationFrame(this.animationFrame);
+        }
+
+        //game loop
+        this.animate = function(time) {
+            var that = this;
+            this.animationFrame = requestAnimFrame(function() {
+                that.animate(new Date().getTime());
+            });
+            this.update(time);
+        }
+
+        //update positions, etc
+        this.update = function(time) {
+            //get the delta
+            dt = time - this.currentTime;
+            //set time
+            this.currentTime = time;
+            //speed it up
+            this.speed += 0.08;
+            //limit speed
+            this.speed = this.speed > this.speedLimit ? this.speedLimit : this.speed;
+            //get time-based movement distance
+            ds = this.speed * (dt / 1000.0);
+            //add to total distance
+            this.distance += ds;
+
+            //step the player
+            this.player.update();
+            //check if they died    
+            if (this.player.fall) {
+                this.gameOver();
+            }
+
+            //update rows and buildings
+            for (var i = 0, il = this.rows.length; i < il; i++) {
+                this.updateEndlessPosition(i, this.rows, -1700, ds);
+            }
+            for (var i = 0, il = this.buildings.length; i < il; i++) {
+                this.updateEndlessPosition(i, this.buildings, -2000, ds);
+            }
+
+            //check collisions
+            for (var i = 0, il = this.colliders.length; i < il; i++) {
+                if (this.colliders[i].kill) {
+                    this.colliders.splice(i, 1);
+                    il = this.colliders.length;
+                }
+                //only test collision if things are nearby
+                if (Math.abs(this.player.x - this.colliders[i].x) < 150) {
+                    if (cubeCollision(this.player, this.colliders[i])) {
+                        this.colliders[i].colliding = true;
+                        if (!this.colliders[i].hit && this.colliders[i].cracked) {
+                            this.colliders[i].hit = true;
+                            this.luck -= 10;
+                        }
+
+                        this.player.onTile = true;
+                    } else
+                        this.colliders[i].colliding = false;
+                }
+            }
+
+            //update the luck
+            this.luck += 0.05;
+            this.luck = this.luck > 100 ? 100 : this.luck;
+            this.luck = this.luck < 0 ? 0 : this.luck;
+
+            //draw everything
+            this.draw();
+        }
+
+        //draw objects
+        this.draw = function() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = '#222';
+            //ctx.fillRect(0, 0, width, height); 
+
+            ctx.save();
+            ctx.scale(1, 0.5);
+
+            //background
+            boxFilled(-2700, 0, 0, 4700, 0, 1500, "#333", "#333", true);
+
+            if (this.player.fall)
+                this.player.draw();
+
+            this.rows.sort(xSort);
+
+            var i = this.rows.length;
+            while (i--)
+                this.rows[i].draw();
+
+            this.buildings.sort(xSort);
+
+            var i = this.buildings.length;
+            while (i--)
+                this.buildings[i].draw();
+
+            if (!this.player.fall)
+                this.player.draw();
+
+            //foreground
+            boxFilled(-2700, 0, -1500, 4700, 0, 1350, "#333", "#333", true);
+
+            ctx.restore();
+
+            //dont draw anything else if the player has died
+            if (this.over)
+                return;
+
+            //luck
+            ctx.fillRect(0, 5, 55, 35);
+            //score
+            ctx.fillRect(width - 65, 5, 65, 35);
+            ctx.fillRect(0, 45, 204, 30);
+            ctx.fillRect(width - 141, 45, 141, 30);
+            //luck text
+            ctx.fillStyle = "#fff";
+            ctx.fillText("Luck", 5, 28);
+            //score text
+            ctx.fillText("Score", width - 58, 28);
+            ctx.fillText(pad(Math.round(this.distance), 12), width - 125, 65);
+
+            //luck bar
+            ctx.fillStyle = "#c0392b";
+            var bLuck = 100 - this.luck;
+            ctx.fillRect(2, 47, bLuck * 2, 26);
+            ctx.fillStyle = "#27ae60";
+            ctx.fillRect(bLuck * 2 + 2, 47, this.luck * 2, 26);
+        } //end draw
+
+        //pause the game
+        this.pause = function() {
+            document.getElementById("resume").style.display = "block";
+            this.paused = true;
+            this.disable();
+        }
+
+        //resume a paused game
+        this.resume = function() {
+            document.getElementById("resume").style.display = "none";
+            this.paused = false;
+            this.currentTime = new Date().getTime();
+            this.enable();
+        }
+
+        //toggle state
+        this.togglePause = function() {
+            if (!this.started || this.over)
+                return;
+
+            if (this.paused)
+                this.resume();
+            else
+                this.pause();
+        }
+
+        //handle gameover
+        this.gameOver = function() {
+            if (!this.over) {
+                if (this.isMobile) {
+                    this.toggleMobileControls(false);
+                }
+                this.score = Math.round(this.distance);
+                this.over = true;
+                document.getElementById("restart").style.display = "block";
+                document.getElementById("scorecard").style.display = "block";
+                document.getElementById("score").innerHTML = this.score;
+                //save high score in storage if able
+                if (this.storage) {
+                    var highScore = this.storage.getItem('highscore');
+                    var hScore = document.getElementById("highscore");
+                    if (this.score > highScore) {
+                        this.storage.setItem('highscore', this.score);
+                        hScore.style.display = "block";
+                    } else {
+                        hScore.style.display = "none";
+                    }
+                }
+            }
+        }
+
+        //start a new run
+        this.restart = function() {
+            document.getElementById("restart").style.display = "none";
+            document.getElementById("scorecard").style.display = "none";
+            if (this.isMobile) {
+                this.toggleMobileControls(true);
+            }
+            this.disable();
+            this.speed = 250;
+            this.over = false;
+            this.luck = 100;
+            this.distance = 0;
+
+            this.initObjects();
+
+            this.player = new Player();
+            this.enable();
+        }
+
+        //increments or resets the position for a moving item
+        this.updateEndlessPosition = function(i, array, boundary, ds) {
+            if (i > 0)
+                newx = array[i - 1].x + array[i - 1].w;
+            else
+                newx = array[array.length - 1].x + array[array.length - 1].w - ds;
+
+            if (array[i].x < boundary)
+                array[i].update(newx, true);
+            else
+                array[i].update(array[i].x - ds);
+        }
+
+        //get random obstacle
+        this.getRandomRow = function(level) {
+            var rowForLevel = ROWS[level];
+            var totalWeight = 0,
+                sumWeight = 0,
+                i;
+            // sum up the weights
+            for (i = 0; i < rowForLevel.length; i++) {
+                totalWeight += rowForLevel[i][1];
+            }
+            var random = Math.floor(Math.random() * totalWeight);
+            // now find which bucket out random value is in
+            for (i = 0; i < rowForLevel.length; i++) {
+                sumWeight += rowForLevel[i][1];
+                if (random < sumWeight) {
+                    return (rowForLevel[i]);
+                }
+            }
+        }
+
+        //toggles fullscreen state
+        this.toggleFullscreen = function() {
+            var that = this;
+
+            function handleResize(e) {
+                that.fitToWindow();
+            }
+
+            if (this.fullscreen) {
+                window.removeEventListener('resize', handleResize, false);
+
+                var gameWindow = document.getElementById("gameWindow");
+
+                canvas.width = width = 800; //window.innerWidth;
+                canvas.height = height = 600; //window.innerHeight;
+                gameWindow.style.width = width + "px";
+                gameWindow.style.height = height + "px";
+                ctx.font = "bold 18px sans-serif";
+            } else {
+                this.fitToWindow();
+                window.addEventListener('resize', handleResize, false);
+            }
+
+            this.fullscreen = !this.fullscreen;
+
+            //changing size wipes the screen. so redraw
+            //this.draw();
+
+        }
+
+        //fits game to window for fullscreen
+        this.fitToWindow = function() {
+            var gameWindow = document.getElementById("gameWindow");
+            canvas.width = width = window.innerWidth;
+            canvas.height = height = window.innerHeight;
+            gameWindow.style.width = width + "px";
+            gameWindow.style.height = height + "px";
+            ctx.font = "bold 18px sans-serif";
+            //this.draw();
+        }
+
+        //shows/hides mobile controls
+        this.toggleMobileControls = function(flag) {
+            var mItems = document.getElementsByClassName("button");
+            for (var i = 0; i < mItems.length; i++) {
+                if (flag)
+                    mItems[i].style.display = "block";
+                else
+                    mItems[i].style.display = "none";
+            }
+        }
+
+        //automatically fullscreens on mobile
+        if (isMobile()) {
+            this.toggleFullscreen();
+            this.isMobile = true;
+        }
+    }
+
+    //
+    //
+    //
+    //ON LOAD
+    //
+    //
+    //
+    window.onload = function() {
+        game = new Game();
+
+        window.addEventListener("keydown", onKeyDown, false);
+        window.addEventListener("keyup", onKeyUp, false);
+
+        document.getElementById("start").addEventListener("click", function(e) {
+            game.init();
+            //document.getElementById("c").className += " pulse";
+            var mItems = document.getElementsByClassName("menu");
+            for (var i = 0; i < mItems.length; i++) {
+                mItems[i].style.display = "none";
+            }
+        }, false);
+    };
+
+
+    //
+    //
+    //
+    //PLAYER OBJECT
+    //
+    //
+    //
+
+    function Player() {
+        var t = this;
+        t.x = -200;
+        t.y = 1;
+        t.z = -87.5;
+        t.w = 25;
+        t.h = 120;
+        t.d = 25;
+
+        t.jumping = false;
+
+        t.yV = 0;
+
+        this.onTile = true;
+
+        this.update = function() {
+            if (!this.onTile && this.y <= 0) {
+                this.fall = true;
+            }
+
+            if (this.fall) {
+                this.y -= game.gravSpeed / 4 * (dt / 1000.0);
+                this.x -= game.speed * (dt / 1000.0);
+                return;
+            }
+
+            if (keyA || keyLeft) {
+                this.z += 50;
+                keyA = keyLeft = false;
+            }
+            if (keyD || keyRight) {
+                this.z -= 50;
+                keyD = keyRight = false;
+            }
+
+            if (this.z < -137.5)
+                this.z = -137.5;
+
+            if (this.z > -37.5)
+                this.z = -37.5;
+
+            if ((keySpace || keyUp || keyW) & !this.jumping) {
+                this.jumping = true;
+                this.yV = 1200;
+                keySpace = keyUp = keyW = false;
+            }
+
+            this.y += this.yV * (dt / 1000.0);
+
+            if (this.y <= 0) {
+                this.y = 0;
+                this.jumping = false;
+                this.yV = 0;
+            } else {
+                this.yV -= game.gravSpeed * (dt / 1000.0);
+            }
+
+            this.onTile = false;
+        }
+
+        this.draw = function() {
+            boxFilled(this.x, this.y, this.z, this.w, this.h, this.d, "#333", "#f1c40f");
+
+            //draw pixelation
+            ctx.save();
+            var x = xFla(this.x, this.y, this.z);
+            var y = yFla(this.x, this.y, this.z);
+            ctx.fillStyle = "#eee";
+
+            for (var i = 0; i < 3; i++) {
+                for (var j = 0; j < 5; j++) {
+                    ctx.globalAlpha = Math.random();
+                    ctx.fillRect(x - 25 + j * 10, y - 75 + i * 20, 10, 20);
+                }
+            }
+            ctx.restore();
+        }
+    }
+
+    //
+    //
+    //
+    //ROW OBJECT
+    //
+    //
+    //
+
+    function Row(x, y, z) {
+        var t = this;
+        t.w = 50;
+        t.x = x;
+        t.y = y;
+        t.z = z;
+
+        t.tiles = [];
+
+        t.tiles.push(new Tile(x, y, z - 50));
+        t.tiles.push(new Tile(x, y, z));
+        t.tiles.push(new Tile(x, y, z + 50));
+
+        this.update = function(x, reset) {
+            this.x = x;
+
+            for (var i = this.tiles.length - 1; i >= 0; i--) {
+                if (reset)
+                    this.tiles[i].kill = true;
+                else
+                    this.tiles[i].x = x;
+            };
+
+            if (reset)
+                this.randomObstacle();
+        }
+
+        this.draw = function() {
+            var i = this.tiles.length;
+            while (i--)
+                this.tiles[i].draw();
+        }
+
+        this.randomObstacle = function() {
+            var rnd = randomBetween(0, 100);
+            var row;
+            if (rnd > game.luck)
+                row = game.getRandomRow("2");
+            else
+                row = game.getRandomRow("1");
+            var r = row[0];
+            var zs = [-50, 0, 50];
+
+            this.tiles.length = 0;
+
+            for (var i = 0; i < r.length; i++) {
+                switch (r.charAt(i)) {
+                    case "T":
+                        this.tiles.push(new Tile(this.x, this.y, this.z + zs[i]));
+                        break;
+                    case "_":
+                        //this.tiles.push(new Tile(this.x, this.y, this.z+zs[i]));
+                        break;
+                    case "C":
+                        var t = new Tile(this.x, this.y, this.z + zs[i]);
+                        t.cracked = true;
+                        this.tiles.push(t);
+                        break;
+                    case "J":
+                        this.tiles.push(new Block(this.x, this.y, this.z + zs[i]))
+                        break;
+                }
+            }
+        }
+    }
+
+    //
+    //
+    //
+    //TILE OBJECT
+    //
+    //
+    //
+
+    function Tile(x, y, z, layer) {
+        var t = this;
+        t.x = x;
+        t.y = y;
+        t.z = z;
+        t.w = 50;
+        t.h = 0;
+        t.d = 50;
+
+        t.startX = x;
+        t.layer = layer;
+
+        t.type = "Tile";
+
+        t.cracked = false;
+        t.cracks = 6;
+        t.cLength = 25;
+        t.hit = false;
+
+        t.kill = false;
+
+        game.colliders.push(this);
+
+        this.draw = function() {
+            boxFilled(this.x, this.y, this.z, this.w, this.h, this.d, "#333", "#ccc");
+
+            if (this.cracked) {
+                ctx.save();
+                plot(this.x, this.y, this.z);
+
+                if (this.colliding)
+                    ctx.strokeStyle = "red";
+                else
+                    ctx.strokeStyle = "black";
+
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+
+                var m = this.cracks;
+                for (var n = 0; n < m; n++) {
+                    var z = (this.z + this.d + (this.d / m) / 2) - ((n + 1) * (this.d / m));
+                    var x;
+
+                    if (n % 2 == 0) { // if n is even...
+                        x = this.x + this.cLength //+ randomBetween(-10,10);
+                    } else { // if n is odd...
+                        x = this.x //+ randomBetween(-10,10);
+                    }
+                    drawIso(x + 15, 0, z);
+                }
+                ctx.stroke();
+                ctx.closePath();
+                ctx.restore();
+            }
+        }
+    }
+
+    //
+    //
+    //
+    //BUILDING OBJECT
+    //
+    //
+    //
+
+    function Building(x, y, z, w, h, d, color) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+
+        this.w = w;
+        this.h = h;
+        this.d = d;
+
+        this.startX = x;
+        this.color = color;
+
+        this.update = function(x, reset) {
+            this.x = x;
+
+            if (reset) {
+                this.x += randomBetween(0, 100);
+                this.x = Math.max(this.x, 600);
+                this.w = randomBetween(200, 700);
+                this.h = randomBetween(200, 1300);
+                this.d = randomBetween(300, 800);
+
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+        }
+
+        this.draw = function() {
+            boxFilled(this.x, this.y, this.z, this.w, this.h, this.d, "#000", this.color);
+        }
+    }
+
+
+    /* support functions */
+    //sort an array by x value
+    xSort = function(a, b) {
+        return a.x > b.x ? 1 : a.x < b.x ? -1 : 0;
+    }
+    //get a random number between -1 and 1
+    randomPosNeg = function() {
+        return Math.random() * 2 - 1;
+    }
+    //get a rnadom number between 2 numbers
+    randomBetween = function(from, to) {
+        return Math.floor(Math.random() * (to - from + 1) + from);
+    }
+    //check if the user is mobile (not perfect)
+    isMobile = function() {
+        if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //pad the score so its always a certain length
+    pad = function(number, length) {
+        var str = '' + number;
+        while (str.length < length) {
+            str = '0' + str;
+        }
+
+        return str;
+    }
+    //turn on presses
+    onKeyDown = function(e) {
+        var keyCode = e.keyCode;
+        switch (keyCode) {
+            case 68: //d
+                keyD = true;
+                break;
+            case 65: //a
+                keyA = true;
+                break;
+            case 87: //w
+                keyW = true;
+                break;
+            case 32:
+                keySpace = true;
+                break;
+            case 37:
+                keyLeft = true;
+                break;
+            case 38:
+                keyUp = true;
+                break;
+            case 39:
+                keyRight = true;
+                break
+            case 80:
+                game.togglePause();
+                break;
+            case 70:
+                game.toggleFullscreen()
+                break;
+        }
+    }
+    //turn off presses
+    onKeyUp = function(e) {
+        var keyCode = e.keyCode;
+        switch (keyCode) {
+            case 68: //d
+                keyD = false;
+                break;
+            case 65: //a
+                keyA = false;
+                break;
+            case 87: //w
+                keyW = false;
+                break;
+            case 32:
+                keySpace = false;
+                break;
+            case 37:
+                keyLeft = false;
+                break;
+            case 38:
+                keyUp = false;
+                break;
+            case 39:
+                keyRight = false;
+                break
+        }
+    }
+    //check if two objects are colliding
+    cubeCollision = function(a, b) {
+        return (a.x + a.w >= b.x && a.x <= b.x + b.w) && (a.y + a.h >= b.y && a.y <= b.y + b.h) && (a.z + a.d >= b.z && a.z <= b.z + b.d)
+    }
+    // isometric transformations
+    // author: Christo, mightystuff.net
+    // transforms x,y,z coordinates into x coordinate
+    xFla = function(x, y, z) {
+        // cartesian coordinates
+        xCart = (x - z) * ortho //Math.cos(0.46365);
+        // flash coordinates
+        xI = xCart + width / 2;
+        return (xI);
+    };
+    // transforms x,y,z coordinates into y coordinate
+    yFla = function(x, y, z) {
+        // cartesian coordinates
+        yCart = y + (x + z) * ortho //Math.sin(0.46365);
+        // flash coordinates
+        yI = -yCart + height - height / 10;
+        return (yI);
+    };
+    //move to draw point
+    plot = function(x, y, z) {
+        move(xFla(x, y, z), yFla(x, y, z));
+    };
+    //draw isometric line
+    drawIso = function(x, y, z) {
+        line(xFla(x, y, z), yFla(x, y, z));
+    };
+    //move to point
+    move = function(x, y) {
+        ctx.moveTo(x, y);
+    }
+    //draw line
+    line = function(x, y) {
+        ctx.lineTo(x, y);
+    }
+    //draw isometric cube
+    boxFilled = function(x, y, z, a, b, c, strokeColour, fillColour, alwaysDraw) {
+        ctx.strokeStyle = strokeColour;
+        ctx.fillStyle = fillColour;
+
+        //TOP
+        ctx.beginPath();
+        plot(x, y + b, z);
+        drawIso(x + a, y + b, z);
+        drawIso(x + a, y + b, z + c);
+        drawIso(x, y + b, z + c);
+        drawIso(x, y + b, z);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+        //top only
+        if (b == 0)
+            return;
+
+        //FRONT ()
+        ctx.beginPath();
+        plot(x, y, z);
+        drawIso(x + a, y, z);
+        drawIso(x + a, y + b, z);
+        drawIso(x, y + b, z);
+        drawIso(x, y, z);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+        //front only
+        if (c == 0)
+            return;
+
+        //SIDE
+        ctx.beginPath();
+        plot(x, y, z);
+        drawIso(x, y + b, z);
+        drawIso(x, y + b, z + c);
+        drawIso(x, y, z + c);
+        drawIso(x, y, z);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+    };
+    </script>
+
+</body>
+
+</html>

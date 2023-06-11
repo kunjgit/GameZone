@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, user-scalable=0, user-scalable=no">
+    <title>Lucky Streak</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family:"Quantico", sans-serif;
+    }
+    body {
+        background:#555;
+        overflow:hidden;
+    }
+    canvas {
+        /*background:#222;*/
+        margin:0 auto;
+        display:block;
+        background: #111;
+    }
+    #gameWindow {
+        margin:0 auto;
+        position: relative;
+        width:800px;
+        height:600px;
+    }
+    .hud {
+        position: absolute;
+        font-size: 12px;
+        color: black;
+        opacity: 1;
+        background: #fff;
+        padding: 5px;
+        border: 1px solid #2c3e50;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #34495e, 0 2px 0 #34495e, 0 2px 3px #333;
+        -moz-box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #34495e, 0 2px 0 #34495e, 0 2px 3px #333;
+        box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #34495e, 0 2px 0 #34495e, 0 2px 3px #333;
+    }
+    .hud:hover {
+        opacity: 0.8;
+    }
+    #title {
+        position: absolute;
+        width: 600px;
+        left: 50%;
+        font-size: 75px;
+        color: #2ecc71;
+        font-weight: bold;
+        text-shadow: 1px 1px #fff;
+    }
+    #instructions {
+        color:white;
+        position: absolute;
+        width:500px;
+        left: 50%;
+        top: 15%;
+    }
+    #instructions ul {
+        text-align: center;
+        list-style: none;
+        margin-top: 15px;
+    }
+    .key {
+        display: inline-block;
+        color: #333;
+        font: bold 9pt Helvetica;
+        text-decoration: none;
+        text-align: center;
+        width: 44px;
+        height: 44px;
+        margin: 5px;
+        background: #ecf0f1;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        border-top: 1px solid #f5f5f5;
+        -webkit-box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #7f8c8d, 0 2px 0 #c9c9c9, 0 2px 3px #333;
+        -moz-box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #7f8c8d, 0 2px 0 #c9c9c9, 0 2px 3px #333;
+        box-shadow: inset 0 0 25px #e8e8e8, 0 1px 0 #7f8c8d, 0 2px 0 #c9c9c9, 0 2px 3px #333;
+    }
+    .key span {
+        display: inline-block;
+        margin: 13px 0 0;
+        text-transform: uppercase;
+        font-size:18px;
+    }
+    .key.space {
+        width: 85px;
+    }
+    #start, #restart, #resume {
+        width:250px;
+        bottom: 10%;
+        left: 50%;
+        text-align: center;
+        padding:5px;
+        cursor: pointer;
+        font-size: 32px;
+        font-weight: bold;
+    }
+    #resume, #restart {
+        display: none;
+    }
+    #scorecard {
+        width: 300px;
+        top: 35%;
+        left: 50%;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        background: #222;
+        outline: none;
+        border: none;
+        color: #ecf0f1;
+        opacity: 1;
+        display:none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    #highscore {
+        font-style: italic;
+        font-weight: normal;
+        color:#e74c3c;
+        display:none;
+    }
+    .button {
+        width:125px;
+        height:125px;
+        position: absolute;
+        display:none;
+        font-size: 56px;
+    }
+    .button span {
+        font-size: 56px;
+    }
+    #btnLeft {
+        bottom: 15px;
+        left: 15px;
+    }
+    #btnRight {
+        bottom: 15px;
+        right: 15px;
+    }
+    #btnJump {
+        bottom: 15px;
+        right: 155px;
+    }
+    .center {
+        -webkit-transform: translate(-50%, 0);
+        -moz-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+    </style>
+</head>
+
+<body>
+    <div id='gameWindow'>
+        <div class="menu center" id="title">
+            LUCKY STREAK
+        </div>
+        <div class="menu center" id="instructions">
+           <br>
+           <br>
+
+               <br>
+                   <br>
+            <ul>
+                <li>Move Left:
+                    <div class="key">
+                        <span>a</span>
+                    </div>or
+                    <div class="key">
+                        <span>&#8592;</span>
+                    </div>
+                </li>
+                <li>Move Right:
+                    <div class="key">
+                        <span>d</span>
+                    </div>or
+                    <div class="key">
+                        <span>&#8594;</span>
+                    </div>
+                </li>
+                <li>Jump:
+                    <div class="key">
+                        <span>w</span>
+                    </div>,
+                    <div class="key space">
+                        <span>Space</span>
+                    </div>or
+                    <div class="key">
+                        <span>&#8593;</span>
+                    </div>
+                </li>
+                <li>Toggle Pause:
+                    <div class="key">
+                        <span>p</span>
+                    </div>
+                </li>
+                <li>Toggle Fullscreen:
+                    <div class="key">
+                        <span>f</span>
+                    </div>
+                </li>
+                <li>
+                    Mobile Controls: Buttons appear on screen!
+                </li>
+            </ul>
+        </div>
+        <div class="menu center hud" id="start">
+            Start Game
+        </div>
+        <div class="hud center" id="resume">
+            Resume Game
+        </div>
+        <div class="hud center" id="restart">
+            Go Again
+        </div>
+        <div class="hud center" id="scorecard">
+            Score:
+            <span id="score"></span>
+            <div id="highscore">New High Score!</div>
+        </div>
+        <div id="btnLeft" class="key button ">
+            <span>&#8592;</span>
+        </div>
+        <div id="btnJump" class="key button ">
+            <span>&#8593;</span>
+        </div>
+        <div id="btnRight" class="key button ">
+            <span>&#8594;</span>
+        </div>
+        <canvas id="c"></canvas>
+    </div>
+
+    <script type="text/javascript">
+    var game,keyW=keyA=keyD=keySpace=keyUp=keyLeft=keyRight=!1,canvas=document.getElementById("c"),width=canvas.width=800,height=canvas.height=600,ctx=canvas.getContext("2d"),dt=0,colors=["#2c3e50","#8e44ad","#7f8c8d","#c0392b","#16a085"],ortho=45*Math.PI/180,ROWS={1:[["TTT",50],["CCC",1],["TTC",5],["TCT",5],["CTT",5],["CCT",2],["TCC",2],["CTC",2]],2:[["_TT",10],["T_T",10],["TT_",10],["__T",2],["_T_",2],["T__",2],["___",1],["__C",3],["_C_",3],["C__",3],["CC_",6],["_CC",6]]};
+function Game(){this.speed=250;this.speedLimit=800;this.gravSpeed=4E3;this.player;this.luck=100;this.distance=0;this.currentTime=(new Date).getTime();this.animationFrame;this.over=this.paused=!1;this.storage;this.init=function(){this.storage=window.localStorage;ctx.font="bold 18px sans-serif";this.initObjects();var a=this;window.onblur=function(b){a.over||a.pause()};document.getElementById("resume").addEventListener("click",function(b){a.resume()});document.getElementById("restart").addEventListener("click",
+function(b){a.restart()});this.isMobile&&(window.navigator.msPointerEnabled&&(document.getElementById("btnLeft").addEventListener("MSPointerDown",function(a){keyA=!0}),document.getElementById("btnRight").addEventListener("MSPointerDown",function(a){keyD=!0}),document.getElementById("btnJump").addEventListener("MSPointerDown",function(a){keySpace=!0})),document.getElementById("btnLeft").addEventListener("touchstart",function(a){keyA=!0}),document.getElementById("btnRight").addEventListener("touchstart",
+function(a){keyD=!0}),document.getElementById("btnJump").addEventListener("touchstart",function(a){keySpace=!0}));this.isMobile&&this.toggleMobileControls(!0);this.started=!0;this.enable()};this.initObjects=function(){this.rows=[];this.buildings=[];this.colliders=[];for(var a=0;60>a;a++)this.rows.push(new Row(-2E3+50*a,0,-100));for(a=0;10>a;a++)this.buildings.push(new Building(-3E3+100*a,0,10,100,100,300,colors[Math.floor(Math.random()*colors.length)]));this.player=new Player};this.enable=function(){window.requestAnimFrame=
+window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame;window.cancelAnimationFrame=window.cancelAnimationFrame||window.webkitCancelAnimationFrame||window.mozCancelAnimationFrame||window.oCancelAnimationFrame||window.msCancelAnimationFrame;this.currentTime=(new Date).getTime();this.animate((new Date).getTime())};this.disable=function(){window.cancelAnimationFrame(this.animationFrame)};this.animate=
+function(a){var b=this;this.animationFrame=requestAnimFrame(function(){b.animate((new Date).getTime())});this.update(a)};this.update=function(a){dt=a-this.currentTime;this.currentTime=a;this.speed+=0.08;this.speed=this.speed>this.speedLimit?this.speedLimit:this.speed;ds=this.speed*(dt/1E3);this.distance+=ds;this.player.update();this.player.fall&&this.gameOver();a=0;for(var b=this.rows.length;a<b;a++)this.updateEndlessPosition(a,this.rows,-1700,ds);a=0;for(b=this.buildings.length;a<b;a++)this.updateEndlessPosition(a,
+this.buildings,-2E3,ds);a=0;for(b=this.colliders.length;a<b;a++)this.colliders[a].kill&&(this.colliders.splice(a,1),b=this.colliders.length),150>Math.abs(this.player.x-this.colliders[a].x)&&(cubeCollision(this.player,this.colliders[a])?(this.colliders[a].colliding=!0,!this.colliders[a].hit&&this.colliders[a].cracked&&(this.colliders[a].hit=!0,this.luck-=10),this.player.onTile=!0):this.colliders[a].colliding=!1);this.luck+=0.05;this.luck=100<this.luck?100:this.luck;this.luck=0>this.luck?0:this.luck;
+this.draw()};this.draw=function(){ctx.clearRect(0,0,width,height);ctx.fillStyle="#222";ctx.save();ctx.scale(1,0.5);boxFilled(-2700,0,0,4700,0,1500,"#333","#333",!0);this.player.fall&&this.player.draw();this.rows.sort(xSort);for(var a=this.rows.length;a--;)this.rows[a].draw();this.buildings.sort(xSort);for(a=this.buildings.length;a--;)this.buildings[a].draw();this.player.fall||this.player.draw();boxFilled(-2700,0,-1500,4700,0,1350,"#333","#333",!0);ctx.restore();this.over||(ctx.fillRect(0,5,55,35),
+ctx.fillRect(width-65,5,65,35),ctx.fillRect(0,45,204,30),ctx.fillRect(width-141,45,141,30),ctx.fillStyle="#fff",ctx.fillText("Luck",5,28),ctx.fillText("Score",width-58,28),ctx.fillText(pad(Math.round(this.distance),12),width-125,65),ctx.fillStyle="#c0392b",a=100-this.luck,ctx.fillRect(2,47,2*a,26),ctx.fillStyle="#27ae60",ctx.fillRect(2*a+2,47,2*this.luck,26))};this.pause=function(){document.getElementById("resume").style.display="block";this.paused=!0;this.disable()};this.resume=function(){document.getElementById("resume").style.display=
+"none";this.paused=!1;this.currentTime=(new Date).getTime();this.enable()};this.togglePause=function(){this.started&&!this.over&&(this.paused?this.resume():this.pause())};this.gameOver=function(){if(!this.over&&(this.isMobile&&this.toggleMobileControls(!1),this.score=Math.round(this.distance),this.over=!0,document.getElementById("restart").style.display="block",document.getElementById("scorecard").style.display="block",document.getElementById("score").innerHTML=this.score,this.storage)){var a=this.storage.getItem("highscore"),
+b=document.getElementById("highscore");this.score>a?(this.storage.setItem("highscore",this.score),b.style.display="block"):b.style.display="none"}};this.restart=function(){document.getElementById("restart").style.display="none";document.getElementById("scorecard").style.display="none";this.isMobile&&this.toggleMobileControls(!0);this.disable();this.speed=250;this.over=!1;this.luck=100;this.distance=0;this.initObjects();this.player=new Player;this.enable()};this.updateEndlessPosition=function(a,b,
+c,d){newx=0<a?b[a-1].x+b[a-1].w:b[b.length-1].x+b[b.length-1].w-d;b[a].x<c?b[a].update(newx,!0):b[a].update(b[a].x-d)};this.getRandomRow=function(a){a=ROWS[a];var b=0,c=0,d;for(d=0;d<a.length;d++)b+=a[d][1];b=Math.floor(Math.random()*b);for(d=0;d<a.length;d++)if(c+=a[d][1],b<c)return a[d]};this.toggleFullscreen=function(){function a(a){b.fitToWindow()}var b=this;if(this.fullscreen){window.removeEventListener("resize",a,!1);var c=document.getElementById("gameWindow");canvas.width=width=800;canvas.height=
+height=600;c.style.width=width+"px";c.style.height=height+"px";ctx.font="bold 18px sans-serif"}else this.fitToWindow(),window.addEventListener("resize",a,!1);this.fullscreen=!this.fullscreen};this.fitToWindow=function(){var a=document.getElementById("gameWindow");canvas.width=width=window.innerWidth;canvas.height=height=window.innerHeight;a.style.width=width+"px";a.style.height=height+"px";ctx.font="bold 18px sans-serif"};this.toggleMobileControls=function(a){for(var b=document.getElementsByClassName("button"),
+c=0;c<b.length;c++)b[c].style.display=a?"block":"none"};isMobile()&&(this.toggleFullscreen(),this.isMobile=!0)}window.onload=function(){game=new Game;window.addEventListener("keydown",onKeyDown,!1);window.addEventListener("keyup",onKeyUp,!1);document.getElementById("start").addEventListener("click",function(a){game.init();a=document.getElementsByClassName("menu");for(var b=0;b<a.length;b++)a[b].style.display="none"},!1)};
+function Player(){this.x=-200;this.y=1;this.z=-87.5;this.w=25;this.h=120;this.d=25;this.jumping=!1;this.yV=0;this.onTile=!0;this.update=function(){!this.onTile&&0>=this.y&&(this.fall=!0);if(this.fall)this.y-=game.gravSpeed/4*(dt/1E3),this.x-=game.speed*(dt/1E3);else{if(keyA||keyLeft)this.z+=50,keyA=keyLeft=!1;if(keyD||keyRight)this.z-=50,keyD=keyRight=!1;-137.5>this.z&&(this.z=-137.5);-37.5<this.z&&(this.z=-37.5);(keySpace||keyUp||keyW)&!this.jumping&&(this.jumping=!0,this.yV=1200,keySpace=keyUp=
+keyW=!1);this.y+=this.yV*(dt/1E3);0>=this.y?(this.y=0,this.jumping=!1,this.yV=0):this.yV-=game.gravSpeed*(dt/1E3);this.onTile=!1}};this.draw=function(){boxFilled(this.x,this.y,this.z,this.w,this.h,this.d,"#333","#f1c40f");ctx.save();var a=xFla(this.x,this.y,this.z),b=yFla(this.x,this.y,this.z);ctx.fillStyle="#eee";for(var c=0;3>c;c++)for(var d=0;5>d;d++)ctx.globalAlpha=Math.random(),ctx.fillRect(a-25+10*d,b-75+20*c,10,20);ctx.restore()}}
+function Row(a,b,c){this.w=50;this.x=a;this.y=b;this.z=c;this.tiles=[];this.tiles.push(new Tile(a,b,c-50));this.tiles.push(new Tile(a,b,c));this.tiles.push(new Tile(a,b,c+50));this.update=function(a,b){this.x=a;for(var c=this.tiles.length-1;0<=c;c--)b?this.tiles[c].kill=!0:this.tiles[c].x=a;b&&this.randomObstacle()};this.draw=function(){for(var a=this.tiles.length;a--;)this.tiles[a].draw()};this.randomObstacle=function(){for(var a=(randomBetween(0,100)>game.luck?game.getRandomRow("2"):game.getRandomRow("1"))[0],
+b=[-50,0,50],c=this.tiles.length=0;c<a.length;c++)switch(a.charAt(c)){case "T":this.tiles.push(new Tile(this.x,this.y,this.z+b[c]));break;case "C":var g=new Tile(this.x,this.y,this.z+b[c]);g.cracked=!0;this.tiles.push(g);break;case "J":this.tiles.push(new Block(this.x,this.y,this.z+b[c]))}}}
+function Tile(a,b,c,d){this.x=a;this.y=b;this.z=c;this.w=50;this.h=0;this.d=50;this.startX=a;this.layer=d;this.type="Tile";this.cracked=!1;this.cracks=6;this.cLength=25;this.kill=this.hit=!1;game.colliders.push(this);this.draw=function(){boxFilled(this.x,this.y,this.z,this.w,this.h,this.d,"#333","#ccc");if(this.cracked){ctx.save();plot(this.x,this.y,this.z);ctx.strokeStyle=this.colliding?"red":"black";ctx.lineWidth=2;ctx.beginPath();for(var a=this.cracks,b=0;b<a;b++)drawIso((0==b%2?this.x+this.cLength:
+this.x)+15,0,this.z+this.d+this.d/a/2-(b+1)*(this.d/a));ctx.stroke();ctx.closePath();ctx.restore()}}}
+function Building(a,b,c,d,e,f,g){this.x=a;this.y=b;this.z=c;this.w=d;this.h=e;this.d=f;this.startX=a;this.color=g;this.update=function(a,b){this.x=a;b&&(this.x+=randomBetween(0,100),this.x=Math.max(this.x,600),this.w=randomBetween(200,700),this.h=randomBetween(200,1300),this.d=randomBetween(300,800),this.color=colors[Math.floor(Math.random()*colors.length)])};this.draw=function(){boxFilled(this.x,this.y,this.z,this.w,this.h,this.d,"#000",this.color)}}
+xSort=function(a,b){return a.x>b.x?1:a.x<b.x?-1:0};randomPosNeg=function(){return 2*Math.random()-1};randomBetween=function(a,b){return Math.floor(Math.random()*(b-a+1)+a)};isMobile=function(){return navigator.userAgent.match(/Android/i)||navigator.userAgent.match(/webOS/i)||navigator.userAgent.match(/iPhone/i)||navigator.userAgent.match(/iPad/i)||navigator.userAgent.match(/iPod/i)||navigator.userAgent.match(/BlackBerry/i)||navigator.userAgent.match(/Windows Phone/i)?!0:!1};
+pad=function(a,b){for(var c=""+a;c.length<b;)c="0"+c;return c};onKeyDown=function(a){switch(a.keyCode){case 68:keyD=!0;break;case 65:keyA=!0;break;case 87:keyW=!0;break;case 32:keySpace=!0;break;case 37:keyLeft=!0;break;case 38:keyUp=!0;break;case 39:keyRight=!0;break;case 80:game.togglePause();break;case 70:game.toggleFullscreen()}};
+onKeyUp=function(a){switch(a.keyCode){case 68:keyD=!1;break;case 65:keyA=!1;break;case 87:keyW=!1;break;case 32:keySpace=!1;break;case 37:keyLeft=!1;break;case 38:keyUp=!1;break;case 39:keyRight=!1}};cubeCollision=function(a,b){return a.x+a.w>=b.x&&a.x<=b.x+b.w&&a.y+a.h>=b.y&&a.y<=b.y+b.h&&a.z+a.d>=b.z&&a.z<=b.z+b.d};xFla=function(a,b,c){xCart=(a-c)*ortho;return xI=xCart+width/2};yFla=function(a,b,c){yCart=b+(a+c)*ortho;return yI=-yCart+height-height/10};
+plot=function(a,b,c){move(xFla(a,b,c),yFla(a,b,c))};drawIso=function(a,b,c){line(xFla(a,b,c),yFla(a,b,c))};move=function(a,b){ctx.moveTo(a,b)};line=function(a,b){ctx.lineTo(a,b)};
+boxFilled=function(a,b,c,d,e,f,g,h,k){ctx.strokeStyle=g;ctx.fillStyle=h;ctx.beginPath();plot(a,b+e,c);drawIso(a+d,b+e,c);drawIso(a+d,b+e,c+f);drawIso(a,b+e,c+f);drawIso(a,b+e,c);ctx.closePath();ctx.stroke();ctx.fill();0!=e&&(ctx.beginPath(),plot(a,b,c),drawIso(a+d,b,c),drawIso(a+d,b+e,c),drawIso(a,b+e,c),drawIso(a,b,c),ctx.closePath(),ctx.stroke(),ctx.fill(),0!=f&&(ctx.beginPath(),plot(a,b,c),drawIso(a,b+e,c),drawIso(a,b+e,c+f),drawIso(a,b,c+f),drawIso(a,b,c),ctx.closePath(),ctx.stroke(),ctx.fill()))};
+    </script>
+
+</body>
+
+</html>

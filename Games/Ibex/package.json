@@ -1,0 +1,33 @@
+{
+  "name": "gre-js13k-2014",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "clean": "rm -rf build/; mkdir -p build",
+    "cleanall": "rm -rf build/ target/; mkdir -p build target",
+    "compileglsl": "glslmin src/shaders/logic.frag > build/logic.frag -s rand -s S_ -s NW -s NN -s NE -s WW -s CC -s EE -s SW -s SS -s SE -s main && glslmin src/shaders/render.frag > build/render.frag && glslmin src/shaders/logic.vert > build/logic.vert && glslmin src/shaders/render.vert > build/render.vert",
+    "tmpljs": " cat src/pre.js src/jsfxr.js >> build/build.js; ./wrap.sh build/render.frag FRAGMENT_RENDER >> build/build.js && ./wrap.sh build/render.vert VERTEX_RENDER >> build/build.js && ./wrap.sh build/logic.frag FRAGMENT_LOGIC >> build/build.js && ./wrap.sh build/logic.vert VERTEX_LOGIC >> build/build.js; cat src/index.js >> build/build.js; cat src/post.js >> build/build.js",
+    "minify": "uglifyjs build/build.js -c --screw-ie8 -m -o build/build.min.js",
+    "nominify": "cp build/build.js build/build.min.js",
+    "gen": "cp assets/tiles.png target/t.png && cp src/target.html target/index.html && cp build/build.min.js target/b.js",
+    "build": "npm run cleanall && npm run compileglsl && npm run tmpljs && npm run minify && npm run gen",
+    "build-nominify": "npm run cleanall && npm run compileglsl && npm run tmpljs && npm run nominify && npm run gen",
+    "watch": "npm run build; wr 'npm run build' src/ assets/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gre/js13k-2014.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gre/js13k-2014/issues"
+  },
+  "homepage": "https://github.com/gre/js13k-2014",
+  "devDependencies": {
+    "glslmin": "0.0.0",
+    "uglify-js": "^2.4.15",
+    "uglifycss": "0.0.9",
+    "wr": "^1.3.1"
+  }
+}

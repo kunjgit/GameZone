@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+  <head>
+    <meta charset="utf-8" />
+    <title>Free Bird</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        font: 1em normal Rammetto One, Tahoma, sans-serif;
+      }
+      canvas {
+        display: block;
+        margin: 0 auto;
+        background: #000;
+      }
+      #o {
+        display: none;
+        position: absolute;
+        width: 20%;
+        top: 2em;
+        left: 40%;
+        margin: 2em auto;
+        color: #f0f;
+        text-align: center;
+        font-size: 140%;
+      }
+    </style>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <canvas> </canvas>
+    <div id="o">Please rotate your device</div>
+    <script src="./main.js"></script>
+  </body>
+</html>

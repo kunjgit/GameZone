@@ -1,0 +1,26 @@
+{
+  "name": "Quintessential",
+  "description": "Master all the elements to forge every alchemists's dream: the 5th element, quinta essentia",
+  "launch_path": "/index.html",
+  "icons": {
+    "30": "",
+    "60": "",
+    "90": "",
+    "128": "/apple-touch-icon-precomposed.png"
+  },
+  "developer": {
+    "name": "Lisa P",
+    "url": "lislis.de"
+  },
+  "appcache_path": "/cache.manifest",
+  "fullscreen": "true",
+  "default_locale": "en",
+  "locales": {
+    "en": {
+      "description": "",
+    },
+    "de": {
+      "description": "",
+    }
+  }
+}

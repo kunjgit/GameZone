@@ -1,0 +1,52 @@
+#inherit_from: '../../inherited-config.yml'
+
+#exclude: 'app/styles/utilities/**'
+
+linters:
+   CapitalizationInSelector:
+      enabled: false
+
+   Indentation:
+      enabled: true
+      character: tab
+      width: 1
+
+   Comment:
+     enabled: false
+
+   LeadingZero:
+      enabled: false
+
+   PropertySortOrder:
+      enabled: false
+
+#  ColorKeyword:
+#     enabled: false
+#  Comment:
+#     enabled: false
+#  DuplicateProperty:
+#     enabled: false
+   EmptyLineBetweenBlocks:
+      enabled: false
+#  EmptyRule:
+#     enabled: false
+#  HexLength:
+#     enabled: false
+#  MergeableSelector:
+#     enabled: false
+#  NameFormat:
+#     enabled: false
+#  PlaceholderInExtend:
+#     enabled: false
+
+#  SingleLinePerSelector:
+#     enabled: false
+   SpaceAfterComma:
+      enabled: false
+#  SpaceAfterPropertyColon:
+#     enabled: false
+#  StringQuotes:
+#     enabled: false
+#  TrailingSemicolonAfterPropertyValue:
+#     enabled: false
+

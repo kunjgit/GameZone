@@ -1,0 +1,35 @@
+{
+  "name": "quintessential",
+  "version": "2.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "connect": "^3.0.1",
+    "connect-livereload": "^0.4.0",
+    "del": "^0.1.0",
+    "gulp": "^3.6.0",
+    "gulp-autoprefixer": "^0.0.7",
+    "gulp-cache": "^0.2.0",
+    "gulp-csso": "^0.2.6",
+    "gulp-filter": "^0.5.0",
+    "gulp-flatten": "^0.0.2",
+    "gulp-if": "^1.2.1",
+    "gulp-imagemin": "^0.6.0",
+    "gulp-jshint": "^1.5.3",
+    "gulp-livereload": "^2.0.0",
+    "gulp-load-plugins": "^0.5.0",
+    "gulp-ruby-sass": "^0.5.0",
+    "gulp-plumber": "^0.6.3",
+    "gulp-size": "^0.4.0",
+    "gulp-uglify": "^0.3.0",
+    "gulp-useref": "^0.6.0",
+    "jshint-stylish": "^0.2.0",
+    "main-bower-files": "^1.0.1",
+    "opn": "^0.1.1",
+    "serve-index": "^1.1.4",
+    "serve-static": "^1.4.0",
+    "gulp-jade": "^0.6.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

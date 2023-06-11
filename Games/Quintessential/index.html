@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>quintessential</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body class="">
+        <div class="wrapper">
+            <div class="state state--start" id="start">
+                <h1>Quintessential</h1>
+                <p>All alchemists struggle to tame the elements in order to forge the fifth element: Quinta Essentia</p>
+                <a href="#levelselect" class="start-btn">start</a>
+            </div>
+            <div class="state state--levelselect" id="levelselect">
+                <h2>Choose an Element</h2>
+                <ul>
+                    <li><a href="#game" class="level level--fire" data-level="fire" data-arrows="up and down" data-action="n">fire</a></li>
+                    <li><a href="#game" class="level level--water" data-level="water" data-arrows="left and right" data-action="n">water</a></li>
+                    <li><a href="#game" class="level level--air" data-level="air" data-level="air" data-arrows="up and down" data-action="m">air</a></li>
+                    <li><a href="#game" class="level level--earth" data-level="earth" data-level="earth" data-arrows="left and right" data-action="m">earth</a></li>
+                </ul>
+            </div>
+            <div class="state state--game" id="game">
+                <canvas id="maingame"></canvas>
+                <div id="score" class="score"></div>
+            </div>
+            <div class="state state--win" id="win">
+                <h2>You tamed <span id="what-you-won" class="cap"></span></h2>
+                <p><a href="#levelselect">go on</a></p>
+            </div>
+            <div class="state state--winwin" id="winwin">
+                <ul>
+                    <li><a href="#game" class="level level--fire" data-level="fire" ></a></li>
+                    <li><a href="#game" class="level level--water" data-level="water" ></a></li>
+                    <li><a href="#game" class="level level--air" ></a></li>
+                    <li><a href="#game" class="level level--earth" ></a></li>
+                </ul>
+                <div class="quinta"></div>
+            </div>
+            <div class="state state--end" id="end"></div>
+        </div>
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/lib.js"></script>
+        <script src="scripts/main.js"></script>
+        <script>
+            var game = new Quintessential();
+        </script>
+        <!-- endbuild -->
+</body>
+</html>

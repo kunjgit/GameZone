@@ -1,0 +1,1885 @@
+<html>
+  <head>
+    <title>Bounceback</title>
+    <style>
+      body {
+        background: #000;
+        overflow: hidden;
+        margin: 0;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: pixelated;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c1"></canvas
+    ><canvas id="c2" style="visibility: hidden"></canvas>
+    <script>
+      var h,
+        ba,
+        aa =
+          "function" == typeof Object.create
+            ? Object.create
+            : function (t) {
+                function i() {}
+                return (i.prototype = t), new i();
+              };
+      if ("function" == typeof Object.setPrototypeOf)
+        ba = Object.setPrototypeOf;
+      else {
+        var ca;
+        t: {
+          var da = { w: !0 },
+            ea = {};
+          try {
+            (ea.__proto__ = da), (ca = ea.w);
+            break t;
+          } catch (t) {}
+          ca = !1;
+        }
+        ba = ca
+          ? function (t, i) {
+              if (((t.__proto__ = i), t.__proto__ !== i))
+                throw new TypeError(t + " is not extensible");
+              return t;
+            }
+          : null;
+      }
+      var fa = ba;
+      function k(t, i) {
+        if (
+          ((t.prototype = aa(i.prototype)), (t.prototype.constructor = t), fa)
+        )
+          fa(t, i);
+        else
+          for (var a in i)
+            if ("prototype" != a)
+              if (Object.defineProperties) {
+                var e = Object.getOwnPropertyDescriptor(i, a);
+                e && Object.defineProperty(t, a, e);
+              } else t[a] = i[a];
+      }
+      function ha(t, i, a, e) {
+        return (
+          "rgba(" +
+          ((255 * (void 0 === t ? 0 : t)) | 0) +
+          "," +
+          ((255 * (void 0 === i ? 0 : i)) | 0) +
+          "," +
+          ((255 * (void 0 === a ? 0 : a)) | 0) +
+          "," +
+          (void 0 === e ? 1 : e) +
+          ")"
+        );
+      }
+      var l = Math.PI;
+      function n(t) {
+        return Math.random() * (void 0 === t ? 1 : t);
+      }
+      function p(t) {
+        return 0 | n(t);
+      }
+      function q(t, i) {
+        return t + n(i - t);
+      }
+      function t(t, i) {
+        return t + p(i - t + 1);
+      }
+      function ja(t) {
+        return ka(new u(void 0 === t ? 1 : t, 0), n(2 * l));
+      }
+      function la(t, i) {
+        return t.b().pa(i, n());
+      }
+      function ma(t, i, a) {
+        return 0 <= t && 0 <= i && t < a && i < a;
+      }
+      function na(t, i) {
+        return t < i ? t : i;
+      }
+      function oa(t, i) {
+        return t > i ? t : i;
+      }
+      function pa(t) {
+        var i = (0 | t) % 60;
+        return ((t / 60) | 0) + ":" + (10 > i ? "0" : "") + i;
+      }
+      function v() {
+        this.endTime = 0;
+      }
+      function w(t) {
+        return 0 < t.endTime ? qa - t.endTime : 1e9;
+      }
+      function z(t) {
+        return !(0 < t.endTime) || qa > t.endTime;
+      }
+      function u(t, i) {
+        (this.x = void 0 === t ? 0 : t), (this.y = void 0 === i ? 0 : i);
+      }
+      function C(t, i) {
+        return (
+          i instanceof u
+            ? ((t.x += i.x), (t.y += i.y))
+            : ((t.x += i), (t.y += i)),
+          t
+        );
+      }
+      function B(t, i) {
+        return (
+          i instanceof u
+            ? ((t.x *= i.x), (t.y *= i.y))
+            : ((t.x *= i), (t.y *= i)),
+          t
+        );
+      }
+      function D(t, i, a) {
+        return (t.x += i), (t.y += a), t;
+      }
+      function ra(t, i) {
+        i = void 0 === i ? 1 : i;
+        var a = sa(t);
+        return 0 < a ? B(t, i / a) : t.Set(i, (y = 0));
+      }
+      function ka(t, i) {
+        var a = Math.cos(i),
+          e = Math.sin(i);
+        return t.Set(t.x * a - t.y * e, t.x * e - t.y * a);
+      }
+      function sa(t) {
+        return Math.hypot(t.x, t.y);
+      }
+      function ta(t) {
+        return Math.abs(t.x) > Math.abs(t.y)
+          ? 0 < t.x
+            ? 2
+            : 0
+          : 0 < t.y
+          ? 1
+          : 3;
+      }
+      function E(t, i, a, e) {
+        (this.r = void 0 === t ? 0 : t),
+          (this.S = void 0 === i ? 0 : i),
+          (this.O = void 0 === a ? 0 : a),
+          (this.w = void 0 === e ? 1 : e);
+      }
+      function ua(t, i) {
+        return (t.w = i), t;
+      }
+      function va(t, i, a, e, h, s) {
+        (e = void 0 === e ? 0.5 : e),
+          (h = void 0 === h ? 0 : h),
+          (s = void 0 === s ? 1 : s),
+          (this.a = t.b()),
+          (this.i = i),
+          (this.Z = a),
+          (this.size = new u(e, e)),
+          (this.ga = h),
+          (this.K = this.c = s),
+          (this.l = new v()),
+          (this.v = new v()),
+          this.v.Set(),
+          (this.acceleration = new u()),
+          (this.g = new u()),
+          (this.j = this.angle = 0),
+          (this.ha = 0.8),
+          (this.height = this.D = 0),
+          (this.J = 0.5),
+          (this.sa = 1),
+          F.push(this);
+      }
+      function ya(t) {
+        var i = G;
+        i.c && (i.c = na(i.c + t, i.K));
+      }
+      function za(t, i) {
+        return t.B(i) < i.ga + t.ga;
+      }
+      function Aa(t) {
+        F.splice(F.indexOf(t), 1);
+      }
+      (v.prototype.Set = function (t) {
+        this.endTime = qa + (void 0 === t ? 0 : t);
+      }),
+        ((h = u.prototype).H = function (t) {
+          return (this.x = t.x), (this.y = t.y), this;
+        }),
+        (h.b = function (t) {
+          return B(new u(this.x, this.y), void 0 === t ? 1 : t);
+        }),
+        (h.o = function (t) {
+          return (this.x -= t.x), (this.y -= t.y), this;
+        }),
+        (h.Set = function (t, i) {
+          return (this.x = t), (this.y = i), this;
+        }),
+        (h.B = function (t) {
+          return Math.hypot(this.x - t.x, this.y - t.y);
+        }),
+        (h.pa = function (t, i) {
+          return C(this, B(t.b().o(this), i));
+        }),
+        ((h = E.prototype).H = function (t) {
+          return (
+            (this.r = t.r), (this.S = t.S), (this.O = t.O), (this.w = t.w), this
+          );
+        }),
+        (h.b = function (t) {
+          return (
+            (t = void 0 === t ? 1 : t),
+            new E(this.r * t, this.S * t, this.O * t, this.w * t)
+          );
+        }),
+        (h.o = function (t) {
+          return (
+            (this.r -= t.r),
+            (this.S -= t.S),
+            (this.O -= t.O),
+            (this.w -= t.w),
+            this
+          );
+        }),
+        (h.pa = function (t, i) {
+          return t.b().o(
+            t
+              .b()
+              .o(this)
+              .b(1 - i)
+          );
+        }),
+        (h.RGBA = function () {
+          return ha(this.r, this.S, this.O, this.w);
+        }),
+        ((h = va.prototype).f = function () {
+          C(this.g, this.acceleration);
+          var t = this.a,
+            i = this.a.b();
+          C(i, this.g);
+          var a = this.ga;
+          if (!wa(i, a, this)) {
+            var e = wa(new u(i.x, t.y), a);
+            (a = wa(new u(t.x, i.y), a)),
+              (e && !a) || ((i.x = t.x), (this.g.x *= -0.5)),
+              (a && !e) || ((i.y = t.y), (this.g.y *= -0.5));
+          }
+          (this.a = i),
+            B(this.g, this.ha),
+            B(this.acceleration, 0),
+            (this.angle += this.j);
+        }),
+        (h.m = function () {
+          xa(
+            this.a,
+            this.size,
+            this.i,
+            this.Z,
+            this.angle,
+            this.D,
+            this.height
+          );
+        }),
+        (h.I = function (t) {
+          if (!this.c || 0.5 > w(this.l)) return 0;
+          this.l.Set();
+          var i = this.c;
+          return (this.c = oa(this.c - t, 0)) || this.u(), i - this.c;
+        }),
+        (h.ya = function () {
+          return 0;
+        }),
+        (h.u = function () {
+          (this.c = 0), Aa(this);
+        }),
+        (h.B = function (t) {
+          var i = this.a,
+            a = t.a;
+          return Math.hypot(i.x - a.x, i.y - a.y, this.height - t.height);
+        }),
+        (h.$ = function (t) {
+          return t.type ? (1 < this.height ? 0 : t.object) : 1;
+        });
+      var K,
+        Ea,
+        Fa,
+        Ga,
+        L,
+        H = 1,
+        Ba = new u(),
+        qa = 1,
+        Ca = 1 / 60,
+        I = 0,
+        Da = 0,
+        O = new u(),
+        Ha = 0;
+      function Ia() {
+        (Ha = !document.hasFocus()) &&
+          ((Ja = Ka = 0),
+          La.map(function (t) {
+            return (t.oa = t.ia = 0);
+          })),
+          O.Set(window.innerWidth / 2, window.innerHeight / 2),
+          (Ma.width = O.x),
+          (Ma.height = O.y),
+          (K.imageSmoothingEnabled = 0),
+          C(B(Na.H(Oa).o(O.b(0.5)), (1 / H) * 16), Ba),
+          Ha || ((qa += Ca), Pa(), Qa()),
+          F.sort(function (t, i) {
+            return t.a.y - i.a.y;
+          }),
+          Ra(),
+          (I = 1),
+          Sa(),
+          (I = 0),
+          Sa(),
+          Ta(),
+          (Ka = Ja),
+          La.map(function (t) {
+            return (t.oa = t.ia);
+          }),
+          requestAnimationFrame(Ia);
+      }
+      var F = [];
+      function Qa() {
+        F.forEach(function (t) {
+          return t.f();
+        });
+      }
+      function Sa() {
+        F.forEach(function (t) {
+          t.m(),
+            !I &&
+              (Da = na(oa(1 - w(t.l) / t.J, 0), 1)) &&
+              (t.sa && (K.globalCompositeOperation = "difference"),
+              t.m(),
+              (K.globalCompositeOperation = "source-over"),
+              (Da = 0));
+        });
+      }
+      var Ja = 0,
+        Ka = 0,
+        La = [],
+        Oa = new u(),
+        Na = new u();
+      function Ua(t) {
+        return La[t] ? La[t].ia : 0;
+      }
+      function Va(t, i, a, e) {
+        K.drawImage(Wa, 16 * e, 80, 16, 16, t - a, i - a, 2 * a, 2 * a);
+      }
+      function Xa(t, i, a, e) {
+        (a = void 0 === a ? 0 : a),
+          (e = void 0 === e ? 0 : e),
+          K.save(),
+          (t = t.b()),
+          I ? D(t, (0.7 * -e) / 2, (0.7 * -e) / 2) : (t.y -= e),
+          B(t.o(Ba), 16 * H),
+          C(t, O.b(0.5)),
+          K.translate(0 | t.x, 0 | t.y),
+          (i = i.b(16)),
+          I && K.transform(1, 0, 0.7, 0.7, -0.7 * H * i.x, H * (1 - 0.7) * i.y),
+          a && K.rotate(a),
+          K.scale(H, H);
+      }
+      function xa(t, i, a, e, h, s, n) {
+        (s = void 0 === s ? 0 : s),
+          Xa(t, i, void 0 === h ? 0 : h, void 0 === n ? 0 : n),
+          (t = Wa),
+          I
+            ? ((t = Ea), (K.globalAlpha *= 0.5), (a += Wa.width / 16))
+            : Da && ((t = Ea), (K.globalAlpha *= Da)),
+          (i = i.b(32)),
+          K.scale(s ? -i.x : i.x, i.y),
+          K.drawImage(
+            t,
+            16 * a + 0.25,
+            16 * e + 0.25,
+            15.5,
+            15.5,
+            -0.5,
+            -0.5,
+            1,
+            1
+          ),
+          K.restore(),
+          (K.globalAlpha = 1);
+      }
+      function Ya(t, i, a, e, h, s, n, o, r) {
+        (s = void 0 === s ? 1 : s),
+          (o = void 0 === o ? "#FFF" : o),
+          ((r = void 0 === r ? K : r).fillStyle = void 0 === n ? "#000" : n),
+          (r.font = "900 " + e + "px arial"),
+          (r.textAlign = void 0 === h ? "center" : h),
+          (r.textBaseline = "middle"),
+          r.fillText(t, i, a),
+          s && ((r.lineWidth = s), (r.strokeStyle = o), r.strokeText(t, i, a));
+      }
+      function Za() {
+        this.object = this.rotation = this.M = this.type = 0;
+      }
+      function $a() {
+        (Ga.height = Ga.width = 1024), (this.data = []);
+        for (var t = 0; 4096 > t; t++) this.data[t] = new Za();
+      }
+      function ab(t, i) {
+        return P(t, i.x, i.y);
+      }
+      function P(t, i, a) {
+        return ma(i, a, 64) ? t.data[(0 | i) + 64 * (0 | a)] : new Za();
+      }
+      function wa(t, i, a) {
+        var e = R;
+        a = void 0 === a ? 0 : a;
+        var h = t.y;
+        t = t.x;
+        for (var s = h - i; s <= h + i; ) {
+          for (var n = t - i; n <= t + i; ) {
+            var o = new u(Math.floor(n) + 0.5, Math.floor(s) + 0.5),
+              r = ab(e, o);
+            if (a) {
+              if (a.$(r, o)) return 0;
+            } else if (!r.type || r.object) return 0;
+            if (n == t + i) break;
+            ++n > t + i && (n = t + i);
+          }
+          if (s == h + i) break;
+          ++s > h + i && (s = h + i);
+        }
+        return 1;
+      }
+      function db(t, i, a) {
+        eb(t, i, function (t) {
+          return (t.object = t.type ? a : t.object);
+        });
+      }
+      function fb(t, i, a) {
+        eb(t, i, function (t) {
+          return (t.type = a);
+        });
+      }
+      function eb(t, i, a) {
+        for (var e = R, h = -i; h <= i; h++)
+          for (
+            var s = Math.pow(Math.pow(i, 2) - Math.pow(h + 0.5, 2), 0.5),
+              n = t.y - s;
+            n < t.y + s;
+            n++
+          ) {
+            var o = (t.x + h) | 0,
+              r = 0 | n;
+            ma(o, r, 64) && a(P(e, o, r));
+          }
+      }
+      function gb(t, i, a, e) {
+        (a = void 0 === a ? "#FFF" : a),
+          (e = void 0 === e ? 0 : e),
+          (i = B(B(new u(1, 1), i), 16)),
+          L.beginPath(),
+          L.ellipse(16 * t.x, 16 * t.y, i.x, i.y, e, 0, 7),
+          (L.fillStyle = a),
+          L.fill();
+      }
+      function hb(t, i, a, e, h, s, n) {
+        Ya(
+          t,
+          16 * i.x,
+          16 * i.y,
+          a,
+          void 0 === e ? "center" : e,
+          void 0 === h ? 0 : h,
+          void 0 === s ? "#000" : s,
+          void 0 === n ? "#FFF" : n,
+          L
+        );
+      }
+      function ib(t, i, a) {
+        var e = (t = P(t, (i |= 0), (a |= 0))).M % 8,
+          h = (t.M / 8) | 0;
+        jb((i = new u(i + 0.5, a + 0.5)), e, h, (t.rotation * l) / 2),
+          t.object &&
+            jb(
+              i,
+              (e = (t.object - 1) % 8),
+              (h = 3 + (((t.object - 1) / 8) | 0))
+            );
+      }
+      function jb(t, i, a, e) {
+        (e = void 0 === e ? 0 : e),
+          L.save(),
+          L.translate(16 * t.x, 16 * t.y),
+          L.rotate(e),
+          L.drawImage(Wa, 16 * i, 16 * a, 16, 16, -8, -8, 16, 16),
+          L.restore();
+      }
+      function kb(t, i, a, e, h, s, n) {
+        (this.Da = t),
+          (this.a = i),
+          (this.g = a),
+          (this.size = e),
+          (this.Ga = h),
+          (this.Pa = s),
+          (this.Na = n),
+          (this.v = new v()),
+          this.v.Set();
+      }
+      function lb(t, i, a, e, h) {
+        va.call(this, t, 0, 0, i),
+          (this.Ja = a),
+          (this.Aa = e.b()),
+          (this.Ba = h.b()),
+          (this.W = []),
+          (this.ba = 0);
+      }
+      (oncontextmenu = function (t) {
+        t.preventDefault();
+      }),
+        (onmousedown = function () {
+          Ja = 1;
+        }),
+        (onmouseup = function () {
+          Ja = 0;
+        }),
+        (onmousemove = function (t) {
+          var i = Ma.getBoundingClientRect();
+          B(
+            Oa.Set(
+              (t.clientX - i.left) / i.width,
+              (t.clientY - i.top) / i.height
+            ),
+            O
+          );
+        }),
+        (onkeydown = function (t) {
+          La[t.keyCode] = { ia: 1 };
+        }),
+        (onkeyup = function (t) {
+          La[t.keyCode].ia = 0;
+        }),
+        ($a.prototype.m = function () {
+          var t = C(Ba.b(16 * -H), O.b(0.5));
+          K.drawImage(
+            Ga,
+            0 | t.x,
+            0 | t.y,
+            (H * Ga.width) | 0,
+            (H * Ga.height) | 0
+          );
+        }),
+        (kb.prototype.f = function () {
+          C(this.a, B(this.g, 0.9)),
+            w(this.v) > this.Ga && this.Da.W.splice(this.Da.W.indexOf(this), 1);
+        }),
+        (kb.prototype.m = function () {
+          var t = this.Ga;
+          t = 0 == t ? 0 : na(oa((w(this.v) - 0) / (t - 0), 0), 1);
+          var i = this.Pa.b().pa(this.Na, t);
+          (i.w *= 0.1 > t ? t / 0.1 : 1),
+            (K.fillStyle = i.RGBA()),
+            (t = this.size * H * 16 * (1 + -0.5 * na(oa(t, 0), 1))),
+            (i = C(C(B(this.a.b().o(Ba), 16 * H), O.b(0.5)), -t)),
+            K.fillRect(i.x, i.y, 2 * t, 2 * t);
+        }),
+        k(lb, va),
+        (lb.prototype.f = function () {
+          if (
+            (this.W.forEach(function (t) {
+              return t.f();
+            }),
+            0.05 >= w(this.v))
+          )
+            for (this.ba += Ca; 0.005 < this.ba; )
+              (this.ba -= 0.005),
+                this.W.push(
+                  new kb(
+                    this,
+                    C(this.a.b(), ja(n(this.size.x))),
+                    ja(n(0.2)),
+                    q(this.Ja, 2 * this.Ja),
+                    q(0.5, 1),
+                    la(this.Aa, this.Ba),
+                    ua(la(this.Aa, this.Ba), 0)
+                  )
+                );
+          else this.W.length || this.u();
+          va.prototype.f.call(this);
+        }),
+        (lb.prototype.m = function () {
+          this.W.forEach(function (t) {
+            return t.m();
+          });
+        });
+      var R,
+        S,
+        mb,
+        ob,
+        T,
+        rb,
+        sb,
+        vb,
+        wb,
+        G,
+        U,
+        V,
+        Ab,
+        nb = 0,
+        pb = new v(),
+        qb = new v(),
+        tb = [],
+        ub = new E(),
+        xb = new v(),
+        yb = new v(),
+        zb = new v(),
+        Ma = c1,
+        Bb = 0,
+        Cb = 0,
+        Db = new v();
+      function Eb() {
+        (this.K = this.c = 3), (this.R = 1), (this.G = this.F = 0);
+      }
+      function Fb() {
+        (U = new Eb()),
+          localStorage.KBAP_coins &&
+            (U.G = parseInt(localStorage.KBAP_coins, 10)),
+          localStorage.KBAP_warp && (nb = parseInt(localStorage.KBAP_warp, 10)),
+          localStorage.KBAP_best && (Cb = parseInt(localStorage.KBAP_best, 10)),
+          (mb = 0);
+      }
+      function Gb() {
+        for (
+          vb = 0,
+            S = mb,
+            mb = (mb + 1) % 11,
+            !Ab && S > nb && (nb = S),
+            localStorage.KBAP_warp = nb,
+            ob = 10 == S,
+            (T = !S) && (Ab = 0),
+            xb.endTime = 0,
+            H = 2,
+            Hb.Set(),
+            Ib.width = O.x,
+            Ib.height = O.y,
+            Jb.drawImage(Ma, 0, 0),
+            F = [],
+            qb.endTime = 0,
+            pb.Set(),
+            wb = rb = 0,
+            U.R || U.F || (U.R = 1),
+            ub = new E(n(0.1), n(0.1), n(0.1)),
+            T && (ub = new E(0.1, 0, 0.2));
+          !Kb();
+
+        );
+        G = new Lb(V);
+      }
+      function Mb(t, i, a) {
+        if (((a = void 0 === a ? 1 : a), !(n() > (void 0 === i ? 1 : i))))
+          for (i = 0; i < a; ++i) {
+            var e = new Nb(t.b(), p(8) ? (p(20) ? 3 : 4) : p(4) ? 0 : 1);
+            1 < a && (e.g = ja(0.1 + 0.03 * na(oa(i, 3), 30) * n()));
+          }
+      }
+      function Ob(t, i) {
+        i = void 0 === i ? 1 : i;
+        var a = ab(R, t);
+        if (a.type && !a.object) return 0;
+        var e = 1;
+        if (1 == (a = a.object) || 2 == a) {
+          if (((ab(R, t).object = 0), ib(R, t.x, t.y), Mb(t, 0.05), 1 == a))
+            W(5), gb(t, q(0.1, 0.15), ha(0, 0, 0, q(0.3, 0.6))), (e = 0);
+          else {
+            for (W(14), e = 9; e--; )
+              gb(
+                C(t.b(), ja(0.2)),
+                q(0.1, 0.2),
+                ha(0.2, 0.1, 0.05, q(0.3, 0.6))
+              );
+            e = i;
+          }
+          new lb(
+            t,
+            0.5,
+            0.1,
+            new E(0.4, 1 == a ? 0.8 : 0.2, 0.1, 1),
+            new E(0, 1 == a ? 0.1 : 0, 0, 1)
+          );
+        }
+        return e;
+      }
+      function Pa() {
+        if (
+          (++vb,
+          Ab || (localStorage.KBAP_coins = U.G),
+          0 < xb.endTime || !G.c || (Bb += Ca),
+          !Pb && Ja && !Ka && (Pb = new AudioContext()),
+          0 < Db.endTime && z(Db) && (W(10, 800), (Db.endTime = 0)),
+          T || 0 < xb.endTime)
+        ) {
+          var t = [-5, 0, 2, 4, 7, 12, -5, -8];
+          z(Qb) &&
+            (++Rb,
+            Qb.Set(0.5),
+            !(15 < Rb) ||
+              (1 & Rb && !p(2)) ||
+              (0 == Rb % 8 && (Sb = 1),
+              X(
+                0.4,
+                0,
+                220 * Math.pow(2, t[Sb] / 12),
+                (p(2) + 1) / 2,
+                0.05,
+                0,
+                0.4
+              ),
+              (Sb = (Sb + (p(6) - 2) + t.length) % t.length)),
+            0 == Rb % 2 || 18 & Rb || !p(20)) &&
+            (0 == Rb % 4
+              ? X(0.3, 0.2, 1e3, 0.08, 0.05, 0.8, 21, 51)
+              : X(0.7, 0.2, 150, 0.04, 0.005, 0.1, 1, 0.5, 0.15));
+        }
+        if (
+          ((G.c && !(0 < xb.endTime)) || !Ua(27) || La[27].oa || (sb = 2),
+          0 < qb.endTime && z(qb) && (sb = 1),
+          ob && (H = oa(H - 0.001, 1)),
+          T)
+        ) {
+          t = new u(8, 3.7);
+          var i = w(pb),
+            a = na(oa((i - 0) / 3.3, 0), 1),
+            e = Math.abs(3 - 4 * a) / 1.7;
+          (i = "hsla(" + 99 * i + ",99%,50%)"),
+            hb("BOUNCE", D(t.b(), 0, -e), 33 * a, "center", 2, "#000", i),
+            hb("BACK", D(t.b(), 0, e + 1.2), 33 * a, "center", 2, "#000", i),
+            200 == vb && hb("", new u(8, 9.5), 14),
+            260 == vb && hb("", new u(8, 10.5), 14);
+        }
+      }
+      function Ra() {
+        if (
+          (Ba.H(G.a), (K.fillStyle = ub.RGBA()), K.fillRect(0, 0, O.x, O.y), T)
+        ) {
+          K.fillStyle = "#999";
+          for (var t = 2e3; t--; )
+            K.fillRect(
+              ((1e9 * Math.sin(t) - (qa * (t + 1e3)) / 50) % (Ma.width + 9)) -
+                9,
+              (9 * t) % Ma.height,
+              t % 7,
+              t % 7
+            );
+        }
+        R.m();
+      }
+      function Ta() {
+        sb && (2 == sb && Fb(), (sb = 0), Gb());
+        var t = w(Hb);
+        2 < t ||
+          (K.save(),
+          K.beginPath(),
+          (t = (t * O.x) / 2),
+          K.rect(0, 0, O.x, O.y),
+          K.arc(O.x / 2, O.y / 2, t, 0, 7),
+          K.clip("evenodd"),
+          K.drawImage(Ib, 0, 0),
+          K.restore()),
+          (t = ""),
+          Ha && (t = "-paused-"),
+          0 < xb.endTime && (t = "You Win!"),
+          G.c ||
+            ((t = "Game Over!"), Ya("Press Escape", O.x / 2, O.y / 2 + 80, 42)),
+          Ya(t, O.x / 2, O.y / 2 - 80, 72, "center", 2),
+          (t = 16);
+        for (var i = 0; i < G.K; i++) {
+          var a = 1,
+            e = 16;
+          0.5 > w(yb) && (e *= 1 + 0.2 * Math.sin((2 * l * w(yb)) / 0.5)),
+            G.c > i && (a = 1 <= G.c - i ? 3 : 2),
+            Va(16 + 32 * i, t, e, a);
+        }
+        Va(16, (t += 32), 16, 0),
+          Ya(U.R, 34, t + 2, 32, "left"),
+          U.F && (Va(76, t, 16, 7), Ya(U.F, 94, t + 2, 32, "left")),
+          (t += 32),
+          Va(16, 80, 16, 5),
+          Ya(U.G, 34, t + 2, 32, "left"),
+          Ab &&
+            Ya(
+              pa(Bb),
+              Ma.width / 2,
+              28,
+              40,
+              "center",
+              1,
+              !G.c || 0 < xb.endTime ? "#F00" : "#000"
+            ),
+          Tb(),
+          (Ma.style.cursor = "none"),
+          (t = 0 | Oa.x),
+          (i = 0 | Oa.y),
+          (K.globalCompositeOperation = "difference"),
+          (K.fillStyle = "#FFF"),
+          K.fillRect(t - 2, i - 15, 4, 30),
+          K.fillRect(t - 15, i - 2, 30, 4),
+          (K.globalCompositeOperation = "source-over");
+      }
+      function Ub(t) {
+        return (0 | (t = t.b(0.0625)).x) + 4 * (0 | t.y);
+      }
+      function Tb() {
+        if (!T && !ob) {
+          var t = O.x - 96 - 10;
+          T || Ya("L-" + S, t - 10, 24, 32, "right"),
+            tb[Ub(G.a)] && (tb[Ub(G.a)] = -1),
+            (K.strokeStyle = "#000"),
+            (K.lineWidth = 2),
+            K.strokeRect(t, 10, 96, 96);
+          for (var i = 4; i--; )
+            for (var a = 4; a--; ) {
+              var e = tb[a + 4 * i],
+                h = "#0004";
+              0 < e && (h = "#333"),
+                -1 == e && (h = "#FFF"),
+                a == ((G.a.x / 16) | 0) &&
+                  i == ((G.a.y / 16) | 0) &&
+                  (h = "#F00"),
+                (K.fillStyle = h),
+                K.fillRect(t + 24 * a, 10 + 24 * i, 24, 24),
+                e && K.strokeRect(t + 24 * a, 10 + 24 * i, 24, 24);
+            }
+          F.forEach(function (i) {
+            var a = i.X;
+            if (a && 0 > tb[Ub(i.a)]) {
+              var e = D(i.a.b(1.5), t, 10);
+              (e.x = Math.round(e.x)),
+                (e.y = Math.round(e.y)),
+                (K.fillStyle = i == G ? "#FFF" : "#000"),
+                K.fillRect(e.x - a - 1, e.y - a - 1, 2 * a + 2, 2 * a + 2),
+                (K.fillStyle = i == G ? "#000" : i.ja ? "#F00" : "#FFF"),
+                K.fillRect(e.x - a, e.y - a, 2 * a, 2 * a);
+            }
+          });
+        }
+      }
+      function Y(t, i, a, e, h, s) {
+        va.call(
+          this,
+          t,
+          void 0 === i ? 0 : i,
+          void 0 === a ? 0 : a,
+          void 0 === e ? 0.5 : e,
+          void 0 === h ? 0 : h,
+          void 0 === s ? 1 : s
+        ),
+          (this.P = new E(0.8, 0, 0.05, 0.5)),
+          (this.s = 0),
+          (this.X = this.rotation = 1),
+          (this.qa = this.da = 0);
+      }
+      function Vb(t) {
+        var i = t.s;
+        if (
+          ((t.s += 1.5 * sa(t.g)),
+          (1 > i % 2 && 1 < t.s % 2) || t.s % 2 < i % 2)
+        ) {
+          var a = Wb(t),
+            e = (t.rotation * l) / 2;
+          (i = ka(new u(0, (t.s % 2 < i % 2 ? 1 : -1) / 8), e)),
+            (t = C(t.a.b(), i)),
+            (i = new u(0.2, a ? 0.2 : 0.1)),
+            a && ((i.y *= q(1, 1.5)), (i.x *= q(1, 1.5))),
+            (t.y += 0.3),
+            gb(t, i, a ? "#4215" : "#2223", e);
+        }
+      }
+      function Xb(t, i, a) {
+        (i = void 0 === i ? 1 : i),
+          (a = void 0 === a ? 1 : a),
+          t.qa && (L.globalCompositeOperation = "screen");
+        for (var e = 30; e--; ) {
+          var h = C(t.a.b(), ja(n(i * t.size.x))),
+            s = q(0, 2 * l);
+          gb(
+            h,
+            B(new u(t.size.x * q(0.2, 0.5), t.size.y * q(0.2, 0.5)), i),
+            t.P.RGBA(),
+            s
+          );
+        }
+        (L.globalCompositeOperation = "source-over"),
+          a &&
+            ((i *= t.size.x),
+            new lb(
+              t.a,
+              0.6 * i,
+              0.2 * i,
+              ua(t.P.b(), 1),
+              ua(t.P.b(t.qa ? 3 : 0.5), 1)
+            ));
+      }
+      function Wb(t) {
+        return 2 == ab(R, t.a).type;
+      }
+      function Lb(t) {
+        Y.call(this, t, 0, 4, 0.5, 0.4, U.K),
+          (this.c = U.c),
+          Ba.H(t),
+          (this.h = new v()),
+          (this.Y = new v()),
+          (this.ca = new v()),
+          (this.Ka = new v()),
+          this.ca.Set(-1),
+          (this.wa = 0),
+          (this.U = []),
+          (this.aa = 3),
+          (this.X = 2);
+      }
+      function Yb(t, i) {
+        (i = void 0 === i ? 0 : i),
+          Y.call(this, t, i ? 7 : 0, 5, 0.5, i ? 0.45 : 0.4),
+          (this.ha = 0.98),
+          (this.ra = this.na = this.L = this.T = this.angle = 0),
+          (this.C = i);
+      }
+      function Nb(t, i) {
+        (i = void 0 === i ? 0 : i),
+          Y.call(this, t, 2 + i, 5, 0.5, 0.3),
+          (this.type = i),
+          (this.Qa = n(9)),
+          (this.Fa = 2 != i),
+          (this.sa = this.ta = 0),
+          (this.J = 0.8),
+          (this.X = this.Fa ? 1 : 3);
+      }
+      function Z(t, i, a, e, h, s, n) {
+        (n = void 0 === n ? 0 : n),
+          Y.call(
+            this,
+            t,
+            void 0 === i ? 0 : i,
+            void 0 === a ? 0 : a,
+            void 0 === e ? 0.5 : e,
+            void 0 === h ? 0 : h,
+            void 0 === s ? 1 : s
+          ),
+          (this.qa = this.va = this.ja = 1),
+          (this.X = (this.C = n) ? 2 : 1);
+      }
+      function $b(t, i, a) {
+        a = void 0 === a ? 1 : a;
+        var e = 0.25 * i;
+        Z.call(this, t, 5 + a, 0, e, 0.8 * e, i * a, 3 < i),
+          (this.P = 1 < a ? new E(1, 0, 0.5, 0.5) : new E(0, 0.5, 1, 0.5)),
+          (this.Ma = new v()),
+          (this.La = new u()),
+          (this.va = 1 == i ? a / 2 : 0),
+          (this.Ca = a),
+          (this.Ea = i),
+          (this.za = e),
+          (this.ha = 0.9);
+      }
+      function ac(t, i) {
+        (i = void 0 === i ? 0 : i),
+          Z.call(this, t, 2, 2, i ? 1 : 0.5, i ? 0.8 : 0.4, i ? 12 : 4, i),
+          (this.la = new v()),
+          (this.ka = new v()),
+          this.ka.Set(q(1, 3)),
+          (this.V = 0),
+          (this.ua = new u()),
+          (this.P = new E(1, 0.5, 0, 0.1)),
+          (this.speed = i ? 0.012 : 0.01);
+      }
+      function bc(t, i, a) {
+        (i = void 0 === i ? 0 : i),
+          (a = void 0 === a ? 0 : a),
+          Z.call(
+            this,
+            t,
+            4,
+            2,
+            a ? 1 : 0.5,
+            a ? 0.8 : 0.4,
+            i ? 50 : a ? 6 : 2,
+            a
+          ),
+          (this.Ha = new v()),
+          (this.h = new v()),
+          (this.ha = 0.8),
+          (this.type = i),
+          (this.ma = 0),
+          (this.speed = a ? 0.015 : 0.012),
+          i
+            ? ((this.speed = 0.018), (wb = this))
+            : (this.P = new E(0.3, 1, 0, 0.5)),
+          (this.ea = this.type && !T);
+      }
+      function cc(i) {
+        Y.call(this, i, 7, 1, 0.5, 0.5), (this.count = T || ob ? 3 : 2 + p(2));
+        for (var a = 1 - this.count, e = this.count; e--; ) {
+          var h = p(4);
+          T || ob
+            ? (h = e + 1)
+            : 0 == e
+            ? (h = t(0, 1))
+            : 1 == e && (h = t(2, 3)),
+            new dc(D(i.b(), 2 * e + a, 0), h, this);
+        }
+        (this.a.y -= 2), (this.Oa = 1), fb(i, 3, 1), db(i, 5, 0);
+      }
+      function dc(t, i, a) {
+        Y.call(this, t, i + 3, 5, 0.5, 0.2),
+          (this.Ia = a),
+          (this.type = i),
+          (this.A = 5),
+          (this.xa = 0),
+          1 == this.type && (this.A = 50),
+          2 == this.type && ((this.A = 40), (this.i = 0)),
+          3 == this.type && ((this.A = 90), (this.i = 7)),
+          T || (this.A *= q(0.5, 1.5)),
+          (this.A = na(oa(this.A, 1), 99)),
+          (this.A |= 0);
+      }
+      function Zb(t, i) {
+        (i = void 0 === i ? 0 : i),
+          Y.call(this, t, 0, 0, 0, 0.5),
+          (this.type = i),
+          (this.X = 2),
+          (this.fa = new v()),
+          (this.a.y += 0.01);
+      }
+      function ec() {
+        function t(t, a, e, h) {
+          return !(
+            !ma(t + e, a + h, 4) ||
+            i(t + e, a + h) ||
+            i(t + 2 * e, a + 2 * h) ||
+            i(t + 2 * e + h, a + 2 * h + e) ||
+            i(t + 2 * e - h, a + 2 * h - e) ||
+            i(t + e + h, a + h + e) ||
+            i(t + e - h, a + h - e)
+          );
+        }
+        function i(t, i) {
+          return ma(t, i, 4) ? h[t + 4 * i] : 0;
+        }
+        function a(t, i, a) {
+          return (h[t + 4 * i] = void 0 === a ? 1 : a);
+        }
+        var e = S,
+          h = [];
+        (h.length = 16), h.fill(0);
+        var s = p(4),
+          o = p(4);
+        if ((T && ((s = o = 0), a(0, 0), a(1, 0)), ob)) {
+          (s = 0), (o = 3), a(0, 3), a(1, 3), a(2, 3), a(1, 2);
+          for (var r = 4; r--; ) for (var b = 2; b--; ) a(r, b);
+        }
+        if (((V = new u(s, o)), T || ob)) return h;
+        var c,
+          f,
+          l,
+          v = o;
+        for (a(s, v), o = [], b = r = 0; b < 1.5 * e; ++b) {
+          var y = 0;
+          if (
+            (t(s, v, -1, 0) && ++y,
+            t(s, v, 1, 0) && ++y,
+            t(s, v, 0, -1) && ++y,
+            t(s, v, 0, 1) && ++y,
+            y && b != e && (b < e || 0.5 > n()))
+          ) {
+            var w = 0,
+              d = 0;
+            (y = p(y)),
+              t(s, v, -1, 0) && !y--
+                ? ((w = -1), (d = 0))
+                : t(s, v, 1, 0) && !y--
+                ? ((w = 1), (d = 0))
+                : t(s, v, 0, -1) && !y--
+                ? ((w = 0), (d = -1))
+                : ((w = 0), (d = 1)),
+              o.push({ x: s, y: v }),
+              a((s += w), (v += d));
+          } else {
+            if (!o.length) break;
+            (l = void 0),
+              (l = 0 + i((c = s) + 1, (f = v))),
+              (l += i(c - 1, f)),
+              (l += i(c, f + 1)),
+              1 >= (l += i(c, f - 1))
+                ? a(s, v, 2 + r++)
+                : 0.5 > n() && V.Set(s, v),
+              (s = (v = o.pop()).x),
+              (v = v.y);
+          }
+        }
+        return h;
+      }
+      function Kb() {
+        (R = new $a()), (F = []), (tb = ec());
+        for (var i = 4; i--; )
+          for (var a = 4; a--; )
+            if (tb[i + 4 * a]) {
+              var e = B(new u(i + 0.5, a + 0.5), 16);
+              fb(e, ob ? 12 : 9, 1);
+              for (var h = p(4); h--; )
+                fb(C(e.b(), ja(n(8))), q(2, 6), 1 + p(2));
+            }
+        if ((B(C(V, 0.5), 16), ob)) {
+          for (i = 30; i--; ) db(new u(t(0, 64), t(0, 50)), t(4, 14), 1 + p(2));
+          for (
+            db(V, 12, 0),
+              fb(D(V.b(), 16, -20), 12, 1),
+              fb(D(V.b(), 16, -14), 12, 1),
+              fb((i = new u(24, 18)), 9, 2),
+              db(i, 10, 0),
+              L.fillStyle = "#F00",
+              L.fillRect(0, 0, O.x, O.y),
+              L.drawImage(Wa, 0, 0),
+              a = 16;
+            a--;
+
+          )
+            for (e = 16; e--; )
+              (h = L.getImageData(a + 64, e + 80, 1, 1).data),
+                (ab(R, D(i.b(), a - 8, e - 7)).object = h[1]
+                  ? 2
+                  : h[0]
+                  ? 0
+                  : 1);
+        } else if (T)
+          fb(V, 8, 1),
+            fb(D(V.b(), 16, 0), 7, 1),
+            db(D(V.b(), 8, -2), 3, 1),
+            db(D(V.b(), 8, 2), 3, 1);
+        else {
+          for (i = 64; i--; ) db(new u(t(0, 64), t(0, 64)), t(1, 10), p(3));
+          for (db(V, q(2, 5), 0), i = 5 * S, a = 0; 0 < i; ) {
+            if (1e4 < ++a) return 0;
+            if (
+              ((e = new u(q(0, 64), q(0, 64))),
+              !(!(h = tb[Ub(e)]) || (2 == h && 1 < S) || 15 > e.B(V)) &&
+                (500 < a && db(e, 2, 0), wa(e, 2)))
+            ) {
+              if (0.33 > n() || 1 >= S) {
+                (h = t(1, 3)), 0.1 > n() && 5 < S && (h = 4);
+                var s = 5 > S || 0.5 > n() ? 1 : 2;
+                (e = new $b(e, h, s)), (h *= s);
+              } else
+                3 != S && (0.5 > n() || 2 >= S)
+                  ? ((e = new ac(e, (h = 0.1 > n() && 3 < S))), (h = h ? 6 : 2))
+                  : ((e = new bc(e, 0, (h = 0.1 > n() && 4 < S))),
+                    (h = h ? 9 : 3));
+              4 < S && 0.1 > n() && ((e.da = 1), (h *= 2)), (i -= h);
+            }
+          }
+        }
+        if (ob)
+          new cc(new u(43, 47)),
+            new bc(C(V.b(), new u(0.5, 0)), 1),
+            new Nb(new u(24, 19.5), 2);
+        else if (T)
+          new cc(new u(24, 3.5)),
+            new bc(V.b(), 1),
+            new Nb(C(V.b(), new u(16, 0)), 2),
+            (rb = new Zb(new u(24, 13))),
+            1 < nb && new Zb(new u(29.5, 8), 2),
+            localStorage.KBAP_won && new Zb(new u(29.5, 13), 3);
+        else {
+          for (i = 4; i--; )
+            for (a = 4; a--; )
+              2 == tb[i + 4 * a] &&
+                1 < S &&
+                (30 < (e = B(new u(i + 0.5, a + 0.5), 16)).B(V) && 0.3 > n()
+                  ? (0.5 < n() ? new Nb(e, 2) : new Yb(e),
+                    fb(e, t(2, 4), 1),
+                    db(e, t(3, 5), 0))
+                  : new cc(e));
+          new Zb(V, 1);
+        }
+        for (i = R, a = 0; 64 > a; a++)
+          ((e = P(i, a, 0)).type = e.object = 0),
+            ((e = P(i, a, 63)).type = e.object = 0),
+            ((e = P(i, 0, a)).type = e.object = 0),
+            ((e = P(i, 63, a)).type = e.object = 0);
+        for (i = R, a = 0; 64 > a; a++)
+          for (e = 0; 64 > e; e++) {
+            s = (h = P(i, e, a)).type;
+            var o = P(i, e + 1, a).type == s,
+              r = P(i, e - 1, a).type == s,
+              b = P(i, e, a - 1).type == s,
+              c = P(i, e, a + 1).type == s,
+              f = o + r + b + c,
+              l = 8 * s,
+              v = 0;
+            2 > s &&
+              ((l += f),
+              2 <= f && l++,
+              1 == f
+                ? r
+                  ? (v = 1)
+                  : b
+                  ? (v = 2)
+                  : o && (v = 3)
+                : 2 == f
+                ? o && r
+                  ? (l--, (v = 1))
+                  : b && c
+                  ? l--
+                  : r && c
+                  ? (v = 1)
+                  : r && b
+                  ? (v = 2)
+                  : o && b && (v = 3)
+                : 3 == f && (o ? (c ? r || (v = 3) : (v = 2)) : (v = 1))),
+              (h.M = l),
+              (h.rotation = v);
+          }
+        for (i = 0; 64 > i; i++)
+          for (a = 0; 64 > a; a++)
+            0.05 < n() ||
+              (13 == (e = P(R, a, i)).M && (e.M++, (e.rotation = p(4))),
+              16 == e.M && ((e.M += 1), (e.rotation = p(4))));
+        for (i = R, Ga.width |= 0, a = 0; 64 > a; a++)
+          for (e = 0; 64 > e; e++) ib(i, e, a);
+        return 1;
+      }
+      k(Y, va),
+        (Y.prototype.u = function () {
+          Xb(this), W(9), va.prototype.u.call(this);
+        }),
+        (Y.prototype.m = function () {
+          !this.da ||
+            I ||
+            Da ||
+            (K.globalAlpha = 0.1 + na(oa(1 - w(this.l) / this.J, 0), 1)),
+            va.prototype.m.call(this);
+        }),
+        k(Lb, Y),
+        ((h = Lb.prototype).$ = function (t, i) {
+          return z(this.h) ? Y.prototype.$.call(this, t, i) : Ob(i);
+        }),
+        (h.f = function () {
+          if (((U.c = this.c), !this.c || 0 < qb.endTime || 1.5 > w(pb)))
+            B(this.acceleration, 0);
+          else {
+            1 >= this.c && w(yb) > this.c && (yb.Set(), W(11));
+            var t = Wb(this);
+            if (Ja && !Ka && (U.R || U.F)) {
+              var i = 0;
+              U.F ? (--U.F, (i = 1)) : --U.R, (i = new Yb(this.a, i));
+              var a = Na;
+              W(7),
+                (i.na = i.C ? 9 : 8),
+                (i.L = a.b().o(this.a)),
+                ra(i.L, 0.04),
+                (i.j = 0.5),
+                (i.height = i.j / 2),
+                (i.g = this.g.b()),
+                (this.wa = ta(i.L)),
+                this.Y.Set(0.4);
+            }
+            (i = new u()),
+              Ua(65) && (--i.x, (this.rotation = 0)),
+              Ua(68) && ((i.x += 1), (this.rotation = 2)),
+              Ua(87) && (--i.y, (this.rotation = 3)),
+              Ua(83) && ((i.y += 1), (this.rotation = 1)),
+              z(this.h)
+                ? (0 < this.h.endTime &&
+                    w(this.h) > this.aa &&
+                    ((this.h.endTime = 0), W(16)),
+                  (this.U = []),
+                  !((Ua(32) && !La[32].oa) || (Ua(16) && !La[16].oa)) ||
+                    0 < this.h.endTime ||
+                    (W(12), this.h.Set(0.5)))
+                : (i.x || i.y || ka(i.Set(-1, 0), (-this.rotation * l) / 2),
+                  (t = 0),
+                  this.l.Set(),
+                  0 == vb % 3 && this.U.push(this.a.b()),
+                  20 < this.U.length && this.U.shift()),
+              (i.x || i.y) &&
+                (ra(i, 0.016 * (t ? 0.5 : 1)),
+                !z(this.h) && B(i, 2),
+                C(this.acceleration, i),
+                this.ca.Set()),
+              1 < w(this.ca) && (this.s = 0),
+              z(this.Y) && z(this.h) && Vb(this),
+              Y.prototype.f.call(this);
+          }
+        }),
+        (h.m = function () {
+          if (!(0 < qb.endTime))
+            if (!this.c || (1.5 > w(pb) && T))
+              (this.i = 7), (this.Z = 3), Y.prototype.m.call(this);
+            else {
+              (this.Z = 4),
+                1 & this.rotation
+                  ? ((this.i = 1 == this.rotation ? 2 : 3),
+                    (this.D = this.s % 2 | 0),
+                    z(this.Y) && z(this.h)
+                      ? 1 < w(this.ca) &&
+                        1 == this.rotation &&
+                        ((this.i = 7), (this.D = 1 & ((w(this.ca) / 2) | 0)))
+                      : (this.i += 3))
+                  : ((this.D = 2 != this.rotation),
+                    (this.i = this.s % 2 | 0),
+                    (z(this.Y) && z(this.h)) || (this.i = 4));
+              var t = Da;
+              if (
+                (z(this.Y) ||
+                  ((this.rotation = this.wa),
+                  1 & this.rotation && (this.D = 1 == this.rotation)),
+                !I && t)
+              ) {
+                K.globalCompositeOperation = "screen";
+                for (var i = this.U.length; i--; )
+                  (Da = t * (i / this.U.length + 0.01)),
+                    xa(
+                      this.U[i],
+                      this.size,
+                      this.i,
+                      this.Z,
+                      this.angle,
+                      this.D,
+                      this.height
+                    );
+                (Da = t), (K.globalCompositeOperation = "difference");
+              }
+              (i = w(this.h)),
+                !I &&
+                  i < this.aa + 0.5 &&
+                  ((Da =
+                    i < this.aa
+                      ? i / this.aa
+                      : Math.sin((i - this.aa) * l * 4)),
+                  xa(
+                    this.a,
+                    this.size.b(1.1),
+                    this.i,
+                    this.Z,
+                    this.angle,
+                    this.D,
+                    this.height
+                  ),
+                  (Da = t)),
+                Y.prototype.m.call(this),
+                (U.R || U.F) &&
+                  ((t = U.F ? 7 : 0),
+                  3 == this.rotation && xa(this.a, this.size, t, 5),
+                  0 == this.rotation % 2 &&
+                    xa(
+                      D(this.a.b(), 0.2 * -(this.rotation - 1), 0),
+                      this.size.b(new u(0.6, 1)),
+                      t,
+                      5
+                    ));
+            }
+        }),
+        (h.I = function (t) {
+          return !z(this.Ka) || 0 < qb.endTime || 1.5 > w(pb) || 0 < xb.endTime
+            ? 0
+            : (t = Y.prototype.I.call(this, t))
+            ? (Xb(this), W(1), this.Ka.Set(1), t)
+            : 0;
+        }),
+        (h.u = function () {
+          Xb(this, 2), W(2);
+        }),
+        k(Yb, Y),
+        (Yb.prototype.$ = function (t, i) {
+          return t.object && this.l.Set(), Ob(i, !this.C);
+        }),
+        (Yb.prototype.f = function () {
+          var t = this;
+          if ((this.na && this.na--, this.j)) {
+            if (
+              (0 < qb.endTime && qb.Set(1),
+              Ja && this.na ? this.L && C(this.g, this.L) : (this.L = 0),
+              (this.j -= 0.002),
+              0.1 > this.j &&
+                ((this.j -= 0.005), B(this.g, 0.8), 0 > this.j && (this.j = 0)),
+              (this.height = this.j / 2),
+              !this.L && 0 < this.height)
+            ) {
+              var i = G.a.b();
+              B(i.o(this.a), 0.004 * this.j), C(this.g, i);
+            }
+            F.forEach(function (i) {
+              if (!t.C && i.Fa && 0.5 < w(i.v) && !i.ta && !t.T && za(i, t))
+                (i.ta = 1), (t.T = i);
+              else if ((i.ja || i.Oa) && za(i, t))
+                if (t.ra == i || i.ya(t.g))
+                  t.ra != i &&
+                    (W(15),
+                    (t.ra = i),
+                    B(t.g, -0.4),
+                    (t.j *= 0.4),
+                    t.l.Set(),
+                    (t.L = 0));
+                else if (i.I(1 + t.C)) {
+                  if (!T) {
+                    var a = t.g.b(0.5);
+                    C(i.acceleration, a);
+                  }
+                  t.l.Set();
+                }
+            });
+          } else
+            (this.X = 3),
+              (this.J = 0.8),
+              (this.sa = 0),
+              this.T && (this.T.ta = 0),
+              (this.T = 0),
+              0.005 > n() && w(this.l) > 4 * this.J && this.l.Set(-this.J / 2);
+          (!this.j || 0.5 < w(this.v)) && G.c && 0.6 > G.B(this) && this.N(),
+            Y.prototype.f.call(this),
+            this.T && D(this.T.a.H(this.a), 0, -0.001);
+        }),
+        (Yb.prototype.N = function () {
+          W(6),
+            this.C ? U.F++ : U.R++,
+            G.Y.Set(0.3),
+            (G.wa = ta(this.a.b().o(G.a))),
+            Aa(this);
+        }),
+        k(Nb, Y),
+        (Nb.prototype.f = function () {
+          0.005 > n() && w(this.l) > 4 * this.J && this.l.Set(-this.J / 2),
+            (this.height = 0.1 + 0.1 * Math.sin(2 * qa + this.Qa)),
+            G.c && za(G, this)
+              ? this.N()
+              : wb && za(wb, this) && (W(14), Aa(this)),
+            Y.prototype.f.call(this);
+        }),
+        (Nb.prototype.N = function () {
+          2 == this.type
+            ? (++U.K, (G.K = U.K), ya(1), W(4))
+            : 3 == this.type
+            ? (W(10), ++U.G)
+            : 4 == this.type
+            ? (W(10), (U.G += 5))
+            : (ya(0.5 + this.type / 2), W(3)),
+            Aa(this);
+        }),
+        k(Z, Y),
+        (Z.prototype.I = function (t) {
+          return (
+            (t = Y.prototype.I.call(this, t)) &&
+              this.c &&
+              (Xb(this, 0.5), W(8)),
+            t
+          );
+        }),
+        (Z.prototype.f = function () {
+          if (za(G, this) && G.I(0.5)) {
+            var t = G.a.b();
+            ra(t.o(this.a), 0.1), C(G.acceleration, t);
+          }
+          Y.prototype.f.call(this);
+        }),
+        (Z.prototype.u = function () {
+          Y.prototype.u.call(this),
+            rb ||
+              ob ||
+              !G.c ||
+              F.some(function (t) {
+                return t.ja;
+              }) ||
+              ((rb = new Zb(this.a)), this.C || (this.va = 0));
+          var i = 1;
+          this.C && (i = t(3, 5)), this.da && (i *= 2), Mb(this.a, this.va, i);
+        }),
+        k($b, Z),
+        ($b.prototype.f = function () {
+          var t = G.a.B(this.a);
+          if (!(20 < t)) {
+            L.globalCompositeOperation = "screen";
+            var i = ua(this.P.b(), 0.05).RGBA();
+            gb(this.a, B(new u(0.6, 0.4), this.size), i),
+              (L.globalCompositeOperation = "source-over"),
+              z(this.Ma) && (this.Ma.Set(q(0.5, 1)), (this.La = ja(1.3))),
+              (i = new u()),
+              G.c && 15 > t && ra(i.H(G.a).o(this.a)),
+              B(
+                B(C(i, this.La), 1 < this.Ca ? 0.004 : 0.003),
+                Wb(this) ? 0.5 : 1
+              ),
+              C(this.acceleration, i),
+              (t = Math.sin(10 * w(this.v))),
+              this.size.Set(
+                this.za * (0.9 + 0.1 * (1 - t)),
+                this.za * (0.9 + 0.1 * t)
+              ),
+              Z.prototype.f.call(this);
+          }
+        }),
+        ($b.prototype.u = function () {
+          if (1 < this.Ea)
+            for (var t = 2; t--; ) {
+              var i = new $b(this.a, this.Ea - 1, this.Ca);
+              i.l.Set(), (i.da = this.da), (i.g = this.g.b());
+            }
+          Z.prototype.u.call(this);
+        }),
+        k(ac, Z),
+        (ac.prototype.f = function () {
+          var t = G.a.B(this.a);
+          if (!(20 < t)) {
+            if (
+              (z(this.ka) &&
+                0 >= this.height &&
+                ((this.V = q(0.15, 0.2)),
+                this.C && (this.V *= 1.2),
+                this.ka.Set(q(1.5, 3)),
+                (this.ua = ja(q(0, 1))),
+                (this.la.endTime = 0)),
+              (this.height += this.V),
+              (this.V -= 0.005),
+              0 >= this.height)
+            )
+              0 < this.la.endTime || (this.la.Set(0.3), Xb(this, 0.8, 0)),
+                (this.height = this.V = 0);
+            else {
+              var i = new u();
+              if (G.c && 15 > t) {
+                var a = sa((t = i.H(G.a).o(this.a)));
+                C((t = 1 < a ? B(t, 1 / a) : t), this.ua);
+              } else i.H(this.ua);
+              (i = B(i, this.speed)), C(this.acceleration, i);
+            }
+            (this.i = 2),
+              (-0.25 < w(this.ka) || !z(this.la)) && ++this.i,
+              Z.prototype.f.call(this);
+          }
+        }),
+        k(bc, Z),
+        ((h = bc.prototype).ya = function (t) {
+          if (0.5 > w(this.l)) return 0;
+          var i = ka(new u(1, 0), (this.rotation * l) / 2);
+          return (
+            (i = (t = ra(t.b())).x * i.x + t.y * i.y),
+            this.type ? 0.4 < i : -0.4 > i
+          );
+        }),
+        (h.$ = function (t, i) {
+          var a = !this.C && !this.type;
+          return (
+            (t.type && !t.object) ||
+              (a && z(this.h) && (this.rotation = (this.rotation + 2) % 4),
+              B(this.g, 0)),
+            Ob(i, !this.type)
+          );
+        }),
+        (h.I = function (t) {
+          return this.type && !G.c ? 0 : Z.prototype.I.call(this, t);
+        }),
+        (h.f = function () {
+          var t = w(this.v),
+            i = !this.type && Wb(this),
+            a = G.a.B(this.a);
+          if (this.type && T)
+            (this.rotation = 0.5 > Math.abs(this.a.x - rb.a.x) ? 1 : 0),
+              1 > this.B(rb) && Aa(this);
+          else if (this.ea)
+            24 < this.a.x
+              ? ((this.a.x = 24), (this.rotation = 3))
+              : (this.rotation = 0);
+          else {
+            if (20 < a && !this.type) return;
+            if (z(this.Ha) && z(this.h)) {
+              if (((this.ma = 0), G.c && (15 > a || this.type))) {
+                var e = ta(G.a.b().o(this.a));
+                1 & e || (e = (e + 2) % 4),
+                  (this.rotation = e),
+                  this.type && (this.ma = 0.5 > n()),
+                  this.ma && (this.rotation = (this.rotation + 2) % 4),
+                  0.2 > n() && this.h.Set(2);
+              } else this.rotation = p(4);
+              this.Ha.Set(q(0.8, 2));
+            }
+          }
+          (i = ka(
+            new u(this.speed * (i ? 0.5 : 1), 0),
+            (this.rotation * l) / 2
+          )),
+            z(this.h) || B(i, -1 > w(this.h) ? 0 : 2),
+            this.type && T
+              ? 10.5 < a && B(i, 0)
+              : this.type &&
+                (((10 < t && this.c < this.K) || (20 < t && 10 > a)) &&
+                  (this.ea = 0),
+                this.ea
+                  ? (14 < a && B(i, 0),
+                    21 > this.a.y &&
+                      (B(i, 0), (this.rotation = 1), (this.s += 0.021)))
+                  : ((this.ea = 0),
+                    2 > this.size.x
+                      ? (D(this.size, 0.005, 0.005),
+                        (this.ga = 0.8 * this.size.x),
+                        B(i, 0),
+                        (this.s += 0.1),
+                        0 == vb % 10 &&
+                          (this.rotation = (this.rotation + 1) % 4),
+                        B(i, 0))
+                      : this.size.Set(2, 2))),
+            C(this.g, B(i, this.ma ? -1 : 1)),
+            1 & this.rotation
+              ? ((this.i = 1 == this.rotation ? 6 : 7),
+                (this.D = this.s % 2 | 0))
+              : ((this.D = this.rotation), (this.i = 4 + (this.s % 2 | 0))),
+            this.type && ((this.Z = 3), (this.i -= 2)),
+            Vb(this),
+            Z.prototype.f.call(this);
+        }),
+        (h.u = function () {
+          Z.prototype.u.call(this),
+            this.type &&
+              ((wb = 0),
+              ob &&
+                (new Nb(this.a, 2),
+                Mb(this.a, 1, 40),
+                xb.Set(),
+                (localStorage.KBAP_warp = 0),
+                (localStorage.KBAP_won = 1),
+                (Bb |= 0),
+                Ab &&
+                  (!Cb || Bb < Cb) &&
+                  ((Cb = Bb), (localStorage.KBAP_best = Cb)),
+                W(2)));
+        }),
+        k(cc, Y),
+        (cc.prototype.u = function () {
+          Mb(this.a), Y.prototype.u.call(this);
+        }),
+        (cc.prototype.f = function () {
+          var t = this;
+          if (0.1 > w(this.v)) {
+            var i = B(D(this.a.b(), 0, 2), 16),
+              a = 16 * this.count;
+            (L.fillStyle = "#CCC"),
+              L.fillRect(i.x - a - 2, i.y - 30 - 2, 2 * a + 4, 44),
+              (L.fillStyle = "#329"),
+              L.fillRect(i.x - a, i.y - 30, 2 * a, 40);
+          }
+          (this.D = G.a.x < this.a.x),
+            z(zb) ||
+              ((i = w(zb)),
+              (this.height = (-i * (0.5 - 0.5 * Math.cos(6 * l * i))) / 2)),
+            F.forEach(function (i) {
+              i.ja && za(i, t) && t.u();
+            }),
+            Y.prototype.f.call(this);
+        }),
+        k(dc, Y),
+        (dc.prototype.f = function () {
+          G.c && za(G, this)
+            ? (this.xa || this.N(), (this.xa = 1))
+            : (this.xa = 0),
+            this.Ia && !this.Ia.c && Aa(this),
+            Y.prototype.f.call(this);
+        }),
+        (dc.prototype.N = function () {
+          this.A > U.G
+            ? (W(15), this.l.Set())
+            : (2 > this.type
+                ? new Nb(this.a, this.type + 1).N()
+                : new Yb(this.a, 3 == this.type).N(),
+              zb.Set(1),
+              (U.G -= this.A),
+              Aa(this));
+        }),
+        (dc.prototype.m = function () {
+          I ||
+            Da ||
+            (Xa(D(this.a.b(), 0, -1), this.size),
+            Ya(
+              this.A,
+              -6,
+              0,
+              14,
+              "left",
+              0.5,
+              0.5 > w(this.l) ? "#F00" : "#000"
+            ),
+            Va(-10, -1, 4, 5),
+            K.restore()),
+            Y.prototype.m.call(this);
+        }),
+        k(Zb, Y),
+        (Zb.prototype.f = function () {
+          (this.height = 0.1 + 0.1 * Math.sin(5 * qa)),
+            (this.j = 0.05 / (this.size + 0.1));
+          var t = this.size.x;
+          if (1 == this.type)
+            60 == vb && W(13), 0 >= (t = oa(0, 1 - w(pb) / 2)) && Aa(this);
+          else if (0 < this.fa.endTime) t = -w(this.fa);
+          else if (1 > w(this.v)) t = na(2 * w(this.v), 1);
+          else if (G.c && 3 > G.B(this) && z(G.h)) {
+            var i = this.a.b().o(G.a),
+              a = sa(i);
+            0.5 > a
+              ? (T && 3 == this.type && ((Ab = 1), (Bb = 0), (U = new Eb())),
+                W(13),
+                qb.Set(1),
+                this.fa.Set(1),
+                2 == this.type && (mb = nb))
+              : C(G.g, ra(i, 0.005 / a));
+          }
+          (t = oa(0, t)), this.size.Set(t, t), Y.prototype.f.call(this);
+        }),
+        (Zb.prototype.m = function () {
+          Xa(this.a, this.size, this.angle, this.height), (K.lineWidth = 1);
+          for (var t, i = 19; i--; K.stroke()) {
+            K.beginPath(),
+              (t =
+                "hsla(" +
+                (9 * i + 99 * qa) +
+                ",99%," +
+                (I ? 0 : 50) +
+                "%," +
+                (I ? 0.5 : 1) +
+                ")"),
+              (K.strokeStyle = t);
+            for (var a = 8; a--; ) {
+              var e = qa - (a * l) / 3 + (5 * Math.sin(i / 2 + 2 * qa)) / 19;
+              K.arc(0, 0, i * this.size.x, e, e);
+            }
+          }
+          !(1 < this.type) ||
+            I ||
+            0 < this.fa.endTime ||
+            (Ya(
+              2 == this.type ? "Warp " + nb : "Speed Run",
+              0,
+              -24,
+              14,
+              "center",
+              1,
+              t,
+              "#000"
+            ),
+            3 == this.type &&
+              Cb &&
+              Ya("Best " + pa(Cb), 0, -36, 12, "center", 1, t, "#000")),
+            K.restore();
+        });
+      var Hb = new v(),
+        Ib = c2,
+        Jb = Ib.getContext("2d"),
+        Pb = 0;
+      function X(t, i, a, e, h, s, n, o, r) {
+        if (((n = void 0 === n ? 0 : n), Pb)) {
+          (a *= (2 * l) / 44100),
+            (a *= 1 + q(-i, i)),
+            (s = ((1e3 * l) / Math.pow(44100, 2)) * (void 0 === s ? 0 : s)),
+            (h =
+              ((void 0 === h ? 0.1 : h) *
+                (e = (44100 * (void 0 === e ? 1 : e)) | 0)) |
+              0),
+            (o = ((2 * l) / 44100) * (void 0 === o ? 0 : o)),
+            (r = (void 0 === r ? 0 : r) * l),
+            (i = []);
+          for (var b = 0, c = 0, f = 0; f < e; ++f)
+            (i[f] =
+              0.2 *
+              t *
+              Math.cos(b * a * Math.cos(c * o + r)) *
+              (f < h ? f / h : 1 - (f - h) / (e - h))),
+              (b += 1 + q(-n, n)),
+              (c += 1 + q(-n, n)),
+              (a += s);
+          (t = Pb.createBuffer(1, e, 44100)),
+            (a = Pb.createBufferSource()),
+            t.getChannelData(0).set(i),
+            (a.buffer = t),
+            a.connect(Pb.destination),
+            a.start();
+        }
+      }
+      var Sb,
+        Qb = new v(),
+        Rb = 0;
+      function W(t, i) {
+        switch (((i = void 0 === i ? 0 : i), t)) {
+          case 1:
+            X(1, 0.1, 4504, 0.3, 0.1, -30, 0.5, 0.5, 0.33);
+            break;
+          case 2:
+            X(0.7, 0, 500, 4, 0.01, -0.2, 3, 3, 0);
+            break;
+          case 3:
+            X(1, 0, 1504, 0.3, 0.17, 1.7, 0.5, 0.4, 0.33);
+            break;
+          case 4:
+            X(1, 0, 805, 1.1, 0.71, 0.5, 1.5, 0.5);
+            break;
+          case 5:
+            X(0.3, 0.2, 370, 0.2, 0.1, 3.9, 13, 27, 0.12);
+            break;
+          case 6:
+            X(1, 0.1, 0, 0.2, 0.23, 2, 0.4, 0.6, 0.9);
+            break;
+          case 7:
+            X(1, 0.1, 53, 0.2, 0.26, 0, 0.1, 7.5, 0.58);
+            break;
+          case 8:
+            X(1, 0.2, 370, 0.1, 0.23, 4.5, 2.8, 27.4, 0.12);
+            break;
+          case 9:
+            X(1, 0.2, 1138, 0.2, 0.02, 0, 4, 1.2, 0.1);
+            break;
+          case 10:
+            0 < Db.endTime || Db.Set(0.05), X(1, 0.01, 800 + i, 0.2, 0.05);
+            break;
+          case 11:
+            X(0.4, 0.1, 418, 0.1, 0.79, 5, 0, 1.9, 0.74);
+            break;
+          case 12:
+            X(1, 0.1, 319, 0.4, 0.08, 6.6, 3.2, 2.6, 0.59);
+            break;
+          case 13:
+            X(1, 0.1, 7, 1, 0.97, 0, 0.6, 21.7, 0.5);
+            break;
+          case 14:
+            X(0.8, 0.1, 70, 0.1, 0.23, 4.5, 2.8, 27, 0.12);
+            break;
+          case 15:
+            X(1, 0.1, 800, 0.2, 0.02, -0.3);
+            break;
+          case 16:
+            X(1, 0.1, 0, 0.1, 0.1, 1, 0.1, 100);
+        }
+      }
+      var Wa = new Image();
+      (Wa.onload = function () {
+        (K = Ma.getContext("2d")),
+          O.Set(window.innerWidth / 2, window.innerHeight / 2),
+          (Ma.width = O.x),
+          (Ma.height = O.y),
+          (Ga = document.createElement("canvas")),
+          (L = Ga.getContext("2d")),
+          (Ga.display = "none"),
+          (L.imageSmoothingEnabled = 0),
+          (Ea = document.createElement("canvas")),
+          (Fa = Ea.getContext("2d")),
+          (Ea.display = "none"),
+          (Ea.width = 2 * Wa.width),
+          (Ea.height = Wa.height),
+          (Fa.fillStyle = "#FFF"),
+          Fa.fillRect(0, 0, Ea.width, Ea.height),
+          (Fa.globalCompositeOperation = "destination-atop"),
+          Fa.drawImage(Wa, 0, 0),
+          (Fa.globalCompositeOperation = "source-over"),
+          Fa.drawImage(Ea, Wa.width, 0),
+          (Fa.globalCompositeOperation = "difference"),
+          Fa.drawImage(Ea, Wa.width, 0),
+          K.fillRect(0, 0, O.x, O.y),
+          Fb(),
+          Gb(),
+          Ia();
+      }),
+        (Wa.src = "tiles.png");
+    </script>
+  </body>
+</html>

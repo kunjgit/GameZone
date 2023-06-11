@@ -1,0 +1,2428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Edge Not Found</title>
+    <style>
+      html,
+      body,
+      canvas {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+    <link rel="icon" type="image/ico" />
+    <meta property="og:title" content="Edge Not Found" />
+    <meta
+      property="og:description"
+      content="A Sokoban-style puzzle game set on an infinitely repeating grid. Push the boxes to the targets in 20+ tricky puzzles."
+    />
+  </head>
+  <body>
+    <noscript>Please enable Javascript to play this game!</noscript
+    ><canvas id="canvas" width="500" height="500"> </canvas>
+    <script>
+      function ca(b) {
+        var g = 0;
+        return function () {
+          return g < b.length ? { done: !1, value: b[g++] } : { done: !0 };
+        };
+      }
+      function da(b) {
+        var g =
+          "undefined" != typeof Symbol && Symbol.iterator && b[Symbol.iterator];
+        return g ? g.call(b) : { next: ca(b) };
+      }
+      function ea(b) {
+        if (!(b instanceof Array)) {
+          b = da(b);
+          for (var g, k = []; !(g = b.next()).done; ) k.push(g.value);
+          b = k;
+        }
+        return b;
+      }
+      var fa =
+          "function" == typeof Object.create
+            ? Object.create
+            : function (b) {
+                function g() {}
+                g.prototype = b;
+                return new g();
+              },
+        ha;
+      if ("function" == typeof Object.setPrototypeOf)
+        ha = Object.setPrototypeOf;
+      else {
+        var ia;
+        a: {
+          var ja = { ta: !0 },
+            ka = {};
+          try {
+            ka.__proto__ = ja;
+            ia = ka.ta;
+            break a;
+          } catch (b) {}
+          ia = !1;
+        }
+        ha = ia
+          ? function (b, g) {
+              b.__proto__ = g;
+              if (b.__proto__ !== g)
+                throw new TypeError(b + " is not extensible");
+              return b;
+            }
+          : null;
+      }
+      var la = ha;
+      function ma(b, g) {
+        b.prototype = fa(g.prototype);
+        b.prototype.constructor = b;
+        if (la) la(b, g);
+        else
+          for (var k in g)
+            if ("prototype" != k)
+              if (Object.defineProperties) {
+                var q = Object.getOwnPropertyDescriptor(g, k);
+                q && Object.defineProperty(b, k, q);
+              } else b[k] = g[k];
+      }
+      function na() {
+        this.ma = new Date();
+        this.ca = this.h = 0;
+      }
+      na.prototype.update = function (b) {
+        b = void 0 === b ? null : b;
+        var g = new Date();
+        this.h = b ? b : (g - this.ma) / 1e3;
+        this.ma = g;
+        this.ca += this.h;
+      };
+      function oa(b, g) {
+        var k = pa,
+          q = 0.1,
+          n = this;
+        g = void 0 === g ? null : g;
+        q = void 0 === q ? 0 : q;
+        this.c = 0;
+        this.F = [];
+        this.D = [];
+        this.da = void 0 === k ? null : k;
+        this.A = this.R = 0;
+        this.j = !1;
+        this.Na = q;
+        this.Fa = q + 0.2;
+        this.state = this.v = this.s = 0;
+        b &&
+          b.forEach(function (r) {
+            window.addEventListener("keydown", function (m) {
+              if (m.code == r || m.keyCode == r)
+                (m = qa(n.F, r)), m.ga && ((n.F = m.fa), ra(n));
+            });
+            window.addEventListener("keyup", function (m) {
+              if (m.code == r || m.keyCode == r) (n.F = sa(n.F, r)), ra(n);
+            });
+          });
+        g &&
+          g.forEach(function (r) {
+            window.addEventListener("keydown", function (m) {
+              if (m.code == r || m.keyCode == r)
+                (m = qa(n.D, r)), m.ga && ((n.D = m.fa), ra(n));
+            });
+            window.addEventListener("keyup", function (m) {
+              if (m.code == r || m.keyCode == r) (n.D = sa(n.D, r)), ra(n);
+            });
+          });
+      }
+      function ra(b) {
+        var g = b.F.length - b.D.length;
+        0 < g && 1 != b.c
+          ? ((b.c = 1), (b.A = 0), (b.v = 0), (b.s = 0))
+          : 0 > g && -1 != b.c
+          ? ((b.c = -1), (b.A = 0), (b.v = 0), (b.s = 0))
+          : 0 != b.c && ((b.c = 0), (b.A = 0), (b.v = 0), (b.s = 0));
+      }
+      oa.prototype.update = function () {
+        this.da && 0 != this.c
+          ? ((this.A += this.da.h),
+            (this.s += this.da.h),
+            0 == this.R ||
+            (1 < this.v && this.s >= this.Na) ||
+            (1 >= this.v && this.s >= this.Fa)
+              ? ((this.j = !0), (this.v += 1), (this.s = 0))
+              : (this.j = !1))
+          : (this.j = !1);
+        this.state = 0 == this.c ? (0 != this.R ? 3 : 0) : 0 == this.R ? 1 : 2;
+        this.R = this.A;
+      };
+      oa.prototype.reset = function () {
+        this.F = [];
+        this.D = [];
+        this.state = 0;
+        this.j = !1;
+        this.s = this.v = this.A = this.c = 0;
+      };
+      function qa(b, g) {
+        var k = !1;
+        -1 === b.indexOf(g) && (b.push(g), (k = !0));
+        return { fa: b, ga: k };
+      }
+      function sa(b, g) {
+        var k = b.indexOf(g);
+        -1 < k && b.splice(k, 1);
+        return b;
+      }
+      var ta = (function () {
+        function b(a, c) {
+          this.canvas = a;
+          this.va = this.canvas.getContext("2d");
+          this.J = new g(c);
+        }
+        function g(a) {
+          this.I = {
+            L: 2,
+            ba: 1,
+            N: 1,
+            stroke: "#000",
+            strokeWidth: 1,
+            xa: 0,
+            wa: 0.95,
+            X: 9,
+            fillStyle: "hachure",
+            u: -1,
+            ka: -41,
+            la: -1,
+            Ra: -1,
+            Qa: -1,
+            Wa: -1,
+            b: 0,
+            Pa: !1,
+            ia: !1,
+            ya: !1,
+          };
+          this.ha = a || {};
+          this.ha.options && (this.I = this.M(this.ha.options));
+        }
+        function k(a) {
+          this.b = a;
+        }
+        function q(a) {
+          this.K = a;
+        }
+        function n() {
+          return r.apply(this, arguments) || this;
+        }
+        function r(a) {
+          this.K = a;
+        }
+        function m(a, c, d) {
+          if (a && a.length) {
+            c = da(c);
+            var f = c.next().value,
+              e = c.next().value;
+            d *= Math.PI / 180;
+            var l = Math.cos(d),
+              t = Math.sin(d);
+            a.forEach(function (p) {
+              var A = da(p),
+                D = A.next().value;
+              A = A.next().value;
+              p[0] = (D - f) * l - (A - e) * t + f;
+              p[1] = (D - f) * t + (A - e) * l + e;
+            });
+          }
+        }
+        function h(a) {
+          var c = a[0];
+          a = a[1];
+          return Math.sqrt(Math.pow(c[0] - a[0], 2) + Math.pow(c[1] - a[1], 2));
+        }
+        function v(a, c, d, f) {
+          var e = c[1] - a[1];
+          c = a[0] - c[0];
+          a = e * a[0] + c * a[1];
+          var l = f[1] - d[1];
+          f = d[0] - f[0];
+          d = l * d[0] + f * d[1];
+          var t = e * f - l * c;
+          return t ? [(f * a - c * d) / t, (e * d - l * a) / t] : null;
+        }
+        function u(a, c, d) {
+          var f = a.length;
+          if (3 > f) return !1;
+          var e = [Number.MAX_SAFE_INTEGER, d];
+          c = [c, d];
+          for (var l = (d = 0); l < f; l++) {
+            var t = a[l],
+              p = a[(l + 1) % f];
+            if (R(t, p, c, e)) {
+              if (0 === S(t, c, p)) return G(t, c, p);
+              d++;
+            }
+          }
+          return 1 == d % 2;
+        }
+        function G(a, c, d) {
+          return (
+            c[0] <= Math.max(a[0], d[0]) &&
+            c[0] >= Math.min(a[0], d[0]) &&
+            c[1] <= Math.max(a[1], d[1]) &&
+            c[1] >= Math.min(a[1], d[1])
+          );
+        }
+        function S(a, c, d) {
+          a = (c[1] - a[1]) * (d[0] - c[0]) - (c[0] - a[0]) * (d[1] - c[1]);
+          return 0 === a ? 0 : 0 < a ? 1 : 2;
+        }
+        function R(a, c, d, f) {
+          var e = S(a, c, d),
+            l = S(a, c, f),
+            t = S(d, f, a),
+            p = S(d, f, c);
+          return (
+            (e !== l && t !== p) ||
+            !(0 !== e || !G(a, d, c)) ||
+            !(0 !== l || !G(a, f, c)) ||
+            !(0 !== t || !G(d, a, f)) ||
+            !(0 !== p || !G(d, c, f))
+          );
+        }
+        function Q(a, c) {
+          var d = [0, 0],
+            f = Math.round(c.ka + 90);
+          f && m(a, d, f);
+          var e = (function (l, t) {
+            var p = [].concat(ea(l));
+            p[0].join(",") !== p[p.length - 1].join(",") &&
+              p.push([p[0][0], p[0][1]]);
+            var A = [];
+            if (p && 2 < p.length) {
+              var D = t.la;
+              0 > D && (D = 4 * t.strokeWidth);
+              D = Math.max(D, 0.1);
+              for (var K = [], M = 0; M < p.length - 1; M++) {
+                var Z = p[M],
+                  aa = p[M + 1];
+                if (Z[1] !== aa[1]) {
+                  var La = Math.min(Z[1], aa[1]);
+                  K.push({
+                    H: La,
+                    C: Math.max(Z[1], aa[1]),
+                    x: La === Z[1] ? Z[0] : aa[0],
+                    Ga: (aa[0] - Z[0]) / (aa[1] - Z[1]),
+                  });
+                }
+              }
+              if (
+                (K.sort(function (W, va) {
+                  return W.H < va.H
+                    ? -1
+                    : W.H > va.H
+                    ? 1
+                    : W.x < va.x
+                    ? -1
+                    : W.x > va.x
+                    ? 1
+                    : W.C === va.C
+                    ? 0
+                    : (W.C - va.C) / Math.abs(W.C - va.C);
+                }),
+                !K.length)
+              )
+                return A;
+              for (var wa = [], $a = K[0].H; wa.length || K.length; ) {
+                if (K.length) {
+                  p = -1;
+                  for (M = 0; M < K.length && !(K[M].H > $a); M++) p = M;
+                  K.splice(0, p + 1).forEach(function (W) {
+                    wa.push({ Ua: $a, i: W });
+                  });
+                }
+                if (
+                  ((wa = wa.filter(function (W) {
+                    return !(W.i.C <= $a);
+                  })),
+                  wa.sort(function (W, va) {
+                    return W.i.x === va.i.x
+                      ? 0
+                      : (W.i.x - va.i.x) / Math.abs(W.i.x - va.i.x);
+                  }),
+                  1 < wa.length)
+                )
+                  for (p = 0; p < wa.length; p += 2) {
+                    M = p + 1;
+                    if (M >= wa.length) break;
+                    A.push([
+                      [Math.round(wa[p].i.x), $a],
+                      [Math.round(wa[M].i.x), $a],
+                    ]);
+                  }
+                $a += D;
+                wa.forEach(function (W) {
+                  W.i.x += D * W.i.Ga;
+                });
+              }
+            }
+            return A;
+          })(a, c);
+          return (
+            f &&
+              (m(a, d, -f),
+              (function (l, t, p) {
+                var A = [];
+                l.forEach(function (D) {
+                  return A.push.apply(A, ea(D));
+                });
+                m(A, t, p);
+              })(e, d, -f)),
+            e
+          );
+        }
+        function X(a, c, d) {
+          var f =
+            (2 * Math.PI) /
+            Math.max(
+              d.X,
+              (d.X / Math.sqrt(200)) *
+                Math.sqrt(
+                  2 *
+                    Math.PI *
+                    Math.sqrt((Math.pow(a / 2, 2) + Math.pow(c / 2, 2)) / 2)
+                )
+            );
+          a = Math.abs(a / 2);
+          c = Math.abs(c / 2);
+          var e = 1 - d.wa;
+          return (a += C(a * e, d)), (c += C(c * e, d)), { Z: f, ra: a, sa: c };
+        }
+        function N(a, c, d, f) {
+          var e = da(
+              Ba(f.Z, a, c, f.ra, f.sa, 1, f.Z * B(0.1, B(0.4, 1, d), d), d)
+            ),
+            l = e.next().value;
+          e = e.next().value;
+          l = ab(l, null, d);
+          d.ia ||
+            ((a = da(Ba(f.Z, a, c, f.ra, f.sa, 1.5, 0, d)).next().value),
+            (d = ab(a, null, d)),
+            (l = l.concat(d)));
+          return { Ba: e, aa: { type: "path", o: l } };
+        }
+        function I(a, c) {
+          var d = [];
+          if (a.length) {
+            var f = c.L || 0,
+              e = a.length;
+            if (2 < e) {
+              d.push({
+                l: "move",
+                data: [a[0][0] + C(f, c), a[0][1] + C(f, c)],
+              });
+              for (var l = 1; l < e; l++)
+                d.push({
+                  l: "lineTo",
+                  data: [a[l][0] + C(f, c), a[l][1] + C(f, c)],
+                });
+            }
+          }
+          return { type: "fillPath", o: d };
+        }
+        function w(a, c) {
+          var d = c.fillStyle || "hachure";
+          if (!xa[d])
+            switch (d) {
+              case "zigzag":
+                xa[d] || (xa[d] = new n(U));
+                break;
+              case "dots":
+                xa[d] || (xa[d] = new q(U));
+                break;
+              default:
+                (d = "hachure"), xa[d] || (xa[d] = new r(U));
+            }
+          return xa[d].Y(a, c);
+        }
+        function x(a) {
+          return a.qa || (a.qa = new k(a.b || 0)), a.qa.next();
+        }
+        function B(a, c, d, f) {
+          return d.ba * (void 0 === f ? 1 : f) * (x(d) * (c - a) + a);
+        }
+        function C(a, c, d) {
+          return B(-a, a, c, void 0 === d ? 1 : d);
+        }
+        function ba(a, c, d, f, e, l) {
+          var t = (void 0 === l ? 0 : l) ? e.ya : e.ia;
+          l = ob(a, c, d, f, e, !0, !1);
+          if (t) return l;
+          a = ob(a, c, d, f, e, !0, !0);
+          return l.concat(a);
+        }
+        function ob(a, c, d, f, e, l, t) {
+          function p() {
+            return C(M, e, 1);
+          }
+          function A() {
+            return C(Z, e, 1);
+          }
+          var D = Math.pow(a - d, 2) + Math.pow(c - f, 2),
+            K = Math.sqrt(D),
+            M = e.L || 0;
+          M * M * 100 > D && (M = K / 10);
+          var Z = M / 2;
+          D = 0.2 + 0.2 * x(e);
+          K = (e.N * e.L * (f - c)) / 200;
+          var aa = (e.N * e.L * (a - d)) / 200;
+          K = C(K, e, 1);
+          aa = C(aa, e, 1);
+          var La = [];
+          return (
+            l &&
+              (t
+                ? La.push({ l: "move", data: [a + A(), c + A()] })
+                : La.push({
+                    l: "move",
+                    data: [a + C(M, e, 1), c + C(M, e, 1)],
+                  })),
+            t
+              ? La.push({
+                  l: "bcurveTo",
+                  data: [
+                    K + a + (d - a) * D + A(),
+                    aa + c + (f - c) * D + A(),
+                    K + a + 2 * (d - a) * D + A(),
+                    aa + c + 2 * (f - c) * D + A(),
+                    d + A(),
+                    f + A(),
+                  ],
+                })
+              : La.push({
+                  l: "bcurveTo",
+                  data: [
+                    K + a + (d - a) * D + p(),
+                    aa + c + (f - c) * D + p(),
+                    K + a + 2 * (d - a) * D + p(),
+                    aa + c + 2 * (f - c) * D + p(),
+                    d + p(),
+                    f + p(),
+                  ],
+                }),
+            La
+          );
+        }
+        function ab(a, c, d) {
+          var f = a.length,
+            e = [];
+          if (3 < f) {
+            var l = [],
+              t = 1 - d.xa;
+            e.push({ l: "move", data: [a[1][0], a[1][1]] });
+            for (var p = 1; p + 2 < f; p++) {
+              var A = a[p];
+              l[0] = [A[0], A[1]];
+              l[1] = [
+                A[0] + (t * a[p + 1][0] - t * a[p - 1][0]) / 6,
+                A[1] + (t * a[p + 1][1] - t * a[p - 1][1]) / 6,
+              ];
+              l[2] = [
+                a[p + 1][0] + (t * a[p][0] - t * a[p + 2][0]) / 6,
+                a[p + 1][1] + (t * a[p][1] - t * a[p + 2][1]) / 6,
+              ];
+              l[3] = [a[p + 1][0], a[p + 1][1]];
+              e.push({
+                l: "bcurveTo",
+                data: [l[1][0], l[1][1], l[2][0], l[2][1], l[3][0], l[3][1]],
+              });
+            }
+            c &&
+              2 === c.length &&
+              ((a = d.L),
+              e.push({ l: "lineTo", data: [c[0] + C(a, d), c[1] + C(a, d)] }));
+          } else
+            3 === f
+              ? (e.push({ l: "move", data: [a[1][0], a[1][1]] }),
+                e.push({
+                  l: "bcurveTo",
+                  data: [a[1][0], a[1][1], a[2][0], a[2][1], a[2][0], a[2][1]],
+                }))
+              : 2 === f &&
+                e.push.apply(e, ea(ba(a[0][0], a[0][1], a[1][0], a[1][1], d)));
+          return e;
+        }
+        function Ba(a, c, d, f, e, l, t, p) {
+          var A = [],
+            D = [],
+            K = C(0.5, p) - Math.PI / 2;
+          D.push([
+            C(l, p) + c + 0.9 * f * Math.cos(K - a),
+            C(l, p) + d + 0.9 * e * Math.sin(K - a),
+          ]);
+          for (var M = K; M < 2 * Math.PI + K - 0.01; M += a) {
+            var Z = [
+              C(l, p) + c + f * Math.cos(M),
+              C(l, p) + d + e * Math.sin(M),
+            ];
+            A.push(Z);
+            D.push(Z);
+          }
+          return (
+            D.push([
+              C(l, p) + c + f * Math.cos(K + 2 * Math.PI + 0.5 * t),
+              C(l, p) + d + e * Math.sin(K + 2 * Math.PI + 0.5 * t),
+            ]),
+            D.push([
+              C(l, p) + c + 0.98 * f * Math.cos(K + t),
+              C(l, p) + d + 0.98 * e * Math.sin(K + t),
+            ]),
+            D.push([
+              C(l, p) + c + 0.9 * f * Math.cos(K + 0.5 * t),
+              C(l, p) + d + 0.9 * e * Math.sin(K + 0.5 * t),
+            ]),
+            [D, A]
+          );
+        }
+        r.prototype.Y = function (a, c) {
+          return this.ea(a, c);
+        };
+        r.prototype.ea = function (a, c, d) {
+          d = void 0 === d ? !1 : d;
+          var f = Q(a, c);
+          d && ((a = this.ua(a, f)), (f = f.concat(a)));
+          return { type: "fillSketch", o: this.Ia(f, c) };
+        };
+        r.prototype.Ia = function (a, c) {
+          for (var d = [], f = da(a), e = f.next(); !e.done; e = f.next())
+            (e = e.value),
+              d.push.apply(
+                d,
+                ea(this.K.Aa(e[0][0], e[0][1], e[1][0], e[1][1], c))
+              );
+          return d;
+        };
+        r.prototype.ua = function (a, c) {
+          var d = [];
+          if (1 < c.length)
+            for (var f = 1; f < c.length; f++) {
+              var e = c[f - 1];
+              3 > h(e) ||
+                ((e = [c[f][0], e[1]]),
+                3 < h(e) && ((e = this.Ka(a, e)), d.push.apply(d, ea(e))));
+            }
+          return d;
+        };
+        r.prototype.$ = function (a, c) {
+          return u(a, (c[0][0] + c[1][0]) / 2, (c[0][1] + c[1][1]) / 2);
+        };
+        r.prototype.Ka = function (a, c) {
+          for (
+            var d = Math.max(5, 0.1 * h(c)), f = [], e = 0;
+            e < a.length;
+            e++
+          ) {
+            var l = a[e],
+              t = a[(e + 1) % a.length];
+            if (
+              R.apply(null, [l, t].concat(ea(c))) &&
+              (l = v(l, t, c[0], c[1]))
+            ) {
+              t = h([l, c[0]]);
+              var p = h([l, c[1]]);
+              t > d && p > d && f.push({ Ha: l, ja: t });
+            }
+          }
+          if (1 < f.length) {
+            d = f
+              .sort(function (A, D) {
+                return A.ja - D.ja;
+              })
+              .map(function (A) {
+                return A.Ha;
+              });
+            if (
+              (u.apply(null, [a].concat(ea(c[0]))) || d.shift(),
+              u.apply(null, [a].concat(ea(c[1]))) || d.pop(),
+              1 >= d.length)
+            )
+              return this.$(a, c) ? [c] : [];
+            d = [c[0]].concat(ea(d), [c[1]]);
+            f = [];
+            for (e = 0; e < d.length - 1; e += 2)
+              (l = [d[e], d[e + 1]]), this.$(a, l) && f.push(l);
+            return f;
+          }
+          return this.$(a, c) ? [c] : [];
+        };
+        ma(n, r);
+        n.prototype.Y = function (a, c) {
+          return this.ea(a, c, !0);
+        };
+        q.prototype.Y = function (a, c) {
+          var d = Q(a, (c = Object.assign({}, c, { X: 4, ka: 0, ba: 1 })));
+          return this.za(d, c);
+        };
+        q.prototype.za = function (a, c) {
+          var d = [],
+            f = c.la;
+          0 > f && (f = 4 * c.strokeWidth);
+          f = Math.max(f, 0.1);
+          var e = c.u;
+          0 > e && (e = c.strokeWidth / 2);
+          for (var l = f / 4, t = da(a), p = t.next(); !p.done; p = t.next()) {
+            var A = p.value,
+              D = h(A);
+            p = Math.ceil(D / f) - 1;
+            D -= p * f;
+            var K = (A[0][0] + A[1][0]) / 2 - f / 4;
+            A = Math.min(A[0][1], A[1][1]);
+            for (var M = 0; M < p; M++) {
+              var Z = A + D + M * f,
+                aa = this.K.pa(K - l, K + l, c);
+              Z = this.K.pa(Z - l, Z + l, c);
+              aa = this.K.ellipse(aa, Z, e, e, c);
+              d.push.apply(d, ea(aa.o));
+            }
+          }
+          return { type: "fillSketch", o: d };
+        };
+        var xa = {};
+        k.prototype.next = function () {
+          return this.b
+            ? ((Math.pow(2, 31) - 1) & (this.b = Math.imul(48271, this.b))) /
+                Math.pow(2, 31)
+            : Math.random();
+        };
+        var U = {
+          Ta: function (a, c) {
+            return C(a, c);
+          },
+          pa: function (a, c, d) {
+            return B(a, c, d);
+          },
+          ellipse: function (a, c, d, f, e) {
+            d = X(d, f, e);
+            return N(a, c, e, d).aa;
+          },
+          Aa: function (a, c, d, f, e) {
+            return ba(a, c, d, f, e, !0);
+          },
+        };
+        g.oa = function () {
+          return Math.floor(Math.random() * Math.pow(2, 31));
+        };
+        g.prototype.M = function (a) {
+          return a ? Object.assign({}, this.I, a) : this.I;
+        };
+        g.prototype.S = function (a, c, d) {
+          return { shape: a, Ja: c || [], options: d || this.I };
+        };
+        g.prototype.line = function (a, c, d, f, e) {
+          e = this.M(e);
+          return this.S("line", [{ type: "path", o: ba(a, c, d, f, e) }], e);
+        };
+        g.prototype.f = function (a, c, d, f, e) {
+          e = this.M(e);
+          var l = [];
+          var t = [
+            [a, c],
+            [a + d, c],
+            [a + d, c + f],
+            [a, c + f],
+          ];
+          var p = (t || []).length;
+          if (2 < p) {
+            for (var A = [], D = 0; D < p - 1; D++)
+              A.push.apply(
+                A,
+                ea(ba(t[D][0], t[D][1], t[D + 1][0], t[D + 1][1], e))
+              );
+            t =
+              (A.push.apply(
+                A,
+                ea(ba(t[p - 1][0], t[p - 1][1], t[0][0], t[0][1], e))
+              ),
+              { type: "path", o: A });
+          } else
+            t =
+              2 === p
+                ? { type: "path", o: ba(t[0][0], t[0][1], t[1][0], t[1][1], e) }
+                : { type: "path", o: [] };
+          e.fill &&
+            ((a = [
+              [a, c],
+              [a + d, c],
+              [a + d, c + f],
+              [a, c + f],
+            ]),
+            "solid" === e.fillStyle ? l.push(I(a, e)) : l.push(w(a, e)));
+          return "none" !== e.stroke && l.push(t), this.S("rectangle", l, e);
+        };
+        g.prototype.ellipse = function (a, c, d, f, e) {
+          e = this.M(e);
+          var l = [];
+          f = X(d, f, e);
+          d = N(a, c, e, f);
+          e.fill &&
+            ("solid" === e.fillStyle
+              ? ((a = N(a, c, e, f).aa), (a.type = "fillPath"), l.push(a))
+              : l.push(w(d.Ba, e)));
+          return "none" !== e.stroke && l.push(d.aa), this.S("ellipse", l, e);
+        };
+        g.prototype.W = function (a, c, d, f) {
+          a = this.ellipse(a, c, d, d, f);
+          return (a.shape = "circle"), a;
+        };
+        b.prototype.O = function (a) {
+          for (
+            var c = a.options || this.J.I,
+              d = this.va,
+              f = da(a.Ja || []),
+              e = f.next();
+            !e.done;
+            e = f.next()
+          )
+            switch (((e = e.value), e.type)) {
+              case "path":
+                d.save();
+                d.strokeStyle = "none" === c.stroke ? "transparent" : c.stroke;
+                d.lineWidth = c.strokeWidth;
+                c.La && d.setLineDash(c.La);
+                c.Ma && (d.lineDashOffset = c.Ma);
+                this.T(d, e);
+                d.restore();
+                break;
+              case "fillPath":
+                d.save();
+                d.fillStyle = c.fill || "";
+                this.T(
+                  d,
+                  e,
+                  "curve" === a.shape || "polygon" === a.shape
+                    ? "evenodd"
+                    : "nonzero"
+                );
+                d.restore();
+                break;
+              case "fillSketch":
+                this.Ea(d, e, c);
+            }
+        };
+        b.prototype.Ea = function (a, c, d) {
+          var f = d.u;
+          0 > f && (f = d.strokeWidth / 2);
+          a.save();
+          d.Ca && a.setLineDash(d.Ca);
+          d.Da && (a.lineDashOffset = d.Da);
+          a.strokeStyle = d.fill || "";
+          a.lineWidth = f;
+          this.T(a, c);
+          a.restore();
+        };
+        b.prototype.T = function (a, c, d) {
+          d = void 0 === d ? "nonzero" : d;
+          a.beginPath();
+          for (var f = da(c.o), e = f.next(); !e.done; e = f.next()) {
+            e = e.value;
+            var l = e.data;
+            switch (e.l) {
+              case "move":
+                a.moveTo(l[0], l[1]);
+                break;
+              case "bcurveTo":
+                a.bezierCurveTo(l[0], l[1], l[2], l[3], l[4], l[5]);
+                break;
+              case "lineTo":
+                a.lineTo(l[0], l[1]);
+            }
+          }
+          "fillPath" === c.type ? a.fill(d) : a.stroke();
+        };
+        b.prototype.line = function (a, c, d, f, e) {
+          a = this.J.line(a, c, d, f, e);
+          return this.O(a), a;
+        };
+        b.prototype.f = function (a, c, d, f, e) {
+          a = this.J.f(a, c, d, f, e);
+          return this.O(a), a;
+        };
+        b.prototype.ellipse = function (a, c, d, f, e) {
+          a = this.J.ellipse(a, c, d, f, e);
+          return this.O(a), a;
+        };
+        b.prototype.W = function (a, c, d, f) {
+          a = this.J.W(a, c, d, f);
+          return this.O(a), a;
+        };
+        return {
+          canvas: function (a, c) {
+            return new b(a, c);
+          },
+          Sa: function (a) {
+            return new g(a);
+          },
+          oa: function () {
+            return g.oa();
+          },
+        };
+      })();
+      zzfxV = 0.15;
+      zzfx = function (
+        b,
+        g,
+        k,
+        q,
+        n,
+        r,
+        m,
+        h,
+        v,
+        u,
+        G,
+        S,
+        R,
+        Q,
+        X,
+        N,
+        I,
+        w,
+        x,
+        B
+      ) {
+        b = void 0 === b ? 1 : b;
+        g = void 0 === g ? 0.05 : g;
+        k = void 0 === k ? 220 : k;
+        m = void 0 === m ? 0 : m;
+        h = void 0 === h ? 1 : h;
+        v = void 0 === v ? 0 : v;
+        Q = void 0 === Q ? 0 : Q;
+        X = void 0 === X ? 0 : X;
+        N = void 0 === N ? 0 : N;
+        w = void 0 === w ? 1 : w;
+        B = void 0 === B ? 0 : B;
+        var C = 2 * Math.PI,
+          ba = (v *= (500 * C) / Math.pow(zzfxR, 2)),
+          ob = ((0 < X ? 1 : -1) * C) / 4;
+        g = k *= ((1 + 2 * g * Math.random() - g) * C) / zzfxR;
+        var ab = [],
+          Ba = 0,
+          xa = 0,
+          U = 0,
+          a = 1,
+          c = 0,
+          d = 0,
+          f = 0,
+          e;
+        q = 99 + zzfxR * (void 0 === q ? 0 : q);
+        x = (void 0 === x ? 0 : x) * zzfxR;
+        n = (void 0 === n ? 0 : n) * zzfxR;
+        r = (void 0 === r ? 0.1 : r) * zzfxR;
+        I = (void 0 === I ? 0 : I) * zzfxR;
+        u = ((500 * C) / Math.pow(zzfxR, 3)) * (void 0 === u ? 0 : u);
+        X *= C / zzfxR;
+        G = (C / zzfxR) * (void 0 === G ? 0 : G);
+        S = (void 0 === S ? 0 : S) * zzfxR;
+        R = (zzfxR * (void 0 === R ? 0 : R)) | 0;
+        for (e = (q + x + n + r + I) | 0; U < e; ab[U++] = f) {
+          ++d % ((100 * N) | 0) ||
+            ((f = m
+              ? 1 < m
+                ? 2 < m
+                  ? 3 < m
+                    ? Math.sin(Math.pow(Ba % C, 3))
+                    : Math.max(Math.min(Math.tan(Ba), 1), -1)
+                  : 1 - (((((2 * Ba) / C) % 2) + 2) % 2)
+                : 1 - 4 * Math.abs(Math.round(Ba / C) - Ba / C)
+              : Math.sin(Ba)),
+            (f =
+              (R ? 1 - B + B * Math.sin((2 * Math.PI * U) / R) : 1) *
+              (0 < f ? 1 : -1) *
+              Math.pow(Math.abs(f), h) *
+              b *
+              zzfxV *
+              (U < q
+                ? U / q
+                : U < q + x
+                ? 1 - ((U - q) / x) * (1 - w)
+                : U < q + x + n
+                ? w
+                : U < e - I
+                ? ((e - U - I) / r) * w
+                : 0)),
+            (f = I
+              ? f / 2 +
+                (I > U
+                  ? 0
+                  : ((U < e - I ? 1 : (e - U) / I) * ab[(U - I) | 0]) / 2)
+              : f));
+          var l = (k += v += u) * Math.sin(xa * X - ob);
+          Ba += l - l * Q * (1 - ((1e9 * (Math.sin(U) + 1)) % 2));
+          xa += l - l * Q * (1 - ((1e9 * (Math.pow(Math.sin(U), 2) + 1)) % 2));
+          a && ++a > S && ((k += G), (g += G), (a = 0));
+          !R || ++c % R || ((k = g), (v = ba), (a = a || 1));
+        }
+        b = zzfxX.createBuffer(1, e, zzfxR);
+        b.getChannelData(0).set(ab);
+        k = zzfxX.createBufferSource();
+        k.buffer = b;
+        k.connect(zzfxX.destination);
+        k.start();
+        return k;
+      };
+      zzfxX = new (window.AudioContext || webkitAudioContext)();
+      zzfxR = 44100;
+      var y = [];
+      y.push([
+        { P: [6, 1, 3, 6, 11, 14, 14], na: [1, 5, 10, 17], g: -2 },
+        "##########",
+        "gp.1g.111.g",
+        "##########",
+        "2.2.2.2.2.g",
+        "##########",
+        ".333.3333.g",
+        "##########",
+        "4.4.4.4g4g",
+      ]);
+      y.push([
+        { a: 100, name: "A Wrapping World" },
+        "#####.#",
+        "......#",
+        "...#..#",
+        "#.###.#",
+        ".b#t.p",
+        "..###.#",
+      ]);
+      y.push([
+        { a: 101, name: "Infinite Inlet" },
+        "..#",
+        "p.#",
+        ".tbt",
+        "#b.b",
+        ".tbt",
+      ]);
+      y.push([
+        { a: 102, name: "Hallowed Hallway" },
+        "##.##",
+        ".t.tp",
+        "bb#bb",
+        ".t.t",
+        "##.##",
+      ]);
+      y.push([
+        { a: 103, name: "Girded Grid" },
+        ".#.#.#",
+        "t.b.t",
+        ".#.#.#",
+        "b.p.b",
+        ".#.#.#",
+        "t.b.t",
+      ]);
+      y.push([
+        { a: 200, name: "Straight Spiral", g: 2 },
+        "",
+        "####",
+        "",
+        "####",
+        "..b",
+        "####",
+        "t#.p",
+        "####",
+      ]);
+      y.push([
+        { a: 201, name: "Crowned Conundrum", G: 3 },
+        "pb...b",
+        "b#.#.#",
+        ".#ttt#",
+      ]);
+      y.push([
+        { a: 202, name: "Twisted Terrace", G: 3 },
+        "b..p",
+        ".##.##",
+        ".#.t.#",
+        "bbt#tb",
+        ".#.t.#",
+        ".##.##",
+      ]);
+      y.push([
+        { a: 203, name: "Continuous Corridor", g: 3 },
+        "######",
+        "tb..p",
+        "t....b",
+        "######",
+        "t#...b",
+        "tb...#",
+      ]);
+      y.push([
+        { a: 204, name: "Grandiose Garden", g: 3 },
+        "..bpb",
+        "..#.#",
+        ".#.t.#",
+        ".bt.tb",
+        ".#.t.#",
+        "..#.#",
+      ]);
+      y.push([{ a: 300, name: "Sift & Shift" }, "bt##|#", "###p", "####.#"]);
+      y.push([
+        { a: 301, name: "Cornered Contraption", g: 1 },
+        "p",
+        ".|",
+        "#####",
+        ".t#",
+        "###",
+      ]);
+      y.push([
+        { a: 302, name: "Zealous Zigzag" },
+        "#t#t#t",
+        ".-..-",
+        "###..#",
+        ".p####",
+        ".-",
+      ]);
+      y.push([
+        { a: 303, name: "Irregular Infrastructure", g: 2 },
+        "##.|",
+        ".#..p",
+        ".#..#",
+        ".#.#t",
+        "....#",
+        "",
+      ]);
+      y.push([
+        { a: 304, name: "Enchanted Encagement" },
+        "##.#.###.#.#",
+        "#..-..#....#",
+        "#..p..#.t.t",
+        "#..-..##",
+        "##.#.###.#.#",
+      ]);
+      y.push([
+        { a: 305, name: "Riddle Raster", g: -1 },
+        "",
+        ".t",
+        "#|#",
+        ".t",
+        "#b#",
+        "pt",
+        "#|#",
+      ]);
+      y.push([
+        { a: 306, name: "Locked Loungerooms", g: -2 },
+        "#########",
+        "####..###",
+        ".......##",
+        "####....#",
+        "####",
+        "....#...#",
+        "#....#",
+        "...||.###",
+        "##.p",
+        "tt#...###",
+      ]);
+      y.push([
+        { a: 400, name: "Rubble Rundown" },
+        "#tr.r.",
+        "#rrrr.",
+        "#pb...",
+        "#rrrrr",
+        "#r.-.r",
+        "#r#r#r",
+        "#r...r",
+        "#r.r.r",
+      ]);
+      y.push([
+        { a: 401, name: "Quality Questions", g: -2 },
+        "rrrrrrr",
+        "#t|#|t#",
+        "#|t#t|#",
+        "rrrprrr",
+        "#######",
+        "rrrrrrr",
+        "#t#|#t#",
+        "#|#t#|#",
+        "rrrrrrr",
+        "#######",
+      ]);
+      y.push([
+        { a: 402, name: "Swirling Stars" },
+        "....#r+tr",
+        "b##..r.rb",
+        "b.##..r.b",
+        "..t...p",
+        "#ttt#rrr#",
+      ]);
+      y.push([
+        { a: 403, name: "Box Breakout" },
+        "b.#.#.b",
+        ".#rpr#",
+        "#rrtrr#",
+        "...+",
+        "#rrtrr#",
+        ".#r.r#.",
+        "b.#.#.b",
+      ]);
+      y.push([
+        { a: 404, name: "Edge Not Found", U: -1 },
+        "#.##.#...#",
+        "#b##.#...#",
+        "#p##t#####",
+        "##..######",
+        "##..######",
+      ]);
+      var z = Math,
+        ua = 70,
+        ya = 1,
+        pa = new na(),
+        E = document.getElementById("canvas"),
+        F = E.getContext("2d", { alpha: !1 }),
+        za = ta.canvas(E),
+        Aa = document.createElement("canvas"),
+        H = Aa.getContext("2d"),
+        Ca = ta.canvas(Aa),
+        Da = document.createElement("canvas"),
+        Ea = Da.getContext("2d"),
+        Fa = ta.canvas(Da),
+        Ga = document.createElement("canvas"),
+        Ha = Ga.getContext("2d"),
+        Ia = ta.canvas(Ga),
+        Ja = document.createElement("canvas"),
+        Ka = Ja.getContext("2d"),
+        Ma = ta.canvas(Ja),
+        Na = document.createElement("canvas"),
+        Oa = Na.getContext("2d"),
+        Pa = ta.canvas(Na),
+        Qa = document.createElement("canvas"),
+        Ra = Qa.getContext("2d"),
+        Sa = ta.canvas(Qa),
+        Ta = document.createElement("canvas"),
+        Ua = Ta.getContext("2d"),
+        Va = ta.canvas(Ta),
+        J = [],
+        Wa = 0,
+        Xa = 0,
+        Ya = "Edge Not Found ",
+        Za = "Press any key",
+        bb = "",
+        cb = 0,
+        db = 0,
+        eb = 0,
+        fb = 0,
+        gb = 0,
+        hb = 0;
+      onkeydown = function (b) {
+        ("ArrowDown" != b.key &&
+          "ArrowUp" != b.key &&
+          " " != b.key &&
+          "Backspace" != b.key) ||
+          b.preventDefault();
+        if (!ib)
+          if (jb) kb(0, !0), (jb = !1);
+          else {
+            var g = b.key,
+              k = b.code;
+            lb = !0;
+            "Escape" == g &&
+              0.1 <= mb &&
+              ((nb = !nb) ? kb(7, !0) : kb(0, !0),
+              pb.reset(),
+              qb.reset(),
+              rb.reset(),
+              (sb = mb = 0));
+            nb ||
+              ("KeyR" == k
+                ? tb ||
+                  (kb(6),
+                  J.push({ B: L, V: O.slice(), G: cb, g: db }),
+                  pb.reset(),
+                  qb.reset(),
+                  rb.reset(),
+                  ub(P, !1))
+                : (b.shiftKey && "n" == g) || "N" == g
+                ? ub(z.min(P + 1, y.length - 1))
+                : ((b.shiftKey && "b" == g) || "B" == g) &&
+                  ub(z.max(P - 1, 0)));
+          }
+      };
+      window.onbeforeunload = function () {
+        if (0 != P) return "Quit?";
+      };
+      var vb = null,
+        wb = !1;
+      onload = function () {
+        vb = document.querySelector('link[rel="icon"]');
+      };
+      var P = 0,
+        xb = y[P].length,
+        yb = y[P][0].length;
+      zb(ua);
+      var L = { x: 0, y: 0 },
+        Ab = [],
+        O = [],
+        Bb = [],
+        T = [],
+        Cb = [],
+        Db = [],
+        Eb = "",
+        Fb = 0,
+        Gb = 0,
+        Hb = 1 / 3,
+        Ib = Hb,
+        Jb = 4,
+        Kb = Jb,
+        Lb = 0,
+        Mb = 0,
+        Nb = 0.075,
+        Ob = 0,
+        Pb = 0,
+        mb = 0.25,
+        nb = !1,
+        sb = 0,
+        jb = !0,
+        qb = new oa(["KeyS", "ArrowDown"], ["KeyW", "ArrowUp"]),
+        pb = new oa(["KeyD", "ArrowRight"], ["KeyA", "ArrowLeft"]),
+        rb = new oa(["KeyZ", "Backspace"], []),
+        Qb = new oa(["KeyX", "Space", "Enter"], []),
+        Rb = !1,
+        V = [
+          ["Sketchbook", "#ffffff", "#000000", "#808080", "#ff0000"],
+          ["Scratchpad", "#202020", "#ffffff", "#808080", "#ffd700"],
+          ["Golden Ticket", "#303030", "#b29700", "#8e7900", "#efe7d6"],
+          ["Ikaniko", "#1E2A26", "#7CA49B", "#267B75", "#C8EEE5"],
+          ["BackFlipped", "#223e32", "#b3dd52", "#04bf00", "#A7C06D"],
+        ],
+        Y = 0,
+        Sb = !0,
+        tb = !0,
+        ib = !1,
+        Tb = 0,
+        lb = !0,
+        Ub = 0;
+      window.onresize = function () {
+        E.width = E.clientWidth;
+        E.height = E.clientHeight;
+        lb = !0;
+      };
+      E.width = E.clientWidth;
+      E.height = E.clientHeight;
+      for (var Vb = [], Wb = 0; Wb != y.length; Wb += 1) Vb[Wb] = 0;
+      var Xb = 0,
+        Yb = window.localStorage,
+        Zb = Yb.getItem("enf-l");
+      if (null != Zb)
+        for (var $b = 1; $b != Vb.length; $b += 1)
+          "t" == Zb[$b - 1]
+            ? ((Vb[$b] = 2), Xb++)
+            : "f" == Zb[$b - 1] && (Vb[$b] = 1);
+      Zb = parseInt(Yb.getItem("enf-c"), 0);
+      0 <= Zb && Zb < V.length && (Y = Zb);
+      Zb = parseInt(Yb.getItem("enf-t"), 0);
+      0 <= Zb && Zb < y.length && (Tb = Zb);
+      Zb = Yb.getItem("enf-a");
+      "false" == Zb && (Sb = !1);
+      Zb = Yb.getItem("enf-r");
+      Rb = "true" == Zb;
+      ub(P);
+      function ac() {
+        try {
+          pa.update();
+          pb.update();
+          qb.update();
+          rb.update();
+          Qb.update();
+          if (!ib && !jb)
+            if (nb) {
+              var b = 5;
+              0 == P && (b = 4);
+              if (qb.j && 1 == qb.c) (sb += 1), sb >= b && (sb = 0);
+              else if (qb.j && -1 == qb.c) --sb, 0 > sb && (sb = b - 1);
+              else if (Qb.j)
+                switch (sb) {
+                  case 0:
+                    nb = !nb;
+                    kb(0, !0);
+                    break;
+                  case 1:
+                    (Sb = !Sb) && kb(7, !0);
+                    bc();
+                    break;
+                  case 2:
+                    Rb = !Rb;
+                    kb(2, !0);
+                    bc();
+                    break;
+                  case 3:
+                    0.2 <= Mb &&
+                      ((Mb = 0),
+                      Y++,
+                      Y >= V.length && (Y = 0),
+                      (lb = !0),
+                      (wb = !1),
+                      kb(2, !0));
+                    bc();
+                    break;
+                  case 4:
+                    ub(0), kb(8, !0), (nb = !nb);
+                }
+            } else {
+              qb.j && cc(0, qb.c);
+              pb.j && cc(pb.c, 0);
+              if (1 == rb.j && 0 != J.length) {
+                kb(5);
+                b = J.pop();
+                L = b.B;
+                O = b.V;
+                cb = b.G;
+                db = b.g;
+                Eb = Eb.slice(0, -1);
+                tb = 0 == Eb.length || " " == Eb.slice(-1) ? !0 : !1;
+                if (0 == P) {
+                  var g = dc();
+                  ec(g, 1);
+                }
+                Gb = 0.1;
+                lb = !0;
+              }
+              Qb.j &&
+                1 <= Lb &&
+                ((g = dc()),
+                null != g && ((Tb = T[g].target), (ib = !0), (Kb = 0), kb(0)));
+            }
+          if (null != vb && !wb) {
+            var k = document.createElement("canvas");
+            k.width = 64;
+            k.height = 64;
+            var q = k.getContext("2d"),
+              n = ta.canvas(k);
+            q.fillStyle = V[Y][1];
+            q.fillRect(0, 0, E.width, E.height);
+            n.f(8, 8, 48, 48, {
+              stroke: V[Y][2],
+              fill: V[Y][2],
+              strokeWidth: 2,
+              N: 2,
+              b: ya,
+            });
+            vb.href = k.toDataURL("image/png");
+            wb = !0;
+          }
+          Gb = z.min(Gb + pa.h, 0.1);
+          Ib = z.min(Ib + pa.h, Hb);
+          Lb = z.min(Lb + pa.h, 1);
+          Kb = z.min(Kb + pa.h, Jb);
+          Mb = z.min(Mb + pa.h, 0.2);
+          Ob = z.min(Ob + pa.h, Nb);
+          Pb = z.min(Pb + pa.h, 0.2);
+          mb = z.min(mb + pa.h, 0.25);
+          jb && (Lb = 0.5);
+          k = 1;
+          700 > E.width || 700 > E.height
+            ? ((ua = 40), (k = 0.6))
+            : 1e3 > E.width || 900 > E.height
+            ? ((ua = 55), (k = 0.8))
+            : (ua = 70);
+          var r = 1,
+            m = ua;
+          1 > Lb
+            ? ((r = Lb / 1), (m = ua + 20 * k - 20 * k * fc(Lb / 1)))
+            : Kb < Jb && 0 != P
+            ? ((r = 1 - Kb / Jb),
+              (m = ua - 50 * k + 50 * k * (1 - fc(Kb / Jb))))
+            : 1 > Kb && 0 == P
+            ? ((r = 1 - Kb / 1), (m = ua - 20 * k * fc(Kb / 1)))
+            : ((Kb >= Jb && 0 != P) || (1 <= Kb && 0 == P)) &&
+              ib &&
+              (0 == P
+                ? ub(Tb)
+                : (P == y.length - 1 &&
+                    ((Ya = "Victory! "),
+                    (Za = "Thank you for playing!"),
+                    (jb = !0),
+                    kb(9)),
+                  ub(0)),
+              (r = 0));
+          Rb && (m = ua);
+          var h = xb * m,
+            v = yb * m;
+          q = !1;
+          if ((!Rb && Ib >= Hb) || m != Ub || lb)
+            !Rb && Ib >= Hb && ((ya += 1), (Ib = 0)),
+              (q = !0),
+              m != Ub
+                ? zb(m)
+                : (Ka.clearRect(0, 0, Ja.width, Ja.height),
+                  Ka.beginPath(),
+                  Ha.clearRect(0, 0, Ga.width, Ga.height),
+                  Ha.beginPath(),
+                  Oa.clearRect(0, 0, Na.width, Na.height),
+                  Oa.beginPath(),
+                  Ua.clearRect(0, 0, Ta.width, Ta.height),
+                  Ua.beginPath(),
+                  Ra.clearRect(0, 0, Qa.width, Qa.height),
+                  Ra.beginPath()),
+              (n = 0.8),
+              Ma.W(0.5 * m, 0.5 * m, m * n, {
+                fill: V[Y][1],
+                fillStyle: "solid",
+                stroke: V[Y][2],
+                strokeWidth: 1,
+                b: ya,
+              }),
+              Ia.f(5, 5, m, m, {
+                stroke: "none",
+                fill: V[Y][2],
+                strokeWidth: 1,
+                b: ya,
+              }),
+              (n = 0.8),
+              Pa.f(5 + 0.5 * (1 - n) * m, 5 + 0.5 * (1 - n) * m, m * n, m * n, {
+                stroke: V[Y][2],
+                fill: V[Y][2],
+                strokeWidth: 2,
+                b: ya,
+              }),
+              (n = 1.1),
+              Va.f(
+                7.5 + 0.5 * (1 - n) * m,
+                7.5 + 0.5 * (1 - n) * m,
+                m * n,
+                m * n,
+                {
+                  stroke: "none",
+                  fill: V[Y][2],
+                  fillStyle: "dots",
+                  u: m / 70,
+                  strokeWidth: 2,
+                  b: ya,
+                }
+              ),
+              (n = 0.9),
+              Sa.f(
+                7.5 + 0.5 * (1 - n) * m,
+                7.5 + 0.5 * (1 - n) * m,
+                m * n,
+                m * n,
+                {
+                  fillStyle: "solid",
+                  fill: V[Y][1],
+                  stroke: V[Y][2],
+                  N: 4,
+                  strokeWidth: 1,
+                  u: 0.25,
+                  b: ya,
+                }
+              );
+          n = 0 != Wa || 0 != Xa;
+          0 < Wa ? (Wa = z.max(0, Wa - 2)) : 0 > Wa && (Wa = z.min(0, Wa + 2));
+          0 < Xa ? (Xa = z.max(0, Xa - 2)) : 0 > Xa && (Xa = z.min(0, Xa + 2));
+          if (q || Ib >= Hb || 0.2 >= Gb || 1 != r || n)
+            m != Ub || lb
+              ? ((Aa.width = v + 20),
+                (Aa.height = h + 20),
+                (Da.width = v + 20),
+                (Da.height = h + 20))
+              : (H.clearRect(0, 0, Aa.width, Aa.height),
+                H.beginPath(),
+                Ea.clearRect(0, 0, Da.width, Da.height),
+                Ea.beginPath()),
+              (lb = !1),
+              gc(m),
+              (q = !0);
+          if (q || jb) {
+            q = function (w) {
+              for (var x = 0; x <= R; x++)
+                for (var B = 0; B <= S; B++)
+                  (F.globalAlpha = z.max(
+                    0,
+                    r - 0.1 * z.abs(x) - z.abs(0.1 * B)
+                  )),
+                    0 < F.globalAlpha &&
+                      (F.drawImage(
+                        w,
+                        u + v * B + Q * m * x,
+                        G + h * x + X * m * B
+                      ),
+                      0 != B &&
+                        0 != x &&
+                        F.drawImage(
+                          w,
+                          u + v * -B + Q * m * -x,
+                          G + h * -x + X * m * -B
+                        ),
+                      0 != x &&
+                        F.drawImage(
+                          w,
+                          u + v * B + Q * m * -x,
+                          G + h * -x + X * m * B
+                        ),
+                      0 != B &&
+                        F.drawImage(
+                          w,
+                          u + v * -B + Q * m * x,
+                          G + h * x + X * m * -B
+                        ));
+            };
+            n = 1;
+            Rb && (n = 0);
+            var u = z.round(0.5 * E.width - 0.5 * v - 10 + 0.25 * Wa * n),
+              G = z.round(0.5 * E.height - 0.5 * h - 10 + 0.25 * Xa * n),
+              S = z.ceil(((E.width - v + 10) / v) * 0.5),
+              R = z.ceil(((E.height - h + 10) / h) * 0.5);
+            0 != cb && (S += 2);
+            0 != db && (R += 2);
+            var Q = cb - gb * (1 - fc(z.min(Gb / 0.1, 1))),
+              X = db - hb * (1 - fc(z.min(Gb / 0.1, 1)));
+            F.globalAlpha = 1;
+            F.fillStyle = V[Y][1];
+            F.fillRect(0, 0, E.width, E.height);
+            Rb || q(Da);
+            q(Aa);
+            za.f(
+              z.round(u - 5 + 0.5 * Wa * n),
+              z.round(G - 5 + 0.5 * Xa * n),
+              v + 5 + 20,
+              h + 5 + 20,
+              { stroke: V[Y][2], b: ya }
+            );
+            F.globalAlpha = 1;
+            if (jb || nb)
+              (F.globalAlpha = 0.4),
+                (F.fillStyle = V[Y][1]),
+                F.fillRect(-1, -1, E.width + 2, E.height + 2),
+                (F.globalAlpha = 1);
+            jb ||
+              ((F.textAlign = "left"),
+              (F.font = 40 * k + "px sans-serif"),
+              (F.globalAlpha = fc(Pb / 0.2)),
+              hc(F, bb, 40, E.height - 40),
+              (F.globalAlpha = 1));
+            F.font = "22px sans-serif";
+            F.fillStyle = V[Y][1];
+            F.textAlign = "center";
+            F.textBaseline = "middle";
+            if (jb) {
+              F.font = z.round(1.2 * ua) + "px sans-serif";
+              F.textAlign = "left";
+              F.textBaseline = "center";
+              F.fillStyle = "black";
+              var N = Ya,
+                I = F.measureText(N).width;
+              N = N.repeat(z.ceil(E.width / I) + 1);
+              k = 0;
+              Rb || (k = (pa.ca % 5) / 5);
+              hc(F, N, -k * I, 0.5 * E.height);
+              F.font = z.round(0.5 * ua) + "px sans-serif";
+              F.textAlign = "center";
+              hc(F, Za, 0.5 * E.width, 0.6 * E.height);
+            } else
+              nb
+                ? ((I = F.globalAlpha = 1),
+                  Rb || (I = fc(mb / 0.25)),
+                  (k = 400 * I),
+                  za.f(-5, -5, k + 5, 55 + 250 * I, {
+                    fill: V[Y][2],
+                    u: 4,
+                    stroke: "none",
+                    b: z.round(ya / 2),
+                  }),
+                  (q = 50 * I),
+                  (F.globalAlpha = I),
+                  za.f(20, 25 + sb * q, k - 40, q, {
+                    fillStyle: "none",
+                    stroke: V[Y][1],
+                    b: ya,
+                  }),
+                  (F.fillStyle = V[Y][1]),
+                  (F.textAlign = "center"),
+                  (N = "Audio: "),
+                  (N = 1 == Sb ? N + "ON" : N + "OFF"),
+                  F.fillText(N, 0.5 * k, 50 + 1 * q),
+                  F.fillText("[Esc] Resume", 0.5 * k, 50),
+                  (N = "Reduce Motion: "),
+                  (N = 1 == Rb ? N + "ON" : N + "OFF"),
+                  F.fillText(N, 0.5 * k, 50 + 2 * q),
+                  (N =
+                    "Theme: " +
+                    V[Y][0] +
+                    " (" +
+                    (Y + 1) +
+                    "/" +
+                    V.length +
+                    ")"),
+                  F.fillText(N, 0.5 * k, 50 + 3 * q),
+                  0 != P
+                    ? F.fillText("Back to Level Select", 0.5 * k, 50 + 4 * q)
+                    : ((F.font = "16px sans-serif"),
+                      F.fillText(
+                        "Game by Tom Hermans for js13k 2020",
+                        0.5 * k,
+                        50 + 3.8 * q
+                      ),
+                      F.fillText(
+                        "rough - Copyright (c) 2019 Preet Shihn",
+                        0.5 * k,
+                        50 + 4.2 * q
+                      ),
+                      F.fillText(
+                        "ZzFX - Copyright (c) 2019 Frank Force",
+                        0.5 * k,
+                        50 + 4.6 * q
+                      )),
+                  (F.globalAlpha = 1))
+                : ib ||
+                  (za.f(-5, -5, 85, 85, {
+                    fill: V[Y][2],
+                    u: 4,
+                    stroke: "none",
+                    b: z.round(ya / 2),
+                  }),
+                  F.fillText("[Esc]", 50, 60),
+                  0 != P &&
+                    ((F.globalAlpha = tb ? 0.25 : 1),
+                    za.f(E.width - 160, E.height - 80, 100, 50, {
+                      fill: V[Y][2],
+                      u: 4,
+                      stroke: "none",
+                      b: z.round(ya / 2),
+                    }),
+                    F.fillText("[R] Retry", E.width - 110, E.height - 55),
+                    (F.globalAlpha = 0 < J.length ? 1 : 0.25),
+                    za.f(E.width - 280, E.height - 80, 100, 50, {
+                      fill: V[Y][2],
+                      u: 4,
+                      stroke: "none",
+                      b: z.round(ya / 2) + 10,
+                    }),
+                    F.fillText("[Z] Undo", E.width - 230, E.height - 55)));
+          }
+          Ub = m;
+          window.requestAnimationFrame(ac);
+        } catch (w) {
+          console.error("Whoops! The game crashed.", w);
+        }
+      }
+      window.requestAnimationFrame(ac);
+      function gc(b) {
+        function g(w, x) {
+          x(0, 0);
+          if (!eb && !fb) {
+            if (0.5 >= w.x) {
+              var B = ((w.y + db + r) % r) - w.y;
+              x(n * b, B * b);
+            } else
+              w.x >= n - 1.5 &&
+                ((B = ((w.y - db + r) % r) - w.y), x(-n * b, B * b));
+            0.5 >= w.y
+              ? ((B = ((w.x + cb + n) % n) - w.x), x(B * b, r * b))
+              : w.y >= r - 1.5 &&
+                ((B = ((w.x - cb + n) % n) - w.x), x(B * b, -r * b));
+          }
+        }
+        function k(w) {
+          return 0 < J.length
+            ? q(O[w], J[J.length - 1].V[w])
+            : { x: O[w].x, y: O[w].y };
+        }
+        function q(w, x) {
+          var B = 1 - Math.max(0, Math.min(Gb / 0.1, 1));
+          if (0 != B) {
+            var C = z.round(w.x - x.x),
+              ba = z.round(w.y - x.y);
+            0 != C && 0 != ba
+              ? 0 != Fb
+                ? ((C -= z.sign(C) * n), (ba = 0))
+                : ((ba -= z.sign(ba) * r), (C = 0))
+              : 1 < z.abs(C)
+              ? (C -= z.sign(C) * n)
+              : 1 < z.abs(ba) && (ba -= z.sign(ba) * r);
+            B = fc(B);
+            return { x: w.x - C * B, y: w.y - ba * B };
+          }
+          return { x: w.x, y: w.y };
+        }
+        var n = yb,
+          r = xb,
+          m = 0 < J.length ? q(L, J[J.length - 1].B) : { x: L.x, y: L.y };
+        if (0 < J.length && !Rb) {
+          var h = Math.max(1, Math.min(J.length, 7));
+          h = z.min(h, Eb.length - Eb.lastIndexOf(" "));
+          for (var v = 0; v < h; v += 1) {
+            var u = J.length - h + v;
+            if (0 > u || u > J.length || u > Eb.length) break;
+            var G = 1;
+            u == J.length - 1 && (G = Gb / 0.1);
+            var S = z.max(0.01, ((v + G) / h) * 0.25 - (1 / h) * 0.25),
+              R = ic(S),
+              Q = { x: J[u].B.x, y: J[u].B.y },
+              X = J[u].B.x,
+              N = J[u].B.y;
+            switch (Eb[u].toLowerCase()) {
+              case "u":
+                Q.y += 0.2;
+                N -= 1.2 * G;
+                break;
+              case "d":
+                Q.y -= 0.2;
+                N += 1.2 * G;
+                break;
+              case "l":
+                Q.x += 0.2;
+                X -= 1.2 * G;
+                break;
+              case "r":
+                (Q.x += 0.2), (X += 1.2 * G);
+            }
+            g(Q, function (w, x) {
+              w = void 0 === w ? 0 : w;
+              x = void 0 === x ? 0 : x;
+              Fa.line(
+                10 + (Q.x + 0.5) * b + w,
+                10 + (Q.y + 0.5) * b + x,
+                10 + (X + 0.5) * b + w,
+                10 + (N + 0.5) * b + x,
+                { strokeWidth: 0.4 * b, stroke: R, b: ya + v, ba: 0.75 }
+              );
+            });
+          }
+        }
+        for (h = 0; h != Db.length; h++)
+          H.drawImage(Ta, 10 + Db[h].x * b - 7.5, 10 + Db[h].y * b - 7.5);
+        for (h = 0; h != Bb.length; h++)
+          (H.globalAlpha = jc(O, Bb[h].x, Bb[h].y) ? 1 : 0.7),
+            H.drawImage(Qa, 10 + Bb[h].x * b - 7.5, 10 + Bb[h].y * b - 7.5);
+        H.globalAlpha = 1;
+        for (h = 0; h != Cb.length; h++)
+          (H.globalAlpha = Cb[h].target <= Xb ? 0.2 : 1),
+            H.drawImage(Na, 10 + Cb[h].x * b - 5, 10 + Cb[h].y * b - 5);
+        H.globalAlpha = 1;
+        for (h = 0; h != Ab.length; h++)
+          H.drawImage(Ga, 10 + Ab[h].x * b - 5, 10 + Ab[h].y * b - 5);
+        for (h = 0; h != T.length; h++)
+          (H.globalAlpha = L.x == T[h].x && L.y == T[h].y ? 1 : 0.7),
+            H.drawImage(Qa, 10 + T[h].x * b - 7.5, 10 + T[h].y * b - 7.5);
+        H.globalAlpha = 1;
+        g(L, function (w, x) {
+          H.drawImage(
+            Ja,
+            10 + m.x * b + (void 0 === w ? 0 : w) + Wa,
+            10 + m.y * b + (void 0 === x ? 0 : x) + Xa
+          );
+        });
+        for (h = { m: 0 }; h.m != O.length; h = { m: h.m }, h.m++) {
+          u = (function (w) {
+            return function (x, B) {
+              x = void 0 === x ? 0 : x;
+              B = void 0 === B ? 0 : B;
+              H.drawImage(Na, 10 + I.x * b - 5 + x, 10 + I.y * b - 5 + B);
+              (1 != O[w.m].shift && 3 != O[w.m].shift) ||
+                Ca.line(
+                  10 + I.x * b + 0.2 * b + x,
+                  10 + I.y * b + 0.5 * b + B,
+                  10 + I.x * b + 0.8 * b + x,
+                  10 + I.y * b + 0.5 * b + B,
+                  { stroke: V[Y][4], strokeWidth: b / 7, b: ya }
+                );
+              (2 != O[w.m].shift && 3 != O[w.m].shift) ||
+                Ca.line(
+                  10 + I.x * b + 0.5 * b + x,
+                  10 + I.y * b + 0.2 * b + B,
+                  10 + I.x * b + 0.5 * b + x,
+                  10 + I.y * b + 0.8 * b + B,
+                  { stroke: V[Y][4], strokeWidth: b / 7, b: ya }
+                );
+            };
+          })(h);
+          var I = k(h.m);
+          g(O[h.m], u);
+        }
+        H.textAlign = "center";
+        H.textBaseline = "middle";
+        H.fillStyle = V[Y][2];
+        H.globalAlpha = 1;
+        for (h = 0; h != T.length; h++)
+          (H.font = z.round(0.5 * b) + "px sans-serif"),
+            H.fillText(
+              y[T[h].target][0].a.toString(),
+              10 + T[h].x * b + 0.5 * Qa.width - 7.5,
+              10 + T[h].y * b - 7.5 + 0.5 * Qa.height
+            ),
+            2 == Vb[h + 1]
+              ? ((H.font = z.round(0.4 * b) + "px sans-serif"),
+                H.fillText(
+                  "\u2713",
+                  10 + T[h].x * b + 0.75 * Qa.width - 7.5,
+                  10 + T[h].y * b - 7.5 + 0.75 * Qa.height
+                ))
+              : 0 == Vb[h + 1] &&
+                ((H.font = "bold " + z.round(0.25 * b) + "px sans-serif"),
+                H.fillText(
+                  "!",
+                  10 + T[h].x * b + 0.5 * Qa.width - 7.5,
+                  10 + T[h].y * b - 7.5 + 0.775 * Qa.height
+                ));
+        H.font = z.round(0.4 * b) + "px sans-serif";
+        H.textAlign = "center";
+        H.textBaseline = "middle";
+        H.fillStyle = V[Y][2];
+        for (h = 0; h != Cb.length; h++)
+          (H.globalAlpha = Cb[h].target <= Xb ? 0.2 : 1),
+            hc(
+              H,
+              Xb + "/" + Cb[h].target,
+              10 + Cb[h].x * b + 0.5 * Na.width - 5,
+              10 + Cb[h].y * b - 5 + 0.5 * Na.height
+            );
+        H.globalAlpha = 1;
+      }
+      function ub(b, g) {
+        function k(G, S, R) {
+          R != Tb ||
+            r ||
+            ((L = { x: G, y: S }),
+            (r = !0),
+            (bb = y[Tb][0].a + ": " + y[Tb][0].name + " - [Space] to enter"),
+            (Pb = 0));
+        }
+        g = void 0 === g ? !0 : g;
+        P = b;
+        var q = y[b].slice(),
+          n = q.shift();
+        0 == Vb[P] && (Vb[P] = 1);
+        bc();
+        lb = !0;
+        L = { x: 0, y: 0 };
+        Ab.length = 0;
+        O.length = 0;
+        Bb.length = 0;
+        T.length = 0;
+        Db.length = 0;
+        Xa = Wa = Cb.length = 0;
+        tb = !0;
+        ib = !1;
+        ec(P);
+        2 == Vb[P] && 0 != P && (bb += " \u2713");
+        cb = n.G ? n.G : 0;
+        db = n.g ? n.g : 0;
+        eb = n.U ? n.U : 0;
+        fb = n.Oa ? n.U : 0;
+        var r = !1,
+          m = null;
+        n.na && (m = n.na.slice());
+        var h = 0;
+        xb = q.length;
+        for (var v = (yb = 0); v < xb; v++) {
+          yb = z.max(yb, q[v].length);
+          for (var u = 0; u < q[v].length; u++)
+            switch (q[v].substring(u, u + 1).toLowerCase()) {
+              case "p":
+                r || (L = { x: u, y: v });
+                break;
+              case "#":
+                Ab.push({ x: u, y: v });
+                break;
+              case "b":
+                O.push({ x: u, y: v, shift: 0 });
+                break;
+              case "-":
+                O.push({ x: u, y: v, shift: 1 });
+                break;
+              case "|":
+                O.push({ x: u, y: v, shift: 2 });
+                break;
+              case "+":
+                O.push({ x: u, y: v, shift: 3 });
+                break;
+              case "t":
+                Bb.push({ x: u, y: v });
+                break;
+              case "1":
+                T.push({ x: u, y: v, target: m[0] });
+                k(u, v, m[0]);
+                m[0]++;
+                break;
+              case "2":
+                if (Xb < n.P[2]) {
+                  Bb.push({ x: u, y: v });
+                  break;
+                }
+                T.push({ x: u, y: v, target: m[1] });
+                k(u, v, m[1]);
+                m[1]++;
+                break;
+              case "3":
+                if (Xb < n.P[3]) {
+                  Bb.push({ x: u, y: v });
+                  break;
+                }
+                T.push({ x: u, y: v, target: m[2] });
+                k(u, v, m[2]);
+                m[2]++;
+                break;
+              case "4":
+                if (Xb < n.P[4]) {
+                  Bb.push({ x: u, y: v });
+                  break;
+                }
+                T.push({ x: u, y: v, target: m[3] });
+                k(u, v, m[3]);
+                m[3]++;
+                break;
+              case "r":
+                Db.push({ x: u, y: v });
+                break;
+              case "g":
+                Cb.push({ x: u, y: v, target: n.P[h] }), h++;
+            }
+        }
+        g ? ((J = []), (Eb = ""), (Lb = 0), (Kb = Jb)) : (Eb += " ");
+      }
+      function kc(b, g) {
+        function k() {
+          return b >= yb
+            ? ((b -= yb), (g -= db), !0)
+            : 0 > b
+            ? ((b += yb), (g += db), !0)
+            : !1;
+        }
+        var q = k(),
+          n = (function () {
+            return g >= xb
+              ? ((g -= xb), (b -= cb), !0)
+              : 0 > g
+              ? ((g += xb), (b += cb), !0)
+              : !1;
+          })();
+        q || k();
+        return { x: b, y: g, Va: q || n };
+      }
+      function jc(b, g, k) {
+        for (var q = 0; q != b.length; q++)
+          if (b[q].x == g && b[q].y == k) return q;
+        return null;
+      }
+      function dc() {
+        return jc(T, L.x, L.y);
+      }
+      function lc(b, g) {
+        var k = jc(Cb, b, g);
+        return null != Cb[k] && Cb[k].target <= Xb ? null : k;
+      }
+      function fc(b) {
+        return b * (2 - b);
+      }
+      function hc(b, g, k, q) {
+        b.miterLimit = 2;
+        b.strokeStyle = V[Y][2];
+        b.lineWidth = 8;
+        b.strokeText(g, k, q);
+        b.fillStyle = V[Y][1];
+        b.fillText(g, k, q);
+      }
+      function cc(b, g) {
+        function k(R) {
+          0 == db &&
+            ((cb -= R),
+            (gb = -R),
+            (Gb = 0),
+            cb > 0.5 * yb ? (cb -= yb) : cb < 0.5 * -yb && (cb += yb));
+        }
+        function q(R) {
+          0 == cb &&
+            ((db -= R),
+            (hb = -R),
+            (Gb = 0),
+            db >= 0.5 * xb ? (db -= xb) : db <= 0.5 * -xb && (db += xb));
+        }
+        var n = "";
+        if (-1 == b) n = "l";
+        else if (1 == b) n = "r";
+        else if (1 == g) n = "d";
+        else if (-1 == g) n = "u";
+        else return;
+        if (0 != b || 0 != g) {
+          J.push({ B: L, V: O.slice(), G: cb, g: db });
+          var r = !1,
+            m = !1;
+          hb = gb = 0;
+          var h = kc(L.x + b, L.y + g),
+            v = h.x;
+          h = h.y;
+          var u = jc(O, v, h);
+          if (null !== u) {
+            var G = kc(v + b, h + g),
+              S = G.x;
+            G = G.y;
+            null === jc(Ab, S, G) &&
+              null === jc(O, S, G) &&
+              null === jc(Db, S, G) &&
+              ((O[u] = { x: S, y: G, shift: O[u].shift }),
+              (L = { x: v, y: h }),
+              (m = r = !0),
+              0 != O[u].shift &&
+                ((1 != O[u].shift && 3 != O[u].shift) || k(b),
+                (2 != O[u].shift && 3 != O[u].shift) || q(g)));
+          } else
+            null === jc(Ab, v, h) &&
+              null === lc(v, h) &&
+              ((L = { x: v, y: h }), (r = !0));
+        }
+        if (r) {
+          Eb = m ? Eb + n.toUpperCase() : Eb + n;
+          Gb = 0;
+          Fb = b;
+          tb = !1;
+          0 == P && ec(dc(), 1);
+          eb && k(eb);
+          n = !0;
+          if (m && 0 < Bb.length)
+            for (r = 0; r != Bb.length; r++) {
+              if (null === jc(O, Bb[r].x, Bb[r].y)) {
+                n = !1;
+                break;
+              }
+            }
+          else n = !1;
+          n
+            ? (2 != Vb[P] && ((Vb[P] = 2), Xb++),
+              bc(),
+              kb(4, !0),
+              (ib = !0),
+              (Kb = 0))
+            : m
+            ? 0 != gb || 0 != hb
+              ? kb(3)
+              : kb(10)
+            : kb(2);
+        } else {
+          if (0 != b || 0 != g) kb(1), J.pop();
+          Wa = 12 * b;
+          Xa = 12 * g;
+        }
+      }
+      function kb(b, g) {
+        g = void 0 === g ? !1 : g;
+        if (Sb && (Ob >= Nb || g))
+          switch ((g || (Ob = 0), b)) {
+            case 0:
+              zzfx.apply(null, [
+                ,
+                0.3,
+                176,
+                0.02,
+                ,
+                0.08,
+                3,
+                0.4,
+                -0.7,
+                -21,
+                -127,
+                0.01,
+                0.05,
+                ,
+                ,
+                ,
+                0.38,
+                ,
+                0.03,
+              ]);
+              break;
+            case 1:
+              zzfx.apply(null, [
+                ,
+                0.3,
+                220,
+                0.02,
+                ,
+                0.08,
+                3,
+                0.4,
+                -0.7,
+                -21,
+                -127,
+                0.01,
+                0.05,
+                ,
+                ,
+                ,
+                0.38,
+                ,
+                0.03,
+              ]);
+            case 2:
+              zzfx.apply(null, [
+                0.6,
+                0.1,
+                176,
+                0.02,
+                ,
+                0.01,
+                3,
+                0.4,
+                -0.7,
+                -21,
+                -127,
+                0.01,
+                0.05,
+                ,
+                ,
+                ,
+                0.1,
+                ,
+                0.02,
+              ]);
+              break;
+            case 10:
+              zzfx.apply(null, [
+                0.5,
+                0.1,
+                220,
+                0.02,
+                ,
+                0.01,
+                3,
+                0.4,
+                -0.7,
+                -21,
+                -127,
+                0.01,
+                0.05,
+                ,
+                ,
+                ,
+                0.1,
+                ,
+                0.02,
+              ]);
+              break;
+            case 3:
+              zzfx.apply(null, [
+                0.45,
+                0.1,
+                250,
+                0.02,
+                ,
+                0.01,
+                3,
+                0.4,
+                -0.7,
+                -21,
+                -127,
+                0.01,
+                0.05,
+                ,
+                ,
+                0.1,
+                0.1,
+                ,
+                0.02,
+              ]);
+              break;
+            case 4:
+              zzfx.apply(null, [
+                0.6,
+                ,
+                934,
+                0.12,
+                0.38,
+                0.93,
+                1,
+                0.27,
+                ,
+                0.4,
+                -434,
+                0.08,
+                0.2,
+                0.1,
+                ,
+                0.1,
+                0.17,
+                0.55,
+                1,
+                0.46,
+              ]);
+              break;
+            case 5:
+              zzfx.apply(null, [
+                ,
+                ,
+                110,
+                ,
+                ,
+                ,
+                1,
+                1.82,
+                ,
+                0.1,
+                ,
+                ,
+                ,
+                0.1,
+                ,
+                0.1,
+                0.01,
+                0.7,
+                0.02,
+                0.15,
+              ]);
+              break;
+            case 6:
+              zzfx.apply(null, [
+                ,
+                ,
+                283,
+                0.02,
+                ,
+                0.11,
+                ,
+                0.38,
+                ,
+                ,
+                ,
+                ,
+                0.07,
+                ,
+                ,
+                0.1,
+                0.08,
+                0.63,
+                0.02,
+              ]);
+              break;
+            case 7:
+              zzfx.apply(null, [
+                ,
+                0.02,
+                1638,
+                ,
+                0.05,
+                0.17,
+                1,
+                ,
+                ,
+                ,
+                490,
+                0.09,
+                ,
+                ,
+                ,
+                0.1,
+                0.05,
+                0.5,
+                0.03,
+              ]);
+              break;
+            case 8:
+              zzfx.apply(null, [
+                ,
+                ,
+                98,
+                0.08,
+                0.18,
+                0.02,
+                2,
+                2.47,
+                36,
+                0.5,
+                ,
+                ,
+                0.04,
+                0.1,
+                ,
+                0.9,
+                0.44,
+                ,
+                0.04,
+              ]);
+              break;
+            case 9:
+              zzfx.apply(null, [
+                ,
+                ,
+                525,
+                0.18,
+                0.28,
+                0.17,
+                1,
+                1.24,
+                8.3,
+                -9.7,
+                -151,
+                0.03,
+                0.06,
+                ,
+                ,
+                ,
+                ,
+                0.93,
+                0.02,
+                0.14,
+              ]);
+          }
+      }
+      function bc() {
+        for (var b = window.localStorage, g = "", k = 1; k != Vb.length; k += 1)
+          g = 2 == Vb[k] ? g + "t" : 1 == Vb[k] ? g + "f" : g + "n";
+        b.setItem("enf-l", g);
+        b.setItem("enf-c", Y);
+        b.setItem("enf-a", Sb);
+        b.setItem("enf-r", Rb);
+        b.setItem("enf-v", 1);
+        0 != Tb && b.setItem("enf-t", Tb);
+      }
+      function ec(b, g) {
+        g = void 0 === g ? 0 : g;
+        var k = bb;
+        0 == P || Vb.includes(2)
+          ? null != b && 0 != b + g
+            ? ((bb = y[b + g][0].a + ": " + y[b + g][0].name),
+              0 == P && (bb += " - [Space] to enter"))
+            : (bb = Vb.includes(2) ? "" : "WASD/Arrow Keys to move")
+          : (bb = "Push the box to the goal!");
+        k != bb && (Pb = 0);
+      }
+      function ic(b) {
+        var g = V[Y][3],
+          k = da(
+            V[Y][1].match(/\w\w/g).map(function (h) {
+              return parseInt(h, 16);
+            })
+          ),
+          q = k.next().value,
+          n = k.next().value;
+        k = k.next().value;
+        var r = da(
+          g.match(/\w\w/g).map(function (h) {
+            return parseInt(h, 16);
+          })
+        );
+        g = r.next().value;
+        var m = r.next().value;
+        r = r.next().value;
+        return (
+          "#" +
+          z
+            .round(q + (g - q) * b)
+            .toString(16)
+            .padStart(2, "0") +
+          z
+            .round(n + (m - n) * b)
+            .toString(16)
+            .padStart(2, "0") +
+          z
+            .round(k + (r - k) * b)
+            .toString(16)
+            .padStart(2, "0")
+        );
+      }
+      function zb(b) {
+        Ja.width = b;
+        Ja.height = b;
+        Ga.width = b + 10;
+        Ga.height = b + 10;
+        Na.width = b + 10;
+        Na.height = b + 10;
+        Ta.width = b + 15;
+        Ta.height = b + 15;
+        Qa.width = b + 15;
+        Qa.height = b + 15;
+      }
+    </script>
+  </body>
+</html>

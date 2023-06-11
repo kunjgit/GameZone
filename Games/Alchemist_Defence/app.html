@@ -1,0 +1,53 @@
+<html>
+<body style="margin:0; user-select:none; -webkit-user-select:none;">
+
+<style>
+ li{
+ 	display:block;
+ 	width:40px;
+ 	height:40px;
+ 	padding:20px;
+ }
+ </style>
+
+<canvas id="canvas" width="1080" height="720" style="display:none"></canvas>
+<div id="menu" style="border:solid 1px #333;position:absolute;top:10px;right:10px"></div>
+<div>
+	<p>Hello, nice to see you here.</p>
+	<p>Here is the plot, let's say you are a alchimist which masterize the power of combining elements.</p>
+	<p>Such a power draws attention, an army of spartans are walking toward you.</p>
+	<p>Fortunately alchemy will help you to push them back, use your power to build tower to destroy them.</p>
+	<br/>
+	<p>So in short, it's a tower defence. Drag elements from the right panel to the map to build a tower which will automatically shoots at enemy.</p>
+	<p>You can upgrade a tower by dragging some more elements on it ( or at least this was planned, it's currently very restricted)</p>
+	<p>Try to rotate the map by dragging it, it's pretty cool</p>
+	<p>That's pretty much all, as you can see the game lacks of some core features, enjoy as much as you can</p>
+
+	<h1><a href="#" onclick="launch()">go</a></h1>
+</div>
+
+
+<script src="data/towers.js"></script>
+<script src="data/levels.js"></script>
+
+<script src="js/model/game.js"></script>
+<script src="js/model/map.js"></script>
+<script src="js/model/spartanPool.js"></script>
+<script src="js/model/towerPool.js"></script>
+<script src="js/model/particulePool.js"></script>
+
+<script src="js/renderer/isoRenderer.js"></script>
+<script src="js/renderer/cube.js"></script>
+<script src="js/renderer/spartan.js"></script>
+<script src="js/renderer/tower.js"></script>
+<script src="js/renderer/particule.js"></script>
+
+<script src="js/ui/rotator.js"></script>
+<script src="js/ui/touch.js"></script>
+<script src="js/ui/towerPicker.js"></script>
+
+<script src="js/app.js"></script>
+
+
+</body>
+</html>

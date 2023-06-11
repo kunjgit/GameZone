@@ -1,0 +1,21 @@
+body {
+  background: #000;
+}
+
+canvas {
+  height: 480px;
+  position: absolute;
+  left: 50%; top: 50%;;
+  margin: -240px 0 0 0;
+  border: 1px dashed #666;
+}
+
+#world {
+  width: 640px;
+  margin-left: -215px;
+}
+
+#menu {
+  width: 200px;
+  margin-left: -425px;
+}

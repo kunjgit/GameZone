@@ -1,0 +1,2238 @@
+<html>
+  <head>
+    <title>ISP</title>
+  </head>
+  <body>
+    <div id="game" class="bevel">
+      <div class="title-bar">
+        <div class="title-bar-text">ISP - Management Center</div>
+        <div class="title-bar-buttons">
+          <div id="fullscreen" class="button bevel">
+            <div class="maximize"></div>
+          </div>
+          <div id="exit" class="button bevel"><div class="close"></div></div>
+        </div>
+      </div>
+      <div id="game-menu">
+        <div id="dialogs" class="menu-area">
+          <div
+            id="minimap-btn"
+            class="open-dialog menu-button bevel -active"
+            data-dialog-type="MINIMAP"
+          >
+            <span class="label">Overview</span>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEUAAAD///+AgIAAAIKJYod2AAAAAXRSTlMAQObYZgAAAC5JREFUCNdjQAL8B4CEzQcgYWDAwMC051cDA2f81QRkIjwURoSiEEyrVjWAzQAAWAYQpB2RO68AAAAASUVORK5CYII="
+              width="32"
+              height="32"
+            />
+          </div>
+          <div
+            id="report-btn"
+            class="open-dialog menu-button bevel -active"
+            data-dialog-type="REPORT"
+          >
+            <span class="label">Report</span>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAFVBMVEUAAAD///+AgICCgki0tLQAAAD//45hhpxgAAAAAXRSTlMAQObYZgAAAEZJREFUCNdjAALWAAYICEsFU0yqqWFBCkCGcoiLi6sRiBEKBGCGIBCAGSIuLo7oIiLoIo6O6CIijoKoIsZAAGIwKQGBAgMAO04Oe5oG0dwAAAAASUVORK5CYII="
+              width="32"
+              height="32"
+            />
+          </div>
+          <div
+            id="messages-btn"
+            class="open-dialog menu-button bevel -active"
+            data-dialog-type="MESSAGES"
+          >
+            <span class="label">Messages</span>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEUAAAD//46AgIAAAADAy77lAAAAAXRSTlMAQObYZgAAADZJREFUCNdjQAOrgIBha2hoHMPc0NAyhumhodcYpl4ND2OYXhp7jWFu/NcyiOzU0NAwiGJUAABHdxTx1+OX6AAAAABJRU5ErkJggg=="
+              width="32"
+              height="32"
+            />
+          </div>
+        </div>
+        <div id="build-elements" class="menu-area">
+          <div class="menu-button -active bevel" data-element-type="CABLE">
+            <span class="label">Cable</span>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEUAAAAAAIIAAACAgIAdbsymAAAAAXRSTlMAQObYZgAAACNJREFUCNdjQAMKSAQriAhdwaAaGvoDRLwAs8BiYFmEYgQAADKhCEoI+q+JAAAAAElFTkSuQmCC"
+              width="32"
+              height="32"
+            />
+          </div>
+          <div class="menu-button bevel" data-element-type="HUB">
+            <span class="label">Data Hub</span>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEUAAADDw8MAAAAAggC0yjcQAAAAAXRSTlMAQObYZgAAACZJREFUCNdjQACuVasWMKiGxt5gUA8NjQCygITWqlUriBCD6AUBAPhSFEYn4zOmAAAAAElFTkSuQmCC"
+              width="32"
+              height="32"
+            />
+          </div>
+          <div class="menu-button bevel" data-element-type="DELETE">
+            <span class="label">Demolish</span>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAD1BMVEUAAAAAAAD//46AgIC0tLQ03iQbAAAAAXRSTlMAQObYZgAAAEFJREFUCNdjwAeMjSE0s5KSAYShKKQMZQgqGRtAGUrKjGA1yAxBoJygobCgAZDB6CLi6CLACGeApBgFgBICmFYCALLsBsRc3bC7AAAAAElFTkSuQmCC"
+              width="32"
+              height="32"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        id="game-main"
+        class="bevel -inset -with-minimap -with-report -with-messages"
+      >
+        <div id="minimap" class="dialog bevel" data-dialog-type="MINIMAP">
+          <div class="title-bar">
+            <div class="title-bar-text">Overview</div>
+            <div class="title-bar-buttons">
+              <div class="button bevel" data-button-action="close">
+                <div class="close"></div>
+              </div>
+            </div>
+          </div>
+          <div class="minimap-area">
+            <canvas
+              id="minimap-cnv"
+              class="bevel -inset"
+              width="300"
+              height="300"
+            ></canvas>
+          </div>
+        </div>
+        <div id="report" class="dialog bevel" data-dialog-type="REPORT">
+          <div class="title-bar">
+            <div class="title-bar-text">Company Report</div>
+            <div class="title-bar-buttons">
+              <div class="button bevel" data-button-action="close">
+                <div class="close"></div>
+              </div>
+            </div>
+          </div>
+          <div class="report-area">
+            <h3 id="report-heading">Report for September 1995</h3>
+            <h4>Revenue</h4>
+            <div class="report-grid">
+              <div>Proceeds from Contracts:</div>
+              <div class="report-value" id="report-contracts">$0</div>
+            </div>
+            <h4>Expenses</h4>
+            <div class="report-grid">
+              <div>Construction:</div>
+              <div class="report-value" id="report-construction">$0</div>
+              <div>Electricity:</div>
+              <div class="report-value" id="report-electricity">$0</div>
+              <div>Maintenance:</div>
+              <div class="report-value" id="report-maintenance">$0</div>
+              <div>Fines:</div>
+              <div class="report-value" id="report-fines">$0</div>
+            </div>
+            <div class="report-grid" style="font-weight: 700; margin-top: 15px">
+              <div>Net Profit or Loss:</div>
+              <div class="report-value" id="report-earnings">$0</div>
+            </div>
+          </div>
+        </div>
+        <div id="canvas-container"><canvas id="game-canvas"></canvas></div>
+        <div id="messages" class="dialog bevel" data-dialog-type="MESSAGES">
+          <div class="title-bar">
+            <div class="title-bar-text">System Messages</div>
+            <div class="title-bar-buttons">
+              <div class="button bevel"><div class="close"></div></div>
+            </div>
+          </div>
+          <div id="messages-display" class="bevel -inset">
+            <div id="messages-list">
+              <div class="message">
+                <div class="message-title">Welcome</div>
+                <div class="message-body">
+                  Welcome to the ISP Management Center. It is your job to
+                  connect new customers to our data grid and maintain our data
+                  hubs. We will inform you about any future events in this
+                  message window.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="messages-control"></div>
+        </div>
+      </div>
+      <div id="game-info">
+        <div id="balance-info" class="info-block -balance">Balance:</div>
+        <div id="date-info" class="info-block -date"></div>
+      </div>
+      <div id="dialog-overlay" class="hidden">
+        <div id="modal-dialog" class="bevel">
+          <div class="title-bar">
+            <div id="modal-dialog-title" class="title-bar-text">
+              System Messages
+            </div>
+          </div>
+          <div id="modal-dialog-body"></div>
+          <div id="modal-dialog-buttons">
+            <div class="dialog-button bevel">Repair</div>
+            <div class="dialog-button bevel">Cancel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="game-over"><div>Thank you for playing ISP</div></div>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      div,
+      html,
+      span {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+      }
+      #canvas-container {
+        grid-row: span 2;
+      }
+      #canvas-container,
+      #game-canvas {
+        height: 100%;
+        width: 100%;
+      }
+      #game {
+        background-color: silver;
+        bottom: 0;
+        font-family: arial, sans-serif;
+        left: 0;
+        padding: 4px;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+      #game-main {
+        background-color: #818085;
+        bottom: 46px;
+        display: inline-grid;
+        grid-template-columns: auto;
+        grid-template-rows: 50% 50%;
+        left: 8px;
+        position: fixed;
+        right: 8px;
+        top: 128px;
+      }
+      #game-main.-with-messages {
+        grid-template-columns: auto 460px;
+      }
+      #game-main.-with-messages #messages {
+        display: block;
+      }
+      #game-main.-with-minimap,
+      #game-main.-with-report {
+        grid-template-columns: 460px auto;
+      }
+      #game-main.-with-minimap #minimap,
+      #game-main.-with-report #report {
+        display: block;
+      }
+      #game-main.-with-report.-with-minimap #report {
+        grid-row: 2;
+      }
+      #game-main.-with-report.-with-minimap #minimap {
+        grid-row: 1;
+      }
+      #game-main.-with-messages.-with-minimap,
+      #game-main.-with-messages.-with-report {
+        grid-template-columns: 460px auto 460px;
+      }
+      #game-info {
+        bottom: 8px;
+        display: inline-grid;
+        grid-template-columns: auto 150px;
+        height: 34px;
+        left: 8px;
+        position: fixed;
+        right: 8px;
+      }
+      #messages {
+        background-color: silver;
+        display: none;
+        grid-row: span 2;
+        z-index: 1;
+      }
+      #messages-display {
+        background-color: #fff;
+        bottom: 84px;
+        left: 10px;
+        position: absolute;
+        right: 10px;
+        top: 50px;
+      }
+      #messages-list {
+        display: block;
+        height: 100%;
+        overflow-y: auto;
+        padding: 12px;
+        width: 100%;
+      }
+      .message {
+        font-family: serif;
+        margin-bottom: 20px;
+      }
+      .message-title {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 24px;
+      }
+      .-danger {
+        color: red;
+      }
+      .-warning {
+        color: #ff8c00;
+      }
+      .-success {
+        color: green;
+      }
+      .-user {
+        color: #00f;
+      }
+      .message-body {
+        font-size: 14px;
+        line-height: 20px;
+      }
+      .message-action {
+        color: #00f;
+        cursor: pointer;
+        display: block;
+        font-size: 14px;
+        line-height: 28px;
+        text-align: center;
+        text-decoration: underline;
+      }
+      #report {
+        background-color: silver;
+        display: none;
+        grid-row: span 2;
+        z-index: 1;
+      }
+      .report-area {
+        padding: 0 20px;
+      }
+      .report-area h4 {
+        margin-bottom: 10px;
+      }
+      .report-grid {
+        display: grid;
+        grid-row-gap: 6px;
+        grid-template-columns: auto 100px;
+      }
+      .report-value {
+        text-align: right;
+      }
+      #minimap {
+        background-color: silver;
+        display: none;
+        grid-row: span 2;
+        z-index: 1;
+      }
+      #minimap-cnv {
+        background-color: #000;
+      }
+      .minimap-area {
+        padding: 10px;
+        text-align: center;
+      }
+      .bevel {
+        border-color: silver #000 #000 silver;
+        border-style: solid;
+        border-width: 4px;
+        position: relative;
+      }
+      .bevel:after {
+        background-color: transparent;
+        border-color: #fff grey grey #fff;
+        border-style: solid;
+        border-width: 2px;
+        bottom: -2px;
+        content: "";
+        left: -2px;
+        pointer-events: none;
+        position: absolute;
+        right: -2px;
+        top: -2px;
+      }
+      .bevel.-active,
+      .bevel.-inset {
+        border-color: #000 silver silver #000;
+      }
+      .bevel.-active:after,
+      .bevel.-inset:after {
+        border-color: grey #fff #fff grey;
+        bottom: -4px;
+        left: -4px;
+        right: -4px;
+        top: -4px;
+      }
+      .title-bar {
+        background-color: #00007b;
+        height: 36px;
+        padding: 8px;
+        position: relative;
+        width: 100%;
+      }
+      .title-bar-text {
+        color: #fff;
+        font-size: 18px;
+        line-height: 18px;
+      }
+      .title-bar-buttons {
+        padding: 4px;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        top: 0;
+      }
+      .title-bar-buttons > .button {
+        background-color: silver;
+        cursor: pointer;
+        display: inline-block;
+        height: 28px;
+        width: 32px;
+      }
+      .menu-area {
+        display: inline-block;
+        height: 84px;
+        padding: 10px;
+      }
+      .menu-button {
+        background-color: silver;
+        cursor: pointer;
+        display: inline-block;
+        height: 64px;
+        position: relative;
+        text-align: center;
+        vertical-align: top;
+        width: 64px;
+      }
+      .menu-button.-active {
+        background-color: #dedede;
+      }
+      .menu-button > .label {
+        color: #000;
+        font-size: 10px;
+        line-height: 16px;
+      }
+      .menu-button > img {
+        image-rendering: pixelated;
+      }
+      .maximize {
+        border: 2px solid #000;
+        border-top: 4px solid #000;
+        display: block;
+        height: 18px;
+        left: 3px;
+        width: 18px;
+      }
+      .close,
+      .maximize {
+        position: absolute;
+      }
+      .close {
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAAZElEQVQoka2SUQ7AIAhD28X7X5l9QcDQZQnwZYraJ5UADLVodkupSZbmI3f+LKb1J8nt7GfnBO5CBoweQHIGADNbJAhBkxRnrzHBaTQ1A9dzcrspyDcLMu6k0N0clvUntiRjghdmNicNYMksVwAAAABJRU5ErkJggg==")
+          no-repeat 0;
+        height: 14px;
+        left: 4px;
+        top: 2px;
+        width: 16px;
+      }
+      .info-block {
+        border-color: grey #fff #fff grey;
+        border-style: solid;
+        border-width: 2px;
+        font-size: 18px;
+        height: 34px;
+        line-height: 22px;
+        margin-right: 4px;
+        padding: 4px;
+      }
+      .info-block.-date {
+        margin-right: 0;
+        padding-right: 10px;
+        text-align: right;
+      }
+      #dialog-overlay {
+        background-color: rgba(0, 0, 0, 0.5);
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 10;
+      }
+      #dialog-overlay.hidden {
+        display: none;
+      }
+      #modal-dialog {
+        background-color: silver;
+        height: auto;
+        left: 50%;
+        position: fixed;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+      }
+      #modal-dialog-body {
+        padding: 30px 50px;
+      }
+      #modal-dialog-buttons {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+      }
+      .dialog-button {
+        cursor: pointer;
+        line-height: 38px;
+        margin: 0 4px;
+        min-height: 46px;
+        min-width: 150px;
+        text-align: center;
+      }
+      #game-over {
+        background-color: #000;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        top: 0;
+        vertical-align: middle;
+        z-index: -1;
+      }
+      #game-over div {
+        align-self: center;
+        color: #fff;
+        font-size: 48px;
+      }
+    </style>
+    <script>
+      parcelRequire = (function (e, r, n, t) {
+        var i = "function" == typeof parcelRequire && parcelRequire,
+          o = "function" == typeof require && require;
+        function u(n, t) {
+          if (!r[n]) {
+            if (!e[n]) {
+              var f = "function" == typeof parcelRequire && parcelRequire;
+              if (!t && f) return f(n, !0);
+              if (i) return i(n, !0);
+              if (o && "string" == typeof n) return o(n);
+              var c = new Error("Cannot find module '" + n + "'");
+              throw ((c.code = "MODULE_NOT_FOUND"), c);
+            }
+            p.resolve = function (r) {
+              return e[n][1][r] || r;
+            };
+            var l = (r[n] = new u.Module(n));
+            e[n][0].call(l.exports, p, l, l.exports, this);
+          }
+          return r[n].exports;
+          function p(e) {
+            return u(p.resolve(e));
+          }
+        }
+        (u.isParcelRequire = !0),
+          (u.Module = function (e) {
+            (this.id = e), (this.bundle = u), (this.exports = {});
+          }),
+          (u.modules = e),
+          (u.cache = r),
+          (u.parent = i),
+          (u.register = function (r, n) {
+            e[r] = [
+              function (e, r) {
+                r.exports = n;
+              },
+              {},
+            ];
+          });
+        for (var f = 0; f < n.length; f++) u(n[f]);
+        if (n.length) {
+          var c = u(n[n.length - 1]);
+          "object" == typeof exports && "undefined" != typeof module
+            ? (module.exports = c)
+            : "function" == typeof define && define.amd
+            ? define(function () {
+                return c;
+              })
+            : t && (this[t] = c);
+        }
+        return u;
+      })(
+        {
+          F4nI: [
+            function (require, module, exports) {
+              module.exports = {
+                FIELD_SIZE: 32,
+                WORLD_WIDTH: 3200,
+                WORLD_HEIGHT: 3200,
+                DIRECTIONS: {
+                  EAST: [1, 0],
+                  NORTH: [0, -1],
+                  SOUTH: [0, 1],
+                  WEST: [-1, 0],
+                },
+                STARTING_BALANCE: 2e3,
+                BUILDING_COSTS: { CABLE: 1, HUB: 300, HOUSE: 0, DELETE: 1 },
+                HOUSE_SPAWN_COOLDOWN: -5,
+                PROCEEDS_PER_HOUSEHOLD: 40,
+                BASE_BANDWIDTH: 56,
+                BANDWIDTH_PER_HUB: 300,
+                DURATION_PER_DAY: 2e3,
+                POWER_CONSUMPTION_PER_HUB: 20,
+                MAINTENANCE_COST: 10,
+                REPAIR_COST: 50,
+                HUB_WARRANTY: 30,
+                HUB_DEFECT_RANGE: 800,
+                HUB_DESTROYED_CHANCE: 5,
+                DAYS_TILL_CONTRACT_START: 14,
+                MAX_HUB_RANGE: 20,
+                HUB_STABLE_RANGE: 15,
+                FINE: 50,
+              };
+            },
+            {},
+          ],
+          N4w3: [
+            function (require, module, exports) {
+              var t =
+                  "function" == typeof Symbol &&
+                  "symbol" == typeof Symbol.iterator
+                    ? function (t) {
+                        return typeof t;
+                      }
+                    : function (t) {
+                        return t &&
+                          "function" == typeof Symbol &&
+                          t.constructor === Symbol &&
+                          t !== Symbol.prototype
+                          ? "symbol"
+                          : typeof t;
+                      },
+                n = require("./globals"),
+                e = n.FIELD_SIZE,
+                o = n.DIRECTIONS,
+                r = function (n, o) {
+                  return (
+                    "object" === (void 0 === n ? "undefined" : t(n)) &&
+                      ((o = n.y), (n = n.x)),
+                    { x: Math.floor(n / e), y: Math.floor(o / e) }
+                  );
+                },
+                i = function (t, n) {
+                  return { x: t.x + o[n][0], y: t.y + o[n][1] };
+                },
+                u = function (t, n, e, o) {
+                  var r = t.getBoundingClientRect();
+                  return { x: n - r.left - o.x, y: e - r.top - o.y };
+                },
+                a = function (t, n) {
+                  return "string" == typeof t && (t = l(t)), m(i(t, n));
+                },
+                c = function (t) {
+                  switch (t) {
+                    case "NORTH":
+                      return "SOUTH";
+                    case "EAST":
+                      return "WEST";
+                    case "SOUTH":
+                      return "NORTH";
+                    case "WEST":
+                      return "EAST";
+                  }
+                },
+                s = function (t, n) {
+                  var e = l(t),
+                    o = l(n);
+                  return e.x === o.x
+                    ? 1 === Math.abs(e.y - o.y)
+                    : e.y === o.y && 1 === Math.abs(e.x - o.x);
+                },
+                f = function (t, n) {
+                  return !n.hasOwnProperty(m(t));
+                },
+                y = function (t, n) {
+                  return Math.floor(Math.random() * (n - t + 1)) + t;
+                },
+                l = function (t) {
+                  return {
+                    x: parseInt(t.replace(/_.*/g, "")),
+                    y: parseInt(t.replace(/^.+_/g, "")),
+                  };
+                },
+                m = function (t) {
+                  return t.x + "_" + t.y;
+                };
+              module.exports = {
+                createGamePos: r,
+                getGamePosInDirection: i,
+                getCanvasPosFromScreenPos: u,
+                getIdInDirection: a,
+                getOppositeDirection: c,
+                isNeighbour: s,
+                isValidPosition: f,
+                random: y,
+                transformElementIdToGamePos: l,
+                transformGamePosToElementId: m,
+              };
+            },
+            { "./globals": "F4nI" },
+          ],
+          RROc: [
+            function (require, module, exports) {
+              var e = (function () {
+                var e = this;
+                return (
+                  (this.queue = {}),
+                  (this.fired = []),
+                  {
+                    fire: function (u) {
+                      var i = e.queue[u];
+                      if (void 0 !== i) {
+                        for (var r = 0, f = i.length; r < f; r++) i[r]();
+                        e.fired[u] = !0;
+                      }
+                    },
+                    on: function (u, i) {
+                      if (!0 === e.fired[u]) return i();
+                      void 0 === e.queue[u] && (e.queue[u] = []),
+                        e.queue[u].push(i);
+                    },
+                  }
+                );
+              })();
+              module.exports = e;
+            },
+            {},
+          ],
+          r2yF: [
+            function (require, module, exports) {
+              module.exports = (function () {
+                var n = require("../util/helpers"),
+                  r = n.random,
+                  t = n.transformElementIdToGamePos,
+                  o = {},
+                  e = 10,
+                  f = function (n, r) {
+                    return n + "_" + r;
+                  };
+                return {
+                  findSpawnPoint: function (n) {
+                    return (
+                      (function () {
+                        for (var n = -e; n < e; n += 10)
+                          for (var r = -e; r < e; r += 10) o[f(n, r)] = 0;
+                      })(),
+                      Object.keys(n).forEach(function (r) {
+                        if ("HOUSE" === n[r].type) {
+                          var e = t(r),
+                            u = 10 * Math.floor(e.x / 10),
+                            a = 10 * Math.floor(e.y / 10),
+                            i = f(u, a);
+                          o.hasOwnProperty(i) && o[i]++;
+                        }
+                      }),
+                      (function (n) {
+                        var o = t(n),
+                          e = o.x,
+                          f = o.y;
+                        return { x: r(e, e + 10), y: r(f, f + 10) };
+                      })(
+                        Object.keys(o).sort(function (n, r) {
+                          return o[n] < o[r] ? -1 : 1;
+                        })[0]
+                      )
+                    );
+                  },
+                  widenSpawnRange: function (n) {
+                    e = n;
+                  },
+                };
+              })();
+            },
+            { "../util/helpers": "N4w3" },
+          ],
+          i5vj: [
+            function (require, module, exports) {
+              var n = (function () {
+                var n = require("../util/events"),
+                  e = require("../util/helpers").random,
+                  t = require("./spawnManager").widenSpawnRange,
+                  r = {},
+                  a = null,
+                  u = 0,
+                  c = { construction: 0, fines: 0, maintenance: 0 },
+                  i = function () {
+                    if (r.currentBalance < 0) n.fire("GAME_OVER");
+                    else {
+                      var e = r.currentDate,
+                        a = e.getMonth();
+                      (r.currentDate = new Date(e.setDate(e.getDate() + 1))),
+                        o(),
+                        n.fire("NEXT_DAY"),
+                        r.currentDate.getMonth() !== a &&
+                          (HOUSE_SPAWN_COOLDOWN++,
+                          r.currentDate.getMonth() % 2 == 0 &&
+                            (u < 50 && t((u += 10)),
+                            (HUB_DESTROYED_CHANCE += 10),
+                            (HUB_DEFECT_RANGE -= 10),
+                            (FINE += 5)),
+                          E(),
+                          n.fire("NEXT_MONTH"));
+                    }
+                  },
+                  o = function () {
+                    r.spawnChance++,
+                      e(0, 10) < r.spawnChance &&
+                        ((r.spawnChance = HOUSE_SPAWN_COOLDOWN),
+                        n.fire("NEW_HOUSE"));
+                  },
+                  D = function () {
+                    return r.currentBalance;
+                  },
+                  s = function (n) {
+                    return (n || r.currentDate).toLocaleDateString("en-us", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    });
+                  },
+                  f = function (n, e) {
+                    c[n] += e;
+                  },
+                  E = function () {
+                    c = { construction: 0, fines: 0, maintenance: 0 };
+                  },
+                  l = function (e) {
+                    (r.currentBalance = e), n.fire("UPDATE_BALANCE");
+                  };
+                return {
+                  initCompanyState: function (n) {
+                    (r = n).currentDate.setFullYear(1995);
+                  },
+                  addProceeds: function (n) {
+                    return l(D() + n);
+                  },
+                  payBuildingCosts: function (n) {
+                    l(D() - BUILDING_COSTS[n]),
+                      f("construction", BUILDING_COSTS[n]);
+                  },
+                  getDate: s,
+                  getBalance: D,
+                  getExpenses: function () {
+                    return c;
+                  },
+                  getFutureDate: function (n) {
+                    var e = new Date(r.currentDate.getTime());
+                    return s(new Date(e.setDate(e.getDate() + n)));
+                  },
+                  payFine: function () {
+                    l(D() - FINE), f("fines", FINE);
+                  },
+                  payMaintenance: function (n) {
+                    l(D() - n), f("maintenance", n);
+                  },
+                  start: function () {
+                    a || (a = setInterval(i, DURATION_PER_DAY));
+                  },
+                  stop: function () {
+                    clearInterval(a), (a = null);
+                  },
+                };
+              })();
+              module.exports = n;
+            },
+            {
+              "../util/events": "RROc",
+              "../util/helpers": "N4w3",
+              "./spawnManager": "r2yF",
+            },
+          ],
+          NCx0: [
+            function (require, module, exports) {
+              var e = function (e, s, d, t) {
+                var a =
+                    arguments.length > 4 && void 0 !== arguments[4]
+                      ? arguments[4]
+                      : "",
+                  i = document.getElementById("messages-list"),
+                  n = document.createElement("div");
+                n.classList.add("message"),
+                  (n.innerHTML =
+                    '<div class="message-title -' +
+                    a +
+                    '">' +
+                    e +
+                    '</div><div class="message-body">' +
+                    s +
+                    "</div>" +
+                    (d ? '<div class="message-action">' + d + "</div>" : "")),
+                  i.prepend(n),
+                  d && n.addEventListener("click", t);
+              };
+              module.exports = { postMessage: e };
+            },
+            {},
+          ],
+          i5an: [
+            function (require, module, exports) {
+              var r = function (r, e) {
+                  var t = document.createElement("canvas");
+                  return (t.width = r), (t.height = e), t;
+                },
+                e = function (r, e, t) {
+                  var a = [],
+                    n = r.canvas.width / 2;
+                  e.replace(/./g, function (r) {
+                    var e = r.charCodeAt();
+                    a.push(7 & e), a.push((e >> 3) & 7);
+                  });
+                  for (var c = 0; c < n; c++)
+                    for (var i = 0; i < n; i++)
+                      a[c * n + i] &&
+                        ((r.fillStyle =
+                          "#" + t.substr(6 * (a[c * n + i] - 1), 6)),
+                        r.fillRect(2 * i, 2 * c, 2, 2));
+                };
+              module.exports = {
+                createOffscreenCanvas: r,
+                drawSpriteString: e,
+              };
+            },
+            {},
+          ],
+          xa0F: [
+            function (require, module, exports) {
+              var I = require("../util/canvas"),
+                R = I.createOffscreenCanvas,
+                e = I.drawSpriteString,
+                n = function (I) {
+                  var R = ["818085", "818085", "818085", "818085"],
+                    e = Object.keys(DIRECTIONS);
+                  return (
+                    I.split("_").forEach(function (I) {
+                      var n = e.indexOf(I);
+                      n >= 0 && (R[n] = "000000");
+                    }),
+                    "000000" + R.join("")
+                  );
+                },
+                t = function I(R, e, t) {
+                  var r =
+                    arguments.length > 3 && void 0 !== arguments[3]
+                      ? arguments[3]
+                      : 0;
+                  if (r >= t.length) {
+                    var f = t.length > 1 ? e + "_" + t[t.length - 1] : e;
+                    return (R[f] = n(f)), R;
+                  }
+                  R[e] = n(e);
+                  for (var i = r; i < t.length; i++) {
+                    var u = e + "_" + t[i];
+                    (R[u] = n(u)), I(R, u, t.slice(i), r + 1);
+                  }
+                  return R;
+                },
+                r = function () {
+                  return Object.keys(DIRECTIONS).reduce(function (I, R, e, n) {
+                    return Object.assign(I, t(I, R, n.slice(e + 1)));
+                  }, {});
+                },
+                f = {
+                  CABLE: {
+                    image:
+                      "@@@[[@@@@@@[[@@@@@@[[@@@@@@[[@@@@@@[[@@@@@@[[@@@mmmIIRRRmmmIIRRRmmmIIRRRmmmIIRRR@@@dd@@@@@@dd@@@@@@dd@@@@@@dd@@@@@@dd@@@@@@dd@@@",
+                    types: r(),
+                  },
+                  HOUSE: {
+                    image:
+                      "@@@II@@@@@@II@@@@@@QJ@@@@@@RR@@@@@PRRB@@@@RRRR@@IQRRRRJIIIRRRRIIIIRRRRIIIIRIJRII@@RIRR@@@@RIRR@@@@@II@@@@@@II@@@@@@II@@@@@@II@@@",
+                    types: {
+                      online: "00000000ff00",
+                      offline: "000000ff0000",
+                      slow: "000000ff7700",
+                    },
+                  },
+                  HUB: {
+                    image:
+                      "@@@II@@@@@@II@@@@@@II@@@@TRTRSS@@ZRbRRb@@RRTRTR@IIIIIIIIITbRRcSIIZRbRRbIIRRTRbRI@@@II@@@@RRRTSS@@ZbRRTR@@TRbRbb@@@@II@@@@@@II@@@",
+                    types: {
+                      active: "000000b3b3b300ff00b3b3b3",
+                      defective: "000000b3b3b3ff7700b3b3b3",
+                      destroyed: "000000b3b3b3ff0000999999",
+                    },
+                  },
+                },
+                i = function (I, n) {
+                  var t = R(FIELD_SIZE, FIELD_SIZE),
+                    r = t.getContext("2d");
+                  return e(r, I, n), t;
+                },
+                u = function () {
+                  return Object.keys(f).reduce(function (I, R) {
+                    var e = f[R];
+                    for (var n in e.types)
+                      I.hasOwnProperty(R) || (I[R] = {}),
+                        (I[R][n] = i(e.image, e.types[n]));
+                    return I;
+                  }, {});
+                },
+                b = (function () {
+                  var I = u();
+                  return {
+                    CABLE: function (R) {
+                      return I.CABLE[
+                        R.length > 0
+                          ? R.sort(function (I, R) {
+                              return I < R ? -1 : 1;
+                            }).join("_")
+                          : "EAST_NORTH_SOUTH_WEST"
+                      ];
+                    },
+                    HOUSE: function (R) {
+                      return I.HOUSE[R] || I.HOUSE.offline;
+                    },
+                    HUB: function (R) {
+                      return I.HUB[R];
+                    },
+                  };
+                })();
+              module.exports = b;
+            },
+            { "../util/canvas": "i5an" },
+          ],
+          dYDD: [
+            function (require, module, exports) {
+              var r = require("./helpers"),
+                e = r.getOppositeDirection,
+                t = r.getIdInDirection,
+                n = r.isNeighbour,
+                s = function (r) {
+                  var s = function (n, s, o) {
+                      var i = r[n],
+                        p = [];
+                      i &&
+                        (i.connections.forEach(function (r) {
+                          if (o.stepsIndex[n].fromDirection !== r) {
+                            var i = t(n, r);
+                            o.stepsIndex.hasOwnProperty(i) ||
+                              ((o.stepsIndex[i] = {
+                                step: s,
+                                fromDirection: e(r),
+                              }),
+                              p.push(i));
+                          }
+                        }),
+                        (o.stepsArr[s] = o.stepsArr[s].concat(p)));
+                    },
+                    o = function (r, e, t) {
+                      for (
+                        var s = [t], o = r.length - 1, i = t;
+                        o > 0 && void 0 !== s[0];
+
+                      ) {
+                        if (
+                          (i = r[--o].find(function (r) {
+                            return n(r, s[0]);
+                          })) === e
+                        )
+                          return s;
+                        s.unshift(i);
+                      }
+                      return [];
+                    };
+                  return function (r, e) {
+                    var t = { stepsArr: [[r]], stepsIndex: {} };
+                    t.stepsIndex[r] = { step: 0, fromDirection: "" };
+                    for (
+                      var n = 1;
+                      !t.stepsIndex.hasOwnProperty(e) &&
+                      t.stepsArr[n - 1].length;
+
+                    )
+                      if (
+                        (t.stepsArr.push([]),
+                        t.stepsArr[n - 1].forEach(function (r) {
+                          return s(r, n, t);
+                        }),
+                        ++n > MAX_HUB_RANGE)
+                      )
+                        return [];
+                    return o(t.stepsArr, r, e);
+                  };
+                };
+              module.exports = { pathDetection: s };
+            },
+            { "./helpers": "N4w3" },
+          ],
+          dlHB: [
+            function (require, module, exports) {
+              var e = (function () {
+                var e = require("../util/pathdetection").pathDetection,
+                  n = { hubs: {}, houses: {} },
+                  t = function (e, n) {
+                    return Object.keys(n).reduce(function (t, r) {
+                      var s = n[r];
+                      return (
+                        s.type === e &&
+                          "cancelled" !== s.status &&
+                          "destroyed" !== s.status &&
+                          (t[r] = s),
+                        t
+                      );
+                    }, {});
+                  },
+                  r = function (e, t, r) {
+                    var s = n,
+                      u = s.houses,
+                      o = s.hubs;
+                    o.hasOwnProperty(r) || ((o[r] = {}), (o[r].primary = {})),
+                      (o[r][t] = e),
+                      u[t].connectedHubs.push(r);
+                  },
+                  s = function () {
+                    var e = n,
+                      t = e.houses,
+                      r = e.hubs;
+                    Object.keys(t).forEach(function (e) {
+                      var n = t[e];
+                      if (n.connectedHubs.length) {
+                        n.connectedHubs.length > 1 &&
+                          (n.connectedHubs = n.connectedHubs.sort(function (
+                            n,
+                            t
+                          ) {
+                            return r[n][e].length < r[t][e].length ? -1 : 1;
+                          }));
+                        var s = r[n.connectedHubs[0]];
+                        (s.primary[e] = s[e]), delete s[e];
+                      }
+                    });
+                  },
+                  u = function (e) {
+                    var t = n,
+                      r = t.hubs,
+                      s = t.houses;
+                    Object.keys(r).forEach(function (n) {
+                      var t = Object.keys(r[n].primary),
+                        u = Math.floor(e[n].bandwidth / t.length),
+                        o = 0;
+                      t.forEach(function (t) {
+                        s[t].deliveredBandwidth =
+                          r[n].primary[t].length < HUB_STABLE_RANGE ? u : u / 2;
+                        var a = u - e[t].requiredBandwidth;
+                        o += a > 0 ? a : 0;
+                      }),
+                        (r[n].spareBandwidth = o > 0 ? o : 0);
+                    });
+                  },
+                  o = function (e) {
+                    var t = n.houses;
+                    Object.keys(t).forEach(function (n) {
+                      t[n].connectedHubs.length
+                        ? t[n].deliveredBandwidth < e[n].requiredBandwidth
+                          ? ((e[n].status = "slow"),
+                            t[n].deliveredBandwidth <
+                              e[n].requiredBandwidth / 3 &&
+                              (e[n].status = "offline"))
+                          : (e[n].status = "online")
+                        : (e[n].status = "offline");
+                    });
+                  };
+                return {
+                  evaluateConnections: function (a) {
+                    var i = t("HOUSE", a),
+                      c = t("HUB", a);
+                    for (var d in ((n = { hubs: {}, houses: {} }), i)) {
+                      var h = a[d];
+                      for (var f in ((h.status = "offline"),
+                      (n.houses[d] = {
+                        deliveredBandwidth: 0,
+                        connectedHubs: [],
+                      }),
+                      c)) {
+                        var l = e(a)(d, f);
+                        l.length && r(l, d, f);
+                      }
+                    }
+                    s(), u(a), o(a);
+                  },
+                };
+              })();
+              module.exports = e;
+            },
+            { "../util/pathdetection": "dYDD" },
+          ],
+          "54FG": [
+            function (require, module, exports) {
+              var e = (function () {
+                var e = require("../gameManagement/gameManager"),
+                  t = e.start,
+                  n = e.stop,
+                  d = document.getElementById("dialog-overlay"),
+                  i = document.getElementById("modal-dialog-title"),
+                  o = document.getElementById("modal-dialog-body"),
+                  a = document.getElementById("modal-dialog-buttons"),
+                  l = function () {
+                    d.classList.add("hidden"), t();
+                  },
+                  r = function (e, t) {
+                    var n =
+                        arguments.length > 2 &&
+                        void 0 !== arguments[2] &&
+                        arguments[2],
+                      d = document.createElement("div");
+                    (d.innerHTML =
+                      '<div class="dialog-button bevel">' + e + "</div>"),
+                      a.appendChild(d),
+                      n
+                        ? d.addEventListener("click", function () {
+                            t(), l();
+                          })
+                        : d.addEventListener("click", t || l);
+                  };
+                return {
+                  openDialog: function (e, t) {
+                    var l =
+                      arguments.length > 2 && void 0 !== arguments[2]
+                        ? arguments[2]
+                        : [];
+                    for (n(), i.innerText = e, o.innerText = t; a.firstChild; )
+                      a.removeChild(a.firstChild);
+                    l.forEach(function (e) {
+                      r(e[0], e[1], e[2]);
+                    }),
+                      d.classList.remove("hidden");
+                  },
+                  closeDialog: l,
+                };
+              })();
+              module.exports = e;
+            },
+            { "../gameManagement/gameManager": "i5vj" },
+          ],
+          YwZq: [
+            function (require, module, exports) {
+              var n = (function () {
+                WORLD_HEIGHT;
+                var n = WORLD_HEIGHT / 2,
+                  o = (WORLD_WIDTH, WORLD_WIDTH / 2),
+                  t = FIELD_SIZE,
+                  r = { x: 0, y: 0 },
+                  u = { w: 0, h: 0 },
+                  f = function () {
+                    var t = u,
+                      f = t.w,
+                      c = t.h;
+                    r.x < -o + f ? (r.x = -o + f) : r.x > o && (r.x = o),
+                      r.y < -n + c ? (r.y = -n + c) : r.y > n && (r.y = n);
+                  };
+                return {
+                  getScrollPos: function () {
+                    return r;
+                  },
+                  up: function () {
+                    (r.y += t), f();
+                  },
+                  down: function () {
+                    (r.y -= t), f();
+                  },
+                  left: function () {
+                    (r.x += t), f();
+                  },
+                  right: function () {
+                    (r.x -= t), f();
+                  },
+                  scrollTo: function (n) {
+                    var o = u,
+                      c = o.w,
+                      i = o.h,
+                      x = Math.floor(-n.x * t + c / 2),
+                      y = Math.floor(-n.y * t + i / 2);
+                    (r = { x: x, y: y }), f();
+                  },
+                  setCnvSize: function (n, o) {
+                    u = { w: n, h: o };
+                  },
+                };
+              })();
+              module.exports = n;
+            },
+            {},
+          ],
+          Z7se: [
+            function (require, module, exports) {
+              var e = require("../util/helpers"),
+                t = e.random,
+                n = {
+                  male: [
+                    "bert",
+                    "phy",
+                    "ian",
+                    "ius",
+                    "on",
+                    "el",
+                    "ender",
+                    "an",
+                    "pher",
+                    "on",
+                    "gan",
+                    "iel",
+                    "las",
+                    "nic",
+                    "iel",
+                  ],
+                  female: [
+                    "onica",
+                    "gelica",
+                    "ia",
+                    "a",
+                    "anda",
+                    "ella",
+                    "ette",
+                    "gail",
+                    "beth",
+                    "y",
+                    "elope",
+                    "ie",
+                    "ora",
+                    "lyn",
+                  ],
+                },
+                o = {
+                  pre: [
+                    "Angry",
+                    "Furious",
+                    "Vicious",
+                    "Annoy",
+                    "Irate",
+                    "Rage",
+                    "Wrath",
+                    "Hate",
+                    "Rabid",
+                    "Up-Yours",
+                    "Pi**ed",
+                  ],
+                  ending: [
+                    "man",
+                    "venson",
+                    "bert",
+                    "ton",
+                    "son",
+                    "ler",
+                    "len",
+                    "bell",
+                    "chell",
+                    "wards",
+                    "gan",
+                    "nett",
+                    "kin",
+                    "zales",
+                  ],
+                },
+                i = {
+                  offline: [
+                    "My connection is dead. Can you fix this please???",
+                    "Noooo, not now! I almost finished :,(",
+                    "Have you tried turning it off and on again?",
+                    "People are telling me about your internet all the time. They are saying tremendous things about it. But I'm not buying it. You are FAKE INTERNET, Sir!",
+                    "Dude, where is my interwebz. Nothing's working. Fix this ASAP!",
+                    "Dear Sir or Madam, I would be highly delighted if you could find the time to fix my internet connection. Please?",
+                    "No need to fix my connection. I have to beat the highscore first. Go for gold, little T-Rex!",
+                    "At least my mom is glad that I'm no longer blocking the phone...",
+                    "It says 'no internet connection'... Is this bad?...",
+                    "I. Need. Cat. Memes!",
+                  ],
+                  slow: [
+                    "Booooooring!",
+                    "Is this jpeg supposed to load this long?...Jeez, it's been 2 days already.",
+                    "When will the connection be faster, brother?",
+                    "I HATE BUFFERING!!!",
+                    "Have you tried turning it off and on again?",
+                    "Seriously, you guys? Sending my emails via USPS or carrier pigeons would have been faster by now.",
+                    "I know a thing or two and this does not feel like glorious 56K. I'm sure you can do better.",
+                    '"Go fast, follow dreams", they said... But not with this connection I\'m not.',
+                    "Yeah, if could send a few mor bits and bytes over to me. That'd be great.",
+                  ],
+                  cancelled: [
+                    "I'm canceling my contract. You guys are incompetent.",
+                    "RAGEQUIT!!!!",
+                    "That's it. I'm out!",
+                    "Goodbye. Better luck next time!",
+                    "Where do I have to sign to get out of here?",
+                    "I would have cancelled earlier but I couldn't reach you due to the CONSTANT DOWNTIMES!!!",
+                    "Your internet is irrelevant. I only use the best internet. You failed ISP. So sad!",
+                  ],
+                },
+                a = function () {
+                  var e = 0 === t(0, 1) ? "male" : "female";
+                  return (
+                    "Customer" +
+                    n[e][t(0, n[e].length - 1)] +
+                    " " +
+                    (o.pre[t(0, o.pre.length - 1)] +
+                      o.ending[t(0, o.ending.length - 1)])
+                  );
+                },
+                r = function (e) {
+                  return i[e][t(0, i[e].length - 1)];
+                };
+              module.exports = { generateName: a, getText: r };
+            },
+            { "../util/helpers": "N4w3" },
+          ],
+          "/1OQ": [
+            function (require, module, exports) {
+              var e = require("../assets/sprites"),
+                t = require("../gui/messages"),
+                n = require("../assets/customers"),
+                s = n.generateName,
+                a = n.getText,
+                u = function (t) {
+                  return {
+                    type: "HOUSE",
+                    status: "pending",
+                    contractStart: DAYS_TILL_CONTRACT_START,
+                    image: e.HOUSE("offline"),
+                    daysOffline: 0,
+                    name: s(),
+                    requiredBandwidth: BASE_BANDWIDTH,
+                  };
+                },
+                r = function (e) {
+                  return e.status;
+                },
+                i = function (e) {
+                  e.contractStart--, 0 === e.contractStart && (e.status = r(e));
+                },
+                l = function (e) {
+                  var n = e.status;
+                  0 === e.daysOffline
+                    ? "offline" === n
+                      ? t.postMessage(e.name, a("offline"), null, null, "user")
+                      : t.postMessage(e.name, a("slow"), null, null, "user")
+                    : e.daysOffline >= 30 &&
+                      (t.postMessage(
+                        e.name,
+                        a("cancelled"),
+                        null,
+                        null,
+                        "user"
+                      ),
+                      (e.status = "cancelled")),
+                    (e.daysOffline += "offline" === e.status ? 3 : 1);
+                },
+                f = function (t) {
+                  t.image = e.HOUSE(t.status);
+                },
+                o = function (e) {
+                  return function (t) {
+                    var n = e[t],
+                      s = [];
+                    return (
+                      n.contractStart > 0
+                        ? s.push(i.bind(e, n))
+                        : "online" !== n.status
+                        ? s.push(l.bind(e, n))
+                        : (n.daysOffline = 0),
+                      s.push(f.bind(e, n)),
+                      s
+                    );
+                  };
+                };
+              module.exports = { createHouse: u, manageHouse: o };
+            },
+            {
+              "../assets/sprites": "xa0F",
+              "../gui/messages": "NCx0",
+              "../assets/customers": "Z7se",
+            },
+          ],
+          "5dJ8": [
+            function (require, module, exports) {
+              var e = require("../util/helpers"),
+                t = e.random,
+                a = e.transformElementIdToGamePos,
+                s = require("../gui/messages"),
+                r = require("../assets/sprites"),
+                i = require("../gui/scrollHelper"),
+                n = i.scrollTo,
+                u = function (e) {
+                  return {
+                    type: "HUB",
+                    age: 0,
+                    status: "active",
+                    bandwidth: BANDWIDTH_PER_HUB,
+                    image: r.HUB("active"),
+                  };
+                },
+                o = function (e, t) {
+                  e.age++, "destroyed" !== e.status && d(e, t);
+                },
+                d = function (e, r) {
+                  var i = t(HUB_WARRANTY, HUB_DEFECT_RANGE + HUB_WARRANTY),
+                    u = a(r);
+                  i < e.age &&
+                    (t(
+                      0,
+                      (HUB_DEFECT_RANGE - e.age) *
+                        ("defective" === e.status ? 0.1 : 1)
+                    ) < HUB_DESTROYED_CHANCE
+                      ? ((e.status = "destroyed"),
+                        s.postMessage(
+                          "Hub Destroyed",
+                          "The hub at " +
+                            u.x +
+                            "/" +
+                            u.y +
+                            " is destroyed beyond repair. It needs to be demolished.",
+                          "Show hub on map",
+                          function () {
+                            return n(u);
+                          },
+                          "danger"
+                        ))
+                      : "defective" !== e.status &&
+                        ((e.status = "defective"),
+                        s.postMessage(
+                          "Hub Defective",
+                          "The hub at " +
+                            u.x +
+                            "/" +
+                            u.y +
+                            " is defective and no longer working at its full capacity. Please repair it immediately to prevent further damage.",
+                          "Show hub on map",
+                          function () {
+                            return n(u);
+                          },
+                          "warning"
+                        )));
+                },
+                c = function (e) {
+                  "active" === e.status
+                    ? (e.bandwidth = BANDWIDTH_PER_HUB)
+                    : (e.bandwidth = Math.floor(BANDWIDTH_PER_HUB / 3));
+                },
+                H = function (e) {
+                  e.image = r.HUB(e.status);
+                },
+                f = function (e) {
+                  return function (t) {
+                    var a = e[t],
+                      s = [];
+                    return (
+                      s.push(o.bind(e, a, t)),
+                      s.push(c.bind(e, a)),
+                      s.push(H.bind(e, a)),
+                      s
+                    );
+                  };
+                };
+              module.exports = { createHub: u, manageHub: f };
+            },
+            {
+              "../util/helpers": "N4w3",
+              "../gui/messages": "NCx0",
+              "../assets/sprites": "xa0F",
+              "../gui/scrollHelper": "YwZq",
+            },
+          ],
+          fFjg: [
+            function (require, module, exports) {
+              var e = require("../assets/sprites"),
+                n = function (n) {
+                  var r = n.connections;
+                  return { type: "CABLE", connections: r, image: e.CABLE(r) };
+                },
+                r = function (e) {
+                  return function (e) {
+                    return [];
+                  };
+                };
+              module.exports = { createCable: n, manageCable: r };
+            },
+            { "../assets/sprites": "xa0F" },
+          ],
+          Fkh3: [
+            function (require, module, exports) {
+              var e = (function () {
+                var e = require("../util/helpers"),
+                  n = e.transformGamePosToElementId,
+                  t = e.getIdInDirection,
+                  r = e.getOppositeDirection,
+                  a = (e.random, require("../gameManagement/gameManager")),
+                  i = require("../util/events"),
+                  o = require("../gui/messages"),
+                  u = require("../assets/sprites"),
+                  s =
+                    require("../gameManagement/connectionManager").evaluateConnections,
+                  c = require("../gui/dialog").openDialog,
+                  l = require("../gui/scrollHelper").scrollTo,
+                  f = require("../gameManagement/spawnManager").findSpawnPoint,
+                  g = require("./house"),
+                  E = g.createHouse,
+                  p = g.manageHouse,
+                  O = require("./hub"),
+                  C = O.createHub,
+                  m = O.manageHub,
+                  v = require("./cable"),
+                  y = v.createCable,
+                  d = v.manageCable,
+                  h = { HOUSE: E, CABLE: y, HUB: C },
+                  T = { HOUSE: p, HUB: m, CABLE: d },
+                  H = {},
+                  S = function (e, t) {
+                    var r =
+                      arguments.length > 2 &&
+                      void 0 !== arguments[2] &&
+                      arguments[2];
+                    if (a.getBalance() - BUILDING_COSTS[t] < 0) return !1;
+                    var i = n(e);
+                    if (N(i)) {
+                      var o = { connections: A(e) };
+                      return (
+                        (H[i] = Object.assign(o, h[t](o))),
+                        r || a.payBuildingCosts(t),
+                        s(H),
+                        !0
+                      );
+                    }
+                    return !1;
+                  },
+                  b = function (e) {
+                    H[e].connections.forEach(function (n) {
+                      var a = H[t(e, n)],
+                        i = r(n);
+                      (a.connections = a.connections.filter(function (e) {
+                        return e !== i;
+                      })),
+                        "CABLE" === a.type &&
+                          (a.image = u.CABLE(a.connections));
+                    });
+                  },
+                  M = function (e, n) {
+                    var t = H[e];
+                    (t.status = "active"),
+                      (t.age = Math.floor(t.age / 4)),
+                      a.payMaintenance(n);
+                  },
+                  N = function (e) {
+                    return !H.hasOwnProperty(e);
+                  },
+                  A = function (e) {
+                    var n = [];
+                    return (
+                      Object.keys(DIRECTIONS).forEach(function (a) {
+                        var i = t(e, a);
+                        if (H.hasOwnProperty(i)) {
+                          n.push(a);
+                          var o = H[i];
+                          o.connections.push(r(a)),
+                            "CABLE" === o.type &&
+                              (o.image = u.CABLE(o.connections));
+                        }
+                      }),
+                      n
+                    );
+                  },
+                  I = function (e) {
+                    return Object.keys(H).reduce(function (n, t) {
+                      var r = H[t];
+                      return r.type === e && (n[t] = r), n;
+                    }, {});
+                  },
+                  _ = function () {
+                    var e = I("HOUSE");
+                    return Object.keys(e).filter(function (n) {
+                      return "online" === e[n].status || "slow" === e[n].status;
+                    });
+                  },
+                  B = function () {
+                    return (
+                      ((e = I("HUB")),
+                      Object.keys(e).filter(function (n) {
+                        return "destroyed" !== e[n].status;
+                      })).length * POWER_CONSUMPTION_PER_HUB
+                    );
+                    var e;
+                  };
+                return (
+                  i.on("NEXT_DAY", function () {
+                    for (var e in H) {
+                      var n = H[e];
+                      if ("HOUSE" !== n.type || "cancelled" !== n.status)
+                        T[n.type](H)(e).forEach(function (e) {
+                          return e();
+                        });
+                      else
+                        b(e),
+                          o.postMessage(
+                            "Cancelation",
+                            n.name +
+                              " just cancelled his/her service contract. As this is clearly your fault we will fine you $" +
+                              FINE +
+                              ".",
+                            null,
+                            null,
+                            "danger"
+                          ),
+                          delete H[e],
+                          a.payFine();
+                    }
+                    s(H);
+                  }),
+                  i.on("NEXT_MONTH", function () {
+                    a.addProceeds(_().length * PROCEEDS_PER_HOUSEHOLD - B());
+                  }),
+                  i.on("NEW_HOUSE", function () {
+                    for (var e = f(H); !S(e, "HOUSE"); ) e = f(H);
+                    o.postMessage(
+                      "New Contract",
+                      "We just received a new contract from " +
+                        H[n(e)].name +
+                        " at Customerstreet " +
+                        e.x +
+                        "/" +
+                        e.y +
+                        ". The beginning of service is on " +
+                        a.getFutureDate(DAYS_TILL_CONTRACT_START) +
+                        ". Please ensure a stable connection by then.",
+                      "Show on Map",
+                      function () {
+                        return l(e);
+                      },
+                      "success"
+                    );
+                  }),
+                  {
+                    buildElement: S,
+                    deleteElement: function (e) {
+                      if (a.getBalance() - BUILDING_COSTS.DELETE < 0) return !1;
+                      var t = n(e);
+                      return !(
+                        !H.hasOwnProperty(t) ||
+                        "HOUSE" === H[t].type ||
+                        (b(t), delete H[t], a.payBuildingCosts("DELETE"), 0)
+                      );
+                    },
+                    getElements: function () {
+                      return H;
+                    },
+                    getElementsOfType: I,
+                    getEnergyConsumption: B,
+                    getOnlineHouseholds: _,
+                    openHubDialog: function (e) {
+                      "active" === H[e].status
+                        ? c(
+                            "Maintain Hub",
+                            "The hub is working fine. Do You want to maintain it to improve reliability?",
+                            [
+                              [
+                                "Maintain ($" + MAINTENANCE_COST + ")",
+                                function () {
+                                  return M(e, MAINTENANCE_COST);
+                                },
+                                !0,
+                              ],
+                              ["Cancel", null],
+                            ]
+                          )
+                        : "defective" === H[e].status &&
+                          c(
+                            "Maintain Hub",
+                            "The hub is defective. It needs repairing to work at full capacity. Do you want to repair it?",
+                            [
+                              [
+                                "Repair ($" + REPAIR_COST + ")",
+                                function () {
+                                  return M(e, REPAIR_COST);
+                                },
+                                !0,
+                              ],
+                              ["Cancel", null],
+                            ]
+                          );
+                    },
+                  }
+                );
+              })();
+              module.exports = e;
+            },
+            {
+              "../util/helpers": "N4w3",
+              "../gameManagement/gameManager": "i5vj",
+              "../util/events": "RROc",
+              "../gui/messages": "NCx0",
+              "../assets/sprites": "xa0F",
+              "../gameManagement/connectionManager": "dlHB",
+              "../gui/dialog": "54FG",
+              "../gui/scrollHelper": "YwZq",
+              "../gameManagement/spawnManager": "r2yF",
+              "./house": "/1OQ",
+              "./hub": "5dJ8",
+              "./cable": "fFjg",
+            },
+          ],
+          Qc6N: [
+            function (require, module, exports) {
+              var e = require("../elementDefinitions"),
+                n = e.getEnergyConsumption,
+                t = e.getOnlineHouseholds,
+                r = require("../gameManagement/gameManager"),
+                o = r.getDate,
+                i = r.getExpenses,
+                m = function (e) {
+                  return (
+                    e.toLocaleString("en-us", { month: "long" }) +
+                    " " +
+                    e.getFullYear()
+                  );
+                },
+                g = function () {
+                  var e = t().length * PROCEEDS_PER_HOUSEHOLD,
+                    r = n(),
+                    g = i(),
+                    c = g.construction,
+                    a = g.fines,
+                    u = g.maintenance,
+                    d = e - r - c - a - u;
+                  (document.getElementById("report-heading").innerText =
+                    "Report for " + m(new Date(o()))),
+                    (document.getElementById("report-contracts").innerText =
+                      "$" + e),
+                    (document.getElementById("report-electricity").innerText =
+                      "$" + r),
+                    (document.getElementById("report-fines").innerText =
+                      "$" + a),
+                    (document.getElementById("report-construction").innerText =
+                      "$" + c),
+                    (document.getElementById("report-maintenance").innerText =
+                      "$" + u),
+                    (document.getElementById("report-earnings").innerText =
+                      "$" + d);
+                };
+              module.exports = { showReport: g };
+            },
+            {
+              "../elementDefinitions": "Fkh3",
+              "../gameManagement/gameManager": "i5vj",
+            },
+          ],
+          mqqi: [
+            function (require, module, exports) {
+              module.exports = (function () {
+                var e = require("../util/events"),
+                  t = require("../gameManagement/gameManager"),
+                  n = require("./report").showReport,
+                  l = require("./dialog").openDialog,
+                  c = function () {
+                    var e = document.getElementsByClassName("dialog"),
+                      t = document.getElementsByClassName("open-dialog");
+                    r(e, o), r(t, u);
+                  },
+                  u = function (e) {
+                    var t = document.getElementById("game-main"),
+                      n = e.getAttribute("data-dialog-type");
+                    e.addEventListener("click", function () {
+                      var e = n.toLowerCase();
+                      t.classList.toggle("-with-" + e),
+                        document
+                          .getElementById(e + "-btn")
+                          .classList.toggle("-active");
+                    });
+                  },
+                  o = function (e) {
+                    var t = e.getElementsByClassName("button")[0],
+                      n = e.getAttribute("data-dialog-type"),
+                      l = document.getElementById("game-main");
+                    t.addEventListener("click", function () {
+                      var e = n.toLowerCase();
+                      l.classList.remove("-with-" + e),
+                        document
+                          .getElementById(e + "-btn")
+                          .classList.toggle("-active");
+                    });
+                  },
+                  i = function (e) {
+                    e.requestFullscreen
+                      ? e.requestFullscreen()
+                      : e.mozRequestFullScreen
+                      ? e.mozRequestFullScreen()
+                      : e.webkitRequestFullscreen
+                      ? e.webkitRequestFullscreen()
+                      : e.msRequestFullscreen && e.msRequestFullscreen();
+                  },
+                  a = function () {
+                    document.exitFullscreen
+                      ? document.exitFullscreen()
+                      : document.mozCancelFullScreen
+                      ? document.mozCancelFullScreen()
+                      : document.webkitExitFullscreen
+                      ? document.webkitExitFullscreen()
+                      : document.msExitFullscreen &&
+                        document.msExitFullscreen();
+                  },
+                  r = function (e, t) {
+                    return Array.from(e).forEach(t);
+                  },
+                  s = function (e) {
+                    return e.classList.remove("-active");
+                  };
+                return {
+                  initGui: function (u) {
+                    var o = document
+                      .getElementById("build-elements")
+                      .getElementsByClassName("menu-button");
+                    r(o, function (e) {
+                      e.addEventListener("click", function () {
+                        r(o, s),
+                          e.classList.add("-active"),
+                          (u.activeAction = e.dataset.elementType);
+                      });
+                    }),
+                      document
+                        .getElementById("fullscreen")
+                        .addEventListener("click", function () {
+                          document.webkitCurrentFullScreenElement
+                            ? a()
+                            : i(document.documentElement);
+                        }),
+                      document
+                        .getElementById("exit")
+                        .addEventListener("click", function () {
+                          l(
+                            "Exit Management Center",
+                            "Do You want to exit the management center?",
+                            [
+                              [
+                                "Exit",
+                                function () {
+                                  return e.fire("EXIT");
+                                },
+                              ],
+                              [
+                                "Restart",
+                                function () {
+                                  return window.location.reload();
+                                },
+                              ],
+                              ["Continue", null],
+                            ]
+                          );
+                        });
+                    var m = function () {
+                        document.getElementById("balance-info").innerText =
+                          "Balance: $" + t.getBalance();
+                      },
+                      d = function () {
+                        document.getElementById("date-info").innerText =
+                          t.getDate();
+                      };
+                    e.on("UPDATE_BALANCE", m),
+                      e.on("NEXT_DAY", d),
+                      e.on("NEXT_DAY", n),
+                      m(),
+                      d(),
+                      n(),
+                      c();
+                  },
+                  closeFullscreen: a,
+                };
+              })();
+            },
+            {
+              "../util/events": "RROc",
+              "../gameManagement/gameManager": "i5vj",
+              "./report": "Qc6N",
+              "./dialog": "54FG",
+            },
+          ],
+          q7am: [
+            function (require, module, exports) {
+              var e = (function () {
+                var e = require("../util/helpers").transformElementIdToGamePos,
+                  r = require("../util/canvas").createOffscreenCanvas,
+                  t = require("../elementDefinitions").getElements,
+                  n = WORLD_WIDTH,
+                  a = WORLD_HEIGHT,
+                  i = FIELD_SIZE,
+                  o = r(n, a),
+                  u = o.getContext("2d"),
+                  c = (function () {
+                    var e = r(n, a),
+                      t = e.getContext("2d");
+                    t.strokeStyle = "rgba(0, 0, 0, .3)";
+                    for (var o = 0; o < n; o += i)
+                      for (var u = 0; u < a; u += i) t.rect(o, u, i, i);
+                    return t.stroke(), e;
+                  })();
+                return {
+                  drawGrid: function () {
+                    return (
+                      u.clearRect(0, 0, n, a),
+                      (function (r, t) {
+                        Object.keys(t).forEach(function (o) {
+                          var u = e(o);
+                          r.drawImage(
+                            t[o].image,
+                            u.x * i + n / 2,
+                            u.y * i + a / 2
+                          );
+                        });
+                      })(u, t()),
+                      u.drawImage(c, 0, 0),
+                      o
+                    );
+                  },
+                  getGridSize: function (e) {
+                    if (!e) return gridSize;
+                  },
+                };
+              })();
+              module.exports = e;
+            },
+            {
+              "../util/helpers": "N4w3",
+              "../util/canvas": "i5an",
+              "../elementDefinitions": "Fkh3",
+            },
+          ],
+          z0Yq: [
+            function (require, module, exports) {
+              var e = (function () {
+                var e = require("../util/helpers").transformElementIdToGamePos,
+                  t = require("./scrollHelper").scrollTo,
+                  l = WORLD_HEIGHT / 20,
+                  f = WORLD_WIDTH / 20,
+                  n = document.getElementById("minimap-cnv"),
+                  r = null,
+                  i = {
+                    HUB: {
+                      active: "#00ff00",
+                      defective: "#ffbb00",
+                      destroyed: "#ff0000",
+                    },
+                    HOUSE: {
+                      online: "#00ff00",
+                      slow: "#ffbb00",
+                      offline: "#ff0000",
+                    },
+                  };
+                return (
+                  n.addEventListener("click", function (e) {
+                    var l = {
+                      x: Math.floor(e.layerX / 3) - 50,
+                      y: Math.floor(e.layerY / 3) - 50,
+                    };
+                    t(l);
+                  }),
+                  {
+                    drawMinimap: function (t) {
+                      null === r && (r = n.getContext("2d")),
+                        r.clearRect(0, 0, r.canvas.width, r.canvas.height),
+                        Object.keys(t).forEach(function (n) {
+                          if ("CABLE" !== t[n].type) {
+                            var o = e(n),
+                              a = o.x,
+                              c = o.y;
+                            (r.fillStyle =
+                              i[t[n].type][t[n].status] || "#ff0000"),
+                              "HUB" === t[n].type
+                                ? (r.fillRect(
+                                    3 * (a - 3) + l + 1,
+                                    3 * (c - 3) + f,
+                                    1,
+                                    3
+                                  ),
+                                  r.fillRect(
+                                    3 * (a - 3) + l,
+                                    3 * (c - 3) + f + 1,
+                                    3,
+                                    1
+                                  ))
+                                : r.fillRect(
+                                    3 * (a - 3) + l,
+                                    3 * (c - 3) + f,
+                                    3,
+                                    3
+                                  );
+                          }
+                        });
+                    },
+                  }
+                );
+              })();
+              module.exports = e;
+            },
+            { "../util/helpers": "N4w3", "./scrollHelper": "YwZq" },
+          ],
+          H99C: [
+            function (require, module, exports) {
+              var global = arguments[3];
+              var e = arguments[3],
+                t = require("./util/globals");
+              Object.getOwnPropertyNames(t).map(function (n) {
+                e[n] = t[n];
+              });
+              var n = require("./util/helpers"),
+                i = n.createGamePos,
+                a = n.getCanvasPosFromScreenPos,
+                r = n.transformGamePosToElementId,
+                o = require("./gui/gui"),
+                u = o.initGui,
+                l = o.closeFullscreen,
+                c = require("./elementDefinitions"),
+                s = require("./gameManagement/gameManager"),
+                d = require("./gui/grid"),
+                m = require("./util/events"),
+                E = require("./gui/dialog"),
+                g = E.openDialog,
+                w = require("./gui/scrollHelper"),
+                v = w.getScrollPos,
+                y = w.up,
+                f = w.down,
+                h = w.left,
+                A = w.right,
+                b = w.setCnvSize,
+                p = require("./gui/minimap"),
+                L = p.drawMinimap,
+                x = document.getElementById("game-canvas"),
+                B = x.getContext("2d"),
+                C = document.getElementById("canvas-container"),
+                q = { activeAction: "CABLE" },
+                D = v(),
+                H = null,
+                O = function (e) {
+                  e.preventDefault();
+                  var t = q.activeAction,
+                    n = c.getElements()[H],
+                    r = i(a(x, e.x, e.y, D));
+                  "DELETE" === t
+                    ? c.deleteElement(r)
+                    : n && "HUB" === n.type
+                    ? c.openHubDialog(H)
+                    : c.buildElement(r, t);
+                };
+              function I() {
+                (B.canvas.width = C.offsetWidth),
+                  (B.canvas.height = C.offsetHeight),
+                  B.clearRect(0, 0, B.canvas.width, B.canvas.height),
+                  B.drawImage(
+                    d.drawGrid(),
+                    D.x - WORLD_HEIGHT / 2,
+                    D.y - WORLD_WIDTH / 2
+                  );
+              }
+              x.addEventListener("click", function (e) {
+                return O(e);
+              }),
+                x.addEventListener("mousemove", function (e) {
+                  var t = a(x, e.x, e.y, D);
+                  H = r(i(t.x, t.y));
+                }),
+                window.addEventListener("keydown", function (e) {
+                  switch ((e.preventDefault(), e.key)) {
+                    case "ArrowUp":
+                    case "w":
+                      y();
+                      break;
+                    case "ArrowDown":
+                    case "s":
+                      f();
+                      break;
+                    case "ArrowLeft":
+                    case "a":
+                      h();
+                      break;
+                    case "ArrowRight":
+                    case "d":
+                      A();
+                  }
+                });
+              var S = function e(t) {
+                return function (n) {
+                  n - t > 100
+                    ? (b(B.canvas.width, B.canvas.height),
+                      (D = v()),
+                      I(),
+                      L(c.getElements()),
+                      window.requestAnimationFrame(e(n)))
+                    : window.requestAnimationFrame(e(t));
+                };
+              };
+              s.initCompanyState({
+                currentDate: new Date(),
+                currentBalance: STARTING_BALANCE,
+                currentBandwidth: { available: 0, required: 0, supplied: 0 },
+                spawnChance: HOUSE_SPAWN_COOLDOWN,
+              }),
+                s.start(),
+                c.buildElement({ x: 10, y: 5 }, "HOUSE", !0),
+                c.buildElement({ x: 3, y: 8 }, "HOUSE", !0),
+                c.buildElement({ x: 5, y: 5 }, "HUB", !0),
+                c.buildElement({ x: 6, y: 5 }, "CABLE", !0),
+                c.buildElement({ x: 7, y: 5 }, "CABLE", !0),
+                c.buildElement({ x: 8, y: 5 }, "CABLE", !0),
+                c.buildElement({ x: 9, y: 5 }, "CABLE", !0),
+                c.buildElement({ x: 4, y: 5 }, "CABLE", !0),
+                c.buildElement({ x: 3, y: 5 }, "CABLE", !0),
+                c.buildElement({ x: 3, y: 6 }, "CABLE", !0),
+                c.buildElement({ x: 3, y: 7 }, "CABLE", !0),
+                u(q),
+                m.on("GAME_OVER", function () {
+                  g(
+                    "Notice",
+                    "We are sorry to inform you that this company just went bankrupt. Thank you for your service and the countless substantial contributions. You can go home now.",
+                    [
+                      [
+                        "Exit",
+                        function () {
+                          return m.fire("EXIT");
+                        },
+                      ],
+                      [
+                        "Restart",
+                        function () {
+                          return window.location.reload();
+                        },
+                      ],
+                    ]
+                  );
+                }),
+                m.on("EXIT", function () {
+                  s.stop();
+                  var e = document.getElementById("game");
+                  e.parentNode.removeChild(e), l();
+                }),
+                window.requestAnimationFrame(S(0));
+            },
+            {
+              "./util/globals": "F4nI",
+              "./util/helpers": "N4w3",
+              "./gui/gui": "mqqi",
+              "./elementDefinitions": "Fkh3",
+              "./gameManagement/gameManager": "i5vj",
+              "./gui/grid": "q7am",
+              "./util/events": "RROc",
+              "./gui/dialog": "54FG",
+              "./gui/scrollHelper": "YwZq",
+              "./gui/minimap": "z0Yq",
+            },
+          ],
+        },
+        {},
+        ["H99C"],
+        null
+      );
+    </script>
+  </body>
+</html>

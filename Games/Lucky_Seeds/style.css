@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+}
+canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: transparent;
+}
+#bgCanvas {
+    z-index: -4;
+}
+#headerCanvas {
+    z-index: -3;
+}
+#entityCanvas {
+    z-index: -2;
+}
+#textCanvas {
+    z-index: -1;
+}
+#shipCanvas {
+    z-index: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+}

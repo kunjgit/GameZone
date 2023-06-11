@@ -1,0 +1,14 @@
+Optimizations
+  Optimize colors
+  Replace "forEach" by "for ... in" and use neative counters
+  Remove "$." from all the classes
+  √ Unify zombie with enemy
+  √ Heritage with duplicated code
+  √ Heritage with Entrance and Exit
+  √ refactor loop and scenes
+  final room and start game share code
+  X Do intro with javascript (no html)
+Particle system (http://thecodeplayer.com/walkthrough/html5-canvas-experiment-a-cool-flame-fire-effect-using-particles)
+Fixel fonts
+Replace bounds for a Rect class
+Create task to build (and start using all.min.js)

@@ -1,0 +1,29 @@
+{
+  "name": "js13k",
+  "version": "0.5.0",
+  "description": "Entry for the js13k compo",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/satanas/js13k.git"
+  },
+  "author": "Ludus Pactum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/satanas/js13k/issues"
+  },
+  "homepage": "https://github.com/satanas/js13k",
+  "devDependencies": {
+    "glob": "^4.0.5",
+    "gulp": "^3.8.7",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.3.5",
+    "gulp-minify-css": "^0.3.8",
+    "gulp-minify-html": "^0.1.5",
+    "gulp-uglify": "^1.0.1",
+    "gulp-zip": "^2.0.1"
+  }
+}

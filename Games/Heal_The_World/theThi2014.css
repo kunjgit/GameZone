@@ -1,0 +1,35 @@
+/* Official */
+body, section { margin: 0; display: inline; }
+/* World Map Section */
+#worMap { position: absolute; left: 50%; margin-left: -400px; z-index: 10; opacity: 1; background-color: #3498db; border-radius: 50px; }
+.peo { font-size:100px; position: absolute; left: 50%; z-index: 15; color:gray; }
+#peoSec1 { top: 140px; margin-left:-300px; }
+#peoSec2 { top: 140px; margin-left:-140px; }
+#peoSec3 { top: 240px; margin-left:-250px; }
+#peoSec4 { top: 200px; margin-left: 150px; }
+#peoSec5 { top: 350px; margin-left:-320px; }
+#peoSec6 { top: 420px; margin-left:-85px; }
+#peoSec7 { top: 390px; margin-left: 200px; }
+/* Down Pannel Section */
+#ele { width:100px; height:100px; top:610px; margin-left: 130px; border: 3px solid #000000;}
+#timSec { top:610px; margin-left: 250px; }
+#scoSec { top:610px; margin-left:-390px; }
+#logBox { font-size: 25px; top:720px; margin-left:-390px; }
+#gatGam { display: none; }
+/* Explanation Section */
+#staGam { text-align: center; font-family: impact, sans-serif; }
+#staTel { font-size: 300%; }
+#firSecA { top: 265px; margin-left: -350px; }
+#firSecB { top: 265px; margin-left: -235px; }
+#watSecA { top: 400px; margin-left: -350px; }
+#watSecB { top: 400px; margin-left: -235px; }
+#earSecA { top: 535px; margin-left: -350px; }
+#earSecB { top: 535px; margin-left: -235px; }
+#winSecA { top: 670px; margin-left: -350px; }
+#winSecB { top: 670px; margin-left: -235px; }
+#fir { font-size: 100%; text-align: left; top: 265px; margin-left: -110px; }
+#wat { font-size: 100%; text-align: left; top: 400px; margin-left: -110px; }
+#ear { font-size: 100%; text-align: left; top: 535px; margin-left: -110px; }
+#win { font-size: 100%; text-align: left; top: 670px; margin-left: -110px; }
+#dow { font-size: 150%; position: relative; top:570px; }
+arial { font-family: arial; }

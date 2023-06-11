@@ -1,0 +1,33 @@
+<Variable>
+colIs = Color Is
+minTim = Minute Time
+soc = Score
+goa = Goal
+staLev = Stage Level
+staSpe = Stage Speed
+staChe = Stage Check
+setPeo = Set People
+timInt = Time Interval
+
+<Function>
+sta() = Start
+dra() = Draw
+staClo() = Start Close
+staSta() = Stage Start
+timMin() = Time Minute
+peoOne() = People One
+firOne() = Fire One
+watOne() = Water One
+eatOne() = Earth One
+winOne() = Wind One
+firTwo() = Fire Two
+watTwo() = Water Two
+eatTwo() = Earth Two
+winTwo() = Wind Two
+theOneHey() = The One Hey : People or Element Check, Draw
+colToHex() = Color RGB To Hex Code
+cur() = Cure
+ranGat() = Random Gate
+keyChe() = Key Check
+theOne() = The One : People Draw
+worMapWri() = World Map Write

@@ -1,0 +1,63 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<title>13k-timer</title>
+	
+	<link rel="stylesheet" href="style.min.css"/>
+	<script type="text/javascript" src="prefixfree.min.js"></script>
+</head>
+<body onload='App.init()'>
+	<div id='general-container'>
+		<div id='menu-container'>
+			<h1 class='tit-home'>Timer<canvas id='logo'></canvas>Madness</h1>    
+			<center><a href='#' id='start-game-arcade' class='arcade-mode'>ARCADE MODE</a></center>
+			<center><a href='#' id='start-game-survivor' class='survivor-mode'>SURVIVOR MODE</a></center>
+			<center class='how-to' ><a href='#' id='how-to-play'>How to play</a></center>
+		  
+       </div>
+		<div id='tutorial-container' class='hidden'>
+			<center>
+			<div class='tutorial-cont'>
+        		<p>Click the dots to make them explode.<br>
+				Don't need to rush things, though: the closer you get to the explosion, the more points you earn!</p>
+				<canvas id='show-timer-2' class='tutorial-canvas' width='30' height='30'></canvas><br>
+        		<p>Pay attention to the wandering dots and don't let them go away: if you click them the background turns red and the madness begins!</p>
+				<canvas id='show-timer-madness' class='tutorial-canvas' width='90' height='55'></canvas>
+				<p>Swipe as much as you can and make plenty of points destroying multiple dots with a single gesture.</p>
+				<p><strong class='c-arcade'>Arcade Mode</strong> <br>A race against time: unlock levels by collecting points before the countdown reaches zero</p>
+				<p><strong class='c-survivor' >Survivar Mode</strong> <br>Don't make them explode! Three lives at your disposal to earn as much points as you can</p>
+        <br><br><a href='#' id='close-how-to-play' class='bt-general'>CLOSE</a>
+		</center>
+		</div>
+		<div id='player-container' class='hidden'>
+			<center>
+         <form id='player-form'>
+           <center class='tit-type'>Type your name...</center>
+           <input type='text' id='player-input'><br>
+           <a href='#' class='arcade-mode' id='start-game'>START</a>
+         </form>
+      </center>
+			<!--<center><a href='#' id='re-start-game'>Play >></a></center>-->
+		</div>
+		<div id='endgame-container' class='hidden'>
+
+		</div>
+		<div id='game-container' class=''>
+			<p class='hidden' id='change-level'>Level <span id='change-level-value'>1</span></p>
+			<p class='hidden' id='change-level-start'>&#9654;</p>
+			<div id='hud' class='hidden'>
+				<p class='infoBar'><span id='lives_pti_needed_label'>:</span><br><span id='lives_pti_needed'></span></p>
+				<p class='infoBar'>Timer:<br><span id='timer'></span></p>
+				<p class='infoText'>Points:<br><span class="c1" id='points'></span></p>
+				<p class='infoText'>Level:<br><span class="c1" id='level'></span></p>
+				<p id='statusBtn' class='infoStatus'><span class="status c1" id='status'></span></p>
+			</div>
+			<canvas id='game-stage' width='800' height='600'>
+				Sorry, your browser is not supported
+			</canvas>
+		</div>
+	</div>
+<script type="text/javascript" src="script.min.js"></script>
+</html>

@@ -1,0 +1,1956 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #c {
+    margin: 0;
+    padding: 0;
+    background: #f5edba;
+  }</style
+><canvas id="c" width="1360" height="760"></canvas>
+<script>
+  !(function () {
+    const t = [
+        1360,
+        70,
+        "h,0,2,1360,70,10",
+        1076,
+        70,
+        "h,0,2,1076,70,10",
+        256,
+        420,
+        "h,84,0,38,36,3h,0,16,256,402,15",
+        1360,
+        768,
+        "h,584,464,506,270,10h,1026,454,76,142,3h,998,576,122,154,3h,1314,480,88,186,3h,1296,648,88,82,3r,10,20,0k,1i,1122,716,12r,0",
+        275,
+        230,
+        "h,0,0,272,230,15",
+        310,
+        150,
+        "h,0,0,310,146,15",
+        1360,
+        768,
+        "k,4b,166,0,100,760b,440,0,98,760b,840,0,98,760b,1104,0,98,760b,238,394,92,40b,370,232,100,44b,516,136,88,40b,114,180,72,46b,780,198,100,46b,914,444,90,40b,1054,140,98,44b,1174,370,88,38i,1058,162,22i,370,254,22i,114,202,22i,602,156,19i,328,414,20i,780,220,22i,1004,464,19i,1264,390,19",
+        350,
+        760,
+        "k,4b,166,0,100,760b,238,394,92,40b,114,180,72,46i,114,202,22i,328,414,20",
+        195,
+        120,
+        "x,4k,4i,44,74,39i,92,44,39i,144,74,39b,50,50,96,64x,0",
+        100,
+        800,
+        "z,2k,0n,0,64,100,660,20z,3n,0,0,100,64,20z,1",
+        1360,
+        768,
+        "h,406,92,616,650,10h,700,356,94,134,3h,1228,90,250,442,10h,1216,84,50,90,3h,1212,160,88,176,3h,1224,316,66,132,3h,1220,434,112,72,3r,5,20,0k,1i,1102,492,12r,0h,1176,468,70,64,3h,760,410,76,98,3h,976,82,50,162,3h,960,226,76,122,3h,940,328,106,152,3",
+        1360,
+        768,
+        "e,1070,102,38,46e,974,82,54,74e,1216,84,50,60e,406,92,614,670e,1014,116,222,644e,1230,90,130,670",
+        114,
+        180,
+        "k,4n,0,0,114,188,20k,5n,6,4,104,102,20k,6n,4,8,106,166,20k,4n,10,16,94,160,20",
+        114,
+        180,
+        "k,6n,0,0,114,188,20k,5n,6,4,104,102,20n,4,8,106,166,20k,6n,28,32,60,60,10k,5n,29,33,58,58,10k,4i,58,40,4",
+        550,
+        760,
+        "k,6j,314,0,126,760,6k,4b,408,160,32,12b,318,396,32,8h,394,122,136,46,6m,524,144,22m,524,144,15m,524,144,8h,246,346,132,52,6k,6b,340,96,72,330m,252,372,25m,252,372,17m,252,372,11",
+        550,
+        760,
+        "e,416,122,130,48e,226,346,134,52e,314,0,126,760g,322,170,110,14g,322,370,110,14g,322,570,110,14k,9b,350,432,34,52k,2b,370,466,28,38",
+        195,
+        120,
+        "x,4k,9i,44,74,39i,92,44,39i,144,74,39b,50,50,96,64x,0k,10i,42,76,37i,146,76,37i,92,50,40b,48,72,96,42",
+        195,
+        120,
+        "x,4k,6i,44,74,39i,92,44,39i,144,74,39b,50,50,96,64x,0x,4k,5i,42,74,32i,146,74,32i,92,48,36b,48,72,96,34x,0g,86,8,12,102",
+        195,
+        120,
+        "x,4k,9i,44,74,39i,92,44,39i,144,74,39b,50,50,96,64x,0k,10i,42,76,37i,146,76,37i,92,50,40b,48,72,96,42k,9o,2d,56,40,134,40d,132,40,134,114k,6b,102,42,28,20k,9f,124,84,96,40,132,52k,10i,106,74,20i,92,76,33",
+        195,
+        120,
+        "x,4k,6i,44,74,39i,92,44,39i,144,74,39b,50,50,96,64x,0x,4k,5i,42,74,32i,146,74,32i,92,48,36b,48,72,96,34x,0g,86,8,12,102k,4f,70,40,56,66,86,66b,68,64,6,18",
+        140,
+        140,
+        "k,4n,0,0,114,120,20k,5n,4,4,106,112,20k,6n,4,8,106,108,20k,4n,10,14,94,96,20k,6o,6d,8,62,108,62d,58,10,58,114",
+        140,
+        140,
+        "k,3n,10,14,94,96,20o,6k,5d,8,62,108,62d,58,10,58,114",
+        344,
+        800,
+        "x,4k,14n,4,76,334,614,10x,0h,0,0,344,74,8",
+        344,
+        800,
+        "e,0,72,340,620e,0,0,340,74g,8,232,324,12g,8,482,324,12k,9b,266,510,40,44k,2b,250,540,32,36",
+        588,
+        800,
+        "x,4k,15n,4,76,578,614,10x,0h,0,0,588,74,12",
+        588,
+        800,
+        "e,0,72,586,622e,0,0,588,74g,8,244,570,12g,8,444,570,12g,254,452,12,234k,9b,374,128,36,48k,8b,364,156,36,38k,9b,510,576,30,38",
+        914,
+        80,
+        "h,2,2,912,68,10",
+        50,
+        622,
+        "h,2,2,46,620,6",
+        490,
+        62,
+        "h,2,2,486,60,15",
+        914,
+        80,
+        "h,2,2,912,68,3",
+        140,
+        140,
+        "k,4n,10,14,94,96,20o,6k,16d,8,62,108,62d,58,10,58,114",
+        116,
+        106,
+        "k,6g,16,70,90,22g,16,52,90,22g,16,34,90,22g,16,16,90,22g,2,82,114,22g,2,0,114,22g,96,0,20,104g,0,2,20,104f,20,98,96,6,96,44f,18,70,98,6,22,104o,4k,4d,18,78,100,4d,20,104,96,38k,5b,26,16,18,24",
+        102,
+        42,
+        "h,2,2,100,40,15",
+        590,
+        62,
+        "h,2,2,590,60,3",
+        590,
+        80,
+        "h,2,2,590,68,10",
+        140,
+        140,
+        "k,4n,10,14,94,96,20o,6k,2d,8,62,108,62d,58,10,58,114",
+        42,
+        50,
+        "x,4k,9b,18,4,6,22x,0x,4k,10i,20,26,16k,9x,0i,21,25,15",
+        42,
+        50,
+        "x,4k,12b,18,4,6,22x,0x,4k,12i,20,26,16x,0",
+        42,
+        50,
+        "x,4k,1b,18,4,6,22x,0x,4k,1i,20,26,16x,0",
+        30,
+        30,
+        "k,4f,8,16,22,30,18,0f,12,24,0,8,30,12f,10,10,2,26,18,24k,1f,12,22,4,10,24,14f,10,16,20,26,16,4f,12,10,6,22,16,20",
+        30,
+        30,
+        "k,4f,8,16,22,30,18,0f,12,24,0,8,30,12f,10,10,2,26,18,24k,8f,12,22,4,10,24,14f,10,16,20,26,16,4f,12,10,6,22,16,20",
+        30,
+        30,
+        "k,4f,8,16,22,30,18,0f,12,24,0,8,30,12f,10,10,2,26,18,24k,7f,12,22,4,10,24,14f,10,16,20,26,16,4f,12,10,6,22,16,20",
+        220,
+        235,
+        "k,4f,100,124,98,78,76,116f,100,150,138,156,104,128f,66,140,68,120,32,124k,7f,34,124,82,142,98,120f,96,144,128,152,102,130f,96,124,94,86,78,118x,4k,12i,76,116,15i,96,124,15i,68,146,15i,92,146,15x,0k,11i,92,126,16i,76,120,16i,70,144,16i,90,142,16k,1i,80,126,8i,80,136,8k,7i,100,120,6i,60,146,6",
+        220,
+        235,
+        "k,4f,154,142,74,118,76,148f,108,80,78,126,102,126f,30,144,82,144,74,122f,100,190,104,150,76,142k,7f,100,188,100,146,86,144f,34,142,90,142,86,130f,106,84,90,114,104,118f,140,142,110,130,106,142x,4k,12i,114,122,15i,84,110,15i,68,130,15i,76,154,18i,102,146,18x,0k,11i,84,114,16i,110,124,16i,72,132,16i,76,150,16i,98,146,16k,7i,84,130,9i,96,134,9i,84,140,9i,116,120,5i,80,106,5i,58,130,5",
+        220,
+        235,
+        "k,4f,116,146,80,164,130,234f,140,106,146,144,220,102f,82,80,126,86,122,4f,54,130,76,90,0,52f,70,174,54,142,4,196k,7f,110,150,84,160,126,224f,136,110,142,138,210,104f,90,76,120,80,118,20f,54,120,66,92,4,58f,62,176,54,150,8,192x,4k,12i,44,136,29i,80,96,32i,122,100,32i,128,154,32i,80,168,32x,0k,11i,86,96,32i,116,100,29i,56,134,29i,82,160,29i,120,150,29k,7i,86,120,13i,100,126,13i,84,136,13i,102,104,5i,64,128,5i,58,92,11i,68,78,5i,118,80,13i,130,90,6i,34,140,6",
+        220,
+        235,
+        "x,4k,3i,24,162,11i,62,194,11i,70,70,11i,134,180,17i,146,144,10i,24,120,10i,112,68,10i,124,82,10i,136,110,11i,90,104,7i,94,196,7i,44,94,7x,0",
+        220,
+        235,
+        "x,4k,3i,57,192,8i,151,180,8i,149,100,8i,149,100,4i,19,164,8i,21,108,8i,91,210,4i,41,86,8i,61,56,8i,151,140,6i,99,74,4i,111,54,4i,133,72,4x,0",
+        100,
+        170,
+        "k,4b,25,41,62,96k,6n,31,79,18,24,5n,53,79,22,24,5n,27,51,48,24,5n,29,107,48,24,5k,2f,51,141,93,51,91,145f,61,23,75,103,99,29f,5,39,27,99,75,29f,11,145,25,85,65,157k,4o,4d,67,35,29,97d,65,35,73,99d,31,95,55,141d,55,139,73,93d,55,139,49,155d,51,153,57,167d,65,39,61,15d,61,17,71,7",
+        114,
+        180,
+        "k,4n,10,16,94,160,20k,2f,90,120,110,162,112,94f,96,74,108,118,110,28f,106,60,114,16,76,16f,46,30,114,16,24,14f,6,74,34,10,8,10f,6,124,24,88,6,60f,4,172,20,154,6,60f,44,180,2,174,34,138f,84,180,32,176,56,154f,116,176,70,180,86,146f,112,124,110,180,74,144",
+        72,
+        72,
+        "x,4k,14n,4,4,64,64,5x,0k,5i,36,18,6k,4i,36,16,4",
+        114,
+        180,
+        "k,4n,0,0,114,188,20k,5n,6,4,104,102,20k,6n,4,8,106,166,20k,4n,10,16,94,160,20k,10n,14,20,86,160,20k,9d,26,22,26,188d,46,20,46,188d,66,20,66,188d,86,22,86,188n,76,82,18,34,5k,4i,85,92,6n,81,90,8,20,5",
+        130,
+        170,
+        "x,4k,9n,54,116,4,22,5x,0x,4k,8n,52,138,8,12,5n,42,142,14,8,5x,0k,3o,4d,42,148,60,148k,12d,52,140,60,140k,10d,56,116,56,128x,4k,9n,78,116,4,22,5x,0x,4k,8n,76,138,8,12,5n,80,142,14,8,5x,0k,3o,4d,76,148,94,148k,12d,76,140,84,140k,10d,80,116,80,128x,4k,5i,94,126,5x,0x,4k,9n,90,98,8,22,5x,0x,4k,5i,44,126,5x,0x,4k,9n,40,98,8,22,5x,0x,4k,14n,49,78,40,42,5x,0o,4k,2d,49,94,89,94k,4d,49,114,89,114x,4k,5n,38,32,62,56,10i,34,72,7i,104,72,7x,0o,4k,8d,40,65,100,65x,4f,36,0,64,22,40,36f,22,10,56,20,38,44k,7f,40,6,60,24,44,32f,30,18,56,24,44,40n,32,24,72,36,10a,68,43,34,0,180x,0",
+        130,
+        170,
+        "o,4x,4k,5n,61,84,16,16,5x,0k,4d,54,90,86,90n,44,30,50,48,5k,5n,48,34,42,52,5b,44,64,50,24k,8i,48,74,7i,90,74,7k,4d,58,82,80,82p,76,62,4,8p,60,62,4,8k,14i,76,64,2i,60,64,2",
+        130,
+        170,
+        "x,4k,14n,44,94,40,42,5x,0o,4k,2d,44,110,84,110x,4k,5n,58,96,16,16,5x,0k,4d,44,130,84,130",
+        130,
+        170,
+        "x,4k,5n,38,32,62,56,10i,34,72,7b,86,70,20,6x,0o,4k,4d,68,82,80,82p,80,62,4,8p,90,62,4,8k,8i,54,74,7k,14i,82,64,2i,92,64,2x,4f,36,0,64,22,40,36f,22,10,56,20,38,44f,126,38,102,42,102,22k,7f,40,6,60,24,44,32f,30,18,56,24,44,40f,118,36,92,40,94,26n,30,22,26,40,10a,60,40,20,0,180a,82,40,24,0,180x,0k,8d,60,42,100,42k,4d,56,38,110,38",
+        130,
+        170,
+        "x,4k,5i,66,110,5x,0x,4k,9n,62,82,8,22,5x,0",
+        130,
+        170,
+        "x,4k,9n,62,82,4,22,5x,0x,4k,8n,60,104,8,12,5n,64,108,14,8,5x,0k,3o,4d,60,114,78,114k,12d,60,106,68,106k,10d,64,82,64,94",
+      ],
+      i = 53,
+      s = 12,
+      h = 50,
+      e = 18,
+      n = 16,
+      r = 14,
+      f = [s, e, 48, h],
+      o = i + 44,
+      l = o + 80,
+      k = l + 80,
+      a = k + 10,
+      c = [
+        "#000",
+        "#fff",
+        "#8c8fae",
+        "#584563",
+        "#3e2137",
+        "#d79b7d",
+        "#9a6348",
+        "#f5edba",
+        "#d26471",
+        "#c0c741",
+        "#647d34",
+        "#e4943a",
+        "#9d303b",
+        "#70377f",
+        "#7ec4c1",
+        "#34859d",
+        "#17434b",
+        "#1f0e1c",
+      ],
+      d = [
+        {
+          t: [1360, 0],
+          i: [
+            [
+              7, 100, 0, 7, 500, 0, 7, 900, 0, 7, 1260, 0, 8, 50, 590, 8, 350,
+              590,
+            ],
+            [2, 1112, 104],
+            [10, 680, 0, 14, 180, -20],
+            [4, 1194, 494],
+            [3, 680, 0],
+            [
+              5, 1214, 716, 0, 1, 16, 195, 590, 0, 1, 18, 390, 590, 0, 0, 18,
+              390, 590, 0, 1, 12, 700, 550, 1, 1,
+            ],
+            [1, 538, 703, 1],
+          ],
+          p: [
+            1030,
+            124,
+            186,
+            370,
+            "#fff",
+            1,
+            30,
+            4,
+            0,
+            200,
+            1,
+            !0,
+            2,
+            4,
+            1100,
+            500,
+            210,
+            210,
+            "#fff",
+            1,
+            30,
+            4,
+            0,
+            200,
+            3,
+            !0,
+            2,
+            4,
+            1100,
+            708,
+            210,
+            4,
+            "#fff",
+            1,
+            50,
+            0.1,
+            0,
+            1,
+            3,
+            !1,
+            10,
+            12,
+            1100,
+            476,
+            110,
+            4,
+            "#fff",
+            1,
+            50,
+            0.1,
+            0,
+            1,
+            1,
+            !1,
+            10,
+            12,
+            1100,
+            716,
+            300,
+            60,
+            "#fff",
+            1,
+            50,
+            0,
+            1,
+            100,
+            5,
+            !0,
+            2,
+            5,
+          ],
+          s: [2, 5, 3, 5, 1, 0],
+        },
+        {
+          t: [2720, 0],
+          m: [],
+          i: [
+            [
+              6, 670, 0, 6, 2040, 0, 8, 50, 590, 8, 150, 590, 8, 1360, 590, 8,
+              1200, 590, 8, 2200, 590, 8, 1950, 590,
+            ],
+            [],
+            [24, 880, 28, 9, 620, 38, 22, 450, 28, 22, 2500, 400],
+            [14, -20, -20, 14, 1180, -20, 14, 1660, -15, 14, 2150, -10],
+            [
+              20, 460, 550, 20, 980, 550, 20, 460, 300, 20, 980, 300, 16, 1150,
+              590, 16, 1400, 590, 16, 1700, 590, 16, 2300, 590,
+            ],
+            [
+              16, 250, 590, 1, 1, 18, 250, 590, 1, 0, 12, 740, 550, 2, 1, 50,
+              2550, 550, 6, 1, 16, 2700, 590, 0, 1,
+            ],
+            [0, 680, 703, 1, 0, 2040, 703, 1],
+          ],
+          p: [],
+          l: [683, 580],
+          s: [1, 5, 0, 5, 1, 0],
+        },
+        {
+          t: [1360, 0],
+          m: [0, 0, 1360, 780, 4, 232, 32, 870, 800, 16],
+          i: [
+            [],
+            [],
+            [],
+            [],
+            [30, 460, 550, 30, 460, 300],
+            [12, 740, 550, 1, 1, 12, 980, 245, 3, 1],
+            [
+              26, 680, 22, 1, 27, 248, 86, 1, 27, 1114, 86, 1, 32, 550, 472, 1,
+              28, 846, 402, 1, 31, 330, 602, 1, 29, 680, 703, 1,
+            ],
+          ],
+          p: [],
+          l: [683, 580],
+        },
+        {
+          t: [1360, 0],
+          m: [0, 0, 1360, 780, 4, 572, 32, 520, 800, 2],
+          i: [
+            [],
+            [],
+            [],
+            [],
+            [35, 850, 550, 35, 850, 250],
+            [12, 980, 245, 2, 1, 47, 690, 210, 0, 1, 48, 690, 200, 4, 0],
+            [
+              34, 848, 22, 1, 27, 580, 86, 1, 27, 1114, 86, 1, 28, 846, 402, 1,
+              31, 672, 602, 1, 31, 800, 602, 1, 31, 730, 502, 1, 33, 848, 703,
+              1,
+            ],
+          ],
+          p: [],
+          l: [683, 580],
+          s: [0, 5, 1, 5, 2, 1],
+        },
+        {
+          t: [1950, 0],
+          m: [
+            0, 0, 1960, 780, 4, 572, 32, 1110, 400, 2, 1440, 171, 230, 150, 5,
+          ],
+          i: [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [48, 690, 200, 3, 1, 19, 1560, 191, 0, 1],
+            [
+              27, 580, -225, 1, 27, 1704, -225, 1, 34, 848, 22, 1, 34, 1438, 22,
+              1, 31, 872, 291, 1, 31, 1e3, 291, 1, 31, 1350, 291, 1, 33, 848,
+              392, 1, 33, 1438, 392, 1,
+            ],
+          ],
+          p: [],
+          l: [683, 580],
+          u: [l + 40, 1555, 331, 1, 1],
+        },
+      ];
+    let u = (t, i, s, h, e, n, r) => {
+        r && (t.globalAlpha = r),
+          (t.fillStyle = i),
+          t.fillRect(s, h, e, n),
+          (t.globalAlpha = 1);
+      },
+      x = (t, i) => {
+        u(t, i, 0, 0, 1360, 760);
+      },
+      b = (t, i, s, h, e, n, r) => {
+        n && (t.font = "bold " + n + "px Arial"),
+          r && (t.textAlign = "center"),
+          (t.fillStyle = e),
+          t.fillText(i, s, h);
+      },
+      m = (t, i, s, h, e, n, r, f, o, l) => {
+        t.save(),
+          void 0 === e && (e = i.width),
+          void 0 === n && (n = i.height),
+          void 0 === l && (l = !1),
+          l && ((s -= e / 2), (h -= n / 2)),
+          t.translate(s + e / 2, h + n / 2),
+          t.rotate(2 * Math.PI - (r * Math.PI) / 180);
+        let k = 0,
+          a = 0;
+        (k = f ? -1 : 1),
+          o ? ((a = o), (k = o)) : (a = 1),
+          t.scale(k, a),
+          t.drawImage(i, -e / 2, -n / 2, e, n),
+          t.restore();
+      },
+      p = () => new Date().getTime(),
+      w = (t, i) => Math.floor(Math.random() * (i - t + 1)) + t;
+    const g = (t) => 0.017453292519943295 * t,
+      y = (t) => JSON.parse(JSON.stringify(t)),
+      v = (t, i) =>
+        t.x < i.x + i.w &&
+        t.x + t.w > i.x &&
+        t.y < i.y + i.h &&
+        t.y + t.h > i.y;
+    class T {
+      constructor(t, i, s, h, e, n, r, f, o, l, k, a, c, d) {
+        (this.x = t),
+          (this.y = i),
+          (this.w = s),
+          (this.h = h),
+          (this.v = e),
+          (this.T = n),
+          (this.A = []),
+          (this.L = p()),
+          (this.interval = l),
+          (this.max = r),
+          (this.I = f),
+          (this.O = o),
+          (this.level = k),
+          (this.D = a),
+          (this.R = (Math.PI / 180) * 360),
+          (this.N = c),
+          (this.P = d);
+      }
+      update() {
+        for (let t = this.A.length - 1; t >= 0; t--) {
+          let i = this.A[t];
+          (i.y += i.I),
+            (i.x += i.O),
+            this.I > 0 &&
+              (i.y >= this.y + this.h || i.x >= this.x + this.w) &&
+              (i.S = !0),
+            this.I < 0 && i.y <= this.y && (i.S = !0),
+            this.O > 0 && i.x > this.x + this.w && (i.S = !0);
+        }
+        let t = p();
+        if (t > this.L + this.interval && this.A.length < this.max) {
+          for (let t = 0; t < this.T; t++) {
+            let t = this.y,
+              i = this.I > 0 ? this.I : 0;
+            this.I < 0 && ((t = this.y + this.h), (i = this.I)),
+              this.A.push({
+                x: w(this.x, this.x + this.w),
+                y: t,
+                r: w(this.N, this.P),
+                I: i,
+                O: this.O > 0 ? w(this.O, this.O + 2) : 0,
+                a: this.D ? 1 / w(1, 5) : 1,
+              });
+          }
+          this.L = t;
+        }
+        this.A = this.A.filter((t) => !t.S);
+      }
+      G(t) {
+        t.fillStyle = this.v;
+        for (let i = 0; i < this.A.length; i++)
+          (t.globalAlpha = this.A[i].a),
+            t.beginPath(),
+            t.arc(this.A[i].x, this.A[i].y, this.A[i].r, 0, this.R, 0),
+            t.fill();
+        t.globalAlpha = 1;
+      }
+    }
+    class M {
+      constructor(t, i) {
+        (this.width = t),
+          (this.x = i),
+          (this.U = -1 * (this.width - 1360)),
+          (this.q = !1),
+          (this.H = !1);
+      }
+      F(t) {
+        (this.q = !1),
+          (this.H = !1),
+          (this.x -= 1.2 * t),
+          this.x <= this.U && ((this.x = this.U), (this.q = !0)),
+          this.x >= 0 && ((this.x = 0), (this.H = !0));
+      }
+      J(t, i) {
+        return (
+          !!((i < 0 && this.H) || t > 880) || !!((i > 0 && this.q) || t < 480)
+        );
+      }
+    }
+    class j {
+      constructor(t, i, s, h, e, n, r, f) {
+        (this.r = t),
+          (this.data = i),
+          (this.K = s),
+          (this.W = h),
+          (this.Y = e),
+          (this.$ = n),
+          (this.done = !1),
+          (this.B = r),
+          (this.V = f);
+      }
+      _(t, i) {
+        return !(this.B !== i || this.done || !v(this.r, t) || (this.tt(), 0));
+      }
+      tt() {
+        (this.done = !0),
+          (this.data[this.K][this.W] = 0),
+          (this.data[this.Y][this.$] = 1),
+          (this.V.e = 1);
+      }
+    }
+    let A,
+      L = 0,
+      I = 1;
+    const E = {},
+      O = {
+        crash: [0.6],
+        hat: [, , 0.7, 0.5, , , 0.7, , , , 0.7, , , , , ,],
+        ride: [, , , , 0.6, , , , 0.6, , , , 0.6, , , ,],
+        snare: [, , , , 1, , , 1, , , , , 0.2, 0.2, 1, 0.2],
+        foot: [1, , , , , , , , 0.2, , 1, 1, 0.2, , , ,],
+        wiggle: [, , , , 0.4, , , , 0.6, 0.6, 0.6, 0.6, 0.8, , 0.8, ,],
+        geet: [1, , , , , , , , , , 0.4, , , , , ,],
+      },
+      D = {
+        crash: [1],
+        ride: [, , , , 0.6, , , , 0.6, , , , 0.6, , , ,],
+        foot: [1, , , , 1, , , , 1, , , , 1, , , ,],
+        snare: [, , , , , , , , , , , , 0.6, 0.4, 0.8, 0.4],
+        mid: [1, , , 1, , , 1, , , , 1, , , , , ,],
+        wiggle: [1, , , 1, , , 1, , , , 1, , , , 1, ,],
+      };
+    let R = -1,
+      z = 16;
+    const N = (t) => Math.random() < t,
+      P = (t = 1) => 2 * Math.random() * t - t;
+    let S,
+      G = !1;
+    const U = {
+        it: () => {
+          if (!A) return;
+          S = setTimeout(U.it, 250);
+          const t = A.currentTime + 1;
+          for (; L < t; ) {
+            ++z > 16 && ((z = 1), R++), (L += 15 / 108);
+            const t = ~~(R / 4) % 3 == 2 ? D : O;
+            for (const i of Object.keys(t))
+              if (N(t[i][z - 1]))
+                if ("geet" === i || "mid" === i) {
+                  let s = 55,
+                    h = 30 / I,
+                    e = 1.2;
+                  R % 4 > 2 && (s = 41.20344461410875),
+                    "mid" === i && ((s *= 2), (h *= 16), (e *= 3)),
+                    E.geet(L, e, s, t[i][z - 1] / h);
+                } else if ("wiggle" === i) {
+                  let t = 440;
+                  z % 2 == 0 && (t = 391.995436),
+                    N(0.8) && (t = 523.2511306),
+                    E.st(L, t, 5e3, 4e3, 1 * I),
+                    N(0.6) && E.st(L, 2 * t, 5e3, 4e3, 0.5 * I);
+                } else E[i](L);
+          }
+        },
+      },
+      q = () => {
+        if (L) return;
+        A = new (window.AudioContext || window.webkitAudioContext)();
+        const t = (t) => {
+            const i = A.createBuffer(1, 22050, A.sampleRate);
+            buffArray = i.getChannelData(0);
+            for (let i = 0; i < 22050; i++) buffArray[i] = t(i);
+            return i;
+          },
+          i = (() =>
+            t((t) => ((Math.PI + 50) * t) / (Math.PI + 50 * Math.abs(t))))(),
+          s = (() => t(P))();
+        (E.ht = (t = A.currentTime, i, h, e, n) => {
+          const r = A.createBufferSource(),
+            f = A.createGain(),
+            o = A.createBiquadFilter(),
+            l = n + P(n / 2);
+          (r.buffer = s),
+            (r.loop = !0),
+            r.connect(o),
+            o.connect(f),
+            (o.type = "bandpass"),
+            (o.frequency.value = i + P(i / 6)),
+            (o.Q.value = h),
+            f.connect(A.destination),
+            f.gain.setValueAtTime(e / 60, t),
+            f.gain.exponentialRampToValueAtTime(1e-14, t + l),
+            r.start(t),
+            r.stop(t + l),
+            setTimeout(() => {
+              r.disconnect();
+            }, 1e3 + Math.round(1e3 * l));
+        }),
+          (E.et = (
+            t = A.currentTime,
+            i,
+            s,
+            h = 1,
+            e = i,
+            n = 1e-4,
+            r = "sine"
+          ) => {
+            const f = A.createOscillator(),
+              o = A.createGain();
+            (f.type = r),
+              f.connect(o),
+              o.connect(A.destination),
+              f.frequency.setValueAtTime(i, t),
+              o.gain.setValueAtTime(h, t),
+              f.frequency.exponentialRampToValueAtTime(e, t + s),
+              o.gain.exponentialRampToValueAtTime(n, t + s),
+              f.start(t),
+              f.stop(t + s),
+              setTimeout(() => {
+                f.disconnect();
+              }, 1e3 + Math.round(1e3 * s));
+          }),
+          (E.st = (t = A.currentTime, s, h, e, n, r = 0) => {
+            const f = A.createBufferSource(),
+              o = A.createGain(),
+              l = A.createBiquadFilter(),
+              k = n + P(n / 12);
+            (f.buffer = i),
+              (f.loop = !0),
+              (o.gain.value = 0),
+              f.connect(l),
+              l.connect(o),
+              (l.type = "bandpass"),
+              (l.frequency.value = s),
+              (l.Q.value = h),
+              o.connect(A.destination),
+              o.gain.setValueAtTime(0.01, t),
+              o.gain.exponentialRampToValueAtTime(e, t + 0.05),
+              o.gain.exponentialRampToValueAtTime(0.75, t + k),
+              r &&
+                (l.frequency.setValueAtTime(s, t + 0.01),
+                l.frequency.exponentialRampToValueAtTime(r, t + k / 8)),
+              f.start(t),
+              f.stop(t + k),
+              setTimeout(() => {
+                f.disconnect();
+              }, 1e3 + Math.round(1e3 * k));
+          }),
+          (E.foot = (t) => {
+            E.et(t, 90 + P(5), 0.9, 1, 10, 0.001, "sine"),
+              E.et(t, 160 + P(15), 0.15, 0.8, 80, 0.001, "triangle"),
+              E.ht(t, 1e3, 2, 0.7 * I * I, 0.1);
+          }),
+          (E.hat = (t) => {
+            E.ht(t, 8e3, 0.8, 0.5 * I * I, 0.3);
+          }),
+          (E.snare = (t) => {
+            E.et(t, 200 + P(10), 0.1, 0.8 * I, 100, 0.001, "triangle"),
+              E.ht(t, 2500, 1.5, 1.2 * I * I, 0.4);
+          }),
+          (E.crash = (t) => {
+            E.ht(t, 12e3, 1, 0.05 * I * I, 1.5),
+              E.ht(t, 6e3, 2, 0.06 * I * I, 2),
+              E.ht(t, 500, 1, 0.04 * I * I, 3);
+          }),
+          (E.ride = (t) => {
+            E.ht(t, 5e3, 2, 0.175 * I * I, 0.7),
+              E.ht(t, 400, 0.6, 0.05 * I * I, 1);
+          }),
+          (E.geet = (t, i, s, h) => {
+            var e = 5e4 * h,
+              n = P(0.01) + 0.02;
+            E.st(t - n, s, 5e3, 40 * e, i),
+              E.st(t + n, 2 * s, 5e3, 30 * e, i / 1.4),
+              E.st(t + 3 * n, 3 * s, 5e3, 8 * e, i / 1.8);
+          });
+      },
+      H = () => {
+        G || (U.it(), (G = !0));
+      },
+      C = () => {
+        G && (clearTimeout(S), (G = !1));
+      },
+      F = () => {
+        E.et(A.currentTime, 110, 0.8, 12, 1760, 1e-4, "square");
+      },
+      J = () => {
+        const t = A.currentTime;
+        E.st(t, 55, 5e3, 1e7, 1), E.ht(t, 110, 1, 600, 2);
+      },
+      K = () => {
+        E.et(A.currentTime, 440, 0.5, 6, 220, 0.001, "triangle"),
+          E.ht(A.currentTime, 440, 1, 0.15, 1);
+      },
+      W = () => {
+        E.geet(A.currentTime, 4, 220, 0.016),
+          setTimeout(() => E.geet(A.currentTime, 4, 261.625565301, 0.014), 100),
+          setTimeout(() => E.geet(A.currentTime, 4, 329.627556913, 0.012), 200),
+          setTimeout(() => E.geet(A.currentTime, 4, 391.995435982, 0.01), 300);
+      },
+      Y = () => {
+        I = 0.18;
+      },
+      $ = () => {
+        I = 0.8;
+      },
+      B = {
+        nt: () => {
+          E.ht(A.currentTime, 100, 1, 12e3, 0.3),
+            E.ht(A.currentTime, 6e3, 1, 8e3, 0.1);
+        },
+        rt: () => {
+          E.et(A.currentTime, 440, 0.4, 6, 600, 1e-6, "square");
+        },
+        ft: () => {
+          E.et(A.currentTime, 880, 0.6, 6, 1760, 0.2, "triangle");
+        },
+        ot: () => {
+          E.et(A.currentTime, 110, 0.1, 6, 110, 0.2, "sawtooth");
+        },
+        lt: () => {
+          B.ot(), setTimeout(B.ot, 140);
+        },
+        kt: () => {
+          E.ht(A.currentTime, 880, 1, 16e3, 0.15);
+        },
+      },
+      V = () => {
+        E.et(A.currentTime, 55, 0.5, 200, 110, 0.001, "sine"),
+          E.ht(A.currentTime, 500, 1, 12e3, 0.8),
+          E.ht(A.currentTime, 6e3, 1, 8e3, 0.2);
+      };
+    class Q {
+      constructor(t, i, s, h, e) {
+        (this.d = y(t)),
+          (this.origin = 0 + h),
+          (this.at = [].concat(i)),
+          (this.ct = []),
+          (this.dt = []),
+          (this.ut = []),
+          (this.V = []),
+          (this.xt = s),
+          (this.l = null),
+          (this.bt = !1),
+          (this.pt = !1),
+          (this.wt = []),
+          (this.gt = []),
+          (this.yt = []),
+          (this.vt = e),
+          this.Tt();
+      }
+      Mt() {
+        if (this.pt) return;
+        this.pt = !0;
+        let t = this;
+        setTimeout(() => {
+          t.pt = !1;
+        }, 60);
+      }
+      Tt() {
+        this.bt = !0;
+        for (let t = 0; t < this.d.i[6].length; t += 4)
+          if (this.d.i[6][t + 3] > 0) {
+            let i = this.at[this.d.i[6][t]];
+            this.dt.push({
+              jt: this.d.i[6][t + 1] - i.width / 2,
+              x: this.d.i[6][t + 1] - i.width / 2,
+              y: this.d.i[6][t + 2] + 10,
+              w: i.width,
+              h: i.height - 10,
+            });
+          }
+        if (!this.xt)
+          for (let t = 0; t < this.d.p.length; t += 14)
+            this.ut.push(
+              new T(
+                this.d.p[0 + t],
+                this.d.p[1 + t],
+                this.d.p[2 + t],
+                this.d.p[3 + t],
+                this.d.p[4 + t],
+                this.d.p[5 + t],
+                this.d.p[6 + t],
+                this.d.p[7 + t],
+                this.d.p[8 + t],
+                this.d.p[9 + t],
+                this.d.p[10 + t],
+                this.d.p[11 + t],
+                this.d.p[12 + t],
+                this.d.p[13 + t]
+              )
+            );
+        this.d.l && (this.l = this.d.l);
+        for (let t = 0; t < this.d.i[5].length; t += 5) {
+          let i = this.d.i[5];
+          if (this.xt && this.vt && (i[t] === e || i[t] === n)) {
+            let s = this.vt[this.origin - 10].i[5];
+            (i[t + 4] = i[t] === e ? 1 : s[t + 4]),
+              i[t] === n && s[t + 4] < 1 && (i[t + 2] += 200);
+          }
+          if (f.includes(i[t])) {
+            if (
+              (!this.xt ||
+                (i[t] !== s && i[t] !== h) ||
+                this.d.At ||
+                (this.d.u || (this.d.u = []),
+                (this.d.u = this.d.u.concat(
+                  k + i[t + 3],
+                  i[t + 1],
+                  i[t + 2],
+                  1,
+                  1
+                ))),
+              !this.xt && i[t] === h)
+            )
+              continue;
+            if (this.xt && i[t] !== e) continue;
+            this.V.push({
+              jt: i[t + 1] - this.at[i[t]].width / 2 + 20,
+              x: i[t + 1] - this.at[i[t]].width / 2 + 20,
+              y: i[t + 2],
+              w: this.at[i[t]].width - 40,
+              h: this.at[i[t]].height,
+              d: i[t + 3],
+              s: i[t],
+              P:
+                i[t + 1] -
+                this.at[i[t]].width / 2 +
+                20 +
+                (this.at[i[t]].width - 40) / 2,
+              e: i[t + 4],
+            });
+          }
+        }
+        if (this.xt) {
+          const t = [e, n, r];
+          let i = [],
+            s = 5;
+          for (let h = 5; h >= 2; h--) {
+            h < 5 && (s = 3);
+            let n = this.d.i[h];
+            for (let r = n.length - s; r >= 0; r -= s)
+              t.includes(n[r]) &&
+                (5 === h && (n[r + 4] = 0),
+                this.d.At ||
+                  (i.push([n[r], n[r + 1], n[r + 2]]),
+                  n[r] !== e && n.splice(r, s)));
+          }
+          i.sort((t, i) => t[0] < i[0]),
+            i.forEach((t) => {
+              t.forEach((t) => {
+                this.d.i[1].push(t);
+              });
+            }),
+            (this.d.At = !0);
+        }
+        if (this.d.s && !this.xt) {
+          let t = (t, i, s, h) => ({
+            x: t,
+            y: i,
+            w: s[h].width,
+            h: s[h].height,
+          });
+          for (let i = 0; i < this.d.s.length; i += 6) {
+            let s = this.d.s;
+            if (s[i] < 2) {
+              let h = s[i + 1],
+                e = s[i + 2],
+                n = 5 * e + 4,
+                r = s[i + 3],
+                f = 5 * s[i + 4] + 4,
+                o = s[i + 5];
+              this.gt.push(
+                new j(
+                  t(
+                    this.d.i[h][5 * e + 1],
+                    this.d.i[h][5 * e + 2],
+                    this.at,
+                    this.d.i[h][5 * e]
+                  ),
+                  this.d.i,
+                  h,
+                  n,
+                  r,
+                  f,
+                  1 === s[i],
+                  this.V[o]
+                )
+              );
+            }
+          }
+        }
+        for (let t = 0; t < this.d.i[5].length; t += 5) {
+          let i = this.d.i[5];
+          i[t] > k && i[t] < k + 9 && (i[t + 4] = this.xt ? 1 : 0);
+        }
+        if (this.d.u && !this.d.Lt)
+          for (let t = 0; t < this.d.u.length; t += 5) {
+            let i = this.d.u,
+              s = i[t];
+            i[t + 3] > 0 &&
+              this.yt.push({
+                id: s,
+                jt: i[t + 1],
+                x: i[t + 1],
+                y: i[t + 2],
+                w: this.at[s].width / 2,
+                h: this.at[s].height / 2,
+                e: i[t + 3],
+                t: i[t + 3],
+              });
+          }
+        (this.viewport = new M(this.d.t[0], this.d.t[1])), (this.bt = !1);
+      }
+      update() {
+        this.ut.forEach((t) => {
+          t.update();
+        }),
+          (this.wt = this.wt.filter((t) => !t.It()));
+        for (let t = 0; t < this.wt.length; t++) this.wt[t].update();
+      }
+      Et(t, i, s, h) {
+        i && t.drawImage(i, s - 0.5 * i.width, h, i.width, i.height);
+      }
+      G(t, i) {
+        if (this.bt || this.pt) return void x(t, c[4]);
+        if ((this.xt && x(t, c[3]), this.d.m && this.d.m.length > 0)) {
+          let i = this.d.m;
+          for (let s = 0; s < i.length; s += 5)
+            u(
+              t,
+              c[i[s + 4]],
+              i[s] + this.viewport.x,
+              i[s + 1],
+              i[s + 2],
+              i[s + 3],
+              1
+            );
+        }
+        let s = 3;
+        for (let e = 0; e < 7; e++) {
+          e > 4 && (s = 4), 5 === e && (s = 5);
+          let n = this.d.i[e],
+            r = n.length;
+          for (let f = 0; f < r; f += s)
+            if (!(5 === e && n[f + 4] < 1)) {
+              if (this.xt) {
+                let i = n[f],
+                  s = 0;
+                i < 2 && (s = 0),
+                  i > 9 && (s = 1),
+                  i === h && (s = 12 - i + 1),
+                  (i < 2 || i > 9) &&
+                    this.Et(
+                      t,
+                      this.at[i + s],
+                      n[f + 1] + this.viewport.x,
+                      n[f + 2]
+                    );
+              } else
+                this.Et(t, this.at[n[f]], n[f + 1] + this.viewport.x, n[f + 2]);
+              if (
+                (this.ut
+                  .filter((t) => t.level === e)
+                  .forEach((i) => {
+                    i.G(t);
+                  }),
+                i && i.Ot === e)
+              ) {
+                for (let i = 0; i < this.yt.length; i++) {
+                  let s = this.yt[i];
+                  s.t > 0 &&
+                    this.Et(t, this.at[s.id], s.jt + this.viewport.x, s.y);
+                }
+                i.G(t);
+              }
+            }
+          for (let i = 0; i < this.wt.length; i++) this.wt[i].G(t);
+          i && i.Dt(t);
+        }
+      }
+      Rt(t, i, s) {
+        for (let s = 0; s < this.gt.length; s++)
+          this.gt[s]._(t, i) &&
+            setTimeout(() => {
+              W();
+            }, 300);
+      }
+    }
+    let X = [],
+      Z = null;
+    const _ = (t) => (Math.PI / 180) * t,
+      tt = {
+        k: (t) => {
+          (Z.fillStyle = X[t[0]]), (Z.strokeStyle = X[t[0]]);
+        },
+        b: (t) => {
+          Z.fillRect(t[0], t[1], t[2], t[3]);
+        },
+        d: (t) => {
+          Z.beginPath(), Z.moveTo(t[0], t[1]), Z.lineTo(t[2], t[3]), Z.stroke();
+        },
+        f: (t) => {
+          Z.beginPath(), Z.moveTo(t[0], t[1]);
+          for (let i = 2; i < t.length; i += 2) Z.lineTo(t[i], t[i + 1]);
+          Z.fill();
+        },
+        i: (t) => {
+          it(t[0], t[1], t[2]);
+        },
+        n: (t) => {
+          st(t[0], t[1], t[2], t[3], t[4], !0);
+        },
+        o: (t) => {
+          Z.lineWidth = t[0];
+        },
+        a: (t) => {
+          Z.beginPath(),
+            Z.arc(t[0], t[1], t[2], _(t[3]), _(t[4]), !0),
+            Z.fill();
+        },
+        e: (t) => {
+          (Z.fillStyle = X[4]),
+            st(t[0], t[1], t[2], t[3], 10, !0),
+            (Z.fillStyle = X[6]),
+            st(t[0] + 4, t[1] + 4, t[2] - 8, t[3] - 8, 10, !0),
+            (Z.fillStyle = X[4]),
+            st(t[0] + 8, t[1] + 8, t[2] - 16, t[3] - 16, 10, !0),
+            (Z.fillStyle = X[5]),
+            st(t[0] + 12, t[1] + 12, t[2] - 24, t[3] - 24, 10, !0);
+        },
+        g: (t) => {
+          (Z.fillStyle = X[4]),
+            Z.fillRect(t[0], t[1], t[2], t[3]),
+            (Z.fillStyle = X[6]),
+            Z.fillRect(t[0] + 4, t[1] + 4, t[2] - 8, t[3] - 8);
+        },
+        h: (t) => {
+          (Z.fillStyle = X[4]),
+            st(t[0], t[1], t[2], t[3], 10, !0),
+            (Z.fillStyle = X[t[4] - 1]),
+            st(t[0] + 4, t[1] + 4, t[2] - 8, t[3] - 8, 10, !0),
+            (Z.fillStyle = X[t[4]]),
+            st(t[0] + 4, t[1] + 8, t[2] - 8, t[3] - 12, 10, !0);
+        },
+        j: (t) => {
+          (Z.fillStyle = X[4]),
+            st(t[0], t[1], t[2], t[3], 10, !0),
+            (Z.fillStyle = X[t[4] - 1]),
+            st(t[0] + 4, t[1] + 4, t[2] - 8, t[3] - 8, 10, !0),
+            (Z.fillStyle = X[t[4]]),
+            st(t[0] + 4, t[1] + 4, t[2] - 12, t[3] - 8, 10, !0);
+        },
+        m: (t) => {
+          (Z.fillStyle = X[4]),
+            it(t[0], t[1], t[2]),
+            (Z.fillStyle = X[5]),
+            it(t[0], t[1], t[2] - 4);
+        },
+        p: (t) => {
+          Z.beginPath(),
+            Z.ellipse(t[0], t[1], t[2], t[3], 0, 0, _(360)),
+            Z.fill();
+        },
+        z: (t) => {
+          Z.globalAlpha = 1 / t[0];
+        },
+      },
+      it = (t, i, s) => {
+        Z.beginPath(), Z.arc(t, i, s, 0, _(360), 0), Z.fill();
+      },
+      st = (t, i, s, h, e, n) => {
+        let r = e,
+          f = e,
+          o = e,
+          l = e;
+        Z.beginPath(),
+          Z.moveTo(t + r, i),
+          Z.lineTo(t + s - f, i),
+          Z.quadraticCurveTo(t + s, i, t + s, i + f),
+          Z.lineTo(t + s, i + h - o),
+          Z.quadraticCurveTo(t + s, i + h, t + s - o, i + h),
+          Z.lineTo(t + l, i + h),
+          Z.quadraticCurveTo(t, i + h, t, i + h - l),
+          Z.lineTo(t, i + r),
+          Z.quadraticCurveTo(t, i, t + r, i),
+          Z.closePath(),
+          n ? Z.fill() : Z.stroke();
+      },
+      ht = (t, i, s, h) => {
+        for (let e = 0; e < i; e++) et([].concat(t), !1, 0, !0, s * e, h * e);
+      },
+      et = (t, i, s, h, e, n) => {
+        for (let r = 0; r < t.length; r++) {
+          let f = t[r].split(",");
+          const o = f.shift();
+          if ("x" === o) {
+            if (parseInt(f[0]) > 0)
+              et([].concat(t.slice(r + 1)), !0, parseInt(f[0]));
+            else if (i) return;
+            continue;
+          }
+          if ("r" === o) {
+            let i = parseInt(f[0]);
+            if (i > 0) {
+              const s = parseInt(f[1]),
+                h = parseInt(f[2]);
+              let e = 0;
+              for (let i = 1; i < t.length; i++)
+                if ("r" === t[i][0] && parseInt(t[i][2]) < 1) {
+                  e = i;
+                  break;
+                }
+              e > 0 && ht(t.slice(r + 1, r + 1 + e), i, s, h);
+            } else if (h) return;
+            continue;
+          }
+          let l = f.map(Number);
+          if (i && s > 0)
+            switch (o) {
+              case "k":
+                l[0] = 4;
+                break;
+              case "n":
+              case "b":
+              case "h":
+              case "j":
+                (l[0] -= s), (l[1] -= s), (l[2] += 2 * s), (l[3] += 2 * s);
+                break;
+              case "a":
+              case "i":
+              case "m":
+                l[2] += s;
+                break;
+              case "p":
+                (l[2] += s), (l[3] += s);
+            }
+          if (h)
+            switch (o) {
+              case "n":
+              case "b":
+              case "h":
+              case "j":
+              case "a":
+              case "i":
+              case "m":
+                e && (l[0] += e), n && (l[1] += n);
+                break;
+              case "d":
+                e && ((l[0] += e), (l[2] += e)),
+                  n && ((l[1] += n), (l[3] += n));
+            }
+          tt[o](l);
+        }
+      },
+      nt = (t, i) => {
+        let s = i.split(/([a-z],[\d+,*]+)/).filter((t) => "" !== t);
+        s && (((Z = t).lineWidth = 1), et(s, !1, 0, !1, 0, 0));
+      },
+      rt = (t, i, s) => {
+        const h = RegExp(`k,${t}`, "gi");
+        return s.replace(h, `k,${i}`);
+      },
+      ft = (t, i) => {
+        let s = document.createElement("canvas");
+        return (s.width = t), (s.height = i), [s.getContext("2d"), s];
+      },
+      ot = () => {
+        let i = [];
+        ((t) => {
+          X = c;
+        })();
+        let s = t;
+        for (let t = 0; t < s.length; t += 3) {
+          let h = s[t],
+            e = s[t + 1],
+            n = s[t + 2],
+            [r, f] = ft(h, e);
+          nt(r, n), i.push(f);
+        }
+        return lt(i);
+      },
+      lt = (t) => {
+        const s = t[i],
+          h = t[i + 1],
+          e = t[i + 2],
+          n = t[i + 3];
+        let r = 6.5,
+          f = -65,
+          o = 65,
+          l = 85,
+          k = -85,
+          a = -1,
+          c = -4,
+          d = 0.5,
+          u = 0.25;
+        for (let i = 0; i < 20; i++) {
+          let [x, b] = ft(130, 170);
+          m(x, e, 87, 117 + a + c, e.width, e.height, o, !1, !1, !0),
+            m(x, n, 75, 135 + c, n.width, n.height, k, !1, !1, !0),
+            m(x, n, 55, 135 + c, n.width, n.height, l, !1, !1, !0),
+            m(x, s, 65, 85 + a + c, s.width, s.height, 0, !1, !1, !0),
+            m(x, h, 65, 101 + a + c, h.width, h.height, 0, !1, !1, !0),
+            m(x, e, 41, 117 + a + c, e.width, e.height, f, !1, !1, !0),
+            t.push(b),
+            (f += r),
+            (o += -6.5),
+            (l += -8.5),
+            (k += 8.5),
+            (a += u),
+            (c += d),
+            6 == i && ((d = -0.5), (u = -0.25));
+        }
+        (f = -125),
+          (o = 65),
+          (r = 0),
+          (l = 85),
+          (k = -85),
+          (a = -1),
+          (c = -4),
+          (d = 0.5),
+          (u = 0.25);
+        for (let i = 0; i < 20; i++) {
+          let [x, b] = ft(130, 170);
+          m(x, e, 87, 117 + a + c, e.width, e.height, o, !1, !1, !0),
+            m(x, n, 75, 135 + c, n.width, n.height, k, !1, !1, !0),
+            m(x, n, 55, 135 + c, n.width, n.height, l, !1, !1, !0),
+            m(x, s, 65, 85 + a + c, s.width, s.height, 0, !1, !1, !0),
+            m(x, h, 65, 101 + a + c, h.width, h.height, 0, !1, !1, !0),
+            m(x, e, 41, 117 + a + c, e.width, e.height, f, !1, !1, !0),
+            t.push(b),
+            (f += r),
+            (o += -6.5),
+            (l += -8.5),
+            (k += 8.5),
+            (a += u),
+            (c += d),
+            6 == i && ((d = -0.5), (u = -0.25));
+        }
+        return kt(t);
+      },
+      kt = (t) => {
+        const i = 2500,
+          s = 2500;
+        for (let h = 0; h < 80; h++) {
+          let [e, n] = ft(i, s);
+          (e.fillStyle = c[4]),
+            e.fillRect(0, 0, i, s),
+            (e.globalCompositeOperation = "destination-out"),
+            e.beginPath(),
+            e.arc(i / 2, s / 2, 20 * (h + 1), 0, g(360), 0),
+            e.fill(),
+            (e.globalCompositeOperation = "source-over"),
+            t.push(n);
+        }
+        return at(t);
+      },
+      at = (i) => {
+        let s = [i[36], i[37], i[38]];
+        const h = [i[39], i[40], i[41]];
+        for (let e = 0; e < 2; e++) {
+          let e = 0,
+            n = 10,
+            r = 0.375,
+            f = 0;
+          const o = 100,
+            l = 100;
+          for (let t = 0; t < 40; t++) {
+            let [k, a] = ft(o, l);
+            m(k, s[f], 50, 50, s[f].width, s[f].height, 0, !1, !1, !0);
+            let c = 180 * Math.random();
+            m(k, h[e], 50, n, h[e].width, h[e].height, c, !1, !1, !0),
+              i.push(a),
+              ++e > 2 && (e = 0),
+              (n += r),
+              t > 30 && ++f > 2 && (f = 0);
+          }
+          let k = 108,
+            a = t[k],
+            c = t[k + 1],
+            d = t[k + 2];
+          (d = rt("9", "14", d)), (d = rt("10", "15", d));
+          let [u, x] = ft(a, c);
+          nt(u, d), (s[0] = x);
+        }
+        return ct(i);
+      },
+      ct = (t) => {
+        let i = t[49];
+        for (let s = 0; s < 10; s++) {
+          let [h, e] = ft(100, 100);
+          m(h, i, 50, 50, i.width, i.height, 0, !1, !1, !0),
+            b(h, "" + s, 38, 72, c[4], 42);
+          let [n, r] = ft(100, 100),
+            f = Math.floor(14 * Math.random() - 7);
+          m(n, e, 50, 50, n.width, n.height, f, !1, !1, !0), t.push(r);
+        }
+        return dt(t);
+      },
+      dt = (i) => {
+        for (let s = 0; s < 2; s++) {
+          let h = 3 * (45 + s),
+            e = t[h],
+            n = t[h + 1],
+            r = t[h + 2];
+          r = rt("3", "14", r);
+          let [f, o] = ft(e, n);
+          nt(f, r), i.push(o);
+        }
+        return i;
+      };
+    class ut {
+      constructor() {
+        let t = this;
+        (this.zt = {}), (this.Nt = { Pt: 37, St: 39, Gt: 38, Ut: 40, qt: 32 });
+        for (let t = 65; t < 91; t++) this.Nt[String.fromCharCode(t)] = t;
+        window.addEventListener("keydown", (i) => {
+          t.zt[i.keyCode] = !0;
+        }),
+          window.addEventListener("keyup", (i) => {
+            t.zt[i.keyCode] = !1;
+          });
+      }
+      left() {
+        return this.Ht(this.Nt.Pt);
+      }
+      right() {
+        return this.Ht(this.Nt.St);
+      }
+      Ct() {
+        return this.Ht(this.Nt.qt);
+      }
+      Ft() {
+        return this.Ht(this.Nt.Gt);
+      }
+      z() {
+        return this.Ht(this.Nt.Z);
+      }
+      x() {
+        return this.Ht(this.Nt.X);
+      }
+      m() {
+        return this.Ht(this.Nt.M);
+      }
+      c() {
+        return this.Ht(this.Nt.C);
+      }
+      Ht(t) {
+        return !0 === this.zt["" + t];
+      }
+      Jt(t) {
+        return !1 === this.zt["" + t];
+      }
+      Kt() {
+        let t = !1;
+        return (
+          Object.keys(this.zt).forEach((i) => {
+            this.zt[i] && (t = !0);
+          }),
+          t
+        );
+      }
+    }
+    const xt = { Wt: 0, Yt: 1, DONE: 2 };
+    class bt {
+      constructor(t, i, s, h, e, n, r) {
+        (this.$t = n),
+          (this.Bt = s),
+          (this.level = h),
+          (this.x = t),
+          (this.y = i),
+          (this.state = xt.Wt),
+          (this.Vt = e),
+          (this.w = 30),
+          (this.h = 30),
+          (this.Qt = 0),
+          (this.Xt = 0),
+          (this.L = p()),
+          (this.Zt = []),
+          (this.B = r);
+        let f = 0;
+        r && (f = 40);
+        for (let t = l + f; t < l + 40 + f; t++) this.Zt.push(t);
+        (this.Zt = this.Zt.concat(
+          r ? [41, 42, 43, 44, a, a + 1] : [41, 42, 43, 44, 45, 46]
+        )),
+          (this.frame = 0),
+          (this.flipX = !1),
+          (this._t = { Ft: !1, ti: !1, left: !1, right: !1 }),
+          (this.angle = 10),
+          (this.ii = 1),
+          (this.si = !1),
+          (this.visible = !0);
+      }
+      G(t) {
+        if (!this.visible) return;
+        let i = this.Vt[this.Zt[this.frame]],
+          s = 0;
+        this.state !== xt.Wt && (s = this.level.viewport.x),
+          m(
+            t,
+            i,
+            this.x + s,
+            this.y,
+            i.width,
+            i.height,
+            this.angle,
+            this.flipX,
+            !1,
+            !0
+          );
+      }
+      update() {
+        switch (this.state) {
+          case xt.Wt:
+            (this.x = this.$t.x - 20),
+              this.$t.flipX && (this.x = this.$t.x + 75),
+              (this.y = this.$t.y + 40),
+              (this.angle = 25),
+              this.$t.flipX && (this.angle = -25);
+            break;
+          case xt.Yt:
+            (this.x += this.Qt),
+              (this.y += this.Xt),
+              !this.flipX && this.Qt >= 0.3 && (this.Qt -= 0.3),
+              this.flipX && this.Qt <= -0.3 && (this.Qt += 0.3),
+              this.Xt >= 0.6 && (this.Xt += 0.6),
+              this.Xt <= 0.6 && (this.Xt += 0.6),
+              this.Qt > 0 && this.Qt <= 0.2 && (this.Qt = 0),
+              this.Qt < 0 && this.Qt >= -0.2 && (this.Qt = 0),
+              this.Xt > 0 && this.Xt <= 0.3 && (this.Xt = 0),
+              this.Xt < 0 && this.Xt >= -0.3 && (this.Xt = 0),
+              this.move(this, this.Qt, this.Xt, this.level.dt),
+              this._t.ti &&
+                (this.ii < 1
+                  ? ((this.Xt = 0), (this.Qt = 0), (this.si = !0))
+                  : ((this.Xt = -4.5),
+                    (this.Qt = 4),
+                    this.flipX && (this.Qt *= -1),
+                    (this.ii -= 1))),
+              !this._t.ti &&
+                (this.Xt < 0.1 || this.Xt > -0.1) &&
+                (this.Xt += 0.1);
+        }
+        let t = p();
+        t > this.L + 50 &&
+          (this.frame < this.Zt.length - 1
+            ? ((this.frame += 1),
+              this.frame === this.Zt.length - 6 &&
+                ((this.y -= 30),
+                (this.Xt = -6),
+                this.B ? this.$t.hi() : this.$t.ei()),
+              this.frame === this.Zt.length - 3 &&
+                this.level.Rt(
+                  { x: this.x - 60, y: this.y - 60, w: 120, h: 120 },
+                  this.B,
+                  this.Bt
+                ))
+            : (this.visible = !1),
+          (this.L = t));
+      }
+      ni(t, i, s) {
+        return { x: t.x + i, y: t.y + s, w: t.w, h: t.h };
+      }
+      move(t, i, s, h) {
+        this._t = { Ft: !1, ti: !1, left: !1, right: !1 };
+        for (let s = 0; s < h.length; s++) {
+          let e = this.ni(t, i, 0);
+          (h[s].x = Math.floor(h[s].jt)),
+            this.ri(e, h[s]) &&
+              (i < 0
+                ? ((i = h[s].x + h[s].w - t.x), (this._t.left = !0))
+                : i > 0 && ((i = h[s].x - t.x - t.w), (this._t.right = !0)));
+        }
+        i > 10 && (i = 10), i < -10 && (i = -10), (this.Qt = i), (t.x += i);
+        for (let i = 0; i < h.length; i++) {
+          let e = this.ni(t, 0, s);
+          this.ri(e, h[i]) &&
+            (s < 0
+              ? ((s = h[i].y + h[i].h - t.y), (this._t.Ft = !0))
+              : s > 0 && ((s = h[i].y - t.y - t.h), (this._t.ti = !0)));
+        }
+        s > 10 && (s = 10), s < -10 && (s = -10), (this.Xt = s), (t.y += s);
+      }
+      ri(t, i) {
+        return (
+          t.x < i.x + i.w &&
+          t.x + t.w > i.x &&
+          t.y < i.y + i.h &&
+          t.y + t.h > i.y
+        );
+      }
+      fi() {
+        (this.x = this.$t.x - this.level.viewport.x),
+          (this.Xt -= 10.5),
+          (this.Qt = 7),
+          (this.angle = 25),
+          this.$t.flipX &&
+            ((this.flipX = !0), (this.Qt *= -1), (this.angle *= -1)),
+          (this.Qt += this.$t.Qt),
+          (this.Xt += this.$t.Xt),
+          (this.state = xt.Yt);
+      }
+      It() {
+        return this.state === xt.DONE;
+      }
+    }
+    class mt {
+      constructor(t, s, h) {
+        (this.x = 0),
+          (this.y = 0),
+          (this.Ot = 6),
+          (this.Qt = 0),
+          (this.Xt = 1),
+          (this.oi = !1),
+          (this.li = !0),
+          (this.at = t),
+          (this.level = s),
+          (this.Bt = h),
+          (this.ki = !1),
+          (this.ai = !1),
+          (this.frame = 0),
+          (this.ci = !1);
+        let e = p();
+        (this.L = e),
+          (this.di = e),
+          (this.ui = e),
+          (this.xi = e),
+          (this.bi = e),
+          (this.mi = e),
+          (this.xt = !1),
+          (this.pi = !1),
+          (this.w = 45),
+          (this.h = 130),
+          s.l && ((this.x = s.l[0]), (this.y = s.l[1])),
+          (this.flipX = !1),
+          (this.animation = []);
+        let n = i + 4;
+        for (let t = n; t < n - 1 + 20; t++) this.animation.push(t);
+        for (let t = n - 1 + 20; t >= n; t--) this.animation.push(t);
+        (this._t = { Ft: !1, ti: !1 }),
+          (this.wi = null),
+          (this.gi = !1),
+          (this.yi = [l]),
+          (this.selected = 0),
+          (this.vi = !0);
+      }
+      Ti() {
+        this.Qt < 6 && (this.Qt += 1.5), (this.flipX = !1);
+      }
+      Mi() {
+        this.Qt > -6 && (this.Qt -= 1.5), (this.flipX = !0);
+      }
+      Ct() {
+        this.Xt > -10 && !this.oi ? (this.Xt -= 3.5) : ((this.oi = !0), F());
+      }
+      ni(t, i, s) {
+        return { x: t.x + i, y: t.y + s, w: t.w, h: t.h };
+      }
+      move(t, i, s, h) {
+        for (let s = 0; s < h.length; s++) {
+          let e = this.ni(t, i, 0);
+          (h[s].x = h[s].jt + this.level.viewport.x),
+            this.ri(e, h[s]) &&
+              (i < 0
+                ? (i = h[s].x + h[s].w - t.x)
+                : i > 0 && (i = h[s].x - t.x - t.w));
+        }
+        (this.Qt = i),
+          this.level.viewport.F(i),
+          this.level.viewport.J(t.x, i) && (t.x += i),
+          (this._t = { Ft: !1, ti: !1 });
+        for (let i = 0; i < h.length; i++) {
+          let e = this.ni(t, 0, s);
+          this.ri(e, h[i]) &&
+            (s < 0
+              ? ((s = h[i].y + h[i].h - t.y), (this._t.Ft = !0))
+              : s > 0 && ((s = h[i].y - t.y - t.h), (this._t.ti = !0)));
+        }
+        (this.Xt = s), (t.y += s);
+      }
+      ji() {
+        let t = this.ni(this, 0, 0),
+          i = this.level.yt,
+          s = !1;
+        for (let h = 0; h < i.length; h++)
+          (i[h].x = i[h].jt + this.level.viewport.x),
+            this.ri(t, i[h]) &&
+              i[h].e > 0 &&
+              ((this.yi = this.yi.concat(i[h].id)),
+              (i[h].e = 0),
+              (i[h].t = 0),
+              B.rt(),
+              (s = !0));
+        s || B.ot();
+      }
+      Ai() {
+        if (p() < this.L + 400 || this.ai) return;
+        let t = this.ni(this, 0, 0),
+          i = this.level.V;
+        for (let s = 0; s < i.length; s++)
+          if (
+            ((i[s].x = i[s].jt + this.level.viewport.x),
+            this.ri(t, i[s]) && i[s].e > 0)
+          ) {
+            (this.x = i[s].P - 26 + this.level.viewport.x),
+              (this.Qt = 0),
+              (this.L = p());
+            let t = this;
+            i[s].s > 14 && i[s].s < 46
+              ? ((this.ai = !0),
+                (this.Xt = -15),
+                (this.oi = !0),
+                (this.frame = 9),
+                F(),
+                t.level.xt ? $() : Y(),
+                setTimeout(() => {
+                  (t.Ot = 2),
+                    t.level.xt && (t.Ot = 0),
+                    setTimeout(() => {
+                      t.Bt.Li(i[s].d, !0, !1), (t.ai = !1);
+                    }, 450);
+                }, 450))
+              : ((this.xt = !0), this.Bt.Li(i[s].d, !1, !0));
+            break;
+          }
+      }
+      update(t) {
+        if (this.ci) return;
+        let i = !1;
+        if (!this.ai) {
+          if (
+            (t.left()
+              ? ((i = !0), this.Mi())
+              : t.right() && ((i = !0), this.Ti()),
+            !t.Ct() || this.oi || this.li || ((i = !0), this.Ct()),
+            t.Ft() && !i && this.Ai(),
+            t.z())
+          ) {
+            let t = p();
+            t > this.ui + 300 &&
+              ((this.ui = t),
+              this.selected < 2 &&
+                (this.gi
+                  ? (K(), this.wi.fi(), (this.gi = !1))
+                  : ((this.wi = new bt(
+                      this.x,
+                      this.y,
+                      this.Bt,
+                      this.level,
+                      this.at,
+                      this,
+                      1 === this.selected
+                    )),
+                    (this.gi = !0),
+                    this.level.wt.push(this.wi))));
+          }
+          if (t.x()) {
+            let t = p();
+            t > this.xi + 300 &&
+              ((this.xi = t),
+              this.selected < 2 &&
+                this.gi &&
+                (K(), this.wi.fi(), (this.gi = !1)),
+              (this.selected += 1),
+              this.selected > this.yi.length - 1 && (this.selected = 0));
+          }
+          if (t.m()) {
+            let t = p();
+            t > this.bi + 300 &&
+              (this.vi ? C() : (H(), $()), (this.vi = !this.vi), (this.bi = t));
+          }
+          if (t.c()) {
+            let t = p();
+            t > this.mi + 300 && (this.ji(), (this.mi = t));
+          }
+        }
+        this.Qt > 0 && (this.Qt -= 0.1),
+          this.Qt < 0 && (this.Qt += 0.1),
+          this.Xt > 0 && (this.Xt += 0.6),
+          this.Xt < 0 && (this.Xt += 0.6),
+          i ||
+            (this.Qt > 0 && this.Qt < 0.2 && (this.Qt = 0),
+            this.Qt < 0 && this.Qt > -0.2 && (this.Qt = 0));
+        let s = this.y + this.Xt;
+        this.move(this, this.Qt, this.Xt, this.level.dt),
+          (this.ki = s > this.y && !this._t.Ft),
+          this.ki && ((this.oi = !1), (this.li = !1)),
+          s === this.y || this._t.Ft || (this.Xt = 0),
+          this.Xt > 0.5 && (this.li = !0),
+          !this.oi ||
+            this._t.Ft ||
+            this._t.ti ||
+            this.ki ||
+            (this.Xt > -0.1 &&
+              this.Xt < 0.1 &&
+              ((this.Xt = 3.5), (this.li = !0))),
+          this.x < 0 && ((this.x = 0), this.Qt < 0 && (this.Qt = 0)),
+          this.x - this.level.viewport.x > this.level.viewport.width - this.w &&
+            ((this.x =
+              this.level.viewport.width - this.w + this.level.viewport.x),
+            this.Qt > 0 && (this.Qt = 0)),
+          this.ki && (this.Xt < 0.1 || this.Xt > -0.1) && (this.Xt += 0.1);
+      }
+      Et(t, s) {
+        let h = this.animation[s],
+          e = 44;
+        (this.xt || this.pi) && ((h = i - 2), (e = 58));
+        let n = 0;
+        this.gi && (n = 20);
+        let r = this.at[h + n];
+        m(
+          t,
+          r,
+          this.x + 26,
+          this.y + e,
+          r.width,
+          r.height,
+          0,
+          this.flipX,
+          !1,
+          !0
+        ),
+          this.pi &&
+            m(
+              t,
+              this.at[i - 1],
+              this.x + 26,
+              this.y + e,
+              r.width,
+              r.height,
+              0,
+              this.flipX,
+              !1,
+              !0
+            );
+      }
+      G(t) {
+        if (!this.ci)
+          if (
+            (this.Et(t, this.frame),
+            !this.oi && (this.Qt > 0.1 || this.Qt < -0.1))
+          ) {
+            let t = p();
+            t > this.di + 10 &&
+              (this.frame++,
+              this.frame > this.animation.length - 1 && (this.frame = 0),
+              (this.di = t));
+          } else this.oi || (this.frame = 10), this.oi && (this.frame = 18);
+      }
+      ri(t, i) {
+        return (
+          t.x < i.x + i.w &&
+          t.x + t.w > i.x &&
+          t.y < i.y + i.h &&
+          t.y + t.h > i.y
+        );
+      }
+      Ii() {
+        (this.ai = !1), (this.xt = !1), (this.pi = !1);
+      }
+      ei() {
+        J();
+      }
+      hi() {
+        V();
+      }
+      Dt(t) {
+        (t.strokeStyle = c[1]), (t.lineWidth = 4);
+        let i = 680 - 90 * this.selected;
+        t.globalAlpha = 0.2;
+        let s = 0;
+        for (let h = 0; h < this.yi.length; h++) {
+          this.selected === h &&
+            ((t.globalAlpha = 1), t.strokeRect(i + 10 + 90 * h, 30, 80, 80));
+          let e = this.at[this.yi[h]];
+          h > 0 && (s = -5),
+            m(t, e, i + 90 * h, 35 + s, e.width, e.height, 0, !1, !1, !1),
+            (t.globalAlpha = 0.2),
+            (s = 0);
+        }
+        t.globalAlpha = 1;
+      }
+    }
+    const pt = { LOADING: 0, Ei: 1, Oi: 2, Di: 3, Ri: 4 };
+    let wt = [];
+    class gt {
+      constructor() {
+        (this.state = pt.LOADING),
+          (this.$t = null),
+          (this.zi = new ut()),
+          (this.Ni = !1),
+          (this.Pi = p()),
+          (this.Si = o),
+          (this.Gi = 1),
+          (this.Ui = -1),
+          (this.qi = 0),
+          (this.Hi = 0),
+          (this.data = y(d));
+        let t = this.data.length;
+        for (let t = 0; t < 10; t++) this.data.push({});
+        for (let i = 0; i < t; i++) this.data[i + 10] = this.data[i];
+      }
+      start() {
+        let t = this;
+        setTimeout(() => {
+          (wt = ot()),
+            (t.level = new Q(this.data[0], wt, !1, 0)),
+            (t.state = pt.Ei);
+        }, 25);
+      }
+      update() {
+        switch (this.state) {
+          case pt.Ei:
+            this.level.update(), this.Ci(pt.Oi, 1);
+            break;
+          case pt.Oi:
+            (this.$t = new mt(wt, this.level, this)),
+              (this.state = pt.Di),
+              (this.Ni = !0),
+              (this.qi = this.$t.x + 40),
+              (this.Hi = this.$t.y + 30);
+            break;
+          case pt.Di:
+            this.level.update(), this.$t.update(this.zi);
+        }
+        if (this.Ni) {
+          let t = p();
+          t > this.Pi + 15 &&
+            ((this.Si += this.Gi),
+            (this.Pi = t),
+            this.Si < o + 1 && this.Ui > -1 && this.level.Mt(),
+            this.Si < o && this.Ui > -1 && (this.level.Mt(), this.Fi()),
+            this.Si > o + 30 && this.Gi > 0 && this.$t.Ii(),
+            this.Si > o + 79 && ((this.Ni = !1), (this.Gi *= -1)));
+        }
+      }
+      G(t) {
+        switch (this.state) {
+          case pt.LOADING:
+            x(t, "#3e2137"), b(t, "Loading", 583, 384, "#f5edba", 32);
+            break;
+          case pt.Ei:
+            this.level.G(t),
+              u(t, "#000", 536, 136, 440, 600, 0.4),
+              b(t, "Behind the Scenery", 583, 214, "#f5edba", 32),
+              b(t, "", 623, 244, "#f5edba", 16),
+              b(t, "", 623, 274, "#f5edba", 16),
+              b(t, "press any key to start", 623, 384, "#f5edba", 28);
+            let i = 444;
+            [
+              "Controls:",
+              "",
+              "Arrow keys - move",
+              "Space - jump",
+              "Up - enter door/jump over",
+              "z - use item",
+              "x - toggle item",
+              "c - pickup item",
+              "",
+              "m - mute music",
+            ].forEach((s) => {
+              b(t, s, 623, i, "#f5edba", 14), (i += 25);
+            });
+            break;
+          case pt.Di:
+            this.level.G(t, this.$t);
+        }
+        if (this.Ni) {
+          this.$t.ai = !0;
+          let i = wt[this.Si];
+          m(t, i, this.qi, this.Hi, i.width, i.height, 0, !1, !1, !0);
+        }
+      }
+      Ci(t, i) {
+        this.zi.Kt() &&
+          ((this.state = t),
+          (this.level = new Q(this.data[i], wt, !1, i)),
+          q(),
+          H(),
+          $());
+      }
+      Li(t, i, s) {
+        this.level.xt && (i = !1),
+          s
+            ? ((this.qi = this.$t.x + 40),
+              (this.Hi = this.$t.y + 30),
+              (this.$t.ai = !0),
+              (this.$t.xt = !0),
+              (this.$t.pi = !1),
+              (this.Ui = t),
+              (this.Ni = !0),
+              (this.Si = o + 50),
+              (this.Gi = -1))
+            : (i && (t += 10),
+              (this.data[this.level.origin] = y(this.level.d)),
+              (this.level = new Q(this.data[t], wt, i, t, this.data)),
+              (this.$t.level = this.level),
+              (this.$t.Ot = 6),
+              (this.Ui = -1));
+      }
+      Fi() {
+        (this.data[this.level.origin] = y(this.level.d)),
+          (this.level = new Q(this.data[this.Ui], wt, !1, this.Ui)),
+          this.level.Mt(),
+          (this.$t.xt = !1),
+          (this.$t.pi = !0),
+          (this.$t.level = this.level),
+          (this.$t.Ot = 6),
+          (this.Ni = !0),
+          (this.Si = o),
+          (this.Gi = 1),
+          (this.qi = this.$t.x + 40),
+          (this.Hi = this.$t.y + 30);
+      }
+    }
+    window.addEventListener("load", () => {
+      const t = document.getElementById("c").getContext("2d"),
+        i = new gt();
+      let s = () => {
+        i.update(),
+          t.clearRect(0, 0, 1360, 760),
+          i.G(t),
+          requestAnimationFrame(s);
+      };
+      i.start(), s();
+    });
+  })();
+</script>

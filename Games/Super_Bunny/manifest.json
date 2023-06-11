@@ -1,0 +1,17 @@
+{
+	"short_name": "Super Bunny",
+	"name": "Super Bunny Strikes Back!",
+	"start_url": "index.html",
+	"serviceworker": {
+		"src": "serviceworker.js"
+	},
+	"icons": [
+		{
+			"src": "ico.png",
+			"type": "image/png",
+			"sizes": "224x224"
+		}
+	],
+	"display": "fullscreen",
+	"orientation": "landscape"
+}

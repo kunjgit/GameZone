@@ -16,7 +16,7 @@
 ## **Screenshots 📸**
 
 <br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
-   ![image](../../assets/images/space_Invaders.png)
+
+![image](../../assets/images/Space_Invaders.png)
+
 <br>

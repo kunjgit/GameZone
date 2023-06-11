@@ -275,6 +275,13 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 170 | [Canon_Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Canon_Defense)|
 | 171 | [Trashem](https://github.com/kunjgit/GameZone/tree/main/Games/Trashem)|
 | 171 | [Chess](https://github.com/SoarinSkySagar/GameZone-GSSoC23/tree/main/Games/CHESS)|
+| 172 | [Get The Pigeon](https://github.com/kunjgit/GameZone/tree/main/Games/Get_The_Pigeon)|
+| 173 | [Uxu](https://github.com/kunjgit/GameZone/tree/main/Games/Uxu)|
+| 174 | [Soul Jumper](https://github.com/kunjgit/GameZone/tree/main/Games/Soul_Jumper)|
+| 175 | [Infernal Throne](https://github.com/kunjgit/GameZone/tree/main/Games/Infernal_Throne)|
+| 176 | [Dead Again](https://github.com/kunjgit/GameZone/tree/main/Games/Dead_Again)|
+| 177 | [Norman The Necromancer](https://github.com/kunjgit/GameZone/tree/main/Games/Norman_The_Necromancer)|
+| 178 | [Shape Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Shape_Blocks)|
 </center>
 
 <br>

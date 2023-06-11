@@ -255,6 +255,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 150 | [Risky Nav](https://github.com/kunjgit/GameZone/tree/main/Games/Risky_Nav)|
 | 151 | [Pixels_From_Space](https://github.com/kunjgit/GameZone/tree/main/Games/Pixels_From_Space)|
 | 152 | [Poker_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Poker_Dice)| 
+| 153 | [Unlock_The_Lock](https://github.com/kunjgit/GameZone/tree/main/Games/Unlock_The_Lock)|
 </center>
 
 <br>

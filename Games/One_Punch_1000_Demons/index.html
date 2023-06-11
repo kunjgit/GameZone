@@ -1,0 +1,2329 @@
+<!DOCTYPE html><meta charset="utf-8" /><title>one punch 1000 Demons</title
+><meta
+  name="viewport"
+  content="height=device-height,initial-scale=1,maximum-scale=1"
+/><style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #000;
+    overflow: hidden;
+  }
+  #front-screen,
+  #game-over,
+  #gameArea,
+  #gameCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 120px;
+  }
+  #front-screen {
+    z-index: 2;
+  }
+  #gameCanvas {
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    pointer-events: auto;
+    background-color: #2e2363;
+    z-index: -1;
+  }
+  #bottom-bar,
+  #game-over,
+  #kill-meter {
+    color: #c80;
+    white-space: nowrap;
+    text-shadow: 0 0 7px #f70;
+    font-weight: 700;
+  }
+  #bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    text-align: center;
+    font-size: 6px;
+  }
+  #kill-meter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #000;
+    display: block;
+    padding: 5px;
+    font-size: 8px;
+    opacity: 0.7;
+  }
+  #game-over {
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    background-color: #fff;
+    opacity: 0.5;
+    padding: 5px;
+  }
+  #restart-text {
+    font-size: 14px;
+  }
+</style>
+<body>
+  <div id="gameArea">
+    <div id="front-screen">
+      <div id="kill-meter"></div>
+      <div id="bottom-bar"></div>
+      <div id="game-over"></div>
+    </div>
+  </div>
+  <script>
+    !(function () {
+      var t = Math.pow,
+        i = ("undefined" != typeof require && require, i || {});
+      i.create = function (t) {
+        var i,
+          e = {};
+        if (
+          ((e.canvas = document.createElement("canvas")),
+          (e.canvas.style.backgroundColor = "black"),
+          e.canvas.setAttribute("width", 1 * t.width),
+          e.canvas.setAttribute("height", 1 * t.height),
+          e.canvas.setAttribute("id", "gameCanvas"),
+          t.view.appendChild(e.canvas),
+          (e.canvas.ctx = e.canvas.getContext("2d")),
+          (e.stage =
+            (a((i = {})),
+            (i.stage = !0),
+            (i.width = e.canvas.width),
+            (i.height = e.canvas.height),
+            (i.x = 0),
+            (i.y = 0),
+            (i.parent = void 0),
+            i)),
+          (e.key = (function (t) {
+            var i = {};
+            for (var e in t) i[e] = o(t[e]);
+            return i;
+          })(t.keyCodes)),
+          (e.state = void 0),
+          (e.load = t.load || void 0),
+          (e.setup = t.setup || void 0),
+          void 0 === e.setup)
+        )
+          throw new Error(
+            "Please supply the setup function in the constructor"
+          );
+        function s() {
+          if ((requestAnimationFrame(s, e.canvas), void 0 === e._fps))
+            h(), e.render(e.canvas, 0);
+          else {
+            var t = Date.now(),
+              i = t - e._startTime;
+            for (
+              i > 1e3 && (i = e._frameDuration), e._startTime = t, e._lag += i;
+              e._lag >= e._frameDuration;
+
+            )
+              n(), h(), (e._lag -= e._frameDuration);
+            var a = e._lag / e._frameDuration;
+            e.render(e.canvas, a);
+          }
+        }
+        function n() {
+          function t(i) {
+            (i._previousX = i.x),
+              (i._previousY = i.y),
+              i.children &&
+                i.children.length > 0 &&
+                i.children.forEach(function (i) {
+                  t(i);
+                });
+          }
+          e.stage.children.forEach(function (i) {
+            t(i);
+          });
+        }
+        function h() {
+          if (
+            (e.state && !e.paused && e.state(),
+            0 !== e.updateFunctions.length && !e.paused)
+          )
+            for (var t = 0; t < e.updateFunctions.length; t++) {
+              var i = e.updateFunctions[t];
+              i && i();
+            }
+        }
+        function a(t) {
+          (t.x = 0),
+            (t.y = 0),
+            (t.vx = 0),
+            (t.vy = 0),
+            (t.width = 0),
+            (t.height = 0),
+            (t.scaleX = 1),
+            (t.scaleY = 1),
+            (t.pivotX = 0.5),
+            (t.pivotY = 0.5),
+            (t.rotation = 0),
+            (t.visible = !0),
+            (t.parent = void 0),
+            (t.stage = !1),
+            (t._alpha = 1),
+            (t._layer = 0),
+            (t._previousX = void 0),
+            (t._previousY = void 0),
+            (t.children = []),
+            (t.addChild = function (i) {
+              i.parent && i.parent.removeChild(i),
+                (i.parent = t),
+                t.children.push(i);
+            }),
+            (t.removeChild = function (i) {
+              if (i.parent !== t) throw new Error(i + "is not a child of " + t);
+              t.children.splice(t.children.indexOf(i), 1);
+            }),
+            (t.setPosition = function (i, e) {
+              (t.x = i), (t.y = e);
+            }),
+            Object.defineProperties(t, {
+              gx: {
+                get: function () {
+                  return this.parent ? this.x + this.parent.gx : this.x;
+                },
+                enumerable: !0,
+                configurable: !0,
+              },
+              gy: {
+                get: function () {
+                  return this.parent ? this.y + this.parent.gy : this.y;
+                },
+                enumerable: !0,
+                configurable: !0,
+              },
+              position: {
+                get: function () {
+                  return { x: t.x, y: t.y };
+                },
+                enumerable: !0,
+                configurable: !0,
+              },
+              alpha: {
+                get: function () {
+                  return t.parent._alpha * t._alpha;
+                },
+                set: function (i) {
+                  t._alpha = i;
+                },
+                enumerable: !0,
+                configurable: !0,
+              },
+              halfWidth: {
+                get: function () {
+                  return t.width / 2;
+                },
+                enumerable: !0,
+                configurable: !0,
+              },
+              halfHeight: {
+                get: function () {
+                  return t.height / 2;
+                },
+                enumerable: !0,
+                configurable: !0,
+              },
+              centerX: {
+                get: function () {
+                  return t.x + t.halfWidth;
+                },
+                enumerable: !0,
+                configurable: !0,
+              },
+              centerY: {
+                get: function () {
+                  return t.y + t.halfHeight;
+                },
+                enumerable: !0,
+                configurable: !0,
+              },
+            });
+        }
+        function o(t) {
+          var i = {};
+          return (
+            (i.code = t),
+            (i.isDown = !1),
+            (i.isUp = !0),
+            (i.press = void 0),
+            (i.release = void 0),
+            (i.downHandler = function (t) {
+              t.keyCode === i.code &&
+                (i.isUp && i.press && i.press(),
+                (i.isDown = !0),
+                (i.isUp = !1)),
+                t.preventDefault();
+            }),
+            (i.upHandler = function (t) {
+              t.keyCode === i.code &&
+                (i.isDown && i.release && i.release(),
+                (i.isDown = !1),
+                (i.isUp = !0)),
+                t.preventDefault();
+            }),
+            window.addEventListener("keydown", i.downHandler.bind(i), !1),
+            window.addEventListener("keyup", i.upHandler.bind(i), !1),
+            i
+          );
+        }
+        return (
+          (e.assetFilePaths = t.assets || void 0),
+          (e.paused = !1),
+          (e._fps = 60),
+          (e._startTime = Date.now()),
+          (e._frameDuration = 1e3 / e._fps),
+          (e._lag = 0),
+          (e.interpolate = !0),
+          (e.updateFunctions = []),
+          (e.scale = 1),
+          (e.start = function () {
+            e.assetFilePaths
+              ? ((e.assets.whenLoaded = function () {
+                  (e.state = void 0), e.setup();
+                }),
+                e.assets.load(e.assetFilePaths),
+                e.load && (e.state = e.load))
+              : e.setup(),
+              s();
+          }),
+          Object.defineProperties(e, {
+            fps: {
+              get: function () {
+                return e._fps;
+              },
+              set: function (t) {
+                (e._fps = t),
+                  (e._startTime = Date.now()),
+                  (e._frameDuration = 1e3 / e._fps);
+              },
+              enumerable: !0,
+              configurable: !0,
+            },
+            backgroundColor: {
+              set: function (t) {
+                e.canvas.style.backgroundColor = t;
+              },
+              enumerable: !0,
+              configurable: !0,
+            },
+          }),
+          (e.group = function (t) {
+            var i = {};
+            if (
+              (a(i),
+              (i.addChild = function (t) {
+                t.parent && t.parent.removeChild(t),
+                  (t.parent = i),
+                  i.children.push(t),
+                  i.calculateSize();
+              }),
+              (i.removeChild = function (t) {
+                if (t.parent !== i)
+                  throw new Error(t + "is not a child of " + i);
+                i.children.splice(i.children.indexOf(t), 1), i.calculateSize();
+              }),
+              (i.calculateSize = function () {
+                i.children.length > 0 &&
+                  ((i._newWidth = 0),
+                  (i._newHeight = 0),
+                  i.children.forEach(function (t) {
+                    t.x + t.width > i._newWidth &&
+                      (i._newWidth = t.x + t.width),
+                      t.y + t.height > i._newHeight &&
+                        (i._newHeight = t.y + t.height);
+                  }),
+                  (i.width = i._newWidth),
+                  (i.height = i._newHeight));
+              }),
+              e.stage.addChild(i),
+              t)
+            ) {
+              var s = Array.prototype.slice.call(arguments);
+              s.forEach(function (t) {
+                Array.isArray(t)
+                  ? t.forEach(function (t) {
+                      i.addChild(t);
+                    })
+                  : i.addChild(t);
+              });
+            }
+            return i;
+          }),
+          (e.rectangle = function (t, i, s, n, h, o, r) {
+            var c = {};
+            return (
+              a(c),
+              (c.mask = !1),
+              (c.width = t || 32),
+              (c.height = i || 32),
+              (c.fillStyle = s || "red"),
+              (c.strokeStyle = n || "none"),
+              (c.lineWidth = h || 0),
+              (c.x = o || 0),
+              (c.y = r || 0),
+              e.stage.addChild(c),
+              (c.render = function (t) {
+                (t.strokeStyle = c.strokeStyle),
+                  (t.lineWidth = c.lineWidth),
+                  (t.fillStyle = c.fillStyle),
+                  t.beginPath(),
+                  t.rect(
+                    -c.width * c.pivotX,
+                    -c.height * c.pivotY,
+                    c.width,
+                    c.height
+                  ),
+                  !0 === c.mask
+                    ? t.clip()
+                    : ("none" !== c.strokeStyle && t.stroke(),
+                      "none" !== c.fillStyle && t.fill());
+              }),
+              c
+            );
+          }),
+          (e.sprite = function (t) {
+            var i = {};
+            if (void 0 === t) throw new Error("Sprites require a source");
+            return (
+              a(i),
+              (i.frames = []),
+              (i.loop = !0),
+              (i._currentFrame = 0),
+              (i.onAnimationComplete = void 0),
+              (i.setTexture = function (t) {
+                if (!t.image) {
+                  var s = t instanceof Array;
+                  (i.tilesetFrame = s ? i.tilesetFrame : e.assets[t]),
+                    (i.frames = s ? t : i.frames);
+                  var n = s ? e.assets[t[0]] : i.tilesetFrame;
+                  (i.source = n.source),
+                    (i.sourceX = n.x),
+                    (i.sourceY = n.y),
+                    (i.width = n.w),
+                    (i.height = n.h),
+                    (i.sourceWidth = n.w),
+                    (i.sourceHeight = n.h);
+                }
+              }),
+              i.setTexture(t),
+              (i.gotoAndStop = function (t) {
+                if (!(i.frames.length > 0))
+                  throw new Error("Frame number " + t + "doesn't exist");
+                var s = e.assets[i.frames[t]];
+                s &&
+                  ((i.source = s.source),
+                  (i.sourceX = s.x),
+                  (i.sourceY = s.y),
+                  (i.sourceWidth = s.w),
+                  (i.sourceHeight = s.h),
+                  (i.width = s.w),
+                  (i.height = s.h)),
+                  (i._currentFrame = t);
+              }),
+              (i.x = 0),
+              (i.y = 0),
+              i.frames.length > 0 &&
+                (e.addStatePlayer(i),
+                Object.defineProperty(i, "currentFrame", {
+                  get: function () {
+                    return i._currentFrame;
+                  },
+                  enumerable: !1,
+                  configurable: !1,
+                })),
+              e.stage.addChild(i),
+              (i.render = function (t) {
+                t.drawImage(
+                  i.source,
+                  i.sourceX,
+                  i.sourceY,
+                  i.sourceWidth,
+                  i.sourceHeight,
+                  -i.width * i.pivotX,
+                  -i.height * i.pivotY,
+                  i.width,
+                  i.height
+                );
+              }),
+              i
+            );
+          }),
+          (e.addStatePlayer = function (t) {
+            var i = 0,
+              e = 0,
+              s = 0,
+              n = 0,
+              h = void 0,
+              a = !1;
+            function o() {
+              i < e
+                ? (t.gotoAndStop(t.currentFrame + 1), (i += 1))
+                : t.loop
+                ? (t.gotoAndStop(s), (i = 1))
+                : t.onAnimationComplete && t.onAnimationComplete();
+            }
+            function r() {
+              void 0 !== h &&
+                !0 === a &&
+                ((a = !1),
+                (i = 0),
+                (s = 0),
+                (n = 0),
+                (e = 0),
+                clearInterval(h));
+            }
+            (t.stop = function () {
+              r(), t.gotoAndStop(t.currentFrame);
+            }),
+              (t.playing = a),
+              (t.playSequence = function (c) {
+                r(),
+                  (s = c[0]),
+                  (n = c[1]),
+                  (e = n - s),
+                  0 === s && ((e += 1), (i += 1)),
+                  1 === e && ((e = 2), (i += 1)),
+                  t.fps || (t.fps = 12);
+                var l = 1e3 / t.fps;
+                t.gotoAndStop(s),
+                  a || ((h = setInterval(o.bind(this), l)), (a = !0));
+              });
+          }),
+          (e.render = function (t, i) {
+            var s = t.ctx;
+            s.clearRect(0, 0, t.width, t.height);
+            for (var n = 0; n < e.stage.children.length; n++) {
+              h(e.stage.children[n]);
+            }
+            function h(n) {
+              if (
+                n.visible &&
+                n.gx < t.width + n.width &&
+                n.gx + n.width >= -n.width &&
+                n.gy < t.height + n.height &&
+                n.gy + n.height >= -n.height
+              ) {
+                if (
+                  (s.save(),
+                  (n.renderX =
+                    e.interpolate && void 0 !== n._previousX
+                      ? (n.x - n._previousX) * i + n._previousX
+                      : n.x),
+                  (n.renderY =
+                    e.interpolate && void 0 !== n._previousY
+                      ? (n.y - n._previousY) * i + n._previousY
+                      : n.y),
+                  s.translate(
+                    n.renderX + n.width * n.pivotX,
+                    n.renderY + n.height * n.pivotY
+                  ),
+                  (s.globalAlpha = n.alpha),
+                  s.rotate(n.rotation),
+                  s.scale(n.scaleX, n.scaleY),
+                  n.render && n.render(s),
+                  n.children && n.children.length > 0)
+                ) {
+                  s.translate(-n.width * n.pivotX, -n.height * n.pivotY);
+                  for (var a = 0; a < n.children.length; a++) {
+                    h(n.children[a]);
+                  }
+                }
+                s.restore();
+              }
+            }
+          }),
+          (e.assets = {
+            toLoad: 0,
+            loaded: 0,
+            whenLoaded: void 0,
+            load: function (t) {
+              t.data && t.img
+                ? ((this.toLoad = 1), this.createTilesetFrames(t.data, t.img))
+                : console.log("Invalid file format: " + source);
+            },
+            createTilesetFrames: function (t, i) {
+              var e = this,
+                s = new Image();
+              s.addEventListener(
+                "load",
+                function () {
+                  (e.img = {
+                    source: s,
+                    frame: { x: 0, y: 0, w: s.width, h: s.height },
+                  }),
+                    Object.keys(t).forEach(function (i) {
+                      (e[i] = t[i]), (e[i].source = s);
+                    }),
+                    e.loadHandler();
+                },
+                !1
+              ),
+                (s.src = i);
+            },
+            loadHandler: function () {
+              (this.loaded += 1),
+                this.toLoad === this.loaded &&
+                  ((this.toLoad = 0), (this.loaded = 0), this.whenLoaded());
+            },
+          }),
+          (e.keyboard = o),
+          (e.makeDisplayObject = a),
+          (e.getSmartSprite = function (t) {
+            var i = [];
+            for (var s in e.assets) s.includes(t) && i.push(s);
+            return i.length > 1 ? i : i[0];
+          }),
+          (e.getFrames = function (t, i) {
+            var e = [];
+            return (
+              t.frames.forEach(function (t, s) {
+                t.includes(i) && e.push(s);
+              }),
+              e
+            );
+          }),
+          (e.hitTest = function (t) {
+            var i = t.target,
+              e = t.source,
+              s = i.x + i.halfWidth - (e.x + e.halfWidth),
+              n = i.y + i.halfHeight - (e.y + e.halfHeight),
+              h = (i.width + e.width) / 2,
+              a = (i.height + e.height) / 2,
+              o = h * n,
+              r = a * s,
+              c = { hit: !1, side: "" };
+            return (
+              Math.abs(s) <= h &&
+                Math.abs(n) <= a &&
+                (c.side =
+                  o > r
+                    ? o > -r
+                      ? "bottom"
+                      : "left"
+                    : o > -r
+                    ? "right"
+                    : "top"),
+              (c.hit = Boolean(
+                i.x < e.x + e.width &&
+                  i.x + i.width > e.x &&
+                  i.y < e.y + e.height &&
+                  i.y + i.height > e.y
+              )),
+              c
+            );
+          }),
+          (e.Ticker = function () {
+            (this.tick = 0),
+              (this.isStop = !1),
+              (this.run = function () {
+                this.isStop || this.tick++;
+              }),
+              (this.stop = function () {
+                this.isStop || (this.isStop = !0);
+              }),
+              (this.enable = function () {
+                this.isStop && ((this.tick = 0), (this.isStop = !1));
+              });
+          }),
+          (e.distance = function (t, i) {
+            t = isNaN(t) ? t.centerX : t;
+            var e = (i = isNaN(i) ? i.centerX : i) - t,
+              s = i - t;
+            return Math.sqrt(e * e + s * s);
+          }),
+          (e.randomInt = function (t, i) {
+            return Math.floor(Math.random() * (i - t + 1)) + t;
+          }),
+          e
+        );
+      };
+      var e = "stand",
+        s = "attack",
+        n = "run_away_left",
+        h = "run_away_right",
+        a = "follow_player_left",
+        o = "follow_player_right",
+        r = "none",
+        c = { side: "right", value: 1 },
+        l = { side: "left", value: -1 },
+        u = "pistol",
+        d = "teleport",
+        p = "super_twins",
+        f = "none";
+      function g(t, i) {
+        return Object.assign(this, {
+          init: function () {
+            return (
+              (this._root = t),
+              (this.g = t.g),
+              (this.container = i || t.gameContainer),
+              (this.config = null),
+              (this.states = null),
+              (this.playState = null),
+              (this.hitAreaWatchList = []),
+              (this._updateIndex = void 0),
+              (this.timeouts = {}),
+              this
+            );
+          },
+          startUpdate: function () {
+            var t = this.update.bind(this);
+            (this._updateIndex = this.g.updateFunctions.length),
+              this.g.updateFunctions.push(t);
+          },
+          stopUpdate: function () {
+            void 0 !== this._updateIndex &&
+              ((this.g.updateFunctions[this._updateIndex] = null),
+              (this._updateIndex = void 0));
+          },
+          addToHitAreaWatchList: function (t) {
+            t.forEach(
+              function (t) {
+                this.hitAreaWatchList.push(t);
+              }.bind(this)
+            );
+          },
+          getFrames: function (t, i) {
+            return this.g.getFrames(t, i);
+          },
+          getArrayRandomValue: function (t) {
+            return t[this.g.randomInt(0, t.length - 1)];
+          },
+          createSprite: function (t) {
+            return this.g.sprite(this.g.getSmartSprite(t));
+          },
+          playAnimation: function (t, i) {
+            this.playState === i ||
+              t.playing ||
+              ((t.fps = this.states[i].fps),
+              (t.loop = this.states[i].loop),
+              t.playSequence(this.states[i].frames),
+              (this.playState = i));
+          },
+          setAnimatonStates: function (t) {
+            (t = t || {}), (this.states = t);
+          },
+          killTimeout: function (t) {
+            this.timeouts[t] &&
+              (clearTimeout(this.timeouts[t]), (this.timeouts[t] = null));
+          },
+          updateWatchList: function () {
+            this.hitAreaWatchList.forEach(
+              function (t) {
+                (t.visible = this._root.config.debug),
+                  (t.alpha = this._root.config.debug ? 0.5 : t.alpha);
+              }.bind(this)
+            );
+          },
+          update: function (t) {
+            t && this._root.isGameOver
+              ? this.stopUpdate()
+              : this.updateWatchList();
+          },
+        });
+      }
+      function y(t, i) {
+        var e = new g(t, i).init();
+        return (
+          (this._update = e.update),
+          Object.assign(e, this, {
+            init: function () {
+              return (
+                (this.skin = null),
+                (this.body = null),
+                (this.attackHitArea = null),
+                (this.health = 10),
+                (this.damage = 1),
+                (this.speedX = 3),
+                (this.speedY = 1),
+                (this.vx = this.speedX),
+                (this.vy = 0),
+                (this.ax = 0),
+                (this.ay = 0),
+                (this.gravity = 0.9),
+                (this.jumpForce = 8),
+                (this.isOnGround = !1),
+                (this.isFalling = !1),
+                (this.isJumping = !1),
+                (this.isAttack = !1),
+                (this.isTakeDamage = !1),
+                (this.isPowerAttack = !1),
+                (this.isPowerAttackUsed = !1),
+                (this.isAllowAttack = !0),
+                (this.timeouts.allowAttack = null),
+                (this.flipH = c.value),
+                (this.isDead = !1),
+                (this.ignoreWallNameForCollision = ""),
+                (this.activeBehaviourState = r),
+                this
+              );
+            },
+            create: function (t, i) {
+              if (!this.skin) {
+                (i = i || {}),
+                  (this.skin = this.createSprite(t)),
+                  (this.skin.onAnimationComplete =
+                    this.onSkinAnimationComplete.bind(this));
+                var e = i.width || this.skin.halfWidth,
+                  s = i.height || this.skin.height;
+                (this.body = this.g.rectangle(
+                  e,
+                  s,
+                  i.fillStyle,
+                  i.strokeStyle,
+                  i.lineWidth,
+                  i.x,
+                  i.y
+                )),
+                  (this.body.visible = !1),
+                  this.container.addChild(this.skin),
+                  this.container.addChild(this.body),
+                  this.addToHitAreaWatchList([this.body]),
+                  this.updateSkinToBody(),
+                  i.flipH && this.flip(i.flipH);
+              }
+            },
+            createAttackHitArea: function (t) {
+              var i = (t = t || {}).width || this.body.width,
+                e = t.height || this.body.halfHeight;
+              (this.attackHitArea = this.g.rectangle(
+                i,
+                e,
+                t.fillStyle,
+                t.strokeStyle,
+                t.lineWidth,
+                t.x,
+                t.y
+              )),
+                this.container.addChild(this.attackHitArea),
+                this.addToHitAreaWatchList([this.attackHitArea]),
+                this.updateAttackHitAreaToBody();
+            },
+            isFlipH: function () {
+              return Boolean(this.flipH === l.value);
+            },
+            flip: function (t) {
+              switch ((t = isNaN(t) ? t : this.getFlipHSide(t))) {
+                case c.side:
+                  (this.flipH = c.value),
+                    this.skin.scaleX < 0 && (this.skin.scaleX *= -1);
+                  break;
+                case l.side:
+                  (this.flipH = l.value),
+                    this.skin.scaleX > 0 && (this.skin.scaleX *= -1);
+              }
+            },
+            getFlipHSide: function (t) {
+              return t === l.value ? l.side : c.side;
+            },
+            updateToGravity: function () {
+              (this.vy += this.ay),
+                (this.vy += this.gravity),
+                (this.body.y += this.vy);
+            },
+            updateBodyVelocityX: function () {
+              (this.vx += this.ax), (this.body.x += this.vx);
+            },
+            updateOnGroundCommonProps: function () {
+              (this.gravity = 0.9),
+                (this.isJumping = !1),
+                (this.isFalling = !1);
+            },
+            vsPlatforms: function (t) {
+              for (var i = 0; i < t.length; i++) {
+                var e = t[i],
+                  s = this.g.hitTest({ target: e, source: this.body });
+                s.hit &&
+                  ("bottom" === s.side && this.vy >= 0
+                    ? ((this.isOnGround = !0),
+                      (this.isFalling = !1),
+                      (this.isJumping = !1),
+                      (this.body.y = e.y - this.body.height),
+                      (this.vy = -this.gravity))
+                    : "top" === s.side && this.vy <= 0
+                    ? (this.vy = 0)
+                    : "right" === s.side && this.vx >= 0
+                    ? ((this.x = e.x - this.width), (this.vx = 0))
+                    : "left" === s.side &&
+                      this.vx <= 0 &&
+                      ((this.x = e.x + e.width), (this.vx = 0)),
+                  "bottom" !== s.side && this.vy > 0 && (this.isOnGround = !1));
+              }
+            },
+            vsWalls: function () {
+              for (var t = 0; t < this._root.background.walls.length; t++) {
+                var i = this._root.background.walls[t];
+                if (this.ignoreWallNameForCollision === i.name) return;
+                var e = this.g.hitTest({ target: i, source: this.body });
+                e.hit &&
+                  ("right" === e.side && this.vx >= 0
+                    ? this.flip(l.side)
+                    : "left" === e.side && this.vx <= 0 && this.flip(c.side));
+              }
+            },
+            attack: function (t) {
+              this.isOnGround &&
+                (this.playAnimation(this.skin, t),
+                (this.isAttack = !0),
+                (this.isAllowAttack = !1),
+                this.killTimeout("allowAttack"));
+            },
+            getReversedFlipH: function (t) {
+              return (t = t || this.flipH) === c.value ? l.value : c.value;
+            },
+            forceJump: function (t, i) {
+              var e = t || this.jumpForce;
+              (i = i || "jump"),
+                (this.vy = -e),
+                (this.isOnGround = !1),
+                (this.isJumping = !0),
+                this.playAnimation(this.skin, i);
+            },
+            receiveDamage: function (t, i, e) {
+              (e = e || 3),
+                (this.health -= t),
+                (this.isTakeDamage = !0),
+                this.forceJump(e, "hurt"),
+                this.health <= 0
+                  ? this.kill(i)
+                  : this.playAnimation(this.skin, "hurt");
+            },
+            showSkinBody: function (t) {
+              (this.skin.visible = t), (this.body.visible = t);
+            },
+            removeSkinBody: function () {
+              this.skin.parent.removeChild(this.skin),
+                this.body.parent.removeChild(this.body);
+            },
+            forceMoveTo: function (t, i) {
+              (this.body.x = i), this.flip(t);
+            },
+            kill: function (t) {
+              (this.isDead = !0),
+                this.playAnimation(this.skin, "die"),
+                t && this.flip(t),
+                this.middlewareOnKill();
+            },
+            checkMaxGroundFall: function () {
+              !this.isDead &&
+                this.body.y > this._root.background.ground.y &&
+                this.receiveDamage(this.health);
+            },
+            getSafestMoveXRange: function (t, i, e, s, n) {
+              (s = s || this._root.background.wall1),
+                (n = n || this._root.background.wall2);
+              var h = s.x + s.width,
+                a = n.x,
+                o = t.x + e * i;
+              return (
+                o <= h && (o = h + t.width), o >= a && (o = a - t.width), o
+              );
+            },
+            onCompleteAttack: function (t, i, e, s) {
+              (e = void 0 === e || e),
+                (this.isAttack || s) &&
+                  (e &&
+                    ((this.isAttack = !1), this.middlewareOnCompleteAttack()),
+                  (this.timeouts.allowAttack = setTimeout(
+                    function () {
+                      (this.isAllowAttack = !0), (this.isAttack = !1), i && i();
+                    }.bind(this),
+                    t
+                  )));
+            },
+            updateSkinToBody: function () {
+              this.skin &&
+                ((this.skin.x = this.body.x - this.body.halfWidth),
+                (this.skin.y = this.body.y));
+            },
+            updateAttackHitAreaToBody: function () {
+              this.attackHitArea &&
+                ((this.attackHitArea.x = this.isFlipH()
+                  ? this.body.x - this.body.width
+                  : this.body.centerX),
+                (this.attackHitArea.y = this.body.y),
+                (this.attackHitArea.visible =
+                  !this.isDead && this.isAttack && this._root.config.debug));
+            },
+            update: function (t) {
+              this._update(!0), this.checkMaxGroundFall(), this.onUpdate();
+            },
+            onUpdate: function () {},
+            middlewareOnCompleteAttack: function () {},
+            middlewareOnKill: function () {},
+            onSkinAnimationComplete: function () {},
+          })
+        );
+      }
+      function w(t, i, u, f, g) {
+        var w = "stand",
+          m = "attack",
+          v = "run_away",
+          k = [w, m, v],
+          A = new y(t, i).init();
+        return Object.assign(A, this, {
+          init: function () {
+            return (
+              (this.index = u),
+              (this.health = 2),
+              (this.timeouts.stand = null),
+              (this.timeouts.kill = null),
+              (this.targetXToFollow = 0),
+              (this.speedX = 2),
+              (this.forceChoice = g),
+              this.create("enemy_", { height: 16 }),
+              this.setAnimatonStates({
+                run: {
+                  frames: this.getFrames(this.skin, "enemy_run_"),
+                  fps: 8,
+                  loop: !0,
+                },
+                idle: {
+                  frames: this.getFrames(this.skin, "enemy_idle_"),
+                  fps: 7,
+                  loop: !0,
+                },
+                die: {
+                  frames: this.getFrames(this.skin, "enemy_die"),
+                  fps: 8,
+                  loop: !1,
+                },
+                jump: {
+                  frames: this.getFrames(this.skin, "enemy_jump"),
+                  fps: 8,
+                  loop: !1,
+                },
+                hurt: {
+                  frames: this.getFrames(this.skin, "enemy_hurt"),
+                  fps: 8,
+                  loop: !1,
+                },
+                punch: {
+                  frames: this.getFrames(this.skin, "enemy_punch"),
+                  fps: 8,
+                  loop: !1,
+                },
+              }),
+              this.spawn(f),
+              this.playAnimation(this.skin, "idle"),
+              this.createAttackHitArea(),
+              this.startUpdate(),
+              this
+            );
+          },
+          spawn: function (t) {
+            var i = this._root.background.wall1,
+              e = this._root.background.wall2;
+            this.flip(t),
+              (this.body.y = 80),
+              (this.body.x =
+                t === c.side
+                  ? e.centerX + this.body.height
+                  : i.centerX - this.body.height);
+          },
+          onUpdate: function () {
+            this._root.player.isDead
+              ? this.playAnimation(this.skin, "idle")
+              : (this.isDead ||
+                  (this._root.player.isAttack &&
+                  this._root.player.isPowerAttackUsed
+                    ? (this.choiceStand(1e3),
+                      this.playAnimation(this.skin, "idle"))
+                    : this.updateMovement()),
+                this.updateToGravity(),
+                this.vsPlatforms([this._root.background.ground]),
+                this.isOnGround &&
+                  !this.isDead &&
+                  (this.vsWalls(),
+                  this.vsDecoys(),
+                  this._root.screen.powerAttackScreen.visible
+                    ? this.checkPowerAttackHitFromPlayer()
+                    : this.checkAttackHitFromPlayer()),
+                this.updateSkinToBody(),
+                this.updateAttackHitAreaToBody());
+          },
+          updateMovement: function () {
+            this.isOnGround &&
+              (this.updateOnGroundCommonProps(),
+              this.activeBehaviourState === r && this.vsPlayer()),
+              this.vy > 0 && (this.isFalling = !0),
+              this.updateBodyVelocityX(),
+              this.activeBehaviourState === a ||
+              this.activeBehaviourState === o ||
+              this.activeBehaviourState === n ||
+              this.activeBehaviourState === h
+                ? ((this.vx = this.flipH * this.speedX),
+                  this.isJumping ||
+                    this.isFalling ||
+                    this.isTakeDamage ||
+                    this.playAnimation(this.skin, "run"),
+                  this.isWithinTargetRange(
+                    this.body.centerX,
+                    this.targetXToFollow
+                  ) && this.autoDetectChoices())
+                : ((this.ignoreWallNameForCollision = ""),
+                  (this.vx = 0),
+                  this.isJumping ||
+                    this.isFalling ||
+                    this.isTakeDamage ||
+                    (this.activeBehaviourState === e &&
+                      this.playAnimation(this.skin, "idle")));
+          },
+          vsPlayer: function () {
+            this.killTimeout("stand"),
+              (this.activeBehaviourState = r),
+              this.isWithinTargetRange()
+                ? this.autoDetectChoices()
+                : (this.activeBehaviourState === a &&
+                    this.activeBehaviourState === o) ||
+                  this.followPlayer();
+          },
+          vsDecoys: function () {
+            for (var t = 0; t < this._root.player.decoys.length; t++) {
+              var i = this._root.player.decoys[t];
+              i &&
+                i.body &&
+                !i.isDestroy &&
+                i.isAttack &&
+                this.isWithinTargetRange(this.body, i.body, 20) &&
+                this.updateOnReceiveDamage(1, i, !1);
+            }
+          },
+          checkAttackHitToPlayer: function () {
+            if (
+              !this.isDead &&
+              !this._root.player.isAttack &&
+              this.g.hitTest({
+                target: this._root.player.body,
+                source: this.attackHitArea,
+              }).hit
+            ) {
+              this._root.player.receiveDamage(
+                this.damage,
+                this.getReversedFlipH(this.flipH),
+                2
+              );
+              var t = this.getSafestMoveXRange(
+                this._root.player.body,
+                this.flipH,
+                this._root.player.body.width / 2
+              );
+              this._root.player.forceMoveTo(this._root.player.flipH, t);
+            }
+          },
+          checkAttackHitFromPlayer: function () {
+            this._root.player.isDead ||
+              (this.g.hitTest({
+                source: this._root.player.attackHitArea,
+                target: this.body,
+              }).hit &&
+                this._root.player.isAttack &&
+                this.updateOnReceiveDamage());
+          },
+          checkPowerAttackHitFromPlayer: function () {
+            this._root.player.isDead ||
+              (this._root.player.usedPowerPunchType === d
+                ? this.vsPowerAttackScreen()
+                : this.isSeenByPlayer() &&
+                  this.isWithinTargetRange(
+                    this.body,
+                    this._root.player.body,
+                    this._root.player._powerAttackRange
+                  ) &&
+                  this._root.player.usedPowerPunchType !== p &&
+                  this.updateOnReceiveDamage(this.health));
+          },
+          vsPowerAttackScreen: function () {
+            this.g.hitTest({
+              target: this._root.screen.powerAttackScreen,
+              source: this.body,
+            }).hit && this.updateOnReceiveDamage(this.health);
+          },
+          updateOnReceiveDamage: function (t, i, e) {
+            (i = i || this._root.player),
+              (e = void 0 === e || e),
+              this.choiceStand(),
+              this.receiveDamage(
+                t || this.damage,
+                this.getReversedFlipH(i.flipH),
+                3,
+                i.flipH
+              );
+            var s = this.getSafestMoveXRange(
+              this.body,
+              i.flipH,
+              this.body.width / 2
+            );
+            this.forceMoveTo(this.flipH, s), e && i.updatePowerMeter(1);
+          },
+          followPlayer: function () {
+            var t = this.getFlipSideTowardsPlayer();
+            this.flip(t),
+              (this.targetXToFollow = this._root.player.body.centerX),
+              (this.activeBehaviourState = t === c.side ? o : a),
+              this.body.x <= this._root.background.wall1.centerX
+                ? (this.ignoreWallNameForCollision = "wall1")
+                : this.body.x >= this._root.background.wall2.centerX &&
+                  (this.ignoreWallNameForCollision = "wall2");
+          },
+          autoDetectChoices: function () {
+            if (!this.isDead)
+              if (this.isTakeDamage || this._root.player.isDead)
+                this.choiceStand();
+              else {
+                var t = this.getArrayRandomValue(k);
+                switch (
+                  ((this.ignoreWallNameForCollision = ""),
+                  this.killTimeout("stand"),
+                  t)
+                ) {
+                  case w:
+                    this.choiceStand();
+                    break;
+                  case m:
+                    this.choiceAttack();
+                    break;
+                  case v:
+                    if (this.forceChoice !== r) return;
+                    this.choiceRunAway();
+                }
+              }
+          },
+          choiceStand: function (t) {
+            (t = void 0 !== t ? t : 2e3),
+              this.killTimeout("stand"),
+              (this.activeBehaviourState = e),
+              (this.timeouts.stand = setTimeout(
+                function () {
+                  this.vsPlayer();
+                }.bind(this),
+                t
+              ));
+          },
+          choiceAttack: function () {
+            if (this.isAllowAttack) {
+              this.activeBehaviourState = s;
+              var t = this.getFlipSideTowardsPlayer();
+              this.flip(t), this.attack("punch");
+            } else this.vsPlayer();
+          },
+          choiceRunAway: function () {
+            this.body.x <= this._root.background.wall1.centerX
+              ? this.runAwayTowardsWallType(2, "wall1")
+              : this.body.x >= this._root.background.wall2.centerX
+              ? this.runAwayTowardsWallType(1, "wall2")
+              : this.isBehindPlayer()
+              ? this.runAwayTowardsWallType(2)
+              : this.runAwayTowardsWallType(1);
+          },
+          runAwayTowardsWallType: function (t, i) {
+            switch (((this.ignoreWallNameForCollision = i || ""), t)) {
+              case 1:
+                this.flip(l.side),
+                  (this.targetXToFollow = this._root.background.wall1.centerX),
+                  (this.activeBehaviourState = a);
+                break;
+              case 2:
+                this.flip(c.side),
+                  (this.targetXToFollow = this._root.background.wall2.centerX),
+                  (this.activeBehaviourState = o);
+            }
+          },
+          isWithinTargetRange: function (t, i, e) {
+            (t = void 0 !== t ? t : this.body),
+              (i = void 0 !== i ? i : this._root.player.body),
+              (e = e || 20);
+            var s = this.g.distance(t, i);
+            return Boolean(s <= e);
+          },
+          isBehindPlayer: function () {
+            return Boolean(this.body.x <= this._root.player.body.x);
+          },
+          isSeenByPlayer: function () {
+            return Boolean(
+              (this.body.x <= this._root.player.body.x &&
+                this._root.player.isFlipH()) ||
+                (this.body.x >= this._root.player.body.x &&
+                  !this._root.player.isFlipH())
+            );
+          },
+          getFlipSideTowardsPlayer: function () {
+            return this.isBehindPlayer() ? c.side : l.side;
+          },
+          onSkinAnimationComplete: function () {
+            switch (this.playState) {
+              case "punch":
+                this.onCompleteAttack(300, this.choiceStand.bind(this));
+                break;
+              case "hurt":
+                (this.isTakeDamage = !1), this.choiceStand();
+                break;
+              case "die":
+                this.destroy();
+            }
+          },
+          middlewareOnCompleteAttack: function () {
+            this.checkAttackHitToPlayer();
+          },
+          middlewareOnKill: function () {
+            this._root.incrementEnemiesKilled();
+          },
+          forceKill: function () {
+            this.receiveDamage(this.health);
+          },
+          destroy: function () {
+            this.timeouts.kill = setTimeout(
+              function () {
+                this.stopUpdate(), this.showSkinBody(!1);
+              }.bind(this),
+              1e3
+            );
+          },
+        });
+      }
+      function m(t, i, e) {
+        var s = new y(t, i).init();
+        return Object.assign(s, this, {
+          init: function () {
+            return (
+              (this.isRun = !1),
+              (this.speedX = 2),
+              (this.isDestroy = !1),
+              (this.runDuration = e.runDuration),
+              (this.spawnDuration = e.spawnDuration),
+              (this.lifeSpanDuration = 200),
+              (this.punchInterval = 10),
+              (this.idleInterval = 20),
+              (this.runTicker = new this.g.Ticker()),
+              (this.punchTicker = new this.g.Ticker()),
+              (this.lifeSpanTicker = new this.g.Ticker()),
+              this.spawn(e),
+              this
+            );
+          },
+          spawn: function (t) {
+            this._root.isGameOver ||
+              setTimeout(
+                function () {
+                  this.create(t.sprite, {
+                    height: 16,
+                    x: t.x,
+                    y: t.y,
+                    flipH: t.flipH,
+                  }),
+                    this.setAnimatonStates({
+                      idle: {
+                        frames: this.getFrames(this.skin, t.sprite + "idle_"),
+                        fps: 8,
+                        loop: !0,
+                      },
+                      run: {
+                        frames: this.getFrames(this.skin, t.sprite + "run_"),
+                        fps: 8,
+                        loop: !0,
+                      },
+                      jump: {
+                        frames: this.getFrames(this.skin, t.sprite + "jump"),
+                        fps: 8,
+                        loop: !1,
+                      },
+                      punch: {
+                        frames: this.getFrames(this.skin, t.sprite + "punch"),
+                        fps: 8,
+                        loop: !1,
+                      },
+                    }),
+                    this._root.sound.play("fxSpawnD"),
+                    this.startUpdate();
+                }.bind(this),
+                this.spawnDuration
+              );
+          },
+          onUpdate: function () {
+            this.isDead || this.updateMovement(),
+              this.updateToGravity(),
+              this.vsPlatforms(this._root.background.platforms),
+              this.vsWalls(),
+              this.updateSkinToBody(),
+              this.updateAttackHitAreaToBody();
+          },
+          updateMovement: function () {
+            this.updateOnGroundBehaviour(),
+              this.vy > 0 &&
+                ((this.isFalling = !0), this.playAnimation(this.skin, "jump")),
+              this.updateBodyVelocityX(),
+              this.runTicker.tick &&
+                this.runTicker.tick % this.runDuration == 0 &&
+                !this.runTicker.isStop &&
+                (this.runTicker.stop(), (this.isRun = !1));
+          },
+          updateOnGroundBehaviour: function () {
+            this.isOnGround &&
+              (this.updateOnGroundCommonProps(),
+              this.runTicker.tick || (this.isRun = !0),
+              this.runTicker.run(),
+              this.isRun
+                ? ((this.isAttack = !1),
+                  this.playAnimation(this.skin, "run"),
+                  (this.vx = this.flipH * this.speedX))
+                : ((this.vx = 0),
+                  this.punchTicker.tick ||
+                    this.playAnimation(this.skin, "idle"),
+                  this.punchTicker.run(),
+                  this.lifeSpanTicker.run(),
+                  this.punchTicker.tick &&
+                    this.punchTicker.tick % this.punchInterval == 0 &&
+                    (this.playAnimation(this.skin, "punch"),
+                    (this.isAttack = !0)),
+                  this.punchTicker.tick &&
+                    this.punchTicker.tick % this.idleInterval == 0 &&
+                    (this.playAnimation(this.skin, "idle"),
+                    (this.isAttack = !1)),
+                  this.lifeSpanTicker.tick &&
+                    this.lifeSpanTicker.tick % this.lifeSpanDuration == 0 &&
+                    ((this.isAttack = !1),
+                    this.lifeSpanTicker.stop(),
+                    this.destroy())));
+          },
+          destroy: function () {
+            this.stopUpdate(),
+              this.showSkinBody(!1),
+              this.removeSkinBody(!0),
+              (this.isDestroy = !0);
+          },
+        });
+      }
+      function v(t, i, e, s) {
+        var n = [u, d, p],
+          h = new y(t, i).init();
+        return Object.assign(h, this, {
+          init: function () {
+            return (
+              (this.health = 8),
+              (this.powerMeter = 0),
+              (this.maxPowerMeter = 10),
+              (this._healthCounter = 1),
+              (this._powerAttackRange = 160),
+              (this.usedPowerPunchType = f),
+              (this.powerPunchClones = []),
+              (this.timeouts.powerPunchAnticipation = null),
+              (this.decoys = []),
+              (this.totalDecoys = 10),
+              (this.usedPowerPunchSlots = []),
+              this.create("player_", { height: 16, x: e, y: s }),
+              this.setAnimatonStates({
+                run: {
+                  frames: this.getFrames(this.skin, "player_run_"),
+                  fps: 8,
+                  loop: !0,
+                },
+                idle: {
+                  frames: this.getFrames(this.skin, "player_idle_"),
+                  fps: 8,
+                  loop: !0,
+                },
+                die: {
+                  frames: this.getFrames(this.skin, "player_die"),
+                  fps: 8,
+                  loop: !1,
+                },
+                jump: {
+                  frames: this.getFrames(this.skin, "player_jump"),
+                  fps: 8,
+                  loop: !1,
+                },
+                hurt: {
+                  frames: this.getFrames(this.skin, "player_hurt"),
+                  fps: 8,
+                  loop: !1,
+                },
+                punch: {
+                  frames: this.getFrames(this.skin, "player_punch"),
+                  fps: 8,
+                  loop: !1,
+                },
+                powerPunch: {
+                  frames: this.getFrames(this.skin, "player_power_punch_"),
+                  fps: 8,
+                  loop: !1,
+                },
+              }),
+              (this.states.levitate = this.states.jump),
+              (this.healthTicker = new this.g.Ticker()),
+              (this._root.playerHealthBar.totalAmount = this.health),
+              (this._root.playerPowerBar.totalAmount = this.maxPowerMeter),
+              this.playAnimation(this.skin, "idle"),
+              this.createAttackHitArea(),
+              this.createIndicator(),
+              this.startUpdate(),
+              this
+            );
+          },
+          createIndicator: function () {
+            (this.indicator = this.g.rectangle(1, 3, "red", "", 0, 0, 0)),
+              this.container.addChild(this.indicator),
+              (this.indicator.visible = !1);
+          },
+          onUpdate: function () {
+            this.autoUpdateHealthPack(),
+              this.usedPowerPunchType !== p &&
+                (this._root.screen.powerAttackScreen.visible ||
+                  (this.isAttack || this.isDead || this.updateMovement(),
+                  this.isAllowAttack &&
+                    !this.isDead &&
+                    this.isOnGround &&
+                    this.updateAttack()),
+                this.updateToGravity()),
+              this.vsPlatforms(this._root.background.platforms),
+              this.checkAndCleanDecoys(),
+              this.updateSkinToBody(),
+              this.updateAttackHitAreaToBody(),
+              this.updatePowerAttackBehaviour(),
+              this.updateIndicator();
+          },
+          updateIndicator: function () {
+            (this.indicator.x = this.body.centerX - this.indicator.halfWidth),
+              (this.indicator.y = this.body.y - this.indicator.height),
+              (this.indicator.visible = Boolean(
+                this.decoys.length && "levitate" !== this.playState
+              ));
+          },
+          updatePowerAttackBehaviour: function () {
+            this.isPowerAttackUsed &&
+              this.g._startTime % 2 == 0 &&
+              (this.powerMeter -= 1),
+              this.powerMeter <= 0 &&
+                this.usedPowerPunchType !== p &&
+                ((this.powerMeter = 0), this.resetPowerAttack()),
+              this._root.playerPowerBar.updateBar(this.powerMeter),
+              this.usedPowerPunchType === u &&
+                this._root.screen.powerAttackScreen.visible &&
+                !this.powerPunchClones.length &&
+                this.createPowerPunchClones();
+          },
+          updatePowerMeter: function (t) {
+            this.isPowerAttack ||
+              this.decoys.length ||
+              (this.powerMeter < this.maxPowerMeter
+                ? (this.powerMeter += t)
+                : (this.isPowerAttack = !0));
+          },
+          autoUpdateHealthPack: function () {
+            this.healthTicker.run(),
+              this.healthTicker.tick &&
+                this.healthTicker.tick % 500 == 0 &&
+                this.health < 8 &&
+                this.health &&
+                (this.health += this._healthCounter),
+              this._root.playerHealthBar.updateBar(this.health);
+          },
+          updateMovement: function () {
+            this.isOnGround && this.updateOnGroundCommonProps(),
+              this.vy > 0 && (this.isFalling = !0),
+              this.updateBodyVelocityX(),
+              (this._root.isKeyPressed("right") ||
+                this._root.isKeyPressed("left")) &&
+                ((this.vx = this.flipH * this.speedX),
+                this.checkAndPlayAnimation("run")),
+              this._root.isKeyPressed("right")
+                ? this.flip(c.side)
+                : this._root.isKeyPressed("left")
+                ? this.flip(l.side)
+                : ((this.vx = 0), this.checkAndPlayAnimation("idle")),
+              this._root.isKeyPressed("up") &&
+                this.isOnGround &&
+                this.forceJump();
+          },
+          updateAttack: function () {
+            if (this._root.isKeyPressed("attack") && this.isAllowAttack) {
+              this.killTimeout("powerPunchAnticipation");
+              var t =
+                  this.isPowerAttack && !this.isPowerAttackUsed
+                    ? "powerPunch"
+                    : "punch",
+                i = 300;
+              !this.isPowerAttack ||
+                this.isPowerAttackUsed ||
+                this.decoys.length ||
+                ((this.isPowerAttackUsed = !0),
+                (this.usedPowerPunchType = this.getNewPowerPunch()),
+                (i = this.usedPowerPunchType === p ? 100 : i),
+                this.showPowerAttackScreen(this.usedPowerPunchType),
+                (this.timeouts.powerPunchAnticipation = setTimeout(
+                  function () {
+                    this.usePowerPunch(this.usedPowerPunchType);
+                  }.bind(this),
+                  i
+                ))),
+                this._root.sound.play("fxPunch"),
+                this.attack(t);
+            }
+          },
+          showPowerAttackScreen: function (t) {
+            switch (t) {
+              case d:
+                this._root.screen.showPowerAttackScreen(
+                  this.usedPowerPunchType,
+                  {
+                    x: this.body.centerX,
+                    y: this.body.y + this.body.height - 10,
+                    height: 2,
+                    width: this._powerAttackRange,
+                    flipH: this.flipH,
+                  }
+                );
+                break;
+              default:
+                this._root.screen.showPowerAttackScreen(
+                  this.usedPowerPunchType
+                );
+            }
+          },
+          getNewPowerPunch: function () {
+            var t = this.getArrayRandomValue(n);
+            if (
+              this.usedPowerPunchSlots.length >= 2 &&
+              this.usedPowerPunchSlots[this.usedPowerPunchSlots.length - 1] ===
+                t &&
+              this.usedPowerPunchSlots[this.usedPowerPunchSlots.length - 2] ===
+                t
+            ) {
+              var i = n.filter(function (i) {
+                return i !== t;
+              });
+              (t = this.getArrayRandomValue(i)),
+                (this.usedPowerPunchSlots.length = 0);
+            }
+            return this.usedPowerPunchSlots.push(t), t;
+          },
+          usePowerPunch: function (t) {
+            var i,
+              e = "idle";
+            switch (t) {
+              case u:
+                (e = ""),
+                  (i = this.getSafestMoveXRange(
+                    this.body,
+                    this.getReversedFlipH(),
+                    2 * this.skin.width
+                  )),
+                  this.forceMoveTo(this.flipH, i),
+                  this._root.sound.play("fxPistol");
+                break;
+              case d:
+                (i = this.getSafestMoveXRange(
+                  this.body,
+                  this.flipH,
+                  this._powerAttackRange
+                )),
+                  this.forceMoveTo(this.flipH, i),
+                  this._root.sound.play("fxTele");
+                break;
+              case p:
+                (e = "levitate"),
+                  (this.body.y = this._root.config.height / 2),
+                  this.createDecoys(),
+                  this._root.sound.play("fxSuperT");
+            }
+            e && this.playAnimation(this.skin, e);
+          },
+          checkAndCleanDecoys: function () {
+            for (var t = 0; t < this.decoys.length; t++) {
+              var i = this.decoys[t];
+              i
+                ? i.isDestroy && (this.decoys[t] = null)
+                : this.decoys.splice(t, 1);
+            }
+          },
+          checkAndPlayAnimation: function (t) {
+            this.isJumping ||
+              this.isFalling ||
+              this.isTakeDamage ||
+              this.playAnimation(this.skin, t);
+          },
+          createPowerPunchClones: function (t) {
+            for (
+              var i = t || this._powerAttackRange / this.skin.width, e = 0;
+              e < i;
+              e++
+            ) {
+              var s = this.createSprite("player_");
+              s.gotoAndStop(this.states.powerPunch.frames[0]),
+                (s.x =
+                  this.skin.x +
+                  this.skin.width * this.flipH +
+                  s.width * (i - e) * this.flipH),
+                (s.y = this.body.y),
+                (s.scaleX = this.skin.scaleX),
+                (s.alpha = 0.1 * e),
+                this.container.addChild(s),
+                this.powerPunchClones.push(s),
+                setTimeout(
+                  function () {
+                    s.parent.removeChild(s),
+                      i === this.powerPunchClones.length &&
+                        (this.powerPunchClones.length = 0);
+                  }.bind(this),
+                  100 * e
+                );
+            }
+          },
+          createDecoys: function () {
+            for (
+              var t = [l.value, c.value], i = 0, e = 0;
+              e < this.totalDecoys;
+              e++
+            ) {
+              i = ++i >= t.length ? 0 : i;
+              var s = e ? 20 * e * 2 : 20,
+                n = e ? 200 * e * 2 : 200,
+                h = new m(this._root, this._root.decoysContainer, {
+                  sprite: "player_",
+                  flipH: t[i],
+                  x: this.body.x,
+                  y: this.body.y,
+                  runDuration: s,
+                  spawnDuration: n,
+                }).init();
+              this.decoys.push(h);
+            }
+            setTimeout(
+              function () {
+                this.resetPowerAttack(!0);
+              }.bind(this),
+              400 * this.totalDecoys
+            );
+          },
+          resetPowerAttack: function (t) {
+            (this.isPowerAttackUsed = !1),
+              (this.isPowerAttack = !1),
+              (this.usedPowerPunchType = f),
+              t &&
+                ((this.isAttack = !1),
+                this.middlewareOnCompleteAttack(),
+                (this.isAllowAttack = !0));
+          },
+          onSkinAnimationComplete: function () {
+            var t = 300;
+            switch (this.playState) {
+              case "punch":
+                this.onCompleteAttack(t);
+              case "powerPunch":
+                (t = 600), this.onCompleteAttack(t, null, !1, !0);
+                break;
+              case "hurt":
+                this.isTakeDamage = !1;
+            }
+          },
+          middlewareOnKill: function () {
+            this._root.gameOver();
+          },
+        });
+      }
+      function k(t, i) {
+        var e = new g(t, i).init();
+        return (
+          (this._update = e.update),
+          Object.assign(e, this, {
+            init: function () {
+              return (
+                (this.scrollSpeedX = 10),
+                (this.bg0 = this.createSprite("bg_space")),
+                (this.bg1 = this.createSprite("bg_space")),
+                (this.bg2 = this.createSprite("bg_space")),
+                (this.bgTrain = this.createSprite("bg_train")),
+                (this.bgTrainShade1 = this.createSprite("bg_train_shade")),
+                (this.bgTrainShade2 = this.createSprite("bg_train_shade")),
+                (this.bg2.x = this.bg1.x + this.bg1.width),
+                (this.bgTrain.y =
+                  this._root.config.height - this.bgTrain.height),
+                (this.bgTrainShade1.y = this.bgTrainShade2.y =
+                  this.bgTrain.y - this.bgTrainShade1.height / 2 + 0.5),
+                (this.bgTrainShade2.x =
+                  this.bgTrainShade1.x + this.bgTrainShade1.width),
+                (this.ground = this.g.rectangle(
+                  this._root.config.width + 96,
+                  this.bgTrain.height / 2,
+                  "blue",
+                  "",
+                  0,
+                  -48,
+                  108
+                )),
+                (this.wall1 = this.g.rectangle(
+                  10,
+                  this._root.config.height,
+                  "black",
+                  "",
+                  0,
+                  0,
+                  0
+                )),
+                (this.wall2 = this.g.rectangle(
+                  10,
+                  this._root.config.height,
+                  "black",
+                  "",
+                  0,
+                  this._root.config.width - 10,
+                  0
+                )),
+                (this.wall1.name = "wall1"),
+                (this.wall2.name = "wall2"),
+                (this.wall1.visible = !1),
+                (this.wall2.visible = !1),
+                (this.platforms = [this.ground, this.wall1, this.wall2]),
+                (this.walls = [this.wall1, this.wall2]),
+                (this.bgContainer = this.g.group(
+                  this.bg0,
+                  this.bg1,
+                  this.bg2,
+                  this.bgTrain,
+                  this.bgTrainShade1,
+                  this.bgTrainShade2,
+                  this.ground,
+                  this.wall1,
+                  this.wall2
+                )),
+                this.container.addChild(this.bgContainer),
+                this.addToHitAreaWatchList(this.platforms),
+                this.startUpdate(),
+                this
+              );
+            },
+            update: function () {
+              this._update(),
+                this.updateParallaxScene(
+                  this.bg1,
+                  this.bg2,
+                  this._root.config.width
+                ),
+                this.updateParallaxScene(
+                  this.bgTrainShade1,
+                  this.bgTrainShade2,
+                  this._root.config.width,
+                  "_parallaxShadePos"
+                );
+            },
+            updateParallaxScene: function (t, i, e) {
+              (t.visible = !0),
+                (i.visible = !0),
+                (t.x -= this.scrollSpeedX),
+                (i.x -= this.scrollSpeedX),
+                t.x <= -e && ((t.visible = !1), (t.x = i.x + i.width)),
+                i.x <= -e && ((i.visible = !1), (i.x = t.x + t.width));
+            },
+          })
+        );
+      }
+      function A(t, i) {
+        var e = new g(t, i).init();
+        return Object.assign(e, {
+          init: function () {
+            return (
+              (this.timeouts.startPowerAttackScreen = null),
+              (this.timeouts.endPowerAttackScreen = null),
+              (this.powerAttackScreen = this.g.rectangle(
+                this._root.config.width,
+                this._root.config.height,
+                "white",
+                "",
+                0,
+                0,
+                0
+              )),
+              this.container.addChild(this.powerAttackScreen),
+              (this.powerAttackScreen.visible = !1),
+              this
+            );
+          },
+          showPowerAttackScreen: function (t, i) {
+            (i = i || {}),
+              this.timeouts.startPowerAttackScreen ||
+                ((this.timeouts.startPowerAttackScreen = setTimeout(
+                  function () {
+                    this.startPowerAttackScreen(t, i);
+                  }.bind(this),
+                  300
+                )),
+                (this.timeouts.endPowerAttackScreen = setTimeout(
+                  function () {
+                    this.endPowerAttackScreen();
+                  }.bind(this),
+                  500
+                )));
+          },
+          setPowerAttackScreenProps: function (t) {
+            (this.powerAttackScreen.width = t.width),
+              (this.powerAttackScreen.height = t.height),
+              (this.powerAttackScreen.x = t.x),
+              (this.powerAttackScreen.y = t.y),
+              (this.powerAttackScreen.scaleX = t.scaleX);
+          },
+          startPowerAttackScreen: function (t, i) {
+            (i = i || {}), (this.powerAttackScreen.visible = !0);
+            var e = this._root.config.width,
+              s = this._root.config.height,
+              n = i.flipH || c.value;
+            switch (t) {
+              case d:
+                this.setPowerAttackScreenProps({
+                  width: i.width || e,
+                  height: i.height || s,
+                  x: n === c.value ? i.x : i.x - i.width,
+                  y: i.y || 0,
+                });
+                break;
+              default:
+                this.setPowerAttackScreenProps({
+                  width: e,
+                  height: s,
+                  x: 0,
+                  y: 0,
+                  scaleX: 1,
+                });
+            }
+          },
+          endPowerAttackScreen: function () {
+            (this.powerAttackScreen.visible = !1),
+              this.killTimeout("startPowerAttackScreen"),
+              this.killTimeout("endPowerAttackScreen");
+          },
+        });
+      }
+      function b(t, i, e) {
+        var s = new g(t, i).init(),
+          n = e.height || 5,
+          h = e.width || 100,
+          a = e.bgColor || "#ff0052",
+          o = e.fgColor || "#00ff43";
+        return Object.assign(s, {
+          init: function () {
+            return (
+              (this.totalAmount = 10),
+              (this.bgHealthBar = this.g.rectangle(h, n, a, "", 0, 0, 0)),
+              (this.fgHealthBar = this.g.rectangle(h, n, o, "", 0, 0, 0)),
+              (this.healthBarContainer = this.g.group(
+                this.bgHealthBar,
+                this.fgHealthBar
+              )),
+              (this.healthBarContainer.x = e.x || 0),
+              (this.healthBarContainer.y = e.y || 0),
+              (this.healthBarContainer.alpha = 0.5),
+              this.container.addChild(this.healthBarContainer),
+              this
+            );
+          },
+          updateBar: function (t) {
+            this.fgHealthBar.width = (t / this.totalAmount) * h;
+          },
+        });
+      }
+      var _ = {
+          "bg_space.png": { x: 1, y: 1, w: 320, h: 105 },
+          "bg_train.png": { x: 1, y: 108, w: 320, h: 17 },
+          "bg_train_shade.png": { x: 1, y: 127, w: 313, h: 1 },
+          "enemy_die.png": { x: 323, y: 1, w: 16, h: 16 },
+          "enemy_hurt.png": { x: 341, y: 1, w: 16, h: 16 },
+          "enemy_idle_0.png": { x: 359, y: 1, w: 16, h: 16 },
+          "enemy_idle_1.png": { x: 323, y: 19, w: 16, h: 16 },
+          "enemy_punch.png": { x: 341, y: 19, w: 16, h: 16 },
+          "enemy_run_0.png": { x: 359, y: 19, w: 16, h: 16 },
+          "enemy_run_1.png": { x: 323, y: 37, w: 16, h: 16 },
+          "enemy_run_2.png": { x: 341, y: 37, w: 16, h: 16 },
+          "player_die.png": { x: 359, y: 37, w: 16, h: 16 },
+          "player_hurt.png": { x: 323, y: 55, w: 16, h: 16 },
+          "player_idle_0.png": { x: 341, y: 55, w: 16, h: 16 },
+          "player_idle_1.png": { x: 359, y: 55, w: 16, h: 16 },
+          "player_jump.png": { x: 323, y: 73, w: 16, h: 16 },
+          "player_power_punch_0.png": { x: 341, y: 73, w: 16, h: 16 },
+          "player_power_punch_1.png": { x: 359, y: 73, w: 16, h: 16 },
+          "player_power_punch_2.png": { x: 323, y: 91, w: 16, h: 16 },
+          "player_power_punch_3.png": { x: 323, y: 109, w: 16, h: 16 },
+          "player_punch.png": { x: 323, y: 109, w: 16, h: 16 },
+          "player_run_0.png": { x: 341, y: 91, w: 16, h: 16 },
+          "player_run_1.png": { x: 359, y: 91, w: 16, h: 16 },
+          "player_run_2.png": { x: 341, y: 109, w: 16, h: 16 },
+        },
+        P = {
+          isMusicPlaying: !1,
+          t: function (t, i) {
+            return (i - t) / i;
+          },
+          init: function () {
+            return (
+              (this.A = new AudioContext()),
+              (this.G = this.A.createGain()),
+              this
+            );
+          },
+          play: function (t) {
+            var i = null;
+            switch (t) {
+              case "fxPistol":
+                i = this._fxPistol.bind(this);
+                break;
+              case "fxTele":
+                i = this._fxTele.bind(this);
+                break;
+              case "fxSpawnD":
+                i = this._fxSpawnD.bind(this);
+                break;
+              case "fxSuperT":
+                i = this._fxSuperT.bind(this);
+                break;
+              default:
+              case "fxPunch":
+                i = this._fxPunch.bind(this);
+            }
+            if (i) {
+              var e = "fxPunch" === t ? 0.2 : 0.5;
+              this._audio(i, e);
+            }
+          },
+          music: function () {
+            this.isMusicPlaying ||
+              (this._a(
+                [
+                  [9, 14],
+                  [4, 14],
+                  [16, 14],
+                  [1, 14],
+                  [3, 6],
+                  [6, 14],
+                  [10, 16],
+                  [12, 14],
+                  [8, 7],
+                  [14, 14],
+                  [13, 9],
+                  [15, 9],
+                  [2, 9],
+                  [5, 9],
+                  [7, 9],
+                  [11, 9],
+                  [2, 21],
+                  [3, 21],
+                  [4, 21],
+                  [5, 21],
+                  [6, 21],
+                  [11, 21],
+                  [12, 21],
+                  [13, 21],
+                  [14, 21],
+                  [15, 21],
+                  [16, 21],
+                  [0, 6],
+                ],
+                400,
+                0.19,
+                0.18,
+                0.005,
+                0.2,
+                0.1,
+                "sawtooth"
+              ),
+              this._startMusic());
+          },
+          _audio: function (t, i) {
+            (this.G.gain.value = i || 1),
+              this.G.connect(this.A.destination),
+              (this.m = this.A.createBuffer(1, 96e3, 48e3)),
+              (this.b = this.m.getChannelData(0));
+            for (var e = 96e3; e--; ) this.b[e] = t(e);
+            (this.s = this.A.createBufferSource()),
+              (this.s.buffer = this.m),
+              this.s.connect(this.G),
+              this.s.start();
+          },
+          _fxPunch: function (t) {
+            if (t > 2e4) return null;
+            var i = this.t(t, 2e4);
+            return 33 & Math.pow(30 * t, 0.3) ? i : -i;
+          },
+          _fxPistol: function (t) {
+            if (t > 2e4) return null;
+            var i = this.t(t, 2e4);
+            return 33 & Math.pow(5e5 * t, 0.3) ? i : -i;
+          },
+          _fxTele: function (t) {
+            if (t > 2e4) return null;
+            var i = this.t(t, 2e4);
+            return (t *= 0.7), 133 & Math.pow(50 * t, 0.8) ? i : -i;
+          },
+          _fxSpawnD: function (t) {
+            var i = 13e3;
+            if (t > i) return null;
+            var e = Math.pow(this.t(t, i), 3.1);
+            return Math.pow(t, 1.08) & (t < 4333.333333333333 ? 98 : 99)
+              ? e
+              : -e;
+          },
+          _fxSuperT: function (t) {
+            return t > 25e3
+              ? null
+              : ((65535 & (t ^ (t >> 3) ^ (t * t * 7.3) ^ (t << 4))) / 65536) *
+                  this.t(t, 25e3);
+          },
+          _startMusic: function () {
+            setTimeout(
+              function () {
+                this.music();
+              }.bind(this),
+              3390
+            );
+          },
+          _a: function (i, e, s, n, h, a, o, r, c) {
+            var l = new AudioContext(),
+              u = l.createGain();
+            i.forEach(
+              function (i) {
+                var c = l.createOscillator();
+                c &&
+                  (c.connect(u),
+                  u.connect(l.destination),
+                  c.start(i[0] * a),
+                  c.frequency.setValueAtTime(e * t(1.06, 13 - i[1]), i[0] * a),
+                  (c.type = r),
+                  u.gain.setValueAtTime(o, i[0] * a),
+                  u.gain.setTargetAtTime(1e-5, i[0] * a + n, h),
+                  c.stop(i[0] * a + s));
+              }.bind(this)
+            );
+          },
+        };
+      function S() {
+        var t = document.getElementById("game-over"),
+          e = document.getElementById("bottom-bar"),
+          n = document.getElementById("kill-meter"),
+          h = document.getElementById("gameArea");
+        return {
+          config: {
+            width: 320,
+            height: 120,
+            fps: 30,
+            debug: !1,
+            injectToWindow: !1,
+            keyCodes: {
+              up: 38,
+              down: 40,
+              left: 37,
+              right: 39,
+              attack: 67,
+              start: 90,
+            },
+            maxEnemies: 1e3,
+          },
+          init: function () {
+            return (
+              (this.g = i.create({
+                width: this.config.width,
+                height: this.config.height,
+                view: h,
+                setup: this._setup.bind(this),
+                assets: {
+                  data: _,
+                  img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXgAAACBCAMAAAD9qVHxAAAARVBMVEVMaXEoSR0xRURudkhdfT9JbzY9ZCvZ0SiLpDt0kUKovza820Oqlinb1k7Pq1GJg0qdZUzZ0SghCxv6+/b/+77Gt75NIizw6i0AAAAACHRSTlMA////////gBVwOJ8AAAAJcEhZcwAADsQAAA7EAZUrDhsAAAYWSURBVHja7Z2LmqIwDIUro46XtdMJ6Ps/6spNStMCpUHROclevgkM6t9jWhJQtYElmppnAAfwaVasD7wxAxEodjHwRuuBCMAtB94w8FD84uBNbW5odo4vAHoSeNNwNp6hICheEnxf3tQKnKyxMFQOBa051RRvCN6dSt1MU3FHjpcb+i6NjIDvR4BYQPFNRjeJ4DGBRqcaYlOp713Q+3m/38BTfGNBJWdho5yhsAN/cj5cYHJl+jbt6iYwFFC8lOKrdQsjzwo1BpOrtOI9J1E9o95/ULyM4l29u2mGgd+AXZrvZ4KH4sUUH9sIATshxcfZHpZok/pNUPxiive0PTRrQVljAcWGrIhRvOHVSfKtMLud3kLxxdoVb9pSDXVLHPJkml6tBpae450mR0W46TjdR8BbVFj1u/h9JldDnkpkUyN4rN+NuXWFNChWZlUz3gipSsc3Qqp5NngnstvtP9qLpR9hLnjkbyj+PX3v6S6FInZzEDlaSPFuBd54W39QvLDiOWbjNEPq8ylb8WCX5DtPrd0f6Q8EFC+i+KngCYp/jeIJipda489vhPiOVkDJcYqPt12EFTsYt0n9pqmKh0crnt/xNDwWUKyQ4of7Te8KvngH8FGCf3/FF6sAzy7Jvt3NmBtSzbLgjVuLbO6BuvXX8fZlBwAnB574zWf98ydNBPCyqYbG6/G6sseP2+0OnuK70FU0DnjdoF+V4ld+ZlZMWNVMaXZX3PVfUnyxvOK94J2FTAWeHopHtkjy7YPzzS29+8BrjRwvqnjV507EW66qgq4JipdUvPcslYG3SghQvNCqxnd2yoOaFHK8qOKjwW9hiTa7EQLViqxqYg2KlVI8L74PRqB4IcXbBbBgpEvxULyU4m2ontVjVa2xhwLgJMBrp/TY1gfYeWtZqiGA76xIAt9UHpV2ywPaWlKWgi/3ISheTPHUCpxUAHOd8+03wfG4haf4NpRZiN1f7DRChN95f3Ry1cOYeQSKX0jxY5FVzVNvrviRZQ0Uv4jiH/9YTVblLuStyPbTSBRPfrxjx925iMY7FI8IFJ84krbieVlGByNvofiiWO9zOyo/+bF7RI4xVhxhzCZ99BuPbJFLZBRPSype0IpPU3x8I+Q1Sik+TfGxhhwtoXiqFy1Ouslzl7YVATgh8GWTo7+yya/XqwpGAE4CfFWQd7hfc7dk0IsAnMjkyio1d3Hn7A1gRwBOZlXjgL8n87u889q8kePxAE/xg78WeafbRNoJ1YmcTgd4ih9CReAS9EDkBEu0AfD5QOR8PsFT/KT8s+s4eFiaWVcv6QjwF1iihdoeefM3ELlczvAUP1vg7ZJBPY/mwQhShVCqYWUZxcD3djyff+Ep/hu4+eOqXPLX3hD9+/cLT/ER8FcWoRY8LM0A/qXgo+0ASzSAfzF4nY/Ttk5uAU4IfE7slid295l9K87aXsZl9sbXgifPt22xu890guIvl/rP3diWzuxYuf+hjl1WQNNz0t++qPng74g9mYYNhR34wPf+5blHqoG23SXKQ5dtOwVM5GiJVKPz0u0PKyg/j8n0LvjQCuAXyPElefZBWL2v1q3BE8DLgtes+s5SDUHxSyh+HHx/5QNwzwPfi+AqA6GrDPgdT+6lZZhcF1B8LffcueOJr+MNFC+reO20oUhrT1vK4n5XPNgl+WngO3D0wJkswC8IfujHL1iiAfwrwccbwL0QfJalPng2a9MSlvxMsrngh74CxwteAHs2Z1P8i82e82SyWeD1hA6UbfXD/Mx064mGN40eJPua+GCTdgw9oR8b6uBLCh7Au39EB4rl+ATu7UuZ//yncp9OPjjgA893jmIq/2k7UFrFCF4lcc+CCuo2yXGPIF8/fAhqNk4+dAC/4rVuP3XvIfLyGxTsCoHkqiY5m86YzbJnzjzZ5BzfNfqaTkfzuXxGEcAvCZ4Vgcn5RhDf5ApLs+kfBgfwAA/wsFTwng7U4KkswImA177P3AP4J4B3O1Dk60ABvDj4SR0ogH8WeAL49YH/bkzV3sWrv9/c+rupgU3dVn7w7/7B+W8q7y6hYwz85uBB4/ZqHt7/O7EG8AD/p8D/B2sXw95ObnlZAAAAAElFTkSuQmCC",
+                },
+                keyCodes: this.config.keyCodes,
+              })),
+              this.g.start(),
+              (this.g.fps = this.config.fps),
+              this._initResize(),
+              (this.sound = P.init()),
+              (window.game = this.config.injectToWindow ? this : void 0),
+              this
+            );
+          },
+          _initResize: function () {
+            this._resizeGame(),
+              window.addEventListener(
+                "resize",
+                this._resizeGame.bind(this),
+                !1
+              ),
+              window.addEventListener(
+                "orientationchange",
+                this._resizeGame.bind(this),
+                !1
+              );
+          },
+          _setup: function () {
+            (this.gameContainer = this.g.group()),
+              (this.instructionTicker = new this.g.Ticker()),
+              (this.enemies = []),
+              (this.enemiesKilled = 0),
+              (this.isGameOver = !1),
+              (this.killMeterTimeout = null),
+              this._setupScene(),
+              (this.g.state = this._update.bind(this)),
+              this.restart(),
+              this.sound.music();
+          },
+          _setupScene: function () {
+            (this.levelContainer = this.g.group()),
+              this.gameContainer.addChild(this.levelContainer),
+              (this.background = new k(this, this.levelContainer).init()),
+              (this.playerHealthBar = new b(this, this.levelContainer, {
+                x: 0,
+                y: 0,
+                width: 100,
+                height: 5,
+              }).init()),
+              (this.playerPowerBar = new b(this, this.levelContainer, {
+                x: 0,
+                y: 5,
+                width: 80,
+                height: 5,
+                fgColor: "#fbd505",
+                bgColor: "#0e0c01",
+              }).init()),
+              (this.enemiesContainer = this.g.group()),
+              this.levelContainer.addChild(this.enemiesContainer),
+              (this.decoysContainer = this.g.group()),
+              this.levelContainer.addChild(this.decoysContainer),
+              (this.player = new v(this, this.levelContainer, 150, 80).init()),
+              (this.powerScreenContainer = this.g.group()),
+              this.levelContainer.addChild(this.powerScreenContainer),
+              (this.screen = new A(this, this.powerScreenContainer).init());
+          },
+          _update: function () {
+            this.isGameOver
+              ? this.isKeyPressed("start") && this.restart()
+              : (this.respawnEnemies(),
+                this.updateInstruction(),
+                this.updateKillMeter(),
+                this.checkGameWin());
+          },
+          updateInstruction: function () {
+            this.instructionTicker.run(),
+              !this.instructionTicker.isStop &&
+                this.instructionTicker.tick &&
+                this.instructionTicker.tick % 300 == 0 &&
+                (this.instructionTicker.stop(), this.showInstruction(!1));
+          },
+          updateKillMeter: function () {
+            n.innerHTML = this.enemiesKilled + " of " + this.config.maxEnemies;
+          },
+          setKillMeterScale: function (t) {
+            n.style.transform = "scale(" + t + ")";
+          },
+          clearKillMeterTimeout: function () {
+            clearTimeout(this.killMeterTimeout), (this.killMeterTimeout = null);
+          },
+          incrementEnemiesKilled: function () {
+            this.enemiesKilled++,
+              this.killMeterTimeout ||
+                (this.setKillMeterScale(1.2),
+                (this.killMeterTimeout = setTimeout(
+                  function () {
+                    this.setKillMeterScale(1), this.clearKillMeterTimeout();
+                  }.bind(this),
+                  20
+                )));
+          },
+          respawnEnemies: function () {
+            if (
+              this.g._startTime % 10 == 0 &&
+              !this.player.isDead &&
+              this.enemies.length < this.config.maxEnemies
+            ) {
+              var t = [s, r],
+                i = t[this.g.randomInt(0, t.length - 1)],
+                e = [l.side, c.side],
+                n = e[this.g.randomInt(0, e.length - 1)],
+                h = new w(
+                  this,
+                  this.enemiesContainer,
+                  this.enemies.length,
+                  n,
+                  i
+                ).init();
+              this.enemies.push(h);
+            }
+          },
+          _resizeGame: function () {
+            var t = window.innerHeight,
+              i = window.innerWidth,
+              e = i / this.g.canvas.width,
+              s = -(this.g.canvas.height - t) / 2,
+              n = -(this.g.canvas.width - i) / 2;
+            (h.style.transform = "scale(" + e + ")"),
+              (h.style.top = s.toString() + "px"),
+              (h.style.left = n.toString() + "px");
+          },
+          isKeyPressed: function (t) {
+            return this.g.key[t].isDown;
+          },
+          checkGameWin: function () {
+            this.enemiesKilled >= this.config.maxEnemies &&
+              (this.gameOver(!0), this.destroyEnemies());
+          },
+          showGameOver: function (i, e) {
+            var s = e
+              ? "You Are a Hero!<br>They ran away.<br>They got the taste of One Punch."
+              : "<br>GAME OVER";
+            (t.innerHTML = i
+              ? s + "<br><span id='restart-text'>Press Z to Restart</span>"
+              : ""),
+              (t.style.visibility = i ? "visible" : "hidden");
+          },
+          showInstruction: function (t) {
+            e.innerHTML = t
+              ? "<p>Press C to PUNCH & arrow-keys to MOVE & JUMP</p>"
+              : "";
+          },
+          gameOver: function (t) {
+            this.showGameOver(!0, t),
+              (this.isGameOver = !0),
+              this.instructionTicker.stop();
+          },
+          destroyEnemies: function () {
+            this.enemies.forEach(
+              function (t) {
+                (t.isDead = !0),
+                  t.forceKill(),
+                  t.stopUpdate(),
+                  t.removeSkinBody();
+              }.bind(this)
+            ),
+              (this.enemies.length = 0),
+              (this.enemiesKilled = 0);
+          },
+          restart: function () {
+            this.showGameOver(!1),
+              this.showInstruction(!0),
+              (this.isGameOver = !1),
+              (this.background = null),
+              this.clearKillMeterTimeout(),
+              (this.player = null),
+              this.destroyEnemies(),
+              (this.g.updateFunctions.length = 0),
+              this.gameContainer.removeChild(this.levelContainer),
+              this._setupScene(),
+              this.instructionTicker.enable();
+          },
+        };
+      }
+      window.onload = function () {
+        new S().init(),
+          window.focus(),
+          document.body.addEventListener(
+            "click",
+            function (t) {
+              window.focus();
+            },
+            !1
+          );
+      };
+    })();
+  </script>
+</body>

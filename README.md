@@ -274,6 +274,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 169 | [Rectangular](https://github.com/kunjgit/GameZone/tree/main/Games/Rectangular)|
 | 170 | [Canon_Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Canon_Defense)|
 | 171 | [Trashem](https://github.com/kunjgit/GameZone/tree/main/Games/Trashem)|
+| 172 | [Get The Pigeon](https://github.com/kunjgit/GameZone/tree/main/Games/Get_The_Pigeon)|
+| 173 | [Uxu](https://github.com/kunjgit/GameZone/tree/main/Games/Uxu)|
+| 174 | [Soul Jumper](https://github.com/kunjgit/GameZone/tree/main/Games/Soul_Jumper)|
 | * | [Disconnect Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Disconnect_Maze)|
 </center>
 

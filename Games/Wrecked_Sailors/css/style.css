@@ -1,0 +1,24 @@
+﻿body { margin:0px; padding:0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: 'comic sans ms'; 	font-size: 14px; background:#3D454D; color: white; }
+#container { background: #336668; }
+.content {  margin: auto; width: 100% ; max-width: 998px ; }
+.title { text-align: center; }
+#start-canvas { border: 2px solid #225555;  }
+#start span { cursor: pointer; width: 80px; height: 50px; background: #fff ; opacity: 0 ; display: inline-block; position: relative; top: 330px; left: 0px; margin: 0px 41px; }
+#game { position: relative ;   } 
+#background {background: #6fa1a1;  }
+#myCanvas, #background { position: absolute; top: 0px; left: 0px; }
+#ftr { background: #3D454D; padding:25px; margin-top: 45px ;}
+.msg { margin: auto; width: 280px; line-height: 22px; font-variant: small-caps; text-align: center; }
+#alert {position: absolute; top: -150%; left: 0px; width: 100% ; -webkit-transition: top 1s; transition: top 1s; -moz-transition: top 1s; -o-transition: top 1s;}
+#alert-content>div { max-width: 400px; width: 80%; margin: auto; background: #336666; text-align: center; border: 12px solid #fff;
+color: #efdab5; border-bottom: 42px solid #fff; min-height: 260px; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-shadow: 5px 5px 5px #003;
+-webkit-transform: rotate(-4deg); transform: rotate(-4deg); -moz-transform: rotate(-4deg); -o-transform: rotate(-4deg); -ms-transform: rotate(-4deg); text-shadow: 0px 0px 10px #000; font-size: 16px; letter-spacing:2px;}
+#alert-content>div.tut { max-width: 520px; font-size: 12px; text-align: justify ; letter-spacing: initial ; padding: 5px;}
+#game.opa #background { opacity: 0.3 }
+#alert.alert-show { top: 10%}
+#alert .btn { font-variant: small-caps; cursor: pointer; width: 76px; border-radius: 3px; border: 0px ; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 15px;
+display: inline-block; padding: 5px 0px; font-weight: bold; } 
+.alert-text { min-height:100px }
+.hide { display: none }
+.clear { clear: both;}
+

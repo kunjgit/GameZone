@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>wrecked sailors</title>
+		<meta name="description" content="wrecked sailors">
+		<meta name="author" content="x-labz">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="css/style.css">
+		<script type="text/javascript" src="js/script.js"></script>
+	</head>
+	<body>
+		<div id="container" class="hide">
+			<div id="start" class="title content">
+				<span data-btn="tut"></span>
+				<span data-btn="start" data-level="0"></span>
+				<span data-btn="start" data-level="1"></span>
+				<span data-btn="start" data-level="2"></span>
+				<span data-btn="start" data-level="3"></span>
+				<canvas id="start-canvas" width='900' height='400'></canvas>
+			</div>
+		
+			<div id="game" class="content hide">
+				<canvas id="background" ></canvas>
+				<canvas id="myCanvas" ></canvas>
+			</div>
+		</div> 
+		<div id="alert" >
+			<div id="alert-content"></div>
+		</div>
+		<div id="notSupp" class="msg hide">
+			<p>This browser is not supported!</p>
+			<p>Try: Crome / Safari / Firefox / Opera / IE9+ / Android / IOS</p>
+		</div>
+		<div id='smlScr' class="msg hide">
+			<p>Min. 1000 px screen width required!</p>
+		</div>
+		<div id='rotScr' class="msg hide">
+			<p>Rotate your device to</p>
+			<p>LANDSCAPE position,</p>
+			<p>then refresh page!</p>
+		</div>
+		
+		<script id="tmpl-alert-pause" type="text/tmpl">
+			<div id="alert-pause" > 
+				<div class="alert-text">
+					<h2>Game paused</h2>
+				</div>
+				<div data-btn="continue" class="btn">Continue</div>
+				<div data-btn="restart" class="btn">Restart</div>
+				<div data-btn="menu" class="btn">Menu</div>
+			</div>
+		</script>
+		<script id="tmpl-alert" type="text/tmpl">
+			<div> 
+				<div class="alert-text">
+					<h2>GAME OVER</h2>
+					<p>{{reason}}</p>
+					<p>You have rescured {{rsc}} sailors of {{all}}.</p>
+					<p>Total score: {{earn}} </p>
+				</div>
+				<div data-btn="restart" class="btn">Restart</div>
+				<div data-btn="menu" class="btn">Menu</div>
+			</div>
+		</script>
+
+		<script id="tmpl-tut" type="text/tmpl">
+			<div class="tut"> 
+				<div class="alert-text">
+						<h3>The goal</h3>
+						<p>You have to save all of the wrecked sailors from the sea! </p>
+						<p>Quickly approach them one-by-one, decrease your velocity as you reach the wrecked, no to injure them in the water. As soon as the 'save-time' bar has run down, you've succesfully rescured it.</p>
+						<p>You have only <b>2 minutes</b> to save all of them, before they start to drown in the cold water!</p>
+						<h3>Controls</h3>
+						<p>To control the velocity you can use the <b>Up / Down arrows on the keyboard</b>, <b>Move your finger vertically on the touchscreen</b> or <b>Move your mouse vertically while you push the left mousebutton.</b></p>
+						<p>To navigate your boat you can use the <b>Left / Right arrows on the keyboard</b>, <b>Move your finger horizontally on the touchscreen</b> or <b>Move your mouse horizontally while you push the left mousebutton.</b></p>
+						<p>Use <b>space</b> bar to pause the game and get back to the main menu.</p>
+				</div>
+				<div data-btn="menu" class="btn">Close</div>
+			</div>
+		</script>
+	</body>
+</html>

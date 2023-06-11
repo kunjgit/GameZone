@@ -251,6 +251,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 146 | [Plankman](https://github.com/kunjgit/GameZone/tree/main/Games/Plankman)|
 | 147 | [Hold_The_Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Hold_The_Cloud)|
 | 148 | [Labyrinth](https://github.com/kunjgit/GameZone/tree/main/Games/Labyrinth)|
+| 149 | [RIP](https://github.com/kunjgit/GameZone/tree/main/Games/RIP)|
 </center>
 
 <br>

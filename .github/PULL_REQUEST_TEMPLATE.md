@@ -31,4 +31,4 @@ Fixes # <your_issue_number>
 --- 
 <br>
 
--## Thank you soo much for contributing to our repository 💗
+## Thank you soo much for contributing to our repository 💗

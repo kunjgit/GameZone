@@ -1,0 +1,161 @@
+<style>
+    html, body {
+        margin: 0;
+        color: white;
+        font-family: "Roboto", sans-serif;
+        font-size: 11px;
+    }
+
+    .hidden {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .score-wrapper {
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+    }
+
+    .scene {
+        display: flex;
+        position: relative;
+        margin-top: 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .scene-game {
+        position: relative;
+        z-index: -2;
+        bottom: 10px;
+        left: 80px;
+    }
+
+    .task-wrapper {
+        position: fixed;
+        bottom: 12px;
+        left: 80px;
+        color: #333;
+        transform: translateY(0px);
+        transition: all 1s ease-in-out;
+    }
+
+    .task-wrapper.hidden {
+        transform: translateY(100px);
+        transition: all 1s ease-in-out;
+    }
+
+    .round-wrapper {
+        position: fixed;
+        bottom: 12px;
+        right: 80px;
+        color: #333;
+        transform: translateY(0px);
+        transition: all 1s ease-in-out;
+    }
+
+    .round-wrapper.hidden {
+        transform: translateY(100px);
+        transition: all 1s ease-in-out;
+    }
+
+    #canvas {
+        position: fixed;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        transition: all 0.3s ease-in-out;
+        pointer-events: none;
+    }
+
+    #canvas.active {
+        z-index: 100;
+        left: 60px;
+        top: 60px;
+        width: calc(100vw - 120px);
+        height: calc(100vh - 120px);
+        cursor: url(img/pipette.png) 0 40, auto;
+        pointer-events: all;
+    }
+
+    .title {
+        font-family: "Times New Roman", serif;
+        font-size: 64px;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .sub-title {
+        font-size: 24px;
+        text-align: center;
+        line-height: 80px;
+    }
+
+    .score-text {
+        /*color: #000;*/
+        font-size: 128px;
+    }
+
+    .button {
+        margin-top: 30px;
+        width: 180px;
+        height: 40px;
+        line-height: 40px;
+        background: transparent;
+        color: #FFF;
+        border: 1px solid #FFF;
+        border-radius: 45px;
+        cursor: url(img/pipette.png) 0 40, auto;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .color-name {
+        font-weight: 700;
+        background: #CCC;
+        border-radius: 45px;
+        padding: 8px 16px 8px 16px;
+        margin-left: 4px;
+    }
+
+</style>
+<html>
+<head>
+    <title content=""></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <section class="scene scene-game">
+            <p class="task-wrapper hidden">
+                Pick the closest color to <span class="color-name">violet blue</span>
+            </p>
+            <p class="round-wrapper">
+            </p>
+        </section>
+        <section class="scene scene-gradient">
+            <canvas id="canvas" width="150" height="150"></canvas>
+        </section>
+        <section class="scene scene-intro hidden">
+            <div class="title">pickr</div>
+            <div class="button start-button">START</div>
+        </section>
+        <section class="scene scene-end hidden">
+            <div class="score-wrapper sub-title">Game over. Your error rate is <br><span class="score-text"></span></div>
+            <div class="button restart-button">PLAY AGAIN</div>
+        </section>
+
+    </div>
+    <script src="./bundle.js"></script>
+</body>
+</html>

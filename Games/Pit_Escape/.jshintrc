@@ -1,0 +1,7 @@
+{
+    "-W004": true,
+    "-W030": true,
+    "-W058": true,
+    "-W069": true,
+    "asi": true
+}

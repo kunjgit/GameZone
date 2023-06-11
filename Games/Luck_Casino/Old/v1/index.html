@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <link href="casino_style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Just Your Luck Casino</h1>
+            <!-- Canvas where everything is drawn -->
+            <canvas id="mainCanvas" width="640" height="480" style="float:left; border-style:solid; height:480; width:640;">
+                Your browser does not support the canvas element.
+            </canvas>
+            <!-- Infomation Panel -->
+            <div id="info"  style="float:left; border-style:solid; margin-left:5px; height:480px; width:200px">
+                <div id="personInfo" style="display:none">
+                    Name: <span id="personName"></span><br/>
+                    Mood: <span id="personMood"></span><br/>
+                    Cash: <span id="personCash"></span><br/>
+                    Current Thought: <span id="personThought"></span><br/>
+                </div>
+                
+                <div id="slotsInfo" style="display:none">
+                    Max Cash Out:<input id="slotCashOut"/><br/>
+                    Win Rate:<input id="slotWinRate"/><br/>
+                    Activity:<span id="slotActivity"></span><br/>
+                    Current Cash: <span id="slotCash"></span><br/>
+                    <a href="#" class="button">Save</a>
+                </div>
+                
+                <div id="casinoInfo" style="display:none">
+                    Cash:<span id="casinoCash"></span><br/>
+                    Attendance:<span id="casinoAttendance"></span><br/>
+                    Popularity Percentage:<span id="casinoPopularity"></span><br/>
+                </div>
+            </div>
+            <!-- Main Game Script -->
+            <script src="casino.js"></script>
+            <script>
+                var game = Game(60);
+                //var gameInterval = setInterval(game.Run, 1000 / game.fps);
+                var animFrame = window.requestAnimationFrame ||
+                        window.webkitRequestAnimationFrame ||
+                        window.mozRequestAnimationFrame    ||
+                        window.oRequestAnimationFrame      ||
+                        window.msRequestAnimationFrame     ||
+                        null ;
+            
+                if ( animFrame !== null ) {
+                    var recursiveAnim = function() {
+                        game.Run();
+                        animFrame( recursiveAnim );
+                    };
+            
+                    // start the mainloop
+                    animFrame( recursiveAnim );
+                } else {
+                    var ONE_FRAME_TIME = 1000.0 / game.fps ;
+                    setInterval( game.Run, ONE_FRAME_TIME );
+                    
+                }
+                //alert("test");
+            </script>
+        </div>
+    </body>
+</html>

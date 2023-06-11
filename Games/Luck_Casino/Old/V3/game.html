@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<link href="casino_style.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		<div id="infoBox">
+			<div id="infoInner">
+				<div id="personInfo" style="display:none">
+					-Customer Info-<br/>
+					Mood: <span id="personMood"></span><br/>
+					Cash: <span id="personCash"></span><br/>
+					Temperament: <span id="personTemp"></span><br/>
+					Current Thought: <span id="personThought"></span><br/>
+					<div class="button" onclick="hideInfo()">Close</div>
+				</div>
+				<div id="gameInfo" style="display:none">
+					-Game Info-<br/>
+					Cash Out:<input id="gameCashOut"/><br/>
+					Win Rate:<input id="gameWinRate"/><br/>
+					Cost to Play:<input id="gameCostToPlay"/><br/>
+					Up Keep Cost:<span id="gameUpKeep"></span><br/>
+					Max Players: <span id="gameMaxPlayers"></span><br/>
+					<div  class="button" id="saveGameButton" onclick="casinoSim.saveCasinoGame()">Save</div>
+					<div class="button" onclick="hideInfo()">Close</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="container">
+			<div id="casino" style="left: 15px; top: 130px; width:640px; height: 480px;">
+				<div id="cursor" class="cursor"></div>
+				<div id="door" class="door"></div>
+			</div>
+			<div id="menu">
+				<strong>Cursor:</strong>
+				<div class="button" id="select" onclick="casinoSim.changeCursor('select')">Select</div>
+				<div class="button" id="move" onclick="casinoSim.changeCursor('move')">Move</div>
+				<div class="button" id="sell" onclick="casinoSim.changeCursor('sell')">Sell</div><br/>
+				<strong>Create:</strong>
+				<div class="button" onclick="casinoSim.setCreateMode('slots');">Slots</div>
+				<div class="button" onclick="casinoSim.setCreateMode('roulette');">Roulette</div>
+				<div class="button" onclick="casinoSim.setCreateMode('blackjack');">Blackjack</div>
+				<div class="button" onclick="casinoSim.setCreateMode('craps');">Craps</div>
+				<br/>
+				<div  class="button" onclick="casinoSim.setCreateMode(1)">Add Pathway</div>
+				<div  class="button" onclick="casinoSim.setCreateMode(0)">Add Plant</div>
+				<div  class="button" onclick="casinoSim.setCreateMode(2)">Add Column</div>
+				<div  class="button" onclick="casinoSim.setCreateMode(3)">Add Chair</div>
+				<div  class="button" onclick="casinoSim.setCreateMode(4)">Add Tree</div>
+				<br/>
+				<div class="button" onclick="casinoSim.pauseGame()">Pause/UnPause</div>
+			</div>
+			<div id="info">
+				<div id="casinoInfo">
+					<strong>-Casino Info-</strong><br/>
+					<strong>Cash:</strong><span id="casinoCash"></span><br/>
+					<strong>Attendance:</strong><span id="casinoAttendance"></span><br/>
+					<strong>Popularity:</strong><span id="casinoPopularity"></span><br/>
+				</div>
+			</div>
+			<script src="casino.js">
+			</script>
+		</div>
+	</body>
+</html>

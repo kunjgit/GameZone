@@ -1,0 +1,84 @@
+.button {
+    background-color:red;
+    margin: 3px;
+    padding: 2px;
+    display: inline-block;
+    border-radius: 6px;
+    transition: background-color .6s;
+    
+}
+.button:hover {
+    background-color:orange; 
+}
+
+.button:active{
+    background-color: #781313;
+    transition: background-color 0.1s;
+}
+
+.buttonSelected {
+    background-color:orange;
+    border-style: dashed;
+    border-color: green;
+    margin: 3px;
+    padding: 2px;
+    display: inline-block;
+    border-radius: 6px;
+}
+
+
+canvas {
+    position:absolute;
+    top: 80px;
+    left: 330px;
+    background: transparent;
+    border-style:solid;
+    height: 480px;
+    width: 640px;
+}
+
+#container {
+    
+}
+
+#backgroundCanvas {
+    z-index: -2;
+}
+
+#midgroundCanvas{
+    z-index: -1;
+}
+
+#forgroundCanvas{
+    z-index: 0;
+}
+
+#info {
+    position: absolute;
+    top: 80px;
+    left: 980px;
+    border-style:solid;
+    margin-left:5px;
+    height:480px;
+    width:200px;
+}
+
+#construction {
+    position: absolute;
+    top: 580;
+    left: 330px;
+    border-style:solid;
+    padding: 10px;
+    height:120px;
+    width:650px;
+}
+
+#help {
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    border-style:solid;
+    padding: 10px;
+    height:600px;
+    width:300px;
+}

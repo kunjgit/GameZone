@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <link href="casino_style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div id="container">
+             FPS: <span id="fps-text"></span>
+            <h1 style="position: absolute; left: 500px;">Just Your Luck Casino</h1>
+            <!-- Canvas where everything is drawn -->
+            <canvas id="backgroundCanvas" width="640" height="480">
+                Your browser does not support the canvas element.
+            </canvas>
+            <canvas id="midgroundCanvas" width="640" height="480">
+                Your browser does not support the canvas element.
+            </canvas>
+            <canvas id="forgroundCanvas" width="640" height="480">
+                Your browser does not support the canvas element.
+            </canvas>
+            <!-- Infomation Panel -->
+            <div id="info">
+                <div id="personInfo" style="display:none">
+                    -Customer Info-<br/>
+                    Mood: <span id="personMood"></span><br/>
+                    Cash: <span id="personCash"></span><br/>
+                    Temperament: <span id="personTemp"></span><br/>
+                    Current Thought: <span id="personThought"></span><br/>
+                </div>
+                <div id="gameInfo" style="display:none">
+                    -Game Info-<br/>
+                    Cash Out:<input id="gameCashOut"/><br/>
+                    Win Rate:<input id="gameWinRate"/><br/>
+                    Cost to Play:<input id="gameCostToPlay"/><br/>
+                    Up Keep Cost:<span id="gameUpKeep"></span><br/>
+                    Max Players: <span id="gameMaxPlayers"></span><br/>
+                    <div  class="button" id="saveGameButton" onclick="game.saveCasinoGame()">Save</div>
+                </div>
+                <div id="casinoInfo">
+                    -Casino Info-<br/>
+                    Cash:<span id="casinoCash"></span><br/>
+                    Attendance:<span id="casinoAttendance"></span><br/>
+                    Popularity:<span id="casinoPopularity"></span><br/>
+                </div>
+            </div>
+            <div id="construction">
+                Cursor Mode:
+                <div class="button" onclick="game.changeCursorMode('move')" id="move">Move</div>
+                <div  class="button" onclick="game.changeCursorMode('select')"  id="select">Select</div>
+                <div  class="button" onclick="game.changeCursorMode('sell')"  id="sell">Sell</div>
+                <br/>
+                Create:
+                <div  class="button" onclick="game.addGame('slots')">Add Slot Machine (1)</div>
+                <div  class="button" onclick="game.addGame('roulette')">Add Roulette Wheel (2)</div>
+                <div  class="button" onclick="game.addGame('blackjack')">Add Blackjack table (3)</div>
+                <div  class="button" onclick="game.addGame('craps')">Add Craps table (4)</div>
+                <br/>
+                Decorations:
+                <div  class="button" onclick="game.addDoodad(1)">Add Pathway (5)</div>
+                <div  class="button" onclick="game.addDoodad(0)">Add Plant (6)</div>
+                <div  class="button" onclick="game.addDoodad(2)">Add Column (7)</div>
+                <div  class="button" onclick="game.addDoodad(3)">Add Chair (8)</div>
+                <div  class="button" onclick="game.addDoodad(4)">Add Tree (9)</div>
+                <br/>
+                Game:
+                <div  class="button" onclick="game.pauseGame()">Pause / UnPause</div>
+            </div>
+            
+            <div id="help">
+                <h2>Welcome to Just Your Luck Casino!</h2>
+                Here's the quick rundown.  You are the new owner of this dump of a casino.  You need to keep the casino from bankruptcy!
+                To do this you can place various games on the casino floor.  You can also rig these games in order to let customers win just enough to keep them
+                happy and your coffers full.
+                <br/>
+                <strong>Tips:</strong><br/>
+                <ol>
+                    <li>With the "Select" cursor activated select an individual game
+                or person to see various stats or settings you can change.</li>
+                    <li>Some games allow for more than one player.</li>
+                    <li>The number by some buttons is a hot key.  You can hit this key instead of the button</li>
+                    <li>A wandering person is a bored person.  They will get in a bad mood if left that way. </li>
+                    <li>A person will leave once they have no more money or are in a very bad mood.</li>
+                </ol>
+            </div>
+            <!-- Main Game Script -->
+            <script src="casino.js"></script>           
+        </div>
+    </body>
+</html>

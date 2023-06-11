@@ -1,0 +1,34 @@
+{
+  "name": "js13k-game",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "browser-sync": "^1.3.6",
+    "browserify": "^5.10.1",
+    "coffee-script": "^1.8.0",
+    "coffeeify": "^0.7.0",
+    "commander": "^2.3.0",
+    "del": "^0.1.2",
+    "gulp": "^3.8.7",
+    "gulp-buffer": "0.0.2",
+    "gulp-coffeelint": "^0.4.0",
+    "gulp-concat": "^2.3.4",
+    "gulp-cssmin": "^0.1.6",
+    "gulp-eslint": "^0.1.8",
+    "gulp-filter": "^1.0.1",
+    "gulp-htmlmin": "^0.2.0",
+    "gulp-if": "^1.2.4",
+    "gulp-jade": "^0.7.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-size": "^1.0.0",
+    "gulp-stylus": "^1.3.0",
+    "gulp-uglify": "^0.3.2",
+    "gulp-util": "^3.0.0",
+    "gulp-zip": "^2.0.1",
+    "mold-source-map": "^0.3.0",
+    "vinyl-source-stream": "^0.1.1"
+  },
+  "scripts": {
+    "publish": "git subtree push --prefix build/ origin gh-pages"
+  }
+}

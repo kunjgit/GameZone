@@ -1,0 +1,204 @@
+// Used to determine max value, should be approximately 1px (if not exactly 1px)
+$smallest-unit: .0625em;
+
+// List of all breakpoints, and their minimum width
+// Human names can be changed, they will be used for $breakpoint param on breakpoint mixin
+$all-breakpoints: (
+  ('large', 110em),
+  ('medium', 50em),
+  ('small', 35em),
+  ('tiny') // Last value should not have a value, its min value will essentially be 0
+);
+
+// Default resolution, this should only change if the CSS Spec for pixel-ratio changes
+$res-base: 96;
+$res-units: dpi;
+
+@mixin breakpoint($breakpoint, $up-or-down: null, $px-ratio: null){
+  // Set min res if px-ratio is set
+  $min-resolution: null;
+  @if ($px-ratio != null) {
+    $min-resolution: #{round($res-base * $px-ratio) + $res-units};
+  }
+
+  // Variable to track if the breakpoint the user asked for exists
+  $breakpoint_exists: false;
+
+  // Iterate through list of breakpoints
+  // Using for instead of each to get the index which is useful
+  @for $i from 1 through length($all-breakpoints) {
+    // Are we on the largest or smallest breakpoint
+    $largest-breakpoint: if($i == 1, true, false);
+    $smallest-breakpoint: if($i == length($all-breakpoints), true, false);
+
+    // Get the breakpoint from the index we're on
+    $current-breakpoint: nth($all-breakpoints, $i);
+    $current-breakpoint-name : nth($current-breakpoint, 1);
+
+    // Support for '-major' and '-minor' breakpoints
+    $is-major: false;
+    $is-minor: false;
+    $is-minor-or-major: false;
+    @if ($current-breakpoint-name  + '-major') == $breakpoint {
+      $is-major: true;
+      $is-minor-or-major: true;
+      $breakpoint: $current_breakpoint-name;
+    } @else if ($current-breakpoint-name  + '-minor') == $breakpoint {
+      $is-minor: true;
+      $is-minor-or-major: true;
+      $breakpoint: $current_breakpoint-name;
+    }
+
+    @if $current-breakpoint-name == $breakpoint {
+      $breakpoint_exists: true;
+
+      // Get minimum value
+      $breakpoint-min: null;
+      @if ($smallest-breakpoint == false){
+        $breakpoint-min: nth($current-breakpoint, 2);
+      }
+
+      // Get Maximum value
+      $previous-breakpoint-min: null;
+      $breakpoint-max: null;
+      @if ($largest-breakpoint == false){
+        $previous-breakpoint: nth($all-breakpoints, $i - 1);
+        $previous-breakpoint-min: nth($previous-breakpoint, 2);
+        $breakpoint-max: $previous-breakpoint-min - $smallest-unit;
+      }
+
+      // Get the halfway point for the breakpoint if it's a major or minor breakpoint
+      $breakpoint-halfway: null;
+      @if ($is-minor-or-major) {
+        $breakpoint-halfway: floor(($previous-breakpoint-min - $breakpoint-min) / 2) + $breakpoint-min;
+      }
+
+      // Unset breakpoint-min if the breakpoint is to be and down
+      @if ($up-or-down == 'and down') {
+        $breakpoint-min: null;
+      }
+
+      // Unset breakpoint-max if the breakpoint is to be and up
+      @if ($up-or-down == 'and up') {
+        $breakpoint-max: null;
+      }
+
+      // Evaluate if both min and max values have been set
+      $breakpoint-min-and-max: false;
+      @if ($breakpoint-min != null) {
+        @if ($breakpoint-max != null) {
+          $breakpoint-min-and-max: true;
+        }
+      }
+
+      // If smallest breakpoint and up
+      $smallest-and-up: false;
+      @if ($smallest-breakpoint){
+        @if ($up-or-down == 'and up') {
+          $smallest-and-up: true;
+        }
+      }
+
+      // If largest breakpoint and up
+      $largest-and-down: false;
+      @if ($largest-breakpoint){
+        @if ($up-or-down == 'and down') {
+          $largest-and-down: true;
+        }
+      }
+
+      // Catch a boo boo
+      @if ($smallest-and-up) {
+        @warn "Called the smallest breakpoint and up (which is everything)";
+        @content;
+      }
+      // Catch a boo boo
+      @else if ($largest-and-down) {
+        @warn "Called the largest breakpoint and down (which is everything)";
+        @content;
+      }
+      // Just this breakpoint
+      @else if ($breakpoint-min-and-max){
+        // No pixel ratio
+        @if($px-ratio == null){
+          @media
+          only screen
+          and (min-width: $breakpoint-min)
+          and (max-width: $breakpoint-max) {
+            @content;
+          }
+        }
+
+        // Pixel ratio is specified
+        @else {
+          @media
+            only screen
+            and
+              (-webkit-min-device-pixel-ratio: $px-ratio),
+              (-o-min-device-pixel-ratio: $px-ratio),
+              (-webkit-min-device-pixel-ratio: $px-ratio),
+              (min-resolution: $min-resolution)
+            and (min-width: $breakpoint-min)
+            and (max-width: $breakpoint-max) {
+            @content;
+          }
+        }
+      }
+
+      // This breakpoint and up
+      @else if ($breakpoint-min != null){
+        // No pixel ratio
+        @if ($px-ratio == null){
+          @media
+          only screen
+          and (min-width: $breakpoint-min) {
+            @content;
+          }
+        }
+
+        // Pixel ratio is specified
+        @else {
+          @media
+            only screen
+            and
+              (-webkit-min-device-pixel-ratio: $px-ratio),
+              (-o-min-device-pixel-ratio: $px-ratio),
+              (-webkit-min-device-pixel-ratio: $px-ratio),
+              (min-resolution: $min-resolution)
+            and (min-width: $breakpoint-min) {
+            @content;
+          }
+        }
+      }
+
+      // This breakpoint and down
+      @else if ($breakpoint-max != null){
+        // No pixel ratio
+        @if ($px-ratio == null){
+          @media
+          only screen
+          and (max-width: $breakpoint-max) {
+            @content;
+          }
+        }
+
+        // Pixel Ratio is specified
+        @else {
+          @media
+            only screen
+            and
+              (-webkit-min-device-pixel-ratio: $px-ratio),
+              (-o-min-device-pixel-ratio: $px-ratio),
+              (-webkit-min-device-pixel-ratio: $px-ratio),
+              (min-resolution: $min-resolution)
+            and (max-width: $breakpoint-max) {
+            @content;
+          }
+        }
+      }
+    }
+  }
+  @if ($breakpoint_exists == false) {
+    @warn 'Breakpoint \"' + $breakpoint + '\" does not seem to exist, please check your spelling.';
+  }
+}

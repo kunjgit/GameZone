@@ -1,0 +1,445 @@
+
+/**
+ * bullgrid
+ *
+ * A grid based on the ideas of inuit.css gridsystem. 
+ *
+ *
+ *
+ */
+
+
+/**
+ * Fluid and nestable grid system, e.g.:
+ *
+   <div class="gw">
+
+     <div class="g one-third">
+       <p>One third grid</p>
+     </div>
+
+     <div class="g two-thirds">
+       <p>Two thirds grid</p>
+     </div>
+
+     <div class="g one-half">
+       <p>One half grid</p>
+     </div>
+
+     <div class="g one-quarter">
+       <p>One quarter grid</p>
+     </div>
+
+     <div class="g one-quarter">
+       <p>One quarter grid</p>
+     </div>
+
+   </div>
+
+   */
+
+
+/**
+ * Default spacing 
+ */
+$bullgrid-default-spacing: 1em;
+
+
+
+/**
+ * Micro clearfix. 
+ */
+.cf {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  // IE <= 7 support
+  *zoom: 1;
+}
+
+
+
+
+
+/**
+ * Grid wrapper
+ */
+.gw {
+  @extend .cf;
+
+  /**
+   * Negative margin to negate the padding on the first grid child.
+   */
+  margin-left: -$bullgrid-default-spacing;
+    
+  /**
+   * The following declarations allow us to use the `.gw` class on lists.
+   */
+  list-style: none;
+  margin-bottom: 0;
+}
+
+
+
+
+
+/**
+ * Reverse grid order
+ *
+   <div class="gw  gw--rev">
+
+     <div class="g  one-third">
+       <p>Appears on the right</p>
+     </div>
+
+     <div class="g  two-thirds">
+       <p>Appears on the left</p>
+     </div>
+
+   </div>
+ *
+ */
+.gw--rev > .g {
+  float: right;
+}
+
+
+
+
+
+/**
+ * Very infrequently occuring grid wrappers as children of grid wrappers.
+ */
+.gw > .gw {
+  margin-left: 0;
+}
+
+
+
+
+
+/**
+ * Remove the spacing of the grid-wrapper. 
+ */
+.gw--no-spacing {
+  margin-left: 0;
+}
+
+
+
+
+
+/**
+ * Grid
+ *
+ */
+.g {
+  float: left;
+  padding-left: $bullgrid-default-spacing;
+}
+
+
+
+
+
+/**
+ * Remove the spacing of the grid. 
+ */
+.g--no-spacing {
+  padding-left: 0;
+}
+
+
+
+
+
+/**
+ *
+ * Sizes in human readable format.
+ *
+ */
+@mixin grid-setup($namespace: "") {
+
+  /*
+   * Float
+   */
+  .#{$namespace}float-left { 
+    float: left; 
+  }
+
+  .#{$namespace}float-right { 
+    float: left; 
+  }
+
+  .#{$namespace}clear { 
+    clear: both; 
+  }
+
+
+
+
+  
+  /*
+   * Hidden
+   */
+  .#{$namespace}hidden { 
+    display: none; 
+  }
+
+
+
+
+
+  /*
+   * No spacing
+   */
+   .#{$namespace}no-spacing {
+     padding-left: 0;
+   }
+
+
+
+
+
+  /**
+   * Whole
+   */
+  .#{$namespace}one-whole { 
+    width: 100%; 
+  }
+
+
+
+
+
+  /**
+   * Halves
+   */
+  .#{$namespace}one-half { 
+    width: 50%; 
+  }
+
+
+
+
+
+  /**
+   * Thirds
+   */
+  .#{$namespace}one-third { 
+    width: 33.333%; 
+  }
+  .#{$namespace}two-thirds { 
+    width: 66.666%; 
+  }
+
+
+
+
+
+  /**
+   * Quarters
+   */
+  .#{$namespace}one-quarter { 
+    width: 25%; 
+  }
+  .#{$namespace}two-quarters { 
+    @extend .#{$namespace}one-half; 
+  }
+  .#{$namespace}three-quarters { 
+    width: 75%; 
+  }
+
+
+
+
+
+  /**
+   * Fifths
+   */
+  .#{$namespace}one-fifth { 
+    width: 20%; 
+  }
+  .#{$namespace}two-fifths { 
+    width: 40%; 
+  }
+  .#{$namespace}three-fifths { 
+    width: 60%; 
+  }
+  .#{$namespace}four-fifths { 
+    width: 80%; 
+  }
+
+
+
+
+
+  /**
+   * Sixths
+   */
+  .#{$namespace}one-sixth { 
+    width: 16.666%; 
+  }
+  .#{$namespace}two-sixths { 
+    @extend .#{$namespace}one-third; 
+  }
+  .#{$namespace}three-sixths { 
+    @extend .#{$namespace}one-half; 
+  }
+  .#{$namespace}four-sixths { 
+    @extend .#{$namespace}two-thirds; 
+  }
+  .#{$namespace}five-sixths { 
+    width: 83.333%; 
+  }
+
+
+
+
+
+  /**
+   * Eighths
+   */
+  .#{$namespace}one-eighth { 
+    width: 12.5%; 
+  }
+  .#{$namespace}two-eighths {
+     @extend .#{$namespace}one-quarter; 
+   }
+  .#{$namespace}three-eighths { 
+    width: 37.5%; 
+  }
+  .#{$namespace}four-eighths { 
+    @extend .#{$namespace}one-half; 
+  }
+  .#{$namespace}five-eighths { 
+    width: 62.5%; 
+  }
+  .#{$namespace}six-eighths { 
+    @extend .#{$namespace}three-quarters; 
+  }
+  .#{$namespace}seven-eighths { 
+    width: 87.5%; 
+  }
+
+
+
+
+
+  /**
+   * Tenths
+   */
+  .#{$namespace}one-tenth { 
+    width: 10%; 
+  }
+  .#{$namespace}two-tenths { 
+    @extend .#{$namespace}one-fifth; 
+  }
+  .#{$namespace}three-tenths { 
+    width: 30%; 
+  }
+  .#{$namespace}four-tenths { 
+    @extend .#{$namespace}two-fifths; 
+  }
+  .#{$namespace}five-tenths { 
+    @extend .#{$namespace}one-half; 
+  }
+  .#{$namespace}six-tenths { 
+    @extend .#{$namespace}three-fifths; 
+  }
+  .#{$namespace}seven-tenths { 
+    width: 70%; 
+  }
+  .#{$namespace}eight-tenths { 
+    @extend .#{$namespace}four-fifths; 
+  }
+  .#{$namespace}nine-tenths { 
+    width: 90%; 
+  }
+
+
+
+
+
+  /**
+   * Twelfths
+   */
+  .#{$namespace}one-twelfth { 
+    width: 8.333%; 
+  }
+  .#{$namespace}two-twelfths { 
+    @extend .#{$namespace}one-sixth; 
+  }
+  .#{$namespace}three-twelfths { 
+    @extend .#{$namespace}one-quarter; 
+  }
+  .#{$namespace}four-twelfths { 
+    @extend .#{$namespace}one-third; 
+  }
+  .#{$namespace}five-twelfths { 
+    width: 41.666%;
+  }
+  .#{$namespace}six-twelfths { 
+    @extend .#{$namespace}one-half; 
+  }
+  .#{$namespace}seven-twelfths { 
+    width: 58.333%; 
+  }
+  .#{$namespace}eight-twelfths { 
+    @extend .#{$namespace}two-thirds; 
+  }
+  .#{$namespace}nine-twelfths { 
+    @extend .#{$namespace}three-quarters; 
+  }
+  .#{$namespace}ten-twelfths { 
+    @extend .#{$namespace}five-sixths; 
+  }
+  .#{$namespace}eleven-twelfths { 
+    width: 91.666%; 
+  }
+}
+
+
+
+
+
+/**
+ * Create the grids for the default view. 
+ */
+@include grid-setup();
+
+
+
+
+
+/**
+ * Create the grids for different viewport sizes. 
+ *
+ * Use this with the breakpoint mixin provided or you your own
+ */
+
+//
+// Auto generate the code based on the list of breakpoints
+//
+@for $i from 1 through length($all-breakpoints) {
+  $current-breakpoint: nth($all-breakpoints, $i);
+  $current-breakpoint-name: nth($current-breakpoint, 1);
+
+  @include breakpoint($current-breakpoint-name) {
+    @include grid-setup('#{$current-breakpoint-name}-');
+  }
+}
+
+//
+// Declared manually
+//
+// @include breakpoint(large) {
+//   @include grid-setup("large-");
+// }
+//
+// @include breakpoint(medium) {
+//   @include grid-setup("medium-");
+// }

@@ -1,0 +1,36 @@
+{
+  "name": "roadthegame",
+  "version": "0.0.1",
+  "description": "Why did the chicken cross the road?",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/4ae9b8/roadthegame.git"
+  },
+  "keywords": [
+    "road",
+    "the",
+    "game",
+    "chicken"
+  ],
+  "author": "Tim Pietrusky <timpietrusky@gmail.com> (http://timpietrusky.com/), Mads Cordes <Mobilpadde@gmail.com> (http://mcordes.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/4ae9b8/roadthegame/issues"
+  },
+  "homepage": "https://github.com/4ae9b8/roadthegame",
+  "devDependencies": {
+    "gulp-concat": "~2.3.4",
+    "gulp-minify-css": "~0.3.7",
+    "gulp-uglify": "~0.3.2",
+    "gulp-rename": "~1.2.0",
+    "gulp-notify": "~1.5.0",
+    "gulp": "~3.8.7",
+    "gulp-zip": "~2.0.1",
+    "gulp-htmlmin": "~0.2.0",
+    "gulp-html-replace": "~1.1.0"
+  }
+}

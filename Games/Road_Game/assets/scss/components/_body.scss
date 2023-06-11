@@ -1,0 +1,18 @@
+* { 
+  box-sizing: border-box;
+  margin: 0; 
+  padding: 0; 
+    
+}
+
+body {
+  font: 1em sans-serif;
+  background: $color-black;
+  color: #fff;
+}
+
+// The content should be in the middle an has a max width
+.wrapper {
+  margin: 0 auto;
+  max-width: 50em;
+}

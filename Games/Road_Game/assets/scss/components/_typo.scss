@@ -1,0 +1,29 @@
+h1  {
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-red;
+  margin: 0 0 0 0;
+  font-size: 3.5em;
+}
+
+h2 {
+  margin: .75em 0 .5em 0;
+}
+
+a {
+  text-decoration: none;
+  color: $color-red;
+}
+
+ul {
+  li {
+    list-style: none;
+    margin-bottom: .5em;
+  }
+}
+
+button {
+  border: none;
+  background: #ccc;
+  padding: .35em;
+}

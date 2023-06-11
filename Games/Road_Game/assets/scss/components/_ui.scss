@@ -1,0 +1,15 @@
+.ui {
+    color: $color-black;
+    background: $color-white;
+    padding: .25em 1.25em .25em 0;
+}
+
+.ui__element {
+    margin: 0 0 .25em 0;
+    padding: .25em 0 .25em 0;
+    border-bottom: 1px solid $color-black;
+}
+
+.ui__value {
+    float: right;
+}

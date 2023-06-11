@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Road: The Game</title>
+
+        <!-- build:css -->
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <!-- endbuild -->
+    </head>
+
+    <body>
+    
+        <!-- Header -->
+        <header>
+        
+            <div class="gw wrapper">
+                <h1>Road: The Game</h1>
+            </div>
+            
+        </header>
+        <!-- /Header -->
+    
+    
+        <!-- Main part -->
+        <div class="gw wrapper">
+        
+            <!-- UI -->
+            <div class="g one-third">
+                
+                <div class="ui cf">
+                
+                    <div class="g one-whole">
+                    
+                        <div class="gw">
+                        
+                            <div class="g one-whole">
+                                <!-- Score -->
+                                <div class="ui__element" data-js="score">
+                                    Score: <span class="ui__value" data-js="score__display">0</span>
+                                </div>
+                                <!-- /Score -->
+                            </div>
+                            
+                            <div class="g one-whole">
+                                <!-- Best -->
+                                <div class="ui__element" data-js="best">
+                                    Best: <span class="ui__value" data-js="best__display">0</span>
+                                </div>
+                                <!-- /Best -->
+                            </div>
+                            
+                            <div class="g one-whole">
+                                <!-- Deaths -->
+                                <div class="ui__element" data-js="deaths">
+                                    Deaths: <span class="ui__value" data-js="deaths__display">0</span>
+                                </div>
+                                <!-- /Deaths -->
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                
+                    <div class="g one-whole">
+                    
+                        <!-- Audio -->
+                        <div class="ui__element" data-js="audio">
+                           <button>
+                               Audio: <span data-js="audio__state">ON</span>
+                           </button>
+                        </div>
+                        <!-- /Audio -->
+                        
+                    </div>
+                    
+                     <!-- How to and credits -->
+                    <div class="g one-whole">
+                    
+                        <h2>How to play</h2>
+                        
+                        <ul>
+                            <li>Use the arrow keys or WASD to move your character</li>
+                            <li>You get a point if you reach the other side and another if you go back and so on</li>
+                            <li>Use power-ups to get an advantage</li>
+                            <li>Don't get hit by a car</li>
+                        </ul>
+                        
+                        <br />
+                       
+                    </div>
+                    <!-- /How to and credits -->
+                    
+                </div>
+                
+            </div>
+            <!-- /UI -->
+        
+            <!-- Canvas -->
+            <div class="g two-thirds">
+                <canvas id="board" class="game">You suck</canvas>
+            </div>
+            <!-- /Canvas -->
+            
+        </div>
+        <!-- /Main part -->
+        
+        
+        
+
+
+        <!-- build:js -->
+        <script src="assets/js/audio.js"></script>
+        <script src="assets/js/achievements.js"></script>
+        <script src="assets/js/car.js"></script>
+        <script src="assets/js/player.js"></script>
+        <script src="assets/js/points.js"></script>
+        <script src="assets/js/draw.js"></script>
+        <script src="assets/js/UI.js"></script>
+        <script src="assets/js/init.js"></script>
+        <!-- endbuild -->
+    </body>
+
+</html>

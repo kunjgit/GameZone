@@ -1,0 +1,106 @@
+<html>
+<head>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="viewport" content="width=device-width" />
+	<style>
+		html, body, #c{
+			background-color: black;
+			margin: 0px;
+			padding: 0px;
+      position:relative;
+      cursor: pointer;
+		}
+
+    #button-container{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      text-align: right;
+      height: 100%;
+    }
+
+    #text-container{
+      font-size: 18px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-family: Helvetica, Arial;
+      color: white;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: linear-gradient(-45deg, hsla(0,0%,10%,.95), hsla(0,0%,40%,.95));
+      border: 1px solid hsla(0,0%,80%,.8);
+      overflow-y: auto;
+    }
+    
+    #text-container{
+      display: none;
+    }
+
+    #text-inner{
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .button{
+      width: 100%;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      font-family: Helvetica, Arial;
+      text-align: center;
+      border-top: 1px solid hsla(260,100%,80%,.8);
+      color: white;
+      cursor: pointer;
+      background: linear-gradient(-45deg, hsla(260,100%,20%,.9), hsla(200,100%,50%,.9));
+    }
+
+    .button:hover, .button:active{
+      background: linear-gradient(-45deg, hsla(260,100%,0%,.9), hsla(200,100%,30%,.9));
+    }
+
+
+    .corner-button{
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      width: auto;
+    }
+
+    .air, .earth, .fire, .water{
+      display:inline-block;
+      width: 20px;
+      height: 20px;
+      border-right: 1px solid black;
+      border-top: 1px solid black;
+    }
+
+    .air{
+      background-color: white;
+    }
+    .earth{
+      background-color: black;
+    }
+    .water{
+      background-color: blue;
+    }
+    .fire{
+      background-color: red;
+    }
+
+	</style>
+</head>
+<body>
+	<canvas id="c"></canvas>
+  <div id="button-container">
+  </div>
+  <div id="text-container">
+    <div id="text-inner">
+    </div>
+  </div>
+
+<script src="main.js">
+</script>
+</body>
+</html>

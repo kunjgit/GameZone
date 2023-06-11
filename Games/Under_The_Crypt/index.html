@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<title>Under the Crypt</title>
+<meta charset="utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<style>
+body{margin:0;background:#000;overflow:hidden;}
+canvas,div{position:absolute;top:0;left:0;}
+canvas{display:block;position:absolute;top:0;left:0;}
+div{display:none;color:#aaa;z-index:5;}
+#end,#potion,#mode{background:#111;}
+#title,#pause,#mode{text-align:center;}
+p{padding:0;margin:10% 10% 0;}
+a{color:#aaa;text-decoration:none;}
+a:hover{color:#fff;}
+#title h1,#pause h1{font:normal 1.8em Arial;padding:0;margin:15% 0 10%;color:#eee;}
+#title p,#pause p{margin:2% 10% 0;}
+#mode p{margin:30% 10% 0;}
+</style>
+</head>
+<body>
+<div id="title">
+<h1>Under the Crypt</h1>
+<p><a href="javascript:g.start(0);">New Game</a></p>
+<p><a href="javascript:g.start(1);" id="title-resume">Resume</a></p>
+<p><a href="journal.html" target="_blank">Journal</a></p>
+<p><a href="javascript:g.toggleFS()" id="title-full">Fullscreen</a></p>
+</div>
+<div id="pause">
+<h1>Paused</h1>
+<p><a href="javascript:g.togglePause();">Resume</a></p>
+<p><a href="journal.html" target="_blank">Journal</a></p>
+<p><a href="javascript:g.toggleFS()" id="pause-full">Fullscreen</a></p>
+<p><a href="javascript:g.end()">Quit</a></p>
+</div>
+<div id="potion"><p>Before you can proceed to the next floor a strange man appears next to you. While you are still startled he offers you a potion to replenish your health for <span id="potion-cost"></span> of
+your <span id="potion-money"></span> coins.</p><p><a href="javascript:g.buy(1)">Accept</a> &nbsp; <a href="javascript:g.buy(0)">Decline</a></p></div>
+<div id="end"><p>You peek into the opening expecting to find another floor but it turns out to be only a small cavity with an old tunic lying at its bottom. The words written on it read</p><p style='padding:0 2% 0;'>“I cleared this whole crypt and all I got was this garment”.</p><p><a href="javascript:g.end();">Back to title</a></p></div>
+<div id="mode"><p><a href="javascript:g.hard(0)">Normal</a><br><br><a href="javascript:g.hard(1)">Hard</a></p></div>
+<script src="spirit.js"></script>
+<script src="tower.js"></script>
+<script src="level.js"></script>
+<script src="ui.js"></script>
+<script src="spawner.js"></script>
+<script src="game.js"></script>
+<script>g=new Game();g.init();</script>
+</body>
+</html>

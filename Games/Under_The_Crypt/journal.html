@@ -1,0 +1,67 @@
+<!doctype html> 
+<html>
+<head>
+<title>Journal - Under the Crypt</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<style>
+body{background: #000; margin: 0; padding: 0;}
+ul.img{list-style: none; padding-left: 0px;}
+ul.img span{display: inline; width: 16px; height: 16px; background: url('tiles.png'); float: left; margin-right: 7px;}
+h1{padding: 0; margin: 0; text-align: center; font: bold 20px Arial;}
+div{
+padding: 10px 10px 10px 10%; margin: 10px 10px 10px 0; background: #aaa; color: #333; font: 14px Arial; border: 10px solid #430;
+border-left: none;
+border-top-right-radius: 10px 10px;
+border-bottom-right-radius: 10px 10px;
+background-image: linear-gradient(left , rgb(207,203,174) 0%, rgb(245,243,228) 10%, rgb(212,209,186) 96%);
+background-image: -o-linear-gradient(left , rgb(207,203,174) 0%, rgb(245,243,228) 10%, rgb(212,209,186) 96%);
+background-image: -moz-linear-gradient(left , rgb(207,203,174) 0%, rgb(245,243,228) 10%, rgb(212,209,186) 96%);
+background-image: -webkit-linear-gradient(left , rgb(207,203,174) 0%, rgb(245,243,228) 10%, rgb(212,209,186) 96%);
+background-image: -ms-linear-gradient(left , rgb(207,203,174) 0%, rgb(245,243,228) 10%, rgb(212,209,186) 96%);
+max-width: 600px;}
+</style>
+</head> 
+<body>
+<div>
+<h1>Journal</h1>
+<p>
+I am tasked with exploring an old crypt. It has been filled with earth for over a century, yet people can still hear noises coming from the entrance in the dead of night. Also, there have been people vanishing in the area recently. As an experienced paranormal researcher, it is my job to deal with whatever spirits haunt this place. I need to remove the dirt and find a way down to the lower levels using my equipment to defeat all spirits that appear. I should tread with caution because I fear that my next move might be my last.
+</p>
+<p id="level"></p>
+
+<h2>Environment</h2>
+<ul class="img">
+<li><span style="background-position: -32px 0;"></span>Dirt and rubble that I have to remove to explore the crypt.</li>
+<li><span style="background-position: -48px 0;"></span>The solid remains of the walls in the crypt.</li>
+<li><span style="background-position: -16px 0;"><span></span></span>Opening to a lower level and gate for spirits.</li>
+</ul>
+
+<h2>Equipment</h2>
+<p>
+Apart from the EVP listener which is always on I have to drag my tools onto the board to use them. They will activate once a spirit is close and can't be placed between me and a spirit. Also, these tools aren't cheap and I will have to pay upfront, but I get reimbursed for each defeated spirit. I can sell them, but I will only get the full price back (without upgrades) if they are not used. I'll sell all used tools automatically for half their price before descending to the next floor.
+</p>
+<ul class="img">
+<li><span class="img" style="background-position: -64px -112px;"><span class="img" style="background-position: -80px -112px;"></span></span>EVP listener will ping when a gate is near and spike when I'm right next to one.</li>
+<li><span class="img" style="background-position: -64px 0;"></span>Floodlight that illuminates nearby spirits. Upgrade: larger cone.</li>
+
+<li><span class="img" style="background-position: -80px 0;"></span>Tesla coil that electrocutes one nearby spirit. Upgrade: hits more spirits.</li>
+<li><span class="img" style="background-position: -96px 0;"><span class="img" style="background-position: -64px -64px;"></span></span>Fan that slows down spirits in range by blowing or sucking air and has to be turned manually. Upgrade: longer range.</li>
+<li><span class="img" style="background-position: -112px 0;"><span class="img" style="background-position: -64px -32px;"></span></span>Flame thrower that burns spirits in range and has to be turned manually. Upgrade: longer range.</li>
+</ul>
+
+<h2>Spirits</h2>
+<p>These are the spirits I have encountered so far.</p>
+<ul class="img" id="spirits"></ul>
+
+<h2>About</h2>
+<p>
+This game is an entry for the second <a href="http://2013.js13kgames.com">Js13kGames</a> contest
+by <a href="http://twitter.com/veubeke">veubeke</a>.
+It is controlled by clicking / tapping for movement and dragging / swiping for placing tools.
+Additionally, the space bar pauses the game.<p>
+<script src="journal.js"></script>
+<script>Journal();</script
+</div>
+</body>
+</html>

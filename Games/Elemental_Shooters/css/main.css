@@ -1,0 +1,23 @@
+body{
+  background: #e3e3e3;
+}
+
+img{
+  display: none;
+}
+
+/*container*/
+#c{
+  border: #181818 solid 1px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 640px;
+  height: 384px;
+  background: #e3e3e3;
+  cursor: crosshair;
+
+}

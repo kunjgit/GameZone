@@ -1,0 +1,7 @@
+{
+  "name": "js13kgame",
+  "version": "0.0.0",
+  "dependencies": {
+    "closure-compiler": "http://dl.google.com/closure-compiler/compiler-latest.zip"
+  }
+}

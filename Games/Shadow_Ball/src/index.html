@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shadow Ball</title>
+    <link rel="shortcut icon" id="favicon" />
+    <link rel="stylesheet" type="text/css" href="game.css">
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="status">
+        <span style="width:41px;">Level</span>
+        <span style="width:43px;" id="level">000</span>
+        <span style="width:58px;">Enemies</span>
+        <span style="width:49px;" id="enemies">0000</span>
+        <span style="width:35px;">Zone</span>
+        <span style="width:108px;" id="zone" >Neutral</span>
+        <span style="width:41px;">Rocks</span>
+        <span style="width:43px;" id="rocks">000</span>
+        <span style="width:41px;">Score</span>
+        <span style="width:67px;" id="score">000000</span>
+        <span style="width:16px;">Hi</span>
+        <span id="hi">000000</span>
+      </div>
+      <div id="screen">
+        <div id="sky"></div>
+        <canvas id="grass" width="700" height="235"></canvas>
+        <div id="shadow" class="air"></div>
+        <div id="mist" class="air"></div>
+        <div id="msg1" class="msg"></div>
+        <div id="msg2" class="msg"></div>
+        <div id="story">
+          <span>You are the Shadow Ball, the prophesied avatar, able to absorb and
+            channel the golden light of the spirit Orb. Only you will be able
+            to hold back the never ending armies of the four elements.</span>
+          <span>Jump on the Orb and press N to absorb its power. Hold down space in
+            mid-air to fly.</span>
+          <span>Push into a rock and press B to move it.</span>
+          <span>Press M to fire glow bombs at the enemy.</span>
+          <span>To pickup and drop rocks, press V. Drop rocks when you need a
+            barrier (or some breadcrumbs). Drop a rock in mid-air and it will float.</span>
+          <span>Watch out for the deadly mists! &nbsp; And good luck!</span>
+          <span id="loading">Loading...</span>
+        </div>
+      </div>
+      <div id="powerbar">
+        <div id="power"></div>
+      </div>
+      <div id="ctrl">
+        <span style="width:42px;">Move:</span>
+        <span style="width:115px;">wasd/arrows</span>
+        <span style="width:42px;">Jump:</span>
+        <span style="width:65px;">space</span>
+        <span style="width:42px;">Fire:</span>
+        <span style="width:28px;">m</span>
+        <span style="width:60px;">Absorb:</span>
+        <span style="width:28px;">n</span>
+        <span style="width:42px;">Push:</span>
+        <span style="width:28px;">b</span>
+        <span style="width:80px;">Pick/Drop:</span>
+        <span>v</span>
+      </div>
+    </div>
+    <script>var $ = {};</script>
+    <script src="./util.js"></script>
+    <script src="./sprite.js"></script>
+    <script src="./rock.js"></script>
+    <script src="./orb.js"></script>
+    <script src="./actor.js"></script>
+    <script src="./enemy.js"></script>
+    <script src="./bomb.js"></script>
+    <script src="./ego.js"></script>
+    <script src="./player-small.js"></script>
+    <script src="./jsfxr.js"></script>
+    <script src="./sound.js"></script>
+    <script src="./game.js"></script>
+  </body>
+</html>

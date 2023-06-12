@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.01"
+    />
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+      }
+      @media screen and (min-height: 700px) {
+        #c {
+          transform: scale(1.4);
+        }
+      }
+      @media screen and (min-height: 800px) {
+        #c {
+          transform: scale(1.6);
+        }
+      }
+      @media screen and (min-height: 870px) {
+        #c {
+          transform: scale(1.8);
+        }
+      }
+    </style>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-44JG9CJG7E");
+    </script>
+  </head>
+  <body>
+    <canvas id="c" width="512" height="480"></canvas>
+
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Regresso</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+      }
+      .actions,
+      .r {
+        text-align: center;
+      }
+      #boatTrail,
+      #cp,
+      #fh,
+      #score-board,
+      #st,
+      #sy,
+      .actions button {
+        visibility: hidden;
+      }
+      .log p,
+      .modal,
+      .projects:not(.closed) {
+        box-sizing: border-box;
+      }
+      html {
+        background: linear-gradient(9deg, #2d2020, #624739);
+        min-width: 1024px;
+        min-height: 768px;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+        display: flex;
+        flex-direction: column;
+        --red: #c62929;
+        --green: #4b9d4b;
+        --blue: #2a7ec1;
+        --v: 0;
+      }
+      .r,
+      .r-grp {
+        display: flex;
+        border-radius: 5px;
+        margin: 0 2px;
+      }
+      .rs {
+        display: flex;
+        padding: 5px 7px;
+      }
+      .r {
+        flex-direction: column;
+        background: #222;
+        color: #fff;
+        line-height: 1.4em;
+        padding: 7px;
+        transition: background-color 1s;
+      }
+      .r.green,
+      .r.red {
+        transition: background-color 0.1s;
+      }
+      .r.green {
+        background: var(--green);
+      }
+      .r.red {
+        background: var(--red);
+      }
+      .r-grp {
+        background: #222;
+      }
+      .r-grp .r {
+        margin: 0;
+      }
+      .hidden {
+        display: none;
+      }
+      button {
+        border-radius: 3px;
+        font-size: 20px;
+        padding: 0.6em 0.3em;
+        border: 1px solid #929031;
+        background: #d4d259;
+        cursor: pointer;
+        color: #333;
+        width: 200px;
+      }
+      .actions {
+        flex-shrink: 0;
+        padding: 8px;
+        background: linear-gradient(2deg, #99ae43, #d7d45a);
+      }
+      .actions button {
+        vertical-align: middle;
+        top: 0;
+        transition: transform 0.3s ease-out, top 0.1s ease-out,
+          background 0.1s ease-out;
+      }
+      .actions button small {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: -5px;
+      }
+      button:disabled {
+        background: rgba(0, 0, 0, 0.1);
+        color: #333;
+        border-color: transparent;
+      }
+      button:hover:not(:disabled) {
+        background: #fffd8f;
+      }
+      button:hover:not(:active):not(:disabled) {
+        top: -3px;
+        position: relative;
+      }
+      .blink {
+        transform: scale(1.8);
+      }
+      #main-image {
+        flex-shrink: 0;
+      }
+      #main-image svg {
+        width: 100%;
+        height: auto;
+        box-shadow: 0 3px 15px -5px #000;
+      }
+      #main-image svg:hover {
+        transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s;
+      }
+      .trail {
+        transition: stroke-dasharray 3s linear;
+        stroke-dasharray: 0, 0, 1, 100%;
+      }
+      #huntTrail {
+        display: none;
+      }
+      .huntTrail {
+        stroke-dasharray: 0, 0, 0.5px, 2px, 0.5px, 100%;
+      }
+      .forageTrail {
+        transform-origin: 39% 50%;
+        transition-duration: 1.5s;
+      }
+      #fishTrail {
+        transition-duration: 0.5s;
+      }
+      #boatTrail {
+        transition-duration: 2s;
+        stroke-dasharray: 0, 0, 2, 100%;
+      }
+      svg {
+        transition: filter 1s linear;
+        filter: brightness(1) contrast(1);
+      }
+      svg.night {
+        filter: brightness(0.9) contrast(1.2) saturate(0.7);
+      }
+      #sky {
+        fill: #a4dff5;
+        transition: fill 1s ease-in-out;
+      }
+      svg.night #sky {
+        fill: #000005;
+      }
+      .modal {
+        position: fixed;
+        background: #222;
+        color: #fff;
+        top: 10%;
+        left: calc(50% - 400px);
+        z-index: 3;
+        font-size: 150%;
+        width: 800px;
+        padding: 2em;
+        transform: scale(1);
+        text-align: justify;
+      }
+      .popup::before {
+        content: "";
+        display: block;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.5);
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+      }
+      .modal small {
+        font-size: 60%;
+        float: right;
+        margin-top: 2em;
+      }
+      .dismiss {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 200%;
+        padding: 0.3em 0.5em;
+        cursor: pointer;
+      }
+      li + li {
+        margin-top: 0.5em;
+      }
+      #intro ~ div {
+        filter: none;
+        transition: filter 0.5s;
+      }
+      .blured #intro ~ div {
+        filter: blur(10px) brightness(1.5);
+      }
+      .popup.closed .modal {
+        top: -200%;
+        transform: scale(1.5);
+        opacity: 0;
+        transition: top 0s ease 0.3s, opacity 0.3s ease, transform 0.3s linear;
+      }
+      .popup.closed::before {
+        content: unset;
+      }
+      .caps,
+      button {
+        text-transform: capitalize;
+        font-variant: small-caps;
+      }
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .content span {
+        margin-bottom: 1em;
+        padding: 0 2em;
+      }
+      .content :nth-child(2n) {
+        text-align: right;
+      }
+      #requirements,
+      #score-board p,
+      .icon {
+        text-align: center;
+      }
+      #score-board p {
+        font-size: 130%;
+        margin-top: 0;
+        color: #c5d680;
+        font-weight: 700;
+      }
+      .modal button {
+        display: block;
+        margin: auto;
+      }
+      .v {
+        opacity: var(--v);
+        transition: opacity 0.1s ease-out;
+      }
+      .logo {
+        image-rendering: crisp-edges;
+        image-rendering: pixelated;
+        margin: 10px auto;
+        display: block;
+        width: calc(70px * 4);
+      }
+      .modal .logo {
+        width: calc(70px * 7);
+      }
+      footer {
+        opacity: 0.4;
+      }
+      #ship.new {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+      #ship.go {
+        transition: left 7s cubic-bezier(0.5, 0, 1, 1),
+          top 7s cubic-bezier(0.5, 0, 1, 1);
+        top: 30px;
+        left: -100px;
+      }
+      @supports (not (-moz-appearance: none)) {
+        #ship.new {
+          transform: translate(0, 0);
+        }
+        #ship.go {
+          transition: transform 7s cubic-bezier(0.5, 0, 1, 1);
+          transform: translate(-20%, 60%);
+        }
+      }
+      .ppl {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+      }
+      .ppl .icon {
+        margin: -1px 1px -4px;
+        font-size: 25px;
+        height: 1.1em;
+        width: 1.1em;
+        line-height: 1.1em;
+        background: 0 0;
+        overflow: visible;
+      }
+      .ppl .dead {
+        opacity: 0.5;
+        filter: saturate(0);
+      }
+      .ppl .icon:nth-child(n + 9) {
+        position: relative;
+        left: 14px;
+      }
+      @media (max-width: 1268px) {
+        .ppl {
+          display: none;
+        }
+        .actions button {
+          font-size: 16px;
+          width: 150px;
+        }
+      }
+      #logs {
+        display: flex;
+        overflow: hidden;
+        flex-grow: 1;
+        max-width: 1600px;
+        margin: auto;
+        width: 100%;
+      }
+      .log {
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex-grow: 2;
+        flex-basis: 0;
+        flex-shrink: 0;
+        scrollbar-width: none;
+      }
+      .log::-webkit-scrollbar {
+        display: none;
+      }
+      #tasks {
+        flex-grow: 1;
+      }
+      .log p {
+        margin: 0;
+        transition: margin-top 0.3s, height 0.3s 0.2s, font-size 0.3s 0.2s;
+        height: 60px;
+        padding: 0 10px;
+        background-color: #222;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        border: 12px solid transparent;
+        background-clip: padding-box;
+        border-radius: 20px;
+        line-height: 1;
+      }
+      .closed #requirements,
+      .projects.closed #projects .close,
+      .projects:not(.closed) #projects .open {
+        display: none;
+      }
+      .log p.new {
+        margin-top: -120px;
+        transition: margin-top 0s, height 0.3s 0.2s, font-size 0.3s 0.2s;
+        line-height: 1.5;
+      }
+      .log p:first-child {
+        height: 120px;
+        font-size: 120%;
+      }
+      .log p:first-child .icon {
+        font-size: 250%;
+      }
+      .log p.red {
+        background-color: var(--red);
+      }
+      .log p.green {
+        background-color: var(--green);
+      }
+      .log p.blue {
+        background-color: var(--blue);
+      }
+      #requirements {
+        position: absolute;
+        top: -20px;
+        width: 50%;
+        left: 25%;
+        color: #fff;
+        background: #ae5555;
+        border-radius: 5px;
+        padding: 15px 0;
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+        transition: opacity 0.1s ease-in-out, top 0.1s ease-in-out;
+      }
+      #requirements:empty {
+        opacity: 0;
+        top: -30px;
+      }
+      p.restart:hover:not(:active) {
+        transform: translateY(-2px);
+        transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+        cursor: pointer;
+      }
+      .projects.closed #projects {
+        background: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 12px 18px;
+        margin-right: 14px;
+        width: auto;
+      }
+      .projects:not(.closed) #projects {
+        position: absolute;
+        cursor: pointer;
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 150%;
+        box-sizing: border-box;
+      }
+      .close {
+        font-size: 200%;
+        line-height: 0.6;
+        float: right;
+      }
+      .projects:not(.closed) {
+        transition: all 80ms ease-in-out;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        min-height: 250px;
+        background: #e4fa89;
+        flex-shrink: 0;
+        position: fixed;
+        width: 90%;
+        z-index: 3;
+        align-content: flex-start;
+        top: 10%;
+        right: 5%;
+        box-shadow: 0 0 10vh rgba(0, 0, 0, 0.5);
+        padding: 50px 10px 10px;
+        border-radius: 3px;
+      }
+      .icon,
+      .project {
+        position: relative;
+      }
+      .project {
+        padding: 15px 15px 50px;
+        margin: 5px;
+        cursor: pointer;
+        border: 2px solid #a1c700;
+      }
+      .project:hover {
+        background: #c2ea1b;
+      }
+      .project.done,
+      .project.in-progress {
+        border-color: transparent;
+      }
+      .project.done .icon {
+        box-shadow: 0 0 0 6px #00c652 inset;
+      }
+      .project.done .title::after {
+        content: "Finished";
+        margin-left: 15px;
+        background: #00c652;
+        padding: 0 8px;
+        font-size: 80%;
+        color: #fff;
+      }
+      .icon,
+      .project.done {
+        color: #333;
+        cursor: default;
+      }
+      .icon {
+        font-size: 30px;
+        background: #fff;
+        height: 1.4em;
+        width: 1.4em;
+        border-radius: 60px;
+        line-height: 1.4em;
+        float: left;
+        margin-right: 15px;
+        overflow: hidden;
+        z-index: 0;
+        transition: inherit;
+        flex-shrink: 0;
+      }
+      .project .icon {
+        margin-bottom: 1em;
+      }
+      .icon::before {
+        content: "";
+        display: inline-block;
+        background: linear-gradient(#b2e465, #8ab942);
+        width: 100%;
+        height: 0;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+        transition: inherit;
+      }
+      .project.in-progress .icon::before {
+        height: 100%;
+      }
+      .project.in-progress {
+        cursor: default;
+      }
+      .project.done {
+        background: 0 0;
+      }
+      .project.done .cost {
+        display: none;
+      }
+      .projects.closed {
+        position: fixed;
+        background: 0 0;
+        top: 0;
+        right: 0;
+        height: 60px;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 4px 10px;
+      }
+      .projects.closed .project {
+        padding: 0;
+        height: 42px;
+        width: 42px;
+        overflow: hidden;
+        background: 0 0;
+        border: none;
+      }
+      .projects.closed .cost {
+        display: none;
+      }
+      .project.no {
+        animation: nudge 0.2s infinite;
+      }
+      @keyframes nudge {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(5px);
+        }
+        75% {
+          transform: translateX(-5px);
+        }
+      }
+      .title {
+        margin-left: 16px;
+        margin-bottom: 5px;
+      }
+      .cost {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: #2f6271;
+        padding: 7px;
+        font-weight: 700;
+      }
+      #caravela svg > g {
+        transform: scale(3);
+        transform-origin: -45% -37%;
+      }
+      #caravela path,
+      #caravela rect {
+        stroke: #865c27;
+        stroke-width: 0.3;
+      }
+    </style>
+  </head>
+  <body class="blured">
+    <div id="score-board" class="popup">
+      <div class="modal">
+        <span class="dismiss">&times;</span> <img class="logo" src="logo.png" />
+        <p>Scoreboard</p>
+        <div class="content"></div>
+        <button>Restart</button>
+      </div>
+    </div>
+    <div id="intro" class="popup">
+      <div class="modal">
+        <img class="logo" src="logo.png" />
+        <p>
+          Your ship got lost during a storm and wrecked on an unknown land. Help
+          your remaining crew return to the seas. The faster you finish, and the
+          less people you loose, the better.
+        </p>
+        <ol>
+          <li>The goal is to finish the Caravela project.</li>
+          <li>
+            Your main worry is to make sure there's enough food for everyone
+            each day. People eat once per day in the morning.
+          </li>
+          <li>
+            New projects will unlock ways to automate actions, or work towards
+            the goal.
+          </li>
+          <li id="monetization" class="hidden">
+            💫 Web Monetization users start with 30 food, and get extra grace
+            from God.
+          </li>
+        </ol>
+        <button autofocus="true">Start</button>
+        <small
+          >Regresso, [hook-re-ssoo]<i
+            >, means "return / the way back" in Portuguese.</i
+          ></small
+        >
+      </div>
+    </div>
+    <div class="rs">
+      <div class="r" id="days">
+        <span class="label">Date</span> <span class="value">0</span>
+      </div>
+      <div class="r" id="wood">
+        <span class="label">🌳 Wood</span> <span class="value">0</span>
+      </div>
+      <div class="r" id="food">
+        <span class="label">🍒 Food</span> <span class="value">0</span>
+      </div>
+      <div class="r-grp">
+        <div class="r" id="population">
+          <span class="label">👫</span> <span class="value">0</span>
+        </div>
+        <div class="ppl r"></div>
+        <div class="r" id="ready">
+          <span class="label">Ready</span> <span class="value">0</span>
+        </div>
+        <div class="r hidden" id="fishers">
+          <span class="label">Fisher</span> <span class="value">0</span>
+        </div>
+        <div class="r red hidden" id="starving">
+          <span class="label">Starving</span> <span class="value">0</span>
+        </div>
+      </div>
+      <div class="projects closed">
+        <div class="log" id="requirements"></div>
+        <div id="projects">
+          <span class="caps">Projects</span> <span class="open">+</span>
+          <span class="close">×</span>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="pray">
+        <span>Pray</span><br /><small>👤max 1　🕔24h</small>
+      </button>
+      <button id="fetchWood">
+        <span>Chop Wood</span><br /><small>👤1　🕔14h　　🌳 3</small>
+      </button>
+      <button id="forage">
+        <span>Forage</span><br /><small
+          >👤1　🕔9h　　🍒 <span class="return">2</span></small
+        >
+      </button>
+      <button id="hunt">
+        <span>Hunt</span><br /><small>👥2　🕔28h　　🍒 20</small>
+      </button>
+      <button id="leave">
+        <span>Leave</span><br /><small>👥　Everyone</small>
+      </button>
+      <button id="restart">Restart<br />Game</button>
+    </div>
+    <div id="main-image">
+      <svg id="anims" style="display: none">
+        <animateMotion
+          begin="indefinite"
+          fill="freeze"
+          id="sail"
+          dur="8s"
+          xlink:href="#ship"
+          calcMode="linear"
+          keyTimes="0;0.1;0.2;0.3;0.4;0.5;1"
+          keyPoints="0;0.37;0.62;0.80;0.92;1;1"
+          path="m6.2718 64.983c54.127-23.144 99.049-18.797 123.21-31.994"
+        ></animateMotion>
+        <animateTransform
+          xlink:href="#ss"
+          id="sink"
+          attributeName="transform"
+          type="translate"
+          begin="indefinite"
+          dur="8s"
+          calcMode="linear"
+          keyTimes="0;0.75;1"
+          values="0 0; 0 12; 0 12"
+        />
+      </svg>
+      <svg
+        id="island"
+        width="400mm"
+        height="50mm"
+        version="1.1"
+        viewBox="0 0 400 50"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <defs>
+          <linearGradient
+            id="grad"
+            x1="157"
+            x2="157"
+            y1="28"
+            y2="28"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#fff" stop-opacity=".9" offset="0" />
+            <stop stop-color="#e0e0e0" stop-opacity="0" offset="1" />
+            <animate
+              fill="freeze"
+              attributeName="y2"
+              begin="indefinite"
+              dur="5"
+              from="28"
+              repeatCount="1"
+              to="1"
+            />
+          </linearGradient>
+          <symbol id="house">
+            <g
+              id="house_transform"
+              class="v"
+              transform="rotate(-5.9583,155.47,27.382)"
+            >
+              <path
+                d="m153.46 28.62 0.10176-1.2036s1.3529-1.7734 2.2369-1.6862c0.88396 0.0871 1.6829 1.8868 1.6829 1.8868l-0.11266 1.4206z"
+                fill="#564242"
+              />
+            </g>
+          </symbol>
+          <symbol id="stars" stroke="#a4dff5" stroke-width=".7302">
+            <g
+              id="stars_transform"
+              transform="matrix(1.3663 0 0 1.3727 -3.3615 -3.4313)"
+            >
+              <path
+                d="m3.7021 15.375 35.714-10.453-4.5732 12.195-27.221-12.413 61.629 11.977"
+                fill="none"
+                stroke="#a4dff5"
+                stroke-dasharray="0.38639502, 9.27348049"
+                stroke-width=".3864"
+              />
+            </g>
+          </symbol>
+        </defs>
+        <rect width="400" height="50" fill="#187ac6" />
+        <rect
+          id="sky"
+          y="3.5527e-15"
+          width="400"
+          height="22.133"
+          fill="#a4dff5"
+        />
+        <path
+          d="m337.61 2.4391c-0.94199 0.011749-1.6725 0.096529-2.159 0.26355-2.9308 1.006-18.489 5.0572-34.401 9.1225-9.8836-3.7689-20.233-6.9749-24.519-5.8462-9.0534 2.3848-42.49 11.062-42.49 11.062l179.42 1.4275s-61.721-16.206-75.85-16.029z"
+          fill="#5ea68c"
+          fill-opacity=".70293"
+          stroke-width=".26458"
+        />
+        <path
+          d="m307.71 3.4432c-0.1959-0.00228-0.36208 0.00558-0.49662 0.024289-1.8069 0.2513-8.7941 2.414-16.267 4.8244 3.2461 1.0101 6.6984 2.2357 10.101 3.5332 7.5903-1.9393 15.059-3.8655 21.156-5.4694-6.5391-1.6166-12.329-2.8874-14.492-2.9125zm68.375 0.82216c-0.18973-0.00507-0.35277 0.00416-0.48731 0.02894-1.1252 0.20723-4.2711 1.4005-8.2739 3.0339 21.655 4.7151 46.13 11.14 46.13 11.14s-31.488-14.046-37.369-14.203zm37.369 14.203-75.18 1.434c-0.0454 0.02035-0.55964 0.24908-0.55964 0.24908l75.739-1.6831z"
+          fill="#5ea68c"
+          fill-opacity=".48927"
+          stroke-width=".26458"
+        />
+        <path
+          d="m49.037 25.289c-17.663 2.5075-40.999 6.7492-30.895 10.637 16.22 6.2409 56.901-5.2207 85.422-4.9138 28.606 0.30771 52.892 1.8946 81.393 4.6097 6.9049 0.67838 30.464-3.652 37.688-5.4532 7.2242-1.8013 4.8801-3.2331 6.2371-3.1839 1.357 0.04914-0.99857 2.4297-5.8679 3.7504-10.714 2.9061-30.297 5.8079-24.192 6.4206 19.65 1.971 42.718 4.4252 62.355 6.3295 17.473 1.6943 34.866 4.3383 52.27 6.8037h86.55v-29.763s-314.71-4.5928-350.96 4.7624z"
+          fill="#cdb185"
+        />
+        <path
+          d="m400 35.16c-88.946 8.6805-80.834-1.2571-175.48-8.9687l-49.893-6.0476c0-8.8658 116.92-2.4044 225.37-3.6066z"
+          fill="#80ab3d"
+        />
+        <g id="cp" transform="translate(0 .12605)">
+          <path
+            d="m164.14 29.659a3.5871 1.8076 0 0 1 3.5871-1.8076 3.5871 1.8076 0 0 1 3.5871 1.8076h-3.5871z"
+            fill="#cac7be"
+          />
+          <path
+            d="m165.9 29.354c0-0.61493 0.0417-0.67409 0.11773-1.2159 0.25676-1.8291 1.6649-2.9882 1.6649-2.9882s1.4209 1.1848 1.6724 3.0424c0.0713 0.5267 0.11024 0.56712 0.11024 1.1616h-1.7826z"
+            fill="#564242"
+          />
+        </g>
+        <path
+          class="v"
+          d="m138.7 29.803s7.8703-2.1355 11.826-0.92085 27.12 2.1515 35.879-0.45456c8.7592-2.606 9.7727-5.7188 9.7727-5.7188"
+          fill="none"
+          stroke="#cac7be"
+          stroke-width=".79375"
+        />
+        <use
+          transform="matrix(1.014 0 0 1.014 3.7756 .47994)"
+          width="100%"
+          height="100%"
+          stroke-width=".069859"
+          xlink:href="#house"
+        />
+        <path
+          id="huntTrail"
+          class="huntTrail trail"
+          d="m151.84 29.147s40.796 3.3472 44.6-6.565c2.309-6.0172 85.046 8.7919 124.18 2.5401 39.138-6.2518 79.373-4.5961 79.373-4.5961"
+          fill="none"
+          stroke="#800033"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width=".79375"
+        />
+        <path
+          id="smoke"
+          d="m157.48 27.62c-0.26882-3.4692-4.459-3.1631-0.53361-6.584 0.82354-1.174 0.25573-2.9052 1.3952-3.9322 5.3199-6.5887-2.5744-4.843-4.5837-8.0481-1.3315-3.9157-7.0264-1.8761-6.8086-4.4937 0.67083-1.2794-0.29027-2.6924-1.6877-2.722 6.0183-2.8778 4.6657 3.7866 6.6216 3.7173 4.7176 0.024687 1.5244 3.4639 4.8502 3.7607 2.5737 0.23935 8.2134 1.3357 6.5901 4.6979-0.59025 1.4212-2.1409 1.8914-3.3161 2.6883-3.2618 1.6147-1.0245 4.2146-2.0357 5.4543-2.2177 1.5111 0.15724 3.9723-0.49176 5.4617z"
+          fill="url(#grad)"
+        />
+        <path
+          id="ft"
+          class="trail forageTrail"
+          d="m156.62 30.041s36.018 2.4529 39.822-7.4593c2.309-6.0172 57.137 10.358 55.57-4.7988"
+          fill="none"
+          stroke="#3737c8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width=".79375"
+        />
+        <use
+          id="fh"
+          transform="translate(38.95 5.5724)"
+          width="100%"
+          height="100%"
+          xlink:href="#house"
+        />
+        <path
+          id="fishTrail"
+          class="trail"
+          d="m155.8 30.274c8.4806-0.34713 25.914 2.7673 38.391 3.8328"
+          fill="none"
+          stroke="#6c535d"
+          stroke-linecap="round"
+          stroke-width=".79375"
+        />
+        <rect
+          x="154.24"
+          y="28.267"
+          width="4.3869"
+          height="2.9439"
+          rx="0"
+          ry="0"
+          fill="#cdb185"
+        />
+        <g id="ship">
+          <g id="ss">
+            <path
+              d="m-10.177-7.5233-0.40824 7.3095 3.7519 0.01944 0.40824-8.3398"
+              fill="none"
+              stroke="#342828"
+              stroke-width=".26458px"
+            />
+            <path
+              d="m-11.951-1.81s0.90271-0.71064 1.9975-0.40334c1.0948 0.30731 1.4405 0.59542 1.4405 0.59542l-2.881-8.0157z"
+              fill="#fcf9e9"
+            />
+            <path
+              d="m-12.021-1.253 0.557 1.671c0.1299 0.63013 4.6549 0.44122 7.0682-0.32651 0 0 0.24969-0.23048 0.40334-0.69146 0.15365-0.46097 0.17286-1.0563 0.17286-1.0563-1.8621 0.60981-2.6121 1.2148-4.3599 1.1524l-0.0576-0.51858c-1.2562-0.15343-2.5204-0.17207-3.7837-0.23048z"
+              fill="#342828"
+            />
+            <path
+              d="m-8.9511-0.869s0.32652-0.80668 1.6326-0.86429c1.3061-0.05762 3.2267 0.40334 3.2267 0.40334l-5.9156-11.063z"
+              fill="#fcf9e9"
+            />
+            <g
+              fill="#800000"
+              shape-rendering="auto"
+              stroke="#a00"
+              stroke-width=".26458px"
+            >
+              <path
+                d="m-7.9611-6.364-0.11712 0.0087 0.13707 1.834 0.11712-0.0087z"
+              />
+              <path
+                d="m-7.2111-5.557-1.4714 0.11018 9e-3 0.11712 1.4713-0.11018z"
+              />
+              <path
+                d="m-10.591-5.134-0.14228 1.3204 0.11712 0.01214 0.14228-1.3195z"
+              />
+              <path
+                d="m-11.121-4.583-0.013 0.11712 1.0584 0.11365 0.013-0.11625z"
+              />
+            </g>
+            <rect
+              transform="rotate(3.5101)"
+              x="-6.8787"
+              y="-7.9219"
+              width="2.2064"
+              height="1.4872"
+              fill="#fcf9e9"
+            />
+            <path
+              d="m-5.1538-7.6863a0.17601 0.37574 3.0774 0 1-0.19609 0.36536 0.17601 0.37574 3.0774 0 1-0.15538-0.38502l0.17573 0.0098z"
+              fill="#fcf9e9"
+              stroke="#a00"
+              stroke-linecap="square"
+              stroke-width=".294"
+            />
+          </g>
+          <rect
+            x="-15.838"
+            y="-3.2935e-7"
+            width="15.838"
+            height="15.575"
+            fill="#187ac6"
+          />
+        </g>
+        <path
+          id="boatTrail"
+          class="trail"
+          d="m137.96 29.634s-10.966 11.04-18.234 11.04c-7.2681 0-23.665 1.5324-29.97 5.5605-6.3049 4.0281-9.107 6.0422-9.107 6.0422"
+          fill="none"
+          stroke="#ffb42a"
+          stroke-linecap="round"
+          stroke-width=".79375"
+        />
+        <g id="sy">
+          <path
+            id="br"
+            d="m126.82 33.032 6.3392-4.5131 6.8119 1.0188-2.7254 3.2631-2.5533 2.2346-1.5569-0.19383 0.18714-1.1135 4.408-3.6634-4.2448-0.66556-2.158 2.4332-3.0215 2.5007-1.6316-0.14829z"
+            fill="#564242"
+          />
+          <use
+            transform="matrix(.9882 0 0 .9882 -18.717 .61909)"
+            xlink:href="#house"
+          />
+        </g>
+        <use
+          transform="translate(1.5587,2.0697)"
+          width="100%"
+          height="100%"
+          xlink:href="#house"
+        />
+        <use
+          transform="matrix(.9882 0 0 .9882 -1.1475 1.455)"
+          width="100%"
+          height="100%"
+          stroke-width=".26774"
+          xlink:href="#house"
+        />
+        <use xlink:href="#stars" />
+        <use
+          transform="translate(74.083)"
+          width="100%"
+          height="100%"
+          xlink:href="#stars"
+        />
+        <use
+          transform="translate(153.46 -4.7625)"
+          width="100%"
+          height="100%"
+          xlink:href="#stars"
+        />
+        <path
+          id="st"
+          d="m6.2718 64.983c54.127-23.144 99.049-18.797 123.21-31.994"
+          fill="none"
+          stroke="#000"
+          stroke-width=".26458px"
+        />
+        <path
+          d="m229.69 15.471c-9.3142 5.3024-0.61574 6.6068 14.512 5.171s45.718 7.052 58.966 3.0025c13.248-4.0494 31.568-2.2779 25.438-7.1726s-89.602-6.3033-98.916-1.0008z"
+          fill="#648c29"
+        />
+      </svg>
+    </div>
+    <div id="logs">
+      <div id="info" class="log"></div>
+      <div id="tasks" class="log"></div>
+    </div>
+    <div>
+      <footer><img class="logo" src="logo.png" /></footer>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>

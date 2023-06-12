@@ -5,7 +5,9 @@
 }
 
 .body{
-    background-image: linear-gradient(limegreen,yellow);
+    background:url("https://wallpapercave.com/wp/wp2409705.jpg");
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
     min-height: 100vh;
     min-width: 100vw;
     display: flex;
@@ -13,7 +15,6 @@
     align-items: center;
     
 }
-
 #scoreBox{
     position: absolute;
     font-size:39px ;
@@ -30,36 +31,33 @@
     top: 50px;
     font-weight: bold;
     font-family: 'Prosto One', cursive;
-
 }
 
 #board{
-    background-image:  linear-gradient(orange,violet);
+    background:linear-gradient(rgb(170, 236, 170), rgb(236, 236, 167));
     width: 90vmin;
     height: 92vmin;
-    border: 3px solid black;
+    border: 2px solid black;
     display: grid;
     grid-template-rows: repeat(18,1fr);
     grid-template-columns: repeat(18,1fr);
 }
 
 .head{
-    background-image:linear-gradient(grey,purple);
+    background: linear-gradient(rgb(240, 124, 124), rgb(228, 228, 129));
     transform: scale(1.02);
-    border: 2px solid purple;
-    border-radius: 4px;
+    border-radius: 50%;
 }
 
 .snake{
-    background-color: purple;
-    border: .25vmin solid white;
-    border-radius: 12px;
+    background: linear-gradient(rgb(240, 124, 124), rgb(228, 228, 129));; 
+    border-radius:45%;
 }
 
 .food{
-    background-image:linear-gradient(yellow,orange);
+    background: linear-gradient(red, purple);
     border: .25vmin solid black;
-    border-radius:50% ;
+    border-radius:8px;
 =======
 body {
     font-family: 'Courier New', Courier, monospace;

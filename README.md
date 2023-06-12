@@ -283,7 +283,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 177 | [Norman The Necromancer](https://github.com/kunjgit/GameZone/tree/main/Games/Norman_The_Necromancer)|
 | 178 | [Shape Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Shape_Blocks)|
 | 179 | [Goal_Rush](https://github.com/Sheetal-05/GameZone/tree/main/Games/Goal_Rush)|
-| 180 | [LOSSST](https://github.com/Sheetal-05/GameZone/tree/main/Games/LOSSST)|
+| 180 | [Charon Jr](https://github.com/kunjgit/GameZone/tree/main/Games/Charon_Jr)| 
+| 181 | [ColorMatcher](https://github.com/kunjgit/GameZone/tree/main/Games/ColorMatcher)|
+| 182 | [Oh, flip](https://github.com/kunjgit/GameZone/tree/main/Games/oh_flip)|  
+| 183 | [LOSSST](https://github.com/Sheetal-05/GameZone/tree/main/Games/LOSSST)|
+ 
 </center>
 
 <br>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Time Runner</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .canvas {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+      .shadow {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(0, 0, 0);
+        opacity: 1;
+        transition: opacity 2s;
+        user-select: none;
+      }
+      .background {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url("/runner.jpg");
+        background-size: cover;
+        background-position: center;
+        filter: blur(25px);
+        opacity: 1;
+        transition: opacity 2s;
+      }
+      .menu {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        width: 400px;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        padding: 20px 0;
+        pointer-events: all;
+        transition: opacity 0.25s;
+      }
+      .button {
+        width: 100%;
+        height: 80px;
+        font-size: 30px;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.5);
+        transition: color 0.25s;
+        font-weight: 500;
+      }
+      .button:hover {
+        color: rgba(255, 255, 255, 1);
+      }
+      .controls {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        display: flex;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 2s;
+        user-select: none;
+        width: 80%;
+        max-width: 600px;
+      }
+      .diamonds {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+      }
+      .diamonds > img {
+        width: 40px;
+        height: 60px;
+      }
+      .diamonds > span {
+        color: white;
+        font-size: 40px;
+        padding-right: 15px;
+      }
+      .play-again {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .play-again > span {
+        font-size: 30px;
+        color: white;
+        margin-bottom: 30px;
+        white-space: nowrap;
+      }
+      .play-again > svg {
+        stroke: rgba(255, 255, 255, 0.5);
+        transition: stroke 0.25s;
+      }
+      .play-again:hover > svg {
+        stroke: rgba(255, 255, 255, 1);
+      }
+      .time-container {
+        position: fixed;
+        width: 30px;
+        height: 70%;
+        top: 50%;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+      .time-container > svg {
+        margin-top: 15px;
+      }
+      .time {
+        position: relative;
+        flex: 1;
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .time > div {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 0;
+        background-color: #c78ad2;
+      }
+      .score {
+        position: fixed;
+        left: 50%;
+        top: 10px;
+        color: white;
+        transform: translateX(-50%);
+        font-size: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="canvas"></canvas>
+    <div class="time-container">
+      <div class="time"><div></div></div>
+      <svg width="31px" height="49px" viewBox="-0.5 -0.5 124 198">
+        <defs />
+        <g>
+          <path
+            d="M 32 27 Q 92 27 92 70 Q 92 113 32 113 Q 62 70 32 27 Z"
+            fill="#c17ecd"
+            stroke="none"
+            transform="rotate(90,62,70)"
+          />
+          <path
+            d="M 21 13 Q 104 13 104 60 Q 104 107 21 107 Z"
+            fill="none"
+            stroke="#E5E5E5"
+            stroke-width="6"
+            stroke-miterlimit="10"
+            transform="rotate(90,62.5,60)"
+          />
+          <path
+            d="M 37 99 L 91 150 L 37 201 Z"
+            fill="#c17ecd"
+            stroke="none"
+            transform="rotate(-90,64,150)"
+          />
+          <rect
+            x="3"
+            y="3"
+            width="118"
+            height="20"
+            rx="4"
+            ry="4"
+            fill="#E5E5E5"
+            stroke="none"
+          />
+          <rect
+            x="3"
+            y="175"
+            width="118"
+            height="20"
+            rx="4"
+            ry="4"
+            fill="#E5E5E5"
+            stroke="none"
+          />
+          <path
+            d="M 22 96 Q 105 96 105 143 Q 105 190 22 190 Z"
+            fill="none"
+            stroke="#E5E5E5"
+            stroke-width="6"
+            stroke-miterlimit="10"
+            transform="rotate(-90,63.5,143)"
+          />
+        </g>
+      </svg>
+    </div>
+    <div class="score">0</div>
+    <div class="shadow"></div>
+    <div class="background"></div>
+    <div class="controls">
+      <svg width="592px" height="302px" viewBox="-0.5 -0.5 592 302">
+        <g>
+          <rect
+            x="1"
+            y="180"
+            width="260"
+            height="40"
+            rx="6"
+            ry="6"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <text
+            x="130"
+            y="208"
+            fill="#FFFFFF"
+            text-anchor="middle"
+            font-size="24px"
+            font-family="Verdana"
+          >
+            SPACE
+          </text>
+          <rect
+            x="361"
+            y="130"
+            width="40"
+            height="40"
+            rx="6"
+            ry="6"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <path
+            d="M 390 150 L 370 150"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <path
+            d="M 370 150 L 380 143"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <path
+            d="M 370 150 L 380 157"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <rect
+            x="421"
+            y="130"
+            width="40"
+            height="40"
+            rx="6"
+            ry="6"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <path
+            d="M 440 160 L 440 140"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <path
+            d="M 433 150 L 440 140"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <path
+            d="M 447 150 L 440 140"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <rect
+            x="481"
+            y="130"
+            width="40"
+            height="40"
+            rx="6"
+            ry="6"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <path
+            d="M 510 150 L 490 150"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <path
+            d="M 510 150 L 500 143"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <path
+            d="M 510 150 L 500 157"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <path
+            d="M 381 220 L 381 180"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <text
+            x="365"
+            y="245"
+            fill="#FFFFFF"
+            text-anchor="middle"
+            font-size="17px"
+            font-family="Helvetica"
+          >
+            HOLD to go left
+          </text>
+          <path
+            d="M 500.5 220 L 500.5 180"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <text
+            x="525"
+            y="245"
+            fill="#FFFFFF"
+            text-anchor="middle"
+            font-size="17px"
+            font-family="Helvetica"
+          >
+            HOLD to go right
+          </text>
+          <path
+            d="M 440.5 120 L 440.5 80"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <text
+            x="445"
+            y="68"
+            fill="#FFFFFF"
+            text-anchor="middle"
+            font-size="17px"
+            font-family="Helvetica"
+          >
+            CLICK to jump
+          </text>
+          <path
+            d="M 130.5 270 L 130.5 230"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <text
+            x="130"
+            y="292"
+            fill="#FFFFFF"
+            text-anchor="middle"
+            font-size="17px"
+            font-family="Helvetica"
+          >
+            HOLD to turn back time
+          </text>
+          <rect
+            x="111"
+            y="80"
+            width="40"
+            height="40"
+            rx="6"
+            ry="6"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+          <text
+            x="130"
+            y="108"
+            fill="#FFFFFF"
+            text-anchor="middle"
+            font-size="24px"
+            font-family="Verdana"
+          >
+            F
+          </text>
+          <text
+            x="130"
+            y="18"
+            fill="#FFFFFF"
+            text-anchor="middle"
+            font-size="17px"
+            font-family="Helvetica"
+          >
+            CLICK to freeze time
+          </text>
+          <path
+            d="M 131 70 L 131 30"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="3"
+          />
+        </g>
+      </svg>
+    </div>
+    <div class="menu" style="opacity: 1">
+      <button class="button new-game">NEW GAME</button>
+    </div>
+    <button class="play-again">
+      <span></span
+      ><svg width="94px" height="89px" viewBox="-0.5 -0.5 189 179">
+        <defs />
+        <g>
+          <path
+            d="M 50.57 150.2 C 20.57 127.73 12.12 87.02 30.79 54.86 C 49.46 22.71 89.51 8.98 124.58 22.72 C 159.66 36.45 178.99 73.43 169.85 109.32 C 160.72 145.21 125.93 168.99 88.37 165 M 50.57 113.2 L 50.57 150.2 L 9 139.1"
+            fill="none"
+            stroke-width="19"
+            stroke-miterlimit="10"
+            transform="rotate(180,94,89)"
+          />
+        </g>
+      </svg>
+    </button>
+    <script src="./script.js"></script>
+  </body>
+</html>

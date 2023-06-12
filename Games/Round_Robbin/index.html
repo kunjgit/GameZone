@@ -1,0 +1,1747 @@
+<head>
+  <style>
+    canvas {
+      position: absolute;
+      width: 960px;
+      height: 540px;
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    (function () {
+      "use strict";
+      const aa = Math.PI,
+        ca = 2 * aa,
+        da = aa / 180;
+      function ea(c) {
+        c = f - c + aa;
+        return c - Math.floor(c / ca) * ca - aa;
+      }
+      const fa = [
+        [
+          [228, 228, 228],
+          [233, 194, 194],
+          [220, 155, 155],
+          [119, 54, 112],
+        ],
+        [
+          [228, 228, 228],
+          [233, 194, 233],
+          [220, 155, 220],
+          [62, 54, 120],
+        ],
+        [
+          [200, 200, 200],
+          [150, 150, 150],
+          [100, 100, 100],
+          [50, 50, 50],
+        ],
+        [
+          [255, 255, 255],
+          [85, 255, 255],
+          [255, 85, 255],
+          [0, 0, 0],
+        ],
+        [
+          [85, 255, 85],
+          [255, 255, 85],
+          [255, 85, 85],
+          [0, 0, 0],
+        ],
+      ];
+      var ha = 0,
+        q = fa[ha];
+      var r = 0,
+        ia = 0,
+        u = 240,
+        ma = 135,
+        na = 240,
+        oa = 135,
+        w = 1;
+      function pa() {
+        var c = x,
+          a = c.J[c.j.length];
+        a ? a[0].set(c[0]) : ((a = new z(...c[0])), (c.J[c.j.length] = a));
+        c.j.push(a);
+      }
+      function qa() {
+        var c = x,
+          a = c.j.pop();
+        c[0].set(a[0]);
+      }
+      function ra(c, a) {
+        const b = c[0];
+        a = a[0];
+        A[0] = b[0] * a[0] + b[1] * a[4] + b[2] * a[8] + b[3] * a[12];
+        A[1] = b[0] * a[1] + b[1] * a[5] + b[2] * a[9] + b[3] * a[13];
+        A[2] = b[0] * a[2] + b[1] * a[6] + b[2] * a[10] + b[3] * a[14];
+        A[3] = b[0] * a[3] + b[1] * a[7] + b[2] * a[11] + b[3] * a[15];
+        A[4] = b[4] * a[0] + b[5] * a[4] + b[6] * a[8] + b[7] * a[12];
+        A[5] = b[4] * a[1] + b[5] * a[5] + b[6] * a[9] + b[7] * a[13];
+        A[6] = b[4] * a[2] + b[5] * a[6] + b[6] * a[10] + b[7] * a[14];
+        A[7] = b[4] * a[3] + b[5] * a[7] + b[6] * a[11] + b[7] * a[15];
+        A[8] = b[8] * a[0] + b[9] * a[4] + b[10] * a[8] + b[11] * a[12];
+        A[9] = b[8] * a[1] + b[9] * a[5] + b[10] * a[9] + b[11] * a[13];
+        A[10] = b[8] * a[2] + b[9] * a[6] + b[10] * a[10] + b[11] * a[14];
+        A[11] = b[8] * a[3] + b[9] * a[7] + b[10] * a[11] + b[11] * a[15];
+        A[12] = b[12] * a[0] + b[13] * a[4] + b[14] * a[8] + b[15] * a[12];
+        A[13] = b[12] * a[1] + b[13] * a[5] + b[14] * a[9] + b[15] * a[13];
+        A[14] = b[12] * a[2] + b[13] * a[6] + b[14] * a[10] + b[15] * a[14];
+        A[15] = b[12] * a[3] + b[13] * a[7] + b[14] * a[11] + b[15] * a[15];
+        [A, c[0]] = [c[0], A];
+        return c;
+      }
+      function sa(c, a) {
+        var b = x;
+        ta[3] = c;
+        ta[7] = a;
+        ta[11] = 0;
+        ra(b, ua);
+      }
+      function B(c, a) {
+        var b = x[0];
+        return [
+          c * b[0] + a * b[1] + 0 * b[2] + 1 * b[3],
+          c * b[4] + a * b[5] + 0 * b[6] + 1 * b[7],
+          c * b[8] + a * b[9] + 0 * b[10] + 1 * b[11],
+          c * b[12] + a * b[13] + 0 * b[14] + 1 * b[15],
+        ];
+      }
+      class z {
+        constructor(c) {
+          this[0] = new Float32Array(
+            16 === arguments.length
+              ? [...arguments]
+              : [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+          );
+          this.j = [];
+          this.J = [];
+        }
+        scale(c, a, b) {
+          za[0] = c;
+          za[5] = a;
+          za[10] = b;
+          return ra(this, Aa);
+        }
+      }
+      const ua = new z(),
+        Ba = new z(),
+        Aa = new z(),
+        ta = ua[0],
+        C = Ba[0],
+        za = Aa[0];
+      var A = new z()[0];
+      const x = new z(),
+        Ca = document.createElement("canvas");
+      document.body.appendChild(Ca);
+      Ca.width = 480;
+      Ca.height = 270;
+      const D = Ca.getContext("webgl", {
+        alpha: !1,
+        antialias: !1,
+        depth: !1,
+        premultipliedAlpha: !0,
+      });
+      D.enable(D.BLEND);
+      const E = document.createElement("canvas");
+      document.body.appendChild(E);
+      E.width = 480;
+      E.height = 270;
+      const Da = E.getContext("2d");
+      function Ea(c, a) {
+        c = D.createShader(c);
+        D.shaderSource(c, a);
+        D.compileShader(c);
+        if (!D.getShaderParameter(c, D.COMPILE_STATUS))
+          throw new TypeError(
+            `couldn't compile shader:\n${D.getShaderInfoLog(c)}`
+          );
+        return c;
+      }
+      function Fa(c) {
+        D.bindTexture(D.TEXTURE_2D, c.M);
+        D.pixelStorei(D.UNPACK_PREMULTIPLY_ALPHA_WEBGL, !0);
+        D.texImage2D(D.TEXTURE_2D, 0, D.RGBA, D.RGBA, D.UNSIGNED_BYTE, c.j);
+        D.texParameteri(D.TEXTURE_2D, D.TEXTURE_WRAP_S, D.CLAMP_TO_EDGE);
+        D.texParameteri(D.TEXTURE_2D, D.TEXTURE_WRAP_T, D.CLAMP_TO_EDGE);
+        D.texParameteri(D.TEXTURE_2D, D.TEXTURE_MAG_FILTER, D.NEAREST);
+        D.texParameteri(D.TEXTURE_2D, D.TEXTURE_MIN_FILTER, D.NEAREST);
+      }
+      function Ga(c, a, b, d, e, g) {
+        for (var h = a; h < a + d; h++)
+          for (var m = b; m < b + e; m++) c.Z[h][m] = g;
+      }
+      class Ha {
+        constructor() {
+          this.height = this.width = 1024;
+          this.j = document.createElement("canvas");
+          this.j.width = this.width;
+          this.j.height = this.height;
+          this.J = this.j.getContext("2d");
+          this.J.fillStyle = "black";
+          this.J.fillRect(0, 0, this.width, this.height);
+          this.Z = [];
+          this.M = null;
+          for (var c = 0; c < this.width; c++) {
+            this.Z[c] = [];
+            for (var a = 0; a < this.height; a++) this.Z[c][a] = !1;
+          }
+        }
+        bind(c) {
+          D.bindTexture(D.TEXTURE_2D, this.M);
+          D.activeTexture(D.TEXTURE0 + c);
+        }
+        clear(c) {
+          var a = c.frames[0],
+            b = a.x;
+          a = a.y;
+          var d = c.width + 4;
+          c = c.height + 4;
+          Ga(this, b, a, d, c, !1);
+          this.J.clearRect(b, a, d, c);
+          this.M && Fa(this);
+        }
+      }
+      var F = null,
+        Ia = [],
+        Ja = 0,
+        Ka = 0,
+        La = 0,
+        Ma = 0,
+        Na = null,
+        Oa = null,
+        Pa = null,
+        G = new Ha(),
+        H = 0,
+        I = new Float32Array(12e4),
+        J = new Float32Array(12e4),
+        K = new Uint8Array(24e4);
+      function Qa(c, a) {
+        var b = c[0],
+          d = c[1],
+          e = c[2],
+          g = c[3],
+          h = c[4],
+          m = c[5],
+          l = c[6];
+        c = c[7];
+        [b, d] = B(b, d);
+        [e, g] = B(e, g);
+        [h, m] = B(h, m);
+        [l, c] = B(l, c);
+        const k = H;
+        I[k] = b;
+        I[k + 1] = d;
+        I[k + 2] = I[k + 6] = e;
+        I[k + 3] = I[k + 7] = g;
+        I[k + 4] = I[k + 10] = h;
+        I[k + 5] = I[k + 11] = m;
+        I[k + 8] = l;
+        I[k + 9] = c;
+        J[k] = J[k + 2] = J[k + 6] = -1;
+        J[k + 1] = J[k + 5] = J[k + 11] = -1;
+        J[k + 3] = J[k + 7] = J[k + 9] = -1;
+        J[k + 4] = J[k + 8] = J[k + 10] = -1;
+        g = 2 * k;
+        b = g + 24;
+        d = a[0];
+        e = a[1];
+        for (a = a[2]; g < b; g += 4)
+          (K[g] = d), (K[g + 1] = e), (K[g + 2] = a), (K[g + 3] = 255);
+        H += 12;
+      }
+      function Ra(c, a) {
+        var b = document.createElement("CANVAS"),
+          d = b.getContext("2d");
+        b.width = c.width;
+        b.height = c.height;
+        d.drawImage(
+          a,
+          0 * c.width,
+          0,
+          c.width,
+          c.height,
+          0,
+          0,
+          c.width,
+          c.height
+        );
+        a: {
+          const h = G.width - 4,
+            m = G.height - 4,
+            l = b.width + 4,
+            k = b.height + 4;
+          for (a = 4; a < h; a++)
+            for (d = 4; d < m; d++) {
+              var e;
+              b: {
+                for (e = a; e < a + l; e++)
+                  for (var g = d; g < d + k; g++)
+                    if (!1 !== G.Z[e][g]) {
+                      e = !1;
+                      break b;
+                    }
+                e = !0;
+              }
+              if (e) {
+                Ga(G, a, d, l, k, !0);
+                G.J.drawImage(b, a, d);
+                G.bind(0);
+                Fa(G);
+                b = { F: G.j, x: a, y: d };
+                break a;
+              }
+            }
+          b = null;
+        }
+        c.frames.push({ F: b.F, x: b.x, y: b.y });
+      }
+      class L {
+        constructor(c, a, b) {
+          this.height = this.width = 0;
+          this.ga = a;
+          this.ha = b;
+          this.frames = [];
+          Ia.push(this);
+          c && ((this.width = c.width), (this.height = c.height), Ra(this, c));
+        }
+        H(c, a, b, d, e, g, h) {
+          pa();
+          sa(a, b);
+          a = x;
+          var m = (b = 0),
+            l = 1,
+            k = Math.sqrt(b * b + m * m + l * l);
+          0 !== b && (b /= k);
+          0 !== m && (m /= k);
+          0 !== l && (l /= k);
+          k = Math.cos(g);
+          g = Math.sin(g);
+          var v = 1 - k;
+          C[0] = b * b * v + k;
+          C[1] = b * m * v - l * g;
+          C[2] = b * l * v + m * g;
+          C[4] = m * b * v + l * g;
+          C[5] = m * m * v + k;
+          C[6] = m * l * v - b * g;
+          C[8] = l * b * v - m * g;
+          C[9] = l * m * v + b * g;
+          C[10] = l * l * v + k;
+          ra(a, Ba);
+          g = -(this.ga * d);
+          a = -(this.ha * e);
+          b = g;
+          e = a + this.height * e;
+          d = g + this.width * d;
+          m = a;
+          l = d;
+          k = e;
+          [g, a] = B(g, a);
+          [b, e] = B(b, e);
+          [d, m] = B(d, m);
+          [l, k] = B(l, k);
+          qa();
+          v = this.frames.length;
+          var p = this.frames[((c % v) + v) % v];
+          if (p) {
+            c = p.x / G.width;
+            v = p.y / G.height;
+            var N = (p.x + this.width) / G.width;
+            p = (p.y + this.height) / G.height;
+            var n = H;
+            I[n] = g;
+            I[n + 1] = a;
+            I[n + 2] = I[n + 6] = b;
+            I[n + 3] = I[n + 7] = e;
+            I[n + 4] = I[n + 10] = d;
+            I[n + 5] = I[n + 11] = m;
+            I[n + 8] = l;
+            I[n + 9] = k;
+            J[n] = J[n + 2] = J[n + 6] = c;
+            J[n + 1] = J[n + 5] = J[n + 11] = v;
+            J[n + 3] = J[n + 7] = J[n + 9] = p;
+            J[n + 4] = J[n + 8] = J[n + 10] = N;
+            a = 2 * n;
+            c = a + 24;
+            d = h[0];
+            g = h[1];
+            for (h = h[2]; a < c; a += 4)
+              (K[a] = d), (K[a + 1] = g), (K[a + 2] = h), (K[a + 3] = 255);
+            H += 12;
+          }
+        }
+      }
+      class Sa extends L {
+        constructor(c, a, b) {
+          super(null, a, b);
+          this.height = this.width = 0;
+          this.ga = a;
+          this.ha = b;
+          this.frames = [];
+          Ia.push(this);
+          this.j = new Image();
+          this.j.onload = () => {
+            this.width = this.j.width;
+            this.height = this.j.height;
+            Ra(this, this.j);
+          };
+          this.j.src = "data:image/png;base64," + c;
+        }
+      }
+      class Ta extends L {
+        constructor(c, a, b) {
+          super(null, a, b);
+          this.ga = a;
+          this.ha = b;
+          this.frames = [];
+          Ia.push(this);
+          {
+            var d = c.charCodeAt(0),
+              e = c.charCodeAt(1);
+            a = document.createElement("canvas");
+            b = a.getContext("2d");
+            a.width = d;
+            a.height = e;
+            const l = b.getImageData(0, 0, d, e),
+              k = l.data;
+            e = d = 0;
+            for (var g = 2; g < c.length; g += 1) {
+              for (var h = c.charCodeAt(g), m = 0; m < h; m++)
+                (k[e++] = d), (k[e++] = d), (k[e++] = d), (k[e++] = 255);
+              d = Math.abs(d - 255);
+            }
+            b.putImageData(l, 0, 0);
+            c = a;
+          }
+          this.width = c.width;
+          this.height = c.height;
+          Ra(this, c);
+        }
+      }
+      function Ua(c, a, b, d, e) {
+        for (var g = 0; g < a.length; g += 1) {
+          var h = a[g];
+          c.j[h] && (c.j[h].H(0, b, d, 1, 1, 0, e), (b += c.j[h].width + 2));
+        }
+      }
+      function M(c, a, b, d, e) {
+        var g = Va;
+        Ua(g, c, a + 2, b, d);
+        Ua(g, c, a, b + 2, d);
+        Ua(g, c, a, b, e);
+      }
+      function R(c) {
+        for (var a = Va, b = 0, d = 0; d < c.length; d += 1) {
+          var e = c[d];
+          a.j[e] && (b += a.j[e].width + 2);
+        }
+        return b - 2;
+      }
+      class Wa {
+        constructor(c, a) {
+          this.j = {};
+          var b = new Image();
+          b.onload = () => {
+            Object.keys(a).forEach((d) => {
+              var e = a[d];
+              var g = e[0];
+              var h = e[1];
+              var m = e[2];
+              e = e[3];
+              var l = document.createElement("canvas");
+              l.width = m;
+              l.height = e;
+              l.getContext("2d").drawImage(b, g, h, m, e, 0, 0, m, e);
+              this.j[d] = new L(l, 0, 0);
+            });
+          };
+          b.src = "data:image/png;base64," + c;
+        }
+        H(c, a, b, d, e, g, h) {
+          this.j[c].H(0, a, b, d, e, g, h);
+        }
+      }
+      var Xa,
+        S = [],
+        V,
+        Ya,
+        Za = 0,
+        $a = 0,
+        ab = 0;
+      function bb(c, a) {
+        Za = c;
+        $a = a;
+        ab = $a / 2;
+        c = 11;
+        a = 0;
+        hb(0, 0);
+        for (var b = !0; c--; ) {
+          a += 10 * ~~(5 * Math.random() + 10);
+          var d = b ? -10 : 10;
+          d = Math.random() * ((b ? -50 : 50) - d) + d;
+          hb(a, d);
+          b = !b;
+        }
+        hb(a + 150, 0);
+        V = S[S.length - 1].x;
+        Ya = ~~(S.length / 10);
+        console.log(Ya);
+        Xa = V;
+      }
+      function hb(c, a) {
+        if (0 < S.length) {
+          var b = S.length - 1,
+            d = S[b],
+            e = (d.x + c) / 2,
+            g = (d.y + a) / 2;
+          S.push({ x: e, y: g, F: !0 });
+          ib({ x: e, y: g }, d, (h) => S.splice(b + 1, 0, h));
+          ib({ x: e, y: g }, { x: c, y: a }, (h) => S.push(h));
+        }
+        S.push({ x: c, y: a, F: !0 });
+      }
+      function ib(c, a, b) {
+        for (var d, e, g = 0.1; 0.9 > g; g += 0.1)
+          (d = a.x * g + c.x * (1 - g)),
+            (e = -(a.y - c.y) * g * (g - 2) + c.y),
+            b({ x: d, y: e });
+      }
+      function jb(c) {
+        for (var a = 10 * ~~(c / (V / Ya)); void 0 !== S[a] && S[a].x > c; )
+          a--;
+        for (; void 0 !== S[a] && S[a].x < c; ) a++;
+        return a;
+      }
+      function W(c) {
+        var a = c;
+        var b = a / S.length;
+        b = 0 > b ? Math.floor(b) : ~~b;
+        a -= b * S.length;
+        c = S[a].x;
+        a = S[a].y;
+        return { x: c + b * V, y: ab - a };
+      }
+      function kb(c, a) {
+        var b = jb(c);
+        a = W(b + a);
+        b = W(b);
+        return [
+          a.y + ((c - a.x) / (b.x - a.x)) * (b.y - a.y),
+          Math.atan2(a.y - b.y, a.x - b.x),
+        ];
+      }
+      const lb = {},
+        mb = {},
+        nb = {};
+      function ob(c) {
+        for (var a = arguments.length - 1; 0 <= a; a--)
+          if (mb[arguments[a]]) return !0;
+        return !1;
+      }
+      function pb(c) {
+        for (var a = arguments.length - 1; 0 <= a; a--)
+          if (!mb[arguments[a]]) return !1;
+        return !0;
+      }
+      const qb = new Ta(
+        '"\u0012\u0015\u0006\u001b\b\u0019\n\u0017\x0B\u0015\u000e\u0012\u0011\u000f\u0015\x0B6\u0005\u001c\t\u0018\x0B\u0016\u0011\u0010\u0013\n\u0017\u0003\u0001\u0005\u0018\u0003\u001e\u0003\u001e\u0003',
+        16,
+        9
+      );
+      const rb = new Sa(
+        "iVBORw0KGgoAAAANSUhEUgAAABkAAAAeCAIAAABWjiKMAAAAA3NCSVQICAjb4U/gAAAAmUlEQVRIic2WUQ6AIAxDN+9/Z/zQ6CIrdpWo/SIxvJUBFTNOrbV0HOUlkLvHcYGF6iPWooFS5SwBBFm9f0Ziv9JikFUF2aD3wjIVX6gS9DVWWinB8wfi4s63yfFyVHUQdURP3H1FvEw/ez8IANba/DXO6X3/7dGZSHVLLGRhFWRa5pRzQtiKr7MQ4f7673glo6PINwAr5m2yAri+YBlvSqrbAAAAAElFTkSuQmCC",
+        9,
+        16
+      );
+      const sb = new Ta(
+        "\u0012#\b\u0002\u0010\u0002\u0010\u0002\u000f\u0004\u000e\u0004\u000e\u0004\u0007\x00\u0006\u0006\u0006\x00\u0006\u0006\u0006\x00\u0006\u0006\x0B\b\n\b\n\b\u0005\x00\u0004\n\b\n\b\n\u0007\u0006\x00\u0006\u0006\u0006\x00\u0006\u0006\u0006\x00\u0006\u0005\u000e\u0004\u000e\u0004\u000e\u0003\u0010\u0002\u0010\u0002\u0010\u00016\u0001\u0001\u0001\u0001\u0001\b\u0001\u0001\u0001\u0001\u0007\u0006\u0007\x00\u0006\u0004\u000e\u0004\u000e\u0004\u000e\u0004\u000e\u0004\u000e\u0004",
+        9,
+        35
+      );
+      const tb = new Ta(
+        "\u0014\u000f\b\u0004\u000e\b\n\f\u0006\u0010\u0003\u0012\u0001<\u0001\u0012\u0003\u0010\u0004\u0010\u0004\u0010\u0004\u0010\u0004\u0010\u0004\u0010",
+        10,
+        15
+      );
+      const ub = new Sa(
+        "iVBORw0KGgoAAAANSUhEUgAAABoAAAAcAQMAAABF3T2QAAAABlBMVEUAAAD///+l2Z/dAAAACXBIWXMAAAsSAAALEgHS3X78AAAAQUlEQVQI12MoOHC4gaHw4eMGhs+fPx+AEP///8cg6v//b2Cw//+fgUH+8z8g8RBI8D/8g4/4DyPk//+DEmADcBEA/E9F2QWvAK8AAAAASUVORK5CYII=",
+        13,
+        28
+      );
+      const vb = new Ta(
+        "~\u001c\u0002z\u0003|\u0001\u0004v\u0007x\u0005z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0004z\u0005x\u0007v\u0004\u0001|\u0003z",
+        0,
+        0
+      );
+      const wb = new Ta(
+        "\n\u0014\u0003\u0004\u0004\b\u0002\b\u0001\u008c\u0001\b\u0002\b\u0004\u0004",
+        0,
+        0
+      );
+      const xb = document.createElement("canvas");
+      xb.width = 200;
+      xb.height = 200;
+      const yb = xb.getContext("2d");
+      yb.fillStyle = "white";
+      yb.arc(100, 100, 100, 0, 2 * Math.PI);
+      yb.fill();
+      const zb = new L(xb, 100, 100);
+      const Ab = [];
+      for (var Bb = 0; 5 > Bb; Bb += 1) {
+        const c = document.createElement("canvas");
+        c.width = 120;
+        c.height = 120;
+        const a = c.getContext("2d");
+        for (var Cb = 0; 20 > Cb; Cb += 1) {
+          var Db = 20 + 80 * Math.random(),
+            Eb = 40 + 40 * Math.random();
+          a.fillStyle = "white";
+          a.moveTo(60, 120);
+          a.arc(Db, Eb, 15, 0, 2 * Math.PI);
+          a.fill();
+        }
+        Ab[Bb] = new L(c, 60, 60);
+      }
+      const Nb = new Sa(
+        "iVBORw0KGgoAAAANSUhEUgAAABYAAAAWAQMAAAD+ev54AAAABlBMVEUAAAD///+l2Z/dAAAACXBIWXMAAAsSAAALEgHS3X78AAAATklEQVQI12Ng/s/AwP//AIM88wMGG4EPDBUGFQwFBhYMD/7JMDz8I8NweAMPw2EDHoaDf3gYDvwDYnMgNuaBy4PUgvTYKHwAmwEyC2gmADLEHhaT6FnQAAAAAElFTkSuQmCC",
+        12,
+        12
+      );
+      const Va = new Wa(
+        "iVBORw0KGgoAAAANSUhEUgAAAYQAAABkAQMAAAC8QNWmAAAABlBMVEUAAAD///+l2Z/dAAAACXBIWXMAAAsSAAALEgHS3X78AAAC90lEQVRYw+2YzWojMQzHDb4G9CqBXgV6dYGvAb+KwFeB9i/PpLspyZKZydxqJq1r+1ck63NSqlFUjxY9MGnd2IZa7cWCnAwfj9F6YawRc1jZTmApOhZBSLSVcOo6V7ApHyCYcnsoFaHWmvJoGtINv3AC+4UgrLq1HsxV9xLFkuB6J8bo/EA0tTGa7yRESAgE9ORSA0RU9d77mFJAc1uIEDXcRNlBQKhvgsZKQHMI0SFFWjCJYd7VYNGdRGoOw2A6HjSH2RiKMwgdmppX5T0EHCItmIR83y6sRT8JSBo7CTjY6olleuJww1N7XVY64UZraKR3Eu7EdhJLRJUZUcMWIiMKKyBwo1EkD+4lfsepA5E7P3AYBPUyWwadQdArIo4R0qJaNKeWjoTgaDl3GiqCQOwF4cgHiYI4mGkcQYIkODpCRfLxmASPzFrHCEE810x/eZoEM5wyXIHlReT8xki/h4jImFbyKUISvBIqIIQiCTtILJojK/noMlXtU3MNwv+hvAiPY8Tdglw9bTVNtlgQecouSJOdjhJ/Bz94pz3fOUZUf0WQf4ywl4R9itg8aDj9cyeYKynV0WCLC/9MDrsJzvKVhTpNQJebmLSvHokbdugYQfkgnKmgqwRhOXc2OC5dkV/YUaCluB8hasxyf6mQYhJWG35krINQBDqKP3xY9xEUSyBmf3qTLwS2abYSzcT0imNXdB5SRF1Wv9hJzGYJRLsi6GISnQOKco0pULYA+4kHzdsVySNNZem+nnWrT0KRJJ/e1XYCbUusXlKmv4T2/As8nmcWfIcYaKv97onpLVOmWTKgeb31qXk1CHYvOEcIyqtciYwugW/07knkStlNXJ8F/fV/GWE78TvOHNLg92JIes3FReMEIsZ8PwbR52ty6OcJM17ySOZuzjfmzxN+J+w8YoAIdEpojry8pfl2AlJVTyJfKe0cYsxMxNlgEqEI1hMIm5loIVAjTiGWb3xQr+eXGe/57lZC8qigtOINmst7MbiV2Dz+AOvhccbXYhA5AAAAAElFTkSuQmCC",
+        {
+          0: [0, 79, 12, 20],
+          1: [14, 79, 12, 20],
+          2: [28, 79, 12, 20],
+          3: [42, 79, 12, 20],
+          4: [56, 79, 12, 20],
+          5: [70, 79, 12, 20],
+          6: [84, 79, 12, 20],
+          7: [98, 79, 12, 20],
+          8: [112, 79, 12, 20],
+          9: [126, 79, 12, 20],
+          A: [0, 0, 18, 20],
+          B: [20, 0, 14, 20],
+          C: [36, 0, 10, 20],
+          D: [48, 0, 12, 20],
+          E: [62, 0, 12, 20],
+          G: [90, 0, 18, 20],
+          I: [124, 0, 8, 20],
+          L: [158, 0, 8, 20],
+          N: [188, 0, 16, 20],
+          O: [206, 0, 12, 20],
+          P: [220, 0, 12, 20],
+          Q: [234, 0, 16, 20],
+          R: [252, 0, 12, 20],
+          S: [266, 0, 12, 20],
+          T: [280, 0, 12, 20],
+          U: [294, 0, 12, 20],
+          W: [328, 0, 18, 20],
+          Y: [362, 0, 12, 20],
+          a: [0, 23, 12, 20],
+          c: [28, 23, 8, 20],
+          e: [52, 23, 11, 20],
+          g: [76, 23, 10, 26],
+          h: [88, 23, 10, 20],
+          i: [100, 23, 4, 20],
+          k: [114, 23, 10, 20],
+          l: [126, 23, 4, 20],
+          m: [132, 23, 16, 20],
+          n: [150, 23, 10, 20],
+          o: [162, 23, 10, 20],
+          p: [174, 23, 10, 26],
+          r: [198, 23, 8, 20],
+          s: [208, 23, 8, 20],
+          t: [218, 23, 8, 20],
+          u: [228, 23, 10, 20],
+          v: [240, 23, 10, 20],
+          w: [252, 23, 16, 20],
+          x: [270, 23, 10, 20],
+          y: [282, 23, 12, 26],
+          ",": [0, 50, 4, 22],
+          " ": [308, 25, 10, 20],
+          "!": [286, 50, 4, 20],
+          "-": [12, 50, 12, 12],
+        }
+      );
+      var X = 0,
+        Y = 50,
+        f = 0,
+        Ob = !1,
+        Pb = -1,
+        Qb = f,
+        Rb = qb,
+        Sb = 10,
+        Tb = 0;
+      function Ub(c) {
+        Y >= V && ((Y -= V), (r -= V), (na -= V), (u -= V));
+        0 > Y && ((Y += V), (r += V), (na += V), (u += V));
+        var [a, b] = kb(Y, Pb);
+        Pb = Math.sign(ea(270 * da));
+        X >= a
+          ? (Ob &&
+              (0.5 >= ea(b)
+                ? console.log("Perfect landing!")
+                : console.log("Bodged landing!")),
+            (Ob = !1),
+            (f = b),
+            (X = a),
+            (Sb = Math.min(Sb + 0.2, 10)))
+          : 0.5 >= X - a && ((f -= 0.0098 * Pb * c), (Ob = !0));
+        Rb = qb;
+        0 < Sb &&
+          ob("ARROWRIGHT", "ARROWLEFT") &&
+          !pb("ARROWRIGHT", "ARROWLEFT") &&
+          ((Rb = rb),
+          (Sb -= 0.1),
+          ob("ARROWRIGHT") && (f += 0.1),
+          ob("ARROWLEFT") && (f -= 0.1));
+        Y += 3 * Math.cos(3.14 - f) * c;
+        X += -3 * Math.sin(3.14 - f) * c;
+        Qb += ea(Qb) / 2;
+        isNaN(1 + (a - X) / 400) || (w = 1 + (a - X) / 400);
+        u = Y + (240 * Math.cos(3.14 - Qb)) / w;
+        a && (ma = Math.min(a, X + (-200 * Math.sin(3.14 - Qb)) / w));
+      }
+      const Vb = [];
+      function Z(c, a, b, d) {
+        const e = {};
+        e.X = c;
+        e.color = b;
+        e.scale = d;
+        e.x = a;
+        e.y = -1;
+        e.ia = 0;
+        [e.y, e.ia] = kb(a, -1);
+        Vb.push(e);
+        return e;
+      }
+      const Wb = [],
+        Xb = new Worker(
+          URL.createObjectURL(
+            new Blob(
+              [
+                "(" +
+                  function () {
+                    var c = -1,
+                      a = new (function () {
+                        this.ba = null;
+                        this.ca =
+                          this.aa =
+                          this.$ =
+                          this.K =
+                          this.M =
+                          this.J =
+                            0;
+                        this.j = null;
+                        var b = [
+                          (d) => Math.sin(6.283184 * d),
+                          (d) => (0.5 > d % 1 ? 1 : -1),
+                          (d) => (d % 1) * 2 - 1,
+                          (d) => {
+                            d = (d % 1) * 4;
+                            return 2 > d ? d - 1 : 3 - d;
+                          },
+                        ];
+                        this.oa = function (d, e) {
+                          this.K = 0;
+                          this.aa = d.ja;
+                          this.$ = 0;
+                          this.ca = d.la - 1;
+                          e &&
+                            ((this.K = e.K),
+                            (this.aa = e.aa),
+                            (this.$ = e.$),
+                            (this.ca = e.ca));
+                          this.ba = d;
+                          this.M = d.fa * d.ea * (this.aa - this.K + 1);
+                          this.J = 2 * this.M;
+                          this.j = new Int32Array(this.J);
+                        };
+                        this.Z = function () {
+                          var d, e, g, h, m, l;
+                          for (m = this.$; m <= this.ca; m++) {
+                            var k = new Int32Array(this.J),
+                              v = this.j,
+                              p = this.ba.ma[m],
+                              N = this.ba.fa,
+                              n = this.ba.ea,
+                              cb = 0,
+                              va = 0,
+                              O;
+                            var P = !1;
+                            var wa = [];
+                            for (e = this.K; e <= this.aa; ++e) {
+                              var ja = p.p[e];
+                              for (g = 0; g < n; ++g) {
+                                if ((l = ja ? p.F[ja - 1].f[g] : 0))
+                                  (p.b[l - 1] = p.F[ja - 1].f[g + n] || 0),
+                                    16 > l && (wa = []);
+                                var ec = b[p.b[15]],
+                                  fc = p.b[16] / 512,
+                                  gc = Math.pow(2, p.b[17] - 9) / N,
+                                  hc = p.b[18],
+                                  Fb = p.b[19],
+                                  ic = (135.82764118168 * p.b[20]) / 44100,
+                                  jc = 1 - p.b[21] / 255,
+                                  db = 1e-5 * p.b[22],
+                                  kc = p.b[23] / 32,
+                                  lc = p.b[24] / 512,
+                                  mc =
+                                    (6.283184 * Math.pow(2, p.b[25] - 9)) / N,
+                                  Gb = p.b[26] / 255,
+                                  eb = (p.b[27] * N) & -2;
+                                l = ((e - this.K) * n + g) * N;
+                                for (h = 0; 4 > h; ++h)
+                                  if ((d = ja ? p.F[ja - 1].n[g + h * n] : 0)) {
+                                    if (!wa[d]) {
+                                      var t = wa;
+                                      var T = d;
+                                      var Hb = (O = void 0),
+                                        xa,
+                                        Q,
+                                        y = p,
+                                        Ib = d,
+                                        nc = b[y.b[0]],
+                                        oc = y.b[1],
+                                        pc = y.b[3],
+                                        qc = b[y.b[4]],
+                                        rc = y.b[5],
+                                        sc = y.b[8],
+                                        Jb = y.b[9],
+                                        ba = y.b[10] * y.b[10] * 4,
+                                        ya = y.b[11] * y.b[11] * 4,
+                                        fb = y.b[12] * y.b[12] * 4,
+                                        tc = 1 / fb,
+                                        ka = y.b[13],
+                                        uc = N * Math.pow(2, 2 - y.b[14]),
+                                        Kb = new Int32Array(ba + ya + fb),
+                                        Lb = 0,
+                                        Mb = 0;
+                                      for (
+                                        xa = Q = 0;
+                                        Q < ba + ya + fb;
+                                        Q++, xa++
+                                      ) {
+                                        0 <= xa &&
+                                          ((ka = (ka >> 8) | ((ka & 255) << 4)),
+                                          (xa -= uc),
+                                          (Hb =
+                                            0.003959503758 *
+                                            Math.pow(
+                                              2,
+                                              (Ib +
+                                                (ka & 15) +
+                                                y.b[2] -
+                                                128 -
+                                                128) /
+                                                12
+                                            )),
+                                          (O =
+                                            0.003959503758 *
+                                            Math.pow(
+                                              2,
+                                              (Ib +
+                                                (ka & 15) +
+                                                y.b[6] -
+                                                128 -
+                                                128) /
+                                                12
+                                            ) *
+                                            (1 + 8e-4 * y.b[7])));
+                                        var U = 1;
+                                        Q < ba
+                                          ? (U = Q / ba)
+                                          : Q >= ba + ya &&
+                                            (U -= (Q - ba - ya) * tc);
+                                        var la = Hb;
+                                        pc && (la *= U * U);
+                                        Lb += la;
+                                        var gb = nc(Lb) * oc;
+                                        la = O;
+                                        sc && (la *= U * U);
+                                        Mb += la;
+                                        gb += qc(Mb) * rc;
+                                        Jb &&
+                                          (gb += (2 * Math.random() - 1) * Jb);
+                                        Kb[Q] = (80 * gb * U) | 0;
+                                      }
+                                      t[T] = Kb;
+                                    }
+                                    T = wa[d];
+                                    d = 0;
+                                    for (t = 2 * l; d < T.length; d++, t += 2)
+                                      k[t] += T[d];
+                                  }
+                                for (d = 0; d < N; d++)
+                                  (h = 2 * (l + d)),
+                                    (t = k[h]) || P
+                                      ? ((P = ic),
+                                        hc && (P *= ec(gc * h) * fc + 0.5),
+                                        (P = 1.5 * Math.sin(P)),
+                                        (cb += P * va),
+                                        (t = jc * (t - va) - cb),
+                                        (va += P * t),
+                                        (t = 3 == Fb ? va : 1 == Fb ? t : cb),
+                                        db &&
+                                          ((t *= db),
+                                          (t =
+                                            1 > t
+                                              ? -1 < t
+                                                ? Math.sin(1.570796 * t)
+                                                : -1
+                                              : 1),
+                                          (t /= db)),
+                                        (t *= kc),
+                                        (P = 1e-5 < t * t),
+                                        (T = Math.sin(mc * h) * lc + 0.5),
+                                        (O = t * (1 - T)),
+                                        (t *= T))
+                                      : (O = 0),
+                                    h >= eb &&
+                                      ((O += k[h - eb + 1] * Gb),
+                                      (t += k[h - eb] * Gb)),
+                                    (k[h] = O | 0),
+                                    (k[h + 1] = t | 0),
+                                    (v[h] += O | 0),
+                                    (v[h + 1] += t | 0);
+                              }
+                              postMessage({
+                                da: "progress",
+                                progress:
+                                  (m -
+                                    this.$ +
+                                    (e - this.K) / (this.aa - this.K + 1)) /
+                                  (this.ca - this.$ + 1),
+                                buffer: null,
+                                id: c,
+                              });
+                            }
+                          }
+                        };
+                        this.na = function () {
+                          var d = this.j,
+                            e = d.length,
+                            g = 44 + 2 * e - 8,
+                            h = g - 36,
+                            m = new Uint8Array(44 + 2 * e);
+                          m.set([
+                            82,
+                            73,
+                            70,
+                            70,
+                            g & 255,
+                            (g >> 8) & 255,
+                            (g >> 16) & 255,
+                            (g >> 24) & 255,
+                            87,
+                            65,
+                            86,
+                            69,
+                            102,
+                            109,
+                            116,
+                            32,
+                            16,
+                            0,
+                            0,
+                            0,
+                            1,
+                            0,
+                            2,
+                            0,
+                            68,
+                            172,
+                            0,
+                            0,
+                            16,
+                            177,
+                            2,
+                            0,
+                            4,
+                            0,
+                            16,
+                            0,
+                            100,
+                            97,
+                            116,
+                            97,
+                            h & 255,
+                            (h >> 8) & 255,
+                            (h >> 16) & 255,
+                            (h >> 24) & 255,
+                          ]);
+                          g = 0;
+                          for (h = 44; g < e; ++g) {
+                            var l = d[g];
+                            l = -32767 > l ? -32767 : 32767 < l ? 32767 : l;
+                            m[h++] = l & 255;
+                            m[h++] = (l >> 8) & 255;
+                          }
+                          return m;
+                        };
+                      })();
+                    self.onmessage = function (b) {
+                      "generate" === b.data.da &&
+                        ((c = b.data.id),
+                        a.oa(b.data.ba, b.data.qa),
+                        a.Z(),
+                        self.postMessage({
+                          da: "progress",
+                          progress: 1,
+                          buffer: a.na(),
+                          id: c,
+                        }));
+                    };
+                    self.postMessage({ da: "ready" });
+                  }.toString() +
+                  ")()",
+              ],
+              { type: "application/javascript" }
+            )
+          )
+        );
+      Xb.onmessage = (c) => {
+        var a = c.data.id;
+        if (
+          "number" === typeof a &&
+          ((a = Wb[a]),
+          (a.progress = ~~(100 * c.data.progress)),
+          1 === c.data.progress)
+        )
+          for (
+            a.V[0].src = URL.createObjectURL(
+              new Blob([c.data.buffer], { type: "audio/wav" })
+            ),
+              c = 1;
+            c < a.pa;
+            c++
+          )
+            a.V[c] = a.V[0].cloneNode();
+      };
+      class Yb {
+        constructor(c, a = 1) {
+          this.progress = 0;
+          this.pa = a;
+          this.V = [new Audio()];
+          Xb.postMessage({
+            da: "generate",
+            ba: c,
+            id: Wb.push(this) - 1,
+            qa: void 0,
+          });
+        }
+        play() {
+          for (var c = 0; c < this.V.length; c++)
+            if (this.V[c].paused) return this.V[c].play(), this.V[c];
+          return null;
+        }
+      }
+      const Zb = new Yb(
+        {
+          ma: [
+            {
+              b: [
+                0, 100, 158, 0, 0, 49, 164, 151, 0, 0, 5, 6, 59, 0, 0, 0, 195,
+                6, 1, 2, 135, 0, 0, 32, 147, 6, 121, 6,
+              ],
+              p: [1],
+              F: [{ n: [135], f: [] }],
+            },
+          ],
+          fa: 5513,
+          ea: 3,
+          ja: 0,
+          la: 1,
+        },
+        10
+      );
+      u = 240;
+      ma = 135;
+      const $b = [],
+        ac = [];
+      function bc(c) {
+        isNaN(u)
+          ? console.error("toX is NaN!")
+          : ((na += (u - na) / 10),
+            (oa += (ma - oa) / 10),
+            (r = na - 240 * w),
+            (ia = oa - 135 * w));
+        Ub(c);
+        ac.forEach((a) => {
+          var b = Y - a.x,
+            d = X - a.y;
+          30 > Math.sqrt(b * b + d * d) &&
+            ((b = Vb.indexOf(a)),
+            -1 !== b && Vb.splice(b, 1),
+            (a = ac.indexOf(a)),
+            -1 !== a && ac.splice(a, 1),
+            Zb.play(),
+            (Tb += 1));
+        });
+      }
+      function cc() {
+        for (var c = 20; 1e3 > c; c += 100) {
+          var a = 500 > c ? 1 : 2;
+          $b.push({
+            X: Ab[~~(Math.random() * Ab.length)],
+            x: c,
+            y: -10 + 250 * Math.random(),
+            ka: a,
+            color: a,
+          });
+        }
+      }
+      function dc() {
+        $b.forEach((c) => {
+          var a = q[c.color],
+            b = 2 === c.ka ? 1 : 0.8;
+          for (c.x -= c.ka; c.x < -c.X.width; ) c.x += E.width + 2 * c.X.width;
+          c.X.H(0, c.x, c.y, b, b, 0, a);
+        });
+      }
+      function vc() {
+        for (var c = 20; c < Xa; c += 5)
+          (c += 20 * Math.random()), Z(sb, c, 1, 0.3 + 0.2 * Math.random());
+        for (c = 20; c < Xa; c += 10)
+          (c += 40 * Math.random()), Z(sb, c, 2, 0.4 + 0.4 * Math.random());
+        for (c = 20; c < Xa; c += 20)
+          (c += 160 * Math.random()), Z(sb, c, 3, 0.75 + 0.25 * Math.random());
+      }
+      function wc() {
+        for (var c = 0; 240 > c; c += 10) {
+          c += 5 * Math.random();
+          var a = Math.round(Math.random()) ? tb : ub;
+          Z(a, c, 0, 0.4 + 0.6 * Math.random());
+        }
+        for (c = 20; 220 > c; c += 12)
+          (c += 10 * Math.random()),
+            (a = Math.round(2 * Math.random()) ? tb : ub),
+            Z(a, c, 2, 0.6 + 0.4 * Math.random());
+        for (c = 40; 200 > c; c += 14)
+          (c += 20 * Math.random()),
+            (a = Math.round(3 * Math.random()) ? tb : ub),
+            Z(a, c, 3, 0.8 + 0.2 * Math.random());
+      }
+      const xc = new Yb(
+        {
+          ma: [
+            {
+              b: [
+                2, 49, 128, 0, 0, 96, 140, 0, 0, 0, 5, 6, 58, 0, 0, 1, 99, 3, 1,
+                2, 99, 0, 0, 21, 134, 4, 121, 6,
+              ],
+              p: [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                ,
+                ,
+                ,
+                ,
+                ,
+                1,
+                1,
+                1,
+                1,
+                ,
+                ,
+                ,
+                ,
+                1,
+                1,
+                1,
+                1,
+              ],
+              F: [
+                {
+                  n: [
+                    142,
+                    142,
+                    ,
+                    142,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    142,
+                    142,
+                    ,
+                    142,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    140,
+                  ],
+                  f: [],
+                },
+              ],
+            },
+            {
+              b: [
+                0, 227, 116, 1, 3, 255, 116, 0, 1, 14, 4, 6, 45, 0, 0, 0, 0, 0,
+                0, 2, 188, 0, 0, 32, 0, 0, 0, 6,
+              ],
+              p: [
+                ,
+                ,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+              ],
+              F: [
+                { n: [], f: [] },
+                {
+                  n: [
+                    132,
+                    ,
+                    ,
+                    ,
+                    139,
+                    ,
+                    ,
+                    ,
+                    132,
+                    ,
+                    ,
+                    ,
+                    139,
+                    ,
+                    ,
+                    ,
+                    132,
+                    ,
+                    ,
+                    ,
+                    139,
+                    ,
+                    ,
+                    ,
+                    132,
+                    ,
+                    ,
+                    132,
+                    139,
+                    ,
+                    132,
+                  ],
+                  f: [],
+                },
+              ],
+            },
+            {
+              b: [
+                2, 100, 128, 0, 3, 201, 128, 0, 0, 0, 5, 6, 58, 0, 0, 0, 195, 6,
+                1, 2, 135, 0, 0, 32, 147, 6, 121, 6,
+              ],
+              p: [],
+              F: [],
+            },
+            {
+              b: [
+                2, 100, 128, 0, 3, 201, 128, 0, 0, 0, 5, 6, 58, 0, 0, 0, 195, 6,
+                1, 2, 135, 0, 0, 32, 147, 6, 121, 6,
+              ],
+              p: [],
+              F: [],
+            },
+            {
+              b: [
+                1, 39, 128, 0, 1, 12, 128, 9, 0, 0, 7, 5, 52, 0, 0, 0, 0, 0, 0,
+                2, 255, 0, 0, 32, 47, 3, 146, 2,
+              ],
+              p: [
+                ,
+                ,
+                11,
+                12,
+                11,
+                12,
+                11,
+                12,
+                ,
+                ,
+                ,
+                ,
+                11,
+                12,
+                11,
+                12,
+                ,
+                ,
+                ,
+                ,
+                11,
+                12,
+                11,
+                12,
+              ],
+              F: [
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                {
+                  n: [
+                    135,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    140,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    142,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    137,
+                  ],
+                  f: [],
+                },
+                {
+                  n: [
+                    135,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    144,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    140,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    142,
+                  ],
+                  f: [],
+                },
+              ],
+            },
+            {
+              b: [
+                1, 192, 128, 0, 1, 191, 116, 9, 0, 0, 6, 22, 34, 0, 0, 0, 69, 3,
+                1, 1, 23, 167, 0, 32, 77, 6, 25, 6,
+              ],
+              p: [, , , , , , , , 14, 15, 14, 16, , , , , 14, 15, 14, 16],
+              F: [
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                { n: [], f: [] },
+                {
+                  n: [
+                    135,
+                    ,
+                    ,
+                    135,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    135,
+                    ,
+                    132,
+                    ,
+                    135,
+                    ,
+                    137,
+                    ,
+                    ,
+                    ,
+                    135,
+                    ,
+                    ,
+                    ,
+                    132,
+                    ,
+                    ,
+                    ,
+                    130,
+                  ],
+                  f: [],
+                },
+                {
+                  n: [
+                    135,
+                    ,
+                    ,
+                    135,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    137,
+                    ,
+                    135,
+                    ,
+                    132,
+                    ,
+                    128,
+                    ,
+                    ,
+                    ,
+                    130,
+                    ,
+                    ,
+                    ,
+                    132,
+                    ,
+                    ,
+                    ,
+                    134,
+                  ],
+                  f: [],
+                },
+                {
+                  n: [
+                    135,
+                    ,
+                    ,
+                    135,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    135,
+                    ,
+                    132,
+                    ,
+                    135,
+                    ,
+                    140,
+                    ,
+                    ,
+                    ,
+                    139,
+                    ,
+                    ,
+                    ,
+                    132,
+                    ,
+                    ,
+                    ,
+                    137,
+                  ],
+                  f: [],
+                },
+              ],
+            },
+          ],
+          fa: 5513,
+          ea: 32,
+          ja: 23,
+          la: 6,
+        },
+        1
+      );
+      var yc = !1;
+      window.addEventListener(
+        "contextmenu",
+        (c) => {
+          c.preventDefault();
+        },
+        !1
+      );
+      window.addEventListener(
+        "keydown",
+        (c) => {
+          mb[c.key.toUpperCase()] || (lb[c.key.toUpperCase()] = !0);
+          mb[c.key.toUpperCase()] = !0;
+          c.preventDefault();
+        },
+        !1
+      );
+      window.addEventListener(
+        "keyup",
+        (c) => {
+          mb[c.key.toUpperCase()] = !1;
+          c.preventDefault();
+        },
+        !1
+      );
+      {
+        var zc = {
+          vertex:
+            "attribute vec2 aSpritePosition;\nattribute vec2 aTextureCoord;\nattribute vec4 aColor;\nuniform mat3 uMatrix;\nvarying vec2 vTextureCoord;\nvarying vec4 vColor;\n\nvoid main() {\ngl_Position = vec4((uMatrix * vec3(aSpritePosition, 1)).xy, 0, 1);\nvTextureCoord = aTextureCoord;\nvColor = aColor;\n}",
+          fragment:
+            "precision mediump float;\nuniform sampler2D uSpriteTexture;\nvarying vec2 vTextureCoord;\nvarying vec4 vColor;\n\nvoid main() {\nfloat i = texture2D(uSpriteTexture, vTextureCoord).r;\nif (vTextureCoord.x < .0) {i = 1.0;}\nif (i>.0) {\ngl_FragColor = vColor;\n}\n}",
+        };
+        const c = Ea(D.VERTEX_SHADER, zc.vertex),
+          a = Ea(D.FRAGMENT_SHADER, zc.fragment),
+          b = D.createProgram();
+        D.attachShader(b, c);
+        D.attachShader(b, a);
+        D.linkProgram(b);
+        if (!D.getProgramParameter(b, D.LINK_STATUS))
+          throw new TypeError(
+            `couldn't link shader program:\n${D.getProgramInfoLog(b)}`
+          );
+        F = b;
+      }
+      D.useProgram(F);
+      D.uniformMatrix3fv(D.getUniformLocation(F, "uMatrix"), !1, [
+        2 / 480,
+        0,
+        0,
+        0,
+        -2 / 270,
+        0,
+        -1,
+        1,
+        1,
+      ]);
+      G.M = D.createTexture();
+      Fa(G);
+      G.bind(0);
+      Ja = D.getAttribLocation(F, "aSpritePosition");
+      Ka = D.getAttribLocation(F, "aTextureCoord");
+      Ma = D.getAttribLocation(F, "aColor");
+      La = D.getUniformLocation(F, "uSpriteTexture");
+      Na = D.createBuffer();
+      D.bindBuffer(D.ARRAY_BUFFER, Na);
+      D.bufferData(D.ARRAY_BUFFER, I, D.DYNAMIC_DRAW);
+      Oa = D.createBuffer();
+      D.bindBuffer(D.ARRAY_BUFFER, Oa);
+      D.bufferData(D.ARRAY_BUFFER, J, D.DYNAMIC_DRAW);
+      Pa = D.createBuffer();
+      D.bindBuffer(D.ARRAY_BUFFER, Pa);
+      D.bufferData(D.ARRAY_BUFFER, K, D.DYNAMIC_DRAW);
+      (function (c, a) {
+        function b(d, e) {
+          var g = Math.cos(d + performance.now() / 100);
+          zb.H(0, d, e, 0.1 * g, 0.1, 0, q[3]);
+          Nb.H(0, d, e, g, 1, 0, q[0]);
+        }
+        bb(c, a);
+        f = -3;
+        X = kb(Y, Pb)[0];
+        cc();
+        vc();
+        wc();
+        for (c = 0; 10 > c; c += 1)
+          (a = Z(b, 400 + 24 * c, 3, 1)), (a.y -= 20), ac.push(a);
+      })(E.width, E.height);
+      var Ac = "splash";
+      setTimeout(() => {
+        var c = xc.play();
+        c.addEventListener("ended", function () {
+          c.play();
+        });
+      }, 1e3);
+      var Bc = 1e3 / 60,
+        Cc = performance.now();
+      Dc(Cc);
+      function Dc(c) {
+        requestAnimationFrame(Dc);
+        var a = c - Cc;
+        if (a > Bc) {
+          a /= 10;
+          if (!(10 < a)) {
+            var b = document.j;
+            (yc = b && "started" === b.state) &&
+              !0 === lb.Q &&
+              ((ha = (ha + 1) % fa.length), (q = fa[ha]));
+            switch (Ac) {
+              case "splash":
+                ob("ARROWUP", "ARROWDOWN", "ARROWLEFT", "ARROWRIGHT") &&
+                  (Ac = "game");
+                break;
+              default:
+                bc(a);
+            }
+            for (var d in mb) {
+              if (lb[d] && nb[d]) nb[d]();
+              lb[d] = !1;
+            }
+          }
+          d = q[1];
+          D.clearColor(...[d[0] / 255, d[1] / 255, d[2] / 255], 1);
+          D.clear(D.COLOR_BUFFER_BIT);
+          Da.clearRect(0, 0, E.width, E.height);
+          H = 0;
+          switch (Ac) {
+            case "splash":
+              var e = q[3],
+                g = q[0];
+              d = "ROUND ROBIN";
+              a = E.width / 2 - R(d) / 2;
+              b = E.height / 2 - 90;
+              M(d, a, b, e, g);
+              d = "This game is very much a WIP!";
+              a = E.width / 2 - R(d) / 2;
+              b = E.height / 2 - 38;
+              M(d, a, b, e, g);
+              d = "Do NOT raise your expectations!";
+              a = E.width / 2 - R(d) / 2;
+              b = E.height / 2 - 6;
+              M(d, a, b, e, g);
+              d = "Coil users - Press Q to swap palettes!";
+              a = E.width / 2 - R(d) / 2;
+              b = E.height / 2 + 40;
+              M(d, a, b, e, g);
+              4 > (performance.now() / 100) % 5 &&
+                ((d = "Press an arrow key to start!"),
+                (a = E.width / 2 - R(d) / 2),
+                (b = E.height / 2 + 100),
+                M(d, a, b, e, g));
+              break;
+            default:
+              zb.H(0, 300, 80, 1, 1, 0, q[2]);
+              dc();
+              pa();
+              x.scale(1 / w, 1 / w, 1);
+              sa(-r, -ia);
+              b = q[2];
+              e = q[0];
+              d = R("Nottingham") / 2;
+              [a] = kb(140 - d, -1);
+              M("Nottingham", 140 - d, a - 120, b, e);
+              M("Nottingham", 140 - d + V, a - 120, b, e);
+              for (e = 0; e < Vb.length; e += 1)
+                (d = Vb[e]),
+                  (a = [...q[d.color], 255]),
+                  (b = d.scale),
+                  (g = d.x),
+                  -50 > g - r
+                    ? (g += V)
+                    : 290 < g - (r + 240 * (1 + w)) && (g -= V),
+                  d.X instanceof L
+                    ? d.X.H(0, g, d.y, b, b, 3.14 + d.ia, a)
+                    : d.X(g, d.y);
+              d = ia + 270 * w;
+              a = jb(r - 60);
+              b = W(a);
+              for (e = W(a + 1); e.x - r < Za * w + 10; )
+                Qa([b.x, b.y, e.x, e.y, b.x, $a + d, e.x, $a + d], q[2]),
+                  Qa([b.x, b.y, e.x, e.y, b.x, b.y + 5, e.x, e.y + 5], q[0]),
+                  a++,
+                  (b = W(a)),
+                  (e = W(a + 1));
+              Rb.H(0, Y, X, 1, -Pb, 3.14 + Qb, [...q[3], 255]);
+              qa();
+              d = q[3];
+              a = q[0];
+              vb.H(0, 4, 4, 1, 1, 0, d);
+              for (b = 0; 10 > b; b++)
+                wb.H(0, 8 + 12 * b, 8, 1, 1, 0, q[b < Math.ceil(Sb) ? 0 : 3]);
+              b = R("ENERGY") / 2;
+              M("ENERGY", 66 - b, 40, d, a);
+              e = (1e8 + Tb)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                .slice(1);
+              b = R(e) / 2;
+              M(e, E.width - 66 - b, 10, d, a);
+              b = R("GOLD") / 2;
+              M("GOLD", E.width - 66 - b, 40, d, a);
+          }
+          H &&
+            (D.bindBuffer(D.ARRAY_BUFFER, Na),
+            D.bufferSubData(D.ARRAY_BUFFER, 0, I),
+            D.enableVertexAttribArray(Ja),
+            D.vertexAttribPointer(Ja, 2, D.FLOAT, !1, 0, 0),
+            D.bindBuffer(D.ARRAY_BUFFER, Oa),
+            D.bufferSubData(D.ARRAY_BUFFER, 0, J),
+            D.enableVertexAttribArray(Ka),
+            D.vertexAttribPointer(Ka, 2, D.FLOAT, !1, 0, 0),
+            D.bindBuffer(D.ARRAY_BUFFER, Pa),
+            D.bufferSubData(D.ARRAY_BUFFER, 0, K),
+            D.enableVertexAttribArray(Ma),
+            D.vertexAttribPointer(Ma, 4, D.UNSIGNED_BYTE, !0, 0, 0),
+            D.blendFunc(D.ONE, D.ONE_MINUS_SRC_ALPHA),
+            D.useProgram(F),
+            D.uniform1i(La, 0),
+            D.drawArrays(D.TRIANGLES, 0, H / 2));
+          Cc = c;
+        }
+      }
+    })();
+  </script>
+</body>

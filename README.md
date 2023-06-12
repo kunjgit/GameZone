@@ -258,11 +258,36 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 153 | [Unlock_The_Lock](https://github.com/kunjgit/GameZone/tree/main/Games/Unlock_The_Lock)|
 | 154 | [Gnomedom](https://github.com/kunjgit/GameZone/tree/main/Games/Gnomedom)|
 | 155 | [Lost In The Maze 3D](https://github.com/kunjgit/GameZone/tree/main/Games/Lost_In_The_Maze_3D)|
-| 156 | [PONG BALL]( https://github.com/kunjgit/GameZone/tree/main/Games/Pong_Ball)|
+| 156 | [PONG BALL](https://github.com/kunjgit/GameZone/tree/main/Games/Pong_Ball)|
 | 157 | [Projectile Motion Game](https://github.com/kunjgit/GameZone/tree/main/Games/Projectile_Motion_Game)|
 | 158 | [Swift](https://github.com/kunjgit/GameZone/tree/main/Games/Swift)|
 | 159 | [Spacepi](https://github.com/kunjgit/GameZone/tree/main/Games/Spacepi)|
-| 160 | [Snake Feeder Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Feeder_Game)|
+| 160 | [Destroyer](https://github.com/kunjgit/GameZone/tree/main/Games/Destroyer)|
+| 161 | [Terror_Seventy](https://github.com/kunjgit/GameZone/tree/main/Games/Terror_Seventy)|
+| 162 | [Humming](https://github.com/kunjgit/GameZone/tree/main/Games/Humming)|
+| 163 | [Word Search Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Word_search_puzzle)|
+| 164 | [Ballarena](https://github.com/kunjgit/GameZone/tree/main/Games/Ballarena)|
+| 165 | [Beyonder](https://github.com/kunjgit/GameZone/tree/main/Games/Beyonder)|
+| 166 | [Shpere](https://github.com/kunjgit/GameZone/tree/main/Games/Shpere)|
+| 167 | [Short Circuit](https://github.com/kunjgit/GameZone/tree/main/Games/Short%20Circuit)|
+| 168 | [Johnny Smiter](https://github.com/kunjgit/GameZone/tree/main/Games/Johnny_Smiter)|
+| 169 | [Rectangular](https://github.com/kunjgit/GameZone/tree/main/Games/Rectangular)|
+| 170 | [Canon_Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Canon_Defense)|
+| 171 | [Trashem](https://github.com/kunjgit/GameZone/tree/main/Games/Trashem)|
+| 171 | [Chess](https://github.com/SoarinSkySagar/GameZone-GSSoC23/tree/main/Games/CHESS)|
+| 172 | [Get The Pigeon](https://github.com/kunjgit/GameZone/tree/main/Games/Get_The_Pigeon)|
+| 173 | [Uxu](https://github.com/kunjgit/GameZone/tree/main/Games/Uxu)|
+| 174 | [Soul Jumper](https://github.com/kunjgit/GameZone/tree/main/Games/Soul_Jumper)|
+| 175 | [Infernal Throne](https://github.com/kunjgit/GameZone/tree/main/Games/Infernal_Throne)|
+| 176 | [Dead Again](https://github.com/kunjgit/GameZone/tree/main/Games/Dead_Again)|
+| 177 | [Norman The Necromancer](https://github.com/kunjgit/GameZone/tree/main/Games/Norman_The_Necromancer)|
+| 178 | [Shape Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Shape_Blocks)|
+| 179 | [Goal_Rush](https://github.com/Sheetal-05/GameZone/tree/main/Games/Goal_Rush)|
+| 180 | [Charon Jr](https://github.com/kunjgit/GameZone/tree/main/Games/Charon_Jr)| 
+| 181 | [ColorMatcher](https://github.com/kunjgit/GameZone/tree/main/Games/ColorMatcher)|
+| 182 | [Oh, flip](https://github.com/kunjgit/GameZone/tree/main/Games/oh_flip)|  
+| 183 | [Snake Feeder Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Feeder_Game)|
+  
 </center>
 
 <br>

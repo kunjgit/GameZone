@@ -274,6 +274,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 169 | [Rectangular](https://github.com/kunjgit/GameZone/tree/main/Games/Rectangular)|
 | 170 | [Canon_Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Canon_Defense)|
 | 171 | [Trashem](https://github.com/kunjgit/GameZone/tree/main/Games/Trashem)|
+| 171 | [Chess](https://github.com/SoarinSkySagar/GameZone-GSSoC23/tree/main/Games/CHESS)|
 | 172 | [Get The Pigeon](https://github.com/kunjgit/GameZone/tree/main/Games/Get_The_Pigeon)|
 | 173 | [Uxu](https://github.com/kunjgit/GameZone/tree/main/Games/Uxu)|
 | 174 | [Soul Jumper](https://github.com/kunjgit/GameZone/tree/main/Games/Soul_Jumper)|
@@ -281,7 +282,13 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 176 | [Dead Again](https://github.com/kunjgit/GameZone/tree/main/Games/Dead_Again)|
 | 177 | [Norman The Necromancer](https://github.com/kunjgit/GameZone/tree/main/Games/Norman_The_Necromancer)|
 | 178 | [Shape Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Shape_Blocks)|
+| 179 | [Goal_Rush](https://github.com/Sheetal-05/GameZone/tree/main/Games/Goal_Rush)|
+| 180 | [Charon Jr](https://github.com/kunjgit/GameZone/tree/main/Games/Charon_Jr)| 
+| 181 | [ColorMatcher](https://github.com/kunjgit/GameZone/tree/main/Games/ColorMatcher)|
+| 182 | [Oh, flip](https://github.com/kunjgit/GameZone/tree/main/Games/oh_flip)|  
+| 183 | [Snake Feeder Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Feeder_Game)|
 | * | [Thirteen](https://github.com/kunjgit/GameZone/tree/main/Games/Thirteen)| 
+  
 </center>
 
 <br>

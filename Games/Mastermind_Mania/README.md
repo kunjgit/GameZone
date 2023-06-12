@@ -18,7 +18,7 @@ The game is designed using Html, CSS, and javascript.
 ## **How to play? 🕹️**
 The calculations will be based on Addition, Subtraction, Multiplication, and Division.
 There is a sum on the screen and some options(MCQ`s), solve the sum and choose the correct option.
-if the choosen ansswer is correct you will earn a point aor you lose.
+if the choosen ansswer is correct you will earn a point or you lose.
 - 
 - 
 
@@ -31,7 +31,7 @@ if the choosen ansswer is correct you will earn a point aor you lose.
 <img src="./images/02.png" alt="Image Description">
 
 <br>
-<img src="./images/03.png" alt="Image Description">
+<!-- <img src="./images/03.png" alt="Image Description"> -->
 
 
 

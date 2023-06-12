@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>BACKSPACE - Return to planet Figadore</title>
+  <link rel="stylesheet" href="main.css">
+  <script type="text/javascript" src="lib/jsfxr.js"></script>
+  <script type="text/javascript" src="random.js"></script>
+  <script type="text/javascript" src="timeline.js"></script>
+  <script type="text/javascript" src="audio.js"></script>
+  <script type="text/javascript" src="font.js"></script>
+  <script type="text/javascript" src="writer.js"></script>
+  <script type="text/javascript" src="models.js"></script>
+  <script type="text/javascript" src="3dsvg.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+<body>
+<div id="wrapper">
+  <svg id="svg" style="position:absolute; top:0px; left:0px; width:1280px; height:720px;" viewbox="0 0 1280 720">
+    <defs>
+    <filter id="dblur1">
+      <feGaussianBlur stdDeviation="1" />
+    </filter>
+
+    <filter id="dblur2">
+      <feGaussianBlur stdDeviation="2" />
+    </filter>
+
+    <filter id="dblur3">
+      <feGaussianBlur stdDeviation="3" />
+    </filter>
+
+    <filter id="dblur4">
+      <feGaussianBlur stdDeviation="4" />
+    </filter>
+
+    <clipPath id="crop">
+      <rect x="0" y="0" width="1280" height="720" />
+    </clipPath>
+
+    <linearGradient id="skygradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(42,82,152);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+    <rect width="1280" height="720" fill="url(#skygradient)" />
+    <g id="playfield" shaperendering="optimizeSpeed" clip-path="url(#crop)"></g>
+    <g id="hud" shaperendering="optimizeSpeed" clip-path="url(#crop)"></g>
+  </svg>
+</div>
+</body>
+</html>

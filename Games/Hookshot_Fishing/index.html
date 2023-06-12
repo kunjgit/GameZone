@@ -1,0 +1,171 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="./aframe.js"></script>
+    <script src="./sphere-collider.min.js"></script>
+    <script src="./TinyMusic.min.js"></script>
+  </head>
+  <body>
+    <script src="./audio.js"></script>
+    <script src="./main.js"></script>
+    <a-scene>
+      <a-entity
+        geometry="primitive: plane; width: 50; height: 50"
+        rotation="-90 0 0"
+        material="color: #81b33b"
+      >
+      </a-entity>
+
+      <a-camera wasd-controls-enabled="false"></a-camera>
+
+      <a-sky material="shader: sky-gradient"></a-sky>
+
+      <a-text
+        id="title"
+        value="Hookshot\nFishing"
+        position="0 2.3 -2.2"
+        color="#ff8300"
+        width="6"
+        align="center"
+      ></a-text>
+
+      <a-entity rotation="0 15 0">
+        <a-entity
+          id="score"
+          position="0 0.8 -1.8"
+          geometry="primitive: plane; width: 0.8; height: 0.3"
+          material="color: #cdcdcd"
+          text="value: Hook the fish\nto Start!; color: black; width: 2; align: center"
+        ></a-entity>
+      </a-entity>
+
+      <a-entity rotation="0 -15 0">
+        <a-entity
+          id="time"
+          position="0 0.8 -1.8"
+          geometry="primitive: plane; width: 0.6; height: 0.3"
+          material="color: #cdcdcd"
+          text="value: Time left: 0; color: black; width: 2; align: center"
+          timer
+        ></a-entity>
+      </a-entity>
+
+      <a-box
+        id="starting-fish"
+        width="1"
+        height="0.5"
+        depth="0.1"
+        color="white"
+        opacity="0"
+        position="0 1.7 -4"
+        hook-target="startGame: true"
+        class="collider"
+        animation="property: position; from: 0 0 -4; to: 0 1.7 -4; dur: 1950; startEvents: reappear"
+      >
+        <a-entity fish></a-entity>
+      </a-box>
+
+      <a-entity id="fish-spawn-root"></a-entity>
+      <a-entity id="mountains-root"></a-entity>
+
+      <a-entity
+        id="projectile"
+        geometry="primitive: sphere; radius: 0.05"
+        position="0 -10 0"
+        material="opacity: 0"
+        velocity="vel: 0 0 0"
+        sphere-collider="objects: .collider; radius: 0.05"
+      >
+        <a-tetrahedron
+          class="hook"
+          color="#a4bdca"
+          radius="0.08"
+          position="0 -0.07 0.01"
+          rotation="35 60 45"
+        ></a-tetrahedron>
+      </a-entity>
+
+      <a-entity
+        id="projectile-left"
+        geometry="primitive: sphere; radius: 0.05"
+        position="0 -10 0"
+        material="opacity: 0"
+        velocity="vel: 0 0 0"
+        sphere-collider="objects: .collider; radius: 0.05"
+      >
+        <a-tetrahedron
+          class="hook"
+          color="#a4bdca"
+          radius="0.08"
+          position="0 -0.07 0.01"
+          rotation="35 60 45"
+        ></a-tetrahedron>
+      </a-entity>
+
+      <a-entity id="right-controller" hookshot="hand: right">
+        <a-tetrahedron
+          class="hook"
+          color="#a4bdca"
+          radius="0.08"
+          position="0 -0.07 0.01"
+          rotation="35 60 45"
+        ></a-tetrahedron>
+        <a-torus
+          color="#363654"
+          radius="0.04"
+          radius-tubular="0.004"
+          rotation="0 90 0"
+          position="0 0 0"
+        >
+        </a-torus>
+      </a-entity>
+      <a-entity id="left-controller" hookshot="hand: left">
+        <a-tetrahedron
+          class="hook"
+          color="#a4bdca"
+          radius="0.08"
+          position="0 -0.07 0.01"
+          rotation="35 60 45"
+        ></a-tetrahedron>
+        <a-torus
+          color="#363654"
+          radius="0.04"
+          radius-tubular="0.004"
+          rotation="0 90 0"
+          position="0 0 0"
+        >
+        </a-torus>
+      </a-entity>
+    </a-scene>
+    <script type="text/javascript">
+      var shades = ["#66573e", "#82735b", "#9e907a"];
+      for (var i = 3; i < 37; i++) {
+        var parentEl = document.getElementById("mountains-root");
+
+        var boxRoot = document.createElement("a-entity");
+        boxRoot.setAttribute("rotation", "0 " + i * 9 + " 0");
+
+        var boxEl = document.createElement("a-box");
+        boxEl.className = "collider";
+        boxEl.setAttribute("width", 8);
+        boxEl.setAttribute("height", 4 + Math.random() * 6);
+        boxEl.setAttribute("depth", 8);
+        boxEl.setAttribute("color", shades[Math.floor(Math.random() * 3)]);
+        boxEl.setAttribute(
+          "position",
+          "0 " + Math.random() * 3 + " " + (-35 + Math.random() * 5)
+        );
+        boxEl.setAttribute(
+          "rotation",
+          Math.floor(Math.random() * 360) +
+            " " +
+            Math.floor(Math.random() * 360) +
+            " "
+        );
+
+        parentEl.appendChild(boxRoot);
+        boxRoot.appendChild(boxEl);
+      }
+    </script>
+  </body>
+</html>

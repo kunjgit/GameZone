@@ -281,6 +281,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 176 | [Dead Again](https://github.com/kunjgit/GameZone/tree/main/Games/Dead_Again)|
 | 177 | [Norman The Necromancer](https://github.com/kunjgit/GameZone/tree/main/Games/Norman_The_Necromancer)|
 | 178 | [Shape Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Shape_Blocks)|
+| * | [Way Out](https://github.com/kunjgit/GameZone/tree/main/Games/Way_Out)|
 </center>
 
 <br>

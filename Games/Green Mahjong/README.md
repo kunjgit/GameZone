@@ -15,3 +15,10 @@ Scoring system:
 
 1. Matched Pair: When the player successfully matches a pair of identical tiles, their score increases by 2 points. 
 2. Incorrect Match: If the player selects two tiles that don't match, their score remains unchanged. 
+
+Screen Shots : 
+
+![Screenshot 2023-06-12 191735](https://github.com/U-DAY-333/GameZone/assets/93582768/9315d99a-adb8-47ca-b540-3c2a495f85f1)
+
+
+![Screenshot 2023-06-12 191655](https://github.com/U-DAY-333/GameZone/assets/93582768/f8f965db-3e21-4dfd-9f55-28b680b87b2e)

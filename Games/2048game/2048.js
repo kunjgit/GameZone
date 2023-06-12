@@ -1,5 +1,6 @@
 var board;
 var score = 0;
+var highscore=0;
 var rows = 4;
 var columns = 4;
 
@@ -70,6 +71,7 @@ document.addEventListener('keyup', (e) => {
         setTwo();
     }
     document.getElementById("score").innerText = score;
+    document.getElementById("highscore").innerText=highscore;
 })
 
 function filterZero(row){
@@ -84,6 +86,9 @@ function slide(row) {
             row[i] *= 2;
             row[i+1] = 0;
             score += row[i];
+            if(score>highscore){
+                highscore=score;
+            }
         }
     } //[4, 0, 2]
     row = filterZero(row); //[4, 2]
@@ -157,6 +162,8 @@ function slideDown() {
     }
 }
 
+
+
 function setTwo() {
     if (!hasEmptyTile()) {
         return;
@@ -175,6 +182,7 @@ function setTwo() {
         }
     }
 }
+  
 
 function hasEmptyTile() {
     let count = 0;

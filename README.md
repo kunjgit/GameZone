@@ -287,8 +287,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 181 | [ColorMatcher](https://github.com/kunjgit/GameZone/tree/main/Games/ColorMatcher)|
 | 182 | [Oh, flip](https://github.com/kunjgit/GameZone/tree/main/Games/oh_flip)|  
 | 183 | [Snake Feeder Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Feeder_Game)|
-|  *  | [Green Mahjong](https://github.com/kunjgit/GameZone/tree/main/Games/Green%20Mahjong)|  
-  
+|  *  | [Green Mahjong](https://github.com/kunjgit/GameZone/tree/main/Games/Green%20Mahjong)|    
   
 </center>
 

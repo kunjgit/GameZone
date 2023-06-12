@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>POPBALL</title>
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <script type="text/javascript" src="./script.js"></script>
+    </head>
+    <body>
+        <div class="topPage">
+            <div class="gameTitle">
+            POPBALL
+            </div>
+        </div>
+        
+        <div class="gameScene" id="gameScene" onclick="Clicks()">
+            <div class="gameDesc" id="gameDesc">
+                Welcome to PopBall <br>
+                This is a very simple game <br>
+                Your main goal is to hit the balls as fast as you can <br>
+                If you miss a ball, another ball comes back to the game <br>
+                And if there are 20 ball on the screen, you lose... <br> <br>
+                Sooo... Choose your difficulty and just play the game :D
+            </div>
+        </div>
+
+        <div class="difficulty" id="difficulty">
+            <div class="difItem" id="easyButton" onclick="setDifficulty(700)">EASY</div>
+            <div class="difItem" id="normalButton" onclick="setDifficulty(500)">NORMAL</div>
+            <div class="difItem" id="hardButton" onclick="setDifficulty(400)">HARD</div>
+        </div>
+
+        <div class="menu" id="menu1">
+            <div class="menuItem" id="startButton" onclick="reposition(), playGame(), baseData()">START</div>
+        </div>
+        
+        
+        <div class="menu" id="menu3">
+            <div class="menuItem" id="restartButton" onclick="location.reload()">RESTART</div>
+        </div>
+        <div class="menu" id="menu2">
+            <div class="menuItem" id="continueButton" onclick="playGame()">CONTINUE</div>
+            <div class="menuItem" id="pauseButton" onclick="stopGame()">PAUSE</div>
+        </div>
+        <div class="data" id="data">
+            <div class="dataItem"> Total Hits: <p id="hits"></p> </div>
+            <div class="dataItem"> Total Clicks: <p id="clicks"></p> </div>
+            <div class="dataItem"> Accuracy: <p id="precision"></p>%</div>
+        </div>
+        <div id="gameOverScreen">
+            <div id="gameOverText">
+                GAME OVER
+            </div>
+        </div>
+    </body>
+</html>

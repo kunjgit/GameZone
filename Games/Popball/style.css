@@ -1,0 +1,144 @@
+.topPage {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    font-weight: bold;
+}
+body {
+    width: 700px;
+    margin: 0px ;
+    padding: 0px;
+    background-color: #353535;
+    font-family: 'Segoe UI';
+}
+#ballStyle {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+}
+.gameScene {
+    width: 548px;
+    height: 448px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px black;
+    background-color: gray;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.gameDesc {
+    width: 548px;
+    height: 448px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.gameTitle {
+    width: 530px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgb(255, 102, 0);
+    border-radius: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.menuItem {
+    width: 120px;
+    height: 40px;
+    border: 2px solid rgb(255, 102, 0);
+    margin: 0px 15px 0px 15px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+}
+#continueButton, #pauseButton, #data, #restartButton, #menu3 {
+    display: none;
+}
+#menu3 {
+    margin: auto;
+}
+.data p {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
+.menuItem:hover {
+    cursor: pointer;
+}
+.dataItem {
+    width: 280px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 5px auto;
+    background-color: rgb(255, 102, 0);
+    border-radius: 50px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+.difItem {
+    width: 120px;
+    height: 40px;
+    margin: 0px 15px 0px 15px;
+    border-radius: 50px;
+    border: 2px solid rgb(255, 102, 0);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+}
+.difficulty {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.difItem:hover {
+    cursor: pointer;
+}
+.difItem:active {
+    background-color: rgb(255, 102, 0);
+}
+.menuItem:active {
+    background-color: rgb(255, 102, 0);
+}
+
+#gameOverScreen {
+    width: 548px;
+    height: 100px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px black;
+    background-color: gray;
+    margin: auto;
+    display: none;
+    justify-content: center;
+}
+#gameOverText {
+    width: 548px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}

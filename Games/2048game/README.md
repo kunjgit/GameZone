@@ -46,9 +46,9 @@ The game ends when you reach the 2048 tile (or a higher value, depending on the 
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
- [2048 game](https://tse4.mm.bing.net/th?id=OIP.BqjYx2m8F9u4_6lYyQj_2gHaHa&pid=Api&P=0&h=180)
+ [2048 game](https://drive.google.com/file/d/1-0RiOe8Jte3DNl_Ctv6wUOYubWIskihd/view)
 
 <br>
 
 ## **Working video 📹**
-<!-- add your working video over here -->
+<!-- add your working video over here -->https://drive.google.com/file/d/14nYwr2J8DtmDDHFLcSm3NbBjC4pwGyEH/view?usp=drive_link

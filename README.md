@@ -295,6 +295,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 190 | [Timber_Terry](https://github.com/kunjgit/GameZone/tree/main/Games/Timber_Terry)|
 | 191 | [Earth_Destroyer](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Destroyer)|
 | 192 | [Lonely Phantom](https://github.com/kunjgit/GameZone/tree/main/Games/Lonely_Phantom)|
+| 193 | [Ghost Surf](https://github.com/kunjgit/GameZone/tree/main/Games/Ghost_Surf)|
 </center>
 
 <br>

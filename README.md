@@ -302,6 +302,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 197 | [The Raising Fighting Spirits](https://github.com/kunjgit/GameZone/tree/main/Games/The_Raising_Fighting_Spirits)|
 | 198 | [Green Mahjong](https://github.com/kunjgit/GameZone/tree/main/Games/Green%20Mahjong)|  
 | * | [C4](https://github.com/kunjgit/GameZone/tree/main/Games/c4)|
+| * | [Cosmic Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic%20Blaster)|  
 </center>
 
 <br>

@@ -1,4 +1,4 @@
-# Basic Tetris HTML and JavaScript Game
+# Tetris Game 
 
 This is a basic implementation of the game Tetris, but it's missing a few things intentionally and they're left as further exploration for the reader.
 
@@ -16,6 +16,7 @@ This is a basic implementation of the game Tetris, but it's missing a few things
 - Mobile and touchscreen support
   - Allow the game to be scaled down to a phone size. 
   - Support [touch controls](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events)
+
 
 
   

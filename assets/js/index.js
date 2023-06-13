@@ -39,4 +39,14 @@ const generateLiTags = (gamesData) => {
       projectListContainer.innerHTML = generateLiTags(gamesData);
     })
     .catch(error => console.error('Error fetching game data:', error));
+
+    
+window.addEventListener('scroll', function() {
+  var scrollToTopButton = document.getElementById('scrollToTopButton');
+  if (window.pageYOffset > 200) {
+    scrollToTopButton.style.display = 'block';
+  } else {
+    scrollToTopButton.style.display = 'none';
+  }
+});
   

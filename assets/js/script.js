@@ -205,6 +205,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
 }
 
 
+
 function search_game() {
   let input = document.getElementById('searchbar').value;
   console.log(input)
@@ -220,4 +221,13 @@ function search_game() {
       }
   }
 }
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+
 

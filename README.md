@@ -299,6 +299,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 194 | [Sucker](https://github.com/kunjgit/GameZone/tree/main/Games/Sucker)|
 | 195 | [Sorades](https://github.com/kunjgit/GameZone/tree/main/Games/Sorades)|
 | 196 | [Thirteen](https://github.com/kunjgit/GameZone/tree/main/Games/Thirteen)| 
+| 197 | [The Raising Fighting Spirits](https://github.com/kunjgit/GameZone/tree/main/Games/The_Raising_Fighting_Spirits)|
 </center>
 
 <br>

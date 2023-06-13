@@ -2,4 +2,5 @@
 
 A dino game, just like the chrome dino game. 
 
-![chrome-dino-sample](https://user-images.githubusercontent.com/78777681/211173895-312de010-59fa-440b-bd76-d75b99feaa78.png)
+
+<img width="960" alt="image" src="https://github.com/SoarinSkySagar/GameZone-GSSoC23/assets/117727361/3b8f3683-a34a-430e-a875-0859ea56f6f6">

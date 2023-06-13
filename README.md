@@ -274,7 +274,36 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 169 | [Rectangular](https://github.com/kunjgit/GameZone/tree/main/Games/Rectangular)|
 | 170 | [Canon_Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Canon_Defense)|
 | 171 | [Trashem](https://github.com/kunjgit/GameZone/tree/main/Games/Trashem)|
-| 172 | [Trashem](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Of_Hanoi)|
+| 172 | [Chess](https://github.com/SoarinSkySagar/GameZone-GSSoC23/tree/main/Games/CHESS)|
+| 173 | [Get The Pigeon](https://github.com/kunjgit/GameZone/tree/main/Games/Get_The_Pigeon)|
+| 174 | [Uxu](https://github.com/kunjgit/GameZone/tree/main/Games/Uxu)|
+| 175 | [Soul Jumper](https://github.com/kunjgit/GameZone/tree/main/Games/Soul_Jumper)|
+| 176 | [Infernal Throne](https://github.com/kunjgit/GameZone/tree/main/Games/Infernal_Throne)|
+| 177 | [Dead Again](https://github.com/kunjgit/GameZone/tree/main/Games/Dead_Again)|
+| 178 | [Norman The Necromancer](https://github.com/kunjgit/GameZone/tree/main/Games/Norman_The_Necromancer)|
+| 179 | [Shape Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Shape_Blocks)|
+| 180 | [Goal_Rush](https://github.com/Sheetal-05/GameZone/tree/main/Games/Goal_Rush)|
+| 181 | [Charon Jr](https://github.com/kunjgit/GameZone/tree/main/Games/Charon_Jr)| 
+| 182 | [ColorMatcher](https://github.com/kunjgit/GameZone/tree/main/Games/ColorMatcher)|
+| 183 | [Oh, flip](https://github.com/kunjgit/GameZone/tree/main/Games/oh_flip)|  
+| 184 | [Snake Feeder Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Feeder_Game)|
+| 185 | [LOSSST](https://github.com/kunjgit/GameZone/tree/main/Games/LOSSST)|
+| 186 | [HangMan](https://github.com/kunjgit/GameZone/tree/main/Games/HangMan)|
+| 187 | [Bad_Luck_Brian](https://github.com/kunjgit/GameZone/tree/main/Games/Bad_Luck_Brian)|
+| 188 | [Bad_Depot](https://github.com/kunjgit/GameZone/tree/main/Games/Bad_Depot)|
+| 189 | [Achluophobia](https://github.com/kunjgit/GameZone/tree/main/Games/Achluophobia)|
+| 190 | [Timber_Terry](https://github.com/kunjgit/GameZone/tree/main/Games/Timber_Terry)|
+| 191 | [Earth_Destroyer](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Destroyer)|
+| 192 | [Lonely Phantom](https://github.com/kunjgit/GameZone/tree/main/Games/Lonely_Phantom)|
+| 193 | [Ghost Surf](https://github.com/kunjgit/GameZone/tree/main/Games/Ghost_Surf)|
+| 194 | [Sucker](https://github.com/kunjgit/GameZone/tree/main/Games/Sucker)|
+| 195 | [Sorades](https://github.com/kunjgit/GameZone/tree/main/Games/Sorades)|
+| 196 | [Thirteen](https://github.com/kunjgit/GameZone/tree/main/Games/Thirteen)| 
+| 197 | [The Raising Fighting Spirits](https://github.com/kunjgit/GameZone/tree/main/Games/The_Raising_Fighting_Spirits)|
+| 198 | [Green Mahjong](https://github.com/kunjgit/GameZone/tree/main/Games/Green%20Mahjong)|  
+| 173 | [Tower Of Hanoi](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Of_Hanoi)|
+
+main
 </center>
 
 <br>

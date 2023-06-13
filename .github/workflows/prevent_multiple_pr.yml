@@ -21,7 +21,7 @@ jobs:
             const pullRequestNumber = context.payload.pull_request.number;
             const pullRequestOpener = context.payload.pull_request.user.login;
 
-            const previousPullRequestsResponse = await github.request('GET /repos/{owner}/{repo}/pulls', {
+            const previousPullRequestsResponse = await github.pulls.list({
               owner,
               repo,
               state: 'open',
@@ -36,7 +36,7 @@ jobs:
             console.log(`Close pull request: ${closePullRequest}`);
 
             if (closePullRequest) {
-              const comment = `Hey @${openerName}, You can't open another pull request before completing the previous one 😀\nYou already have the following ${previousOpenPullRequests.length} open pull request(s):\n${previousOpenPullRequestNumbers.join('\n')}`;
+              const comment = `Hey @${openerName}, you can't open another pull request before completing the previous one 😀\nYou already have the following ${previousOpenPullRequests.length} open pull request(s):\n${previousOpenPullRequestNumbers.join('\n')}`;
               core.exportVariable('comment_body', comment);
               core.setOutput('close_pull_request', true);
             } else {

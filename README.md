@@ -291,10 +291,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 186 | [HangMan](https://github.com/kunjgit/GameZone/tree/main/Games/HangMan)|
 | 187 | [Bad_Luck_Brian](https://github.com/kunjgit/GameZone/tree/main/Games/Bad_Luck_Brian)|
 | 188 | [Bad_Depot](https://github.com/kunjgit/GameZone/tree/main/Games/Bad_Depot)|
-| 189 | [Bad_Depot](https://github.com/kunjgit/GameZone/tree/main/Games/Bad_Depot)|
-| 190 | [Achluophobia](https://github.com/kunjgit/GameZone/tree/main/Games/Achluophobia)|
-| 191 | [Timber_Terry](https://github.com/kunjgit/GameZone/tree/main/Games/Timber_Terry)|
-| 192 | [Earth_Destroyer](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Destroyer)|
+| 189 | [Achluophobia](https://github.com/kunjgit/GameZone/tree/main/Games/Achluophobia)|
+| 190 | [Timber_Terry](https://github.com/kunjgit/GameZone/tree/main/Games/Timber_Terry)|
+| 191 | [Earth_Destroyer](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Destroyer)|
+| 192 | [Lonely Phantom](https://github.com/kunjgit/GameZone/tree/main/Games/Lonely_Phantom)|
 </center>
 
 <br>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-title" content="oh, flip!">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <title>oh, flip!</title>
+
+        <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            border: 0;
+            overflow: hidden; /*  Disable scrollbars */
+            display: block;  /* No floating content on sides */
+            background-color: black;
+        }
+        </style>
+    </head>
+    <body>
+        <center>
+        <div id="game">
+            <canvas id="canvas" width="800" height="600" style="width:800px; height:600px"></canvas>
+        </div>
+        </center>
+        <script src="main.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "name": "@kenrick95/c4-server",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Server part of Connect Four game to handle player-to-player communication in browser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenrick95/c4.git"
+  },
+  "author": {
+    "name": "Kenrick",
+    "email": "kenrick95@gmail.com",
+    "url": "https://kenrick95.org"
+  },
+  "bugs": {
+    "url": "https://github.com/kenrick95/c4/issues"
+  },
+  "homepage": "https://github.com/kenrick95/c4",
+  "license": "MIT",
+  "keywords": [
+    "c4",
+    "connect-four",
+    "game"
+  ],
+  "files": [
+    "src/"
+  ],
+  "main": "./dist/index.js",
+  "source": "./src/index.ts",
+  "scripts": {
+    "start": "yarn node ./dist/index.js",
+    "dev": "vite-node --watch src/index.ts",
+    "build": "vite build",
+    "prettier": "prettier --write \"./**/*.?(ts|html|scss|css)\"",
+    "test": "echo 'OK'"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.13",
+    "@types/uuid": "^9.0.1",
+    "@types/ws": "^8.5.4",
+    "prettier": "^2.8.7",
+    "typescript": "~4.8.4",
+    "vite": "^4.3.1",
+    "vite-node": "0.30.1"
+  },
+  "dependencies": {
+    "@kenrick95/c4": "workspace:^",
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2",
+    "uuid": "^9.0.0",
+    "ws": "^8.13.0"
+  }
+}

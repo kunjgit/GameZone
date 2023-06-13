@@ -1,0 +1,61 @@
+{
+  "name": "@kenrick95/c4",
+  "version": "5.0.0",
+  "description": "Building blocks for a Connect Four game",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenrick95/c4.git"
+  },
+  "author": {
+    "name": "Kenrick",
+    "email": "kenrick95@gmail.com",
+    "url": "https://kenrick95.org"
+  },
+  "bugs": {
+    "url": "https://github.com/kenrick95/c4/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/kenrick95/c4",
+  "license": "MIT",
+  "keywords": [
+    "c4",
+    "connect-four",
+    "game"
+  ],
+  "source": "src/lib.ts",
+  "main": "./dist/c4.js",
+  "module": "./dist/c4.mjs",
+  "umd:main": "./dist/c4.umd.js",
+  "unpkg": "./dist/c4.umd.js",
+  "exports": {
+    ".": {
+      "import": {
+        "__source": "./src/lib.ts",
+        "default": "./dist/c4.mjs"
+      },
+      "require": "./dist/c4.js"
+    }
+  },
+  "types": "./dist/lib.d.ts",
+  "files": [
+    "src/",
+    "dist/"
+  ],
+  "scripts": {
+    "prepack": "yarn build",
+    "dev": "vite",
+    "build": "vite build",
+    "prettier": "prettier --write \"./**/*.?(ts|html|scss|css)\"",
+    "test": "vitest --watch=false"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7",
+    "typescript": "~4.8.4",
+    "vite": "^4.3.1",
+    "vite-dts": "^1.0.4",
+    "vite-plugin-dts": "^2.3.0",
+    "vitest": "^0.30.1"
+  }
+}

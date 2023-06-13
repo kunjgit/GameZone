@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>c4 - Connect Four</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Connect Four game in JS + Canvas. Play against artificial intelligence or with other human offline or online!"
+    />
+    <link rel="canonical" href="https://kenrick95.github.io/c4/" />
+    <meta property="og:url" content="https://kenrick95.github.io/c4/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="c4 - Connect Four" />
+    <meta
+      property="og:description"
+      content="Connect Four game in JS + Canvas. Play against artificial intelligence or with other human offline or online!"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <h1 class="header-title">c4 - Connect Four</h1>
+    </header>
+    <section class="section">
+      <div class="section-message"></div>
+      <canvas class="section-canvas"></canvas>
+    </section>
+
+    <dialog class="mode-chooser">
+      <h1>c4 - Connect Four</h1>
+      <h2>How to play?</h2>
+      <p>Connect Four is a two-player game.</p>
+      <p>
+        Taking turn, each player drops a coloured piece to one of the 7-columns
+        of the board. The piece will then travel down to the next empty row in
+        that column.
+      </p>
+      <p>
+        The first player to form a connection of four pieces horizontally,
+        vertically, or diagonally wins the game. If the board is completely
+        filled but no one has won, the game is a draw.
+      </p>
+      <p>
+        For a more detailed explanation, you can refer to
+        <a href="https://en.wikipedia.org/wiki/Connect_Four" target="_blank"
+          >Connect Four article on Wikipedia</a
+        >.
+      </p>
+      <h2>Choose playing mode:</h2>
+      <form method="dialog" class="mode-chooser-form">
+        <ul class="mode-chooser-list">
+          <li>
+            <label
+              ><input
+                class="mode-chooser-input"
+                type="radio"
+                name="mode"
+                value="offline-ai"
+                checked
+                autofocus
+              />
+              Offline: Human player vs AI player</label
+            >
+          </li>
+          <li>
+            <label
+              ><input
+                class="mode-chooser-input"
+                type="radio"
+                name="mode"
+                value="offline-human"
+              />
+              Offline: Human player vs human player</label
+            >
+          </li>
+          <li>
+            <label
+              ><input
+                class="mode-chooser-input"
+                type="radio"
+                name="mode"
+                value="ai-vs-ai"
+              />
+              Spectator: AI player vs AI player</label
+            >
+          </li>
+          <li>
+            <label
+              ><input
+                class="mode-chooser-input"
+                type="radio"
+                name="mode"
+                value="online-human"
+              />
+              Online: Human player vs human player</label
+            >
+          </li>
+        </ul>
+        <button class="mode-chooser-submit" type="submit" value="confirm">
+          Start game
+        </button>
+      </form>
+    </dialog>
+    <div class="statusbox hidden">
+      <div class="statusbox-body">
+        <div class="statusbox-body-connection">...</div>
+        <div class="statusbox-body-game">...</div>
+        <div class="statusbox-body-player">...</div>
+      </div>
+      <div class="statusbox-controls">
+        <button class="hidden statusbox-button-back">End game</button>
+      </div>
+    </div>
+
+    <dialog class="message-body">
+      <form method="dialog" class="message-form">
+        <div class="message-body-content"></div>
+        <button class="message-body-dismiss" type="submit" value="ok">
+          OK
+        </button>
+      </form>
+    </dialog>
+    <footer class="footer">
+      By <a href="http://kenrick95.org">Kenrick95</a>. Fork this project at
+      <a href="https://github.com/kenrick95/c4">GitHub</a>.
+    </footer>
+    <script type="module" src="./src/app.ts"></script>
+  </body>
+</html>

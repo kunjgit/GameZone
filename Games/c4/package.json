@@ -1,0 +1,47 @@
+{
+  "name": "@kenrick95/c4-root",
+  "version": "0.0.0",
+  "description": "Connect Four game",
+  "private": true,
+  "workspaces": [
+    "core",
+    "browser",
+    "server"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenrick95/c4.git"
+  },
+  "author": {
+    "name": "Kenrick",
+    "email": "kenrick95@gmail.com",
+    "url": "https://kenrick95.org"
+  },
+  "bugs": {
+    "url": "https://github.com/kenrick95/c4/issues"
+  },
+  "engines": {
+    "node": "18.x",
+    "yarn": "3.x"
+  },
+  "packageManager": "yarn@3.5.0",
+  "homepage": "https://github.com/kenrick95/c4",
+  "license": "MIT",
+  "keywords": [
+    "c4",
+    "connect-four",
+    "game"
+  ],
+  "files": [
+    "src/",
+    "dist/"
+  ],
+  "scripts": {
+    "dev": "concurrently --handle-input \"yarn:dev-server\" \"yarn:dev-browser\"",
+    "dev-browser": "yarn workspace @kenrick95/c4-browser dev",
+    "dev-server": "yarn workspace @kenrick95/c4-server dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+}

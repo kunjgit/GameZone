@@ -1,0 +1,117 @@
+@charset "utf-8";
+@font-face {
+  font-family: system-font;
+  font-style: normal;
+  font-weight: 400;
+  src: local('.SFNSText-Regular'), local('.HelveticaNeueDeskInterface-Regular'),
+    local('.LucidaGrandeUI'), local('Segoe UI'), local('Ubuntu'),
+    local('Roboto-Regular'), local('DroidSans'), local('Tahoma');
+}
+@font-face {
+  font-family: system-font;
+  font-style: normal;
+  font-weight: 700;
+  src: local('.SFNSText-Bold'), local('.HelveticaNeueDeskInterface-Bold'),
+    local('.LucidaGrandeUI'), local('Segoe UI Bold'), local('Ubuntu Bold'),
+    local('Roboto-Bold'), local('DroidSans-Bold'), local('Tahoma Bold');
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: system-font;
+  color: #111;
+}
+button {
+  font-family: system-font;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  padding: 6px 12px;
+  border-radius: 2px;
+  border: 1px solid #76c9eb;
+  background: #96d2eb;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: inset 0 3px 5px rgba(255, 255, 255, 0.125);
+  border: 1px solid #51b4db;
+  background: #76c9eb;
+}
+h1 {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+}
+h2 {
+  font-size: 1.3em;
+  margin: 0.5em 0;
+}
+.section {
+  margin: 1em auto 0 auto;
+}
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+.mode-chooser,
+.message-body {
+  text-align: left;
+  background: white;
+  border: none;
+  border-radius: 2px;
+  padding: 0.5em 1em 1em 1em;
+  max-width: 30em;
+}
+.mode-chooser::backdrop,
+.message-body::backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.mode-chooser-list {
+  list-style: none;
+  padding-left: 0;
+}
+.copy-box {
+  width: 100%;
+  max-width: 28em;
+  margin-right: 1em;
+  padding: 6px 12px;
+}
+.hidden {
+  display: none;
+}
+.footer {
+  font-size: 0.8em;
+  margin-bottom: 2em;
+}
+.statusbox {
+  padding: 1em;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.statusbox-body,
+.statusbox-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 550px;
+  margin: 0 auto;
+}
+.statusbox-controls {
+  margin-top: 1em;
+  justify-content: center;
+}
+.statusbox-button-back  { 
+  border: 1px solid #a1a1a1;
+  background: #d8d8d8;
+}
+.statusbox-button-back:hover { 
+  border: 1px solid #6e6e6e;
+  background: #a1a1a1;
+}

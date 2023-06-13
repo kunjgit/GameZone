@@ -1,0 +1,45 @@
+{
+  "name": "@kenrick95/c4-browser",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Connect Four game in browser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenrick95/c4.git"
+  },
+  "author": {
+    "name": "Kenrick",
+    "email": "kenrick95@gmail.com",
+    "url": "https://kenrick95.org"
+  },
+  "bugs": {
+    "url": "https://github.com/kenrick95/c4/issues"
+  },
+  "homepage": "https://github.com/kenrick95/c4",
+  "license": "MIT",
+  "keywords": [
+    "c4",
+    "connect-four",
+    "game"
+  ],
+  "main": "./dist/index.html",
+  "source": "./src/app.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-gh-pages": "vite build --base=\"https://kenrick95.github.io/c4/\"",
+    "prettier": "prettier --write \"./**/*.?(ts|html|scss|css)\"",
+    "test": "echo 'OK'"
+  },
+  "dependencies": {
+    "@kenrick95/c4": "workspace:^"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7",
+    "typescript": "~4.8.4",
+    "vite": "^4.3.1"
+  }
+}

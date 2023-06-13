@@ -31,7 +31,7 @@ if the choosen ansswer is correct you will earn a point aor you lose.
 <img src="./images/02.png" alt="Image Description">
 
 <br>
-<img src="./images/03.png" alt="Image Description">
+
 
 
 

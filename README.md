@@ -300,7 +300,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 195 | [Sorades](https://github.com/kunjgit/GameZone/tree/main/Games/Sorades)|
 | 196 | [Thirteen](https://github.com/kunjgit/GameZone/tree/main/Games/Thirteen)| 
 | 197 | [The Raising Fighting Spirits](https://github.com/kunjgit/GameZone/tree/main/Games/The_Raising_Fighting_Spirits)|
-| 198 | [Green Mahjong](https://github.com/kunjgit/GameZone/tree/main/Games/Green%20Mahjong)|  
+| 198 | [Green Mahjong](https://github.com/kunjgit/GameZone/tree/main/Games/Green%20Mahjong)| 
+| * | [Mastermind_Mania](https://github.com/Sheetal-05/GameZone/tree/main/Games/Mastermind_Mania)|  
 </center>
 
 <br>

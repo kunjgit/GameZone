@@ -297,6 +297,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 192 | [Lonely Phantom](https://github.com/kunjgit/GameZone/tree/main/Games/Lonely_Phantom)|
 | 193 | [Ghost Surf](https://github.com/kunjgit/GameZone/tree/main/Games/Ghost_Surf)|
 | 194 | [Sucker](https://github.com/kunjgit/GameZone/tree/main/Games/Sucker)|
+| 195 | [Sorades](https://github.com/kunjgit/GameZone/tree/main/Games/Sorades)|
 </center>
 
 <br>

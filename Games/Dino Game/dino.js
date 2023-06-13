@@ -54,19 +54,19 @@ window.onload = function() {
     // context.fillRect(dino.x, dino.y, dino.width, dino.height);
 
     dinoImg = new Image();
-    dinoImg.src = "./img/dino.png";
+    dinoImg.src = "../../assets/images/dino.png";
     dinoImg.onload = function() {
         context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
     }
 
     cactus1Img = new Image();
-    cactus1Img.src = "./img/cactus1.png";
+    cactus1Img.src = "../../assets/images/cactus1.png";
 
     cactus2Img = new Image();
-    cactus2Img.src = "./img/cactus2.png";
+    cactus2Img.src = "../../assets/images/cactus2.png";
 
     cactus3Img = new Image();
-    cactus3Img.src = "./img/cactus3.png";
+    cactus3Img.src = "../../assets/images/cactus3.png";
 
     requestAnimationFrame(update);
     setInterval(placeCactus, 1000); //1000 milliseconds = 1 second
@@ -93,7 +93,7 @@ function update() {
 
         if (detectCollision(dino, cactus)) {
             gameOver = true;
-            dinoImg.src = "./img/dino-dead.png";
+            dinoImg.src = "../../assets/images/dino-dead.png";
             dinoImg.onload = function() {
                 context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
             }

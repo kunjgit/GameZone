@@ -24,11 +24,10 @@ jobs:
             const previousPullRequestsResponse = await github.pulls.list({
               owner,
               repo,
-              state: 'open',
-              creator: pullRequestOpener
+              state: 'open'
             });
 
-            const previousOpenPullRequests = previousPullRequestsResponse.data.filter(pr => pr.number !== pullRequestNumber);
+            const previousOpenPullRequests = previousPullRequestsResponse.data.filter(pr => pr.user.login === pullRequestOpener && pr.number !== pullRequestNumber);
             const previousOpenPullRequestNumbers = previousOpenPullRequests.map(pr => `#${pr.number}`);
             const openerName = context.payload.pull_request.user.login;
 

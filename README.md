@@ -290,6 +290,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 185 | [LOSSST](https://github.com/kunjgit/GameZone/tree/main/Games/LOSSST)|
 | 186 | [HangMan](https://github.com/kunjgit/GameZone/tree/main/Games/HangMan)|
 | 187 | [Bad_Luck_Brian](https://github.com/kunjgit/GameZone/tree/main/Games/Bad_Luck_Brian)|
+| 188 | [Bad_Depot](https://github.com/kunjgit/GameZone/tree/main/Games/Bad_Depot)|
 </center>
 
 <br>

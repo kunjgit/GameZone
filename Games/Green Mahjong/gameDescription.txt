@@ -1,0 +1,16 @@
+Find the matching pairs in this solitaire mahjong game!
+
+Green Mahjong is a free and opensource solitaire mahjong game (also sometime referred as mahjongg). It features three
+nice looking themes (fruits, classic, modern) and six layouts of varying difficulty. The goal of the game is to 
+match open pairs of identical tiles and remove them from the board, exposing the tiles under them for play. 
+The game is finished when all pairs of tiles have been removed from the board or when there are no exposed pairs 
+remaining.
+
+The game looks good on phones and on tablets thanks to its HD graphics. 
+
+Features:
+- hints
+- undo
+- 6 layouts
+- 3 themes
+- animations

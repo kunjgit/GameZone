@@ -2437,3 +2437,72 @@ textarea.form-input::-webkit-resizer {
   padding-right:10px ;
 }
 
+/*-----------------------------------*\
+  #PAGINATION SECTION
+\*-----------------------------------*/
+
+/* pagination position styling */
+.pagination{
+  display: flex;
+  flex-direction: row;
+  color: var(--white-1);
+  justify-content: center;
+  align-items: center;
+}
+
+#prev-page-tile,
+#next-page-tile {
+  background-color: rgb(98, 0, 255);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s ease all;
+  margin: 4px 10px;
+  color: white;
+  outline: none;
+  border: none;
+}
+
+#prev-page-tile:disabled,
+#next-page-tile:disabled {
+  background-color: gray;
+}
+
+#prev-page-tile:hover:not(#prev-page-tile:disabled),
+#next-page-tile:hover:not(#next-page-tile:disabled) {
+  background-color: rgb(66, 0, 173);
+}
+
+.pagination_section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* pagination styling */
+.pagination_section .page-tile {
+  margin: 5px;
+  padding: 10px 18px;
+  border-radius: 100%;
+  color: var(--white-1);
+  text-decoration: none;
+  cursor: pointer;
+  background-color: rgb(133, 57, 255);
+  transition: 0.5s ease all;
+}
+
+/* pagination hover effect on non-active */
+.pagination_section .page-tile:hover:not(.active) {
+  background-color: var(--white-1);
+  color: var(--eerie-black-1);
+}
+
+.pagination_section .page-tile.active:hover {
+  background-color: rgb(98, 0, 255);
+}
+
+.pagination_section .page-tile.active{
+  font-weight: 800;
+  color: white;
+  background-color: rgb(66, 0, 173);
+}

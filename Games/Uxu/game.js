@@ -220,7 +220,6 @@ function Player() {
     }
     
     that.spawn = function(x, y) {
-        //console.log("Player:spawn("+x+","+y+");")
         that.X = x;
         that.Y = y;
         that.speed.x = 0;
@@ -327,7 +326,6 @@ function Rocket() {
     that.duration = 3000;
     
     that.spawn = function(x, y) {
-        //console.log("rocket:setPosition("+x+","+y+");")
         that.X = x;
         that.Y = y;
         that.alive = true;
@@ -476,7 +474,6 @@ function Turret(offset) {
     }
 
     that.spawn = function(x, y) {
-        //console.log("Turret:setPosition("+x+","+y+");")
         that.X = x;
         that.Y = y;
         that.alive = true;

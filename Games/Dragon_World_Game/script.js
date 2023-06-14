@@ -1,7 +1,6 @@
 cross = true;
     score = 0;
     document.onkeydown = function (e) {
-      console.log(e.keyCode);
       if (e.keyCode == 38) {
         dragon = document.querySelector('.dragon');
         dragon.classList.add('animatedragon');
@@ -34,7 +33,6 @@ cross = true;
       offsetx = Math.abs(dx - ox);
       offsety = Math.abs(dy - oy);
 
-      console.log(offsetx, offsety);
 
       if (offsetx < 120 && offsety <= 144) {
         if(score!=0)

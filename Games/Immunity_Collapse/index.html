@@ -395,7 +395,6 @@ class CELL {
 	}
 	impulse(x, y) {
 		playNote(12, song.tracks[3].instrument, 0.45);
-		console.log("impulse",x,y);
 		this.setVelocity(this.velocity.x+x/10, this.velocity.y+y/10);
 		
 		// Il faut calculer la surface de la projection

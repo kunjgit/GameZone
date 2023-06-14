@@ -159,7 +159,6 @@ Entity.prototype = {
 		
 	} ,
 	setPos : function(x,y){
-		//console.log("setPos",x,y);
 		this.pos.x = x;
 		this.pos.y = y;
 		this.center.x = this.pos.x+this.w/2;
@@ -634,7 +633,6 @@ function tic(){
 	}
 	
 	var i,j,cat,cat2,dist,dist2,boar,boar2,crate,bush,allCatsForward,pow;	
-	//console.log(attack.val);
 	
 	
 	
@@ -1165,7 +1163,6 @@ function tic(){
 			a = player.beer/beerMaxCount;
 			p = beer;
 		}
-		//console.log(a,currentPowerUpCount,maxPowerUpCount,player.beer,beerMaxCount);
 		
 		if(a<0.1){
 			a = a*10;
@@ -1335,12 +1332,10 @@ function introNext(key){
 	}else{
 		setState(GAME);
 	}
-	//console.log("introNext ->",introStep);
 }
 
 function playSound(t){
 	/*
-	console.log(t);
 	var s;
 	if(t==CAT){
 		s = "cat.mp3";

@@ -45,7 +45,6 @@ Enemy.prototype.image.onload = function(){
 
         var j = 0;
         for(var i = 0; i < data.length; i += 4) {
-            //console.log(data[i], data[i + 1], data[i + 2]);
           // red
           var red = data[i];
           //red = 255 - red;

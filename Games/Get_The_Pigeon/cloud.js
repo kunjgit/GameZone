@@ -9,14 +9,12 @@ AFRAME.registerComponent('cloud', {
 
   init: function () {
     // Do something when component first attached.
-    //console.log('init', this);
     this.pos = this.el.object3D.position;
     this.w = parseInt(this.el.getAttribute('width'));
   },
 
   update: function () {
     // Do something when component's data is updated.
-    //console.log('update', this)
   },
 
   remove: function () {

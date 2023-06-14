@@ -52,7 +52,7 @@
   width: 16px;
   left: 2px;
   bottom: 2px;
-  background-color: white;
+  background-color: black;
   border-radius: 50%;
   transition: transform 0.4s;
 }
@@ -1347,8 +1347,19 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: var(--transition-1);
+  aspect-ratio: 1.65/1;
 }
+
+
+#joystick {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: var(--transition-1);
+  aspect-ratio: 1.25/1;
+} 
 
 .project-item>a:hover img {
   transform: scale(1.1);
@@ -2428,3 +2439,4 @@ textarea.form-input::-webkit-resizer {
 .search-btn{
   padding-right:10px ;
 }
+

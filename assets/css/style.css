@@ -2452,7 +2452,7 @@ textarea.form-input::-webkit-resizer {
 
 #prev-page-tile,
 #next-page-tile {
-  background-color: rgb(98, 0, 255);
+  background: var(--text-gradient-yellow);
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -2465,12 +2465,12 @@ textarea.form-input::-webkit-resizer {
 
 #prev-page-tile:disabled,
 #next-page-tile:disabled {
-  background-color: gray;
+  background: gray;
 }
 
 #prev-page-tile:hover:not(#prev-page-tile:disabled),
 #next-page-tile:hover:not(#next-page-tile:disabled) {
-  background-color: rgb(66, 0, 173);
+  background: var(--bg-gradient-yellow-1);
 }
 
 .pagination_section {
@@ -2487,22 +2487,19 @@ textarea.form-input::-webkit-resizer {
   color: var(--white-1);
   text-decoration: none;
   cursor: pointer;
-  background-color: rgb(133, 57, 255);
+  background: var(--bg-gradient-yellow-1);
+  background-color: transparent;
   transition: 0.5s ease all;
 }
 
 /* pagination hover effect on non-active */
 .pagination_section .page-tile:hover:not(.active) {
-  background-color: var(--white-1);
+  background-color: var(--orange-yellow-crayola);
   color: var(--eerie-black-1);
-}
-
-.pagination_section .page-tile.active:hover {
-  background-color: rgb(98, 0, 255);
 }
 
 .pagination_section .page-tile.active{
   font-weight: 800;
   color: white;
-  background-color: rgb(66, 0, 173);
+  background-color: var(--orange-yellow-crayola);
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tower of Hanoi</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+  <div id="canvas">
+    <div id="title">
+      <h1>Welcome To Tower Of Hanoi</h1>
+	  <h5>Enhance your logical thinking and problem-solving skills<h5>
+	  <h2>Enjoy!</h2></div>
+	<div id="diskno">
+      Number of disks: <input type="number" id="number" max="7" min="1" value="7"></input>
+    </div>
+	</br>
+    <div class="moves"></div>
+    </br>
+    <div id="towers">
+      <div class="tower" value="0">
+        <ul id="t1" value="0" class="base">
+          <ul class="tower1">
+          </ul>
+        </ul>
+      </div>
+      <div class="tower" value="1">
+        <ul id="t2" value="1" class="base">
+          <ul class="tower2"></ul>
+        </ul>
+      </div>
+      <div class="tower" value="2">
+        <ul id="t3" value="2" class="base">
+          <ul class="tower3"></ul>
+        </ul>
+      </div>
+    </div>
+    </br>
+    </br>
+    <div id="again">
+      <button type="button" class="buttons">Play Again</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
+  </div>
+</body>
+
+</html>

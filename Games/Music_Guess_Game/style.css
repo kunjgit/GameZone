@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-image: linear-gradient(315deg, #90d5ec 0%, #fc575e 74%);
+    height: 100vh;
+}
+
+.main-container {
+    width: 65%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(200px);
+    filter: blur();
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    position: absolute;
+    top: 10%;
+    left: 17.5%;
+    display: flex;
+    justify-content: center;
+    transition: all 0.85s;
+}
+
+@media(max-width: 1000px) {
+    .main-container {
+        width: 72%;
+        left: 14%;
+    }
+}
+
+@media(max-width: 768px) {
+    .main-container {
+        width: 80%;
+        left: 10%;
+    }
+}
+
+/* Styling of Author of the Website 😎 */
+a {
+    color: #c73664;
+}
+
+.author {
+    position: absolute;
+    top: calc(95% - 1rem);
+    left: calc(47% - 10rem);
+    font-size: 1.35rem;
+    font-weight: 800;
+    transition: all 0.85s;
+}
+
+@media screen and (max-width: 768px) {
+    .author {
+        font-size: calc(1rem + 0.75vw);
+    }
+}
+
+/* Styling of Loading Page */
+#loading-page {
+    padding: 0 16px;
+    max-width: 550px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+#loading-page h1 {
+    margin-left: 2rem;
+    margin-bottom: 5.5rem;
+    font-size: 3.25rem;
+    transition: all 0.85s;
+}
+
+@media(max-width: 768px) {
+    #loading-page h1 {
+        font-size: 2.25rem;
+        margin-left: 1rem;
+    }
+}
+
+/* Styling of start game button */
+#start-game {
+    background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-size: 16px;
+    font-weight: 500;
+    height: 4rem;
+    padding: 0 1.6rem;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    transition: all .5s;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+#start-game:hover {
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 15px;
+    transition-duration: .1s;
+}
+
+@media (min-width: 768px) {
+    #start-game {
+        padding: 0 2.6rem;
+    }
+}
+
+/* Styling of Game Page */
+#game-page {
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    width: 100%;
+}
+
+.player {
+    padding: calc(0.01%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.75s;
+}
+
+.player-b1 {
+    border-radius: 9px 0 0 9px;
+}
+
+.player-b2 {
+    border-radius: 0 9px 9px 0;
+}
+
+.player:first-child {
+    margin-right: 20px;
+}
+
+.name {
+    margin-top: calc(16%);
+    font-size: calc(250%);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    margin-bottom: 1rem;
+    transition: all 0.75s;
+}
+
+.score {
+    font-size: calc(600%);
+    font-weight: 300;
+    color: #c73664;
+    margin-bottom: calc(16%);
+    transition: all 0.75s;
+}
+
+/* CSS styling of active player */
+.player-active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.player-active .name {
+    font-weight: 700;
+}
+
+.player-active .score {
+    font-weight: 400;
+}
+
+.player-active {
+    opacity: 1;
+}
+
+/* CSS styling of Option buttons */
+.options-container-1,
+.options-container-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.75s;
+}
+
+.option {
+    flex-basis: calc(50% - 10px);
+    background-color: white;
+    color: #444;
+    border: none;
+    border-radius: 50rem !important;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: inherit;
+    padding: 6px;
+    font-size: 100%;
+    box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+    transition: all 0.75s;
+}
+
+.option:active {
+    transform: translateY(1rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 600px) {
+    .option {
+        flex-basis: 100%;
+    }
+}
+
+.wrong-option {
+    background-color: rgb(248, 137, 137);
+    color: white;
+}
+
+.correct-option {
+    background-color: rgb(137, 248, 168);
+    transition: all 0.75s;
+}
+
+/* CSS styls of buttons */
+.btn {
+    position: absolute;
+    left: 49%;
+    transform: translateX(-50%);
+    color: #444;
+    border: none;
+    font-family: inherit;
+    font-size: 100%;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 0.7rem 2.5rem;
+    border-radius: 50rem;
+    box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.btn-new {
+    top: 5%;
+}
+
+.btn-play {
+    top: 65%;
+}
+
+.btn-next {
+    top: 80%;
+}
+
+.btn:active {
+    transform: translate(-50%, 3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.song {
+    position: absolute;
+    left: 47.5%;
+    top: 30%;
+    transform: translateX(-50%);
+    height: 10rem;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    transition: all 0.75s;
+}
+
+@media (max-width: 1100px) {
+    .song {
+        height: 6rem;
+    }
+
+    .btn {
+        font-size: 80%;
+    }
+
+    .btn-new {
+        top: 0;
+    }
+}
+
+/* CSS style of winner */
+.player-winner {
+    background-color: #2f2f2f;
+}
+
+.player-winner .name {
+    font-weight: 700;
+    color: #c7365f;
+}
+
+.hidden {
+    display: none;
+}

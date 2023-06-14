@@ -301,8 +301,12 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 196 | [Thirteen](https://github.com/kunjgit/GameZone/tree/main/Games/Thirteen)| 
 | 197 | [The Raising Fighting Spirits](https://github.com/kunjgit/GameZone/tree/main/Games/The_Raising_Fighting_Spirits)|
 | 198 | [Green Mahjong](https://github.com/kunjgit/GameZone/tree/main/Games/Green%20Mahjong)|  
-| * | [Whack_A_Mole_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_A_Mole_Game)|  
-</center>
+| 199 | [Drag And Drop Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Drag_And_Drop_Puzzle)|
+| 200 | [Music Guess Game](https://github.com/kunjgit/GameZone/tree/main/Games/Music_Guess_Game)|
+| 201 | [Tower Of Hanoi](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Of_Hanoi)| 
+ | * | [Whack_A_Mole_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Whack_A_Mole_Game)|   
+  
+ 
 
 <br>
 <br>

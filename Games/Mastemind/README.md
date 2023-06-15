@@ -27,7 +27,7 @@ To play the Mastermind game, follow these steps:
 4. If the cards do not match, they are flipped back face-down.
 5. The player continues flipping cards until all pairs have been matched.
 6. The player's objective is to complete the game in the fewest number of moves and in the shortest amount of time.
-7. Once all the matches are done, the game is over. 
+7. Once all the cards are matched, the game is over. 
 
 
 <br>
@@ -35,7 +35,7 @@ To play the Mastermind game, follow these steps:
 ## **Screenshots 📸**
 
 <br>
-<img src="Screenshots/Mastermind.png" alt="Mastemind Game Screenshot">
+<img src="./Screenshots/Mastermind.png" alt="Mastemind Game Screenshot">
 
 
 

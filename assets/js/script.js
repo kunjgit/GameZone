@@ -27,7 +27,6 @@ function getPageNumbers() {
     games[i].style.display = "none";
   }
 }
-getPageNumbers();
 
 
 function getProjectsInPage() {
@@ -60,7 +59,6 @@ function getProjectsInPage() {
     })
   });
 }
-getProjectsInPage();
 
 
 function goToNextPage() {

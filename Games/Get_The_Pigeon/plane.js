@@ -110,7 +110,6 @@ var solidList = [];
 window.updateSolidList = ()=> solidList = document.querySelectorAll('.solid');
 
 function testColision() {
-  //console.log(solidList.length, 'solids to test');
   for (var solid,i=0; solid=solidList[i]; i++) {
     var solidType = (solid.dataset.colideType || solid.tagName).split('-')[1];
     updateRealPosition(solid);
@@ -156,7 +155,6 @@ var explosion1, explosion2, explosionRadius=0.1;
 
 function hit(el) {
   plane.dead = true;
-  console.log(`plane hit ${el.tagName} ${el.id}`);
   //el.setAttribute('color', 'blue');
   var pos = plane.pos;
   explosion1 = planeBody.mk('sphere', {radius:.02, color:'#F00'});
@@ -188,7 +186,6 @@ function showDeath() {
       explosion2.setAttribute('radius', explosionRadius*0.8);
       explosion2.setAttribute('opacity', 1 - explosionRadius*.5);
     } else {
-      console.log('Remove explosion');
       explosionRadius = 3;
       explosion2.selfRemove();
       explosion1.selfRemove();

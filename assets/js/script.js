@@ -205,12 +205,11 @@ for (let i = 0; i < navigationLinks.length; i++) {
 }
 
 
+
 function search_game() {
   let input = document.getElementById('searchbar').value;
-  console.log(input)
   input = input.toLowerCase();
   let searchelement = document.getElementsByClassName('project-item  active');
-  console.log(searchelement.length);
   for (let i = 0; i < searchelement.length; i++) { 
       if (!searchelement[i].innerHTML.toLowerCase().includes(input)) {
           searchelement[i].style.display="none";
@@ -220,4 +219,13 @@ function search_game() {
       }
   }
 }
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+
 

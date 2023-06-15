@@ -2500,12 +2500,10 @@ testinbounds = () => {
 // On key down
 zzz = onkeydown = function(e) {
   
-  console.log(e);
   
   // Update u/d/l/r flags
   window['lurd************************l**r************l*d***u**u'[e.which - 37]] = 1;
   
-  console.log(l, d, u, r);
   
   // Alt = 18
   if(e.which == 18){
@@ -3113,7 +3111,6 @@ ${(L[P+"e"]||L[P+"s"])?"<input type=checkbox id=wrap> <label for=wrap>wrap</labe
 
 
 ac.onMessage = (from, data) => {
-console.log(from, data);
 zzz({which: data});
 }
 

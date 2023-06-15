@@ -2440,3 +2440,39 @@ textarea.form-input::-webkit-resizer {
   padding-right:10px ;
 }
 
+#scrollToTopButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: rgb(104, 98, 232);
+  background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
+  color: #000;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.7;
+  transition: opacity 0.3s, background-color 0.3s;
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2),
+              inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+              inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+#scrollToTopButton:hover {
+  opacity: 1;
+  background-color: #df87ef;
+}
+
+#scrollToTopButton ion-icon {
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+
+
+

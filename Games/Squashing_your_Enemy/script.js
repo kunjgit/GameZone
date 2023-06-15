@@ -10,7 +10,6 @@ const pointscardscore = document.querySelector('#pointscardscore');
 // Set canvas size
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-console.log("Canvas game");
 
 //Getting Canvas Context
 const context = canvas.getContext('2d');
@@ -159,7 +158,6 @@ const radius =10;
 const color = 'white';
 
 let player = new Player(x,y,radius,color);
-console.log(player);
 
 // const projectile1 = new Projectile(canvas.width/2, canvas.height/2,5,'red',{x:1,y:1});
 // const projectile2 = new Projectile(canvas.width/2, canvas.height/2,5,'green',{x:-1,y:-1});
@@ -180,7 +178,6 @@ function initialiseGame(){
 
 function spawnEnemies(event){
     setInterval(()=>{
-        console.log("Spawn enemies");
         const radius = Math.random()*(30-4)+4;
 
         let x;
@@ -197,7 +194,6 @@ function spawnEnemies(event){
         }
         const color = `hsl(${Math.random()*360},50% ,50%)`;
         const angle = Math.atan2(canvas.height/2-y,canvas.width/2-x);
-        console.log(angle);
         const velocity = {
             x: Math.cos(angle),
             y: Math.sin(angle)
@@ -234,7 +230,6 @@ function animate()
            projectile.y + radius<0 ||
            projectile.y - radius>canvas.height){
             setTimeout(()=>{
-                console.log("Remove");
                 projectiles.splice(index,1);
             },0);
         }
@@ -245,7 +240,6 @@ function animate()
         //enemy.draw();
         const dist = Math.hypot(player.x-enemy.x,player.y-enemy.y);
         if(dist-enemy.radius-player.radius<1){
-            console.log("Game Over");
             cancelAnimationFrame(animationId);
             pointscardscore.innerHTML = score;
             pointscard.style.display = 'flex';
@@ -270,7 +264,6 @@ function animate()
                         radius: enemy.radius-10
                     });
                 setTimeout(()=>{
-                    console.log("Collision");
                     //enemies.splice(index,1);
                     projectiles.splice(projectileIndex,1);
                 },0);
@@ -280,7 +273,6 @@ function animate()
                 score += 20;
                 score_element.innerHTML = score;
                 setTimeout(()=>{
-                    console.log("Collision");
                     enemies.splice(index,1);
                     projectiles.splice(projectileIndex,1);
                 },0);
@@ -292,7 +284,6 @@ function animate()
 
 window.addEventListener('click',(event)=>{
     const angle = Math.atan2(event.clientY-canvas.height/2,event.clientX-canvas.width/2);
-    console.log(angle);
     const velocity = {
         x: Math.cos(angle) * 5,
         y: Math.sin(angle) * 5

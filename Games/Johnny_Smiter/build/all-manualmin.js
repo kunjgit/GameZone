@@ -1256,7 +1256,6 @@ GLProgram.prototype.createShader=function(gl, src, type) {
 	gl.compileShader( shader );
  
 	if ( !gl.getShaderParameter( shader, gl.COMPILE_STATUS ) ) {
-		console.log( ( type == gl.VERTEX_SHADER ? "VERTEX" : "FRAGMENT" ) + " SHADER:\n" + gl.getShaderInfoLog( shader ) );
 		return null;
 	}
  

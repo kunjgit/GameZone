@@ -75,7 +75,6 @@ var cycleManager = {
             try{
                 this.oncycle(elapsed);
             }catch(e){
-                console.log('Error: ' + e + ' - ');
                 throw e;
             }
             

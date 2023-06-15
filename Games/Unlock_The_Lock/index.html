@@ -144,7 +144,6 @@ $('.lock').click(function() {
 
 function shuffle() {
 	// reset the blocks
-	console.log('Shuffling:');
 	$('.lock').css({'background-color':'#ff0'});
 	$('.lock').removeClass('rotate90');
 	$('.lock').removeClass('rotate0');
@@ -155,7 +154,6 @@ function shuffle() {
 		row = random(1,4);
 		col = random(1,4);
 		cellId = 'cell_'+ row +'_'+ col;
-		console.log('  '+ cellId);
 		$cell = $('#'+ cellId);
 
 		$('.lock[row="' + row + '"]').each(function() {

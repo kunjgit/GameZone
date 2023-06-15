@@ -57,7 +57,6 @@
 			var width = Math.ceil( weight * 25 );
 			$weight.style.width = width + 'px';
 
-			console.log('new weight', weight, width);
 		};
 
 		var displayEnergy = function(energy)

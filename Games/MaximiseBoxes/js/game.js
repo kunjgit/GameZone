@@ -105,15 +105,12 @@ class Game {
  
     //Update player score UI used while switching player
     updatePlayerScoreUI() {
-      //console.log(this.currentPlayer.filledBoxes)
        this.currentPlayer.filledBoxesUI.innerText = this.currentPlayer.filledBoxes
     }
  
     //Update player name UI used while switching player
     updatePlayerNameUI() {
-      //console.log(this.currentPlayer.name)
        this.playerNameUI.innerText = this.currentPlayer.name
-       //console.log(this.currentPlayer.color)
        this.playerTurnBgUI.style.background = this.currentPlayer.color
     }
  
@@ -174,8 +171,6 @@ class Game {
     const columns = calculate(columnsInput.value, 5, 30)
     const playersCount = calculate(playersInput.value, 2, 6)
  
-    //console.log(rows, columns, playersCount)
-    console.log(rows, columns, playersCount)
  
     game = new Game(rows, columns, playersCount)
     settingsUI.style.display = "none"

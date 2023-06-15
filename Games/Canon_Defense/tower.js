@@ -16,7 +16,6 @@ Tower.prototype.getRotate = function(mouse){
    var b = mouse.y - this.y;
    var tg = a/b;
    var atan1 = Math.atan(tg);
-   //console.log('mouse tg', tg);
    var atan = -Math.PI*2-atan1;
    return atan;
 }

@@ -196,11 +196,9 @@ forrest = forrest.sort((a,b)=>rnd(-1,1));
 // controll forrest size by the FPS:
 setInterval(()=> {
   if (fps < 22 && forrest.length > 80) {
-    //console.log('Remove Tree ' + forrest.length);
     removeTree(forrest.shift());
   }
   if (fps > 25 && forrest.length < 700) {
-    //console.log('Planting Tree ' + (forrest.length+1));
     var x = rForrest*2, y = rForrest*2;
     while ((x**2 + z**2) > rForrest**2) {
       x = rnd(-rForrest, rForrest);

@@ -507,14 +507,12 @@ function kill(pno,p){
             
             
             var check = step[redpath[rp[pno]]].innerHTML;
-    console.log(check);
         if(check===green){
             killedsound.play();
             step[redpath[rp[pno]]].innerHTML="";
             gp[i]=-1;
             gstate[i]=0;
             playerzone[4+i].innerHTML=green;
-            console.log("green"+i+" is dead !");
             pmove=7;
             diceRotation(0);
             return 1427;
@@ -524,7 +522,6 @@ function kill(pno,p){
             bp[i]=-1;
             bstate[i]=0;
             playerzone[8+i].innerHTML=blue;
-            console.log("blue"+i+" is dead !");
             pmove=7;
             diceRotation(0);
             return 1427;
@@ -534,7 +531,6 @@ function kill(pno,p){
             yp[i]=-1;
             ystate[i]=0;
             playerzone[12+i].innerHTML=yellow;
-            console.log("yellow"+i+" is dead !");
             pmove=7;
             diceRotation(0);
             return 1427;
@@ -557,14 +553,12 @@ function kill(pno,p){
            var yellow = '<span onclick="moveyellow(this,'+i+')" class="rp material-icons y" style="z-index: 0;">stars</span>'; 
             
             var check = step[greenpath[gp[pno]]].innerHTML;
-    console.log(check);
         if(check===red){
             killedsound.play();
             step[greenpath[gp[pno]]].innerHTML="";
             rp[i]=-1;
             rstate[i]=0;
             playerzone[0+i].innerHTML=red;
-            console.log("red"+i+" is dead !");
             pmove=7;
             diceRotation(1);
             return 1427;
@@ -574,7 +568,6 @@ function kill(pno,p){
             bp[i]=-1;
             bstate[i]=0;
             playerzone[8+i].innerHTML=blue;
-            console.log("blue"+i+" is dead !");
             pmove=7;
             diceRotation(1);
             return 1427;
@@ -584,7 +577,6 @@ function kill(pno,p){
             yp[i]=-1;
             ystate[i]=0;
             playerzone[12+i].innerHTML=yellow;
-            console.log("yellow"+i+" is dead !");
             pmove=7;
             diceRotation(1);
             return 1427;
@@ -607,14 +599,11 @@ function kill(pno,p){
            var yellow = '<span onclick="moveyellow(this,'+i+')" class="rp material-icons y" style="z-index: 0;">stars</span>'; 
             
             var check = step[bluepath[bp[pno]]].innerHTML;
-    console.log(check);
         if(check===green){
             killedsound.play();
-            step[bluepath[bp[pno]]].innerHTML="";
             gp[i]=-1;
             gstate[i]=0;
             playerzone[4+i].innerHTML=green;
-            console.log("green"+i+" is dead !");
             pmove=7;
             diceRotation(3);
             return 1427;
@@ -624,7 +613,6 @@ function kill(pno,p){
             rp[i]=-1;
             rstate[i]=0;
             playerzone[0+i].innerHTML=red;
-            console.log("red"+i+" is dead !");
             pmove=7;
             diceRotation(3);
             return 1427;
@@ -634,7 +622,6 @@ function kill(pno,p){
             yp[i]=-1;
             ystate[i]=0;
             playerzone[12+i].innerHTML=yellow;
-            console.log("yellow"+i+" is dead !");
             pmove=7;
             diceRotation(3);
             return 1427;
@@ -654,14 +641,12 @@ function kill(pno,p){
            var red = '<span onclick="movered(this,'+i+')" class="rp material-icons r" style="z-index: 0;">stars</span>'; 
             
             var check = step[yellowpath[yp[pno]]].innerHTML;
-    console.log(check);
         if(check===green){
             killedsound.play();
             step[yellowpath[yp[pno]]].innerHTML="";
             gp[i]=-1;
             gstate[i]=0;
             playerzone[4+i].innerHTML=green;
-            console.log("green"+i+" is dead !");
             pmove=7;
             diceRotation(2);
             return 1427;
@@ -671,7 +656,6 @@ function kill(pno,p){
             bp[i]=-1;
             bstate[i]=0;
             playerzone[8+i].innerHTML=blue;
-            console.log("blue"+i+" is dead !");
             pmove=7;
             diceRotation(2);
             return 1427;
@@ -681,7 +665,6 @@ function kill(pno,p){
             rp[i]=-1;
             rstate[i]=0;
             playerzone[0+i].innerHTML=red;
-            console.log("red"+i+" is dead !");
             pmove=7;
             diceRotation(2);
             return 1427;
@@ -701,7 +684,6 @@ function movered(obj,pno){
     if(rstate[pno]===1){
         rp[pno]+=moves[0];
        
-        console.log(rp[pno]);
         if(rp[pno]>56){
             rp[pno]-=moves[0];
             
@@ -755,7 +737,6 @@ function movegreen(obj,pno){
     }
     if(gstate[pno]===1){
         gp[pno]+=moves[1];
-        console.log(gp[pno]);
         if(gp[pno]>56){
             gp[pno]-=moves[1];
             return 0;
@@ -808,7 +789,6 @@ function moveblue(obj,pno){
     if(bstate[pno]===1){
         bp[pno]+=moves[3];
         
-        console.log(bp[pno]);
         if(bp[pno]>56){
             bp[pno]-=moves[3];
             return 0;
@@ -861,7 +841,6 @@ function moveyellow(obj,pno){
     if(ystate[pno]===1){
         yp[pno]+=moves[2];
         
-        console.log(yp[pno]);
         if(yp[pno]>56){
             yp[pno]-=moves[2];
             return 0;

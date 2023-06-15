@@ -88,7 +88,6 @@ function populateQuestions() {
       nextLevelButton.disabled = false;
     } else {
       // Display a message or take appropriate action to indicate that the user needs to answer all questions
-      console.log("Please answer all questions before moving to the next level.");
       questionDisplay.textContent = '';
     }
   }

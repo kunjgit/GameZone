@@ -81,7 +81,6 @@ var quizController = (function () {
         // 14
         addQuestionOnLocalStorage: function (newQuestText, opts) {
             // 18
-            // console.log('Hi');
             // 19           // 25    // 29       // 31    // 43            // 59
             var optionsArr, corrAns, questionId, newQuestion, getStoredQuests, isChecked;
             // 48
@@ -134,11 +133,8 @@ var quizController = (function () {
                         // 46
                         questionLocalStorage.setQuestionCollection(getStoredQuests);
                         // 24
-                        // console.log(optionsArr);
                         // 28
-                        // console.log(corrAns);
                         // 33
-                        // console.log(newQuestion);
                         // 48
                         newQuestText.value = "";
                         // 49
@@ -149,7 +145,6 @@ var quizController = (function () {
                             opts[x].previousElementSibling.checked = false;
                         }
                         // 47
-                        console.log(questionLocalStorage.getQuestionCollection());
                         // 96
                         return true;
                         // 61
@@ -181,13 +176,11 @@ var quizController = (function () {
                 // 335
                 currPersonData.score++;
                 // 234
-                // console.log('Correct');
                 // 237
                 return true;
                 // 235
             } else {
                 // 236
-                // console.log('Wrong');
                 // 238
                 return false;
             }
@@ -218,7 +211,6 @@ var quizController = (function () {
             // 299
             personLocalStorage.setPersonData(personData);
             // 295
-            console.log(newPerson);
         },
         // 304
         getCurrPersonData: currPersonData,
@@ -279,7 +271,6 @@ var UIController = (function () {
             // 67
             var addInput = function () {
                 // 68
-                // console.log('Works');
                 // 69         // 71
                 var inputHTML, z;
                 // 72
@@ -303,7 +294,6 @@ var UIController = (function () {
             // 92
             numberingArr = [];
             // 82
-            // console.log(getQuestions);
             // 84
             domItems.insertedQuestsWrapper.innerHTML = "";
             // 85
@@ -313,7 +303,6 @@ var UIController = (function () {
                 // 87                     // 94                    // 88
                 questHTML = '<p><span>' + numberingArr[i] + '. ' + getQuestions.getQuestionCollection()[i].questionText + '</span><button id="question-' + getQuestions.getQuestionCollection()[i].id + '">Edit</button></p>';
                 // 95
-                // console.log(getQuestions.getQuestionCollection()[i].id);
                 // 89
                 domItems.insertedQuestsWrapper.insertAdjacentHTML('afterbegin', questHTML);
             }
@@ -339,7 +328,6 @@ var UIController = (function () {
                     }
                 }
                 // 121
-                // console.log(foundItem, placeInArr);
                 // 122
                 domItems.newQuestionText.value = foundItem.questionText;
                 // 123
@@ -362,11 +350,9 @@ var UIController = (function () {
                 // 139
                 domItems.questsClearBtn.style.pointerEvents = 'none';
                 // 127
-                // console.log(optionHTML);
                 // 132
                 addInpsDynFn();
                 // 144
-                // console.log(foundItem);
                 // 184
                 var backDefaultView = function () {
                     // 185
@@ -448,16 +434,13 @@ var UIController = (function () {
                         alert('Please, insert question');
                     }
                     // 142
-                    // console.log('Works');
                     // 145
-                    // console.log(foundItem);
                 }
                 // 140
                 domItems.questUpdateBtn.onclick = updateQuestion;
                 // 180
                 var deleteQuestion = function () {
                     // 181
-                    // console.log('Works');
                     // 182
                     getStorageQuestList.splice(placeInArr, 1);
                     // 183
@@ -470,24 +453,19 @@ var UIController = (function () {
 
             }
             // 106
-            // console.log(event, storageQuestList);
             // 108
-            // console.log(event.target.id);
             // 111
-            // console.log(getId);
         },
         // 190
         clearQuestList: function (storageQuestList) {
             //199
             if (storageQuestList.getQuestionCollection() !== null) {
                 // 192
-                // console.log(storageQuestList);
                 // 193
                 if (storageQuestList.getQuestionCollection().length > 0) {
                     // 194
                     var conf = confirm('Warning! You will lose entire question list');
                     // 195
-                    // console.log(conf);
                     // 196
                     if (conf) {
                         // 197
@@ -505,7 +483,6 @@ var UIController = (function () {
             // 214
             characterArr = ['A', 'B', 'C', 'D', 'E', 'F'];
             // 202
-            // console.log('Works');
             // 203
             if (storageQuestList.getQuestionCollection().length > 0) {
                 // 205
@@ -524,7 +501,6 @@ var UIController = (function () {
         // 216
         displayProgress: function (storageQuestList, progress) {
             // 218
-            // console.log('Works');
             // 220
             domItems.progressBar.max = storageQuestList.getQuestionCollection().length;
             // 221
@@ -587,13 +563,11 @@ var UIController = (function () {
                         // 312
                         currPerson.fullname.push(domItems.lastNameInput.value);
                         // 308
-                        // console.log('Quiz has started');
                         // 316
                         domItems.landPageSection.style.display = 'none';
                         // 317
                         domItems.quizSection.style.display = 'block';
                         // 313
-                        console.log(currPerson);
                         // 326
                     } else {
                         alert('Quiz is not ready, please contact to administrator');
@@ -644,7 +618,6 @@ var UIController = (function () {
                 // 354
                 getId = parseInt(event.target.id.split('_')[1]);
                 // 355
-                // console.log(getId);
                 // 358
                 for (var i = 0; i < personArr.length; i++) {
                     // 359
@@ -698,7 +671,6 @@ var controller = (function (quizCtrl, UICtrl) {
         // 77
         var adminOptions = document.querySelectorAll('.admin-option');
         // 10
-        // console.log('Works');
         // 100             // 17                                                                // 78
         var checkBoolean = quizCtrl.addQuestionOnLocalStorage(selectedDomItems.newQuestionText, adminOptions);
         // 101
@@ -727,7 +699,6 @@ var controller = (function (quizCtrl, UICtrl) {
     // 224
     selectedDomItems.quizoptionsWrapper.addEventListener('click', function (e) {
         // 225
-        // console.log(e);
         // 226
         var updatedOptionsDiv = selectedDomItems.quizoptionsWrapper.querySelectorAll('div');
         // 227
@@ -735,7 +706,6 @@ var controller = (function (quizCtrl, UICtrl) {
             // 228
             if (e.target.className === 'choice-' + i) {
                 // 229
-                // console.log(e.target.className);
                 // 230
                 var answer = document.querySelector('.quiz-options-wrapper div p.' + e.target.className);
                 // 232
@@ -756,7 +726,6 @@ var controller = (function (quizCtrl, UICtrl) {
                         // 332
                         UICtrl.finalResult(quizCtrl.getCurrPersonData);
                         // 278
-                        // console.log('Finished');
                         // 270
                     } else {
                         // 274

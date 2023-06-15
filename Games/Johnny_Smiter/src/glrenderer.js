@@ -212,11 +212,6 @@ var GLProgram=function(gl,vShader,fShader){
 	gl.linkProgram( program );
  
 	if ( !gl.getProgramParameter( program, gl.LINK_STATUS ) ) {
-		console.log( "ERROR:\n" +
-					"VALIDATE_STATUS: " + gl.getProgramParameter( program, gl.VALIDATE_STATUS ) + "\n" +
-					"ERROR: " + gl.getError() + "\n\n" +
-					"- Vertex Shader -\n" + vertex + "\n\n" +
-					"- Fragment Shader -\n" + fragment );
 		return null;
 	}
 	
@@ -256,7 +251,6 @@ GLProgram.prototype.createShader=function(gl, src, type) {
 	gl.compileShader( shader );
  
 	if ( !gl.getShaderParameter( shader, gl.COMPILE_STATUS ) ) {
-		console.log( ( type == gl.VERTEX_SHADER ? "VERTEX" : "FRAGMENT" ) + " SHADER:\n" + gl.getShaderInfoLog( shader ) );
 		return null;
 	}
  

@@ -217,7 +217,6 @@ let addGame = (sNum = 2, catNum = 2) => {
     }
 
     if (attemptedConstraints.some(a => checkToString(a) === checkToString(newConstraint.d))) {
-      // console.log('KICKING ALREADY USED CONSTRAINT');
       raf(() => addConstraint(type, ++depth, callback));
       return;
     }
@@ -229,7 +228,6 @@ let addGame = (sNum = 2, catNum = 2) => {
   //   if (everyObject) return;
   //   everyObject = true;
   //   firstOffering = prevSolution;
-  //   // console.log('*****', `Everyone has a key. ${ prevSolution } selections, ${solution.length} arrangements, ${constraints.length} clues`, solution);
   //   stepTest.push({
   //     solution,
   //     selections: prevSolution
@@ -241,7 +239,6 @@ let addGame = (sNum = 2, catNum = 2) => {
   // let firstSolution = (solution) => {
   //   if (firstBoard) return;
   //   firstBoard = true;
-  //   // console.log('*****', `Middle: ${ prevSolution } selections, ${solution.length} arrangements, ${constraints.length} clues`, solution);
   //   stepTest.push({
   //     solution,
   //     selections: prevSolution
@@ -284,7 +281,6 @@ let addGame = (sNum = 2, catNum = 2) => {
           currentLength === prevSolution) && prevSolution < maxFill) {
         // empty objects, or fewer than all selections indicated
         if (constraints.length > row.length * 8) {
-          // console.log('TOO MANY CLUES, STARTING OVER');
           reset();
           aac();
           return;
@@ -309,7 +305,6 @@ let addGame = (sNum = 2, catNum = 2) => {
         return;
       } else {
         // chapter 3 make sure all selections are indicated by clues
-        // console.log(`******* ALL ${ prevSolution } selections, ${solution.length} arrangement, ${constraints.length} clues`);
         let rev = findSolutions(constraints.map(c => {
           if (c.type === 'nt') {
               c.d = c.d.reverse();
@@ -319,7 +314,6 @@ let addGame = (sNum = 2, catNum = 2) => {
 
         if (!rev || !iareEquals(solution[0], rev)) {
           raf(() => {
-            // console.log('reverse check failed');
             aac(1, 0, print);
           });
           return;
@@ -334,7 +328,6 @@ let addGame = (sNum = 2, catNum = 2) => {
           solution,
           selections: prevSolution
         });
-        // console.log('filled board', solution[0]);
         if (!solutionFound) {
           steps.push(currentStep.slice(0));
           solutionFound = true;

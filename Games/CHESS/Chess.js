@@ -505,7 +505,6 @@ document.querySelectorAll('.box').forEach(item => {
 
         if (numOfKings == 1) {
             setTimeout(() => {
-                // console.log(`${toggle}`) 
                 if (tog % 2 == 0) {
                     alert('White Wins !!')
                     location.reload()

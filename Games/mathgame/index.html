@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math Expression Game</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Math Expression Game</h1>
+    <div class="score-container">
+      <p>Score: <span id="score">0</span></p>
+      <p>Time Left: <span id="timer">10</span>s</p>
+    </div>
+    <div class="expression-container">
+      <p id="expression">9%5+8</p>
+      <p id="accuracy"></p>
+      <input type="text" id="answer" placeholder="Your answer">
+      <button id="submitBtn" >Submit</button>
+    </div>
+    <div class="message-container">
+      <p id="message"></p>
+      <div class="container-btn">
+        <button id="startBtn">Start Game</button>
+        <button id="quitBtn">Quit Game</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

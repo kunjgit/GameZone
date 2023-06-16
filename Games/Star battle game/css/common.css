@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(255,0,0,0);
+    -webkit-appearance:none;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+li{
+    list-style-type: none;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.message {
+    font-size: 1rem;
+    line-height: 2;
+    margin: 0 auto;
+    text-align: justify;
+}
+.pre{
+    white-space: pre-line;
+}
+
+.btn {
+    position: relative;
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    color: inherit;
+    text-decoration: none;
+    margin: 0 auto 5px auto;
+    border: solid 1px #D94E3B;
+    background: #cb3b27;
+    text-align: center;
+    padding: 6px 20px;
+    transition: all 0.1s;
+    box-shadow: 0px 5px 0px #84261a;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+.btn:disabled{
+    opacity: 0.6;
+}
+.btn:active{
+    -webkit-box-shadow: 0px 2px 0px #84261a;
+    -moz-box-shadow: 0px 2px 0px #84261a;
+    box-shadow: 0px 2px 0px #84261a;
+    position:relative;
+    top:7px;
+}
+.btn::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    background:rgba(255,255,0,0.5);
+}
+.btn:active::after{
+    width: 100%;
+    padding-bottom: 100%;
+}
+
+.absolute{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.scroll tbody {
+    display: block;
+    height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 8px;
+}
+
+.scroll tbody::-webkit-scrollbar{
+    width: 1px;
+}
+
+.scroll thead,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+tbody tr {
+    height: 45px;
+}
+
+.scroll thead {
+    width: calc(100% - 2px);
+}
+
+.scroll tbody::-webkit-scrollbar {
+    width:2px;
+    }
+    /* 滚动槽 */
+.scroll tbody::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius:10px;
+}
+    /* 滚动条滑块 */
+.scroll tbody::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    background:rgba(255,255,255,0.5);
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.5);
+}

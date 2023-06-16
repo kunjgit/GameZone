@@ -2,7 +2,7 @@
 const generateLiTags = (gamesData) => {
     const liTags = [];
   
-    for (let tagNumber = 1; tagNumber <= 202; tagNumber++) {
+    for (let tagNumber = 1; tagNumber <= 210; tagNumber++) {
       const gameData = gamesData[tagNumber.toString()];
   
       if (gameData) {

@@ -110,8 +110,8 @@ function update() {
     context.fillStyle = "#27374D";
     context.font = "25px 'Play'";
     score++;
-    context.fillText("Score:", 5, 25);
-    context.fillText(score, 80, 25);
+    context.fillText("Score:", 450, 40);
+    context.fillText(score, 525, 40);
 }
 
 function moveDino(e) {

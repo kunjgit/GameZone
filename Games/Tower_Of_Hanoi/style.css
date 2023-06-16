@@ -1,0 +1,144 @@
+body {
+  background-color: #FFF1F0;
+}
+#canvas {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: grid;
+  align-content: center;
+}
+
+#title {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  color: #160f29;
+  font-family: Comic Sans MS;
+}
+
+h2 {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  color: #160f29;
+  font-family: Brush Script MT ;
+}
+
+.moves {
+  font-family: Comic Sans MS;
+  text-align: center;
+  font-size: 23px;
+  color: #160f29;
+}
+#towers {
+  color: #735d78;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.base {
+  position: relative;
+  width: 180px;
+  height: 200px;
+  margin: auto;
+  border-bottom: 20px #735d78 solid;
+  border-radius: 10px;
+  margin-left: 110px;
+}
+.tower1,
+.tower2,
+.tower3 {
+  padding: 2px;
+  width: 5px;
+  height: 160px;
+  background: #735d78;
+  border-radius: 300px;
+  padding-top: 50px;
+  margin: 10px 0 0 65px;
+  position: relative;
+  align-items: center;
+}
+#towers li {
+  position: relative;
+  display: block;
+  height: 20px;
+  border-radius: 10px;
+  top: 170px;
+}
+#disk7 {
+  background-color: #001219;
+  width: 175px;
+  margin: -40px 0 0 -86px;
+}
+#disk6 {
+  background-color: #0A9396;
+  width: 150px;
+  margin: -40px 0 0 -73px;
+}
+#disk5 {
+  background-color: #005F73;
+  width: 125px;
+  margin: -40px 0 0 -58px;
+}
+#disk4 {
+  background-color: #9B2226;
+  width: 100px;
+  margin: -40px 0 0 -46px;
+}
+#disk3 {
+  background-color: #FFB3C8;
+  width: 75px;
+  margin: -40px 0 0 -34px;
+}
+#disk2 {
+  background-color: #FF5E3D;
+  width: 50px;
+  margin: -40px 0 0 -22px;
+}
+#disk1 {
+  background-color: #FFED99;
+  width: 25px;
+  margin: -40px 0 0 -10px;
+}
+
+.buttons {
+  font-family: Comic Sans MS;
+  font-size: 20px;
+  height: 70px;
+  width: 150px;
+  border-radius: 30px;
+  background-color: #8458B3;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+#diskno {
+  font-family: Comic Sans MS;
+  font-size: 20px;
+  color: #160f29;
+  margin: auto;
+}
+#number {
+  text-size: 40px;
+  text-align: right;
+  height: 20px;
+  width: 30px;
+  font-family: Comic Sans MS;
+  border-radius: 30px;
+  background-color: #160f29;
+  color: #ffffff;
+}
+#again {
+  margin: auto;
+}
+
+.buttons:hover {
+  margin: auto;
+  opacity: 1;
+}

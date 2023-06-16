@@ -102,7 +102,6 @@ function gameover() {
   if (!(alert("Game Over!! \nBetter Luck Next Time\n Score:" + score))) {
     window.location.reload();
   }
-  console.log("Refresh");
   clearInterval(timer)
   interval = null
   
@@ -205,13 +204,10 @@ function levelDisplay() {
           document.onkeydown = function (e) {
             switch (e.keyCode) {
               case 37:
-                console.log("Left Key pressed!");
                 moveleft();
-                console.log(leftpressed);
                 break;
               case 39:
                 moveright();
-                console.log(rightpressed);
                 break;
             }
           };

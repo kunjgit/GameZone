@@ -164,7 +164,6 @@ const enemy = new Fighter({
 });
 
 enemy.draw();
-console.log(player);
 
 const keys = {
   a: {
@@ -251,7 +250,6 @@ function animate() {
     player.framesCurrent === 4
   ) {
     enemy.takeHit();
-    console.log("go");
     player.isAttacking = false;
     document.querySelector("#enemyHealth").style.width = enemy.health + "%";
   }
@@ -271,7 +269,6 @@ function animate() {
     player.takeHit();
     enemy.isAttacking = false;
     document.querySelector("#playerHealth").style.width = player.health + "%";
-    console.log("enemy go");
   }
   //if enemy misses
   if (enemy.isAttacking && enemy.framesCurrent === 2) {
@@ -301,7 +298,6 @@ window.addEventListener("keydown", (event) => {
         if (player.position.y > 250) {
           player.velocity.y = -17;
         }
-        console.log(player.position.y);
         break;
       case " ":
         player.attack1();
@@ -352,6 +348,5 @@ window.addEventListener("keydown", (event) => {
       case "ArrowLeft":
         keys.ArrowLeft.pressed = false;
     }
-    console.log(event);
   });
 });

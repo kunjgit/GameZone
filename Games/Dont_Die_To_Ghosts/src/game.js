@@ -784,10 +784,6 @@ let createTextureAtlas = () => {
 
   atlas_ctx.drawImage(c, 0, 0, b.w, b.h, 0, 50, width, height); // Draw bonus image to atlas
 
-  // console.log('createTextureAtlas()')
-  // console.log(`atlas:${w},${h + tallestImage}`);
-  // console.log(atlas);
-  // console.log(textureRegions);
   // getByID('t').appendChild(atlas);
 },
 
@@ -1868,7 +1864,6 @@ let onEnterFrame = () => {
 
               allDotsSpawned = true; // All dots arte now spawned!
 
-              //console.log('all dots spawned');
             } // End "should another dot or power pill be spawned" check
                   
           } // End "dot spawn delay expired" check

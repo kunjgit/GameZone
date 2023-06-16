@@ -428,7 +428,6 @@ window.onload = function() {
         gameGoal.style.display = "none";
         startBtn.style.top = "66%";
         if (!died) {
-            console.log (`Day${day}`);
             if (day < 5) {
                 if (currentScore<=days[day-1].score){
                     instructions.innerHTML = `<h2>END OF DAY 0${day}</h2>Your score for the day: ${currentScore}</p><p>Your score is not high enough. Please try again!</p>`;

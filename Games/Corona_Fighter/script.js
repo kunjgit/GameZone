@@ -14,7 +14,6 @@ function load_images() {
 
 function init() {
   canvas = document.getElementById("mycanvas");
-  console.log(canvas);
 
   //Setting global height and width
   W = 1450;
@@ -25,7 +24,6 @@ function init() {
 
   // Creating 2D context
   pen = canvas.getContext("2d");
-  console.log(pen);
 
   // Initial score
   score = 0;

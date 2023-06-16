@@ -13,7 +13,7 @@
  * Notes:
  *
  * 8 bit data is unsigned: 0..255
- * 16 bit data is signed: âˆ?32,768..32,767
+ * 16 bit data is signed: ï¿½?32,768..32,767
  *
  */
 
@@ -524,7 +524,6 @@ window.onload = function ()
 		//{
 		//	app.chance_str += elem.toFixed(2) + '/';
 		//});
-		//console.log(app.chance_str);
 		app.wave_tmr = 0;
 	}
 	

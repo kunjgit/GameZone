@@ -607,7 +607,6 @@ World.prototype = {
 				this.speedX = localSpeedX*Math.cos(rotationAngle) - localSpeedY*Math.sin(rotationAngle);
 				this.speedY = localSpeedX*Math.sin(rotationAngle) + localSpeedY*Math.cos(rotationAngle);
 
-				//console.log("collision : ("+collisionX+","+collisionY+"), local speed after : ("+localSpeedX+","+localSpeedY+")");
 				
 				maxTime = 1-time; // remaining time in current simulation
 			}

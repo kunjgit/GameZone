@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     let word=words_list[Math.floor(Math.random()*words_list.length)].toLowerCase();
     let guessedWordCount = 0;
 
-    console.log(word);
 
     const keys=document.querySelectorAll(".keyboard-row button");
     // The below function can be used to fetch 5 letter words using APIs
@@ -102,7 +101,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     function handleSubmitWord(){
        const currentWordArr = getCurrentWordArr();
        if(currentWordArr.length!==5){
-        console.log(currentWordArr);
         window.alert("Word must be 5 letters");
         return;
        }
@@ -183,7 +181,6 @@ document.addEventListener("DOMContentLoaded",()=>{
             return;
           }
 
-          console.log(letter);
           updateGuessedWords(letter);
         };
       }

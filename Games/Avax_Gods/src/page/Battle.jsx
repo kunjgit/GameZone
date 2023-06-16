@@ -78,7 +78,6 @@ const Battle = () => {
     };
     if (contract && gameData.activeBattle) getPlayerInfo();
   }, [contract, gameData, battleName]);
-  // console.log(battleGround);
   const makeAMove = async (choice) => {
     playAudio(choice === 1 ? attackSound : defenseSound);
     try {

@@ -71,7 +71,6 @@ function createPlatforms(){
         let newPlatform = new Platform(newPlatformBottom)
 
         platforms.push(newPlatform)
-        console.log(platforms)
     }
 }
 
@@ -82,7 +81,6 @@ function createEnemy(){
         let newEnemy = new Enemy(newenemyBottom)
 
         enemys.push(newEnemy)
-        console.log(enemys)
     }
 }
 
@@ -181,7 +179,6 @@ function display(){
 
 
 function gameOver(){
-    console.log("game over")
     isGameOver = true
     while(grid.firstChild){
         grid.removeChild(grid.firstChild)

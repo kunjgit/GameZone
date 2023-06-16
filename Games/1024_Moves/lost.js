@@ -433,7 +433,6 @@ getUVWBuffer = function(type, height) {
 		UVWBuffer[type][height] =  gl.createBuffer();
 		gl.bindBuffer(gl.ARRAY_BUFFER, UVWBuffer[type][height]);
 		gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
-		//console.log(type, height, data.length/2, data);
 		UVWBuffer[type][height].itemSize = 2;
 		UVWBuffer[type][height].numItems = data.length / 2;
 	}
@@ -565,7 +564,6 @@ drawCube = function(obj) {
 	
 	//set UVW buffer
 	var buffer = getUVWBuffer(type, height);
-	//console.log("buffer.itemSize=",buffer.itemSize);
 	gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 	gl.vertexAttribPointer(shader.textureCoordAttribute, buffer.itemSize, gl.FLOAT, false, 0, 0);
 	
@@ -922,7 +920,6 @@ function drawScene() {
 								decal.z = 0;
 							} else {
 								if (!t.h) {
-									console.log(h, o.z);
 									t.o = [];
 									continue;
 								} else {
@@ -1580,7 +1577,6 @@ document.onkeyup = function(e) {
 			}
 			break;*/
 		default:
-			//console.log(e.keyCode);
 			break;
 	}
 }

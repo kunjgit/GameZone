@@ -55,9 +55,11 @@ document.addEventListener("keyup", (event) => {
 
     timestamps.unshift(getTimestamp());
     const elapsedTime = timestamps[0] - timestamps[1];
+
     console.log(`Character per minute ${60 / elapsedTime}`);
     console.log(`Press count: ${totalEntry}`); //for debugging
     console.log(`Press count: ${correctEntry}`); //for debugging
+
     highlightedKey.classList.remove("selected");
     targetRandomKey();
   }

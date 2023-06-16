@@ -1202,7 +1202,6 @@ var game;
 function start()
 {
 	game=new Game();
-	console.log("start");
 }
 function finish()
 {

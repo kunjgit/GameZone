@@ -2,7 +2,7 @@
 const generateLiTags = (gamesData) => {
     const liTags = [];
   
-    for (let tagNumber = 1; tagNumber <= 198; tagNumber++) {
+    for (let tagNumber = 1; tagNumber <= 202; tagNumber++) {
       const gameData = gamesData[tagNumber.toString()];
   
       if (gameData) {
@@ -39,4 +39,14 @@ const generateLiTags = (gamesData) => {
       projectListContainer.innerHTML = generateLiTags(gamesData);
     })
     .catch(error => console.error('Error fetching game data:', error));
+
+    
+window.addEventListener('scroll', function() {
+  var scrollToTopButton = document.getElementById('scrollToTopButton');
+  if (window.pageYOffset > 200) {
+    scrollToTopButton.style.display = 'block';
+  } else {
+    scrollToTopButton.style.display = 'none';
+  }
+});
   

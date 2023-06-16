@@ -239,7 +239,7 @@ Game.prototype.update = function(date){
                         var bBottomY = b.y + b.w;
                         if( eTopY < bBottomY &&
                          eBottomY > bTopY){
-                           //console.log('y collision b:'+j+' e:'+i);
+                           //('y collision b:'+j+' e:'+i);
                            yCollision = true;
 
                         }
@@ -253,7 +253,6 @@ Game.prototype.update = function(date){
                         if(yCollision &&
                          eLeftX < bRightX &&
                          eRightX > bLeftX ){
-                           //console.log('x collision b:'+j+' e:'+i);
                            collision = true;
 
                         }
@@ -261,7 +260,6 @@ Game.prototype.update = function(date){
 
 
                         if(collision){
-                            console.log('BUUM!!!!');
                             enemies[i].kill();
                             if(b){
                                 this.bulletsPool.push(b);

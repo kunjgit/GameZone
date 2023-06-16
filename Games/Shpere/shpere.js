@@ -34,7 +34,6 @@ function init(){
  }
  cvs_viewport.height = cvs.height;
  cvs_viewport.width = cvs.width;
-//console.log(agentTest('iPod'));
  menu = document.getElementById('menu'); //menu div
  menuGraphic = document.getElementById('menuGraphic');
  var tempsize = (cvs.height > cvs.width) ? cvs.width : cvs.height;
@@ -66,8 +65,6 @@ function init(){
  sphere_tau = -Math.PI/6; //declination angle of the sphere relative to camera
  starBoxSize = 0; //gets set in makestars();
  score = 0;
- //console.log('window.innerwidth and cvs.width = ' + window.innerWidth + ", " + cvs.width);
- //console.log('window.innerHeight and cvs.height = ' + window.innerHeight + ", " + cvs.height);
  menuState = true;
  playingState = false;
  sphereShaker = new Vibration();
@@ -85,7 +82,6 @@ function init(){
  }
  sphere = makesphere();
  paddle = new Paddle('rgba(20,160,80,0.9)', 'rgba(20,160,80,0.4)', sphere[15][15]);
- //console.log(sphere[15][15]);
  
  if (!mobile){
   stars = makestars();
@@ -253,12 +249,10 @@ function drawLongitudes(){
     ctx.strokeStyle = pt.z > 0 ? frontColor : rearColor;
    }
   }
-  //console.log('pt0.z = ' + pt2.z);
   ctx.stroke();
   //ctx.closePath();
  }
  //ctx.stroke();
- //console.log('drawing longitudes');
 }
 
 function makesphere(){
@@ -270,7 +264,6 @@ function makesphere(){
    sphere[t].push({theta: t * 12 / 360 * Math.PI * 2, phi: p * 6 / 360 * Math.PI *2}); 
   }
  }
- //console.log(sphere);
  return sphere;
 }
 
@@ -405,16 +398,6 @@ function Ball(color, x,y,z, dx,dy,dz){
     if (spherePos.theta < 0){
       spherePos.theta += Math.PI * 2;
     }
-    //console.log(spherePos.theta);
-    //console.log(paddle.vertex.theta + delta.theta);
-    /*
-    console.log("spherePos.theta and paddle.vertex.theta:");
-    console.log(spherePos.theta);
-    console.log(paddleTheta);
-    console.log("spherePos.phi and paddle.vertex.phi:");
-    console.log(spherePos.phi);
-    console.log(paddle.vertex.phi + sphere_tau);
-    */
     if (  !this.hasBounced &&
           spherePos.theta < (paddleTheta + paddle.deg/2)%(Math.PI*2) &&
           spherePos.theta > (paddleTheta - paddle.deg/2)%(Math.PI*2) &&
@@ -423,7 +406,6 @@ function Ball(color, x,y,z, dx,dy,dz){
           ){
           //spherePos.phi < paddle.vertex.phi + paddle.deg/2 + sphere_tau && 
           //spherePos.phi > paddle.vertex.phi - paddle.deg/2 + sphere_tau){
-      //console.log("bouncing");
       this.hasBounced = true;
       var N = sphereToRect(r, paddle.vertex.theta + delta.theta, paddle.vertex.phi);
       var normalFactor = Math.sqrt(N.x*N.x + N.y*N.y + N.z*N.z);
@@ -473,7 +455,6 @@ function Ball(color, x,y,z, dx,dy,dz){
     if (this.insideSphere){
       //this.drawRay();
     }
-    //console.log('ball drawing at ' + pt.x + ", " + pt.y);
   }
   this.kill = function(){
     this.deleteMe = true;
@@ -495,9 +476,6 @@ function Ball(color, x,y,z, dx,dy,dz){
     this.vel.y = -this.pos.y/normalFactor* speed;
     this.vel.z = -this.pos.z/normalFactor * speed;
     //this.vel.z = -this.pos.z/normalFactor1 * speed1;
-    //console.log("speed = " + speed1);
-    //console.log(this.pos);
-    //console.log(this.vel);
   }
   /*
   this.drawRay = function(that){
@@ -509,7 +487,6 @@ function Ball(color, x,y,z, dx,dy,dz){
     var pt1 = sphereToRect(endPoint.rho, endPoint.theta, endPoint.phi);
     //pt1.y = pt1.y;
     ctx.beginPath();
-    //console.log([velocity, endPoint])
     ctx.moveTo(pt0.x, pt0.y);
     ctx.lineTo(pt1.x, pt1.y);
     ctx.strokeStyle = 'white';
@@ -519,9 +496,6 @@ function Ball(color, x,y,z, dx,dy,dz){
   this.multiball = function(number, Normal, normalFactor){
     for (var i=0; i<number; i++){
       var newColor = 'rgb(' + Math.floor(randomRange(120,190)) + ',' + Math.floor(randomRange(120,190)) + ',' + Math.floor(randomRange(120,190)) + ')';
-      //console.log("newcolor = " + newColor);
-      //console.log("normal magnitude = " + Math.sqrt(Normal.x*Normal.x + Normal.y*Normal.y + Normal.z*Normal.z));
-      //console.log("normal.y = " + Normal.y);
       var newSpeed = Math.sqrt(this.vel.x*this.vel.x + this.vel.z*this.vel.z);
       balls.push(new Ball(newColor, Normal.x*normalFactor,Normal.y*normalFactor,Normal.z * normalFactor, 
                                           -Normal.x * (newSpeed + randomRange(-.03,.03)),
@@ -616,7 +590,6 @@ function onMouseDown(ev){
  if (balls[0].isCaught && !menuState){
   balls[0].pitch();
  }
- //console.log("x, y = " + currentMouseCoords.x + ", " + currentMouseCoords.y);
 }
 function onMouseUp(ev){
  ev.preventDefault();
@@ -701,10 +674,6 @@ function reflect(N, V0){
   var Vnew = {x:scalar*N.x/normalFactor + V0.x, 
               y:scalar*N.y/normalFactor + V0.y, 
               z:scalar*N.z/normalFactor + V0.z};
-  //console.log(scalar);
-  //console.log(N);
-  //console.log(V0);
-  //console.log(Vnew);
   return Vnew;
 }
 
@@ -722,12 +691,10 @@ function Vibration(){
     this.accel = (-this.k*this.magnitude + -this.c*this.vel)/this.m;
     this.vel = this.vel + this.accel * time;
     this.magnitude = this.magnitude + this.vel * time;
-    //console.log("magnitude = " + this.magnitude + ", vel = ", + this.vel + ", accel + " + this.accel);
     if (Math.abs(this.vel) <= 0.0001 && Math.abs(this.magnitude) > 0){
       this.vel = 0;
       this.magnitude = 0;
       this.accel = 0;
-      //console.log("stop bouncing");
     }
   }
 

@@ -314,6 +314,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 209 | [Stolen Sword](https://github.com/kunjgit/GameZone/tree/main/Games/Stolen_Sword)|  
 | 210 | [Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Mastermind)|
 | 211 | [Painting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Painting_Game)| 
+| 212 | [Platform_game_engine](https://github.com/kunjgit/GameZone/tree/main/Games/Platform_game_engine)|
+| 213 | [Butterfly_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Butterfly_Game)|
 
   
   </center>

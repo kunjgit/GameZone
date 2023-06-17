@@ -42,7 +42,6 @@ for (let r = 0; r < rows; r++) {
         board.push(row);
     }
 
-    console.log(board);
 }
 
 function setFlag() {

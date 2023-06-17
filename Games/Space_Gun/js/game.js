@@ -197,7 +197,6 @@ onkeydown = onkeyup = function(e){
 	if (map[86] && _spaceship.pts>= req_pts){
 		upgrade_timeout = setTimeout(LevelUp,30);
 	}
-	console.log(map);
 }
 
 function fuel_refill(){

@@ -1,4 +1,3 @@
-console.log("Welcome to Tic Tac Toe")
 let music = new Audio("sounds/music.mp3")
 let audioTurn = new Audio("sounds/ting.mp3")
 let gameover = new Audio("sounds/gameover.mp3")

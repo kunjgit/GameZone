@@ -87,7 +87,6 @@ onmousedown=e=>{
         })
         if(!!startButton){
             if(CollisionRect(startButton,{x:x/2,y:y/2,w,h})){
-                //console.log(startButton)
                 NewGame()
                 key1.r=0
             }

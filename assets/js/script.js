@@ -1,5 +1,83 @@
 'use strict';
 
+// Pagination in games section
+// Variable for Active Page
+let pageActive = 0;
+
+const previousPageTile = document.getElementById('prev-page-tile');
+const nextPageTile = document.getElementById('next-page-tile');
+
+function getPageNumbers() {
+  const pagination_section = document.querySelector('.pagination_section');
+  const games = document.querySelectorAll('.project-item');
+  pagination_section.innerHTML = "";
+  for (let i = 0; i < games.length; i+=20){
+    const child = document.createElement('div');
+    if (i == 0){
+      child.innerHTML = `<div id="first-page-tile" class="page-tile active">${i/20 + 1}</div>`
+    } else {
+      child.innerHTML = `<div class="page-tile">${i/20 + 1}</div>`
+    }
+    pagination_section.appendChild(child);
+  }
+
+  pageActive = 0;
+  previousPageTile.setAttribute('disabled', true);
+  for (let i = 20; i < games.length; i++) {
+    games[i].style.display = "none";
+  }
+}
+
+
+function getProjectsInPage() {
+  const pageTile = document.querySelectorAll('.page-tile');
+  const games = document.querySelectorAll('.project-item');
+  pageTile.forEach((elem, index) => {
+    elem.addEventListener('click', () => {
+      pageTile[pageActive].classList.remove('active');
+      pageActive = index;
+      elem.classList.add('active');
+      const page = Number(elem.textContent)-1;
+      if (page > 0){
+        previousPageTile.removeAttribute('disabled');
+      } else {
+        previousPageTile.setAttribute('disabled', true);
+      }
+      
+      if (index == pageTile.length-1){
+        nextPageTile.setAttribute('disabled', true);
+      } else {
+        nextPageTile.removeAttribute('disabled');
+      }
+      for (let i = 0; i < games.length; i++){
+        if (i >= page*20 && i < page*20 + 20){
+          games[i].style.display = "block";
+        } else {
+          games[i].style.display = "none";
+        }
+      }
+    })
+  });
+}
+
+
+function goToNextPage() {
+  const pageTile = document.querySelectorAll('.page-tile');
+  pageTile[pageActive].classList.remove('active');
+  pageActive++;
+  pageTile[pageActive].click();
+  pageTile[pageActive].classList.add('active');
+}
+
+
+function goToPreviousPage() {
+  const pageTile = document.querySelectorAll('.page-tile');
+  pageTile[pageActive].classList.remove('active');
+  pageActive--;
+  pageTile[pageActive].click();
+  pageTile[pageActive].classList.add('active');
+}
+
 
 
 // element toggle function
@@ -205,12 +283,11 @@ for (let i = 0; i < navigationLinks.length; i++) {
 }
 
 
+
 function search_game() {
   let input = document.getElementById('searchbar').value;
-  console.log(input)
   input = input.toLowerCase();
   let searchelement = document.getElementsByClassName('project-item  active');
-  console.log(searchelement.length);
   for (let i = 0; i < searchelement.length; i++) { 
       if (!searchelement[i].innerHTML.toLowerCase().includes(input)) {
           searchelement[i].style.display="none";
@@ -220,4 +297,13 @@ function search_game() {
       }
   }
 }
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+
 

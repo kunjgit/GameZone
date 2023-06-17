@@ -16,7 +16,7 @@ Click + Hold the left click to draw a stick
 
 ## **Screenshots 📸**
 
-![image](https://github.com/Sriparno08/GameZone/blob/add-game/assets/images/Stick_Hero_With_Canvas.png)
+![image](../../assets/images/Stick_Hero_With_Canvas.png)
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->

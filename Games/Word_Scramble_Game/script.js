@@ -31,7 +31,6 @@ window.onload = function() {
 function chooseDif1() {
   dif = 1;
   //document.getElementById('startButton').style.display = 'block';
-  console.log("easy");
   document.getElementById('chooseDifficulty').style.display = 'none';
   document.getElementsByClassName('wrapper-new')[0].style.display = 'none';
   document.getElementsByClassName('container')[0].style.display = 'block';
@@ -57,17 +56,13 @@ function chooseDif3() {
 function abc() {
   checkword();
   count++;
-  console.log(count);
   if (count >= 10) {
     clearInterval(timer);
     scoredisplay();
   }
   initialiseGame();
   // nextelement.style.display = 'none';
-  // console.log(ans);
-  // console.log(elementvalue);
   // if (ans == 5) {
-  //   console.log(ans);
   //   chooseDif1();
   // }
 
@@ -81,12 +76,8 @@ function abc() {
 
 function abc1()
 {
-    console.log("This is the next button of the rules page");
     nextelement.style.display = 'none';
-    console.log(ans);
-    console.log(elementvalue);
     if (ans == 5) {
-      console.log(ans);
       chooseDif1();
     }
   
@@ -159,15 +150,12 @@ const initialiseGame = () => {
   else if (dif == 3) {
     timetext.innerHTML = 10;
   }
-  console.log(wordtext.innerHTML);
   document.getElementsByClassName('container')[0].style.display = 'block';
   inputtext.setAttribute('maxlength', correctWord.length); //Setting the max length of the input field
-  console.log(correctWord);
 };
 
 const checkword = () => {
   let userword = inputtext.value.toLocaleLowerCase();
-  console.log(userword);
   element = document.querySelector('.emoji-display')
   // newelement = document.createElement("span");
   // element.appendChild(newelement);
@@ -228,7 +216,6 @@ const buttonGroupPressed = e => {
 
   elementvalue = e.target.id;
   if (elementvalue == "1") {
-    console.log("hello");
     ans = 5;
   }
   else if (elementvalue == "2") {
@@ -237,7 +224,6 @@ const buttonGroupPressed = e => {
   else if (elementvalue == "3") {
     ans = 7;
   }
-  console.log(ans);
   document.getElementById('chooseDifficulty').style.display = 'none';
   nextelement = document.querySelector('.wrapper-new');
   let nextnewelement = document.getElementById('abc');
@@ -251,7 +237,6 @@ buttonGroup.addEventListener("click", buttonGroupPressed);
 
 function resetgame() {
   window.clearInterval(timer);
-  console.log(timer);
   dif = 0;
   count = 0;
   document.getElementById('chooseDifficulty').style.display = 'block';

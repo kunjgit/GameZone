@@ -30,7 +30,6 @@ window.onload = function () {
 function chooseDif1() {
     dif = 1;
     //document.getElementById('startButton').style.display = 'block';
-    console.log("easy");
     document.getElementById('chooseDifficulty').style.display = 'none';
     document.getElementsByClassName('wrapper-new')[0].style.display = 'none';
     getRandomWord();
@@ -84,7 +83,6 @@ function getRandomWord() {
     element.appendChild(newelement);
     //Getting the word from the object
     word = randomobject.word;
-    console.log(word);
     //Getting the hint from the object
     hint.innerText = randomobject.hint;
 
@@ -115,11 +113,9 @@ function getRandomWord() {
     let html = "";
     for (let i = 0; i < word.length; i++) {
         html += `<input type = "text" disabled>`;
-        //console.log("Demo Text")
     }
     //Adding the input fields to the html
     inputs.innerHTML = html;
-    //console.log("Demo text")
     //document.getElementsByClassName('wrapper')[0].style.display = 'block';
 }
 
@@ -129,10 +125,8 @@ function initialiseGame(e)
     //count++;
     //document.getElementsByClassName('wrapper')[0].style.display = 'block'
     let key = e.target.value;
-    console.log(key);
     if(key.match(/^[A-Za-z]+$/) && !incorrect_letters.includes(` ${key}`) && !correct_letters.includes(` ${key}`))
     {
-        console.log(key);
         if(word.includes(key))
         {
             //The key entered by user exists in word
@@ -143,20 +137,16 @@ function initialiseGame(e)
                 {
                     correct_letters.push(` ${key}`)
                     inputs.querySelectorAll("input")[i].value = key;
-                    //console.log("Letter is found :)");
                    //$('.emoji--happy').classList.add('hover');
                    newelement.innerHTML= '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face%20with%20Big%20Eyes.png" alt="Grinning Face with Big Eyes" width="300" height="300" />'
                    element.style.display = 'flex';
                 }
-                console.log("Out of the loop")
                 // element.removeChild(lastChild);
-                // console.log("Element removed");
             }
         }
         else
         {
             newelement.innerHTML = '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Worried%20Face.png" alt="Worried Face" width="300" height="300"/>'
-           // console.log("Letter is not found :(");
             maxGuesses--;
 
            incorrect_letters.push(` ${key}`);   
@@ -235,12 +225,9 @@ function abc()
 {
     nextelement.style.display = 'none';
     nextelement.removeChild(nextnewelement);
-    console.log(ans);
-    console.log(elementvalue);
     if(ans==5)
     {
         //nextelement.style.display = 'none';
-        console.log(ans);
         chooseDif1();
     }
 
@@ -275,7 +262,6 @@ const buttonGroupPressed = e => {
   
   elementvalue = e.target.id;
   if(elementvalue=="1"){
-    console.log("hello");
       ans = 5;
   }
   else if(elementvalue=="2"){
@@ -284,7 +270,6 @@ const buttonGroupPressed = e => {
   else if(elementvalue=="3"){
       ans = 7;
   }
-  console.log(ans);
   //document.querySelector('#buttonid').value = 6;
   document.getElementById('chooseDifficulty').style.display = 'none';
   nextelement = document.querySelector('.wrapper-new');

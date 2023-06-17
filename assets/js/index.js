@@ -34,9 +34,10 @@ const generateLiTags = (gamesData) => {
   fetch('./assets/js/gamesData.json')
     .then(response => response.json())
     .then(gamesData => {
-      
       const projectListContainer = document.querySelector('.project-list');
       projectListContainer.innerHTML = generateLiTags(gamesData);
+      getPageNumbers();
+      getProjectsInPage();
     })
     .catch(error => console.error('Error fetching game data:', error));
 

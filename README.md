@@ -315,6 +315,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 210 | [Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Mastermind)|
 | 211 | [Highway 404](https://github.com/kunjgit/GameZone/tree/main/Games/Highway_404)|  
 | 212 | [BullseyeGame](https://github.com/kunjgit/GameZone/tree/main/Games/BullseyeGame)|
+| 213 | [Crossword Game](https://github.com/kunjgit/GameZone/tree/main/Games/Crossword_Game)|
+
   
  </center>
 

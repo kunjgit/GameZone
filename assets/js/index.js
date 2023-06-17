@@ -2,7 +2,7 @@
 const generateLiTags = (gamesData) => {
     const liTags = [];
   
-    for (let tagNumber = 1; tagNumber <= 202; tagNumber++) {
+    for (let tagNumber = 1; tagNumber <= 210; tagNumber++) {
       const gameData = gamesData[tagNumber.toString()];
   
       if (gameData) {
@@ -34,9 +34,10 @@ const generateLiTags = (gamesData) => {
   fetch('./assets/js/gamesData.json')
     .then(response => response.json())
     .then(gamesData => {
-      
       const projectListContainer = document.querySelector('.project-list');
       projectListContainer.innerHTML = generateLiTags(gamesData);
+      getPageNumbers();
+      getProjectsInPage();
     })
     .catch(error => console.error('Error fetching game data:', error));
 

@@ -1,4 +1,4 @@
-# **Jeopardy** 
+# **Trivia Card** 
 
 ---
 
@@ -23,5 +23,5 @@ Click on the card with the points on them. Then answer the question on the card.
 ## **Screenshots 📸**
 
 <br>
-![image](../../assets/images/Jeopardy.png)
+![image](../../assets/images/Trivia_Card.png)
 

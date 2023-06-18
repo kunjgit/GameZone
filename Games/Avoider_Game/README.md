@@ -34,7 +34,9 @@ Avoider is a game, where you must avoid other attacking balls of different color
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
 
+![image](../../assets/images/Avoider_Game.png)
 <br>
 
 ## **Working video 📹**
 <!-- add your working video over here -->
+https://drive.google.com/file/d/1wPrUVZndwtAdnHo-egYXF-WGdoiDvrwE/view?usp=sharing

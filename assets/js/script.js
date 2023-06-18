@@ -232,6 +232,7 @@ function disableDarkTheme() {
       !element.classList.contains('ignore-dark-theme') &&
       !element.classList.contains('project-category')
     ) {
+      document.body.style.transition="0.7s";
       element.classList.remove('dark-theme');
     }
   }

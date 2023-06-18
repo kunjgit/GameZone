@@ -26,6 +26,7 @@
 
 .invert-color {
   filter: invert(100%);
+  transition: 1s;
 }
 
 .theme-toggle input {
@@ -62,12 +63,15 @@ input:checked + .slider:before {
 }
 
 .dark-theme {
+  transition: 0.7s;
   filter: invert(1) hue-rotate(180deg);
 }
 
 .dark-theme .footer-content .socials li a {
+  transition: 2s;
   color: #000000;
 }
+
 
 a {
   text-decoration: none;

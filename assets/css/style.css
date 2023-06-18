@@ -2440,6 +2440,80 @@ textarea.form-input::-webkit-resizer {
   padding-right:10px ;
 }
 
+/*-----------------------------------*\
+  #PAGINATION SECTION
+\*-----------------------------------*/
+
+/* pagination position styling */
+.pagination{
+  display: flex;
+  flex-direction: row;
+  color: var(--white-1);
+  justify-content: center;
+  align-items: center;
+}
+
+#prev-page-tile,
+#next-page-tile {
+  padding: 10px;
+  background-color: rgb(104, 98, 232);
+  background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
+  color: #000;
+  cursor: pointer;
+  border-radius: 10px;
+  opacity: 0.7;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+#prev-page-tile:disabled,
+#next-page-tile:disabled {
+  background: gray;
+}
+
+#prev-page-tile:hover:not(#prev-page-tile:disabled),
+#next-page-tile:hover:not(#next-page-tile:disabled) {
+  opacity: 1;
+  background-color: #df87ef;
+}
+
+.pagination_section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-right: 5px;
+}
+
+/* pagination styling */
+.pagination_section .page-tile {
+  font-size: 20px;
+  padding: 5px 15px;
+  margin: 2px;
+  background-color: rgb(104, 98, 232);
+  background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
+  color: #000;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.7;
+  transition: opacity 0.3s, background-color 0.3s;
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2),
+              inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+              inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+  transition: 0.5s ease all;
+}
+
+/* pagination hover effect on non-active */
+.pagination_section .page-tile:hover:not(.active) {
+  opacity: 1;
+  background-color: #df87ef;
+}
+
+.pagination_section .page-tile.active{
+  font-weight: 800;
+  opacity: 1;
+  background-color: #df87ef;
+}
+
 #scrollToTopButton {
   display: none;
   position: fixed;
@@ -2472,7 +2546,3 @@ textarea.form-input::-webkit-resizer {
   margin-top: 2px;
   margin-left: 10px;
 }
-
-
-
-

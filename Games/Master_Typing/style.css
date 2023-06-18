@@ -1,5 +1,4 @@
 body {
-    /* background-color: black; */
     background: rgb(0,194,32);
     background: linear-gradient(90deg, rgba(0,194,32,1) 0%, rgba(113,77,231,1) 0%, rgba(93,220,255,1) 72%);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

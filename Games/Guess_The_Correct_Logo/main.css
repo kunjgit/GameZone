@@ -1,0 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap');
+
+
+body{
+    background-color: #26252b;
+}
+
+h1{
+    text-align: center;
+    padding-top: 70px;
+    font-family: 'Lora', serif;
+    color: #F4EEE0;
+}
+
+#game{
+    background-color: #F4EEE0;
+    padding: 20px 20px;
+    width:40%;
+    margin: 110px auto;
+    border-radius: 10px;
+}
+
+button{
+    justify-content: center;
+    margin-left: 40%;
+}

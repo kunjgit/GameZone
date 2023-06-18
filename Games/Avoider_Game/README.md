@@ -6,9 +6,8 @@
 
 ## **Description 📃**
 <!-- add your game description here  -->
-Avoider is a game, where you must avoid other attacking balls of different colors (red) in order to protect your own player ball(blue). You just have to manage to save your player ball (blue) by avoiding other balls...Try it out now!!!
+- Avoider is a game, where you must avoid other attacking balls of different colors (red) in order to protect your own player ball(blue). You just have to manage to save your player ball (blue) by avoiding other balls...Try it out now!!!
 
-- 
 
 ## **functionalities 🎮**
 <!-- add functionalities over here -->

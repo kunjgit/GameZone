@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <title>Piano-Tiles</title>
+<style>
+    #btn{
+        position: absolute;
+        top: 700;
+        left: 36%;
+        width: 300px;
+        height: 50px;
+    }
+    #start_btn {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        margin: 1rem 5rem;
+        display: block;
+        font-size: 1.3em;
+        width: 100px;
+        height: 100px;
+        font-weight: light;
+        font-family: 'Trebuchet MS', sans-serif;
+        text-align: center;
+        line-height: 100px;
+        letter-spacing: -1px;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        background: #5a99d4;
+        cursor: pointer;
+        box-shadow: 0 0 0 0 rgba(#5a99d4, .5);
+        transition: width 0.9s, height 0.9s ;
+    }
+    #start_btn:hover{
+        width: 105px;
+        height: 105px;
+        border: 1px solid #2665ec;
+    }
+    body {
+        background: #36D1DC;
+        background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+        background: linear-gradient(to right, #5B86E5, #36D1DC); 
+
+    }
+</style>
+</head>
+<body>
+    <canvas id="score_bar" width="300" height="70" style="position: absolute; left:36%;top: 0; margin:1rem 8rem;"></canvas>
+    <canvas id="background" width="300" height="600" style="position: absolute; top:70; left: 36%; margin:3rem 8rem;" ></canvas>
+    <canvas id="piano" width="300" height="600" style="position: absolute; top:70; left: 36%; margin:3rem 8rem;"></canvas>
+    <audio  id="music" src="MUSIC.mp3" loop ></audio>
+
+    <div id="btn">
+        <span id="start_btn">START</span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

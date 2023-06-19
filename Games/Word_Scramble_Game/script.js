@@ -15,6 +15,8 @@ let nextnewelement;
 let count = 0;
 let score = 0;
 let element = document.querySelector('.emoji-display');
+let msg = document.querySelector('.status-msg');
+
 let newelement;
 window.onload = function() {
   document.getElementsByClassName('container')[0].style.display = 'none';
@@ -114,6 +116,8 @@ const initialiseGame = () => {
   newelement = "";
   // document.getElementsByClassName('container')[0].style.display = 'block';
   element = document.querySelector('.emoji-display')
+  element.style.display = 'none';
+  msg.style.display = 'none';
   // newelement = document.createElement("span");
   // element.appendChild(newelement);
   
@@ -162,6 +166,8 @@ const checkword = () => {
   if (!userword) {
     element.innerHTML = `<span><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grimacing%20Face.png" alt="Grimacing Face" width="300" height="300" /></span>`;
     element.style.display = 'flex';
+    msg.innerText = 'Can"t be empty';
+    msg.style.display = 'block';
   }
   else{
       if (userword !== correctWord) {
@@ -170,6 +176,9 @@ const checkword = () => {
         // return alert(`Oops! The correct word is ${correctWord}`);
         element.innerHTML = '<span><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Worried%20Face.png" alt="Worried Face" width="300" height="300"/></span>';
         element.style.display = 'flex';
+
+        msg.innerText = 'Wrong Answer : (';
+        msg.style.display = 'block';
         //document.getElementsByClassName('emoji-display')[0].style.display = 'flex';
       
       }
@@ -180,6 +189,14 @@ const checkword = () => {
         score++;
         element.innerHTML= '<span><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face%20with%20Big%20Eyes.png" alt="Grinning Face with Big Eyes" width="300" height="300" /></span>';
         element.style.display = 'flex';
+
+        msg.innerText = 'Right Answer : )';
+        msg.style.display = 'block';
+
+        setTimeout(() => {
+          initialiseGame();
+        }, 3000)
+
       }
     }
 }

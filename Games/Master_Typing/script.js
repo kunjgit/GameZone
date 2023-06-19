@@ -114,22 +114,32 @@ function padNumber(number) {
   return number.toString().padStart(2, "0");
 }
 
-// New function for assessment
 function assessment() {
   const accuracy = (correctEntry / totalEntry) * 100;
   const acc = accuracy.toFixed(2);
 
-  timerElement.innerHTML = `You type with the speed of ${correctEntry} CPM. Your accuracy was ${acc}%. `;
+  // Get the popup overlay and content elements
+  const popupOverlay = document.getElementById("popupOverlay");
+  const popupContent = document.getElementById("popupContent");
 
-  if (correctEntry > 60) {
-    timerElement.innerHTML += `<br> <p style="display: flex; justify-content: center">Excellent!!!</p>`;
-  } else if (correctEntry >= 50 && correctEntry < 60) {
-    timerElement.innerHTML += `<br> <p style="display: flex; justify-content: center">Great!</p>`;
-  } else if (correctEntry >= 35 && correctEntry < 50) {
-    timerElement.innerHTML += `<br> <p style="display: flex; justify-content: center">Good attempt</p>`;
-  } else if (correctEntry >= 20 && correctEntry < 35) {
-    timerElement.innerHTML += `<br> <p style="display: flex; justify-content: center">Fair enough</p>`;
-  } else {
-    timerElement.innerHTML += `<br> <p style="display: flex; justify-content: center">Need More Practice!</p>`;
-  }
+  // Create the content of the popup
+  const popupHTML = `
+    <h2>Typing Result</h2>
+    <p>You typed with a speed of <stong> ${correctEntry} CPM </strong>.<br>Your accuracy was <strong> ${acc}% </strong>.</p>
+  `;
+
+  // Set the content of the popup
+  popupContent.innerHTML = popupHTML;
+
+  // Show the popup by removing the "hidden" class
+  popupOverlay.classList.remove("hidden");
+
+  // Hide the popup after a timeout
+  setTimeout(function () {
+    popupOverlay.classList.add("hidden");
+  }, 4000); // Change the timeout duration (in milliseconds) as needed
+
+  // Update the timerElement with the result content
+  timerElement.innerHTML = "00:00";
 }
+

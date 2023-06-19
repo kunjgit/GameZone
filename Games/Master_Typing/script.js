@@ -37,8 +37,8 @@ document.addEventListener("keyup", (event) => {
   totalEntry++;
 
    // Add sound
-    const audio = new Audio("assets/Right_Press.mp3");
-    audio.play();
+    // const audio = new Audio("assets/Right_Press.mp3");
+    // audio.play();
 
   keyElement.classList.add("hit");
   keyElement.addEventListener("animationend", () => {
@@ -49,9 +49,9 @@ document.addEventListener("keyup", (event) => {
     //counting the correct entry
     correctEntry++;
 
-    // // Add right sound
-    // const audio = new Audio("assets/Right_Press.mp3");
-    // audio.play();
+    // Add right sound
+    const audio = new Audio("assets/Right_Press.mp3");
+    audio.play();
 
     timestamps.unshift(getTimestamp());
     const elapsedTime = timestamps[0] - timestamps[1];
@@ -63,11 +63,11 @@ document.addEventListener("keyup", (event) => {
     highlightedKey.classList.remove("selected");
     targetRandomKey();
   }
-  //  else {
-  //   // Add wrong sound
-  //   const audio = new Audio("assets/Wrong_Press.wav");
-  //   audio.play();
-  // }
+   else {
+    // Add wrong sound
+    const audio = new Audio("assets/Wrong_Press.wav");
+    audio.play();
+  }
 });
 
 targetRandomKey();

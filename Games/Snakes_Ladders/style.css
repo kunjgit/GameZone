@@ -6,19 +6,19 @@ td{
 }
 body{
     margin-top: 0%;
-    background-color: #4559d3;
+    background-color: #93d345;
 }
 #playBox{
     margin-left: 40%;
 }
 .yellow{
-    background-color: antiquewhite;
+    background-color: rgb(215, 250, 237);
 }
 .violet{
-    background-color: #9d099d;
+    background-color: #097d9d;
 }
 .green{
-    background-color: #42b542;
+    background-color: #5942b5;
 }
 .deepskyblue{
     background-color: deepskyblue;
@@ -27,15 +27,10 @@ body{
     background-color: orange;
 }
 .pink{
-    background-color: hotpink;
+    background-color: rgb(118, 105, 255);
 }
-#l1{
-    position: absolute;
-    top: 71%;
-    transform: rotate(38deg);
-    left: 52%;
-    width: 161px;
-}
+
+
 #l2{
     position: absolute;
     top: -2%;
@@ -51,21 +46,6 @@ body{
     top: 1%;
     left: 40%;
     height: 228px;
-}
-#l4{
-    height: 253px;
-    width: 161px;
-    position: absolute;
-    top: 42%;
-    left: 84%;
-}
-#l5{
-    height: 171px;
-    width: 161px;
-    position: absolute;
-    transform: rotate(32deg);
-    top: 1%;
-    left: 87%;
 }
 
 #player{
@@ -85,7 +65,7 @@ body{
     border: solid floralwhite 4px;
     font-size: xx-large;
     font-weight: bold;
-    background-color: deeppink;
+    background-color: rgb(20, 28, 255);
     color: floralwhite;
     border-radius: 22px;
     margin-top: 14px;
@@ -106,7 +86,7 @@ body{
     width: 120px;
     font-size: 14px;
     font-weight: bold;
-    background-color: deeppink;
+    background-color: rgb(75, 20, 255);
     border: solid 4px floralwhite;
     border-radius: 20px;
     margin-top: 2%;

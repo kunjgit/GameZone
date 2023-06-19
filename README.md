@@ -323,6 +323,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 218 | [Island Survival](https://github.com/kunjgit/GameZone/tree/main/Games/Island_Survival)|
 | 219 | [Linkup Game](https://github.com/kunjgit/GameZone/tree/main/Games/linkup)| 
 | 220 | [Trivia_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Trivia_Card)|
+| 221 | [Insect Catch Game](https://github.com/kunjgit/GameZone/tree/main/Games/Insect_Catch_Game)|)
+
 
 
  </center>

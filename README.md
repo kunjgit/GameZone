@@ -324,6 +324,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 219 | [Linkup Game](https://github.com/kunjgit/GameZone/tree/main/Games/linkup)| 
 | 220 | [Trivia_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Trivia_Card)|
 | 221 | [Insect Catch Game](https://github.com/kunjgit/GameZone/tree/main/Games/Insect_Catch_Game)|)
+| 222 | [Carnival_game](https://github.com/kunjgit/GameZone/tree/main/Games/Carnival_game)|
 
 
 

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNAKE AND LADDER GAME</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    
+</head>
+<body>
+   <div id="playBox">
+       <table>
+           <tr>
+               <td id="100" class="deepskyblue"></td>
+               <td id="99" class="orange"></td>
+               <td id="98" class="deepskyblue"></td>
+               <td id="97" class="green"></td>
+               <td id="96" class="violet"></td>
+               <td id="95" class="deepskyblue"></td>
+               <td id="94" class="violet"></td>
+               <td id="93" class="deepskyblue"></td>
+               <td id="92" class="green"></td>
+               <td id="91" class="violet"></td>
+        </tr>
+         <tr> 
+             <td id="81" class="yellow"></td>
+             <td id="82" class="pink"></td>
+              <td id="83" class="violet"></td>
+              <td id="84" class="yellow"></td>
+               <td id="85" class="pink"></td>
+               <td id="86" class="yellow"></td>
+             <td id="87" class="green"></td>
+             <td id="88" class="pink"></td>
+             <td id="89" class="yellow"></td>
+             <td id="90" class="orange"></td> 
+        </tr>
+        <tr>
+             <td id="80" class="green"></td>
+             <td id="79" class="deepskyblue"></td>
+             <td id="78" class="orange"></td>
+             <td id="77" class="deepskyblue"></td>
+             <td id="76" class="green"></td>
+             <td id="75" class="deepskyblue"></td>
+             <td id="74" class="orange"></td>
+             <td id="73" class="deepskyblue"></td>
+             <td id="72" class="violet"></td>
+            <td id="71" class="deepskyblue"></td>
+        </tr>
+        <tr>
+            <td id="61" class="yellow"></td>
+            <td id="62" class="pink"></td>
+            <td id="63" class="yellow"></td>
+            <td id="64" class="violet"></td>
+            <td id="65" class="yellow"></td>
+            <td id="66" class="violet"></td>
+            <td id="67" class="yellow"></td>
+            <td id="68" class="green"></td>
+            <td id="69" class="yellow"></td>
+            <td id="70" class="green"></td>
+        </tr>
+        <tr>
+              <td id="60" class="deepskyblue"></td>
+              <td id="59" class="violet"></td>
+              <td id="58" class="orange"></td>
+              <td id="57" class="deepskyblue"></td>
+              <td id="56" class="orange"></td>
+              <td id="55" class="pink"></td>
+              <td id="54" class="orange"></td>
+              <td id="53" class="deepskyblue"></td>
+              <td id="52" class="pink"></td>
+               <td id="51" class="violet"></td>  
+           </tr>
+            <tr>
+               <td id="41" class="yellow"></td>
+               <td id="42" class="pink"></td>
+               <td id="43" class="yellow"></td>
+               <td id="44" class="green"></td>
+               <td id="45" class="yellow"></td>
+               <td id="46" class="green"></td>
+               <td id="47" class="yellow"></td>
+               <td id="48" class="green"></td>
+               <td id="49" class="yellow"></td>
+               <td id="50" class="orange"></td>
+           </tr>
+         <tr>
+             <td id="40" class="green"></td>
+             <td id="39" class="deepskyblue"></td>
+              <td id="38" class="orange"></td>
+              <td id="37" class="violet"></td>
+              <td id="36" class="deepskyblue"></td>
+              <td id="35" class="pink"></td>
+               <td id="34" class="violet"></td>
+               <td id="33" class="deepskyblue"></td>
+               <td id="32" class="violet"></td>
+               <td id="31" class="deepskyblue"></td>   
+           </tr>
+           <tr>
+               <td id="21" class="violet"></td>
+               <td id="22" class="yellow"></td>
+               <td id="23" class="green"></td>
+               <td id="24" class="yellow"></td>
+               <td id="25" class="green"></td>
+               <td id="26" class="yellow"></td>
+               <td id="27" class="orange"></td>
+               <td id="28" class="green"></td>
+               <td id="29" class="yellow"></td>
+               <td id="30" class="green"></td>
+           </tr>
+            <tr>
+                <td id="20" class="deepskyblue"></td>
+                <td id="19" class="orange"></td>
+                <td id="18" class="pink"></td>
+                <td id="17" class="violet"></td>
+                <td id="16" class="pink"></td>
+                 <td id="15" class="violet"></td>
+                  <td id="14" class="deepskyblue"></td>
+                 <td id="13" class="violet"></td>  
+                   <td id="12" class="pink"></td>
+               <td id="11" class="violet"></td>
+           </tr>
+           <tr>
+               <td id="1" class="yellow"></td>
+               <td id="2" class="violet"></td>
+               <td id="3" class="green"></td>
+               <td id="4" class="deepskyblue"></td>
+               <td id="5" class="orange"></td>
+               <td id="6" class="yellow"></td>
+               <td id="7" class="green"></td>
+               <td id="8" class="yellow"></td>
+               <td id="9" class="orange"></td>
+               <td id="10" class="deepskyblue"></td>
+           </tr>
+       </table>
+   </div>
+   <img src="s1.png" style="position: absolute;top: 1.5%; left:53%;">
+   <img src="s2.png" style="position: absolute;top: 20%;left: 82%;height: 210px;">
+   <img src="s3.png" style="position: absolute;top: 20%;left: 43%;">
+   <img src="s5.png" style="position: absolute;top: 41%;left: 37%;transform: rotateZ(-52deg);">
+   <img src="s7.png" style="position: absolute;top: 66%;left: 56%;transform: rotateZ(-29deg);">
+   <img src="s8.png" style="position: absolute;top: 14%;left: 46%;transform: rotate(45deg);">
+  <img src="ladder.png" id="l1">
+  <img src="ladder2.png" id="l2">
+  <img src="ladder.png" id="l3">
+  <img src="ladder.png" id="l4">
+  <img src="ladder.png" id="l5">
+
+  <div id="player">
+      GAME TYPE<br>
+     <button type="button" id="choose_player" onclick="choose_player()">
+         CHOOSE GAME TYPE
+     </button>
+  </div>
+  <div id="color_choose">
+      <div id="player1">
+      choose the color for player1: 
+      <select id="select1">
+          <option style="background-color: red;color: floralwhite;">red</option>
+          <option style="background-color: green;color: floralwhite;">green</option>
+          <option style="background-color: yellow;color:floralwhite;">yellow</option>
+          <option style="background-color: blue;color: floralwhite;">blue</option>
+      </select>
+      </div>
+      <div id="player2">
+      choose the color for player2: 
+      <select id="select2">
+          <option style="background-color: green;color: floralwhite;">green</option>
+        <option style="background-color: red;color: floralwhite;">red</option>
+          <option style="background-color: yellow;color:floralwhite;">yellow</option>
+          <option style="background-color: blue;color: floralwhite;">blue</option>
+      </select>
+      </div>
+      <div id="player3">
+      choose the color for player3: 
+      <select id="select3">
+          <option style="background-color: yellow;color:floralwhite;">yellow</option>
+          <option style="background-color: red;color: floralwhite;">red</option>
+          <option style="background-color: green;color: floralwhite;">green</option>
+          <option style="background-color: blue;color: floralwhite;">blue</option>
+      </select>
+      </div>
+      <div id="player4">
+      choose the color for player4: 
+      <select id="select4">
+          <option style="background-color: blue;color: floralwhite;">blue</option>
+          <option style="background-color: red;color: floralwhite;">red</option>
+          <option style="background-color: green;color: floralwhite;">green</option>
+          <option style="background-color: yellow;color:floralwhite;">yellow</option>
+      </select>
+      </div>
+  </div>
+
+  <button type="button" id="play" onclick="start()">
+      START
+  </button>
+<div id="image_slide">
+    <img src="i4.jfif" id="poster">
+</div>
+
+<div id="dice">
+    <img src="6.png">
+</div>
+
+<div id="color_box">
+    <div id="red" style="background-color: red;height: 30px;width: 30px;border-radius: 50%;position: absolute;top: 23%;left: 23%;"></div>
+    <div id="green" style="background-color: green;height: 30px;width: 30px;border-radius: 50%;position: absolute;top: 23%;left: 60%;"></div>
+    <div id="yellow" style="background-color: yellow;height: 30px;width: 30px;border-radius: 50%;position: absolute;top: 50%;left: 23%;"></div>
+    <div id="blue" style="background-color: blue;height: 30px;width: 30px;border-radius: 50%;position: absolute;top: 50%;left: 60%;"></div>
+</div>
+
+   <script src="script.js"></script>
+    
+</body>
+</html>

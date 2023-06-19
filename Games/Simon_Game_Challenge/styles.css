@@ -17,6 +17,15 @@ body {
   font-size: 3rem;
   color: #fef2bf;
 }
+
+#play-button > i:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: .2s ease;
+  color: #e90064;
+  filter: drop-shadow(2px 2px 1px black);
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;

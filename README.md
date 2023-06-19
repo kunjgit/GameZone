@@ -322,6 +322,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 217 | [Doppelkopf](https://github.com/kunjgit/GameZone/tree/main/Games/Doppelkopf)|
 | 218 | [Island Survival](https://github.com/kunjgit/GameZone/tree/main/Games/Island_Survival)|
 | 219 | [Linkup Game](https://github.com/kunjgit/GameZone/tree/main/Games/linkup)| 
+| 220 | [Trivia_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Trivia_Card)|
 
 
  </center>

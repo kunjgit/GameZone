@@ -327,6 +327,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 222 | [Carnival_game](https://github.com/kunjgit/GameZone/tree/main/Games/Carnival_game)|
 | 223 | [Make Me Laugh](https://github.com/kunjgit/GameZone/tree/main/Games/Make_Me_Laugh)|
 | 224 | [Avoider_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Avoider_Game)|
+| 225 | [AI-CHESS-Game](https://github.com/kunjgit/GameZone/tree/main/Games/AI-CHESS-Game)|
 
 
 

@@ -1,4 +1,4 @@
-RUN AND JUMP GAME
+           Title : RUN AND JUMP GAME
 
 
 Here is a simple yet attractive game using HTML, CSS and JavaScript .

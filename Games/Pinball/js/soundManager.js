@@ -132,7 +132,6 @@ SoundManager.prototype = {
 	 * Sound for left flipper 
 	 */
 	playLeftFlipper : function() {
-		//console.log("SFX left flipper");
 		if (this.audioTagSupport && this.persistentData.soundOn) {
 			this.audioLeftFlipper.currentTime=0;
 			this.audioLeftFlipper.play();
@@ -143,7 +142,6 @@ SoundManager.prototype = {
 	 * Sound for right flipper (same as left flipper, but different channel)
 	 */
 	playRightFlipper : function() {
-		//console.log("SFX right flipper");
 		if (this.audioTagSupport && this.persistentData.soundOn) {
 			this.audioRightFlipper.currentTime=0;
 			this.audioRightFlipper.play();
@@ -154,7 +152,6 @@ SoundManager.prototype = {
 	 * Sound for bumper
 	 */
 	playBumper : function() {
-		//console.log("SFX bumper");
 		if (this.audioTagSupport && this.persistentData.soundOn) {
 			this.audioBumper.currentTime=0;
 			this.audioBumper.play();

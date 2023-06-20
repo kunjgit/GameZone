@@ -13,7 +13,6 @@ const addNewEvent = (eventFilter, provider, cb) => {
 };
 const getCards = (cardRef) => {
   const { left, top, width, height } = cardRef.current.getBoundingClientRect();
-  console.log(left, top, width, height);
   return {
     pageX: left + width / 2,
     pageY: top + height / 2.25,
@@ -31,7 +30,6 @@ export const createEventListeners = ({
 }) => {
   const newPlayerEventFilter = contract.filters.NewPlayer();
   addNewEvent(newPlayerEventFilter, provider, ({ args }) => {
-    console.log("New player created! ", args);
     if (walletAddress.toLowerCase() === args.owner.toLowerCase()) {
       setShowAlert({
         status: true,
@@ -44,7 +42,6 @@ export const createEventListeners = ({
 
   const newGameTokenEventFilter = contract.filters.NewGameToken();
   addNewEvent(newGameTokenEventFilter, provider, ({ args }) => {
-    console.log("New game token created! ", args);
     if (walletAddress.toLowerCase() === args.owner.toLowerCase()) {
       setShowAlert({
         status: true,
@@ -57,7 +54,6 @@ export const createEventListeners = ({
 
   const newBattleEventFilter = contract.filters.NewBattle();
   addNewEvent(newBattleEventFilter, provider, ({ args }) => {
-    console.log("New battle started!", args, walletAddress);
     if (
       walletAddress.toLowerCase() === args.player1.toLowerCase() ||
       walletAddress.toLowerCase() === args.player2.toLowerCase()
@@ -69,12 +65,10 @@ export const createEventListeners = ({
   });
   const BattleMoveEventFilter = contract.filters.BattleMove();
   addNewEvent(BattleMoveEventFilter, provider, ({ args }) => {
-    console.log(`Battle move initiated`, args);
   });
 
   const RoundedEndedEventFilter = contract.filters.RoundEnded();
   addNewEvent(RoundedEndedEventFilter, provider, ({ args }) => {
-    console.log(`Round ended!`, args, walletAddress);
     for (let i = 0; i < args.damagedPlayers.length; i += 1) {
       if (args.damagedPlayers[i] !== emptyAccount) {
         if (args.damagedPlayers[i] === walletAddress) {
@@ -92,7 +86,6 @@ export const createEventListeners = ({
 
   const BattleEndedEventFilter = contract.filters.BattleEnded();
   addNewEvent(BattleEndedEventFilter, provider, ({ args }) => {
-     console.log('battle ended',args,walletAddress);
      if(walletAddress.toLowerCase()==args.winner.toLowerCase())
      {
       setShowAlert({status: true,

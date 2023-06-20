@@ -1403,7 +1403,6 @@ helpers = function () {
         var extension = paths[i].split('.').pop();
         var supported = p5.prototype.isFileSupported(extension);
         if (supported) {
-          // console.log('.'+extension + ' is ' + supported +
           //  ' supported by your browser.');
           path = paths[i];
           break;
@@ -3296,7 +3295,6 @@ amplitude = function () {
     }
     // connect to the master out of p5s instance if no snd is provided
     if (source == null) {
-      console.log('Amplitude input source is not ready! Connecting to master output instead');
       p5sound.meter.connect(this.processor);
     } else if (source instanceof p5.Signal) {
       source.output.connect(this.processor);
@@ -3828,7 +3826,6 @@ fft = function () {
   };
   // compatability with v.012, changed to getEnergy in v.0121. Will be deprecated...
   p5.FFT.prototype.getFreq = function (freq1, freq2) {
-    console.log('getFreq() is deprecated. Please use getEnergy() instead.');
     var x = this.getEnergy(freq1, freq2);
     return x;
   };
@@ -6767,7 +6764,6 @@ envelope = function () {
    *  }
    *
    *  function envAttack()  {
-   *    console.log('trigger attack');
    *    env.triggerAttack();
    *
    *    background(0,255,0);
@@ -6871,7 +6867,6 @@ envelope = function () {
    *  }
    *
    *  function envAttack()  {
-   *    console.log('trigger attack');
    *    env.triggerAttack();
    *
    *    background(0,255,0);
@@ -7680,7 +7675,6 @@ audioin = function () {
    *
    *    audioGrab.getSources(function(deviceList) {
    *      //print out the array of available sources
-   *      console.log(deviceList);
    *      //set the source to the first item in the deviceList array
    *      audioGrab.setSource(0);
    *    });
@@ -7722,7 +7716,6 @@ audioin = function () {
     if (p5sound.inputSources.length > 0 && num < p5sound.inputSources.length) {
       // set the current source
       this.currentSource = num;
-      console.log('set source to ', p5sound.inputSources[this.currentSource]);
     } else {
       console.log('unable to set input source');
     }
@@ -10393,7 +10386,6 @@ metro = function () {
     if (elapsedTime - this.tatumTime <= -0.02) {
       return;
     } else {
-      // console.log('ok', this.syncedParts[0].phrases[0].name);
       this.prevTick = tickTime;
       // for all of the active things on the metro:
       var self = this;
@@ -10791,7 +10783,6 @@ looper = function () {
       this.partStep += 1;
     } else {
       if (!this.looping && this.partStep === this.length - 1) {
-        console.log('done');
         // this.callback(time);
         this.onended();
       }

@@ -270,7 +270,6 @@ var Square = function () {
     }
 
     Square.prototype.clear = function () {
-        console.log('y');
         var x = this.data.x-rs.x/2;
         var y = this.data.y-rs.x/2;
         var size = this.data.size+rs.x;
@@ -728,7 +727,6 @@ var Gameassets = function () {
          Piece.prototype.nextl = function () {
             for (var s = 0; s < this.squares.length; s++) {
                 this.squares[s].clear();
-                console.log('u');
             }
         };
         
@@ -1112,7 +1110,6 @@ var Gameassets = function () {
             this.deselect();
         };
         PieceBox.prototype.nextl = function () {
-            console.log('yy');
             for (var v = 0; v<this.pa.length; v++) {
                 this.pa[v].nextl();
             }        

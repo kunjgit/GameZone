@@ -1376,12 +1376,14 @@ main {
   font-weight: var(--fw-400);
   text-transform: capitalize;
   line-height: 1.3;
+  text-align: center;
 }
 
 .project-category {
   color: var(--light-gray-70);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
+  text-align: center;
 }
 
 

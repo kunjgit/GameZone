@@ -1,4 +1,3 @@
-# **Game_Name** 
 # **Fruit_Catching** 
 
 ---

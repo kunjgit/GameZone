@@ -13,7 +13,7 @@ const generateLiTags = (gamesData) => {
             <a href="./Games/${gameUrl}">
               <figure class="project-img">
                 <div class="project-item-icon-box">
-                  <img id="joystick" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Eye" width="3" />
+                  <i id="joystick" alt="Eye" width="3" class="fa-solid fa-eye"></i>
                 </div>
                 <img src="./assets/images/${thumbnailUrl}" alt="${gameTitle}" loading="lazy">
               </figure>

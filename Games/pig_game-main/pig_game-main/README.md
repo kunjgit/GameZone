@@ -1,8 +1,7 @@
 # Pig game
 
+##  how to play
 Pig is a simple two player dice game.
-
-Play here: [formidablae.github.io/pig_game](https://formidablae.github.io/pig_game/) or [formidablae-pig-game.netlify.app](https://formidablae-pig-game.netlify.app/)
 
 Each turn, a player repeatedly rolls a dice. The player may decide to hold the score and change turn or addup with another roll.
 
@@ -11,4 +10,5 @@ Each turn, a player repeatedly rolls a dice. The player may decide to hold the s
 - If a player chooses to "hold" the current score, their turn total is added to their score and the other player takes turn.
 - The first player to score 100 or more points wins.
 
-<img src="./images/pig-game-animation.gif" />
+![image](https://github.com/ePSA-eJya/GameZone-forked/assets/120899038/4b6703ec-3707-46f2-8509-580903fbb7d9)
+

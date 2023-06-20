@@ -26,39 +26,72 @@ function getPageNumbers() {
   for (let i = 20; i < games.length; i++) {
     games[i].style.display = "none";
   }
+
+  // Initially hide non-active page tiles
+  const pageTiles = document.querySelectorAll('.page-tile');
+  for (let i = 1; i < pageTiles.length - 1; i++) {
+    pageTiles[i].style.display = 'none';
+  }
 }
 
 
 function getProjectsInPage() {
   const pageTile = document.querySelectorAll('.page-tile');
   const games = document.querySelectorAll('.project-item');
+  const visiblePageCount = 3; // Number of visible page tiles (1 previous, 1 active, 1 next)
+
   pageTile.forEach((elem, index) => {
     elem.addEventListener('click', () => {
-      pageTile[pageActive].classList.remove('active');
-      pageActive = index;
+      const page = Number(elem.textContent) - 1;
+
+      // Update active page tile
+      pageTile.forEach((tile) => {
+        tile.classList.remove('active');
+      });
       elem.classList.add('active');
-      const page = Number(elem.textContent)-1;
-      if (page > 0){
-        previousPageTile.removeAttribute('disabled');
-      } else {
-        previousPageTile.setAttribute('disabled', true);
+
+      // Update previous and next page tiles visibility
+      pageTile.forEach((tile, tileIndex) => {
+        if (
+          tileIndex >= page - 1 && 
+          tileIndex <= page + 1 && 
+          tileIndex >= 0 && 
+          tileIndex < pageTile.length
+        ) {
+          tile.style.display = 'block';
+        } else {
+          tile.style.display = 'none';
+        }
+      });
+
+      // Update games visibility
+      const startGameIndex = page * 20;
+      for (let i = 0; i < games.length; i++) {
+        if (i >= startGameIndex && i < startGameIndex + 20) {
+          games[i].style.display = 'block';
+        } else {
+          games[i].style.display = 'none';
+        }
       }
-      
-      if (index == pageTile.length-1){
+
+      // Update previous and next page buttons
+      if (page === 0) {
+        previousPageTile.setAttribute('disabled', true);
+      } else {
+        previousPageTile.removeAttribute('disabled');
+      }
+
+      if (page === pageTile.length - 1) {
         nextPageTile.setAttribute('disabled', true);
       } else {
         nextPageTile.removeAttribute('disabled');
       }
-      for (let i = 0; i < games.length; i++){
-        if (i >= page*20 && i < page*20 + 20){
-          games[i].style.display = "block";
-        } else {
-          games[i].style.display = "none";
-        }
-      }
-    })
+    });
   });
 }
+
+
+
 
 
 function goToNextPage() {

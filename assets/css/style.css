@@ -85,7 +85,7 @@ footer {
   right: 0;
 
   height: auto;
-  
+
   position: static; 
   bottom: 0;
   width: 100%;
@@ -2451,68 +2451,94 @@ textarea.form-input::-webkit-resizer {
   color: var(--white-1);
   justify-content: center;
   align-items: center;
+  margin-top: 5%;
 }
 
 #prev-page-tile,
 #next-page-tile {
+  font-size: 60px;
   padding: 10px;
-  background-color: rgb(104, 98, 232);
-  background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
-  color: #000;
+  color: #fff;
   cursor: pointer;
   border-radius: 10px;
   opacity: 0.7;
-  transition: opacity 0.3s, background-color 0.3s;
+  /* transition: opacity 0.3s, background-color 0.3s; */
 }
 
 #prev-page-tile:disabled,
 #next-page-tile:disabled {
-  background: gray;
+  color: gray;
 }
 
-#prev-page-tile:hover:not(#prev-page-tile:disabled),
+/* #prev-page-tile:hover:not(#prev-page-tile:disabled),
 #next-page-tile:hover:not(#next-page-tile:disabled) {
   opacity: 1;
   background-color: #df87ef;
-}
+} */
 
 .pagination_section {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin-right: 5px;
+  margin-left: 5px;
 }
 
 /* pagination styling */
+/* Pagination styling */
 .pagination_section .page-tile {
-  font-size: 20px;
+  font-size: 0;
   padding: 5px 15px;
   margin: 2px;
-  background-color: rgb(104, 98, 232);
-  background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
+  /* background-color: rgb(104, 98, 232); */
+  /* background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%); */
   color: #000;
   cursor: pointer;
-  border-radius: 50%;
   opacity: 0.7;
   transition: opacity 0.3s, background-color 0.3s;
   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2),
-              inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-              inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+    -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
   transition: 0.5s ease all;
+  position: relative;
 }
 
-/* pagination hover effect on non-active */
+.pagination_section .page-tile:not(.active)::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  /* background: #fff; */
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Pagination hover effect on non-active */
 .pagination_section .page-tile:hover:not(.active) {
   opacity: 1;
   background-color: #df87ef;
 }
 
-.pagination_section .page-tile.active{
-  font-weight: 800;
+.pagination_section .page-tile.active {
+
   opacity: 1;
   background-color: #df87ef;
 }
+
+.pagination_section .page-tile.active::before {
+
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 #scrollToTopButton {
   display: none;
@@ -2532,9 +2558,9 @@ textarea.form-input::-webkit-resizer {
   opacity: 0.7;
   transition: opacity 0.3s, background-color 0.3s;
   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2),
-              inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-              inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+    -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
 }
 
 #scrollToTopButton:hover {

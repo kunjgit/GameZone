@@ -25,7 +25,7 @@ Type your guess into the text box and submit it.
 <br>
 
 ## **Screenshots 📸**
-![Alt text](image.png)
+![Alt text](Guess_the_movie.png)
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->

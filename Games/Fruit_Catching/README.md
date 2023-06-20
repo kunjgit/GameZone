@@ -25,7 +25,7 @@
 
 <br>
 <!-- add your screenshots like this -->
-<img src="Screenshot 2023-06-20 203811.png">
+ [Fruit_Catching](https://github.com/Darkrider0007/GameZone/blob/main/Games/Fruit_Catching/assets/Screenshot%202023-06-20%20203811.png)|
 
 <br>
 

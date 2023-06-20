@@ -3,6 +3,7 @@
 Welcome to the Celebrity Guessing Game! This is a JavaScript game where you have to guess the correct celebrity based on the given hints and images.
 
 ## Demo
+![Demo](https://github.com/amelia2802/GameZone/assets/49182604/5f661f54-9fa0-4b5d-af74-54cd82c3ea57)
 
 ## How to Play
 

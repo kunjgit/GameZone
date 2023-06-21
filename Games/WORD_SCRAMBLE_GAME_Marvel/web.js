@@ -22,7 +22,12 @@ let sWords = [
   "morag",
   "yellowjacket",
   "nigeria",
-  "shuri"
+  "shuri",
+  "groot",
+  "peterparker",
+  "wakanda",
+  "thanos",
+  "eitri"
 ];
 const createNewWords = function () {
   let randNum = Math.floor(Math.random() * sWords.length);
@@ -179,6 +184,22 @@ btn.addEventListener("click", function () {
           show.innerHTML = "shuri";
           guess.value = "shuri";
         }
+        else if (newWords === sWords[15]) {
+          show.innerHTML = "groot";
+          guess.value = "groot";
+        } else if (newWords === sWords[16]) {
+          show.innerHTML = "peterparker";
+          guess.value = "peterparker";
+        } else if (newWords === sWords[17]) {
+          show.innerHTML = "wakanda";
+          guess.value = "wakanda";
+        } else if (newWords === sWords[18]) {
+          show.innerHTML = "thanos";
+          guess.value = "thanos";
+        } else if (newWords === sWords[19]) {
+          show.innerHTML = "eitri";
+          guess.value = "eitri";
+        }
       });
     }
   }
@@ -232,13 +253,26 @@ function hintQuestions() {
     hint.innerHTML =
       "HINT:. In the Ant-Man, Darren Cross developed a shrinking suit similar to the one worn by Scott Lang. What was it called?";
     console.log("yellowjacket");
-  }else if (newWords === sWords[13]) {
+  } else if (newWords === sWords[13]) {
     hint.innerHTML =
       "HINT:. In Black Panther, what African country is Nakia operating in as a spy before T’Challa arrived and brought her back to Wakanda?";
     console.log("nigeria");
-  }else if (newWords === sWords[14]) {
+  } else if (newWords === sWords[14]) {
     hint.innerHTML =
       "HINT:. Who is Black Panthers sister?";
     console.log("shuri");
   }
+  else if (newWords === sWords[15]) {
+    hint.innerHTML = "HINT: What is the name of the tree-like humanoid character in 'Guardians of the Galaxy'?";
+    
+  } else if (newWords === sWords[16]) {
+    hint.innerHTML = "HINT: What is the real name of Spider-Man?";
+  } else if (newWords === sWords[17]) {
+    hint.innerHTML = "HINT: What is the hidden and technologically advanced African nation in the Marvel Universe?";
+  } else if (newWords === sWords[18]) {
+    hint.innerHTML = "HINT: Who is the main antagonist in Avengers: Infinity War and Avengers: Endgame?";
+  } else if (newWords === sWords[19]) {
+    hint.innerHTML = "HINT: Who is the giant dwarf and weaponsmith played by Peter Dinklage in Avengers: Infinity War?";
+  }
+
 }

@@ -264,67 +264,56 @@
     "gameUrl": "Bubble_Blast_Game/",
     "thumbnailUrl": "Bubble_Blast_Game.png"
   },
-
   "54": {
     "gameTitle": "Emoji Charades",
     "gameUrl": "Emoji_Charades/",
     "thumbnailUrl": "Emoji_Charades.jpg"
   },
-
   "55": {
     "gameTitle": "Drum Kit Game",
     "gameUrl": "Drum_Kit_Game",
     "thumbnailUrl": "Drum_And_Kit.PNG"
   },
-
   "56": {
     "gameTitle": "Rock Paper Scissors",
     "gameUrl": "Rock_Paper_Scissors/",
     "thumbnailUrl": "Rock_Paper_Scissors.png"
   },
-
   "57": {
     "gameTitle": "Frogger",
     "gameUrl": "Frogger/",
     "thumbnailUrl": "Frogger.png"
   },
-
   "58": {
     "gameTitle": "Not more than 5",
     "gameUrl": "Not_morethan5/",
     "thumbnailUrl": "!morethan5.png"
   },
-
   "59": {
     "gameTitle": "Unruly Tower",
     "gameUrl": "Unruly_Tower/",
     "thumbnailUrl": "Unruly_Tower.png"
   },
-
   "60": {
     "gameTitle": "Maze Game",
     "gameUrl": "MazeGame/",
     "thumbnailUrl": "MazeGame.png"
   },
-
   "61": {
     "gameTitle": "Connect4",
     "gameUrl": "Connect4/",
     "thumbnailUrl": "connect4.png"
   },
-
   "62": {
     "gameTitle": "Spelling Bee",
     "gameUrl": "Spelling_Bee/",
     "thumbnailUrl": "spelling_bee.png"
   },
-
   "63": {
     "gameTitle": "2048",
     "gameUrl": "2048/",
     "thumbnailUrl": "2048.png"
   },
-
   "64": {
     "gameTitle": "Spin the wheel",
     "gameUrl": "Games/Spin_the_wheel/",
@@ -1061,9 +1050,9 @@
     "thumbnailUrl": "Mastermind.png"
   },
   "211": {
-    "gameTitle": "",
-    "gameUrl": "",
-    "thumbnailUrl": ""
+    "gameTitle": "Pickle Rick Maze Game",
+    "gameUrl": "Pickle_Rick_Maze_Game",
+    "thumbnailUrl": "Pickle_Rick_Maze_Game.png"
   },
   "212": {
     "gameTitle": "",

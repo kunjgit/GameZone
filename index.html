@@ -1,162 +1,84 @@
 <!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GameZone</title>
-
-  <!-- Primary Meta Tags -->
-  <title></title>
-  <meta name="title" content="GameZone" />
-  <meta
-   name="description"
-   content="Welcome to GameZone, the ultimate online gaming destination! Enjoy a vast collection of small games across genres like casual, puzzles, etc. Play directly in your browser. GameZone: endless fun at your fingertips!"
-  />
-    <meta name="language" content="English">
-    <meta name="keywords" content="GameZone, Online games, browser games, casual gaming, puzzle games, action games, gaming website, Snake Game, Simon Game, Dino Runner Game.">
-
-    <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kunjgit.github.io/GameZone/" />
-  <meta property="og:title" content="GameZone" />
-  <meta
-   property="og:description"
-   content="Welcome to GameZone, the ultimate online gaming destination! Enjoy a vast collection of small games across genres like casual, puzzles, etc. Play directly in your browser. GameZone: endless fun at your fingertips!"
-  />
-  <meta property="og:image" content="https://github.com/kunjgit/GameZone/assets/56786344/080b7034-0e60-4069-b95c-aa0aba147a94" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://kunjgit.github.io/GameZone/" />
-  <meta property="twitter:title" content="GameZone" />
-  <meta
-   property="twitter:description"
-   content="Welcome to GameZone, the ultimate online gaming destination! Enjoy a vast collection of small games across genres like casual, puzzles, etc. Play directly in your browser. GameZone: endless fun at your fingertips!"
-  />
-  <meta property="twitter:image" content="https://github.com/kunjgit/GameZone/assets/56786344/080b7034-0e60-4069-b95c-aa0aba147a94" />
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/gamezone.png" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Quiz App | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAweome CDN Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
-<!-- Light-Dark theme SWITCH -->
-<p class="invert-color" style="margin-top: 30px; margin-left: 50px;">Light/Dark theme :</p>
-<label class="theme-toggle" style="margin-top: 4px; margin-left: 50px">
-  <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked>
-  <span class="slider"></span>
-</label>
-
 <body>
+    <!-- start Quiz button -->
+    <div class="start_btn"><button>Start Quiz</button></div>
 
-
-
-  <main>
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-      <div>
-        <h1 style="color:white; text-align: center ; font-size: 1.5cm; ">🕹️GameZone</h1>
-        <br>
-        <br>
-      </div>
-
-
-      <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search" onkeyup="search_game()" id="searchbar">
-        <div class="search-btn">
-          <i class="fa fa-search" aria-hidden="true"></i>
-
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
         </div>
-      </div>
-      <br>
-
-      <!-- Games -->
-
-
-      <ul class="project-list">
-      </ul>
-
-      <div class="pagination">
-        <button id="prev-page-tile" onclick="goToPreviousPage()">Previous</button>
-        <div class="pagination_section"></div>
-        <button id="next-page-tile" onclick="goToNextPage()">Next</button>
-      </div>
-
-      <!-- <body> -->
-
-      <footer style="margin-bottom: 0%;">
-
-        <div class="footer-content footer">
-
-          <h7>Developed with 💗 by Kunj</h7>
-
-          <p>Make sure you checkout my socials and also ⭐ GameZone on github</p>
-
-          <ul class="socials">
-
-            <li><a href="https://github.com/kunjgit"><i class="fa fa-github"></i></a></li>
-
-            <li><a href="https://twitter.com/kunj_199"><i class="fa fa-twitter"></i></a></li>
-
-            <li><a href="https://www.linkedin.com/in/kunj199/"><i class="fa fa-linkedin-square"></i></a></li>
-
-          </ul>
-
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
         </div>
-
-      </footer>
     </div>
 
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">Awesome Quiz Application</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+                <!-- Here I've inserted question from JavaScript -->
+            </div>
+            <div class="option_list">
+                <!-- Here I've inserted options from JavaScript -->
+            </div>
+        </section>
 
-
-
-    </section>
-
-    </article>
+        <!-- footer of Quiz Box -->
+        <footer>
+            <div class="total_que">
+                <!-- Here I've inserted Question Count Number from JavaScript -->
+            </div>
+            <button class="next_btn">Next Que</button>
+        </footer>
     </div>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
 
+    <!-- Inside this JavaScript file I've inserted Questions and Options only -->
+    <script src="js/questions.js"></script>
 
-  </main>
+    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
+    <script src="js/script.js"></script>
 
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/index.js"></script>
-  <script src="./assets/js/script.js"></script>
-
-
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <div>
-  </div>
-
-  <button onclick="scrollToTop()" id="scrollToTopButton" title="Scroll to Top">
-    <ion-icon name="arrow-up-outline"></ion-icon>
-  </button>
-  
 </body>
-
+</html>
 </html>

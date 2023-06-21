@@ -32,6 +32,6 @@ The Rubik's Cube game offers the following features:
 ## Screenshots 📸
 
 <br>
-![Settings](./assets/Rubik's_Cube_Settings.png)
+![Settings](./assets/images/Rubik's_Cube_Settings.png)
 <br>
-![4*4 Rubik's Cube](./assets/Rubik's_Cube.png)
+![4*4 Rubik's Cube](./assets/images/Rubik's_Cube.png)

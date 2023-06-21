@@ -1,4 +1,4 @@
-# **Game_Name** 
+
 Asteroids
 ---
 
@@ -26,7 +26,8 @@ The player earns points for destroying asteroids, and the game becomes progressi
 ## **Screenshots 📸**
 
 <br>
-![Asteroids jpg](https://github.com/kunjgit/GameZone/assets/127978268/0d82da8b-6142-4568-929e-2a3d9f952b81)
+![Screenshot 2023-06-21 150530](https://github.com/akankshachanana1/GameZone/assets/127978268/c27ea544-329f-42dc-baa8-091aa888b96b)
+
 
 
 <br>

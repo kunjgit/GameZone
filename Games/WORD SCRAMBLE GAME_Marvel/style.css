@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=David+Libre&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=David+Libre&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Oswald:wght@400;500&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Caveat&family=David+Libre&display=swap');*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url("bgimg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+/*  body::before{
+            content: '';
+            position:absolute;
+             background-color: rgba(0,0,0,0.1);
+        }*/
+.containers {
+  /* margin:0 auto; */
+  /*background-image:url("https://1.bp.blogspot.com/-UAaZ8-94CVo/UQW4ioAlzSI/AAAAAAAAAuk/Y0jz2zydXhE/s1600/Harry_Potter_logo.jpg");*/
+  /*background-image:url("https://p.kindpng.com/picc/s/206-2069146_download-free-png-harry-potter-logo-harry-potter.png");*/
+  height: 15vh;
+  width: 100%;
+  /*background-size:100%;
+            background-position:center top;
+            background-repeat:no-repeat;*/
+    display:flex;
+    justify-content:center;
+    text-align: center;
+}
+.heading {
+  color: white;
+  font-family: "David Libre", serif;
+  width: 100%;
+  font-size: 2.5rem;
+  letter-spacing: 10px;
+  text-decoration: underline;
+}
+.section2 {
+  margin: 120px auto;
+  /*width:100%;*/
+  /*height:350px;*/
+  /*background:#626567 ;*/
+  background-image: url("");
+  background-repeat: repeat-x;
+  /* background-size:cover;*/
+  border: 2px solid black;
+  box-shadow: 2px 5px 5px 0;
+  display: flex;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 53%;
+  padding: 50px;
+  text-align: center;
+  border-radius: 25px;
+}
+.box {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.btn {
+  padding: 5px 14px;
+  border-radius: 25px;
+  transition: 0.3s ease-in;
+  margin-top: 20px;
+  background-color: grey;
+  color: white;
+}
+.btn:hover{
+  background-color:#FFFACD ;
+}
+.text {
+  border: none;
+  border-radius: 100px;
+  display: none;
+}
+p {
+  font-weight: bold;
+}
+.show {
+  display: none;
+  padding: 5px 12px;
+  /*border-radius:25px;*/
+  outline: none;
+  transition: 0.3s linear;
+  margin-top: 15px;
+  background-color: black;
+  color: white;
+}
+.show:hover{
+  background-color: #f1f1f1;
+  color: black;
+}
+.hint {
+  font-family: "David Libre", serif;
+  font-size: 20px;
+  color: white;
+}
+.skip {
+  display: none;
+  outline: none;
+  margin-top: 15px;
+  padding: 5px 10px;
+  transition: 0.2s linear;
+  background-color: black;
+  color: white;
+}
+.skip:hover{
+  background-color: #f1f1f1;
+  color: black;
+}
+/**/
+.bg-image{
+  /* The image used */
+  background-image: url("Image/wp8998458.webp");
+  /* Add the blur effect */
+  filter: blur(1px);
+  -webkit-filter: blur(0px);
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.audio{
+    /* color:white; */
+    background-color:white;
+
+}
+.nav{
+  margin: 2px;
+  padding: 6px;
+  font-size:30px;
+  font-weight:bolder;
+  color:gold;
+  background-color: black;
+  display:flex;
+  text-align: center;
+  justify-content:center;
+  /* font-family:'Times New Roman', Times, serif; */
+  font-family: 'Bangers', cursive;
+  letter-spacing: 2px;
+  height: 50px;
+  display: flex;
+  
+  background-image: url("https://th.bing.com/th/id/OIP.4lRqPwKSP8f7qzilVgFuYAHaDt?w=185&h=92&c=7&r=0&o=5&pid=1.7");
+  
+}
+.aud{
+padding-left: 130px;
+padding-bottom: 20px;
+}
+
+h2{
+margin-left: 220px;
+text-shadow: 5px 5px 5px black;
+font-weight: bolder;
+font-size: 35px;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
+}

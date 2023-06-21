@@ -14,6 +14,6 @@ How to play? 🕹️
 
 To begin we have to press 'c' and to accelerate the car we have to press 'up' arrow and to deaccelerate the car we have to press 'down' arrow. To move aside we have to press 'right' arrow and and 'left' arrow respectively to move right and left. To mute the sounds we have to press 'm'.
 
-Screenshot
+Screenshot:
 
-race_car.png
+![image](../../assets/images/race_car.png)

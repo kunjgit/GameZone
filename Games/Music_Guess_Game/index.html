@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./images/PlayingCaste.gif" type="image/x-icon">
+    <title>Music Guess Game</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="main-container">
+
+        <!-- Different types of categories of songs -->
+        <form id="loading-page">
+            <h1>Music Guess Game</h1>
+            <button id="start-game">Start Game</button>
+        </form>
+
+        <div id="game-page">
+            <!-- Player 1 Section -->
+            <section class="player player-1 player-b1 player-active">
+                <h2 class="name" id="name-1">Player 1</h2>
+                <p class="score" id="score-1">0</p>
+                <div class="options-container-1" style="display: none;">
+                    <button class="option" id="btn-11"></button>
+                    <button class="option" id="btn-12"></button>
+                    <button class="option" id="btn-13"></button>
+                    <button class="option" id="btn-14"></button>
+                </div>
+            </section>
+
+            <!-- Player 2 Section -->
+            <section class="player player-2 player-b2">
+                <h2 class="name" id="name-2">Player 2</h2>
+                <p class="score" id="score-2">0</p>
+                <div class="options-container-2" style="display: none;">
+                    <button class="option" id="btn-21"></button>
+                    <button class="option" id="btn-22"></button>
+                    <button class="option" id="btn-23"></button>
+                    <button class="option" id="btn-24"></button>
+                </div>
+            </section>
+
+            <!-- Buttons -->
+            <img src="./images/PlayingCaste.gif" alt="Playing song" class="song" />
+            <button class="btn btn-new">🔄 New game</button>
+            <button class="btn btn-next">⏭️ Next</button>
+        </div>
+
+
+    </div>
+
+
+    <p class="author">
+        Created with ❤️ by <a target="_blank" href="https://github.com/Avdhesh-Varshney">Avdhesh Varshney</a>
+    </p>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

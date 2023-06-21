@@ -176,7 +176,6 @@ function gameOver(){
     //button = createButton("Reset");
     //button.position(450, 350);
     //button.mousePressed(resetSketch);
-    //console.log("lost");
 }
 
 function resetGame() {
@@ -206,9 +205,7 @@ function resetGame() {
 //     game();
 // }
 // function timeIt() {
-//     console.log("time");
 //     if (timerValue > 0) {
-//         console.log(timerValue);
 //         timerValue--;
 //         textAlign(CENTER);
 //         noStroke();

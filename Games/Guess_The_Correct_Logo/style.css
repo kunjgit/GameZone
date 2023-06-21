@@ -1,0 +1,46 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap');
+
+
+body{
+  text-align: center;
+  background-color: #26252b; 
+}
+
+h1{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-family: 'Lora', serif;
+    color: #F4EEE0;
+}
+  
+#score {
+    font-size: 24px;
+    color: #F4EEE0;
+    font-family: Arial, sans-serif;
+}
+    
+#timer {
+    font-size: 25px;
+    margin: 20px 30px;
+    color: #F4EEE0;
+    font-family: Arial, sans-serif;
+  }
+  
+#choices{
+  padding-top: 50px;
+} 
+
+img {
+  width: 200px;
+  height: 180px;
+  cursor: pointer;
+
+}
+
+button{
+  padding: 0px;
+  margin-right: 40px;
+  border: 0px;
+}

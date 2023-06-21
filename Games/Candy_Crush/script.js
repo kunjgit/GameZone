@@ -47,7 +47,6 @@ function startGame() {
         board.push(row);
     }
 
-    console.log(board);
 }
 
 function dragStart() {

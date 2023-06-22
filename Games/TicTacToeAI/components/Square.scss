@@ -1,0 +1,38 @@
+.square {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    span {
+        display: block;
+        position: relative;
+        width: 70%;
+        height: 70%;
+        border-radius: 50%;
+        border: 8px solid transparent;
+        &.x::after,
+        &.x::before {
+            position: absolute;
+            content: "";
+            width: 150%;
+            height: 8px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            background: #62fffc;
+            border-radius: 5px;
+        }
+
+        &.x::after {
+            transform: translate(-50%, -50%) rotate(45deg);
+            opacity: 1;
+        }
+
+        &.o {
+            border-color: #ffa02e;
+        }
+    }
+}

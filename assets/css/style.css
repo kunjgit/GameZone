@@ -2453,6 +2453,7 @@ textarea.form-input::-webkit-resizer {
   color: var(--white-1);
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
 }
 
 #prev-page-tile,

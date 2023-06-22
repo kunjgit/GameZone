@@ -106,12 +106,12 @@ function first_bat(){
 function first_bat_game(player_run) {
 
     computer_run=Math.round(Math.random()*5+1);
-    if(computer_run==1) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/one.png" alt="ONE" class="run" />';
-    if(computer_run==2) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/two.png" alt="TWO" class="run" />';
-    if(computer_run==3) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/three.png" alt="THREE" class="run"  />';
-    if(computer_run==4) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/four.png" alt="FOUR"  class="run" />';
-    if(computer_run==5) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/five.png" alt="FIVE" class="run" />';
-    if(computer_run==6) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/six.png" alt="SIX"  class="run" />';
+    if(computer_run==1) document.getElementById("computer-run").innerHTML='<img src="images/one.png" alt="ONE" class="run" />';
+    if(computer_run==2) document.getElementById("computer-run").innerHTML='<img src="images/two.png" alt="TWO" class="run" />';
+    if(computer_run==3) document.getElementById("computer-run").innerHTML='<img src="images/three.png" alt="THREE" class="run"  />';
+    if(computer_run==4) document.getElementById("computer-run").innerHTML='<img src="images/four.png" alt="FOUR"  class="run" />';
+    if(computer_run==5) document.getElementById("computer-run").innerHTML='<img src="images/five.png" alt="FIVE" class="run" />';
+    if(computer_run==6) document.getElementById("computer-run").innerHTML='<img src="images/six.png" alt="SIX"  class="run" />';
     if(computer_run!=player_run)    {
          player_score+=player_run;
          document.getElementById("first-inning-score").innerHTML=display_name+"-"+ player_score;
@@ -133,12 +133,12 @@ function second_ball_game(player_run){
 
 
     computer_run=Math.round(Math.random()*5+1);
-    if(computer_run==1) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/one.png" alt="ONE" class="run" />';
-    if(computer_run==2) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/two.png" alt="TWO" class="run" />';
-    if(computer_run==3) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/three.png" alt="THREE" class="run"  />';
-    if(computer_run==4) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/four.png" alt="FOUR"  class="run" />';
-    if(computer_run==5) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/five.png" alt="FIVE" class="run" />';
-    if(computer_run==6) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/six.png" alt="SIX"  class="run" />';
+    if(computer_run==1) document.getElementById("computer-run").innerHTML='<img src="images/one.png" alt="ONE" class="run" />';
+    if(computer_run==2) document.getElementById("computer-run").innerHTML='<img src="images/two.png" alt="TWO" class="run" />';
+    if(computer_run==3) document.getElementById("computer-run").innerHTML='<img src="images/three.png" alt="THREE" class="run"  />';
+    if(computer_run==4) document.getElementById("computer-run").innerHTML='<img src="images/four.png" alt="FOUR"  class="run" />';
+    if(computer_run==5) document.getElementById("computer-run").innerHTML='<img src="images/five.png" alt="FIVE" class="run" />';
+    if(computer_run==6) document.getElementById("computer-run").innerHTML='<img src="images/six.png" alt="SIX"  class="run" />';
 
     if(computer_run!=player_run)    {
         computer_score+=computer_run;
@@ -217,12 +217,12 @@ function first_ball_game(player_run){
 
 
     computer_run=Math.round(Math.random()*5+1);
-    if(computer_run==1) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/one.png" alt="ONE" class="run" />';
-    if(computer_run==2) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/two.png" alt="TWO" class="run" />';
-    if(computer_run==3) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/three.png" alt="THREE" class="run"  />';
-    if(computer_run==4) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/four.png" alt="FOUR"  class="run" />';
-    if(computer_run==5) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/five.png" alt="FIVE" class="run" />';
-    if(computer_run==6) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/six.png" alt="SIX"  class="run" />';
+    if(computer_run==1) document.getElementById("computer-run").innerHTML='<img src="images/one.png" alt="ONE" class="run" />';
+    if(computer_run==2) document.getElementById("computer-run").innerHTML='<img src="images/two.png" alt="TWO" class="run" />';
+    if(computer_run==3) document.getElementById("computer-run").innerHTML='<img src="images/three.png" alt="THREE" class="run"  />';
+    if(computer_run==4) document.getElementById("computer-run").innerHTML='<img src="images/four.png" alt="FOUR"  class="run" />';
+    if(computer_run==5) document.getElementById("computer-run").innerHTML='<img src="images/five.png" alt="FIVE" class="run" />';
+    if(computer_run==6) document.getElementById("computer-run").innerHTML='<img src="images/six.png" alt="SIX"  class="run" />';
      
     if(computer_run!=player_run)    {
         computer_score+=computer_run;
@@ -251,12 +251,12 @@ function second_bat_game(player_run) {
 
     document.getElementById("first-inning-score").innerHTML="COMPUTER -"+ computer_score+ "  [OUT]";
     computer_run=Math.round(Math.random()*5+1);
-    if(computer_run==1) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/one.png" alt="ONE" class="run" />';
-    if(computer_run==2) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/two.png" alt="TWO" class="run" />';
-    if(computer_run==3) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/three.png" alt="THREE" class="run"  />';
-    if(computer_run==4) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/four.png" alt="FOUR"  class="run" />';
-    if(computer_run==5) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/five.png" alt="FIVE" class="run" />';
-    if(computer_run==6) document.getElementById("computer-run").innerHTML='<img src="../../assets/images/six.png" alt="SIX"  class="run" />';
+    if(computer_run==1) document.getElementById("computer-run").innerHTML='<img src="images/one.png" alt="ONE" class="run" />';
+    if(computer_run==2) document.getElementById("computer-run").innerHTML='<img src="images/two.png" alt="TWO" class="run" />';
+    if(computer_run==3) document.getElementById("computer-run").innerHTML='<img src="images/three.png" alt="THREE" class="run"  />';
+    if(computer_run==4) document.getElementById("computer-run").innerHTML='<img src="images/four.png" alt="FOUR"  class="run" />';
+    if(computer_run==5) document.getElementById("computer-run").innerHTML='<img src="images/five.png" alt="FIVE" class="run" />';
+    if(computer_run==6) document.getElementById("computer-run").innerHTML='<img src="images/six.png" alt="SIX"  class="run" />';
     
     if(computer_run!=player_run)    {
          player_score+=player_run;

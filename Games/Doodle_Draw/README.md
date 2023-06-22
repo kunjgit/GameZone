@@ -40,39 +40,5 @@ The game is designed using Html, CSS, and javascript.
 <br>
 <img src="./images/02.png" alt="Image Description">
 
-<br>
-<img src="./images/03.png" alt="Image Description">
 
 
-
-
-
-<br>
-
-
-
-<!-- # Etch a Sketch
-## About
-Project to create something like Etch A Sketch toy.
-
-🔗 Live preview: [here :blush:](https://datphung239.github.io/etch-a-sketch/)
-
-## How to play?
-
-
-## What I learned
-- Problem solving, break big problem into subproblem then connect all of subproblem
-- More advanced DOM manipulation
-- Use CSS3 grid and flex to create layout
-- Greatly improved functionality in general (Optimized and reusable functions)
-
-## Feature ideas to implement
-   - Undo tool
-   - Save & Export image
-   - Mobile support
-   
-## Tools/ Technologies
-   - HTML / CSS / JS
-   - NeoVim (Code Editor)
-   - Linux terminal
-   - Git & GitHub -->

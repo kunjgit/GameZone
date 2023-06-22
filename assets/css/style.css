@@ -2483,7 +2483,8 @@ textarea.form-input::-webkit-resizer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-right: 5px;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 /* pagination styling */

@@ -34,6 +34,6 @@ If you get bats, then :
 
 <br>
 
-![image](../../assets/images/Hand_cricket.png)
+![image](../../assets/images/Hand_Cricket.png)
 
 <br>

@@ -337,6 +337,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 232 | [Dots and Boxes Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dots_and_Boxes_Game)|
 | 233 | [Infinite Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/InfiniteRunner_Game)|
 | 234 | [Mario_Matching](https://github.com/kunjgit/GameZone/tree/main/Games/mario_matching_game)|
+| 235 | [Escape Room](https://github.com/kunjgit/GameZone/tree/main/Games/Escape_room)|
 
 
 

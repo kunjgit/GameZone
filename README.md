@@ -177,6 +177,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 72 | [Bingo Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bingo_Game)|
 | 73 | [Fifteen Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fifteen_Puzzle_Game)|
 | 74 | [Stack_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Stack_Game)|
+</center>
+=======
 | 75 | [Block.io_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Block.io)|
 | 76 | [Country_Guesser_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Country_Guesser_Game)|
 | 77 | [Touch_The_Ball_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Touch_The_Ball)|
@@ -337,7 +339,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 232 | [Dots and Boxes Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dots_and_Boxes_Game)|
 | 233 | [Infinite Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/InfiniteRunner_Game)|
 | 234 | [Mario_Matching](https://github.com/kunjgit/GameZone/tree/main/Games/mario_matching_game)|
-
+| 235 | [Hand_Cricket](https://github.com/kunjgit/GameZone)|
 
 
 

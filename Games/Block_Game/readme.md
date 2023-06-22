@@ -22,7 +22,6 @@ The game is called Block Game. In the game we have to complete the row by using 
 
 - Score: The game keeps track of the player's score, which increases as the player completes the row. The score serves as a measure of the player's performance in the game.
 
-
 <br>
 
 ## **Screenshots 📸**

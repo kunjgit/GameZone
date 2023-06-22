@@ -1,0 +1,43 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  #image-container {
+    width:100%;
+    margin:20px 0;
+  }
+  
+  #character-image {
+    width: 300px;
+    height: 300px;
+  }
+  
+  #character-input {
+    width: 200px;
+    height: 30px;
+    margin: 10px 0;
+  }
+  
+  #result {
+    font-weight: bold;
+  }
+  
+  #timer-container {
+    margin-bottom: 20px;
+  }
+  
+  #leaderboard {
+    margin-top: 50px;
+  }
+  
+  #scores-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+

@@ -16,10 +16,14 @@ Added Allien Shooting Game developed using frontend technologies, HTML, CSS, Jav
 - Using up arrow the rocket wil fire
 
 ## **Screenshots 📸**
-![Alien_Shooting_Game](https://github.com/sujanrupu/GameZone/assets/103595490/2ca6c8cd-c216-46da-8039-bd504ff53131)
+![Alien_Shooting_Game](https://github.com/sujanrupu/GameZone/assets/103595490/cae808ba-9df4-4a5c-a2bf-504ecb84a35b)
+
 
 
 ## **Working video 📹**
 
 
-https://github.com/sujanrupu/GameZone/assets/103595490/7a9320a8-3130-4c9a-b512-ffd182af9f21
+https://github.com/sujanrupu/GameZone/assets/103595490/2c323ad3-81ee-4b04-b19c-1f64dc9355c6
+
+
+

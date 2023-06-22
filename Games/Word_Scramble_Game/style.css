@@ -80,6 +80,21 @@ h1{
   
 }
 
+.game-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-msg {
+  color: white;
+  font-size: 1.5rem;
+
+  display: none;
+
+}
+
 .container h1{
   font-size: 35px;
   font-weight:500;
@@ -94,6 +109,7 @@ h1{
   animation: animationtext 4s steps(80, end); 
   transition: all cubic-bezier(0.1, 0.7, 1.0, 0.1);
 }
+
 
 @keyframes animationtext { 
 from {

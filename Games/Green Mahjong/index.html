@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html  manifest="greenmahjong.appcache">
+  <!--<html>-->  
+  <head>
+
+    <!--
+    Copyright 2014, Daniel Beck and Karin Beck
+    
+    This file is part of Green Mahjong.
+    
+    Green Mahjong is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    Green Mahjong is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with Green Mahjong.  If not, see <http://www.gnu.org/licenses/>.
+    -->
+
+    <title>Green Mahjong</title>
+    <meta charset="UTF-8">
+    <link rel="resource" type="application/l10n" href="js/local/locales.ini" />
+
+    <meta id="Viewport" name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--<link rel="stylesheet" href="lib/animate.min.css">-->
+    <link href="css/mahjong.css" rel="stylesheet"/>
+    <link href="css/normalize.css" rel="stylesheet"/>
+
+    <link href="css/mahjong_verysmallscreen.css" rel="stylesheet"/>
+    <link href="css/mahjong_smallscreen.css" media="(min-width:640px) and (max-width:1129px) and (min-height:460px),(min-height:460px) and (max-height:779px) and (min-width:640px)" rel="stylesheet"/>
+    <link href="css/mahjong_bigscreen.css" media="(min-width: 1130px) and (max-width:1599px) and (min-height:780px),(min-height:780px) and (max-height:1129px) and (min-width:1130px)"  rel="stylesheet"/>
+    <link href="css/mahjong_verybigscreen.css" media="(min-width:1600px) and (min-height:1100px)" rel="stylesheet"/>
+
+    <link rel="icon" type="image/x-icon" href="greenmahjong32.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="greenmahjong32.ico">
+    <link type="image/x-icon" href="greenmahjong32.ico">
+  </head>
+  <body>
+    <div id="background">
+    </div>
+
+    <div class="game-buttons upperbuttons">
+      <ul>
+
+        <li >
+          <a id="menuGameButton" class="button small"  href="#menu">
+            <div class="image menu"></div> 
+          </a>
+        </li>
+        <li id="themeButton">
+          <a class="button small">
+            <div class="image theme"></div>
+          </a>
+        </li>
+        <li id="undoButton">
+          <a class="button small">
+            <div class="image undo"></div>
+          </a>
+        </li>
+        <li id="activateHints">
+          <a class="button small">
+            <div class="image hint"></div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="startScreen" class="scene" data-page="start">
+      <section>
+        <div id="layouts">
+          <a href="#game" data-page-options="turtle">
+            <div class="layoutSelection">
+              <h3 data-l10n-id="Turtle-Easy">Turtle</h3>
+              <div class="turtle"></div>
+              <p style="position: absolute; top: 95px;left: 98px"><span class="button" data-l10n-id="play">PLAY</span></p>
+            </div>
+          </a>
+          <div class="newline"></div>
+          <a href="#game"  data-page-options="flower">
+            <div class="layoutSelection">
+              <h3 data-l10n-id="Flower-Medium">Flower</h3>
+              <div class="flower"></div>
+              <p style="position: absolute; top: 95px;left: 98px"><span class="button" data-l10n-id="play">PLAY</span></p>
+            </div>
+          </a>
+          <div class="newline even"></div>
+          <a href="#game"  data-page-options="spider"> 
+            <div class="layoutSelection">
+              <h3 data-l10n-id="Spider-Hard">Spider</h3>
+              <div class="spider"></div>
+              <p style="position: absolute; top: 95px;left: 98px"><span class="button" data-l10n-id="play">PLAY</span></p>
+            </div>
+          </a>
+          <div class="newline threeDivisible"></div>
+          <a href="#game"  data-page-options="cloud"> 
+            <div class="layoutSelection">
+              <h3 data-l10n-id="Cloud-Inferno">Cloud - Inferno</h3>
+              <div class="cloud"></div>
+              <p style="position: absolute; top: 95px;left: 98px"><span class="button" data-l10n-id="play">PLAY</span></p>
+            </div>
+          </a>
+          <div class="newline even"></div>
+          <a href="#game"  data-page-options="bug">
+            <div class="layoutSelection">
+              <h3 data-l10n-id="Bug-Easy">Bug - EASY</h3>
+              <div class="bug"></div>
+              <p style="position: absolute; top: 95px;left: 98px"><span class="button" data-l10n-id="play">PLAY</span></p>
+            </div>
+          </a>
+          <div class="newline"></div>
+          <a href="#game" data-page-options="fourHills"> 
+            <div class="layoutSelection">
+              <h3 data-l10n-id="FourHills-Tricky">Four Hills - TRICKY</h3>
+              <div class="fourHills"></div>
+              <p style="position: absolute; top: 95px;left: 98px"><span class="button" data-l10n-id="play">PLAY</span></p>
+            </div>
+          </a>
+          <div class="newline even threeDivisible"></div>
+        </div>
+      </section>
+    </div>
+
+
+
+    <div id="menuScreen" class="scene" style="background: rgba(0,0,0,0.75)" data-page="menu" data-back-options="resumeGame">
+      <section><h1 data-l10n-id="gamePaused">Game Paused</h1>
+        <!--<br>-->
+        <a class="addBorder" id="newGameButton" data-l10n-id="startNewGame" data-page-option="startNewGame" data-back="-2">Start new game</a>
+        <!--<h2 class="addBorder"  id="themeButton" data-l10n-id="changeTheme">Change Theme</h2>-->
+        <a class="addBorder"  id="gameStatisticsButton" href="#gamestatistics"  data-l10n-id="gameStatistics">Game statistics</a>
+        <a class="addBorder" id="aboutButton" href="#about"  data-l10n-id="about">About the Game</a>
+        <a class="addBorder" id="resumeGameButton" data-l10n-id="resumeGame" data-back="-1"  data-page-options="resumeGame">Resume Game</a>
+      </section>
+      <!--<p><a class="button" id="closeAboutScreenButton" data-l10n-id="close">Resume game</a></p>-->
+    </div>
+
+
+    <div class="scene gameStatisticsScreen" data-page="gamestatistics">
+      <section><h1 data-l10n-id="statistics">Statistics</h1>
+        <h4> <span data-l10n-id="numberOfGamesWon">Number of games won: </span> <span data-point="numberOfGamesWon"></span> <span data-l10n-id="from">from</span> <span data-point="numberOfGamesInGamesWon"></span></h4>
+        <h4> <span data-l10n-id="numberOfGamesWonWithUndoOrHints">Games won without undo or hints:</span> <span data-point="numberOfGamesWonWithUndoOrHints"></span> <span data-l10n-id="from">from</span> <span data-point="numberOfGamesInGamesWithoutUndoOrHints"></span></h4>
+        <h4><span data-l10n-id="highScore">High score:</span> <span data-point="highScore"></span></h4>
+        <h1 data-l10n-id="achievements">Achievements</h1>
+        <h4 data-point="layoutTurtle" data-l10n-id="layoutTurtle">Layout turtle won</h4>
+        <h4 data-point="layoutFlower" data-l10n-id="layoutFlower">Layout flower won</h4>
+        <h4 data-point="layoutSpider" data-l10n-id="layoutSpider">Layout spider won</h4>
+        <h4 data-point="layoutCloud" data-l10n-id="layoutCloud">Layout cloud won</h4>
+        <h4 data-point="layoutBug" data-l10n-id="layoutBug">Layout bug won</h4>
+        <h4 data-point="layoutFourHills" data-l10n-id="layoutFourHills">Layout four hills won</h4>
+        <h4 data-point="gameWonUnder8Minutes" data-l10n-id="gameWonUnder8Minutes">Won under 8 minutes</h4>
+        <h4 data-point="gameWonWithoutHints" data-l10n-id="gameWonWithoutHints">Won without hints</h4>
+        <h4 data-point="gameWonWithoutUndo" data-l10n-id="gameWonWithoutUndo">Won without undo</h4>
+        <h4 data-point="1gameWon" data-l10n-id="1gameWon">Level novice: First game won!</h4>
+        <h4 data-point="5gamesWon" data-l10n-id="5gamesWon">Level elite: At least 5 games won!</h4>
+        <h4 data-point="10gamesWon" data-l10n-id="10gamesWon">Level heroic: At least 10 games won!</h4>
+      </section>
+      <p><a class="button" data-l10n-id="closeStatistics" data-back="-1">Close statistics</a></p>
+    </div>
+
+    <div class="scene gameStatisticsScreen" data-page="gamestatisticswin" data-back-options="resumeFinishedGame">
+      <section><h1 data-l10n-id="statistics">Statistics</h1>
+        <h4> <span data-l10n-id="numberOfGamesWon">Number of games won: </span> <span data-point="numberOfGamesWon"></span> <span data-l10n-id="from">from</span> <span data-point="numberOfGamesInGamesWon"></span></h4>
+        <h4> <span data-l10n-id="numberOfGamesWonWithUndoOrHints">Games won without undo or hints:</span> <span data-point="numberOfGamesWonWithUndoOrHints"></span> <span data-l10n-id="from">from</span> <span data-point="numberOfGamesInGamesWithoutUndoOrHints"></span></h4>
+        <h4><span data-l10n-id="highScore">High score:</span> <span data-point="highScore"></span></h4>
+        <h1 data-l10n-id="achievements">Achievements</h1>
+        <h4 data-point="layoutTurtle" data-l10n-id="layoutTurtle">Layout turtle won</h4>
+        <h4 data-point="layoutFlower" data-l10n-id="layoutFlower">Layout flower won</h4>
+        <h4 data-point="layoutSpider" data-l10n-id="layoutSpider">Layout spider won</h4>
+        <h4 data-point="layoutCloud" data-l10n-id="layoutCloud">Layout cloud won</h4>
+        <h4 data-point="layoutBug" data-l10n-id="layoutBug">Layout bug won</h4>
+        <h4 data-point="layoutFourHills" data-l10n-id="layoutFourHills">Layout four hills won</h4>
+        <h4 data-point="gameWonUnder8Minutes" data-l10n-id="gameWonUnder8Minutes">Won under 8 minutes</h4>
+        <h4 data-point="gameWonWithoutHints" data-l10n-id="gameWonWithoutHints">Won without hints</h4>
+        <h4 data-point="gameWonWithoutUndo" data-l10n-id="gameWonWithoutUndo">Won without undo</h4>
+        <h4 data-point="1gameWon" data-l10n-id="1gameWon">Level novice: First game won!</h4>
+        <h4 data-point="5gamesWon" data-l10n-id="5gamesWon">Level elite: At least 5 games won!</h4>
+        <h4 data-point="10gamesWon" data-l10n-id="10gamesWon">Level heroic: At least 10 games won!</h4>
+      </section>
+      <p><a class="button" data-l10n-id="closeStatistics" data-back="-1"  data-page-options="resumeFinishedGame">Close statistics</a></p>
+    </div>
+
+
+    <div class="scene gameStatisticsScreen" data-page="gamestatisticslose" data-back-options="resumeFinishedGame">
+      <section><h1 data-l10n-id="statistics">Statistics</h1>
+        <h4> <span data-l10n-id="numberOfGamesWon">Number of games won: </span> <span data-point="numberOfGamesWon"></span> <span data-l10n-id="from">from</span> <span data-point="numberOfGamesInGamesWon"></span></h4>
+        <h4> <span data-l10n-id="numberOfGamesWonWithUndoOrHints">Games won without undo or hints:</span> <span data-point="numberOfGamesWonWithUndoOrHints"></span> <span data-l10n-id="from">from</span> <span data-point="numberOfGamesInGamesWithoutUndoOrHints"></span></h4>
+        <h4><span data-l10n-id="highScore">High score:</span> <span data-point="highScore"></span></h4>
+        <h1 data-l10n-id="achievements">Achievements</h1>
+        <h4 data-point="layoutTurtle" data-l10n-id="layoutTurtle">Layout turtle won</h4>
+        <h4 data-point="layoutFlower" data-l10n-id="layoutFlower">Layout flower won</h4>
+        <h4 data-point="layoutSpider" data-l10n-id="layoutSpider">Layout spider won</h4>
+        <h4 data-point="layoutCloud" data-l10n-id="layoutCloud">Layout cloud won</h4>
+        <h4 data-point="layoutBug" data-l10n-id="layoutBug">Layout bug won</h4>
+        <h4 data-point="layoutFourHills" data-l10n-id="layoutFourHills">Layout four hills won</h4>
+        <h4 data-point="gameWonUnder8Minutes" data-l10n-id="gameWonUnder8Minutes">Won under 8 minutes</h4>
+        <h4 data-point="gameWonWithoutHints" data-l10n-id="gameWonWithoutHints">Won without hints</h4>
+        <h4 data-point="gameWonWithoutUndo" data-l10n-id="gameWonWithoutUndo">Won without undo</h4>
+        <h4 data-point="1gameWon" data-l10n-id="1gameWon">Level novice: First game won!</h4>
+        <h4 data-point="5gamesWon" data-l10n-id="5gamesWon">Level elite: At least 5 games won!</h4>
+        <h4 data-point="10gamesWon" data-l10n-id="10gamesWon">Level heroic: At least 10 games won!</h4>
+      </section>
+      <p><a class="button" data-l10n-id="closeStatistics" data-back="-1"  data-page-options="resumeFinishedGame">Close statistics</a></p>
+    </div>
+
+
+
+    <div id="aboutScreen" class="scene" data-page="about">
+      <section><h1 data-l10n-id="authors">Authors:</h1>
+        <p>Daniel Beck</p>
+        <p>Karin Beck</p>
+        <h1 data-l10n-id="contributors">Contributors:</h1>
+        <p>Cveta Doycheva</p>
+        <p>Richelmy Vinicius Monteiro</p>
+        <p>Michał Rosiak</p>
+        <p>Yi ZHU</p>
+        <p>J.O. Aho</p>
+      </section>
+      <p><a class="button" data-l10n-id="back-to-menu" data-back="-1">Back to menu</a></p>
+    </div>
+
+    <div id="versionInformationDialog">
+      <section>
+        <h1>Welcome to Green Mahjong version 2.0</h1>
+        <h2>Changelog version 2.0</h2>
+        <ul><li>Layout! Choose between the layout "turtle", "spider", "cloud" and "flower"</li>
+          <li>The theme "high visibility"</li>
+          <li>Theme "classic" was greatly improved</li>
+          <li>Animations</li>
+          <li>The game can be used Offline</li>
+          <li>The game board is now centered on chrome, too </li>
+          <li>Speed improvements on FirefoxOS.</li>
+          <li>Localization in the following languages: polish, french, german, bulgarian, portuguese and spanish.</li>
+        </ul>
+      </section>
+      <!--<a id="hideVersionInformation" class="button">OK</a>-->
+    </div>
+    <div id="winningMessage" style="padding-bottom: 90px;" class="popup">
+      <img src="images/cup_small.png" alt="winning cup">
+      <div class="scrollable">
+        <!--<h1 data-l10n-id="congratulation">Congratulations!</h1>-->
+        <h3><span data-l10n-id="points">Points: </span><span class="pointsReached">Test</span></h3>
+        <a class="button" id="newGameButtonWin" data-l10n-id="startNewGame" data-back="-1"  data-page-options="startNewGame" >Start new game</a>
+        <a class="button" data-l10n-id="gameStatistics" href="#gamestatisticswin">Game statistics</a>
+      </div>
+    </div>
+
+    <div id="loseMessage" class="popup">
+      <!--<img src="images/smiley_lose.png" alt="you lose">-->
+      <div><h1 data-l10n-id="try-it-again">You lose</h1>
+        <h3><span data-l10n-id="points">Points: </span><span class="pointsReached">Test</span></h3>
+        <a class="button" id="newGameButtonLost" data-l10n-id="startNewGame" data-back="-1" data-page-options="startNewGame">Start new game</a>
+        <a class="button" data-l10n-id="gameStatistics" href="#gamestatisticslose">Game statistics</a>
+      </div>
+    </div>
+
+    <div id="timer">00:00</div>
+    <span class="points"><span data-l10n-id="points">Points: </span><span id="points">0</span></span>
+
+    <div class="outer" id="gameScene" data-page="game" data-back-options="startNewGame">
+      <section id="game" class="middle">
+        <!--<div id="timer" class="inner">Test</div>-->
+        <div id="cards" class="inner">      
+          <div class="card">
+          </div>
+          <div class="shadow"></div>
+        </div>
+      </section>
+    </div>
+
+    <script src='lib/fastclick.js'></script>
+    <script src="lib/jquery/jquery-2.1.0.min.js"></script>
+    <script src="lib/jquery.fastclick.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/l10n.js"></script>
+    <script src="lib/sparouter.js"></script>
+    <script src="js/flower.js"></script>
+    <script src="js/spider.js"></script>
+    <script src="js/turtle.js"></script>
+    <script src="js/cloud.js"></script>
+    <script src="js/fourHills.js"></script>
+    <script src="js/bug.js"></script>
+    <script src="js/pointCalculation.js"></script>
+    <script src="js/mahjong.js"></script>
+  </body>
+</html>

@@ -331,6 +331,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 226 | [snake_water_gun](https://github.com/kunjgit/GameZone/tree/main/Games/snake_water_gun)|
 | 227 | [Run and Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Run_and_Jump)|
 | 228 | [AI-CHESS-Game](https://github.com/kunjgit/GameZone/tree/main/Games/AI-CHESS-Game)|
+| 229 | [Fruit_Catching](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching)|
 
  </center>
 

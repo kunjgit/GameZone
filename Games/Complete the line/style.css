@@ -1,0 +1,325 @@
+/* Default settings */
+:root {
+	--border-color: #e5e5e5;
+	--edge-length: 100%;
+	--edge-thikness: 5px;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+body {
+	font-family: monospace;
+	background: #f6f6f6;
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	max-height: 100vh;
+}
+
+a {
+	color: #333;
+}
+
+.author {
+	position: absolute;
+	font-size: 1.2rem;
+	bottom: 1%;
+}
+
+.board {
+	background: #fcfcfc;
+	display: grid;
+	width: 60vh;
+	max-height: 60vh;
+}
+
+@media screen and (max-width: 720px) {
+	.board {
+		width: 80vw;
+	}
+}
+
+.box {
+	position: relative;
+	aspect-ratio: 1/1;
+	transition: background 500ms;
+}
+
+.box.filled::after {
+	position: absolute;
+	z-index: 40;
+	background: rgb(255, 255, 255);
+	opacity: 0;
+	content: "";
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	animation: 800ms fillAnim 0s 1;
+	background-blend-mode: soft-light;
+}
+
+@keyframes fillAnim {
+	from {
+		transform: scale(1);
+		opacity: 0.3;
+	}
+
+	30% {
+		transform: scale(0.5);
+		opacity: 0.6;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 0.3;
+	}
+}
+
+.edge {
+	appearance: none;
+	position: absolute;
+	border: none;
+	cursor: pointer;
+	border-radius: 1rem;
+	background: var(--border-color);
+}
+
+.edge:hover {
+	background: rgb(189, 189, 189);
+	z-index: 10;
+}
+
+.edge:active {
+	background: rgb(170, 170, 170);
+	z-index: 10;
+}
+
+.edge.left,
+.edge.right {
+	width: var(--edge-thikness);
+	height: var(--edge-length);
+}
+
+.edge.top,
+.edge.bottom {
+	height: var(--edge-thikness);
+	width: var(--edge-length);
+}
+
+.edge.top {
+	transform: translateY(-50%);
+	top: 0;
+	left: 0;
+}
+
+.edge.right {
+	transform: translateX(50%);
+	top: 0;
+	right: 0;
+}
+
+.edge.bottom {
+	transform: translateY(50%);
+	top: none;
+	bottom: 0;
+	left: 0;
+}
+
+.edge.left {
+	transform: translateX(-50%);
+	top: 0;
+	left: 0;
+}
+
+.edge:before {
+	position: absolute;
+	content: "";
+	inset: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.edge.left:before,
+.edge.right:before {
+	transform: scale(3, 0.7);
+}
+
+.edge.top:before,
+.edge.bottom:before {
+	transform: scale(0.7, 3);
+}
+
+.edge.filled {
+	background: #111;
+	pointer-events: none;
+	z-index: 10;
+}
+
+.players {
+	position: absolute;
+	z-index: 10;
+	font-size: 1rem;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 0.4rem;
+	display: flex;
+	justify-content: center;
+	gap: 1.2rem;
+}
+
+.player .filled-boxes {
+	display: inline-block;
+	text-align: center;
+	width: 28px;
+	margin-right: 4px;
+	background-color: rgb(136, 136, 136);
+	border: solid 3px #111;
+	border-radius: 3px;
+	color: rgba(0, 0, 0, 0.922);
+}
+
+@media screen and (max-width: 600px) {
+	.player span {
+		font-size: 0.8rem;
+	}
+
+	.players {
+		gap: 0.5rem;
+	}
+}
+
+.player-turn {
+	font-size: 1rem;
+	z-index: 10;
+	position: absolute;
+	top: 52px;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	color: rgba(0, 0, 0, 0.864);
+	padding-top: 10px;
+	border-top: solid 1px #f9f9f9;
+}
+
+.player-turn .bg {
+	background: #999;
+	padding: 0.5rem 1rem;
+	width: 100%;
+	min-width: 100px;
+	max-width: 200px;
+	text-align: center;
+	border-radius: 1rem;
+}
+
+.player-turn .bg.win {
+	animation: 1s pulseAnim 0s infinite;
+	font-weight: bold;
+}
+
+.player-turn .name {
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+}
+
+@keyframes pulseAnim {
+	from {
+		transform: scale(1);
+	}
+
+	40% {
+		transform: scale(1.2);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
+
+h1 {
+	margin-top: -30px;
+	text-align: center;
+	margin: 0;
+	color: #111;
+	z-index: 100;
+	padding-bottom: 10px;
+	width: 100%;
+}
+
+.instructions {
+	width: 100%;
+	justify-content: center;
+	max-height: 100%;
+}
+
+.settings {
+	position: absolute;
+	background: #fdfdfd;
+	inset: 0;
+	z-index: 20;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10%;
+	width: 100%;
+	height: 100%;
+}
+
+.settings .form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
+	width: 100%;
+	max-width: 550px;
+	padding: 1rem;
+	font-size: 20px;
+	padding-left: 7%;
+}
+
+.settings .form-item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+.settings .form-item input {
+	border-radius: 3px;
+	padding: 0.4rem 0.2rem;
+	font-weight: bold;
+	font-size: larger;
+}
+
+.settings .form-item .details {
+	font-style: italic;
+	color: #999;
+	font-size: 15px;
+
+}
+
+.settings button {
+	margin-top: 0.4rem;
+	border-radius: 3px;
+	padding: 0.8rem;
+	font-weight: bold;
+	border: none;
+	background: #333;
+	color: #fff;
+	cursor: pointer;
+	letter-spacing: 4px;
+}
+
+.settings button:hover {
+	background: rgb(75, 75, 75);
+}
+
+.settings button:active {
+	background: rgb(70, 70, 70);
+}

@@ -332,6 +332,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 227 | [Run and Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Run_and_Jump)|
 | 228 | [AI-CHESS-Game](https://github.com/kunjgit/GameZone/tree/main/Games/AI-CHESS-Game)|
 | 229 | [Fruit_Catching](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching)|
+| 230 | [Bulls eye](https://github.com/kunjgit/GameZone/tree/main/Games/Bulls_eye)|
+
 
  </center>
 

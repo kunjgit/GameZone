@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DORAEMON</title>
+    <link rel="shortcut icon" href="still_bird.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      canvas {
+        border-top: 10px solid #864646;
+        border-bottom: 10px solid #864646;
+      }
+      body {
+        background-color: #5ee270;
+      }
+    </style>
+  </head>
+
+  <body onload="startGame()" background="./assets/images/background.png">
+    <div style="text-align: center; width: 100%">
+      <button
+        type="button"
+        class="btn btn-danger"
+        onmousedown="move('up')"
+        onmouseup="clearmove()"
+        ontouchstart="move('up')"
+      >
+        UP</button
+      ><br /><br />
+      <button
+        type="button"
+        class="btn btn-danger"
+        onmousedown="move('left')"
+        onmouseup="clearmove()"
+        ontouchstart="move('left')"
+      >
+        LEFT
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        onmousedown="move('right')"
+        onmouseup="clearmove()"
+        ontouchstart="move('right')"
+      >
+        RIGHT</button
+      ><br /><br />
+      <button
+        type="button"
+        class="btn btn-danger"
+        onmousedown="move('down')"
+        onmouseup="clearmove()"
+        ontouchstart="move('down')"
+      >
+        DOWN
+      </button>
+    </div>
+    <script src="./app.js" defer />
+  </body>
+</html>

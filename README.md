@@ -333,7 +333,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 228 | [AI-CHESS-Game](https://github.com/kunjgit/GameZone/tree/main/Games/AI-CHESS-Game)|
 | 229 | [Fruit_Catching](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching)|
 | 230 | [Bulls eye](https://github.com/kunjgit/GameZone/tree/main/Games/Bulls_eye)|
-| 225 | [Crystals_Collecter](https://github.com/kunjgit/GameZone/tree/main/Games/Crystals_Collecter)|
+| 231 | [Crystals_Collecter](https://github.com/kunjgit/GameZone/tree/main/Games/Crystals_Collecter)|
+| 232 | [Dots and Boxes Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dots_and_Boxes_Game)|
+
 
 
 

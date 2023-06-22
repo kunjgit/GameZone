@@ -20,6 +20,9 @@ let nextnewelement;
 let elementvalue;
 let ans;
 
+element = document.querySelector('.emoji-display');
+let msg = document.querySelector('.status-msg');
+
 window.onload = function () {
     document.getElementById('startButton').style.display = 'none';
     document.getElementsByClassName('wrapper')[0].style.display = 'none';
@@ -140,6 +143,8 @@ function initialiseGame(e)
                    //$('.emoji--happy').classList.add('hover');
                    newelement.innerHTML= '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face%20with%20Big%20Eyes.png" alt="Grinning Face with Big Eyes" width="300" height="300" />'
                    element.style.display = 'flex';
+                   msg.innerText = 'Right'
+                   msg.style.display = 'block'
                 }
                 // element.removeChild(lastChild);
             }
@@ -150,10 +155,28 @@ function initialiseGame(e)
             maxGuesses--;
 
            incorrect_letters.push(` ${key}`);   
+           msg.innerText = 'Wrong'
+        msg.style.display = 'block'
            
         }
         wrongLetter.innerText = incorrect_letters;
         guessesLeft.innerText = maxGuesses;
+    }
+    if(guessedWord() === word) {
+        msg.innerText = 'You guessed it right : )'
+        setTimeout(() => {
+            wrongLetter.innerText = "";
+            incorrect_letters = [];
+            correct_letters = [];
+            count++;
+            maxGuesses = "";
+            element.innerHTML = "";
+            element = "";
+            newelement = "";
+            msg.style.display = 'none';
+            // if(count<10)
+            getRandomWord();
+        }, 3000);
     }
     typingInput.value = "";
 
@@ -165,18 +188,9 @@ function initialiseGame(e)
             //alert(`Congratulations! You won, you have got the word ${word.toUpperCase()} :)`);
             score++;
             //getRandomWord();    //Restarting the game
-            $('.next').onclick(function(e){
-                incorrect_letters = [];
-                correct_letters = [];
-                maxGuesses = "";
-                element.innerHTML = "";
-                element = "";
-                newelement = "";
-                getRandomWord();
-                initialiseGame();
-            });
             
         }
+
         else if(maxGuesses<1)
         {
             for(let i=0;i<word.length;i++)
@@ -185,9 +199,15 @@ function initialiseGame(e)
             }
             //alert(`Sorry! You lost, the word was ${word.toUpperCase()} :(`);
             //document.getElementsByClassName('wrapper')[0].style.display = 'none';
+            msg.style.display = 'none';
             scoredisplay();
         }
     });
+}
+
+const guessedWord = () => {
+    const ent = Array.from(inputs.querySelectorAll("input")).map((m) => m.value).join("");
+    return ent;
 }
 
 function scoredisplay()

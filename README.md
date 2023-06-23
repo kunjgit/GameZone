@@ -341,6 +341,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 236 | [Crossword_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Crossword_Puzzle)|
 | 237 | [Pixel_Painter](https://github.com/kunjgit/GameZone/tree/main/Games/Pixel_Painter)|
 | 238 | [Riddle_Room](https://github.com/kunjgit/GameZone/tree/main/Games/Riddle_Room)|
+| 239 | [Chill_The_Lion_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chill_The_Lion_Game)|
 
 
 

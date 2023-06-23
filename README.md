@@ -327,7 +327,20 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 222 | [Carnival_game](https://github.com/kunjgit/GameZone/tree/main/Games/Carnival_game)|
 | 223 | [Make Me Laugh](https://github.com/kunjgit/GameZone/tree/main/Games/Make_Me_Laugh)|
 | 224 | [Avoider_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Avoider_Game)|
-
+| 225 | [Dungeon_Crawler](https://github.com/kunjgit/GameZone/tree/main/Games/Dungeon_Crawler)|
+| 226 | [snake_water_gun](https://github.com/kunjgit/GameZone/tree/main/Games/snake_water_gun)|
+| 227 | [Run and Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Run_and_Jump)|
+| 228 | [AI-CHESS-Game](https://github.com/kunjgit/GameZone/tree/main/Games/AI-CHESS-Game)|
+| 229 | [Fruit_Catching](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching)|
+| 230 | [Bulls eye](https://github.com/kunjgit/GameZone/tree/main/Games/Bulls_eye)|
+| 231 | [Crystals_Collecter](https://github.com/kunjgit/GameZone/tree/main/Games/Crystals_Collecter)|
+| 232 | [Dots and Boxes Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dots_and_Boxes_Game)|
+| 233 | [Infinite Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/InfiniteRunner_Game)|
+| 234 | [Mario_Matching](https://github.com/kunjgit/GameZone/tree/main/Games/mario_matching_game)|
+| 235 | [Hand_Cricket](https://github.com/kunjgit/GameZone/tree/main/Games/Hand_Cricket)|
+| 236 | [Crossword_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Crossword_Puzzle)|
+| 237 | [Pixel_Painter](https://github.com/kunjgit/GameZone/tree/main/Games/Pixel_Painter)|
+| 238 | [Riddle_Room](https://github.com/kunjgit/GameZone/tree/main/Games/Riddle_Room)|
 
 
 

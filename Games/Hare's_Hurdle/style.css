@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-image: linear-gradient( 91deg,  rgba(72,154,78,1) 5.2%, rgba(251,206,70,1) 95.9% );
+}
+.heading{
+    text-align: center;
+    color: #F86F03;
+    font-size:60px;
+}
+.main{
+    height: 100vh;
+    /* width: 100vw; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+.game{
+    width: 60vw;
+    height: 260px;
+    border: 1px solid black;
+    margin: auto;
+    background-image: url("./images/nature.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#character{
+    width: 60px;
+    height: 45px;
+    /* background-color: red; */
+    background-image: url("./images/rabbit.svg");
+    background-repeat: no-repeat;
+    position:relative;
+    top: 160px;
+}
+.animate{
+    animation: jump 0.3s linear;
+}
+@keyframes jump{
+    0%{top: 150px;}
+    30%{top: 100px;}
+    70%{top: 100px;}
+    100%{top: 150px;}
+}
+
+#block{
+    /* background-color: blue; */
+    background-image: url("./images/snake.svg");
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 40px;
+    position: relative;
+    top: 130px;
+    left: 1100px;
+    animation: block 1.4s infinite linear;
+}
+@keyframes block{
+    0%{left: 1100px}
+    100%{left: -20px}
+}
+p{
+    padding: 1.2rem;
+    margin-top:0.6rem;
+}

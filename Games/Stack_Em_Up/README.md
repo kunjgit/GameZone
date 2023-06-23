@@ -10,7 +10,7 @@ can hang in the air. Each block must be supported by another block or the ground
 
 <br>
 
-## **functionalities 🎮**
+## **Functionalities 🎮**
 <!-- add functionalities over here -->
 - Realistic physics simulation
 - Increasing difficulty as the tower grows taller
@@ -40,5 +40,4 @@ can hang in the air. Each block must be supported by another block or the ground
 
 <br>
 
-## **Working video 📹**
-<!-- add your working video over here -->
+

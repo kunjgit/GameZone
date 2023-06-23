@@ -32,6 +32,14 @@ function getPageNumbers() {
 function getProjectsInPage() {
   const pageTile = document.querySelectorAll('.page-tile');
   const games = document.querySelectorAll('.project-item');
+  const clickSound = document.getElementById("clickSound");
+
+  for (let i = 0; i < games.length; i++){
+    games[i].addEventListener('click', () => {
+      clickSound.play();
+    });
+  }
+
   pageTile.forEach((elem, index) => {
     elem.addEventListener('click', () => {
       pageTile[pageActive].classList.remove('active');

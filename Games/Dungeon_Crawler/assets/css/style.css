@@ -1,0 +1,826 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.8em;
+}
+
+h6 {
+    font-size: 0.7em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    font-style: normal;
+}
+
+i {
+    margin-right: 0.3rem;
+}
+
+input {
+    font-size: 1rem;
+    padding: 0.4rem;
+    margin: 1rem 0 0.5rem 0;
+    background: transparent;
+    border: solid 1px;
+    color: white;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+select {
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.4rem;
+    background: transparent;
+    border: solid 1px white;
+    color: white;
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -ms-border-radius: 0.3rem;
+    -o-border-radius: 0.3rem;
+    text-indent: 1px;
+    text-overflow: '';
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+option {
+    background-color: #030303;
+}
+
+img {
+    pointer-events: none;
+    margin-top: 1rem;
+}
+
+body {
+    background: -webkit-linear-gradient(360deg, #030303 10%, #1f1f1f 360%);
+    background: linear-gradient(360deg, #030303 10%, #1f1f1f 360%);
+    font-family: Futura, Trebuchet MS, Arial, sans-serif;
+    font-size: 1rem;
+    color: white;
+    height: 100vh;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 1.25rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 1.25rem;
+    border: 6px solid transparent;
+    background-clip: content-box;
+    -webkit-border-radius: 1.25rem;
+    -moz-border-radius: 1.25rem;
+    -ms-border-radius: 1.25rem;
+    -o-border-radius: 1.25rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}
+
+/* Utility */
+.w-100 {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.row span {
+    width: 1rem;
+    text-align: center;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.pad {
+    padding: 0.3em;
+}
+
+.lvltier {
+    margin: -0.5rem 0 -0.3rem 0.7rem;
+}
+
+/* Combat Log */
+.logBox {
+    margin: 0.5rem;
+    height: 100%;
+    min-height: 10rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0.5em;
+    overflow: auto;
+}
+
+.logBox #dungeonAction {
+    text-align: center;
+}
+
+.logBox p {
+    margin: 0.3rem 0;
+    padding: 0.3rem;
+}
+
+#dungeonLog {
+    overflow: auto;
+}
+
+#combatLogBox {
+    overflow: auto;
+}
+
+#playerInventory {
+    height: 100%;
+}
+
+#playerEquipment {
+    display: flex;
+    gap: 0.5rem;
+    flex-flow: row wrap;
+    margin-left: 0.5rem;
+}
+
+#playerEquipment i {
+    margin: 0 0.4rem;
+}
+
+.inventorySlots {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.inventorySlots p,
+#playerEquipment p {
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+.inventorySlots p:hover,
+#playerEquipment p:hover {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+}
+
+#menuModal content {
+    background-color: red;
+}
+
+#menu-btn {
+    width: 15rem;
+    max-width: calc(100% - 1rem);
+    margin: 0.5rem;
+}
+
+/* Shadows */
+.primary-panel {
+    border-radius: 0.3rem;
+    border: solid 1px;
+}
+
+/* Buttons */
+button {
+    display: inline-block;
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 0.3rem;
+    border: solid 1px;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -ms-border-radius: 0.3rem;
+    -o-border-radius: 0.3rem;
+    cursor: pointer;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Rarity Colors */
+.Common {
+    color: #ffffff;
+}
+
+.Uncommon {
+    color: #1eff00;
+}
+
+.Rare {
+    color: #0070dd;
+}
+
+.Epic {
+    color: #a335ee;
+}
+
+.Legendary {
+    color: #ffd700;
+}
+
+.Heirloom {
+    color: #e30b5c;
+}
+
+/* Game */
+.game-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    max-width: 35rem;
+    height: 100%;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+}
+
+.game * {
+    margin: 0.3rem;
+}
+
+/* Modals */
+/* Main containter for modals */
+.modal-container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.modal-container .content {
+    background: -webkit-linear-gradient(360deg, #030303 10%, #1f1f1f 360%);
+    background: linear-gradient(360deg, #030303 10%, #1f1f1f 360%);
+    color: #fff;
+    border-radius: 0.3rem;
+    border: solid 1px;
+    max-width: 25rem;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin: 0.5rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -ms-border-radius: 0.3rem;
+    -o-border-radius: 0.3rem;
+}
+
+.modal-container .content .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Equipment Info */
+#equipmentInfo .content ul {
+    margin-left: 1rem;
+}
+
+/* Inventory */
+#inventory {
+    flex-direction: column;
+}
+
+#inventory .content {
+    padding: 0;
+    gap: 0;
+    height: 35rem;
+    width: 16rem;
+}
+
+#inventory .content .inventorySlots {
+    padding: 0 0.7em 0.4em;
+}
+
+/* Menu Modal */
+#menuModal .content {
+    min-width: 15rem;
+}
+
+#menuModal .content-head {
+    padding: 0;
+}
+
+/* Default Modal */
+#defaultModal .content-head {
+    padding: 0;
+}
+
+/* General Content */
+.content-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4em 0.7em;
+    gap: 0.3rem;
+}
+
+.content .content-head i {
+    margin: 0;
+}
+
+.content .content-head p:hover {
+    cursor: pointer;
+}
+
+/* Battle/Combat Panel */
+#combatPanel .content {
+    height: 100%;
+    width: 100%;
+    max-height: 40rem;
+    padding: 0.5em;
+}
+
+.battle-info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.7rem;
+    margin: 0 0.5rem;
+}
+
+#enemyPanel {
+    align-items: center;
+}
+
+#lvlupPanel .content {
+    width: 100%;
+    max-width: 24em;
+}
+
+#lvlupPanel h1 {
+    text-align: center;
+}
+
+/* Battle Bars */
+.battle-bar {
+    font-size: 0.8rem;
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -ms-border-radius: 0.3rem;
+    -o-border-radius: 0.3rem;
+}
+
+.bb-hp {
+    height: 1rem;
+}
+
+.bb-xb {
+    height: 0.4rem;
+}
+
+.empty-bar {
+    width: 100%;
+    background-color: grey;
+}
+
+.bb-hp .current {
+    background-color: #e40000;
+    margin-top: -1rem;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+    -ms-transition: .1s;
+    -o-transition: .1s;
+}
+
+.bb-xb .current {
+    color: transparent;
+    background-color: #9a00b9;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+    -ms-transition: .1s;
+    -o-transition: .1s;
+}
+
+.bb-hp .dmg {
+    background-color: #dbc72a;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(1, 0.1, 0.1, 0.1);
+}
+
+/* Title Screen */
+#title-screen {
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#title-screen h1 {
+    font-family: 'Rubik Vinyl';
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 0 1rem;
+}
+
+#title-screen i {
+    margin: 0 0 1rem;
+}
+
+#title-screen p {
+    animation: blinker 1s linear infinite;
+    -webkit-animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Character Creation */
+#character-creation {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#character-creation button {
+    margin: 2rem 0 0 0;
+}
+
+#character-creation input {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 20rem;
+    max-width: calc(100% - 2rem);
+}
+
+/* Stat Allocation */
+#allocate-stats {
+    width: 18rem;
+}
+
+/* Header */
+header {
+    border-radius: 0.3rem;
+    border: solid 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.5rem;
+    margin: 0.5rem 0.5rem 0;
+}
+
+header button {
+    width: auto;
+    padding: 0.5rem 0.7rem;
+}
+
+header button i {
+    margin: 0;
+}
+
+/* Dungeon */
+#dungeon-main {
+    display: none;
+    flex-direction: column;
+}
+
+#dungeon-main h1 {
+    margin-top: 1rem;
+    text-align: center;
+    letter-spacing: 0.5rem;
+}
+
+.dungeon-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.2rem 1rem;
+}
+
+/* Stat Panel */
+.stat-panel {
+    display: flex;
+    margin: 0.5rem;
+    gap: 0.5rem;
+}
+
+.stat-panel .box {
+    white-space: nowrap;
+    border: solid 1px;
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -ms-border-radius: 0.3rem;
+    -o-border-radius: 0.3rem;
+    width: 100%;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.stat-panel .box::-webkit-scrollbar {
+    display: none;
+}
+
+.stat-panel .box h4 {
+    font-weight: bold;
+}
+
+/* Decision Panel */
+.decision-panel {
+    display: flex;
+    gap: 1rem;
+    margin: 0.5rem;
+}
+
+/* Box Header */
+.box-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+.box-head i {
+    margin: 0;
+}
+
+.box-head p:hover {
+    cursor: pointer;
+}
+
+/* loader */
+#loading {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.loader {
+    border: 0.5rem solid #f3f3f3;
+    border-top: 0.5rem solid grey;
+    border-radius: 50%;
+    width: 3.8rem;
+    height: 3.8rem;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Scroll */
+.scrollable {
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollable::-webkit-scrollbar {
+    display: none;
+}
+
+/* Volume Tab */
+#volume-tab {
+    gap: 0;
+}
+
+#volume-tab input {
+    margin: 0;
+}
+
+/* ===== Animations ===== */
+/* Shake Animation */
+.animation-shake {
+    animation: shake 0.2s;
+    -webkit-animation: shake 0.2s;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+        -webkit-transform: translate(1px, 1px) rotate(0deg);
+        -moz-transform: translate(1px, 1px) rotate(0deg);
+        -ms-transform: translate(1px, 1px) rotate(0deg);
+        -o-transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+        -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+        -moz-transform: translate(-1px, -2px) rotate(-1deg);
+        -ms-transform: translate(-1px, -2px) rotate(-1deg);
+        -o-transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+        -webkit-transform: translate(-3px, 0px) rotate(1deg);
+        -moz-transform: translate(-3px, 0px) rotate(1deg);
+        -ms-transform: translate(-3px, 0px) rotate(1deg);
+        -o-transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+        -webkit-transform: translate(3px, 2px) rotate(0deg);
+        -moz-transform: translate(3px, 2px) rotate(0deg);
+        -ms-transform: translate(3px, 2px) rotate(0deg);
+        -o-transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+        -webkit-transform: translate(1px, -1px) rotate(1deg);
+        -moz-transform: translate(1px, -1px) rotate(1deg);
+        -ms-transform: translate(1px, -1px) rotate(1deg);
+        -o-transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+        -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+        -moz-transform: translate(-1px, 2px) rotate(-1deg);
+        -ms-transform: translate(-1px, 2px) rotate(-1deg);
+        -o-transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+        -webkit-transform: translate(-3px, 1px) rotate(0deg);
+        -moz-transform: translate(-3px, 1px) rotate(0deg);
+        -ms-transform: translate(-3px, 1px) rotate(0deg);
+        -o-transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+        -webkit-transform: translate(3px, 1px) rotate(-1deg);
+        -moz-transform: translate(3px, 1px) rotate(-1deg);
+        -ms-transform: translate(3px, 1px) rotate(-1deg);
+        -o-transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+        -webkit-transform: translate(-1px, -1px) rotate(1deg);
+        -moz-transform: translate(-1px, -1px) rotate(1deg);
+        -ms-transform: translate(-1px, -1px) rotate(1deg);
+        -o-transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+        -webkit-transform: translate(1px, 2px) rotate(0deg);
+        -moz-transform: translate(1px, 2px) rotate(0deg);
+        -ms-transform: translate(1px, 2px) rotate(0deg);
+        -o-transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+        -webkit-transform: translate(1px, -2px) rotate(-1deg);
+        -moz-transform: translate(1px, -2px) rotate(-1deg);
+        -ms-transform: translate(1px, -2px) rotate(-1deg);
+        -o-transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+/* Damage Numbers */
+.dmg-container {
+    position: relative;
+}
+
+.dmg-numbers {
+    color: white;
+    font-size: 1.8em;
+    font-weight: 500;
+    animation: dmg-numbers 0.7s;
+    -webkit-animation: dmg-numbers 0.7s;
+    position: absolute;
+    z-index: 1;
+}
+
+@keyframes dmg-numbers {
+    100% {
+        opacity: 0;
+        transform: translateY(-3rem);
+        -webkit-transform: translateY(-3rem);
+        -moz-transform: translateY(-3rem);
+        -ms-transform: translateY(-3rem);
+        -o-transform: translateY(-3rem);
+    }
+
+    15% {
+        opacity: 1;
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+
+    0% {
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+    }
+}

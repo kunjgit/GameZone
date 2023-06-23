@@ -1,0 +1,63 @@
+{
+  "name": "autobind-decorator",
+  "version": "2.4.0",
+  "description": "Decorator for binding method to an object",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "es": "src/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "clean": "rm -rf lib",
+    "build:es5": "babel src --out-dir lib/cjs --ignore \"src/__tests__/*.js\"",
+    "build:module": "babel --no-babelrc --config-file ./src/.babelrc.es.js src --out-dir lib/esm --ignore \"src/__tests__/*.js\"",
+    "build": "npm run build:es5 && npm run build:module",
+    "prepare": " npm run clean && npm run build",
+    "lint": "xo",
+    "test": "jest --coverage",
+    "release": "standard-version",
+    "prepublishOnly": "npm run lint && npm test"
+  },
+  "author": "Andrey Popp <8mayday@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-decorators": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.13.1",
+    "standard-version": "^4.4.0",
+    "xo": "^0.23.0"
+  },
+  "xo": {
+    "overrides": [
+      {
+        "files": "src/__tests__/*.js",
+        "parser": "babel-eslint",
+        "rules": {
+          "no-global-assign": "off",
+          "no-self-compare": "off",
+          "func-names": "off",
+          "func-name-matching": "off"
+        },
+        "globals": [
+          "describe",
+          "test",
+          "beforeEach",
+          "afterEach"
+        ]
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreypopp/autobind-decorator.git"
+  },
+  "engines": {
+    "node": ">=8.10",
+    "npm": ">=6.4.1"
+  }
+}

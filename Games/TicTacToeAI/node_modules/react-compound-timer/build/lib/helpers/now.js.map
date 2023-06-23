@@ -1,0 +1,1 @@
+{"version":3,"file":"now.js","sourceRoot":"","sources":["../../../src/lib/helpers/now.ts"],"names":[],"mappings":";;AAAA,SAAwB,GAAG;IACzB,IAAI,OAAO,MAAM,KAAK,WAAW,IAAI,CAAC,CAAC,aAAa,IAAI,MAAM,CAAC,EAAE;QAC/D,OAAO,IAAI,CAAC,GAAG,EAAE,CAAC;KACnB;IAED,OAAO,WAAW,CAAC,GAAG,EAAE,CAAC;AAC3B,CAAC;AAND,sBAMC"}

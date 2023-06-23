@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "lib": ["dom", "es2015", "es2016", "es2017"],
+    "types": ["jest"],
+    "declaration": true,
+    "outDir": "./build",
+    "paths": {
+      "src/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules", "build", "src/**/*.test.tsx", "src/**/*.test.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}

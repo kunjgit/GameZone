@@ -1,0 +1,31 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+require('../utils/click/isClickableInput.js');
+var Clipboard = require('../utils/dataTransfer/Clipboard.js');
+require('../utils/edit/isEditable.js');
+require('../utils/edit/maxLength.js');
+require('@testing-library/dom/dist/helpers.js');
+require('../utils/keyDef/readNextDescriptor.js');
+require('../utils/misc/level.js');
+require('../options.js');
+var copySelection = require('../document/copySelection.js');
+
+async function copy() {
+    const doc = this.config.document;
+    var _activeElement;
+    const target = (_activeElement = doc.activeElement) !== null && _activeElement !== void 0 ? _activeElement : /* istanbul ignore next */ doc.body;
+    const clipboardData = copySelection.copySelection(target);
+    if (clipboardData.items.length === 0) {
+        return;
+    }
+    if (this.dispatchUIEvent(target, 'copy', {
+        clipboardData
+    }) && this.config.writeToClipboard) {
+        await Clipboard.writeDataTransferToClipboard(doc, clipboardData);
+    }
+    return clipboardData;
+}
+
+exports.copy = copy;

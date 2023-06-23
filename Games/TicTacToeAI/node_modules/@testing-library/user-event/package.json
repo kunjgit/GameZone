@@ -1,0 +1,90 @@
+{
+  "name": "@testing-library/user-event",
+  "version": "14.4.3",
+  "description": "Fire events the same way the user does",
+  "keywords": [
+    "react-testing-library",
+    "dom-testing-library",
+    "react",
+    "testing"
+  ],
+  "author": "Giorgio Polvara <polvara@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/testing-library/user-event"
+  },
+  "bugs": {
+    "url": "https://github.com/testing-library/user-event/issues"
+  },
+  "homepage": "https://github.com/testing-library/user-event#readme",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "scripts ts-build2 --cjs --target es2019",
+    "lint": "kcd-scripts lint",
+    "setup": "npm install && npm run validate -s",
+    "test": "kcd-scripts test",
+    "test:debug": "kcd-scripts --inspect-brk test --runInBand",
+    "test:update": "npm test -- --updateSnapshot --coverage",
+    "validate": "kcd-scripts typecheck"
+  },
+  "devDependencies": {
+    "@ph.fritsche/scripts-config": "^2.4.0",
+    "@testing-library/dom": "^8.11.4",
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^13.0.0",
+    "@types/jest-in-case": "^1.0.3",
+    "@types/react": "^17.0.42",
+    "eslint-import-resolver-typescript": "^2.7.0",
+    "eslint-plugin-local-rules": "^1.1.0",
+    "is-ci": "^3.0.1",
+    "jest-in-case": "^1.0.2",
+    "jest-serializer-ansi": "^1.0.3",
+    "kcd-scripts": "^12.1.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react17": "npm:react@^17.0.2",
+    "reactDom17": "npm:react-dom@^17.0.2",
+    "reactIs17": "npm:react-is@^17.0.2",
+    "reactTesting17": "npm:@testing-library/react@^12.1.3",
+    "shared-scripts": "^1.5.1",
+    "typescript": "^4.1.2"
+  },
+  "peerDependencies": {
+    "@testing-library/dom": ">=7.21.4"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./dist/cjs/*": "./dist/cjs/*",
+    "./dist/esm/*": "./dist/esm/*"
+  },
+  "typesVersions": {
+    "*": {
+      "dist/types/*": [
+        "./dist/types/*"
+      ],
+      "dist/cjs/*.js": [
+        "./dist/types/*.d.ts"
+      ],
+      "dist/esm/*.js": [
+        "./dist/types/*.d.ts"
+      ],
+      "*": [
+        "./dist/types/*.d.ts"
+      ]
+    }
+  }
+}

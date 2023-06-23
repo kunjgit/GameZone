@@ -1,0 +1,103 @@
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(require("react"));
+var type_1 = require("../type");
+function DNA(_a) {
+    var _b = _a.visible, visible = _b === void 0 ? true : _b, _c = _a.width, width = _c === void 0 ? '80' : _c, _d = _a.height, height = _d === void 0 ? '80' : _d, _e = _a.wrapperClass, wrapperClass = _e === void 0 ? '' : _e, _f = _a.wrapperStyle, wrapperStyle = _f === void 0 ? {} : _f, _g = _a.ariaLabel, ariaLabel = _g === void 0 ? 'dna-loading' : _g;
+    return !visible ? null : (react_1.default.createElement("svg", __assign({ xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", width: width, height: height, viewBox: "0 0 100 100", preserveAspectRatio: "xMidYMid", className: wrapperClass, style: wrapperStyle, "aria-label": ariaLabel, "data-testid": 'dna-svg' }, type_1.DEFAULT_WAI_ARIA_ATTRIBUTE),
+        react_1.default.createElement("circle", { cx: "6.451612903225806", cy: "60.6229", r: "3.41988", fill: "rgba(233, 12, 89, 0.5125806451612902)" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-0.5s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "0s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "rgba(233, 12, 89, 0.5125806451612902);#ff0033;rgba(233, 12, 89, 0.5125806451612902)", dur: "2s", repeatCount: "indefinite", begin: "-0.5s" })),
+        react_1.default.createElement("circle", { cx: "6.451612903225806", cy: "39.3771", r: "2.58012", fill: "#46dff0" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-1.5s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-1s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "#46dff0;rgba(53, 58, 57, 0.1435483870967742);#46dff0", dur: "2s", repeatCount: "indefinite", begin: "-0.5s" })),
+        react_1.default.createElement("circle", { cx: "16.129032258064512", cy: "68.1552", r: "3.17988", fill: "rgba(233, 12, 89, 0.5125806451612902)" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-0.7s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-0.2s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "rgba(233, 12, 89, 0.5125806451612902);#ff0033;rgba(233, 12, 89, 0.5125806451612902)", dur: "2s", repeatCount: "indefinite", begin: "-0.7s" })),
+        react_1.default.createElement("circle", { cx: "16.129032258064512", cy: "31.8448", r: "2.82012", fill: "#46dff0" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-1.7s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-1.2s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "#46dff0;rgba(53, 58, 57, 0.1435483870967742);#46dff0", dur: "2s", repeatCount: "indefinite", begin: "-0.7s" })),
+        react_1.default.createElement("circle", { cx: "25.806451612903224", cy: "69.3634", r: "2.93988", fill: "rgba(233, 12, 89, 0.5125806451612902)" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-0.9s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-0.4s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "rgba(233, 12, 89, 0.5125806451612902);#ff0033;rgba(233, 12, 89, 0.5125806451612902)", dur: "2s", repeatCount: "indefinite", begin: "-0.9s" })),
+        react_1.default.createElement("circle", { cx: "25.806451612903224", cy: "30.6366", r: "3.06012", fill: "#46dff0" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-1.9s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-1.4s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "#46dff0;rgba(53, 58, 57, 0.1435483870967742);#46dff0", dur: "2s", repeatCount: "indefinite", begin: "-0.9s" })),
+        react_1.default.createElement("circle", { cx: "35.48387096774193", cy: "65.3666", r: "2.69988", fill: "rgba(233, 12, 89, 0.5125806451612902)" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-1.1s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-0.6s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "rgba(233, 12, 89, 0.5125806451612902);#ff0033;rgba(233, 12, 89, 0.5125806451612902)", dur: "2s", repeatCount: "indefinite", begin: "-1.1s" })),
+        react_1.default.createElement("circle", { cx: "35.48387096774193", cy: "34.6334", r: "3.30012", fill: "#46dff0" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-2.1s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-1.6s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "#46dff0;rgba(53, 58, 57, 0.1435483870967742);#46dff0", dur: "2s", repeatCount: "indefinite", begin: "-1.1s" })),
+        react_1.default.createElement("circle", { cx: "45.16129032258064", cy: "53.8474", r: "2.45988", fill: "rgba(233, 12, 89, 0.5125806451612902)" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-1.3s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-0.8s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "rgba(233, 12, 89, 0.5125806451612902);#ff0033;rgba(233, 12, 89, 0.5125806451612902)", dur: "2s", repeatCount: "indefinite", begin: "-1.3s" })),
+        react_1.default.createElement("circle", { cx: "45.16129032258064", cy: "46.1526", r: "3.54012", fill: "#46dff0" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-2.3s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-1.8s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "#46dff0;rgba(53, 58, 57, 0.1435483870967742);#46dff0", dur: "2s", repeatCount: "indefinite", begin: "-1.3s" })),
+        react_1.default.createElement("circle", { cx: "54.838709677419345", cy: "39.3771", r: "2.58012", fill: "rgba(233, 12, 89, 0.5125806451612902)" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-1.5s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-1s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "rgba(233, 12, 89, 0.5125806451612902);#ff0033;rgba(233, 12, 89, 0.5125806451612902)", dur: "2s", repeatCount: "indefinite", begin: "-1.5s" })),
+        react_1.default.createElement("circle", { cx: "54.838709677419345", cy: "60.6229", r: "3.41988", fill: "#46dff0" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-2.5s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-2s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "#46dff0;rgba(53, 58, 57, 0.1435483870967742);#46dff0", dur: "2s", repeatCount: "indefinite", begin: "-1.5s" })),
+        react_1.default.createElement("circle", { cx: "64.51612903225805", cy: "31.8448", r: "2.82012", fill: "rgba(233, 12, 89, 0.5125806451612902)" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-1.7s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-1.2s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "rgba(233, 12, 89, 0.5125806451612902);#ff0033;rgba(233, 12, 89, 0.5125806451612902)", dur: "2s", repeatCount: "indefinite", begin: "-1.7s" })),
+        react_1.default.createElement("circle", { cx: "64.51612903225805", cy: "68.1552", r: "3.17988", fill: "#46dff0" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-2.7s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-2.2s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "#46dff0;rgba(53, 58, 57, 0.1435483870967742);#46dff0", dur: "2s", repeatCount: "indefinite", begin: "-1.7s" })),
+        react_1.default.createElement("circle", { cx: "74.19354838709677", cy: "30.6366", r: "3.06012", fill: "rgba(233, 12, 89, 0.5125806451612902)" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-1.9s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-1.4s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "rgba(233, 12, 89, 0.5125806451612902);#ff0033;rgba(233, 12, 89, 0.5125806451612902)", dur: "2s", repeatCount: "indefinite", begin: "-1.9s" })),
+        react_1.default.createElement("circle", { cx: "74.19354838709677", cy: "69.3634", r: "2.93988", fill: "#46dff0" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-2.9s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-2.4s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "#46dff0;rgba(53, 58, 57, 0.1435483870967742);#46dff0", dur: "2s", repeatCount: "indefinite", begin: "-1.9s" })),
+        react_1.default.createElement("circle", { cx: "83.87096774193547", cy: "34.6334", r: "3.30012", fill: "rgba(233, 12, 89, 0.5125806451612902)" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-2.1s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-1.6s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "rgba(233, 12, 89, 0.5125806451612902);#ff0033;rgba(233, 12, 89, 0.5125806451612902)", dur: "2s", repeatCount: "indefinite", begin: "-2.1s" })),
+        react_1.default.createElement("circle", { cx: "83.87096774193547", cy: "65.3666", r: "2.69988", fill: "#46dff0" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-3.1s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-2.6s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "#46dff0;rgba(53, 58, 57, 0.1435483870967742);#46dff0", dur: "2s", repeatCount: "indefinite", begin: "-2.1s" })),
+        react_1.default.createElement("circle", { cx: "93.54838709677418", cy: "46.1526", r: "3.54012", fill: "rgba(233, 12, 89, 0.5125806451612902)" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-2.3s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-1.8s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "rgba(233, 12, 89, 0.5125806451612902);#ff0033;rgba(233, 12, 89, 0.5125806451612902)", dur: "2s", repeatCount: "indefinite", begin: "-2.3s" })),
+        react_1.default.createElement("circle", { cx: "93.54838709677418", cy: "53.8474", r: "2.45988", fill: "#46dff0" },
+            react_1.default.createElement("animate", { attributeName: "r", keyTimes: "0;0.5;1", values: "2.4000000000000004;3.5999999999999996;2.4000000000000004", dur: "2s", repeatCount: "indefinite", begin: "-3.3s" }),
+            react_1.default.createElement("animate", { attributeName: "cy", keyTimes: "0;0.5;1", values: "30.5;69.5;30.5", dur: "2s", repeatCount: "indefinite", begin: "-2.8s", keySplines: "0.5 0 0.5 1;0.5 0 0.5 1", calcMode: "spline" }),
+            react_1.default.createElement("animate", { attributeName: "fill", keyTimes: "0;0.5;1", values: "#46dff0;rgba(53, 58, 57, 0.1435483870967742);#46dff0", dur: "2s", repeatCount: "indefinite", begin: "-2.3s" }))));
+}
+exports.default = DNA;

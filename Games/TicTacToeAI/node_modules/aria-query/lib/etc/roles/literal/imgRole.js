@@ -1,0 +1,33 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var imgRole = {
+  abstract: false,
+  accessibleNameRequired: true,
+  baseConcepts: [],
+  childrenPresentational: true,
+  nameFrom: ['author'],
+  prohibitedProps: [],
+  props: {},
+  relatedConcepts: [{
+    concept: {
+      name: 'img'
+    },
+    module: 'HTML'
+  }, {
+    concept: {
+      name: 'imggroup'
+    },
+    module: 'DTB'
+  }],
+  requireContextRole: [],
+  requiredContextRole: [],
+  requiredOwnedElements: [],
+  requiredProps: {},
+  superClass: [['roletype', 'structure', 'section']]
+};
+var _default = imgRole;
+exports.default = _default;

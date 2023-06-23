@@ -1299,6 +1299,9 @@ main {
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 15px;
+  
+   /* adding box shadow */
+   box-shadow:4px 5px 4px ivory;
 }
 
 .project-img::before {
@@ -2418,6 +2421,9 @@ textarea.form-input::-webkit-resizer {
               -4px -4px 6px 0 rgba(116, 125, 136, .2),
               inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
               inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+
+   /* Fixing size to search background-blend-mode */
+    margin: 57px 184px;
 }
 
 .search-container:hover > .search-input {
@@ -2547,4 +2553,26 @@ textarea.form-input::-webkit-resizer {
 #scrollToTopButton ion-icon {
   margin-top: 2px;
   margin-left: 10px;
+}
+
+/* Glow effect to the Time Zone title */
+
+.glow {
+  font-size: 70px;
+  height:184px;
+  color: #c33030;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 
+                 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+  }
+  to {
+    text-shadow: 0 0 20px #eeeeee, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6,
+                 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
 }

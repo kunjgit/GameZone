@@ -15,6 +15,25 @@
     align-items: center;
     
 }
+
+button{
+    position: absolute;
+    top: 5rem;
+    left: 10rem;
+    padding: .5rem 1rem;
+    font-size: 2rem;
+    font-family: 'Prosto One', cursive;
+    border-radius: .6rem;
+}
+
+button:hover{
+    cursor: pointer;
+    filter: drop-shadow(2px,2px,2px black);
+    background-color: black;
+    color: white;
+    transition: .3s ease;
+}
+
 #scoreBox{
     position: absolute;
     font-size:39px ;

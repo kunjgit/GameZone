@@ -34,10 +34,11 @@ Players have to click on their respective icons to move thier checkers forward.
 ## **Screenshots 📸**
 
 <br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
+![image](https://github.com/abhinav-m22/GameZone/assets/113239388/df63785d-555e-47a4-933b-530e1101dc1a)
+
 
 <br>
 
 ## **Working video 📹**
-<!-- add your working video over here -->
+
+[screen-capture (3).webm](https://github.com/abhinav-m22/GameZone/assets/113239388/5c127693-c6f4-4687-bd01-18b77efd21e7)

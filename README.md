@@ -342,6 +342,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 237 | [Pixel_Painter](https://github.com/kunjgit/GameZone/tree/main/Games/Pixel_Painter)|
 | 238 | [Riddle_Room](https://github.com/kunjgit/GameZone/tree/main/Games/Riddle_Room)|
 | 239 | [ArmorAlley](https://github.com/kunjgit/GameZone/tree/main/Games/ArmorAlley)|
+| 240 | [Color_switcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color_switcher)|
+
 
 
 

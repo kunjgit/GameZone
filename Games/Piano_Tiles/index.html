@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>Piano-Tiles</title>
+<style>
+    #btn{
+        position: absolute;
+        top: 700;
+        left: 36%;
+        width: 300px;
+        height: 50px;
+    }
+    #start_btn {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
+        display: block;
+        font-size: 1.3em;
+        width: 100px;
+        height: 100px;
+        font-weight: light;
+        font-family: 'Trebuchet MS', sans-serif;
+        text-align: center;
+        line-height: 100px;
+        letter-spacing: -1px;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        background: #5a99d4;
+        cursor: pointer;
+        box-shadow: 0 0 0 0 rgba(#5a99d4, .5);
+        transition: width 0.9s, height 0.9s ;
+    }
+    #start_btn:hover{
+        width: 105px;
+        height: 105px;
+    }
+    body {
+        background: #36D1DC;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    .cont{
+        position: absolute;
+        top: 800;
+        left: 36%;
+        width: 300px;
+        height: 50px;
+        font-size: 1.3em;
+        font-weight: light;
+        font-family: 'Trebuchet MS', sans-serif;
+        text-align: center;
+        line-height: 100px;
+        letter-spacing: -1px;
+        color: white;
+    }
+
+</style>
+</head>
+<body>
+    <canvas id="score_bar" width="300" height="70" style="position: absolute; left:36%;top: 0;"></canvas>
+    <canvas id="background" width="300" height="600" style="position: absolute; top:70; left: 36%;" ></canvas>
+    <canvas id="piano" width="300" height="600" style="position: absolute; top:70; left: 36%;"></canvas>
+    <audio  id="music" src="MUSIC.mp3" loop ></audio>
+
+    <div id="btn">
+        <span id="start_btn">START</span>
+    </div>
+    <div class="cont">
+      Control using A S D F
+    </div>
+    <script src="game.js"></script>
+<script>
+ 
+
+</script>
+</body>
+</html>

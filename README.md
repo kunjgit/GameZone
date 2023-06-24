@@ -348,7 +348,14 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 243 | [Super_mario_run](https://github.com/kunjgit/GameZone/tree/main/Games/Super_mario_run)|
 | 244 | [Doodle_Draw](https://github.com/kunjgit/GameZone/tree/main/Games/Doodle_Draw)|
 | 245 | [Arcade_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Arcade_Game)|
-| 246 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
+| 246 | [Slice Storm](https://github.com/VSatwika/GameZonefork/tree/Slice_Storm/Games/Slice_Storm) |
+| 247 | [CodePen_SImulator](https://github.com/kunjgit/GameZone/tree/main/Games/CodePen_SImulator)|
+| 248 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
+| 246 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
+| 247 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
+| 248 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color Matcher)|
+| 249 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
+
 
 
 

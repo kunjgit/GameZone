@@ -350,6 +350,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 245 | [Arcade_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Arcade_Game)|
 | 246 | [Slice Storm](https://github.com/VSatwika/GameZonefork/tree/Slice_Storm/Games/Slice_Storm) |
 | 247 | [CodePen_SImulator](https://github.com/kunjgit/GameZone/tree/main/Games/CodePen_SImulator)|
+| 248 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
+
 
 
 

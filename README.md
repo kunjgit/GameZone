@@ -337,9 +337,12 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 232 | [Dots and Boxes Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dots_and_Boxes_Game)|
 | 233 | [Infinite Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/InfiniteRunner_Game)|
 | 234 | [Mario_Matching](https://github.com/kunjgit/GameZone/tree/main/Games/mario_matching_game)|
-| 235 | [Color_switcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color_switcher)|
-
-
+| 235 | [Hand_Cricket](https://github.com/kunjgit/GameZone/tree/main/Games/Hand_Cricket)|
+| 236 | [Crossword_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Crossword_Puzzle)|
+| 237 | [Pixel_Painter](https://github.com/kunjgit/GameZone/tree/main/Games/Pixel_Painter)|
+| 238 | [Riddle_Room](https://github.com/kunjgit/GameZone/tree/main/Games/Riddle_Room)|
+| 239 | [ArmorAlley](https://github.com/kunjgit/GameZone/tree/main/Games/ArmorAlley)|
+| 240 | [Color_switcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color_switcher)|
 
 
 

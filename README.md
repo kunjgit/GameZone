@@ -347,8 +347,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 242 | [Escape Room](https://github.com/kunjgit/GameZone/tree/main/Games/Escape_room)|
 | 243 | [Super_mario_run](https://github.com/kunjgit/GameZone/tree/main/Games/Super_mario_run)|
 | 244 | [Doodle_Draw](https://github.com/kunjgit/GameZone/tree/main/Games/Doodle_Draw)|
-| 245 | [Hextris](https://github.com/kunjgit/GameZone/tree/main/Games/Hextris)|
-
+| 245 | [Arcade_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Arcade_Game)|
+| 246 | [Hextris](https://github.com/kunjgit/GameZone/tree/main/Games/Hextris)|
 
 
 

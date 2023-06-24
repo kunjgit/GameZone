@@ -343,6 +343,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 238 | [Riddle_Room](https://github.com/kunjgit/GameZone/tree/main/Games/Riddle_Room)|
 | 239 | [ArmorAlley](https://github.com/kunjgit/GameZone/tree/main/Games/ArmorAlley)|
 | 240 | [Color_switcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color_switcher)|
+| 241 | [Maze of Cables](https://github.com/VSatwika/GameZonefork/tree/Maze_of_Cables/Games/Maze_of_Cables)|
+
 
 
 

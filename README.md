@@ -352,6 +352,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 247 | [CodePen_SImulator](https://github.com/kunjgit/GameZone/tree/main/Games/CodePen_SImulator)|
 | 248 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
 | 246 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
+| 247 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
 
 
 

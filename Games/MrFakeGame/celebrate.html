@@ -174,7 +174,6 @@
 		<h2>If you enjoyed MrFakeGame, <u><i>Give us a Share!</i></u></h2>
 		<script>
 			function getParameterByName(name, url = window.location.href) {
-				name = name.replace(/[\[\]]/g, '\\$&');
 				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
 					results = regex.exec(url);
 				if (!results) return null;

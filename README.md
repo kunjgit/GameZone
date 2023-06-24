@@ -344,6 +344,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 239 | [ArmorAlley](https://github.com/kunjgit/GameZone/tree/main/Games/ArmorAlley)|
 | 240 | [Color_switcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color_switcher)|
 | 241 | [Maze of Cables](https://github.com/VSatwika/GameZonefork/tree/Maze_of_Cables/Games/Maze_of_Cables)|
+| 242 | [Escape Room](https://github.com/kunjgit/GameZone/tree/main/Games/Escape_room)|
+
 
 
 

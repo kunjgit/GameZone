@@ -20,9 +20,6 @@ This is a 3D game project built using HTML, CSS, and JavaScript. The game involv
 
 **Multiple Levels:** The game includes multiple levels of increasing difficulty. As you progress, the monster's speed and the complexity of obstacles will intensify, testing your skills and reflexes.
 
-# **Screenshot**
-
-- 
 <br>
 
 ## **How to play? 🕹️**

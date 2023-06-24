@@ -3,6 +3,10 @@ body {
     font-family: "Press Start 2P", monospace;
     font-smooth: never;
     height: 98vh;
+    border: 1px solid rgb(22, 252, 233);
+    align-items: center;
+    justify-content: center;
+    display: flex;
   }
 
   /* UI */
@@ -75,6 +79,14 @@ body {
 road
 */
 
+  .container{
+    border: 2px solid rgb(0, 247, 255);
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   #game {
     position: relative;
     margin: 0 auto;
@@ -82,6 +94,7 @@ road
     background: #222;
     user-select: none;
     transition: opacity 10s;
+    border: 1px solid white;
   }
   #road {
     transition: opacity 2s;
@@ -102,6 +115,7 @@ road
     width: 100%;
     height: 57%;
   }
+
 
   /*
 home
@@ -170,6 +184,7 @@ home
 Guide
 */
   #controls {
+    width: fit-content;
     color: #868686;
     font-size: 13px;
     line-height: 13px;

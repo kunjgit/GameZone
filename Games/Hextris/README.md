@@ -29,4 +29,4 @@ The goal of Hextris is to stop blocks from leaving the inside of the outer gray 
 <br>
 <!-- add your screenshots like this -->
 
-![screenshot](./assets/screenshot.png)
+![screenshot](./hextris.png)

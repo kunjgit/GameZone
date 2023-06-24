@@ -37,9 +37,10 @@ The rabbit can jump and collect some energy which will increase his speed.
 
 <br>
 
+![image](https://github.com/abhinav-m22/GameZone/assets/113239388/e16981bf-ca6e-4531-b6bc-048fce644e9b)
 
 
 <br>
 
 ## **Working video 📹**
-<!-- add your working video over here -->
+

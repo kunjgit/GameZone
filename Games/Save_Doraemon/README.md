@@ -22,6 +22,6 @@ Save_Doraemon
 ## **Screenshots 📸**
 
 <br>
-![image](./assets/images/Save_Doraemon.PNG)
+![image](../../assets/images/Save_Doraemon.png)
 
 <br>

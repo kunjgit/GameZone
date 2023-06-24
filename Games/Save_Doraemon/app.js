@@ -4,8 +4,8 @@ var myBackground;
 var myScore = 0;
 
 function startGame() {
-  myGamePiece = new component(40, 40, "./assets/images/still_bird.png", 10, 120, "image");
-  myBackground = new component(656, 270, "./assets/images/sky.png", 0, 0, "background");
+  myGamePiece = new component(40, 40, "../../assets/images/Save_Doraemon_still_bird.png", 10, 120, "image");
+  myBackground = new component(656, 270, "../../assets/images/Save_Doraemon_sky.png", 0, 0, "background");
   myGameArea.start();
 }
 
@@ -192,7 +192,7 @@ function move(dir) {
 }
 
 function clearmove() {
-  myGamePiece.image.src = "./assets/images/still_bird.png";
+  myGamePiece.image.src = "../../assets/images/Save_Doraemon_still_bird.png";
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;
 }

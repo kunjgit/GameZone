@@ -1,0 +1,191 @@
+body {
+  background: #111;
+  font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
+  user-select: none;
+  min-width: 420px;
+}
+p {
+  color: white;
+  text-align: center;
+}
+button {
+  background: none;
+  margin: 0 0.3em;
+  border: 0;
+  padding: 0;
+  font-size: 4em;
+  cursor: pointer;
+}
+#click {
+  color: white;
+  cursor: pointer;
+  border: 2px solid white;
+  width: 260px;
+  text-align: center;
+  padding: 5px 25px;
+  font-size: 1.8em;
+}
+#click:hover {
+  background: rgba(255,255,255,0.1);
+}
+#game {
+  width: 320px; height: 240px;
+  position: relative;
+  margin: 45px auto 40px;  
+  perspective: 100px;
+  transform: scale(1.3);
+  overflow: hidden;
+}
+#game > * {
+  position: absolute;   
+  width: 100%;
+}
+#sky {
+  height: 66px;
+  background: #228;
+}
+#mountains {
+  width: 960px; height: 0;
+  top: 65px; left: -320px;
+}
+.mountain { 
+  float: left;
+  width: 5px;
+  position: relative; top: -16px;
+  border: 40px solid transparent;
+  border-bottom: 10px solid #882;
+  border-top: 0;
+  margin-right: 280px;
+}
+.mountain:after {
+  content: "";
+  float: left;
+  width: 5px;
+  position: relative; top: 10px;
+  border: 25px solid transparent;
+  border-bottom: 6px solid #882;
+  border-top: 0;
+}
+.mountain:nth-child(2) {
+  transform: scaleX(-1);
+  margin-right: 80px;
+}
+.mountain:nth-child(3) {
+  margin-right: 240px;
+}
+.mountain:nth-child(3):after {
+  left: 20px;
+}
+.mountain:last-child {  
+  margin-right: 0;
+}
+#terrain {
+  top: 65px;
+  height: 120px;
+  background: #040;
+}
+#fog {
+  width: 200%; height: 80px;
+  top: 0; left: -50%;
+  background: rgba(200,200,200,0.7);
+  box-shadow: 0 45px 45px rgba(200,200,200,0.7);
+}
+#road {
+  width: 320px; height: 120px;
+  top: 65px;
+}
+#cars {
+  width: 320px; height: 1200px;
+  bottom: 55px;
+  transform-origin: 50% 100%;
+  transform: rotateX(56deg);
+  transform-style: preserve-3d;
+}
+#cars.night .car {
+  background: #111;
+  filter: none !important;
+}
+.car {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 45px;
+  height: 15px;
+  background-image: url('data:image/png;base64,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');
+  background-size: 100% 100%;
+  image-rendering: pixelated;
+}
+.night .car:before {
+  width: 8px; height: 3px;
+  content: "";
+  display: block;
+  background: tomato;
+  position: absolute; top: 7px; left: 8px;
+}
+.night .car:after {
+  width: 8px; height: 3px;
+  content: "";
+  display: block;
+  background: tomato;
+  position: absolute; top: 7px; left: 29px;
+}
+#car.player {
+  width: 45px;
+  left: calc(50% - 20px);
+  bottom: 55px;
+  filter:  grayscale(1) brightness(5);
+}
+#ui {
+  top: 185px;
+  padding: 5px;
+  background: #000;
+  width: calc(100% - 10px)
+}
+#panel {
+  width: 120px;
+  height: 35px;
+  margin: 0 auto;
+  background: #922;
+  padding: 5px 20px;
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: bold;
+}
+#panel div {
+  float: left;
+  background: #c95;
+  height: 15px;  
+  color: #000;
+  overflow: hidden;
+}
+#panel a {
+  position: relative;
+  padding: 0 2.5px;
+  float: left;
+  width: 10px; height: 15px;
+  text-align: center;
+  transform: scaleX(1.4);
+  transform-origin: 0 0;
+  margin-right: 5px;
+}
+#km {
+  width: 120px;
+  margin-bottom: 5px;  
+}
+
+#km a:last-child {
+  background: #000;
+  color: #c95;
+}
+#lap {
+  width: 20px;
+  margin-right: 20px;
+}
+#position {
+  width: 80px;
+}
+#position a:first-child {
+  float: left;
+}
+.hidden {
+  display: none;
+}

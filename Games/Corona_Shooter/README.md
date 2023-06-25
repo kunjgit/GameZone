@@ -1,4 +1,4 @@
-# Corono Shooter Game
+# Corona Shooter Game
 
 This is a fun interactive space themed shooter game where the player shoots at the Corona Viruses has a health bar and sometimes Hearts pop out shooting which gives you health back.
 There is a score counter to the top right.

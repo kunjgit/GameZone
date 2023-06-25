@@ -27,7 +27,9 @@ Guess the Cartoon Name" is an interactive web application designed using HTML, C
 
 <br>
 
-## **Screenshots 📸**
+## Screenshots 📸
+![Screenshot (574)](https://github.com/kunjgit/GameZone/assets/109728779/216c8351-41c9-4fc6-bb24-bd380ae44525)
+![Screenshot (575)](https://github.com/kunjgit/GameZone/assets/109728779/d05f3002-d402-4a82-b4d1-e812957faad8)
 
 <br>
 <!-- add your screenshots like this -->

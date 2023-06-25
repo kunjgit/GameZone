@@ -355,7 +355,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 250 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
 | 251 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|
 | 252 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
-| 253 | [Corona Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Corona_Shooter)|
+
 
 
 

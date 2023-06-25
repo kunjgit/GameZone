@@ -1,0 +1,798 @@
+html, body{
+	font-family: arial;
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#container{
+	display: flex;
+	justify-content: center;
+	background-color: #016D29;
+	height: 470px;
+	padding: 20px;
+	color: #fff;
+}
+
+/*notification*/
+#notification{
+	position: absolute;
+	width: 500px;
+	height: 318px;
+	background-color: #ad0205;
+	z-index: 10;
+	border: 8px solid #d3b201;
+	border-radius: 12px;
+	transition: 1s;
+}
+
+.nSpan{
+	display: block;
+	position: relative;
+	top: 105px;
+	font-size: 53px;
+	text-align: center;
+}
+
+.nBtn{
+	display: block;
+	position: relative;
+	top: 116px;
+	left: 25%;
+	width: 45%;
+	padding: 10px;
+	font-size: 32px;
+	text-align: center;
+	background-color: green;
+	border-radius: 15px;
+	box-shadow: 3px 4px rgb(0 0 0 / 25%);
+	cursor: pointer;
+	transition: .5s;
+}
+
+.nBtn:active{
+	top: 118px;
+	left: calc(25% + 2px);
+	box-shadow: 1px 2px rgb(0 0 0 / 25%);
+}
+
+.nsWin{
+	position:absolute;
+	left: 4px;
+}
+
+.nsWinBlock{
+	display: inline-block;
+	font-size: 21px;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+/*notification end*/
+
+/*betting table*/
+#betting_board{
+	width: 500px;
+    height: 315px;
+    border: 1px solid;
+}
+
+.bbtop{
+	margin-left:2px;
+}
+
+.bbtoptwo{
+	width: calc(50% - 8px);
+	border: 1px solid;
+	display: inline-block;
+	padding: 12px 4px;
+	margin-left: -2px;
+	text-align: center;
+	font-size:20px;
+	font-weight: bold;
+}
+
+.number_board{
+	margin-left: 1px;
+}
+
+.number_block{
+	width: 39.94px;
+    border: 1px solid;
+    text-align: center;
+    display: inline-block;
+    margin: 0 -0.2px;
+    padding: 32px 0px;
+}
+
+.nbn{
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.bo3_board, .oto_board{
+	width:500px;
+	margin-left: 1px;
+}
+
+.bo3_block, .oto_block{
+	border: 1px solid;
+	display: inline-block;
+	padding: 8px 5px;
+	width: 156.65px;
+	margin-left: -1.98px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.oto_block{
+	width: 114.94px;
+	margin-left: -1.98px;
+}
+
+.number_0{
+	position: absolute;
+	border: 2px solid;
+	margin-left: -57px;
+	margin-top: -0.516px;
+	padding: 120.55px 20px;
+	border-bottom-left-radius: 100%;
+	border-top-left-radius: 100%;
+}
+
+.tt1_block{
+	border: 2px solid;
+	width: 65px;
+	position: absolute;
+	margin-left: 498px;
+	padding: 31.65px 0px;
+	margin-top: -89.75px;
+}
+
+.winning_lines{
+	position: absolute;
+	margin-top: -137px;
+	width: 603px;
+	height: 0;
+}
+
+.wlttb{
+	position: relative;
+	width: 100%;
+    height: 10px;
+    margin-left: -7.75px;
+	top: 269px;
+}
+
+#wlttb_top{
+    position: absolute;
+    margin-top: -89px;
+    margin-left: 11px;
+}
+
+#wlttb_2, #wlttb_3{
+    margin-top: 79px;
+}
+
+.wlrtl{
+	position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 266px;
+    top: -3px;
+    margin-left: 37px;
+}
+
+#wlrtl_2, #wlrtl_3, #wlrtl_6, #wlrtl_9, #wlrtl_11{
+	margin-left: 31px;
+}
+#wlrtl_4, #wlrtl_5, #wlrtl_7, #wlrtl_8, #wlrtl_10{
+	margin-left: 32px;
+}
+
+.wlcb{
+	position: absolute;
+	width: 477px;
+	height: 41px;
+	top: 255px;
+	margin-left: 13px;
+}
+
+#wlcb_2{
+	top: 343px;
+}
+
+.cbbb{
+    width: 20px;
+    height: 20px;
+    position: relative;
+	display: inline-block;
+	margin-left:22px;
+	margin-top: 9.5px;
+	cursor: pointer;
+}
+
+#cbbb_1, #cbbb_4, #cbbb_5, #cbbb_7, #cbbb_9, #cbbb_11, #cbbb_12, #cbbb_15, #cbbb_16, #cbbb_18, #cbbb_20, #cbbb_22{
+	margin-left: 21px;
+}
+
+#cbbb_3, #cbbb_14{
+	margin-left: 20.5px;
+}
+
+#cbbb_6, #cbbb_17{
+	margin-left: 23px;
+}
+
+#cbbb_8, #cbbb_10, #cbbb_19, #cbbb_21{
+	margin-left: 22px;
+}
+
+.ttbbetblock{
+	width: 19.1px;
+	height: 10px;
+	position: relative;
+	display: inline-block;
+	margin-left: 22.52px;
+	top: -2px;
+	cursor:pointer;
+	z-index:3;
+}
+
+.rtlbb1, .rtlbb2, .rtlbb3{
+	height: 45px;
+    margin-top: 23px;
+	width: 10px;
+}
+
+.rtlbb2, .rtlbb3{
+    margin-top: 42px;
+}
+
+.spinBtn{
+	position: absolute;
+	margin-top: 329px;
+	margin-left: -392px;
+	font-size: 15px;
+	cursor: pointer;
+	background-color: #ffec00;
+	padding: 10px 5px;
+	border-radius: 100%;
+	color: #000;
+	font-weight: bold;
+}
+
+.redNum{
+	background-color: #E0080B;
+}
+
+.blackNum{
+	background-color: #000;
+}
+
+.chipDeck, .bankContainer{
+	position: absolute;
+	margin-left: -383px;
+	margin-top: -74px;
+	width: 310px;
+	height:39px;
+	padding: 3px 0;
+	border: 1px solid;
+	border-radius: 10px;
+	box-shadow: inset -2px -4px rgb(0 0 0 / 20%);
+}
+
+.bankContainer{
+	margin-top: -21px;
+}
+
+.cdChip{
+	width: 27px;
+    height: 27px;
+    background-color: #fff;
+    border: 5px solid;
+    border-radius: 100%;
+    display: inline-block;
+    margin-left: 9px;
+    color: #000;
+	cursor: pointer;
+}
+
+.cdChipSpan{
+	display: inherit;
+	position: relative;
+	top: 5px;
+	width: 26px;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+}
+
+.cdChipActive{
+	position: relative;
+	top: -4px;
+	box-shadow: 0 4px rgb(0 0 0 / 20%);
+}
+
+.clearBet{
+	border-color:red;
+	background-color:red;
+	color:#fff;
+	margin-left:22px;
+}
+
+.clearBet .cdChipSpan{
+	margin-left:-2px;
+}
+
+.bank, .bet{
+	display: inline-block;
+	width: calc(50% - 28px);
+    background-color: #000;
+    font-size: 18px;
+    margin-left: 7px;
+    padding: 5px;
+    border: 4px solid silver;
+    border-radius: 7px;
+    text-align: right;
+}
+
+.pnBlock{
+	position: absolute;
+	border: 1px solid;
+	width: 500px;
+	height: 45px;
+	margin-top: 10px;
+	margin-left: -1px;
+}
+
+#pnContent{
+	border: 4px solid #d5b714;
+	width: 485px;
+	height: 31px;
+	position: relative;
+	display: block;
+	margin-left: 4px;
+	margin-top: 3px;
+	background-color: #fff;
+	color: #000;
+	overflow:hidden;
+}
+
+.pnRed, .pnBlack, .pnGreen{
+	position: relative;
+	display: inline;
+	padding:10px;
+	font-size: 19px;
+	top: 5px;
+}.pnRed{
+	color: red;
+}.pnBlack{
+	color: black;
+}.pnGreen{
+	color: green;
+}
+/*betting table end*/
+
+/*wheel*/
+@keyframes wheelRotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
+@keyframes ballRotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-359deg);
+	}
+}
+
+.wheel {
+	height: 312px;
+	width: 312px;
+	position: relative;
+	left: -75px;
+}
+	
+.ballTrack{
+	width: 212px;
+	height: 207px;
+	position: absolute;
+	left: 47.5px;
+	top: 50px;
+	border-radius: 100%;
+	z-index:2;
+}
+
+.ball{
+	background-color: #fff;
+	width: 16px;
+	height: 16px;
+	border-radius: 100%;
+	position: relative;
+	left: 109px;
+	top: -8px;
+}
+	
+.turret{
+	border-radius: 100%;
+	background: radial-gradient( circle at 30% 30%, #f3c620, #1a1608 );
+	width: 45px;
+	height: 45px;
+	position: absolute;
+	top: 133px;
+	left: 134px;
+	z-index: 1;
+}
+	
+.turretHandle{
+	background: radial-gradient( circle at 44%, #f3c620, #6a570f);
+	width: 87px;
+	height: 14px;
+	position: absolute;
+	left: 113px;
+	top: 148px;
+}
+
+.thendOne, .thendTwo{
+	border-radius: 100%;
+	background: radial-gradient( circle at 30% 30%, #f3c620, #1a1608 );
+	width: 25px;
+	height: 25px;
+	position: absolute;
+}
+
+.thendOne{
+	top: -6px;
+	left: -20px;
+}
+
+.thendTwo{
+	top: -6px;
+	left: 83px;
+}
+
+.outerRim {
+	position: absolute;
+	left:0;
+	top:0;
+	width: 290px;
+	height: 290px;
+	border-radius: 100%;
+	box-shadow: 0px 0px 8px rgba(0,0,0,0.5);
+	border: 10px solid #F3c620;
+} 
+
+.block {
+	transition: all 1s;
+	position: absolute;
+	width: 290px;
+	height: 290px;
+	border-radius: 100%;
+	clip: rect(0px, 145px, 290px, 0px);
+}
+
+.sect {
+	position: absolute;
+	top:10px;
+	left:10px;
+	width: 290px;
+	height: 290px;
+	border-radius: 100%;
+	clip: rect(0px, 290px, 290px, 145px);
+}
+
+.double, .single{
+	position: absolute;
+	z-index: 1;
+	color: #fff;
+	font-size: 14px;
+	transform: rotate(3deg);
+}
+
+.double{
+	left: 148px;
+	margin-top: 4.5px;
+}
+
+.single{
+	left: 152px;
+	margin-top: 4.5px;
+}
+
+#sect1 .block {
+	background-color: #016D29;
+	transform:rotate(9.73deg);
+}
+    
+#sect2 .block, #sect4 .block, #sect6 .block, #sect8 .block, #sect10 .block, #sect12 .block, #sect14 .block, #sect16 .block, #sect18 .block, #sect20 .block, #sect22 .block, #sect24 .block, #sect26 .block, #sect28 .block, #sect30 .block, #sect32 .block, #sect34 .block, #sect36 .block {
+	background-color: #E0080B;
+	transform: rotate(9.73deg);
+}
+
+#sect3 .block, #sect5 .block, #sect7 .block, #sect9 .block, #sect11 .block, #sect13 .block, #sect15 .block, #sect17 .block, #sect19 .block, #sect21 .block, #sect23 .block, #sect25 .block, #sect27 .block, #sect29 .block, #sect31 .block, #sect33 .block, #sect35 .block, #sect37 .block {
+	background-color: #000;
+	transform: rotate(9.73deg);
+}
+
+#sect2 {
+	transform: rotate(9.73deg);
+}
+
+#sect3 {
+	transform: rotate(19.46deg);
+}
+
+#sect4 {
+	transform: rotate(29.19deg);
+}
+
+#sect5 {
+	transform: rotate(38.92deg);
+}
+
+#sect6 {
+	transform: rotate(48.65deg);
+}
+
+#sect7 {
+	transform: rotate(58.38deg);
+}
+
+#sect8 {
+	transform: rotate(68.11deg);
+}
+
+#sect9 {
+	transform: rotate(77.84deg);
+}
+
+#sect10 {
+	transform: rotate(87.57deg);
+}
+
+#sect11 {
+	transform: rotate(97.3deg);
+}
+
+#sect12 {
+	transform: rotate(107.03deg);
+}
+
+#sect13 {
+	transform: rotate(116.76deg);
+}
+
+#sect14 {
+	transform: rotate(126.49deg);
+}
+
+#sect15 {
+	transform: rotate(136.22deg);
+}
+
+#sect16 {
+	transform: rotate(145.95deg);
+}
+
+#sect17 {
+	transform: rotate(155.68deg);
+}
+
+#sect18 {
+	transform: rotate(165.41deg);
+}
+
+#sect19 {
+	transform: rotate(175.14deg);
+}
+
+#sect20 {
+	transform: rotate(184.87deg);
+}
+
+#sect21 {
+	transform: rotate(194.6deg);
+}
+
+#sect22 {
+	transform: rotate(204.33deg);
+}
+
+#sect23 {
+	transform: rotate(214.06deg);
+}
+
+#sect24 {
+	transform: rotate(223.79deg);
+}
+
+#sect25 {
+	transform: rotate(233.52deg);
+}
+
+#sect26 {
+	transform: rotate(243.25deg);
+}
+
+#sect27 {
+	transform: rotate(252.98deg);
+}
+
+#sect28 {
+	transform: rotate(262.71deg);
+}
+
+#sect29 {
+	transform: rotate(272.44deg);
+}
+
+#sect30 {
+	transform: rotate(282.17deg);
+}
+
+#sect31 {
+	transform: rotate(291.9deg);
+}
+
+#sect32 {
+	transform: rotate(301.63deg);
+}
+
+#sect33 {
+	transform: rotate(311.36deg);
+}
+
+#sect34 {
+	transform: rotate(321.09deg);
+}
+
+#sect35 {
+	transform: rotate(330.82deg);
+}
+
+#sect36 {
+	transform: rotate(340.55deg);
+}
+
+#sect37 {
+	transform: rotate(350.28deg);
+}
+
+.pockets {
+	position: absolute;
+	top: 37px;
+	left: 37px;
+	width: 235px;
+	height: 235px;
+	background-color: #000;
+	border-radius: 100%;
+	opacity: .5;
+}
+
+.pocketsRim {
+	position: absolute;
+	top: 34px;
+	left: 34px;
+	width: 235px;
+	height: 235px;
+	border-radius: 100%;
+	border: 3px solid silver;
+}
+	
+.cone {
+	position: absolute;
+	top: 62px;
+	left: 61px;
+	height: 180px;
+	width: 180px;
+	border: 3px solid #9f9a9a;
+	border-radius: 100%;
+	background: radial-gradient(circle at 100px 100px, #892c10, #000);
+}
+/*wheel end*/
+
+/*chip*/
+.chip{
+    width: 21px;
+	height: 21px;
+	background-color:#fff;
+	border: 3px solid;
+	border-radius: 100%;
+    position:absolute;
+}
+
+.chipSpan{
+	color: #000;
+	font-weight: bold;
+	font-size: 11px;
+	position: relative;
+	display: block;
+	text-align: center;
+	top: 4px;
+}
+
+.gold{
+	border-color:gold;
+}
+
+.red{
+	border-color:red;
+}
+
+.orange{
+	border-color:orange;
+}
+
+.blue{
+	border-color:blue;
+}
+
+.tt1_block .chip{
+	margin-left: 19px;
+	margin-top: -24px;
+}
+
+.number_block .chip{
+	margin-left: 7px;
+	margin-top: -24px;
+}
+
+.wlrtl .chip{
+	margin-left: -9px;
+	margin-top: 9px;
+}
+
+.cbbb .chip{
+	margin-left: -4px;
+	margin-top: -5px;
+}
+
+.ttbbetblock .chip{
+	margin-left: -7px;
+	margin-top: -8px;
+}
+
+#wlttb_top .chip{
+	margin-left: -5px;
+	margin-top: -8px;
+}
+
+.bbtoptwo .chip{
+	margin-left: 108px;
+	margin-top: -25px;
+}
+
+.number_0 .chip{
+	margin-left: -8px;
+	margin-top: -22px;
+}
+
+.bo3_block .chip{
+	margin-left: 65px;
+	margin-top: -26px;
+}
+
+.oto_block .chip{
+	margin-left: 45px;
+	margin-top: -25px;
+}
+/*chip end*/

@@ -34,10 +34,12 @@ Control the player with the help of arrow keys. Move and collect the pokeballs a
 ## **Screenshots 📸**
 
 <br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
+
+<img width="960" alt="Screenshot 2023-06-24 185945" src="https://github.com/abhinav-m22/GameZone/assets/113239388/640ca9c3-b6fc-4c70-9662-59ced878f005">
 
 <br>
 
 ## **Working video 📹**
-<!-- add your working video over here -->
+
+[screen-capture (4).webm](https://github.com/abhinav-m22/GameZone/assets/113239388/f7364fe4-cbf1-4568-a0ed-731f1fab9b09)
+

@@ -36,7 +36,7 @@ jobs:
             console.log(`Close issue: ${closeIssue}`);
 
             if (closeIssue) {
-              const comment = `Hey @${openerName} , You can't have another issue before completing the previous one 😀 \n you already have the following ${previousOpenIssues.length} open issues 👀 ! : \n${previousOpenIssueNumbers.join('\n')}`;
+              const comment = `Hey @${openerName} , You can't have another issue before completing the previous one 😀 \n you already have the following ${previousOpenIssues.length} open issues 👀 ! :\n\n${previousOpenIssueNumbers.join('\n')}`;
               core.exportVariable('comment_body', comment); // Export the variable
               core.setOutput('close_issue', true);
             } else {
@@ -45,7 +45,7 @@ jobs:
             }
 
       - name: Close the issue and add a comment
-        if: always() ${{ needs.check_open_issues.outputs.close_issue }}
+        if: always() && ${{ needs.check_open_issues.outputs.close_issue }}
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -54,6 +54,11 @@ jobs:
             const repo = context.repo.repo;
             const issueNumber = context.issue.number;
             const comment = process.env.comment_body; // Retrieve the exported variable
+            
+            if (comment.trim() === '') {
+              console.log('Comment body is empty. Skipping comment creation.');
+              return;
+            }
 
             const closeComment = `${comment}`;
 

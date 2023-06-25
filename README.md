@@ -353,9 +353,17 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 248 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
 | 249 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
 | 250 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
-| 251 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color Matcher)|
+| 251 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|
 | 252 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
-| 253 | [Roulette](https://github.com/kunjgit/GameZone/tree/main/Games/Roulette)|
+| 253 | [Save Doraemon](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Doraemon)|
+| 254 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|
+| 255 | [Hextris](https://github.com/kunjgit/GameZone/tree/main/Games/Hextris)|
+| 256 | [MrFakeGame](https://github.com/kunjgit/GameZone/tree/main/Games/MrFakeGame)|
+| 257 | [Checkers](https://github.com/kunjgit/GameZone/tree/main/Games/Checkers)|
+| 258 | [Roulette](https://github.com/kunjgit/GameZone/tree/main/Games/Roulette)|
+
+
+
 
 
 

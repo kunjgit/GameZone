@@ -61,3 +61,4 @@ reset.addEventListener('click', ()=>{
     isgameover = false
     document.querySelector(".line").style.width = "0vw";
     document.getElementsByClassName("info")[0].innerText  = "Turn for " + turn;
+});

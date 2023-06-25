@@ -2544,3 +2544,21 @@ textarea.form-input::-webkit-resizer {
   margin-top: 2px;
   margin-left: 10px;
 }
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #434343;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(125deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #df87ef;
+}

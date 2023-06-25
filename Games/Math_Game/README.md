@@ -29,7 +29,7 @@ After clicking the submit button, a result screen is shown. On the result screen
 
 <br>
 
- ![image](../../assets/images/Movie_Guessing_Game.png)
+ ![image](../../assets/images/Math_Game.png)
 
 <br>
 

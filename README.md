@@ -357,7 +357,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 252 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
 | 253 | [Save Doraemon](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Doraemon)|
 | 254 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|
-
+| 255 | [Corona Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Corona_Shooter)|
 
 
 

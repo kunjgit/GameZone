@@ -1,0 +1,367 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  background-color: #C8E6C9;
+  background-image: url('data:image/svg+xml,%3Csvg width="52" height="26" viewBox="0 0 52 26" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.25"%3E%3Cpath d="M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z" /%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  color: #2f0d59;
+}
+
+h2 {
+  font-size: 2.25em;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  padding: 1em 0.75em;
+}
+
+.space {
+  width: 100%;
+  height: 1px;
+  flex: 1 0 100%;
+}
+
+.wrapper {
+  padding: 1em 1.5em;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+main.wrapper {
+  margin-top: 2.5em;
+}
+
+footer.wrapper {
+  border-top: 2px solid currentcolor;
+  margin-top: 4em;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em 0.5em;
+}
+
+input[type=text] {
+  display: block;
+  width: 2em;
+  height: 2em;
+  font: inherit;
+  color: inherit;
+  text-transform: uppercase;
+  text-align: center;
+  border: 0;
+  border-radius: 5px;
+  outline: 2px solid currentcolor;
+}
+input[type=text]:focus {
+  outline-style: dashed;
+}
+input[type=text]:valid {
+  outline-color: #43A047;
+}
+input[type=text]:invalid ~ label {
+  visibility: hidden;
+}
+
+.levels > .movie:first-child {
+  padding: 1em;
+}
+
+.movie, .congrats {
+  display: grid;
+  height: 100%;
+  align-items: center;
+  align-content: center;
+  gap: 2em;
+}
+
+.congrats {
+  font-size: 1.25em;
+}
+
+label {
+  display: inline-block;
+  border: 2px solid currentcolor;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #ffcc80;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+[id=movie-0]:not(:checked) + .movie-0 > .container > .letter,
+[id=movie-0]:not(:checked) + .movie-0 > .container > label,
+[id=movie-0]:not(:checked) + .movie-0 > .container > .space,
+[id=movie-0]:not(:checked) + .movie-0 > h2 {
+  display: none;
+}
+
+[id=movie-0]:not(:checked) + .movie-0,
+[id=movie-0]:not(:checked) + .movie-0 > .container {
+  gap: 0;
+}
+
+[id=movie-1]:not(:checked) + .movie-1 > .container > .letter,
+[id=movie-1]:not(:checked) + .movie-1 > .container > label,
+[id=movie-1]:not(:checked) + .movie-1 > .container > .space,
+[id=movie-1]:not(:checked) + .movie-1 > h2 {
+  display: none;
+}
+
+[id=movie-1]:not(:checked) + .movie-1,
+[id=movie-1]:not(:checked) + .movie-1 > .container {
+  gap: 0;
+}
+
+[id=movie-2]:not(:checked) + .movie-2 > .container > .letter,
+[id=movie-2]:not(:checked) + .movie-2 > .container > label,
+[id=movie-2]:not(:checked) + .movie-2 > .container > .space,
+[id=movie-2]:not(:checked) + .movie-2 > h2 {
+  display: none;
+}
+
+[id=movie-2]:not(:checked) + .movie-2,
+[id=movie-2]:not(:checked) + .movie-2 > .container {
+  gap: 0;
+}
+
+[id=movie-3]:not(:checked) + .movie-3 > .container > .letter,
+[id=movie-3]:not(:checked) + .movie-3 > .container > label,
+[id=movie-3]:not(:checked) + .movie-3 > .container > .space,
+[id=movie-3]:not(:checked) + .movie-3 > h2 {
+  display: none;
+}
+
+[id=movie-3]:not(:checked) + .movie-3,
+[id=movie-3]:not(:checked) + .movie-3 > .container {
+  gap: 0;
+}
+
+[id=movie-4]:not(:checked) + .movie-4 > .container > .letter,
+[id=movie-4]:not(:checked) + .movie-4 > .container > label,
+[id=movie-4]:not(:checked) + .movie-4 > .container > .space,
+[id=movie-4]:not(:checked) + .movie-4 > h2 {
+  display: none;
+}
+
+[id=movie-4]:not(:checked) + .movie-4,
+[id=movie-4]:not(:checked) + .movie-4 > .container {
+  gap: 0;
+}
+
+[id=movie-5]:not(:checked) + .movie-5 > .container > .letter,
+[id=movie-5]:not(:checked) + .movie-5 > .container > label,
+[id=movie-5]:not(:checked) + .movie-5 > .container > .space,
+[id=movie-5]:not(:checked) + .movie-5 > h2 {
+  display: none;
+}
+
+[id=movie-5]:not(:checked) + .movie-5,
+[id=movie-5]:not(:checked) + .movie-5 > .container {
+  gap: 0;
+}
+
+[id=movie-6]:not(:checked) + .movie-6 > .container > .letter,
+[id=movie-6]:not(:checked) + .movie-6 > .container > label,
+[id=movie-6]:not(:checked) + .movie-6 > .container > .space,
+[id=movie-6]:not(:checked) + .movie-6 > h2 {
+  display: none;
+}
+
+[id=movie-6]:not(:checked) + .movie-6,
+[id=movie-6]:not(:checked) + .movie-6 > .container {
+  gap: 0;
+}
+
+[id=movie-7]:not(:checked) + .movie-7 > .container > .letter,
+[id=movie-7]:not(:checked) + .movie-7 > .container > label,
+[id=movie-7]:not(:checked) + .movie-7 > .container > .space,
+[id=movie-7]:not(:checked) + .movie-7 > h2 {
+  display: none;
+}
+
+[id=movie-7]:not(:checked) + .movie-7,
+[id=movie-7]:not(:checked) + .movie-7 > .container {
+  gap: 0;
+}
+
+[id=movie-8]:not(:checked) + .movie-8 > .container > .letter,
+[id=movie-8]:not(:checked) + .movie-8 > .container > label,
+[id=movie-8]:not(:checked) + .movie-8 > .container > .space,
+[id=movie-8]:not(:checked) + .movie-8 > h2 {
+  display: none;
+}
+
+[id=movie-8]:not(:checked) + .movie-8,
+[id=movie-8]:not(:checked) + .movie-8 > .container {
+  gap: 0;
+}
+
+[id=movie-9]:not(:checked) + .movie-9 > .container > .letter,
+[id=movie-9]:not(:checked) + .movie-9 > .container > label,
+[id=movie-9]:not(:checked) + .movie-9 > .container > .space,
+[id=movie-9]:not(:checked) + .movie-9 > h2 {
+  display: none;
+}
+
+[id=movie-9]:not(:checked) + .movie-9,
+[id=movie-9]:not(:checked) + .movie-9 > .container {
+  gap: 0;
+}
+
+[id=movie-10]:not(:checked) + .movie-10 > .container > .letter,
+[id=movie-10]:not(:checked) + .movie-10 > .container > label,
+[id=movie-10]:not(:checked) + .movie-10 > .container > .space,
+[id=movie-10]:not(:checked) + .movie-10 > h2 {
+  display: none;
+}
+
+[id=movie-10]:not(:checked) + .movie-10,
+[id=movie-10]:not(:checked) + .movie-10 > .container {
+  gap: 0;
+}
+
+[id=movie-11]:not(:checked) + .movie-11 > .container > .letter,
+[id=movie-11]:not(:checked) + .movie-11 > .container > label,
+[id=movie-11]:not(:checked) + .movie-11 > .container > .space,
+[id=movie-11]:not(:checked) + .movie-11 > h2 {
+  display: none;
+}
+
+[id=movie-11]:not(:checked) + .movie-11,
+[id=movie-11]:not(:checked) + .movie-11 > .container {
+  gap: 0;
+}
+
+[id=movie-12]:not(:checked) + .movie-12 > .container > .letter,
+[id=movie-12]:not(:checked) + .movie-12 > .container > label,
+[id=movie-12]:not(:checked) + .movie-12 > .container > .space,
+[id=movie-12]:not(:checked) + .movie-12 > h2 {
+  display: none;
+}
+
+[id=movie-12]:not(:checked) + .movie-12,
+[id=movie-12]:not(:checked) + .movie-12 > .container {
+  gap: 0;
+}
+
+[id=movie-13]:not(:checked) + .movie-13 > .container > .letter,
+[id=movie-13]:not(:checked) + .movie-13 > .container > label,
+[id=movie-13]:not(:checked) + .movie-13 > .container > .space,
+[id=movie-13]:not(:checked) + .movie-13 > h2 {
+  display: none;
+}
+
+[id=movie-13]:not(:checked) + .movie-13,
+[id=movie-13]:not(:checked) + .movie-13 > .container {
+  gap: 0;
+}
+
+[id=movie-14]:not(:checked) + .movie-14 > .container > .letter,
+[id=movie-14]:not(:checked) + .movie-14 > .container > label,
+[id=movie-14]:not(:checked) + .movie-14 > .container > .space,
+[id=movie-14]:not(:checked) + .movie-14 > h2 {
+  display: none;
+}
+
+[id=movie-14]:not(:checked) + .movie-14,
+[id=movie-14]:not(:checked) + .movie-14 > .container {
+  gap: 0;
+}
+
+[id=movie-15]:not(:checked) + .movie-15 > .container > .letter,
+[id=movie-15]:not(:checked) + .movie-15 > .container > label,
+[id=movie-15]:not(:checked) + .movie-15 > .container > .space,
+[id=movie-15]:not(:checked) + .movie-15 > h2 {
+  display: none;
+}
+
+[id=movie-15]:not(:checked) + .movie-15,
+[id=movie-15]:not(:checked) + .movie-15 > .container {
+  gap: 0;
+}
+
+[id=movie-16]:not(:checked) + .movie-16 > .container > .letter,
+[id=movie-16]:not(:checked) + .movie-16 > .container > label,
+[id=movie-16]:not(:checked) + .movie-16 > .container > .space,
+[id=movie-16]:not(:checked) + .movie-16 > h2 {
+  display: none;
+}
+
+[id=movie-16]:not(:checked) + .movie-16,
+[id=movie-16]:not(:checked) + .movie-16 > .container {
+  gap: 0;
+}
+
+[id=movie-17]:not(:checked) + .movie-17 > .container > .letter,
+[id=movie-17]:not(:checked) + .movie-17 > .container > label,
+[id=movie-17]:not(:checked) + .movie-17 > .container > .space,
+[id=movie-17]:not(:checked) + .movie-17 > h2 {
+  display: none;
+}
+
+[id=movie-17]:not(:checked) + .movie-17,
+[id=movie-17]:not(:checked) + .movie-17 > .container {
+  gap: 0;
+}
+
+[id=movie-18]:not(:checked) + .movie-18 > .container > .letter,
+[id=movie-18]:not(:checked) + .movie-18 > .container > label,
+[id=movie-18]:not(:checked) + .movie-18 > .container > .space,
+[id=movie-18]:not(:checked) + .movie-18 > h2 {
+  display: none;
+}
+
+[id=movie-18]:not(:checked) + .movie-18,
+[id=movie-18]:not(:checked) + .movie-18 > .container {
+  gap: 0;
+}
+
+[id=movie-19]:not(:checked) + .movie-19 > .container > .letter,
+[id=movie-19]:not(:checked) + .movie-19 > .container > label,
+[id=movie-19]:not(:checked) + .movie-19 > .container > .space,
+[id=movie-19]:not(:checked) + .movie-19 > h2 {
+  display: none;
+}
+
+[id=movie-19]:not(:checked) + .movie-19,
+[id=movie-19]:not(:checked) + .movie-19 > .container {
+  gap: 0;
+}
+
+[id=movie-20]:not(:checked) + .movie-20 > .container > .letter,
+[id=movie-20]:not(:checked) + .movie-20 > .container > label,
+[id=movie-20]:not(:checked) + .movie-20 > .container > .space,
+[id=movie-20]:not(:checked) + .movie-20 > h2 {
+  display: none;
+}
+
+[id=movie-20]:not(:checked) + .movie-20,
+[id=movie-20]:not(:checked) + .movie-20 > .container {
+  gap: 0;
+}
+
+[id=movie-20]:not(:checked) + .congrats {
+  display: none;
+}

@@ -360,6 +360,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 255 | [Hextris](https://github.com/kunjgit/GameZone/tree/main/Games/Hextris)|
 | 256 | [MrFakeGame](https://github.com/kunjgit/GameZone/tree/main/Games/MrFakeGame)|
 | 257 | [Checkers](https://github.com/kunjgit/GameZone/tree/main/Games/Checkers)|
+| 258 | [Roulette](https://github.com/kunjgit/GameZone/tree/main/Games/Roulette)|
+
 
 
 

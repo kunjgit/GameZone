@@ -361,7 +361,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 256 | [MrFakeGame](https://github.com/kunjgit/GameZone/tree/main/Games/MrFakeGame)|
 | 257 | [Checkers](https://github.com/kunjgit/GameZone/tree/main/Games/Checkers)|
 | 258 | [Roulette](https://github.com/kunjgit/GameZone/tree/main/Games/Roulette)|
-| 260 | [Corona Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Corona_Shooter)|
+
 
 
 

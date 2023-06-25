@@ -1,43 +1,89 @@
-.container {
+body {
+    font-family: Arial, sans-serif;
     text-align: center;
-    margin-top: 50px;
+    background-color: #ffd1dc;
+
   }
   
-  h1 {
-    font-size: 24px;
-  }
-  
-  #image-container {
-    width:100%;
-    margin:20px 0;
-  }
-  
-  #character-image {
-    width: 300px;
-    height: 300px;
-  }
-  
-  #character-input {
-    width: 200px;
-    height: 30px;
-    margin: 10px 0;
-  }
-  
-  #result {
+h1{
+    text-align: center;
+}
+
+  #score {
+    font-size: 20px;
     font-weight: bold;
-  }
-  
-  #timer-container {
     margin-bottom: 20px;
   }
   
-  #leaderboard {
-    margin-top: 50px;
+  #imageContainer {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
   }
   
-  #scores-list {
-    list-style: none;
-    padding-left: 0;
+  #image {
+    max-width: 100%;
+    max-height: 100%;
   }
   
+  #inputContainer {
+    margin-bottom: 20px;
+  }
+  
+  #guessInput {
+    padding: 5px;
+    font-size: 25px;
+    border:3px solid #d7aefb;
+    margin-bottom:5px;
+  }
+  
+  #submitBtn,
+  #changePictureBtn {
+    padding: 5px 10px;
+    font-size: 20px;
+    margin-right: 10px;
+    border:2px solid #d7aefb;
+    background-color: #d7aefb;
+    text-align: center;
+  }
+  
+  #submitBtn:hover{
+    background-color: #a2ded0;
+    border: 2px solid #a2ded0;
+  }
+  
+  #changePictureBtn:hover{
+    background-color: #a2ded0;
+    border: 2px solid #a2ded0;
+  }
 
+  #message {
+    font-weight: bold;
+  }
+  
+  #scoreList {
+    margin-top: 20px;
+  }
+  
+  #scoreItems {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #startOverBtn {
+    margin-top: 20px;
+    padding: 5px 10px;
+    font-size: 20px;
+    background-color:#ff69b4;
+    border:2px solid #ff69b4;
+    text-align: center;
+  }
+
+  #startOverBtn:hover{
+    background-color: #d7aefb;
+    border: 2px solid #d7aefb;
+  }
+  

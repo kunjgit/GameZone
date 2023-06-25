@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Guess the Cartoon Name</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/Games/Guess-the-cartoon-name/styles.css">
+  <title>Guess the Name Game</title>
+  <h1>Guess the Cartoon Name</h1>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div class="container"> 
-    <h1>Guess the Cartoon Name</h1>
-    <div id="image-container">
-      <img id="character-image" src="https://m.media-amazon.com/images/I/717E+yTZKCL.png" alt="Character Image">
-    </div>
-    <input id="character-input" type="text" placeholder="Enter Character Name">
-    <button id="submit-btn" class="btn btn-primary">Submit</button>
-    <p id="result"></p>
-    <div id="timer-container">
-      <span id="timer">30</span> seconds left
-    </div>
-    <button id="change-image-btn" class="btn btn-secondary">Change Image</button>
-    <div id="leaderboard">
-      <h2>Leaderboard</h2>
-      <ol id="scores-list">
-        <!-- leaderboard scores will be dynamically added here -->
-      </ol>
-    </div>
+  <div id="score">Score: <span id="scoreValue">0</span></div>
+  <div id="imageContainer">
+    <img id="image" src="image1.jpg" alt="Guess the Name">
   </div>
+  <div id="inputContainer">
+    <input type="text" id="guessInput" placeholder="Enter your guess"><br>
+    <button id="submitBtn">Submit</button>
+    <button id="changePictureBtn">Change Picture</button>
+  </div>
+  <div id="message"></div>
+  <div id="scoreList">
+    <ul id="scoreItems"></ul>
+  </div>
+  <button id="startOverBtn">Start Over</button>
 
-  <script src="/Games/Guess-the-cartoon-name/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

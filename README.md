@@ -341,7 +341,23 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 236 | [Crossword_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Crossword_Puzzle)|
 | 237 | [Pixel_Painter](https://github.com/kunjgit/GameZone/tree/main/Games/Pixel_Painter)|
 | 238 | [Riddle_Room](https://github.com/kunjgit/GameZone/tree/main/Games/Riddle_Room)|
-| 239 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|
+| 239 | [ArmorAlley](https://github.com/kunjgit/GameZone/tree/main/Games/ArmorAlley)|
+| 240 | [Color_switcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color_switcher)|
+| 241 | [Maze of Cables](https://github.com/VSatwika/GameZonefork/tree/Maze_of_Cables/Games/Maze_of_Cables)|
+| 242 | [Escape Room](https://github.com/kunjgit/GameZone/tree/main/Games/Escape_room)|
+| 243 | [Super_mario_run](https://github.com/kunjgit/GameZone/tree/main/Games/Super_mario_run)|
+| 244 | [Doodle_Draw](https://github.com/kunjgit/GameZone/tree/main/Games/Doodle_Draw)|
+| 245 | [Arcade_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Arcade_Game)|
+| 246 | [Slice Storm](https://github.com/VSatwika/GameZonefork/tree/Slice_Storm/Games/Slice_Storm) |
+| 247 | [CodePen_SImulator](https://github.com/kunjgit/GameZone/tree/main/Games/CodePen_SImulator)|
+| 248 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
+| 249 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
+| 250 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
+| 251 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|
+| 252 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
+| 253 | [Save Doraemon](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Doraemon)|
+| 254 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|
+
 
 
 

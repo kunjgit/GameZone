@@ -15,9 +15,3 @@ If Charlie gets hit by fire, he will lose a life. If he falls off the lion, he w
 - Using the above functionalities The user can move lion by his choice to save him from Fire and rings.
 
 <br>
-
-## **Screenshots 📸**
-
-<br>
-![image](../../assets/images/Circus_Charly.png)
-<br>

@@ -1,5 +1,5 @@
 # **ATLAS** 
-
+Test your geography in this game of countries.
 ---
 
 <br>
@@ -31,10 +31,12 @@ Your final score will be displayed at the end of the game.
 ## **Screenshots 📸**
 
 <br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
+<img width="724" alt="image" src="https://github.com/AnkitaBarbora/GameZone/assets/101138526/b2e40618-c77c-4131-bc82-60315b48d4fb">
 
 <br>
 
 ## **Working video 📹**
-<!-- add your working video over here -->
+
+
+https://github.com/AnkitaBarbora/GameZone/assets/101138526/40f98091-c236-4010-a7f6-cd78d90a087b
+

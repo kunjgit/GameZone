@@ -4,16 +4,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Snake Water Gun</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <h1>Snake Water Gun Game</h1>
-  <button class="btn" id="btn1" onclick="runcode()">Snake</button >
-  <button class="btn" id="btn2" onclick="runcode()">Water</button >
-  <button class="btn" id="btn3" onclick="runcode()">Gun</button >
+  <button class="btn" id="btn1" onclick="runcode()">Snake 🐍</button >
+  <button class="btn" id="btn2" onclick="runcode()">Water 🌊</button >
+  <button class="btn" id="btn3" onclick="runcode()">Gun 🔫</button >
   <h2></h2>
+  <div id="resultPanel" align="center">
+    <p id="resultText">Make your move!</p>
+    <p id="scoreText">Score: You - 0 | Computer - 0</p>
+</div>
+<div id="computerPanel" align="center">
+    <p>Computer's Choice:</p>
+    <div id="computerEmoji"></div>
+</div>
+</div>
+
   <script src="script.js"></script>
 </body>
 

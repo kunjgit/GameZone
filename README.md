@@ -304,7 +304,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 199 | [Drag And Drop Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Drag_And_Drop_Puzzle)|
 | 200 | [Music Guess Game](https://github.com/kunjgit/GameZone/tree/main/Games/Music_Guess_Game)|
 | 201 | [Tower Of Hanoi](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Of_Hanoi)| 
-| 202 | [Mastermind_Mania](https://github.com/Sheetal-05/GameZone/tree/main/Games/Mastermind_Mania)| 
+| 202 | [Mastermind_Mania](https://github.com/kunjgit/GameZone/tree/main/Games/Mastermind_Mania)| 
 | 203 | [Ludo_4_Player](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_4_Player)|
 | 204 | [AirBalloon](https://github.com/kunjgit/GameZone/tree/main/Games/AirBalloon)|
 | 205 | [Space Invaders](https://github.com/kunjgit/GameZone/tree/main/Games/Space%20Invaders)|
@@ -368,7 +368,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 263 | [Pokemon Ball Finder](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Ball_Finder)|
 | 264 | [Basketball](https://github.com/kunjgit/GameZone/tree/main/Games/Basketball)|
 | 265 | [Wault_master](https://github.com/kunjgit/GameZone/tree/main/Games/Wault_master)|
-| 266 | [Atlas](https://github.com/Sheetal-05/GameZone/tree/main/Games/Atlas)|
+| 266 | [Atlas](https://github.com/kunjgit/GameZone/tree/main/Games/Atlas)|
 
 <br>
 <br>

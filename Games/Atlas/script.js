@@ -73,6 +73,7 @@ function passTurn() {
 
 
 function playGame() {
+  document.getElementById("instructions").style.display = "none";
   var userCountry = document.getElementById("userCountry").value.toLowerCase(); // Convert input to lowercase
   var lastLetter = userCountry.charAt(userCountry.length - 1).toLowerCase();
 

@@ -367,7 +367,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 262 | [Corona Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Corona_Shooter)|
 | 263 | [Pokemon Ball Finder](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Ball_Finder)|
 | 264 | [Basketball](https://github.com/kunjgit/GameZone/tree/main/Games/Basketball)|
-| 265 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
+| 265 | [Wault_master](https://github.com/kunjgit/GameZone/tree/main/Games/Wault_master)|
+| 266 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
 
 
 
@@ -375,7 +376,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 
 
- </center>
+
+</center>
 
 <br>
 <br>

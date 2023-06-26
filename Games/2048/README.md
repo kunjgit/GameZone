@@ -33,7 +33,3 @@
 ![image](../../assets/images/2048.png)
 
 <br>
-
-## **Working video 📹**
-![video](../../assets/2048_Gameplay.mkv)
-<!-- add your working video over here -->

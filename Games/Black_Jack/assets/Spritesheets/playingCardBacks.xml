@@ -1,0 +1,17 @@
+<TextureAtlas imagePath="sheet.png">
+	<SubTexture name="cardBack_blue1.png" x="140" y="380" width="140" height="190"/>
+	<SubTexture name="cardBack_blue2.png" x="280" y="570" width="140" height="190"/>
+	<SubTexture name="cardBack_blue3.png" x="280" y="380" width="140" height="190"/>
+	<SubTexture name="cardBack_blue4.png" x="280" y="190" width="140" height="190"/>
+	<SubTexture name="cardBack_blue5.png" x="280" y="0" width="140" height="190"/>
+	<SubTexture name="cardBack_green1.png" x="140" y="760" width="140" height="190"/>
+	<SubTexture name="cardBack_green2.png" x="140" y="570" width="140" height="190"/>
+	<SubTexture name="cardBack_green3.png" x="280" y="760" width="140" height="190"/>
+	<SubTexture name="cardBack_green4.png" x="140" y="190" width="140" height="190"/>
+	<SubTexture name="cardBack_green5.png" x="140" y="0" width="140" height="190"/>
+	<SubTexture name="cardBack_red1.png" x="0" y="760" width="140" height="190"/>
+	<SubTexture name="cardBack_red2.png" x="0" y="570" width="140" height="190"/>
+	<SubTexture name="cardBack_red3.png" x="0" y="380" width="140" height="190"/>
+	<SubTexture name="cardBack_red4.png" x="0" y="190" width="140" height="190"/>
+	<SubTexture name="cardBack_red5.png" x="0" y="0" width="140" height="190"/>
+</TextureAtlas>

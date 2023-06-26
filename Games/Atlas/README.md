@@ -1,7 +1,5 @@
 # **ATLAS** 
-Test your geography in this game of countries.
----
-
+Test your geographical skills in this game of countries.
 <br>
 
 ## **Description 📃**
@@ -38,5 +36,9 @@ Your final score will be displayed at the end of the game.
 ## **Working video 📹**
 
 
-https://github.com/AnkitaBarbora/GameZone/assets/101138526/40f98091-c236-4010-a7f6-cd78d90a087b
+https://github.com/AnkitaBarbora/GameZone/assets/101138526/1bc29a43-0128-4bb7-9778-e04d39ee36d0
+
+
+
+
 

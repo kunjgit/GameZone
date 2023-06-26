@@ -354,7 +354,28 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 246 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
 | 247 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
 | 239 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color Matcher)|
-| 240 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe the Cloud)|
+| 249 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
+| 250 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
+| 251 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|
+| 252 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
+| 253 | [Save Doraemon](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Doraemon)|
+| 254 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|
+| 255 | [Hextris](https://github.com/kunjgit/GameZone/tree/main/Games/Hextris)|
+| 256 | [MrFakeGame](https://github.com/kunjgit/GameZone/tree/main/Games/MrFakeGame)|
+| 257 | [Checkers](https://github.com/kunjgit/GameZone/tree/main/Games/Checkers)|
+| 258 | [Roulette](https://github.com/kunjgit/GameZone/tree/main/Games/Roulette)|
+| 259 | [Aero Acrobat](https://github.com/kunjgit/GameZone/tree/main/Games/Aero_Acrobat)|
+| 260 | [Adventure_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Adventure_Game)|
+| 261 | [Pumpkin_Pursuit](https://github.com/kunjgit/GameZone/tree/main/Games/Pumpkin_Pursuit)|
+| 262 | [Corona Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Corona_Shooter)|
+| 263 | [Pokemon Ball Finder](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Ball_Finder)|
+| 264 | [Basketball](https://github.com/kunjgit/GameZone/tree/main/Games/Basketball)|
+| 265 | [Wault_master](https://github.com/kunjgit/GameZone/tree/main/Games/Wault_master)|
+| 266 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe the Cloud)|
+
+
+
+
 
 
 

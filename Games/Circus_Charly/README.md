@@ -19,5 +19,5 @@ If Charlie gets hit by fire, he will lose a life. If he falls off the lion, he w
 ## **Screenshots 📸**
 
 <br>
-![image](../../assets/images/CircusCarly.png)
+![image](../../assets/images/Circus_Charly.png)
 <br>

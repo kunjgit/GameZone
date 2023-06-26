@@ -12,7 +12,7 @@ How to play? 🕹️
 - press H to switch to hard mode
 
 Screenshots 📸
-![image](../../assets/images/Tilting_Maze.png)
+![image](../../assets/images/tilting_maze_game.png)
 
 
 Working video 📹

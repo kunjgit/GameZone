@@ -1,0 +1,55 @@
+var countryId = { 
+	unknown: 0
+	, _African_Union: 1, _Arab_League: 2, _ASEAN: 3, _CARICOM: 4, _CIS: 5
+	, _Commonwealth: 6, _England: 7, _European_Union: 8, eu: 8, _Islamic_Conference: 9
+	, _Kosovo: 10, _NATO: 11, _Northern_Cyprus: 12, _Northern_Ireland: 13, _Olimpic_Movement: 14
+	, _OPEC: 15, _Red_Cross: 16, _Scotland: 17, _Somaliland: 18, _Tibet: 19
+	, _United_Nations: 20, _Wales: 21, ad: 22, ae: 23, af: 24
+	, ag: 25, ai: 26, al: 27, am: 28, ao: 29
+	, aq: 30, ar: 31, as: 32, at: 33, au: 34
+	, aw: 35, ax: 36, az: 37, ba: 38, bb: 39
+	, bd: 40, be: 41, bf: 42, bg: 43, bh: 44
+	, bi: 45, bj: 46, bm: 47, bn: 48, bo: 49
+	, br: 50, bs: 51, bt: 52, bw: 53, by: 54
+	, bz: 55, ca: 56, cd: 57, cf: 58, cg: 59
+	, ch: 60, ci: 61, ck: 62, cl: 63, cm: 64
+	, cn: 65, co: 66, cr: 67, cu: 68, cv: 69
+	, cy: 70, cz: 71, de: 72, dj: 73, dk: 74
+	, dm: 75, do: 76, dz: 77, ec: 78, ee: 79
+	, eg: 80, eh: 81, er: 82, es: 83, et: 84
+	, fi: 85, fj: 86, fm: 87, fo: 88, fr: 89
+	, bl: 89, cp: 89, mf: 89, yt: 89, ga: 90
+	, gb: 91, sh: 91, gd: 92, ge: 93, gg: 94
+	, gh: 95, gi: 96, gl: 97, gm: 98, gn: 99
+	, gp: 100, gq: 101, gr: 102, gt: 103, gu: 104
+	, gw: 105, gy: 106, hk: 107, hn: 108, hr: 109
+	, ht: 110, hu: 111, id: 112, mc: 112, ie: 113
+	, il: 114, im: 115, in: 116, iq: 117, ir: 118
+	, is: 119, it: 120, je: 121, jm: 122, jo: 123
+	, jp: 124, ke: 125, kg: 126, kh: 127, ki: 128
+	, km: 129, kn: 130, kp: 131, kr: 132, kw: 133
+	, ky: 134, kz: 135, la: 136, lb: 137, lc: 138
+	, li: 139, lk: 140, lr: 141, ls: 142, lt: 143
+	, lu: 144, lv: 145, ly: 146, ma: 147, md: 148
+	, me: 149, mg: 150, mh: 151, mk: 152, ml: 153
+	, mm: 154, mn: 155, mo: 156, mq: 157, mr: 158
+	, ms: 159, mt: 160, mu: 161, mv: 162, mw: 163
+	, mx: 164, my: 165, mz: 166, na: 167, nc: 168
+	, ne: 169, ng: 170, ni: 171, nl: 172, bq: 172
+	, no: 173, bv: 173, nq: 173, sj: 173, np: 174
+	, nr: 175, nz: 176, om: 177, pa: 178, pe: 179
+	, pf: 180, pg: 181, ph: 182, pk: 183, pl: 184
+	, pr: 185, ps: 186, pt: 187, pw: 188, py: 189
+	, qa: 190, re: 191, ro: 192, rs: 193, ru: 194
+	, rw: 195, sa: 196, sb: 197, sc: 198, sd: 199
+	, se: 200, sg: 201, si: 202, sk: 203, sl: 204
+	, sm: 205, sn: 206, so: 207, sr: 208, st: 209
+	, sv: 210, sy: 211, sz: 212, tc: 213, td: 214
+	, tg: 215, th: 216, tj: 217, tl: 218, tm: 219
+	, tn: 220, to: 221, tr: 222, tt: 223, tv: 224
+	, tw: 225, tz: 226, ua: 227, ug: 228, us: 229
+	, uy: 230, uz: 231, va: 232, vc: 233, ve: 234
+	, vg: 235, vi: 236, vn: 237, vu: 238, ws: 239
+	, ye: 240, za: 241, zm: 242, zw: 243, sx: 244
+	, cw: 245, ss: 246
+};

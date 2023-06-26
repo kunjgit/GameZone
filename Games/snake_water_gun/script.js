@@ -1,92 +1,59 @@
-let myArray = [
-    "snake",
-    "water",
-    "gun"
-];
-let a = 0;
-let score = 0;
-let randomItem = "";
+var choices = ["snake", "water", "gun"];
+var userScore = 0;
+var computerScore = 0;
 
-function runcode() {
+var resultText = document.getElementById("resultText");
+var scoreText = document.getElementById("scoreText");
+var computerEmoji = document.getElementById("computerEmoji");
 
-    while (a != 1) {
-        user_input();
-        play();
-        let play_again = prompt("do you want to play again?");
-        if (play_again == "yes") {
-            a = 0;
-            randomItem = "";
-            return;
-
-        }
-        else if (play_again == "no") {
-            a = 1;
-            document.getElementsByTagName("h2")[0].innerHTML = "Your Score is " + score + "!!!";
-
-        }
-        else {
-            alert("please enter yes or no");
-            b = prompt("do you want to play again?");
-        }
-
-    }
-
+function getComputerChoice() {
+    var randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
 }
 
-
-
-function user_input() {
-
-    document.getElementById("btn1").addEventListener("click", () => {
-        userSelection = "btn1";
-
-    })
-    document.getElementById("btn2").addEventListener("click", () => {
-        userSelection = "btn2";
-
-    })
-    document.getElementById("btn3").addEventListener("click", () => {
-        userSelection = "btn3";
-
-    })
-    return;
+function determineWinner(userChoice, computerChoice) {
+    if (userChoice === computerChoice) {
+        return "It's a tie!";
+    } else if (
+        (userChoice === "snake" && computerChoice === "water") ||
+        (userChoice === "water" && computerChoice === "gun") ||
+        (userChoice === "gun" && computerChoice === "snake")
+    ) {
+        return "You win!";
+    } else {
+        return "Computer wins!";
+    }
 }
 
+function updateScore(result) {
+    if (result === "You win!") {
+        userScore++;
+    } else if (result === "Computer wins!") {
+        computerScore++;
+    }
+    scoreText.textContent = "Score: You - " + userScore + " | Computer - " + computerScore;
+}
 
+function play(userChoice) {
+    var computerChoice = getComputerChoice();
 
-function play() {
+    computerEmoji.textContent = getEmoji(computerChoice);
 
-    randomItem = myArray[Math.floor(Math.random() * myArray.length)];
+    var result = determineWinner(userChoice, computerChoice);
+    resultText.textContent = result;
 
-    if (randomItem == 'water' && userSelection == 'btn1') {
-        alert("you win");
-        score++;
-        return;
-    }
-    else if (randomItem == 'gun' && userSelection == 'btn2') {
-        alert("you win");
-        score++;
-        return;
-    }
-    else if (randomItem == 'snake' && userSelection == 'btn3') {
-        alert("you win");
-        score++;
-        return;
-    }
-    else if (randomItem == 'snake' && userSelection == 'btn1') {
-        alert("draw");
-        return;
-    }
-    else if (randomItem == 'water' && userSelection == 'btn2') {
-        alert("draw");
-        return;
-    }
-    else if (randomItem == 'gun' && userSelection == 'btn3') {
-        alert("draw");
-        return;
-    }
-    else {
-        alert("you lose");
-        return;
+    updateScore(result);
+}
+
+function getEmoji(choice) {
+    switch (choice) {
+        case "snake":
+            return "🐍";
+        case "water":
+            return "🌊";
+        case "gun":
+            return "🔫";
+        default:
+            return "";
     }
 }

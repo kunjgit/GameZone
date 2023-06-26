@@ -2549,8 +2549,10 @@ textarea.form-input::-webkit-resizer {
 
 
 /* custom scrollbar */
+
 ::-webkit-scrollbar {
   width: 9px;
+  color: #9147b3;
 }
 
 ::-webkit-scrollbar-track {
@@ -2574,10 +2576,12 @@ textarea.form-input::-webkit-resizer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 30vh;
+  height: auto;
   text-align: center;
   background: #111;
   color: snow;  
+  padding-bottom: 6%;
+  padding-top: 3%;
 }
 
 span {

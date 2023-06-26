@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ATLAS</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>ATLAS: The Country Game</h1>
+    <p id="instructions">The game starts with you typing the name of a country starting with the ending letter of the word "atlas" (that is, "S").</p>
+    <input type="text" id="userCountry" placeholder="Enter a country name" />
+    <button id="passButton" onclick="passTurn()">Pass</button>
+    <button id="playButton" onclick="playGame()">Play</button>
+    <button id="restartButton">Restart</button>
+
+    <p id="result"></p>
+    <p id="score">Your Score: <span id="scoreValue">0</span></p>
+    <div class="country-section">
+      <div class="countries-container">
+        <h3>My Countries:</h3>
+        <ul id="computerList"></ul>
+      </div>
+      <div class="countries-container">
+        <h3>Your Countries:</h3>
+        <ul id="playerList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

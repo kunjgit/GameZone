@@ -2,11 +2,12 @@ html {
     height: 100%;
     width: 100%;
   }
+
   h1{
     text-align: center;
-    color: antiquewhite;
+    color:  goldenrod;
     font-size: 4rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: fantasy
   }
   h2{
     text-align: center;
@@ -16,6 +17,9 @@ html {
   }
   body{
     background-color: #ed0c8c;
+    color: white;
+    font-size: 3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
   .btn{
       cursor: pointer;

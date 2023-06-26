@@ -223,13 +223,11 @@ var game = (function () {
       event.preventDefault();
       var keyCode = event.keyCode;
       keysDown[keyCode] = true;
-      // console.log("onkeydown",keyCode);
     };
     document.onkeyup = function (event) {
       event.preventDefault();
       var keyCode = event.keyCode;
       keysDown[keyCode] = false;
-      // console.log("onkeyup",keyCode);
     };
     ctxTweener = new Tweener();
 
@@ -1491,7 +1489,6 @@ var game = (function () {
         chop.x = a.x+_.width*0.5 - _.x;
         chop.y = a.y - _.y;
         chop.r = getRandInt(-4, 4);
-        // console.log(chop.x, chop.y);
 
         len = _.chops.length;
         var trunkChops = 0;
@@ -1586,7 +1583,6 @@ var game = (function () {
             // _.branches.splice(i,1);
           }
         }
-        // console.log( dist(_.branches[4],bird) );
         // canopy
         _.canopy.draw();
       }
@@ -2248,7 +2244,6 @@ var game = (function () {
       _.y = _.y + 1*Math.sin(_.yHover);
       _.x = _.x + 1*Math.sin(_.yHover+PI*0.25);
 
-      // console.log( _.x );
       if(_.follow.x<_.x && _.scaleX>0){
         _.scaleX = abs(_.scaleX) * -1;
       }else if(_.follow.x>_.x && _.scaleX<0){
@@ -2256,7 +2251,6 @@ var game = (function () {
       }
 
       var dY = (_.follow.y-20) - _.y;
-      // console.log(dY);
       if(abs(dY)>10 && abs(dY)<60 ){
         _.r = dY*0.4;
       }
@@ -2866,13 +2860,10 @@ var game = (function () {
       this.tweens.push({ obj:obj, startTime:startTime, tweenProps:tweenProps, dur:dur, ease:easeFunc });
     },
     update: function(curtime){
-      // console.log('update',curtime)
       var _ = this;
       var i, tweenObj, obj, runTime, propObj, len = _.tweens.length;
-      // console.log('len',len)
       for(i=0;i<len;i++){
         tweenObj = _.tweens[i];
-        // console.log('tweenObj',tweenObj)
         if(!tweenObj){ continue; }
         obj = tweenObj.obj;
         runTime = curtime - tweenObj.startTime;
@@ -2907,7 +2898,6 @@ var game = (function () {
     }
   };
   function tween(time, startVal, endVal, dur, easeFunc) {
-    // console.log(time);
     return startVal + ((startVal > endVal ? -1 : 1) * easeFunc(time, 0, abs(startVal - endVal), dur));
   }
 

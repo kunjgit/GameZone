@@ -1065,7 +1065,6 @@ function hitDetection() {
 }
 
 window.addEventListener("resize", () => {
-  console.log("resize", window.innerWidth, window.innerHeight);
 
   // Adjust camera
   const newAspectRatio = window.innerWidth / window.innerHeight;

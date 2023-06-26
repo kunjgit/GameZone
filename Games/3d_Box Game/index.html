@@ -267,7 +267,6 @@
   });
 
   window.addEventListener("keyup", (event) => {
-    // console.log(event);
     switch (event.code) {
       case "KeyA":
         keys.a.pressed = false;
@@ -331,7 +330,6 @@
         const h2 = document.createElement("H2");
         h2.innerHTML = "GAME OVER";
         h2.classList.add("gameover");
-        console.log(h2);
         cancelAnimationFrame(animationID);
       }
     });

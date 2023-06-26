@@ -1,4 +1,3 @@
-console.log("Welcome to Tic Tac Toe")
 let music = new Audio("sounds/music.mp3")
 let audioTurn = new Audio("sounds/ting.mp3")
 let gameover = new Audio("sounds/gameover.mp3")
@@ -62,6 +61,3 @@ reset.addEventListener('click', ()=>{
     isgameover = false
     document.querySelector(".line").style.width = "0vw";
     document.getElementsByClassName("info")[0].innerText  = "Turn for " + turn;
-    document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = "0px"
-})
-

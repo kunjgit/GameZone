@@ -80,7 +80,6 @@ var maxDistCenter = 8;
 var minDist = .5;
 
 window.boidTic = function boidTic(ticCount) {
-  //console.log(thePingeon == boids[boids.length-1])
 
   if ((ticCount)%boidTicsCheckout == 0) {
     boidsCenter = new THREE.Vector3();

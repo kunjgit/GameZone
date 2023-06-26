@@ -1,67 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-
-    <title>Wordle</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <div id="container">
-        <div id="game">
-            <h1 class="title">WORDLE</h1>
-        <div id="message"></div>
 
-        <div id="board-container">
-            <div id="board"></div>
+<body>
+    <div class="head">
+        <div class="timer">
+            <div class="circle">1:00</div>
         </div>
+        <h2 class="title">Wordle</h2>
         
-        <div id="keyboard-container">
-            <div class="keyboard-row">
-                <button data-key="q">q</button>
-                <button data-key="w">w</button>
-                <button data-key="e">e</button>
-                <button data-key="r">r</button>
-                <button data-key="t">t</button>
-                <button data-key="y">y</button>
-                <button data-key="u">u</button>
-                <button data-key="i">i</button>
-                <button data-key="o">o</button>
-                <button data-key="p">p</button>
-            </div>
-            <div class="keyboard-row">
-                <div class="spacer-half"></div>
-                <button data-key="a">a</button>
-                <button data-key="s">s</button>
-                <button data-key="d">d</button>
-                <button data-key="f">f</button>
-                <button data-key="g">g</button>
-                <button data-key="h">h</button>
-                <button data-key="j">j</button>
-                <button data-key="k">k</button>
-                <button data-key="l">l</button>
-                <div class="spacer-half"></div>
-            </div>
-            <div class="keyboard-row">
-                <button data-key="enter" class="wide-button">Enter</button>
-                <button data-key="z">z</button>
-                <button data-key="x">x</button>
-                <button data-key="c">c</button>
-                <button data-key="v">v</button>
-                <button data-key="b">b</button>
-                <button data-key="n">n</button>
-                <button data-key="m">m</button>
-                <button data-key="del" class="wide-button">Del</button>
-            </div>
+        
+        <div class="setting-btn">
+            <img src="./images/setting.png" alt="">
         </div>
+
+    </div>
+    
+    <main>
+        <div class="box-container">
+            
+        </div>
+        <div class="key-container">
+            <div class="key">A</div>
+            <div class="key">B</div>
+            <div class="key">C</div>
+            <div class="key">D</div>
+            <div class="key">E</div>
+            <div class="key">F</div>
+            <div class="key">G</div>
+            <div class="key">H</div>
+            <div class="key">I</div>
+            <div class="key">J</div>
+            <div class="key">K</div>
+            <div class="key">L</div>
+            <div class="key">M</div>
+            <div class="key">N</div>
+            <div class="key">O</div>
+            <div class="key">P</div>
+            <div class="key">Q</div>
+            <div class="key">R</div>
+            <div class="key">S</div>
+            <div class="key">T</div>
+            <div class="key">U</div>
+            <div class="key">V</div>
+            <div class="key">W</div>
+            <div class="key">X</div>
+            <div class="key">Y</div>
+            <div class="key">Z</div>
+            <div class="key">Enter</div>
+            <div class="key">&larr;</div>
+        </div>
+    </main>
+
+    <div class="popup">
+        <div class="container">
+            <h2>You Won !!!</h2>
+            <p>Score : 18</p>
+            <button class="play">Play Again</button>
         </div>
     </div>
-    <script src="script.js" defer></script>
+
+    <div class="setting">
+        <div class="container">
+            
+            <button class="close-popup"></button>
+            <div class="cont">
+                <p>Word size </p>
+                <div>
+                    <img src="./images/decrease.png" class="size-icon size-dec" alt="">                    
+                    <span class="word-length">4</span>
+                    <img src="./images/increase.png" class="size-icon size-inc" alt="">
+                </div>
+            </div>
+            <div class="cont">
+                <p>High Score</p>
+                <span class="high-score"></span>
+            </div>
+            <button class="reset-score">Reset score</button>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>Score : <span class="score">0</span></p>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
 </body>
+
 </html>

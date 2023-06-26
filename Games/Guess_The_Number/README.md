@@ -32,9 +32,7 @@ To play the Guess the Number game, follow these steps:
 ## **Screenshots 📸**
 
 <br>
-<img src="Screenshots/Screenshot.png" alt="Guess the Number Game Screenshot">
-
-
+<img src="./assets/images/Number_Guess.png">
 
 <br>
 

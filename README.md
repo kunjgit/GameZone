@@ -351,6 +351,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 246 | [Slice Storm](https://github.com/VSatwika/GameZonefork/tree/Slice_Storm/Games/Slice_Storm) |
 | 247 | [CodePen_SImulator](https://github.com/kunjgit/GameZone/tree/main/Games/CodePen_SImulator)|
 | 248 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
+| 246 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
+| 247 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
+| 239 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color Matcher)|
 | 249 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
 | 250 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
 | 251 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|
@@ -368,7 +371,15 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 263 | [Pokemon Ball Finder](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Ball_Finder)|
 | 264 | [Basketball](https://github.com/kunjgit/GameZone/tree/main/Games/Basketball)|
 | 265 | [Wault_master](https://github.com/kunjgit/GameZone/tree/main/Games/Wault_master)|
-| * | [Cosmic_Coin_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Blaster)|
+| 266 | [Reaction TIme](https://github.com/kunjgit/GameZone/tree/main/Games/Reaction_Time)|
+| 267 | [Flag Guess Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flag_Guess_Game)|
+| 268 | [Cross_The_Road](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_The_Road)|
+| 269 | [Highway Race - Barrel Dodge](https://github.com/kunjgit/GameZone/tree/main/Games/Highway_Race)|
+| 270 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
+| 271 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
+| 272 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
+| 266 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe the Cloud)|
+| 267 | [Cosmic_Coin_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Blaster)|
 
 
 

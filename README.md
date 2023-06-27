@@ -368,6 +368,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 263 | [Pokemon Ball Finder](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Ball_Finder)|
 | 264 | [Basketball](https://github.com/kunjgit/GameZone/tree/main/Games/Basketball)|
 | 265 | [Wault_master](https://github.com/kunjgit/GameZone/tree/main/Games/Wault_master)|
+| 266 | [Number Sliding Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Sliding_Puzzle_Game)|
 
 
 

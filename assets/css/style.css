@@ -2,7 +2,8 @@
   #style.css
 \*-----------------------------------*/
 
-
+@import 'https://fonts.googleapis.com/css?family=Permanent+Marker';
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
 /**
  * copyright 2022 @codewithsadee
  */
@@ -2545,9 +2546,13 @@ textarea.form-input::-webkit-resizer {
   margin-left: 10px;
 }
 
+
+
 /* custom scrollbar */
+
 ::-webkit-scrollbar {
   width: 9px;
+  color: #9147b3;
 }
 
 ::-webkit-scrollbar-track {
@@ -2562,3 +2567,67 @@ textarea.form-input::-webkit-resizer {
 ::-webkit-scrollbar-thumb:hover {
   background: #df87ef;
 }
+
+
+/* GameZone heading **/
+.heading {
+  margin-top: -2%;
+  font: 5.5vw/1 Permanent Marker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  text-align: center;
+  color: snow;  
+  padding-bottom: 6%;
+  padding-top: 3%;
+}
+
+span {
+  animation: glow 2s ease-in-out both infinite;
+}
+
+span:nth-child(1) {
+  animation-delay: -0.2857142857s;
+}
+
+span:nth-child(2) {
+  animation-delay: -0.5714285714s;
+}
+
+span:nth-child(3) {
+  animation-delay: -0.8571428571s;
+}
+
+span:nth-child(4) {
+  animation-delay: -1.1428571429s;
+}
+
+span:nth-child(5) {
+  animation-delay: -1.4285714286s;
+}
+
+span:nth-child(6) {
+  animation-delay: -1.7142857143s;
+}
+
+span:nth-child(7) {
+  animation-delay: -2s;
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 4.3333333333px rgb(159, 157, 235) 0%, 0 -25px 40px rgb(212, 153, 222), -25px 25px 40px rgb(253, 199, 134), 25px 25px 40px rgb(253, 199, 134);
+  }
+
+  33% {
+    text-shadow: 0 0 8.3333333333px rgb(159,157,235), 0 -25px 50px rgb(159, 157, 235), -25px 25px 50px rgb(212, 153, 222), 25px 25px 50px rgb(253, 199, 134);
+  }
+
+  66% {
+    text-shadow: 0 0 8.3333333333px snow, 0 -25px 50px #9147b3, -25px 25px 50px #e100ff, 25px 25px 50px rgb(253, 199, 134);
+  }
+}
+

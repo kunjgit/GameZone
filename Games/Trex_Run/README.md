@@ -14,10 +14,14 @@ Timing is crucial to clear the obstacles successfully, as mistimed jumps or crou
 
 ## **Screenshots 📸**
 
-<br>
-Trex_Run.png
+https://github.com/akankshachanana1/GameZone/assets/127978268/32a096b6-536e-47ac-91cb-1d8eb0584b2b
+
 <br>
 
 ## **Working video 📹**
 
-T-rex - Personal - Microsoft​ Edge 2023-06-27 17-57-27.mp4
+
+
+https://github.com/akankshachanana1/GameZone/assets/127978268/b854c786-9a76-47b8-9c64-b1ab150df71b
+
+

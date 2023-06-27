@@ -14,7 +14,6 @@ Note: The locations of the computer's ships are logged to the console when "Star
 
 ## **Screenshots 📸**
 
-
 ![image](../../assets/images/Battleship.png)
 
 <br>

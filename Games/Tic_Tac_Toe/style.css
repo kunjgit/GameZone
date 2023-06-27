@@ -55,11 +55,15 @@ nav ul {
 
 .info {
   position: absolute;
-  right: 1350px;
-  font-size: 1.5rem;
-  font-weight: 600;
+  right: 1260px;
+  font-size: 2.1rem;
+  font-weight: 1000;
   top: 450px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
 }
+
 .gameInfo {
   text-align: center;
   width: 100%;

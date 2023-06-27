@@ -4,6 +4,8 @@ let gameover = new Audio("sounds/gameover.mp3");
 let turn = "X";
 let isgameover = false;
 
+music.play();
+
 // Function to change the turn
 const changeTurn = () => {
   return turn === "X" ? "0" : "X";
@@ -22,6 +24,8 @@ const checkWin = () => {
     [0, 4, 8, 5, 15, 45],
     [2, 4, 6, 5, 15, 135],
   ];
+  let isDraw = true; // Flag to check if it's a draw
+
   wins.forEach((e) => {
     if (
       boxtext[e[0]].innerText === boxtext[e[1]].innerText &&
@@ -30,6 +34,9 @@ const checkWin = () => {
     ) {
       document.querySelector(".info").innerText =
         boxtext[e[0]].innerText + " Won";
+      music.pause();
+      gameover.play();
+      music.play();
       isgameover = true;
       document
         .querySelector(".imgbox")
@@ -38,12 +45,27 @@ const checkWin = () => {
         ".line"
       ).style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
       document.querySelector(".line").style.width = "20vw";
+      isDraw = false;
     }
   });
+
+  // Check for a draw
+  if (isDraw) {
+    let filledBoxes = Array.from(boxtext).every(
+      (element) => element.innerText !== ""
+    );
+    if (filledBoxes) {
+      document.querySelector(".info").innerText = "It's a Draw!";
+      music.pause();
+      gameover.play();
+      music.play();
+      isgameover = true;
+    }
+  }
 };
 
 // Game Logic
-// music.play()
+music.play();
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach((element) => {
   let boxtext = element.querySelector(".boxtext");

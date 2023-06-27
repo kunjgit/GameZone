@@ -21,7 +21,7 @@
 
 <br>
 <!-- add your screenshots like this -->
-<img src="assets/images/Brick_Breaker.png">
+<img src="../../assets/images/Brick_Breaker.png">
   
 <br>
 

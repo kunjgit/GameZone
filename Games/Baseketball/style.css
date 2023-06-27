@@ -1,0 +1,18 @@
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+canvas {
+  margin: 0 auto;
+  border: thin solid black;
+}
+span {
+  display: block;
+  margin: 30px auto;
+  width: 500px;
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}

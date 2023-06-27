@@ -29,9 +29,6 @@ function Generate() {
       Results.push(Action(Action(NumberOrder[0 + i], NumberOrder[3 + i], Symbols[2 + i]), NumberOrder[6 + i], Symbols[7 + i]));
    }
    
-   //console.log(NumberOrder);
-   //console.log(Symbols);
-   //console.log(Results);
 
    //This draws out the final solution in the console (if you want to cheat), this was originally how I had the tile generation set out and I was going to delete this after I was done but I've kept it in - but everything to line 109 can be ignored
    for(var j = 0; j < 7; j++) {
@@ -98,7 +95,6 @@ function Generate() {
          }
          l += "  ";
       }
-      console.log(l);
    } /**/
    
    if (
@@ -163,10 +159,7 @@ function CheckEntry(cell) { //Check to see if the row and column containing the 
          $(`.result[result=${CheckingPlan[cell][p]}]`).removeClass("correct").addClass("wrong");
          Matches[CheckingPlan[cell][p]] = false; //Or maybe you could re-write the rules of mathematics?
       }
-      //console.log(c);
    }
-   //console.log(Matches.filter(function(x) {return x}));
-   console.log(Used.filter(function(x) {return x == 1}).length);
    if(Matches.filter(function(x) {return x}).length == 6 && Used.filter(function(x) {return x == 1}).length == 9) { //filters and mapping are incredible and are a powerful tool and open you up to being confused why things are failing because I keep forgetting to add the return because I'm too familiar with linq `x => x` (or as my brain interprets it `function(x){x})` so I sometimes autopilot just `x`) rather than `return x`
       $("#winner").addClass("show"); //🎉 they deserved it, or they cheated and get a slap on the wrists - I was going to check for people opening the console then geo-locate them and turn up at their doors to slap their wrists but there's probably legal issues and effort.
    }

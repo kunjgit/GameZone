@@ -70,18 +70,14 @@ function optionSelected(answer){
         userScore += 1; 
         answer.classList.add("correct"); 
         answer.insertAdjacentHTML("beforeend", tickIconTag); 
-        console.log("Correct Answer");
-        console.log("Your correct answers = " + userScore);
     }else{
         answer.classList.add("incorrect"); 
         answer.insertAdjacentHTML("beforeend", crossIconTag); 
-        console.log("Wrong Answer");
 
         for(i=0; i < allOptions; i++){
             if(option_list.children[i].textContent == correcAns){ 
                 option_list.children[i].setAttribute("class", "option correct"); 
                 option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
-                console.log("Auto selected correct answer.");
             }
         }
     }
@@ -115,7 +111,6 @@ function startTimer(time){
                 if(option_list.children[i].textContent == correcAns){ 
                     option_list.children[i].setAttribute("class", "option correct"); 
                     option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
-                    console.log("Time Off: Auto selected correct answer.");
                 }
             }
             for(i=0; i < allOptions; i++){

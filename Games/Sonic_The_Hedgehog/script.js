@@ -616,7 +616,6 @@ function ringsY(v1, v2, clase){
 function scoreR(value){
     if(x==value){
         score++;
-        //console.log(score);
         document.getElementById("puntaje").innerHTML = score;
         }
 }
@@ -624,7 +623,6 @@ function scoreR(value){
 function scoreL(value){
     if(x==value){
         score--;
-        //console.log(score);
         }
 }
 
@@ -632,7 +630,6 @@ function scoreY(v1,v2){
     if(y == 1){
         if(x>=v1 && x<=v2){
             score++;
-            //console.log(score);
             document.getElementById("puntaje").innerHTML = score;
         }
             }
@@ -643,7 +640,6 @@ function lose(p1,p2){
     if(y == 1){
         if(x>=p1 && x<=p2){
             score++;
-            //console.log("you lose");
             sonic.classList.add("died");
             die++;
 
@@ -698,7 +694,6 @@ window.addEventListener('keydown', (e)=>{
 
         
         
-        console.log(x);
        // eggMan();
         scoreR(31);
         scoreR(35);
@@ -787,7 +782,6 @@ window.addEventListener('keydown', (e)=>{
         if(e.key == "ArrowLeft"){
              runLeft();
              y=0;
-             //console.log(x);
 
             sonic.classList.add("moving2");
             background.classList.add("background2");
@@ -848,7 +842,6 @@ window.addEventListener('keydown', (e)=>{
             y=1;
             
             jump.play();
-            //console.log(y);
             if(die>0){
                 morir.classList.add("mostrar");
                 alert("PRESS F5 TO PLAY AGAIN");

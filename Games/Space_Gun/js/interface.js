@@ -5,7 +5,6 @@ class InterfaceButtons {
     pressedLoop(pressedArr){
         for (var i=0;i<this.arr.length;i++){
             if (distance(pressedArr,this.arr[i])<this.arr[i].r && this.arr[i].drawFlag == 1){
-                console.log(i+" acted");
                 this.arr[i].act();
                 return 1;
             }

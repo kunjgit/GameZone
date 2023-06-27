@@ -628,9 +628,7 @@ function drawPieces() {
 
 				//draw internal part
 				//size of interal part
-				//console.log(b[3])
 				//
-				//console.log(ctx.globalAlpha)
 				var sizeColored = bSize * 1.2
 				//center
 				ctx.fillStyle = piece.fillColor
@@ -1978,7 +1976,6 @@ function createPolyomino(_n, _length, _mixed) {
 				size = 2
 			}
 		}
-		//console.log(size)
 		createPiece(150 + 250 * i, 200, generatePolyomino(size), colorList[0])
 
 
@@ -2295,7 +2292,6 @@ function checkSolutionWithCurrentObjOder(_conf) {
 		//in this situation.
 		if (positionFound == false) {
 			isThereSolution = false
-			//console.log("cannot find position for piece " + kk)
 			return isThereSolution
 		}
 	}
@@ -2345,17 +2341,14 @@ function checkSolutionWithRotations() {
 		}
 		//and check all solutions with no rotation for this rotation configuration
 		if (checkSolutionNoRotation() == true) {
-			//console.log("confuguration found >>> ", allConfigurations[g])
 			confFound = true
 			break
 		} else {
-			//console.log("check another configuration")
 			confFound = false
 		}
 	}
 
 	if (confFound == false) {
-		//console.log("Cannot find ANY configuration!!!")
 		return false
 	}
 	return true
@@ -2440,11 +2433,9 @@ function generateLevel(_numberOfPolyominos, _numberOfPolyominoBlocks, _margin, _
 			//if too much time is passed
 			//add an additional block to bag, to simplify solution
 			//add margin
-			//console.log(seconds2 + " added margin to " + _margin);
 			generateLevel(_numberOfPolyominos, _numberOfPolyominoBlocks, _margin + 1)
 
 			//or just quit?
-			//console.log(seconds2 + " too much time. END.");
 			//gameStarted = true
 			//GENERATING = false
 		}
@@ -2459,7 +2450,6 @@ function generateLevel(_numberOfPolyominos, _numberOfPolyominoBlocks, _margin, _
 
 		// get seconds 
 		var seconds2 = Math.round(timeDiff2);
-		//console.log(seconds2 + " milliseconds to GENERATE LEVEL");
 
 		//Start playing level
 

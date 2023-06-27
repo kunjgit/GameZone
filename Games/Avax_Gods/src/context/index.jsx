@@ -37,13 +37,11 @@ export const GlobalContextProvider = ({ children }) => {
       method: "eth_requestAccounts",
     });
     if (accounts) {
-      // console.log(accounts);
       setWalletAddress(accounts[0]);
     }
   };
 
   const handleBattleGroundChoice = (ground) => {
-    // console.log(ground)
     setBattleGround(ground.id);
     localStorage.setItem("battleground", ground.id);
     setShowAlert({
@@ -103,7 +101,6 @@ export const GlobalContextProvider = ({ children }) => {
   }, [errorMessage]);
 
   useEffect(() => {
-    //console.log(contract)
     if (step === -1 && contract) {
       createEventListeners({
         navigate,
@@ -148,7 +145,6 @@ export const GlobalContextProvider = ({ children }) => {
   useEffect(() => {
     const resetParams = async () => {
       const currentStep = await GetParams();
-      console.log(currentStep);
       setStep(currentStep.step);
     };
     resetParams();

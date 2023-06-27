@@ -373,6 +373,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 268 | [Cross_The_Road](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_The_Road)|
 | 269 | [Highway Race - Barrel Dodge](https://github.com/kunjgit/GameZone/tree/main/Games/Highway_Race)|
 | 270 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
+| 271 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
 
 
 

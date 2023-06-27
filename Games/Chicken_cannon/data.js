@@ -1,13 +1,3 @@
-// clouds: 1,000m to 7,500m
-// sky black: 30,000m
-// space: 100,000m
-
-// 343m/s: sound barrier
-// 299 792 458 m/s: lightspeed hehehe
-
-// 6 basic stars
-// 4 thicc stars
-// 4 special
 
 const OFFERS = [
   {

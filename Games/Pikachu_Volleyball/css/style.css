@@ -76,9 +76,9 @@ header {
   top: 0;
   left: 0;
 } /*
-#instruction >:first-child{
-  margin-top:80px;
-}*/
+  #instruction >:first-child{
+    margin-top:80px;
+  }*/
 #instruction > * {
   display: block;
   /*background:red;*/

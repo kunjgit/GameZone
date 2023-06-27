@@ -21,6 +21,6 @@ Basketball
 ## **Screenshots 📸**
 
 <br>
-![image](../../assets/images/Pikachu_Volleyball.png)
+![Pikachu_Volleyball](../../assets/images/Pikachu_Volleyball.png)
 
 <br>

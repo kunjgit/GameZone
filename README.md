@@ -379,6 +379,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 271 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
 | 272 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
 | 266 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe the Cloud)|
+| 267 | [Cosmic_Coin_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Blaster)|
+
 
 
 

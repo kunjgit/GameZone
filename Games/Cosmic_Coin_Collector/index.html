@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SPACECRAFT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link href="style.css" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="192x192">
+<link rel="icon" sizes="192x192">
+</head>
+<body>
+<ul id="planet">
+    <li>SPACE</li>
+    <li style="background-image:radial-gradient(circle at 50% 100%, #632, #964 30%, #c96 40%, #000 40%)">PLUTO</li>
+    <li style="background-image:radial-gradient(circle at 50% 100%, #013, #025 48%, #046 58%, #013 59%, #000 61%)">NEPTUNE</li>
+    <li style="background-image:radial-gradient(circle at 50% 100%, #133, #255 50%, #466 60%, #133 61%, #000 63%)">URANUS</li>
+    <li style="background-image:radial-gradient(circle at 50% 100%, #320, #651 50%, #973 60%, #320 61%, #000 63%, #000 73%, #333 75%, #333 88%, #000 90%)">SATURN</li>
+    <li style="background-image:radial-gradient(circle at 50% 100%, #420, #641 60%, #852 70%, #420 71%, #000 75%)">JUPITER</li>
+    <li style="background-image:radial-gradient(circle at 50% 100%, #300, #510 35%, #630 45%, #310 46%, #000 48%)">MARS</li>
+    <li style="background-image:radial-gradient(circle at 50% 100%, #222, #555 30%, #666 40%, #000 40%)">MOON</li>
+</ul>
+<canvas id="game" width="192" height="192"></canvas>
+<div id="hud">
+    <div></div>
+    <div id="quest">
+        <h4 class="title"></h4>
+        <h4></h4>
+        <h4></h4>
+        <table>
+            <tr><th>Distance travelled</th><td></td></tr>
+            <tr><th>Tokens collected</th><td></td></tr>
+            <tr><th>Big tokens collected</th><td></td></tr>
+            <tr><th>Asteroids destroyed</th><td></td></tr>
+            <tr><th>Places visited</th><td></td></tr>
+            <tr><th>Mission completed</th><td></td></tr>
+            <tr><th class="total">TOTAL</th><td class="total"></td></tr>
+        </table>
+    </div>
+    <div><a id="ok">OK</a></div>
+</div>
+<div id="ctrl">
+    <h3></h3>
+    <div><h3></h3><a id="prev">&lt;</a><a id="play"></a><a id="next">&gt;</a></div>
+</div>
+<div>
+    <i id="fs" title="Fullscreen"></i>
+    <i id="sfx" title="Audio"></i>
+</div>    
+<div id="load">
+    <div><h1>SPACECRAFT</h1></div>
+    <div>
+        <p id="keys">
+            <b>JUMP</b> - <b>UP</b> arrow key<br />
+            <b>SHRINK</b> - <b>DOWN</b> arrow key<br />
+            <b>MOVE</b> - <b>LEFT / RIGHT</b> arrow keys<br />
+            <b>BOOST</b> - <b>SPACE</b> key
+        </p>
+        <p id="touch">
+            <b>JUMP</b> - Swipe <b>UP</b><br />
+            <b>SHRINK</b> - Swipe <b>DOWN</b><br />
+            <b>MOVE</b> - Swipe <b>LEFT / RIGHT</b><br />
+            <b>BOOST</b> - <b>TAP</b>
+        </p>
+        <p>
+            <b class="pink">BIG TOKENS</b> help you collect small ones.<br />
+            Use <b>SHRINK</b> to go through <b class="red">SPACE JUNK</b>.<br />
+            Use <b>BOOST</b> to destroy <b class="cyan">ASTEROIDS</b>.
+        </p>
+    </div>
+    <div><a id="start">START</a></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

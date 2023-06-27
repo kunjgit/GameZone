@@ -1,3 +1,5 @@
+# **Chicken cannon** 
+
 The chickens have discovered a new invention... the CANNON. So obviously they load their comrades in and try to DESTROY humanity! In the name of science
 Instructions to play
 How to play ?

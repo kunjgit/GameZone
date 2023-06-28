@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/game.css" />
+    <link rel="stylesheet" href="./css/pyro.css" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <title>AstroMath | playing</title>
+  </head>
+  <body class="not-home">
+    <!--Loading Gif-->
+    <div class="loader">
+      <img src="./assets/gifs/loading.gif" alt="loading..." />
+    </div>
+    <!-- theme music -->
+    <audio class="audio__theme" src="./assets/music/themeMusic.mp3"></audio>
+    <!-- Game Music -->
+    <audio class="audio__game" src="./assets/music/game/explode.wav"></audio>
+    <audio class="audio__game" src="./assets/music/game/danger.mp3"></audio>
+    <!-- Fireworks -->
+    <audio
+      class="audio__fireworks"
+      src="./assets/music/game/firework.wav"
+    ></audio>
+    <!--High Score-->
+    <audio class="audio__high" src="./assets/music/game/high_Score.mp3"></audio>
+    <!--Low Score-->
+    <audio class="audio__low" src="./assets/music/game/game_lost.mp3"></audio>
+    <!-- header -->
+    <header class="header">
+      <h2 class="header__info header__info--time">50 s</h2>
+      <h2 class="header__info header__info--score">0</h2>
+      <h2 class="header__info header__info--sound">
+        <img
+          class="header__info--sound-icon settings__sound--icon"
+          src="./assets/images/soundon.svg"
+          alt="sound-toggle"
+        />
+      </h2>
+      <h2 class="header__info header__info--level">
+        <a href="./astro-math-levels.html">0</a>
+      </h2>
+      <h2 class="header__info header__info--exit">
+        <a href="./astro-math-levels.html" id="exit">Exit</a>
+      </h2>
+    </header>
+    <!-- main -->
+    <main class="main">
+      <!-- start popup -->
+      <section class="popup--game">
+        <h2 class="popup__title">Get Ready</h2>
+        <p class="popup__description">Click Start to Play!</p>
+        <button class="popup__button popup__button--start">Start</button>
+      </section>
+      <!-- asteroids -->
+      <div class="main__asteroids none"></div>
+      <!-- result popup -->
+      <div class="result none">
+        <!-- pyro -->
+        <div class="pyro none">
+          <div class="before"></div>
+          <div class="after"></div>
+        </div>
+        <h2 class="result__title secondary-color">Results</h2>
+        <div class="result__details">
+          <div class="result__images">
+            <img
+              src="./assets/images/asteroid.png"
+              alt="asteroid"
+              class="result__img"
+            />
+            <img
+              src="./assets/gifs/high_score.gif"
+              alt="high_score"
+              class="result__high-score none"
+            />
+            <img
+              src="./assets/gifs/personal_best.gif"
+              alt="personal_best"
+              class="result__pb none"
+            />
+            <div class="result__stars">
+              <img
+                src="./assets/images/silverstar.svg"
+                alt="silver-star"
+                class="result__star"
+              />
+              <img
+                src="./assets/images/silverstar.svg"
+                alt="silver-star"
+                class="result__star"
+              />
+              <img
+                src="./assets/images/silverstar.svg"
+                alt="silver-star"
+                class="result__star"
+              />
+            </div>
+            <p class="result__percent popup__description">20%</p>
+          </div>
+
+          <div class="result__data">
+            <div>
+              <p class="result__score popup__description primary-color">
+                Score: <span class="secondary-color">2</span>
+              </p>
+              <p class="result__time popup__description primary-color">
+                Time: <span class="secondary-color">2s</span>
+              </p>
+            </div>
+
+            <div class="result--row">
+              <p class="result__targets popup__description">
+                Targets: <span class="primary-color">10</span>
+              </p>
+              <p class="result__missed popup__description">
+                Missed: <span class="primary-color">8</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="result__buttons">
+          <button class="result__button popup__button" data-value="again">
+            Play Again
+          </button>
+          <button
+            id="next-lvl"
+            class="result__button popup__button"
+            disabled
+            data-value="next"
+          >
+            Next
+          </button>
+          <a href="./astro-math-levels.html">
+            <button class="result__button popup__button exit__button">
+              Exit
+            </button></a
+          >
+        </div>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer class="footer">
+      <button
+        class="footer__option footer__option1"
+        data-option="1"
+        data-value="1"
+      ></button>
+      <button
+        class="footer__option footer__option2"
+        data-option="2"
+        data-value="1"
+      ></button>
+      <button
+        class="footer__option footer__option3"
+        data-option="3"
+        data-value="1"
+      ></button>
+    </footer>
+    <!-- js -->
+    <script type="module" src="./js/game.js"></script>
+    <script type="module" src="./js/game_logic.js"></script>
+  </body>
+</html>

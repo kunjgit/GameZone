@@ -1,0 +1,283 @@
+:root {
+  --game-info-text: clamp(1.5rem, 4vw, 3.5rem);
+  --asteroid-text: clamp(2rem, 2vw, 3.25rem);
+}
+
+a {
+  color: inherit;
+}
+
+.header {
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.header > * {
+  flex: 1;
+}
+
+.header__info {
+  font-size: var(--game-info-text);
+}
+
+.header__info--score {
+  color: var(--primary-color);
+}
+
+.header__info--time {
+  color: var(--primary-color);
+}
+
+.header__info--exit {
+  color: var(--danger-color);
+}
+
+.header__info--exit a {
+  cursor: pointer;
+}
+
+.header__info--sound {
+  cursor: pointer;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__info--sound-icon {
+  height: 4rem;
+  width: 6rem;
+  margin-left: 1rem;
+}
+
+.header__info--time::before {
+  content: "Time: ";
+  color: var(--secondary-color);
+}
+
+.header__info--score::before {
+  content: "Score: ";
+  color: var(--secondary-color);
+}
+
+.header__info--level::before {
+  content: "Level: ";
+  color: var(--secondary-color);
+}
+
+.header__info--sound::before {
+  content: "Sound: ";
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main__asteroids {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main__asteroid-container {
+  width: max-content;
+  position: relative;
+}
+
+.main__asteroid-problem {
+  width: max-content;
+  font-size: var(--asteroid-text);
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.main__asteroid {
+  height: 15rem;
+  width: 15rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__option {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 15rem;
+  height: 15rem;
+  margin: 1em;
+  outline: none;
+  border: 2px solid black;
+  box-shadow: 5px 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-family: inherit;
+  font-size: var(--description-text);
+  transition: scale 0.5s ease-in-out;
+}
+.popup--game {
+  background-color: #000d1b;
+  width: 95vw;
+  max-width: 800px;
+  padding: 2rem;
+  margin: 0;
+  border: 2px solid var(--danger-color);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.result {
+  width: 100%;
+  height: 100vh;
+  background-color: #001833;
+  padding: 1rem;
+  z-index: 100;
+  display: grid;
+  grid-template-rows: 100px 1fr 150px;
+}
+
+.result__title {
+  font-size: var(--site-title);
+}
+
+.result__details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.result__details > * {
+  flex: 1;
+  padding-top: 10rem;
+}
+
+.result__data {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+.result__images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.result__img {
+  width: 20rem;
+  height: 20rem;
+}
+
+.result__pb,
+.result__high-score {
+  border-radius: 25px;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.result__stars {
+  display: flex;
+  gap: 3rem;
+}
+
+.result__star {
+  width: 6rem;
+  height: 6rem;
+}
+
+.result__buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.result--row {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.exit__button {
+  color: var(--danger-color);
+}
+
+@media (max-width: 950px) {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .main__asteroid {
+    height: 10rem;
+    width: 10rem;
+  }
+  .header__info--exit {
+    grid-column: 1/3;
+  }
+  .header__info--sound-icon {
+    width: 4rem;
+  }
+  .result__details {
+    flex-direction: column;
+  }
+  .result__details > * {
+    padding-top: 2rem;
+  }
+  .result__data {
+    gap: 3rem;
+  }
+}
+@media (max-width: 700px) {
+  .footer__option {
+    width: 8rem;
+    height: 8rem;
+  }
+  .header__info--sound-icon {
+    width: 3rem;
+  }
+  .result__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .result__button,
+  .exit__button {
+    height: 3.5rem;
+  }
+  .result__img {
+    width: 15rem;
+    height: 15rem;
+  }
+  .result__high-score {
+    height: 200px;
+  }
+}
+
+@media (max-width: 350px) {
+  .main__asteroid {
+    height: 8rem;
+    width: 8rem;
+  }
+  .main__asteroid-problem {
+    font-size: 1.3rem;
+  }
+  .footer__option {
+    width: 6rem;
+    height: 6rem;
+  }
+}

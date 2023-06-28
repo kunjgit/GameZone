@@ -1,0 +1,112 @@
+h1 {
+  margin: 1.5rem;
+  color: var(--secondary-color);
+  font-size: 5rem;
+}
+
+.main {
+  margin: 1rem auto;
+  padding: 2rem 3rem;
+  max-width: 80vw;
+  border-color: var(--danger-color);
+  border-style: solid;
+  border-width: 0.3rem;
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.849);
+  text-align: center;
+}
+
+h2 {
+  font-size: 4rem;
+  margin-bottom: 1.75rem;
+}
+
+h3 {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin: 2rem 0rem;
+}
+
+.explanation-text {
+  color: var(--orange);
+  text-align: left;
+  padding: 0 2rem;
+}
+
+.controls-heading {
+  margin-top: 3rem;
+}
+
+.controls {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.controls-image {
+  margin: 0rem 2rem;
+  max-width: 50vw;
+  max-height: 50vh;
+  border-radius: 3rem;
+  flex: 2;
+}
+
+.controls-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: var(--orange);
+  font-size: 2rem;
+  text-align: left;
+  padding: 0 2rem;
+}
+
+span {
+  color: var(--secondary-color);
+  margin-right: 1rem;
+}
+
+p {
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+a {
+  color: var(--secondary-color);
+  padding: 0.3rem;
+  border-radius: 1rem;
+  border-style: solid;
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+@media (max-width: 1024px) {
+  .main {
+    margin: 1rem auto;
+    padding: 2rem 3rem;
+    min-width: 85vw;
+  }
+  .controls {
+    flex-direction: column;
+  }
+  .controls-image {
+    justify-content: center;
+    max-width: 75vw;
+    border-radius: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    margin: 1rem auto;
+    padding: 1rem 1rem;
+    min-width: 95vw;
+  }
+  .controls-image {
+    max-width: 95vw;
+  }
+}

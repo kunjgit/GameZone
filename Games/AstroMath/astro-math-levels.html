@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/level-page.css" />
+    <title>AstroMath | levels</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+  </head>
+  <body class="not-home">
+    <!--Loading Gif-->
+    <div class="loader">
+      <img src="./assets/gifs/loading.gif" alt="loading..." />
+    </div>
+    <!-- theme music -->
+    <audio class="audio__theme" src="./assets/music/themeMusic.mp3"></audio>
+    <!-- header -->
+    <header class="header">
+      <div class="header__icon">
+        <i class="fas fa-cog header__settings-icon"></i>
+      </div>
+      <div class="header__text">
+        <h1 class="header__title">AstroMath</h1>
+        <a href="./index.html"><i class="fas fa-home"></i></a>
+      </div>
+      <div class="header__icon">
+        <i class="fas fa-question-circle header__info-icon"></i>
+      </div>
+    </header>
+    <!-- levels -->
+    <main class="levels"></main>
+    <!-- settings -->
+    <section class="settings none">
+      <div class="settings__item">
+        <h2 class="settings__title settings__sound">Sound:</h2>
+        <img
+          class="settings__sound--icon settings__action"
+          src="./assets/images/soundon.svg"
+          alt="sound-toggle"
+        />
+      </div>
+      <div class="settings__item">
+        <h2 class="settings__title">Username:</h2>
+        <div class="settings__name-holder">
+          <img
+            src="./assets/images/edit.svg"
+            alt="edit-username"
+            class="settings__edit--icon"
+          />
+          <input class="settings__input settings__input--username" readonly />
+          <p class="settings__input--length-cnt none">
+            <span class="settings__input--length">15</span> Characters left
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- info -->
+    <section class="info none">
+      <h3 class="info__tagline">
+        Destroy <span class="secondary-color">Asteroids</span> by Solving
+        <span class="secondary-color">Math</span> and Save
+        <span class="secondary-color">The Earth</span>
+      </h3>
+      <div class="info__stars">
+        <h2 class="info__star-heading">Star Calculation</h2>
+        <div class="info__star-details">
+          <div class="info__star-item-100">
+            <img src="./assets/images/3.png" alt="three-golden-stars" />
+            <p>-> 100%</p>
+          </div>
+          <div class="info__star-item-75">
+            <img src="./assets/images/2.png" alt="two-golden-stars" />
+            <p>-> 76% - 99%</p>
+          </div>
+          <div class="info__star-item-50">
+            <img src="./assets/images/1.png" alt="one-golden-star" />
+            <p>-> 50% - 75%</p>
+          </div>
+        </div>
+      </div>
+      <p class="info__levels">
+        Click <span class="info__level-text">Current Level</span> to see all
+        levels
+      </p>
+      <a href="./howto.html"><p class="info__howto">How To Play?</p></a>
+    </section>
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/a6cc4a65f2.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- js -->
+    <script type="module" src="./js/level.js"></script>
+    <script type="module" src="./js/level_update.js"></script>
+  </body>
+</html>

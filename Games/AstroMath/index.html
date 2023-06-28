@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <title>AstroMath | home</title>
+  </head>
+  <body class="blur">
+    <!--Loading Gif-->
+    <div class="loader">
+      <img src="./assets/gifs/loading.gif" alt="loading..." />
+    </div>
+    <!-- theme music -->
+    <audio class="audio__theme" src="./assets/music/themeMusic.mp3"></audio>
+    <!-- header -->
+    <header class="header">
+      <div class="header__icon">
+        <i class="fas fa-cog header__settings-icon"></i>
+      </div>
+      <div class="header__text">
+        <h1 class="header__title">AstroMath</h1>
+      </div>
+      <div class="header__icon">
+        <i class="fas fa-question-circle header__info-icon"></i>
+      </div>
+    </header>
+    <!-- main -->
+    <main class="main">
+      <div class="main__options">
+        <!-- sounds -->
+        <audio
+          class="audio__hover"
+          src="./assets/music/selection/hover2.mp3"
+        ></audio>
+        <audio
+          class="audio__click"
+          src="./assets/music/selection/click.mp3"
+        ></audio>
+        <!-- options -->
+        <div class="main__options__cnt">
+          <img
+            src="./assets/images/Fire.svg"
+            class="none main__fire"
+            data-tag="resume"
+            alt="fire"
+          />
+          <h2 data-value="resume" class="main__option main__resume">
+            <a href="./astro-math.html" class="main__resume--link">Resume</a>
+          </h2>
+        </div>
+        <div class="main__options__cnt">
+          <img
+            src="./assets/images/Fire.svg"
+            class="none main__fire"
+            data-tag="newgame"
+            alt="fire"
+          />
+          <h2 data-value="newgame" class="main__option main__newgame">
+            <a href="./astro-math.html" class="main__newgame--link">New Game</a>
+          </h2>
+        </div>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer class="footer">
+      <a href="#" class="footer__modes">Modes</a>
+      <a href="./astro-math-levels.html" class="footer__level">
+        Current Level: <span class="footer__currentlevel">10</span>
+      </a>
+      <a href="#" class="footer__credit">Credits</a>
+    </footer>
+    <!-- init pop up -->
+    <section class="popup popup__active">
+      <h2 class="popup__title">
+        Welcome <span class="popup__username"></span>
+      </h2>
+      <p class="popup__description">
+        Destroy <span class="primary-color">Asteroids</span> by Solving
+        <span class="primary-color">Math</span> and Save
+        <span class="primary-color">The Earth</span>
+      </p>
+      <div class="popup__buttons">
+        <button class="popup__button">Play</button>
+        <button class="popup__button popup__button--change-user">
+          Change User
+        </button>
+      </div>
+    </section>
+    <!-- video -->
+    <section class="video none">
+      <button class="skip">Skip</button>
+      <video>
+        <source src="./assets/intro-video.mp4" type="video/mp4" />
+      </video>
+    </section>
+    <!-- settings -->
+    <section class="settings none">
+      <div class="settings__item">
+        <h2 class="settings__title settings__sound">Sound:</h2>
+        <img
+          class="settings__sound--icon settings__action"
+          src="./assets/images/soundon.svg"
+          alt="sound-toggle"
+        />
+      </div>
+      <div class="settings__item">
+        <h2 class="settings__title">Username:</h2>
+        <div class="settings__name-holder">
+          <img
+            src="./assets/images/edit.svg"
+            alt="edit-username"
+            class="settings__edit--icon"
+          />
+          <input
+            class="settings__input settings__input--username"
+            value=""
+            readonly
+          />
+          <p class="settings__input--length-cnt none">
+            <span class="settings__input--length">15</span> Characters left
+          </p>
+        </div>
+      </div>
+      <p class="info__ls">
+        <span class="primary-color">*</span>Sound gets Loaded in your speaker
+        once you click <span class="primary-color">Play Button</span>.
+      </p>
+      <p class="orange info__ls">
+        <span class="primary-color">*</span>For best experience use chrome
+        related browsers.
+      </p>
+      <!-- <p class="info__ls primary-color">
+        *<a href="https://astromath.netlify.app" class="secondary-color"
+          >Click Here!</a
+        >
+        If this site doesn't work very well.
+      </p> -->
+    </section>
+    <!-- info -->
+    <section class="info none">
+      <div class="info__stars">
+        <h2 class="info__star-heading">Star Calculation</h2>
+        <div class="info__star-details">
+          <div class="info__star-item-100">
+            <img src="./assets/images/3.png" alt="three-golden-stars" />
+            <p>-> 100%</p>
+          </div>
+          <div class="info__star-item-75">
+            <img src="./assets/images/2.png" alt="two-golden-stars" />
+            <p>-> 76% - 99%</p>
+          </div>
+          <div class="info__star-item-50">
+            <img src="./assets/images/1.png" alt="one-golden-star" />
+            <p>-> 50% - 75%</p>
+          </div>
+        </div>
+      </div>
+      <p class="info__levels">
+        Click <span class="info__level-text">Current Level</span> to see all
+        levels
+      </p>
+      <p class="info__ls">
+        We use <span class="primary-color"> local storage</span>, so please
+        ensure it works correctly
+      </p>
+      <a href="./howto.html"><p class="info__howto">How To Play?</p></a>
+
+    </section>
+    <!-- modes -->
+    <section class="modes none">
+      <div class="main__options">
+        <audio
+          class="audio__hover"
+          src="./assets/music/selection/hover2.mp3"
+        ></audio>
+        <audio
+          class="audio__click"
+          src="./assets/music/selection/click.mp3"
+        ></audio>
+        <div class="main__options__cnt">
+          <img
+            src="./assets/images/Fire.svg"
+            class="none main__fire"
+            data-tag="survival"
+            alt="fire"
+          />
+          <h2
+            data-value="survival"
+            data-cnt="Requires Level 5"
+            class="main__option main__survival"
+          >
+            <a href="./survival.html" class="main__survival--link">Survival</a>
+          </h2>
+        </div>
+        <div class="main__options__cnt">
+          <img
+            src="./assets/images/Fire.svg"
+            class="none main__fire"
+            data-tag="bonus"
+            alt="fire"
+          />
+          <h2
+            data-value="bonus"
+            data-cnt="Requires Level 10"
+            class="main__option main__bonus"
+          >
+            <a href="./bonus.html" class="main__bonus--link">Bonus</a>
+          </h2>
+        </div>
+      </div>
+    </section>
+    <!-- credits -->
+    <section class="credits none">
+      <div class="credits__wrapper">
+        <a
+          href="https://www.flaticon.com/authors/smashicons"
+          title="Smashicons"
+          class="credits__item"
+          ><span class="primary-color">Asteroids</span> - Smashicons -
+          Flaticon</a
+        >
+        <a href="http://www.freepik.com" class="credits__item"
+          ><span class="primary-color">Main Bg</span> - brgfx - Freepik</a
+        >
+        <a href="http://www.freepik.com" class="credits__item"
+          ><span class="primary-color">Video - DevilHead</span> - Ajipebriana -
+          Freepik</a
+        >
+        <a href="http://www.freepik.com" class="credits__item"
+          ><span class="primary-color"
+            >Video - Asteroid Bg/ Devil Asteroid/ Asteroid Earth</span
+          >
+          - brgfx - Freepik</a
+        >
+        <a href="http://www.freepik.com" class="credits__item"
+          ><span class="primary-color">Video - Devil Text</span> - NACreative -
+          Freepik</a
+        >
+        <a href="http://www.freepik.com" class="credits__item"
+          ><span class="primary-color">Video - Devil Home</span> - upklyak -
+          Freepik</a
+        >
+        <a href="http://www.freepik.com" class="credits__item"
+          ><span class="primary-color">Video - Explosion</span> - macrovector -
+          Freepik</a
+        >
+        <a
+          href="https://www.newgrounds.com/audio/listen/72878"
+          class="credits__item"
+          ><span class="primary-color">Theme Music</span> - green-phoenix
+        </a>
+        <a
+          href="https://www.youtube.com/watch?v=f0gB369NYFA"
+          class="credits__item"
+          ><span class="primary-color">SFX</span> - Explosions
+        </a>
+        <a
+          href="https://www.dreamstime.com/stock-music-sound-effect/wrong-answer.html"
+          class="credits__item"
+          ><span class="primary-color">SFX</span> - Wrong Answer
+        </a>
+        <a
+          href="http://soundfxcenter.com/download-sound/sm64-high-score-sound-effect/"
+          class="credits__item"
+          ><span class="primary-color">SFX</span> - High Score
+        </a>
+        <a
+          href="https://mixkit.co/free-sound-effects/lose/"
+          class="credits__item"
+          ><span class="primary-color">SFX</span> - Lose
+        </a>
+        <a
+          href="https://www.premiumbeat.com/blog/download-28-free-firework-sound-effects/?utm_source=YouTube&utm_medium=Video&utm_content=Fireworks-Freebie&utm_campaign=06-2021-YouTube-Video"
+          class="credits__item"
+          ><span class="primary-color">SFX</span> - Fireworks
+        </a>
+        <a href="https://fontawesome.com" class="credits__item"
+          ><span class="primary-color">Icons</span> - fontawesome
+        </a>
+        <a href="https://jsfiddle.net/elin/7m3bL/" class="credits__item"
+          ><span class="primary-color">Pyro(Fireworks CSS)</span> - Eddie Lin
+        </a>
+      </div>
+    </section>
+    <!--font awesome-->
+    <script
+      src="https://kit.fontawesome.com/a6cc4a65f2.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--js-link-->
+    <script type="module" src="./js/home.js"></script>
+  </body>
+</html>

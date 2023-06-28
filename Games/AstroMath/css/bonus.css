@@ -1,0 +1,278 @@
+:root {
+  --game-info-text: clamp(1.3rem, 4vw, 3rem);
+  --asteroid-text: clamp(2rem, 2vw, 3.25rem);
+}
+
+a {
+  color: inherit;
+}
+
+.header {
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  background-color: #000d1b;
+}
+
+.header > * {
+  flex: 1;
+}
+
+.header__info {
+  font-size: var(--game-info-text);
+}
+
+.header__info--score {
+  color: var(--primary-color);
+}
+
+.header__info--time {
+  color: var(--primary-color);
+}
+
+.header__info--exit {
+  color: var(--danger-color);
+}
+
+.header__info--exit a {
+  cursor: pointer;
+}
+
+.header__info--sound {
+  cursor: pointer;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__info--sound-icon {
+  height: 4rem;
+  width: 6rem;
+  margin-left: 1rem;
+}
+
+.header__info--time::before {
+  content: "Time: ";
+  color: var(--secondary-color);
+}
+
+.header__info--score::before {
+  content: "Score: ";
+  color: var(--secondary-color);
+}
+
+.header__info--sound::before {
+  content: "Sound: ";
+}
+.main {
+  position: relative;
+  display: flex;
+  flex: 1;
+}
+
+.main__item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-size: 5rem;
+}
+
+.main__item--right {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.main__item--left {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.bg-correct {
+  font-size: 0;
+  background-color: greenyellow;
+}
+
+.bg-wrong {
+  font-size: 0;
+  background-color: red;
+}
+
+.popup--game {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000d1b;
+  width: 95vw;
+  max-width: 800px;
+  padding: 2rem;
+  margin: 0;
+  border: 2px solid var(--danger-color);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20rem;
+}
+
+.popup__description {
+  font-size: var(--text);
+}
+
+.result {
+  width: 100%;
+  height: 100vh;
+  background-color: #001833;
+  padding: 1rem;
+  z-index: 100;
+  display: grid;
+  grid-template-rows: 100px 1fr 150px;
+}
+
+.result__title {
+  font-size: var(--site-title);
+}
+
+.result__details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.result__details > * {
+  flex: 1;
+  padding-top: 10rem;
+}
+
+.result__data {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+.result__images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.result__img {
+  width: 20rem;
+  height: 20rem;
+}
+
+.result__high-score {
+  border-radius: 25px;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.result__buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.exit__button {
+  color: var(--danger-color);
+}
+
+.life {
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transform: translateX(-50%);
+  background-color: #000d1b;
+  padding: 1rem;
+}
+
+.life__img {
+  width: 60px;
+  height: 60px;
+}
+
+.popup__blocker{
+  position: fixed;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 100%;
+  height: 100vh;
+  min-width: 100vw;
+  background-color: black;
+}
+
+.popup__blocker h1{
+  font-size: var(--site-title);
+}
+
+@media (max-width: 1050px) {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .header__info--exit {
+    grid-column: 1/3;
+  }
+
+  .header__info--sound-icon {
+    width: 4rem;
+  }
+
+  .result__details {
+    flex-direction: column;
+  }
+
+  .result__details > * {
+    padding-top: 2rem;
+  }
+
+  .result__data {
+    gap: 3rem;
+  }
+  .life__img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .header__info--sound-icon {
+    width: 3rem;
+  }
+
+  .result__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .result__button,
+  .exit__button {
+    height: 3.5rem;
+  }
+
+  .result__img {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .result__high-score {
+    height: 200px;
+  }
+
+  .life__img {
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,224 @@
+html {
+  overflow-x: hidden;
+}
+
+.main,
+.modes {
+  flex: 1;
+  padding: 8rem 0;
+  font-size: var(--title);
+  display: flex;
+  text-shadow: 5px 5px black;
+}
+
+.main__option {
+  margin: 4rem 0 0 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.main__options {
+  margin: 0 auto;
+}
+
+.main__options__cnt {
+  display: flex;
+  position: relative;
+}
+
+.main__options__cnt .main__fire {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-35%);
+  left: -30%;
+  width: clamp(50px, 12vw, 120px);
+  height: clamp(50px, 15vw, 120px);
+}
+
+.main__survival,
+.main__bonus {
+  margin-left: 2rem;
+}
+
+/* Styles for locked state */
+.main__lock,
+.main__status {
+  display: none;
+}
+
+.not-active .main__lock,
+.not-active .main__status {
+  display: initial;
+}
+
+.orange {
+  color: var(--orange);
+}
+
+.not-active {
+  cursor: default;
+}
+
+.not-active a {
+  opacity: 0.5;
+  margin: 0 1rem;
+  cursor: default;
+}
+
+h2.not-active {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.modes h2::after {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0%;
+  text-align: left;
+  margin-left: 1.5rem;
+  top: 100%;
+  font-size: var(--small-text);
+  color: var(--danger-color);
+  content: attr(data-cnt);
+  text-shadow: none;
+  display: none;
+}
+
+h2.not-active::after {
+  display: initial;
+}
+
+.not-active .main__status {
+  font-size: clamp(1rem, 3vw, 3rem);
+  color: var(--danger-color);
+}
+
+.not-active .main__lock {
+  height: clamp(30px, 5vw, 70px);
+  width: clamp(30px, 5vw, 70px);
+}
+
+.footer {
+  height: 100px;
+  font-size: 1.75rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__level {
+  margin: 0 0 1rem 0;
+  cursor: pointer;
+}
+
+.footer__modes {
+  font-size: 2rem;
+}
+
+.footer__level:hover,
+.footer__credit:hover,
+.footer__modes:hover {
+  color: var(--orange);
+}
+
+:root {
+  --typewriterSpeed: 2s;
+  --typewriterCharacters: 20;
+}
+
+.popup__title {
+  position: relative;
+  width: max-content;
+  color: var(--color);
+}
+
+.popup__title::before,
+.popup__title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.popup__title::before {
+  background: black;
+  animation: typewriter var(--typewriterSpeed)
+    steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+.popup__title::after {
+  width: 0.215em;
+  background: var(--primary-color);
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards,
+    blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+.video {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.video button {
+  font-family: inherit;
+  z-index: 999;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+}
+
+.video video {
+  max-height: 100vh;
+  width: 100vw;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: var(--secondary-color);
+  }
+}
+
+@media (max-width: 700px) {
+  .modes h2::after {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 435px) {
+  .main__options__cnt .main__fire {
+    transform: translateY(-25%);
+  }
+}
+
+@media (max-width: 350px) {
+  .not-active .main__status {
+    flex-basis: 60%;
+    display: flex;
+    justify-content: flex-start;
+  }
+}

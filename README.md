@@ -384,8 +384,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 279 | [Pikachu_Volleyball](https://github.com/kunjgit/GameZone/tree/main/Games/Pikachu_Volleyball)|
 | 280 | [Little_Red_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Little_Red_Game)|
 | 281 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
-| 282 | [Battleship](https://github.com/kunjgit/GameZone/tree/main/Games/Battleship)|
-
+| 282 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
+| 283 | [Battleship](https://github.com/kunjgit/GameZone/tree/main/Games/Battleship)|
 
 
 

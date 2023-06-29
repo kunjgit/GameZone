@@ -5,6 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     background: url("https://th.bing.com/th/id/OIG.gjwf2.MkAEWSWYG0paYA?pid=ImgGn");
+    overflow-x: hidden;
 }
 
 canvas {

@@ -2,7 +2,8 @@
   #style.css
 \*-----------------------------------*/
 
-
+@import 'https://fonts.googleapis.com/css?family=Permanent+Marker';
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
 /**
  * copyright 2022 @codewithsadee
  */
@@ -2453,6 +2454,7 @@ textarea.form-input::-webkit-resizer {
   color: var(--white-1);
   justify-content: center;
   align-items: center;
+  margin-top: 5rem;
 }
 
 #prev-page-tile,
@@ -2487,21 +2489,15 @@ textarea.form-input::-webkit-resizer {
 
 /* pagination styling */
 .pagination_section .page-tile {
+  border: 2px solid rosybrown;
   font-size: 20px;
   padding: 5px 15px;
   margin: 2px;
-  background-color: rgb(104, 98, 232);
-  background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
-  color: #000;
+  color: wheat;
   cursor: pointer;
   border-radius: 50%;
   opacity: 0.7;
-  transition: opacity 0.3s, background-color 0.3s;
-  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2),
-              inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-              inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
-  transition: 0.5s ease all;
+  transition: all 0.5s ease 0s;
 }
 
 /* pagination hover effect on non-active */
@@ -2509,6 +2505,7 @@ textarea.form-input::-webkit-resizer {
   opacity: 1;
   background-color: #df87ef;
 }
+
 
 .pagination_section .page-tile.active{
   font-weight: 800;
@@ -2548,3 +2545,89 @@ textarea.form-input::-webkit-resizer {
   margin-top: 2px;
   margin-left: 10px;
 }
+
+
+
+/* custom scrollbar */
+
+::-webkit-scrollbar {
+  width: 9px;
+  color: #9147b3;
+}
+
+::-webkit-scrollbar-track {
+  background: #434343;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(125deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #df87ef;
+}
+
+
+/* GameZone heading **/
+.heading {
+  margin-top: -2%;
+  font: 5.5vw/1 Permanent Marker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  text-align: center;
+  color: snow;  
+  padding-bottom: 6%;
+  padding-top: 3%;
+}
+
+span {
+  animation: glow 2s ease-in-out both infinite;
+}
+
+span:nth-child(1) {
+  animation-delay: -0.2857142857s;
+}
+
+span:nth-child(2) {
+  animation-delay: -0.5714285714s;
+}
+
+span:nth-child(3) {
+  animation-delay: -0.8571428571s;
+}
+
+span:nth-child(4) {
+  animation-delay: -1.1428571429s;
+}
+
+span:nth-child(5) {
+  animation-delay: -1.4285714286s;
+}
+
+span:nth-child(6) {
+  animation-delay: -1.7142857143s;
+}
+
+span:nth-child(7) {
+  animation-delay: -2s;
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 4.3333333333px rgb(159, 157, 235) 0%, 0 -25px 40px rgb(212, 153, 222), -25px 25px 40px rgb(253, 199, 134), 25px 25px 40px rgb(253, 199, 134);
+  }
+
+  33% {
+    text-shadow: 0 0 8.3333333333px rgb(159,157,235), 0 -25px 50px rgb(159, 157, 235), -25px 25px 50px rgb(212, 153, 222), 25px 25px 50px rgb(253, 199, 134);
+  }
+
+  66% {
+    text-shadow: 0 0 8.3333333333px snow, 0 -25px 50px #9147b3, -25px 25px 50px #e100ff, 25px 25px 50px rgb(253, 199, 134);
+  }
+}
+

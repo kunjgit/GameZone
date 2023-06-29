@@ -26,7 +26,7 @@ Just tap on start and you can play now using 'AWSD' keys or the arrows keys.
 
 ## **Screenshots 📸**
 
-/home/aman/Pictures/Screenshots/Screenshot from 2023-06-23 02-30-33.png
+![Spider_Man_Go](../../assets/images/spidermango.png)
 
 <br>
 

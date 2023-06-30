@@ -2,8 +2,9 @@
 This is a Bow And Arrow Game made using HTML, CSS and Javascript
 
 # How To Play?
-- Click Start to play
+- Click Start to play.
 - Mouse Click or press any key to fire the arrow!
-- Goal: Hit the Target as many times as you can for the highest score
+- Goal: Hit the Target as many times as you can for the highest score.
 
 # Preview
+![arrow](https://github.com/5h0ov/GameZone/assets/83227649/51b6db9c-980b-4dbc-b750-f2da0f509cc7)

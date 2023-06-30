@@ -1,24 +1,32 @@
-# **ROCK_PAPER_SCISSORS** 
+# **Game_Name** 
 
----
-
+Rock Paper Scissor
+--- 
 <br>
 
 ## **Description 📃**
 <!-- add your game description here  -->
-- The game is based on the classic game of rock paper and scissors.
+- Aim training game is a simple and addictive game where the player's objective is to pop as many bubbles as possible within a limited time. Colorful bubbles randomly appear on the screen, and the player must quickly click on them to pop them. Each popped bubble earns the player a point, and the score is displayed in real-time. The game lasts for 30 seconds.
+
+- The player starts the game by clicking the "Start" button.
+
+- Bubbles start appearing on the screen at regular intervals.
+
+- The player's goal is to click on the bubbles to pop them.
+
+- Overall, the game aims to test the player's agility, reflexes, and hand-eye coordination.
 
 ## **functionalities 🎮**
 <!-- add functionalities over here -->
-- In this,the user chooses one from the three options available and the computer does the same simultaneously. And thus, making the combinations, one of the both wins or either its a tie
+- Colorful bubbles appear randomly on the screen at regular intervals.
+- The player can click on the bubbles to pop them and earn points.
+- The player's score is displayed in real-time, showing the number of bubbles popped.
+- The highest score achieved is tracked and displayed as the high score.
 <br>
 
 ## **How to play? 🕹️**
 <!-- add the steps how to play games -->
-- In this,the user chooses one from the three options available and the computer does the same simultaneously. And thus, making the combinations, one of the both wins or either its a tie
-1. Rock defeats Scissor
-2. Scissor defeats Paper
-3. Paper defeats Rock
+- just hit start and there you go.
 
 <br>
 
@@ -27,8 +35,8 @@
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![image]("GameZone\Games\Rock_Paper_Scissors\Assets\img.png")
+    ![Game image](../../assets/images/Aim_Training.png)
 <br>
 
-## **Working video 📹**
+
 <!-- add your working video over here -->

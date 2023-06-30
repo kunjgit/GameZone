@@ -201,11 +201,19 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 // Code for enabling Light-Dark THEME
 function toggleTheme() {
-  var slider = document.getElementById("themeToggle");
-  if (slider.checked) {
+
+  var icon = document.getElementById("toggleThemeBtn");
+  var sun = document.getElementById("sunBtn");
+  var moon = document.getElementById("moonBtn");
+
+  if(sun.style.display === "none") {
     disableDarkTheme();
+    sun.style.display = "block";
+    moon.style.display = "none";
   } else {
     enableDarkTheme();
+    sun.style.display = "none";
+    moon.style.display = "block";
   }
 }
 

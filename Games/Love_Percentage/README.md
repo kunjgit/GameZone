@@ -17,7 +17,7 @@ on clicking the submit button it will tell the love percentage between a boy and
 <br>
 
 ## **How to play? 🕹️**
-The user has to fill their and their partner's name in the input box provided. After that the user has to click the submit button, and then a message will appear to the user telling the love percentage between them.
+The user has to enter their and their partner's name in the supplied input box. After that, the user must click the submit button, and a message will appear informing them of their love percentage.
 
 - 
 

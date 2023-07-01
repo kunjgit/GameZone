@@ -401,8 +401,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 281 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
 | 282 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
 | 283 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
+| 284 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain%20Color%20Mastermind)|
+| 285 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Lizard%20Spock%20Game)|
+| 286 | [Battleship](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Battleship)|
 
-  >>>>>>> main
 
 
 
@@ -500,3 +502,5 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
   <img src="https://contrib.rocks/image?repo=kunjgit/GameZone" />
 </a>
 </center>
+<br>
+<p align="right"><a href="#top">Back to top</a></p>

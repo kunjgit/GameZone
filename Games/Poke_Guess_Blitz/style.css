@@ -1,0 +1,90 @@
+body {
+    background-image: url('Assets/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center; 
+  }
+  
+  #sprite {
+    height: 400px;
+    width: 400px;
+  }
+  
+  @font-face {
+    font-family: pokemon-one;
+    src: url(Pokemon\ Solid.ttf);
+  }
+  
+  #title {
+    font-family: pokemon-one;
+    color: #ffcc00;
+    -webkit-text-stroke: 3px #375da9;
+    font-size: 10vh;
+  }
+  
+  #pokemon-name {
+    font-family: pokemon-one;
+    color: #375da9;
+    -webkit-text-stroke: 3px #ffcc00;
+    font-size: 10vh;
+  }
+  
+  #streak {
+    font-size: 7vh;
+    font-weight: strong;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  #guess {
+    width: 50%;
+    height: 35px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .row {
+    display: flex;
+    flex-flow:row;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .column {
+    width: 50%;
+    text-align: center;
+  }
+  
+  #footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(195, 255, 0);
+    color: white;
+    text-align: center;
+  }
+  
+  @media (max-width: 500px) {
+    .row {
+      flex-flow: column;
+    }
+    .column {
+      width: 100%;
+    }
+    #guess {
+      width: 90%;
+    }
+    #title {
+      font-size: 32px;
+    }
+    #pokemon-name {
+      font-size: 32px;
+    }
+    #sprite {
+      height: 210px;
+      width: 210px;
+    }
+  }

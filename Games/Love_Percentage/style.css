@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, red, pink);
+
+}
+/* container styling */
+.container {
+    background-color: #ffff;
+    opacity: 0.7;
+    width: 100%;
+    max-width: 40em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 6em;
+    border-radius: 2em;
+
+}
+
+.inputField input {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    width: 50%;
+    border-radius: 10px;
+    border: 2px solid pink;
+    cursor: pointer;
+    font-size: large
+}
+
+.container h2 {
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+.container #submitBtn {
+    font-size: 2em;
+    font-weight: 500;
+    display: block;
+    margin: 0 auto;
+    background-color: pink;
+    border: none;
+    margin-top: 22px;
+    border-radius: .3em;
+    width: 5em;
+    cursor: pointer;
+
+
+}
+
+/* start button styling */
+#startBtn {
+    font-size: 2em;
+    font-weight: 550;
+    background-color: #ffffff;
+    color: #23234c;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 1em 1.8em;
+    border-radius: 2.5em;
+}
+
+#result {
+    margin-top: 12px;
+    text-align: center;
+    font-size: large;
+    color: rgb(31, 30, 30);
+    padding: 1em;
+}
+
+
+.controlsContainer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(230, 27, 27);
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.hide {
+    display: none;
+}

@@ -50,24 +50,24 @@
     "thumbnailUrl": "Word_Guessing_Game.png"
   },
   "11": {
-    "gameTitle": "Car Race",
-    "gameUrl": "race_car",
-    "thumbnailUrl": "race_car.png"
+    "gameTitle": "Ludo",
+    "gameUrl": "Ludo_Game",
+    "thumbnailUrl": "Ludo_4_Player.png"
   },
   "12": {
-    "gameTitle": "Aim training",
-    "gameUrl": "Aim_Training",
-    "thumbnailUrl": "Aim_Training.png"
+    "gameTitle": "Piano",
+    "gameUrl": "Piano",
+    "thumbnailUrl": "Piano_game.png"
   },
   "13": {
-    "gameTitle": "Alien Shooter",
-    "gameUrl": "Alien_Shooters",
-    "thumbnailUrl": "Alien_Shooter.png"
+    "gameTitle": "Atari Breakout",
+    "gameUrl": "Atari_Breakout",
+    "thumbnailUrl": "Atari_breakout.png"
   },
   "14": {
-    "gameTitle": "Fruit Ninja",
-    "gameUrl": "Fruit_Ninja",
-    "thumbnailUrl": "Fruit_Ninja_Thumbnail.png"
+    "gameTitle": "Dinosaur Game",
+    "gameUrl": "Chrome_Dinosaur_Game",
+    "thumbnailUrl": "Chrome_dinosaur_runner.png"
   },
   "15": {
     "gameTitle": "Color guessing Game",

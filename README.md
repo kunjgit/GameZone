@@ -368,7 +368,61 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 263 | [Pokemon Ball Finder](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Ball_Finder)|
 | 264 | [Basketball](https://github.com/kunjgit/GameZone/tree/main/Games/Basketball)|
 | 265 | [Wault_master](https://github.com/kunjgit/GameZone/tree/main/Games/Wault_master)|
-| 266 | [Chicken_Cannon](https://github.com/kunjgit/GameZone/tree/main/Games/Chicken_cannon)|
+| 266 | [Number Sliding Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Sliding_Puzzle_Game)|
+| 252 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
+| 253 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
+| 254 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|
+| 255 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
+| 256 | [Save Doraemon](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Doraemon)|
+| 257 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|
+| 258 | [Hextris](https://github.com/kunjgit/GameZone/tree/main/Games/Hextris)|
+| 259 | [MrFakeGame](https://github.com/kunjgit/GameZone/tree/main/Games/MrFakeGame)|
+| 260 | [Checkers](https://github.com/kunjgit/GameZone/tree/main/Games/Checkers)|
+| 261 | [Roulette](https://github.com/kunjgit/GameZone/tree/main/Games/Roulette)|
+| 262 | [Aero Acrobat](https://github.com/kunjgit/GameZone/tree/main/Games/Aero_Acrobat)|
+| 263 | [Adventure_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Adventure_Game)|
+| 264 | [Pumpkin_Pursuit](https://github.com/kunjgit/GameZone/tree/main/Games/Pumpkin_Pursuit)|
+| 265 | [Corona Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Corona_Shooter)|
+| 266 | [Pokemon Ball Finder](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Ball_Finder)|
+| 267 | [Basketball](https://github.com/kunjgit/GameZone/tree/main/Games/Basketball)|
+| 268 | [Wault_master](https://github.com/kunjgit/GameZone/tree/main/Games/Wault_master)|
+| 269 | [Reaction TIme](https://github.com/kunjgit/GameZone/tree/main/Games/Reaction_Time)|
+| 270 | [Flag Guess Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flag_Guess_Game)|
+| 271 | [Cross_The_Road](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_The_Road)|
+| 272 | [Highway Race - Barrel Dodge](https://github.com/kunjgit/GameZone/tree/main/Games/Highway_Race)|
+| 273 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
+| 274 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
+| 275 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
+| 276 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe%20the%20Cloud)|
+| 277 | [Cosmic_Coin_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Blaster)|
+| 278 | [Circus Charly](https://github.com/kunjgit/GameZone/tree/main/Games/Circus_Charly)|
+| 279 | [Pikachu_Volleyball](https://github.com/kunjgit/GameZone/tree/main/Games/Pikachu_Volleyball)|
+| 281 | [Little_Red_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Little_Red_Game)|
+| 282 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
+| 282 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
+| 284 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|\
+| 285 | [Chicken_Cannon](https://github.com/kunjgit/GameZone/tree/main/Games/Chicken_cannon)|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

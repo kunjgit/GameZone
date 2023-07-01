@@ -41,10 +41,11 @@ jobs:
             } else {
               core.exportVariable('comment_body', '');
               core.setOutput('close_pull_request', false);
+              return; // Return and skip further steps
             }
 
       - name: Close the pull request and add a comment
-        if: always() ${{ needs.check_open_pull_requests.outputs.close_pull_request }}
+        if: always() && ${{ needs.check_open_pull_requests.outputs.close_pull_request }}
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -53,6 +54,11 @@ jobs:
             const repo = context.repo.repo;
             const pullRequestNumber = context.payload.pull_request.number;
             const comment = process.env.comment_body;
+
+            if (comment.trim() === '') {
+              console.log('Comment body is empty. Skipping comment creation.');
+              return;
+            }
 
             const closeComment = `${comment}`;
 

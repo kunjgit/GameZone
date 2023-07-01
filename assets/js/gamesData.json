@@ -52,7 +52,7 @@
   "11": {
     "gameTitle": "Ludo",
     "gameUrl": "Ludo_Game",
-    "thumbnailUrl": "Ludo_4_Player.png"
+    "thumbnailUrl": "Ludo_4_Player.PNG"
   },
   "12": {
     "gameTitle": "Piano",
@@ -61,7 +61,7 @@
   },
   "13": {
     "gameTitle": "Atari Breakout",
-    "gameUrl": "Atari_Breakout",
+    "gameUrl": "Atari_breakout",
     "thumbnailUrl": "Atari_breakout.png"
   },
   "14": {

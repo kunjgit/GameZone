@@ -400,6 +400,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 280 | [Little_Red_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Little_Red_Game)|
 | 280 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
 | 281 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
+| 282 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
 
 
 
@@ -429,7 +430,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 
 
-|  *  | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
+
  </center>
 
 <br>

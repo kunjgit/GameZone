@@ -500,3 +500,5 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
   <img src="https://contrib.rocks/image?repo=kunjgit/GameZone" />
 </a>
 </center>
+<br>
+<p align="right"><a href="#top">Back to top</a></p>

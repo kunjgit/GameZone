@@ -402,6 +402,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 282 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
 | 284 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
 | 285 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain Color Mastermind)|
+| 286 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Lizard%20Spock%20Game)|
 
 
 

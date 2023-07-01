@@ -80,24 +80,24 @@
     "thumbnailUrl": "Guess_The_Number.png"
   },
   "17": {
-    "gameTitle": "Car Race",
-    "gameUrl": "race_car",
-    "thumbnailUrl": "race_car.png"
+    "gameTitle": "Dots and Boxes",
+    "gameUrl": "Dots_and_Boxes_Game",
+    "thumbnailUrl": "Dots_and_Boxes_Game.png"
   },
   "18": {
-    "gameTitle": "Aim training",
-    "gameUrl": "Aim_Training",
-    "thumbnailUrl": "Aim_Training.png"
+    "gameTitle": "Infinite Runner",
+    "gameUrl": "InfiniteRunner_Game",
+    "thumbnailUrl": "infiniteRunner.png"
   },
   "19": {
-    "gameTitle": "Alien Shooter",
-    "gameUrl": "Alien_Shooters",
-    "thumbnailUrl": "Alien_Shooter.png"
+    "gameTitle": "Crystals collector",
+    "gameUrl": "Crystals_Collecter",
+    "thumbnailUrl": "Crystals_Collector.png"
   },
   "20": {
-    "gameTitle": "Fruit Ninja",
-    "gameUrl": "Fruit_Ninja",
-    "thumbnailUrl": "Fruit_Ninja_Thumbnail.png"
+    "gameTitle": "Mario Matching",
+    "gameUrl": "mario_matching_game",
+    "thumbnailUrl": "Mario Matching.png"
   },
   "21": {
     "gameTitle": "Doodle jump",
@@ -1161,24 +1161,24 @@
     "thumbnailUrl": "Bulls_eye.png"
   },
   "231": {
-    "gameTitle": "Crystals collector",
-    "gameUrl": "Crystals_Collecter",
-    "thumbnailUrl": "Crystals_Collector.png"
+    "gameTitle": "",
+    "gameUrl": "",
+    "thumbnailUrl": ""
   },
   "232": {
-    "gameTitle": "Dots and Boxes",
-    "gameUrl": "Dots_and_Boxes_Game",
-    "thumbnailUrl": "Dots_and_Boxes_Game.png"
+    "gameTitle": "",
+    "gameUrl": "",
+    "thumbnailUrl": ""
   },
   "233": {
-    "gameTitle": "Infinite Runner",
-    "gameUrl": "InfiniteRunner_Game",
-    "thumbnailUrl": "infiniteRunner.png"
+    "gameTitle": "",
+    "gameUrl": "",
+    "thumbnailUrl": ""
   },
   "234": {
-    "gameTitle": "Mario Matching",
-    "gameUrl": "mario_matching_game",
-    "thumbnailUrl": "Mario Matching.png"
+    "gameTitle": "",
+    "gameUrl": "",
+    "thumbnailUrl": ""
   },
   "235": {
     "gameTitle": "",

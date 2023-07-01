@@ -70,6 +70,10 @@ body {
     padding: 1em 1.8em;
     border-radius: 2.5em;
 }
+#startBtn:hover{
+    background-color: rgb(50, 227, 234);
+
+}
 
 #result {
     margin-top: 12px;

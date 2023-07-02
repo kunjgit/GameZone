@@ -382,7 +382,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 277 | [Cosmic_Coin_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Blaster)|
 | 278 | [Circus Charly](https://github.com/kunjgit/GameZone/tree/main/Games/Circus_Charly)|
 | 279 | [Pikachu_Volleyball](https://github.com/kunjgit/GameZone/tree/main/Games/Pikachu_Volleyball)|
-| 280 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
 
 
 

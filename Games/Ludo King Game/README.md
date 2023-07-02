@@ -27,7 +27,7 @@ Ludo is a classic board game where players race to move their tokens from the st
 - Move your token
 - Occupied space and captures
 - Entering the home area
-- Win the game
+- Winning the game
 
 
 <br>
@@ -35,7 +35,6 @@ Ludo is a classic board game where players race to move their tokens from the st
 ## **Screenshots 📸**
 
 ![Ludo King Game](https://github.com/kunjgit/GameZone/assets/90240653/6dc5e629-acc4-4541-857b-8c96312a10be)
-
 
 <br>
 

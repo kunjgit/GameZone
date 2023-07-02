@@ -9,7 +9,7 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: brown;
-  background-image: url("../images/wood-Board.jpg");
+  background-image: url("./assets/images/wood-Board.jpg");
   background-repeat: repeat;
   background-size: cover;
   background-position: center;
@@ -336,7 +336,7 @@ main div {
 .r-pawn2,
 .r-pawn3,
 .r-pawn4 {
-  background-image: url("../images/pawns.png");
+  background-image: url("./assets/images/pawns.png");
   background-repeat: no-repeat;
   background-size: 380%;
   background-position-x: 0%;
@@ -357,7 +357,7 @@ main div {
 .g-pawn2,
 .g-pawn3,
 .g-pawn4 {
-  background-image: url("../images/pawns.png");
+  background-image: url("./assets/images/pawns.png");
   background-repeat: no-repeat;
   background-size: 380%;
   background-position-x: 0%;
@@ -378,7 +378,7 @@ main div {
 .y-pawn2,
 .y-pawn3,
 .y-pawn4 {
-  background-image: url("../images/pawns.png");
+  background-image: url("./assets/images/pawns.png");
   background-repeat: no-repeat;
   background-size: 380%;
   background-position-x: 0%;
@@ -399,7 +399,7 @@ main div {
 .b-pawn2,
 .b-pawn3,
 .b-pawn4 {
-  background-image: url("../images/pawns.png");
+  background-image: url("./assets/images/pawns.png");
   background-repeat: no-repeat;
   background-size: 380%;
   background-position-x: 0%;
@@ -416,7 +416,7 @@ main div {
 #out14,
 #out27,
 #out40 {
-  background-image: url("../images/star2.png");
+  background-image: url("./assets/images/star2.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 80%;
@@ -468,20 +468,20 @@ main div {
   background: #ffde05;
 }
 .startDiceRoll {
-  background-image: url(../images/start_dice_roll2.png);
+  background-image: url(./assets/images/start_dice_roll2.png);
   background-size: 100%;
   background-repeat: no-repeat;
   cursor: pointer;
 }
 .rollDice {
-  background-image: url(../images/dice_roll.png);
+  background-image: url(./assets/images/dice_roll.png);
   background-repeat: no-repeat;
   background-size: 600%;
   background-position-x: 0%;
   background-position-y: 0%;
 }
 .showDice {
-  background-image: url(../images/dice.png);
+  background-image: url(./assets/images/dice.png);
   background-repeat: no-repeat;
   background-size: 200%;
   background-position-x: 0%;
@@ -601,18 +601,18 @@ div#preload {
   cursor: pointer;
 }
 #sound {
-  background-image: url(../images/sound-on.svg);
+  background-image: url(./assets/images/sound-on.svg);
 }
 #restart {
-  background-image: url(../images/restart.svg);
+  background-image: url(./assets/images/restart.svg);
 }
 #fullscreen {
-  background-image: url(../images/fullscreen.svg);
+  background-image: url(./assets/images/fullscreen.svg);
   margin: 3% 10% 0%;
   /* display: none; */
 }
 #exitfullscreen {
-  background-image: url(../images/exit-fullscreen.svg);
+  background-image: url(./assets/images/exit-fullscreen.svg);
   margin: 3% 10% 0%;
   display: none;
 }

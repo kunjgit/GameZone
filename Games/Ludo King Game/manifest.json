@@ -3,7 +3,7 @@
   "name": "Play Ludo Online",
   "icons": [
     {
-      "src": "images/favicon.ico",
+      "src": "/assets/images/favicon.ico",
       "sizes": "256x256",
       "type": "image/x-icon" 
     }

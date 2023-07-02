@@ -1,8 +1,8 @@
 let playerNo = 0; // (red = 1, green = 2, yellow = 3, blue = 4)
-let playerName = null; // store defult playerName
+let playerName = null; // store default playerName
 let diceBoxId = null; // store id value of dice box
-let preDiceBoxId = null; // store id value of previou diceBoxId
-let rndmNo = null; // generate rndmNo after dice is roll
+let preDiceBoxId = null; // store id value of preview diceBoxId
+let rndmNo = null; // generate randomNo after dice is roll
 let countSix = 0;
 let cut = false;
 let pass = false;
@@ -24,9 +24,9 @@ let winAudio = new Audio("../music/win-sound.mp3");
 //   openAudio.play();
 // }
 
-/* ************      Varialbe Diclartion End *************** */
+/* ************      Variable Declaration End *************** */
 
-/* ************    Object Diclartion Start  *************** */
+/* ************    Object Declaration Start  *************** */
 
 function Position(length) {
   for (let i = 1; i <= length; i++) {
@@ -51,9 +51,9 @@ let players = {
   bPlayer: new Player("out40", "out38"),
 };
 
-let outAreaPos = new Position(52); //Create Array for indiviual Posititon
+let outAreaPos = new Position(52); //Create Array for individual Position
 
-/* ************      Fuction Diclartion Start *************** */
+/* ************      Function Declaration Start *************** */
 
 /* Switch Function */
 
@@ -171,7 +171,7 @@ function checkprivateAreaEnd(id) {
   return false;
 }
 
-/* Add and Remove funtion */
+/* Add and Remove function */
 
 function removeAllGlow(...area) {
   for (const areaValue of area) {
@@ -831,7 +831,7 @@ function getBadgeImage(winNo) {
     (winNo == 1 && (imageName = "win2")) ||
     (winNo == 2 && (imageName = "win3"));
 
-  return `url(../images/${imageName}.png)`;
+  return `url(../assets/images/${imageName}.png)`;
 }
 
 /* cut the pawn */
@@ -950,9 +950,9 @@ function restartGame() {
   };
   outAreaPos = new Position(52);
   playerNo = 0; // (red = 1, green = 2, yellow = 3, blue = 4)
-  playerName = null; // store defult playerName
+  playerName = null; // store default playerName
   diceBoxId = null; // store id value of dice box
-  preDiceBoxId = null; // store id value of previou diceBoxId
+  preDiceBoxId = null; // store id value of preview diceBoxId
   rndmNo = null; // generate rndmNo after dice is roll
   countSix = 0;
   cut = false;
@@ -987,13 +987,13 @@ function soundSettings() {
 $("#sound").click(function () {
   soundSettings();
   if (sound == true) {
-    $("#sound").css("background-image", "url(../images/sound-on.svg)");
+    $("#sound").css("background-image", "url(./assets/images/sound-on.svg)");
   } else {
-    $("#sound").css("background-image", "url(../images/sound-off.svg)");
+    $("#sound").css("background-image", "url(./assets/images/sound-off.svg)");
   }
 });
 
-/* fullsreen */
+/* fullscreen */
 
 let elem = document.documentElement;
 function openFullscreen() {

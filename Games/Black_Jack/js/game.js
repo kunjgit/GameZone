@@ -119,8 +119,9 @@ function init(){
 			}
 			else{
 				this.startContainer = new createjs.Container();
-				var titleText = new createjs.Text('BlackJackJs', '60px Arial', '#fff');
+				var titleText = new createjs.Text('BlackJackJs', '60px sherif', '#131313');
 				titleText.center(1, 1);
+				
 				var nameInput = new TextInput();
 				// autofocus
 				nameInput._focused = true;
@@ -132,7 +133,7 @@ function init(){
 				nameInput.y = 400;
 				nameInput._visiblePostCursorText.text = 'Your name';
 
-				var submitText = new createjs.Text('OK', '30px Arial', '#fff');
+				var submitText = new createjs.Text('OK', '30px sherif', '#cfc');
 				submitText.x = 640;
 				submitText.y = 403;
 				submitText.cursor = 'Pointer';

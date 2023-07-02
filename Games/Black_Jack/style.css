@@ -5,8 +5,17 @@ body {
 	text-align: center;
 }
 
+.wrapper{
+	margin-top:13vh;
+	margin-bottom: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 canvas {
 	background-image: url(assets/PNG/background.png);
-	background-size: cover;
+	border: 3px double white;
+	background-size:contain;
 	border: 1px solid #000;
 }

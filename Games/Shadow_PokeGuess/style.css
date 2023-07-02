@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  height: 100vh;
+  background: linear-gradient(
+    #da2e2c 49%,
+    #090029 49%,
+    #090029 51%,
+    #ffffff 51%
+  );
+}
+.score-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+#start {
+  background-color: #ffffff;
+  height: 6em;
+  width: 6em;
+  font-size: 1.8em;
+  border: 0.4em solid #090029;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.game-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 31em;
+  padding: 3em 1.5em;
+  border: 0.6em solid #090029;
+  border-radius: 0.5em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+.timer span {
+  font-weight: 600;
+}
+.header,
+.num {
+  text-align: right;
+}
+.pokemon-image {
+  display: block;
+  margin: 3em auto 0 auto;
+}
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+.options button {
+  background-color: #ffffff;
+  padding: 0.8em;
+  border: 0.3em solid #090029;
+  border-radius: 0.5em;
+  box-shadow: 0 0.5em 0 0 #090029;
+  cursor: pointer;
+}
+.options button:hover {
+  box-shadow: none;
+  transform: translateY(0.6em);
+}
+.nxt-btn-div {
+  margin-top: 3em;
+  display: flex;
+  justify-content: flex-end;
+}
+.next-btn {
+  cursor: pointer;
+  background-color: #090029;
+  color: #ffffff;
+  border-radius: 0.5em;
+  font-size: 1.2em;
+  padding: 0.8em 3em;
+}
+.hide {
+  display: none;
+}
+.options:disabled {
+  border-color: #a0a0a0;
+  color: #a0a0a0;
+  box-shadow: 0 0.5em 0 0 #a0a0a0;
+  cursor: not-allowed;
+}
+.options button.correct {
+  background: #58cc5d;
+}
+.options button.incorrect {
+  background: #eb5650;
+}
+.options button.correct,
+.options button.incorrect {
+  color: #ffffff;
+  border-color: #090029;
+  box-shadow: 0 0.5em 0 0 #090029;
+}
+.score-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+#user-score {
+  margin-bottom: 1em;
+  color: #ffffff;
+}

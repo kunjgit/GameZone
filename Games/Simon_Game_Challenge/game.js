@@ -4,6 +4,7 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 var highest = 0;
+var toggle = false;
 
 const startGame = () => {
   if (!started) {
@@ -15,6 +16,17 @@ const startGame = () => {
 
 $(document).keypress(startGame);
 $("#play-button").click(startGame);
+
+$('.ins').click(() => {
+  if(!toggle){
+    $('.instructions-section').css('display', 'inherit');
+    toggle = true;
+  }
+  else{
+    $('.instructions-section').css('display', 'none');
+    toggle = false;
+  }
+});
 
 $(".btn").click(function () {
   var userChosenColour = $(this).attr("id");

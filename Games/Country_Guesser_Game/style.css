@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i");
+
+body {
+    background-color: rgba(242, 242, 242, 1);
+}
+
+.container {
+    width: 450px;
+    text-align: center;
+    font-family: "Muli", sans-serif;
+}
+h1,
+h3,
+h4,
+h6 {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #09095b;
+    margin-bottom: 1em;
+}
+
+p {
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 20px;
+}
+p #timeUp {
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 20px;
+    color:red;
+}
+
+
+input {
+    border-color: #09095b !important;
+    color: black !important;
+}
+
+.head{
+    margin-bottom: 20px
+}
+
+h6{
+    margin-bottom: 2rem; 
+    color: red !important
+}
+
+.misMatch{
+    color: red !important;
+    font-size: 16px;
+}
+.listNations{
+    margin-top: 4rem
+}
+
+#timer{
+    margin-top: 1rem; 
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+.guessed-country {
+    color: black;
+}
+
+
+.modal {
+    position: fixed;
+    bottom: 80%;
+    left: 40%;
+    width: 20%;
+    /* height: 100%; */
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    visibility: hidden;
+    top:17%;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    height: 200px;
+}
+
+.modal-content button {
+    margin-left: 80px;
+    width: 150px;
+    margin-top:5px;
+}
+
+
+
+.modal.show {
+    visibility: visible; /* Show the modal when the class "show" is added */
+}

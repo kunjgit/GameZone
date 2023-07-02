@@ -101,6 +101,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 <!-- list of the games -->
 <center>
 
+
+
 | No. | Name of the game |
 | --- | --- |
 | 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)|
@@ -470,15 +472,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 
 
-
-
-
-
-
-
-
-
-
  </center>
 
 <br>
@@ -521,10 +514,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 ![GSSoC23](https://raw.githubusercontent.com/girlscript/gssoc-assets/main/Logos/GS_logo_White.png)
 
-
 | Arun G Nayak                                                                                   | RAJU KUMAR                                                                                         |
 | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                           |
+| ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                            |
 | [LinkedIn](https://www.linkedin.com/in/arun-g-nayak) \| [GitHub](https://github.com/Arun9739/) | [LinkedIn](https://www.linkedin.com/in/rajukumar101/) \| [GitHub](https://github.com/raju-kumar21) |
 
 </div>

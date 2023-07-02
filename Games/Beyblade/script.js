@@ -56,3 +56,57 @@ function endGame() {
   resultDiv.innerHTML = "<h2>Game Over!</h2><p>Winner: " + winner + "</p>";
   document.getElementById("game-container").appendChild(resultDiv);
 }
+
+function handlePowerUp(player) {
+  const powerUpChance = Math.random();
+  if (powerUpChance <= 0.2) {
+    if (player === 1) {
+      player1Score += 5;
+      player1Stamina += 10;
+    } else {
+      player2Score += 5;
+      player2Stamina += 10;
+    }
+  }
+  updateUI();
+}
+
+function displayPowerUpMessage(player) {
+  const messageElement = document.getElementById('power-up-message');
+  if (player === 1) {
+    messageElement.textContent = 'Player 1 got a Power-Up!';
+  } else {
+    messageElement.textContent = 'Player 2 got a Power-Up!';
+  }
+  messageElement.classList.add('show');
+  setTimeout(() => {
+    messageElement.classList.remove('show');
+  }, 2000);
+}
+
+function generatePowerUps() {
+  setInterval(() => {
+    const player = Math.random() < 0.5 ? 1 : 2;
+    handlePowerUp(player);
+    displayPowerUpMessage(player);
+  }, 10000);
+}
+
+function updateTimer() {
+  const timerElement = document.getElementById('game-timer');
+  let seconds = 0;
+  setInterval(() => {
+    seconds++;
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    timerElement.textContent = `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }, 1000);
+}
+
+function startGame() {
+  resetGame();
+  generatePowerUps();
+  updateTimer();
+}
+
+startGame();

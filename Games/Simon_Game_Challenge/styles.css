@@ -12,13 +12,14 @@ body {
   margin: 5%;
   color: #fef2bf;
 }
-#play-button {
+#play-button1 {
   font-family: "Press Start 2P", cursive;
   font-size: 3rem;
   color: #fef2bf;
+  position: relative;
 }
 
-#play-button > i:hover {
+#play-button1 > i:hover {
   cursor: pointer;
   transform: scale(1.1);
   transition: .2s ease;
@@ -31,24 +32,63 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
-
+.main-container{
+  position: relative;
+}
 .game-section {
   display: flex;
   flex-direction: column;
-  width: 70%;
   margin: auto;
-  margin-left: 80px;
+  justify-content: center;
+  align-items: center;
 }
 
 .instructions-section {
+  position: absolute;
   background-color: #fef2bf;
-  font-size: 1.5rem;
+  width: 25%;
+  font-size: 1.3rem;
   flex: 1;
   padding: 10px;
   margin: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  right: 10px;
+  bottom: 65px;
+  display: none;
+}
+
+.ins{
+  background-color: #fef2bf;
+  color: #011f3f;
+  padding: 10px;
+  border-radius: 5%;
+  font-size: large;
+  font-weight: 600;
+  position: absolute;
+  right: 10%;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+  #play-button1{
+    display: flex;
+    flex-direction: column;
+  }
+  .ins{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: 0.5%;
+  }
+  .instructions-section{
+    width: 50%;
+    position: initial;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -56,9 +96,8 @@ body {
     flex-direction: column;
   }
 
-  .game-section,
   .instructions-section {
-    width: 100%;
+    width: 80%;
     margin: 20px auto;
   }
 }
@@ -100,45 +139,36 @@ body {
 
 @media only screen and (max-width: 1024px) {
   /* styles for tablet */
-  .container {
-    width: 80%;
-  }
   .btn {
     height: 150px;
     width: 150px;
   }
   #level-title,
-  #play-button {
+  #play-button1 {
     font-size: 5rem;
   }
 }
 
 @media only screen and (max-width: 563px) and (min-width: 480px) {
   /* styles for phone */
-  .container {
-    width: 90%;
-  }
   .btn {
     height: 100px;
     width: 100px;
   }
   #level-title,
-  #play-button {
+  #play-button1 {
     font-size: 3.5rem;
   }
 }
 
 @media only screen and (max-width: 480px) {
   /* styles for phone */
-  .container {
-    width: 90%;
-  }
   .btn {
     height: 100px;
     width: 100px;
   }
   #level-title,
-  #play-button {
+  #play-button1 {
     font-size: 3.5rem;
   }
 }

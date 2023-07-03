@@ -19,9 +19,14 @@
 - The number of words made available within the given time interval will be the score.
 
 ## **Screenshots 📸**
+![WordChain](https://github.com/dishamodi0910/GameZone/assets/106090499/f973043d-c4da-4cca-bdc8-347d94643bf6)
 
 <br>
 
 ## **Working video 📹**
+
+
+https://github.com/dishamodi0910/GameZone/assets/106090499/824a796e-4869-4b3f-9444-ed7b96795f6a
+
 
 <!-- add your working video over here -->

@@ -101,6 +101,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 <!-- list of the games -->
 <center>
 
+
+
 | No. | Name of the game |
 | --- | --- |
 | 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)|
@@ -423,6 +425,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 278 | [Circus Charly](https://github.com/kunjgit/GameZone/tree/main/Games/Circus_Charly)|
 | 279 | [Pikachu_Volleyball](https://github.com/kunjgit/GameZone/tree/main/Games/Pikachu_Volleyball)|
 
+
 | 280 | [Little_Red_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Little_Red_Game)|
 | 281 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
 | 282 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
@@ -432,26 +435,26 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 281 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
 | 281 | [Little_Red_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Little_Red_Game)|
 | 282 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
+
+| 280 | [Trex_Run](https://github.com/akankshachanana1/GameZone/tree/Added/Games/Trex_Run)|
+| 281 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
+
 | 282 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
-| 284 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|\
-| 285 | [Chicken_Cannon](https://github.com/kunjgit/GameZone/tree/main/Games/Chicken_cannon)|
-| 284 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
-| 285 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain%20Color%20Mastermind)|
-| 286 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Lizard%20Spock%20Game)|
-| 287 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Alphabet%20Learning%20Game)|
-| 288 | [Poke_Guess_Blitz](https://github.com/kunjgit/GameZone/tree/main/Games/Poke_Guess_Blitz)|
-| 289 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Spider_Man_Go)|
-| 290 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
-| 291 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
-| 292 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death by Hamster)|
-
-
-
-
-
-
-
-
+| 283 | [Little_Red_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Little_Red_Game)|
+| 284 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
+| 285 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
+| 286 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|\
+| 287 | [Chicken_Cannon](https://github.com/kunjgit/GameZone/tree/main/Games/Chicken_cannon)|
+| 288 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
+| 289 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain%20Color%20Mastermind)|
+| 290 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Lizard%20Spock%20Game)|
+| 291 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Alphabet%20Learning%20Game)|
+| 292 | [Poke_Guess_Blitz](https://github.com/kunjgit/GameZone/tree/main/Games/Poke_Guess_Blitz)|
+| 293 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Spider_Man_Go)|
+| 294 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
+| 295 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
+| 296 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death by Hamster)|
+| 297 | [Trio_Match](https://github.com/kunjgit/GameZone/tree/main/Games/Trio_Match)|
 
 
 
@@ -522,10 +525,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 ![GSSoC23](https://raw.githubusercontent.com/girlscript/gssoc-assets/main/Logos/GS_logo_White.png)
 
-
 | Arun G Nayak                                                                                   | RAJU KUMAR                                                                                         |
 | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                           |
+| ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                            |
 | [LinkedIn](https://www.linkedin.com/in/arun-g-nayak) \| [GitHub](https://github.com/Arun9739/) | [LinkedIn](https://www.linkedin.com/in/rajukumar101/) \| [GitHub](https://github.com/raju-kumar21) |
 
 </div>

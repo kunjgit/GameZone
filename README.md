@@ -435,7 +435,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 289 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Spider_Man_Go)|
 | 290 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
 | 291 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
-
 | 283 | [Little_Red_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Little_Red_Game)|
 | 284 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
 | 285 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
@@ -449,7 +448,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 293 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Spider_Man_Go)|
 | 294 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
 | 295 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
-| 296 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death by Hamster)|
+| 296 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death_by_Hamster)|
 | 297 | [Ludo King Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_King_Game)|
 
 

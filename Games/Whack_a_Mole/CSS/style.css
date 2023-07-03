@@ -9,7 +9,7 @@
 .container {
     min-height: 100vh;
     padding-bottom: 20px;
-    background:linear-gradient(rgb(153, 2, 153),rgb(253, 6, 253),rgb(68, 11, 68));
+    background-color: rgb(151, 62, 224);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,36 +30,30 @@
 #profile-container h1 {
     margin-top: 25px;
     color: white;
-    font-size: 90px;
-    padding-bottom: 5px;
+    font-size: 54px;
 }
 
 #profile-container h3 {
     display: inline-block;
-    margin: 14px;
-    padding: 18px 10px;
+    margin: 6px;
+    padding: 15px 10px;
     background-color: rgb(255, 181, 251);
     font-size: 24px;
     border-radius: 20px;
 }
 
 #profile-container button {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: large;
-    margin: 15px;
-    padding: 14px 50px;
+    margin: 10px 5px;
+    padding: 15px 50px;
     background-color: aliceblue;
     border-radius: 50px;
     border: none;
     outline: none;
-    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 #profile-container button:hover {
-    filter: brightness(1.1);
-    background-color:rgb(64, 8, 64);
-    color: aliceblue;
-    border: 1px solid rgb(251, 0, 255);
+    filter: brightness(0.8);
 }
 
 #profile-container button:active {
@@ -83,12 +77,7 @@
     height: 200px;
     width: 20%;
     margin: 15px 10px;
-    border: 5px double white;
-    border-radius: 50px;
-}
-
-#game-container .square:hover{
-    cursor: pointer;
+    border: 2px solid black;
 }
 
 #game-container .mole {

@@ -455,7 +455,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 295 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
 | 296 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death by Hamster)|
 | 297 | [Trio_Match](https://github.com/kunjgit/GameZone/tree/main/Games/Trio_Match)|
-
+| 298 | [Reversi](https://github.com/kunjgit/GameZone/tree/Games/main/Reversi)|
 
 
 

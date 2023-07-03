@@ -15,7 +15,7 @@ const images = [
     {name:"https://is1-ssl.mzstatic.com/image/thumb/Features113/v4/50/ad/5e/50ad5efd-12dd-117d-141f-519fb50cd238/mzl.ydwoaeoz.png/1200x675mf.jpg", anser:"Mickey Mouse"}
   ];
   
-  let currentImageIndex = 0;
+  let currentImageIndex = 1;
   let score = 0;
   const scoreList = [];
   

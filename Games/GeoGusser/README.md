@@ -20,4 +20,4 @@
 
 ## **Screenshots 📸**
 
-![Geoguesser](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvs7WOA75RuVlEJKoFfZvn0fGU0p6vWL62Oq5B4Y_p12-oSAdzHzdbPKDtWlzwINfS_a5jgdJFb3XKWbCwFGHDlYJYPCubJZI_bhdWRijf3PXCsRYaPSX9zY8D5lfrmV0XRCcx0llCI7uf2K7bc_YpxiO7cj9A16i4egy6mvUSZwCP3iqQBjYYIo9SEzSf/s2916/Screenshot%202023-07-03%20at%202.45.06%20PM.png)
+![Geoguesser](../../assets/images/Geoguesser.png)

@@ -11,6 +11,7 @@ body {
 	padding: 0;
   height: 100vh;
 	color: white;
+	overflow: hidden;
 }
 h1#start-title {
 	font-family: 'Black Ops One', cursive;

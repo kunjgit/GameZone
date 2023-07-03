@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GeoGuesser</title>
+    <link rel="stylesheet" href="style.css">
+   <script src="script.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq_b16rzEbCdNh8M79OPumjT3MuSJJ1WM&callback=initMap">
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+   
+  </head>
+  <body>
+
+        
+    
+    <button id="submitbtn" onclick="guess()"><b>GUESS</b></button>
+    <div id="floating-panel">
+        <h1>GeoGuesser</h1>
+        <hr>
+        
+        <h2 style="color: aliceblue;" id="score">Score: 0</h2>
+        <hr>
+        <button id="infobtn" onclick="giveinfo()">INFO</button>
+        <br>
+        <br>
+        <button id="quitbtn" onclick="stopgame()">STOP/EXIT</button>
+        
+      
+    </div>
+
+    <!-- Street view -->
+    <div id="street-view"></div>
+    
+
+   
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq_b16rzEbCdNh8M79OPumjT3MuSJJ1WM&callback=initialize&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>

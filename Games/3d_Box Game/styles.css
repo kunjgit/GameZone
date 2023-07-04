@@ -10,6 +10,8 @@ body {
     #6284ff 50%,
     #ff0000 100%
   );
+  overflow:hidden;
+  background-repeat: no-repeat;
 }
 
 h1 {

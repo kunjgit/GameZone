@@ -2,7 +2,9 @@
 
 Word Warp is a unique word puzzle game where players have to rearrange letters to form valid words within a time limit. It challenges your vocabulary and ability to unscramble words.
 
-![Word Warp Gameplay](gameplay_screenshot.png)
+![Word_wrap](https://github.com/kumar11jr/GameZone/assets/104729493/489d1cf8-f629-4371-ac8c-8996f1dd55fa)
+![Word_wrap2](https://github.com/kumar11jr/GameZone/assets/104729493/27f70034-4cd1-48f7-9c6b-bf535d15be74)
+
 
 ## How to Play
 
@@ -33,7 +35,4 @@ You can customize the game further by modifying the JavaScript code in the `scri
 
 Contributions are welcome! If you have any ideas, suggestions, or bug fixes, please open an issue or submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 

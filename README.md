@@ -101,6 +101,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 <!-- list of the games -->
 <center>
 
+
+
 | No. | Name of the game |
 | --- | --- |
 | 1 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)|
@@ -422,6 +424,14 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 277 | [Cosmic_Coin_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Blaster)|
 | 278 | [Circus Charly](https://github.com/kunjgit/GameZone/tree/main/Games/Circus_Charly)|
 | 279 | [Pikachu_Volleyball](https://github.com/kunjgit/GameZone/tree/main/Games/Pikachu_Volleyball)|
+| 280 | [Little_Red_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Little_Red_Game)|
+| 281 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
+| 282 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
+| 283 | [Color_Crush_Game ](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Crush_Game )|
+| 280 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
+| 281 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
+| 281 | [Little_Red_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Little_Red_Game)|
+| 282 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
 | 280 | [Trex_Run](https://github.com/akankshachanana1/GameZone/tree/Added/Games/Trex_Run)|
 | 281 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
 | 282 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
@@ -450,18 +460,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 295 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
 | 296 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death_by_Hamster)|
 | 297 | [Ludo King Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_King_Game)|
-
-
-
-
-
-
-
-
-
-
-
-
+| 298 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death by Hamster)|
+| 299 | [Trio_Match](https://github.com/kunjgit/GameZone/tree/main/Games/Trio_Match)|
 
 
 
@@ -533,10 +533,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 ![GSSoC23](https://raw.githubusercontent.com/girlscript/gssoc-assets/main/Logos/GS_logo_White.png)
 
-
 | Arun G Nayak                                                                                   | RAJU KUMAR                                                                                         |
 | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                           |
+| ![Mentor 2](https://avatars.githubusercontent.com/u/84305637?v=4&s=150)                        | ![Mentor 3](https://avatars.githubusercontent.com/u/97028776?v=4&s=150)                            |
 | [LinkedIn](https://www.linkedin.com/in/arun-g-nayak) \| [GitHub](https://github.com/Arun9739/) | [LinkedIn](https://www.linkedin.com/in/rajukumar101/) \| [GitHub](https://github.com/raju-kumar21) |
 
 </div>

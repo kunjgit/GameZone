@@ -1,0 +1,101 @@
+*{
+    
+    padding: 0px;
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: "Sofia", sans-serif;
+    text-shadow: 3px 3px 3px #ababab;
+}
+html, body {
+    background-image: url("img_TypingGame.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.content{
+    position: absolute;
+    background: #F4ECF7  ;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 400px;
+    padding: 0px;
+    border-radius: 10px;
+    border: 2px solid #BB8FCE ;
+    transition: ease-in-out;
+    box-shadow: -3px 6px 57px rgba(0, 0, 0, 1.2);
+}
+.heading{
+    width: 100%;
+    padding: 10px;
+    border-bottom: 2px solid #BB8FCE ;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container h1{
+    padding-top: 15px;
+    text-align: center;
+}
+
+#mySent{
+    margin-left: 70px;
+    padding: 10px;
+    margin-top: 15px;
+    border: 2px solid #BB8FCE;
+    border-radius: 5px;
+}
+.content h2{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+ul {
+    float: left;
+    padding-left: 50px;
+    font-weight:normal;
+}
+li{
+    margin-left: 10px;
+    font-weight: normal;
+    text-indent: -20px;
+    padding-left: 20px;
+}
+
+#btn{
+    position: absolute;
+    bottom: 10px;
+    right: 300px;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #5B2C6F;
+    border-radius: 2px solid #4A235A;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+}
+#done{
+    position: absolute;
+    bottom: 20px;
+    right: 350px;
+    padding: 8px;
+    font-size: 18px;
+    color: white;
+    background-color: #5B2C6F;
+    border-radius: 2px solid #4A235A;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+    /* margin-right: 500px; */
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2); 
+}
+#done:hover, #btn:hover{
+    background-color: #5b2c6ff4;
+    transform: translateY(-2px);
+    /* box-shadow: #4A235A; */
+    box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.2)
+}
+#arr{
+    padding-top: 20px;
+    padding-bottom: 0px;
+    font-weight: normal;
+}

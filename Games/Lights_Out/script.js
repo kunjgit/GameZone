@@ -158,11 +158,14 @@ function testWinner() {
 
 function toggleDarkMode() {
   var darkModeToggle = document.getElementById("darkModeToggle");
+  var homeIcon = document.querySelector('.home-icon');
   var body = document.body;
   if (darkModeToggle.checked) {
     body.classList.add("dark-mode");
+    homeIcon.style.color = "white"; 
   } else {
     body.classList.remove("dark-mode");
+    homeIcon.style.color = "black";
   }
 }
 

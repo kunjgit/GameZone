@@ -397,7 +397,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 289 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
 | 290 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
 | 291 | [Color_Crush_Game ](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Crush_Game )|
-| 292 | [Trex_Run](https://github.com/akankshachanana1/GameZone/tree/main/Games/Trex_Run)|
+| 292 | [Trex_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Trex_Run)|
 | 293 | [Chicken_Cannon](https://github.com/kunjgit/GameZone/tree/main/Games/Chicken_cannon)|
 | 294 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death%20by%20Hamster)|
 | 295 | [Trio_Match](https://github.com/kunjgit/GameZone/tree/main/Games/Trio_Match)|

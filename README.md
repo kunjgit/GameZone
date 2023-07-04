@@ -393,11 +393,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 285 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet%20Learning%20Game)|
 | 286 | [Country_Guesser_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Country_Guesser_Game)|
 | 287 | [Poke_Guess_Blitz](https://github.com/kunjgit/GameZone/tree/main/Games/Poke_Guess_Blitz)|
-| 288 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Spider_Man_Go)|
+| 288 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/main/Games/Spider_Man_Go)|
 | 289 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
 | 290 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
 | 291 | [Color_Crush_Game ](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Crush_Game )|
-| 292 | [Trex_Run](https://github.com/akankshachanana1/GameZone/tree/Added/Games/Trex_Run)|
+| 292 | [Trex_Run](https://github.com/akankshachanana1/GameZone/tree/main/Games/Trex_Run)|
 | 293 | [Chicken_Cannon](https://github.com/kunjgit/GameZone/tree/main/Games/Chicken_cannon)|
 | 294 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death%20by%20Hamster)|
 | 295 | [Trio_Match](https://github.com/kunjgit/GameZone/tree/main/Games/Trio_Match)|

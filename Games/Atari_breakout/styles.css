@@ -6,6 +6,7 @@ body{
     align-items: center;
     justify-content: space-around;
     height: 100vh;
+    overflow: hidden;
 }
 h1{
     font-family: 'Press Start 2P', cursive;

@@ -5,6 +5,7 @@ body{
 	margin:20px;
     display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 svg{
 	width:100%;

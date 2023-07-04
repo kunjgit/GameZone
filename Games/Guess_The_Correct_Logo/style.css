@@ -5,6 +5,7 @@
 body{
   text-align: center;
   background-color: #26252b; 
+  overflow: hidden;
 }
 
 h1{

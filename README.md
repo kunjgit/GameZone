@@ -416,6 +416,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 299 | [Reversi](https://github.com/kunjgit/GameZone/tree/main/Games/Reversi)|  
 | 300 | [reaction_teaser](https://github.com/kunjgit/GameZone/pull/2134/files)|
 | 301 | [Scribble](https://github.com/kunjgit/GameZone/tree/main/Games/Scribble)|
+| 302 | [Brain Burst Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Burst_Game)|
 | 302 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
 
 

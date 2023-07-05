@@ -414,10 +414,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 297 | [Ball_and_glass](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_and_glass)|
 | 298 | [Target_Torrent](https://github.com/kunjgit/GameZone/tree/main/Games/Target_Torrent)|
 | 299 | [Reversi](https://github.com/kunjgit/GameZone/tree/main/Games/Reversi)|  
-
-
-
-
+| 300 | [reaction_teaser](https://github.com/kunjgit/GameZone/pull/2134/files)|
 
 
 

@@ -4,6 +4,9 @@
     background-color: #282c34;
     color: #fff;
 }
+body{
+    overflow: hidden;
+}
 
 div {
     display: block;

@@ -22,7 +22,7 @@ body {
 }
 .can {
   background: #000;
-  display: block;
+  display:flex;
   height: 540px;
   outline: 1px solid #202020;
   -ms-touch-action: none;
@@ -30,4 +30,11 @@ body {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
   width: 960px;
+}
+
+#home-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
 }

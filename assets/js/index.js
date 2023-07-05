@@ -10,7 +10,7 @@ const generateLiTags = (gamesData) => {
   
         const liTag = `
           <li class="project-item active" data-filter-item data-category="open source">
-            <a href="./Games/${gameUrl}">
+            <a href="./Games/${gameUrl}" target = "_blank">
               <figure class="project-img">
                 <div class="project-item-icon-box">
                   <img id="joystick" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Eye" width="3" />

@@ -1,0 +1,14 @@
+{
+  "short_name": "Play Ludo",
+  "name": "Play Ludo Online",
+  "icons": [
+    {
+      "src": "images/favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon" 
+    }
+  ],
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}

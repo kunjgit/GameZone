@@ -19,17 +19,26 @@ This is a digital version of the classic Solitaire card game developed using Jav
 - **Objective:** The goal is to move all the cards to four foundation piles, one for each suit, in ascending order (Ace to King).
 
 - **Gameplay:** You can move cards in the following ways:
-**i) Tableau Piles:** Cards in the tableau can be moved onto another tableau pile if the top card of the destination pile is of the opposite color and one rank higher. For example, you can move a black 10 onto a red Jack.
-**ii) Foundation Piles:** Aces can be moved to the foundation piles, and then cards of the same suit can be placed in ascending order on the Aces. For example, you can move the Ace of Hearts to the Hearts foundation, followed by the 2 of Hearts, 3 of Hearts, and so on.
-**iii) Stock Pile:** Click on the stock pile to draw cards. These cards can be moved to the tableau or foundation piles following the rules mentioned above. When the stock pile is empty, you can click on the empty space to flip over the waste pile and create a new stock pile.
+
+  **i) Tableau Piles:** Cards in the tableau can be moved onto another tableau pile if the top card of the destination pile is of the opposite color and one rank higher. For example, you can move a black 10 onto a red Jack.
+
+  **ii) Foundation Piles:** Aces can be moved to the foundation piles, and then cards of the same suit can be placed in ascending order on the Aces. For example, you can move the Ace of Hearts to the Hearts foundation, followed by the 2 of Hearts, 3 of Hearts, and so on.
+
+  **iii) Stock Pile:** Click on the stock pile to draw cards. These cards can be moved to the tableau or foundation piles following the rules mentioned above. When the stock pile is empty, you can click on the empty space to flip over the waste pile and create a new stock pile.
 
 - **Winning:** You win the game when all cards are successfully moved to the foundation piles in ascending order and by suit. 
 
 <br>
 
 ## **Screenshots 📸**
+<img width="896" alt="Solitaire" src="https://github.com/AnkitaBarbora/GameZone/assets/101138526/a3b25ca4-45a7-428d-8a37-50d4af143d1f">
 
 
 <br>
 
 ## **Working video 📹**
+
+
+https://github.com/AnkitaBarbora/GameZone/assets/101138526/f710622d-d58b-407e-9137-d8d63d59cf60
+
+

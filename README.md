@@ -378,7 +378,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 272 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
 | 266 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe the Cloud)|
 | 267 | [Cosmic_Coin_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Blaster)|
-| * | [Ball_and_glass](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_and_glass)|
 | 266 | [Number Sliding Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Sliding_Puzzle_Game)|
 | 252 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
 | 253 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
@@ -421,7 +420,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 289 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Spider_Man_Go)|
 | 290 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
 | 291 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
-
+| * | [Ball_and_glass](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_and_glass)|
 
 
 

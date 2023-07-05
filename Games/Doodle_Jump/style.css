@@ -6,6 +6,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #F8EDE3;
+    overflow: hidden;
 }
 
 h1{

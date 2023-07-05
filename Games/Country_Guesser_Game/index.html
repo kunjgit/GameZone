@@ -1,5 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Country Guesser</title>
@@ -7,54 +8,31 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
-  </head>
-  <style>
-    @import url("https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i");
-    body {
-      background-color: rgba(242, 242, 242, 1);
-    }
-    .container {
-      width: 450px;
-      text-align: center;
-      font-family: "Muli", sans-serif;
-    }
-    h3,
-    h4,
-    h6 {
-      margin-top: 15px;
-      font-weight: bold;
-      color: #09095b;
-      margin-bottom: 1em;
-    }
-    p {
-      font-weight: bold;
-      margin-top: 5px;
-      font-size: small;
-    }
-    input {
-      border-color: #09095b !important;
-      color: black !important;
-    }
-  </style>
-  <body>
-    <div class="container">
-      <div class="head" style="margin-bottom: 20px">
-        <h3>Guess All The Countries!</h3>
-        <h6 style="margin-bottom: 2rem; color: red !important">
-          Your Progress: <span id="progress">0</span>/195 Countries Guessed.
-        </h6>
-        <input
-          type="text"
-          class="form-control search"
-          id="country"
-          placeholder="e.g. Argentina"
-          onkeydown="search(this)"
-        />
-        <p class="misMatch" style="color: red !important"></p>
-      </div>
-
-      <h6 class="listNations" style="margin-top: 4rem"></h6>
+</head>
+<body>
+    <div style="text-align:center;margin-top: 30px;
+    font-size: 30px; "><a href="/index.html"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+<div class="container">
+    <h3>Guess All The Countries!</h3>
+    <button id="start-btn">Start Game</button>
+    <div id="game-container" class="hidden">
+        
+        <div id="timer"></div>
+        <h6>Your Progress: <span id="progress">0</span>/195 Countries Guessed.</h6>
+        <input type="text" class="form-control search" id="country" placeholder="e.g. India" onkeydown="search(this)">
+        <p class="misMatch"></p>
+        <h6 class="listNations"></h6>
     </div>
-  </body>
+</div>
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <p id="modal-text"></p>
+        <button id="new-game-btn">New Game</button>
+    </div>
+</div>
+
+</body>
 </html>

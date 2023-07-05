@@ -412,7 +412,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 295 | [Trio_Match](https://github.com/kunjgit/GameZone/tree/main/Games/Trio_Match)|
 | 296 | [Word Chain](https://github.com/kunjgit/GameZone/tree/main/Games/WordChain)
 | 297 | [Ball_and_glass](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_and_glass)|
-| 298 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
+| 298 | [Target_Torrent](https://github.com/kunjgit/GameZone/tree/main/Games/Target_Torrent)|
+| 300 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
 
 
 

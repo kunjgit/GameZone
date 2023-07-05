@@ -401,7 +401,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 293 | [Chicken_Cannon](https://github.com/kunjgit/GameZone/tree/main/Games/Chicken_cannon)|
 | 294 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death%20by%20Hamster)|
 | 295 | [Trio_Match](https://github.com/kunjgit/GameZone/tree/main/Games/Trio_Match)|
-|  *  | [Word Chain](https://github.com/kunjgit/GameZone/tree/main/Games/WordChain)
+| 296 | [Word Chain](https://github.com/kunjgit/GameZone/tree/main/Games/WordChain)
 
 
 

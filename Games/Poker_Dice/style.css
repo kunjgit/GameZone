@@ -1,6 +1,7 @@
 html,body,p,h1,h2,dl,dt,dd,ul,ol,li {
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
 }
 
 ol, ul {

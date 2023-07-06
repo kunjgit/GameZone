@@ -1381,10 +1381,12 @@ main {
 }
 
 .project-category {
-  color: var(--light-gray-70);
+  color: black;
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   text-align: center;
+  background-color: white;
+  border-radius: 0.625rem;
 }
 
 

@@ -34,6 +34,7 @@ const checkWin = () => {
     ) {
       document.querySelector(".info").innerText =
         boxtext[e[0]].innerText + " Won";
+      start();
       music.pause();
       gameover.play();
       music.play();
@@ -86,7 +87,6 @@ Array.from(boxes).forEach((element) => {
 
 // Add onclick listener to reset button
 reset.addEventListener("click", () => {
-
   document.querySelector(".imgbox").style.display = "none";
 
   let boxtexts = document.querySelectorAll(".boxtext");
@@ -97,4 +97,17 @@ reset.addEventListener("click", () => {
   isgameover = false;
   document.querySelector(".line").style.width = "0vw";
   document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
+  stop();
 });
+
+
+// To Start the animation
+const start = () => {
+  confetti.start();
+};
+
+// To Stop the animation
+const stop = () => {
+  confetti.stop();
+};
+

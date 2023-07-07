@@ -55,7 +55,7 @@ nav ul {
 
 .info {
   position: absolute;
-  right: 1260px;
+  right: 1270px;
   font-size: 2.1rem;
   font-weight: 1000;
   top: 450px;
@@ -124,7 +124,7 @@ nav ul {
   font-weight: bolder;
   position: relative;
   top: 270px;
-  right: -7px;
+  right: -20px;
 }
 #reset:hover {
   background-color: #66bfbf;

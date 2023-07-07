@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: bisque;
+}
+.nav{
+    color: brown;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 27px;
+    font-weight: 600;
+    padding: 18px 0px;
+    padding-left: 20px;
+}
+.gameContainer{
+    background-color: #f0f8ff;
+    width: 90%;
+    height: 78vh;
+    margin: auto;
+    margin-top: 18px;
+}
+.middle{
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    border: 2px solid black;
+    margin: 1px;
+    font-size: 7vw;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box:hover{
+    background-color: rgb(98, 98, 224);
+}
+@media screen and (max-width : 600px) {
+    .box{
+        font-size: 14vw;
+    }
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,110px);
+    grid-template-rows: repeat(3,110px);
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.turn{
+    text-align: center;
+    font-size: 30px;
+    color: brown;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+.button{
+    display: flex;
+    justify-content: center;
+}
+.bcl{
+    display: flex;
+    padding: 8px 15px;
+    background-color: brown;
+    color: white;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.bcl:hover{
+    background-color: transparent;
+    color: black;
+}
+.gif{
+    width: 0;
+    display: flex;
+    margin: auto;
+}
+.bt0{
+    border-top: 0;
+}
+.bb0{
+    border-bottom: 0;
+}
+.bl0{
+    border-left: 0;
+}
+.br0{
+    border-right: 0;
+}

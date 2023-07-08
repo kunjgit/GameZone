@@ -9,7 +9,7 @@ This is a simple guessing game in which user has to guess a number from given ra
 - 
 
 ## **functionalities 🎮**
-The user has to enter the guessed number and if it is right then he will get message that he guesses the right number and if not then a message will display stating he guesses the wrong number.
+The user has to enter the guessed number and if it is right then the user will get message that he guesses the right number and if not then a message will display stating he guesses the wrong number.
 
 - 
 <br>

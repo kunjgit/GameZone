@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guessing Number Game</title>
+
+  <!-- Google Font -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div id="GuessingGame">
+      <h3>
+        I'm thinking about a number between 1 and 100.<br />
+        Can you figure it out?
+
+      </h3>
+      <div class="input-wrapper">
+        <input type="number" placeholder="00" id="GuessNumber" />
+        <button id="check">Submit</button>
+      </div>
+      <p id="numberOfGuesses"></p>
+      <p id="guessedNumbers"></p>
+    </div>
+    <button id="restart">Play Again</button>
+    <div class="result">
+      <div id="hint"></div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  
+  <script src="script.js"></script>
+</body>
+
+</html>

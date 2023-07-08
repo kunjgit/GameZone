@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Pacifico', cursive;
+
+
+  }
+  /*  body styling */
+  body {
+    height: 100vh;
+    background: linear-gradient(135deg,rgb(3, 201, 59),rgb(214, 239, 74))
+  }
+  /* Container styling */
+  .container {
+    width: min(90%, 31.25em);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background-color: #ffffff;
+    padding: 4em 4em;
+    border-radius: 2.7em;
+    text-align: center;
+    opacity: 0.8;
+  }
+  h3 {
+    font-size: 1.22em;
+    font-weight: 525;
+    line-height: 2.1em;
+    color: #303030;
+  }
+  .input-wrapper {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 1em;
+    margin: 3em auto 1.5em auto;
+  }
+  input[type="number"] {
+    width: 100%;
+    padding: 1em;
+    font-size: 1.2em;
+    text-align: center;
+    border: 2px solid #adaeae;
+    border-radius: 1.em;
+    outline: none;
+    appearance: text-field;
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"]:focus {
+    border-color: #7dff3c;
+  }
+  button {
+    font-size: 1.2em;
+    background-color: #7dff3c;
+    color: #252525;
+    border: none;
+    outline: none;
+    border-radius: 1.5em;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  #restart {
+    margin: 0 auto 0 auto;
+    padding: 1em 1em;
+    display: none;
+  }
+  .result {
+    margin-top: 1em;
+  }
+  p {
+    font-size: 1em;
+    font-weight: 400;
+    color: #565b70;
+    word-break: break-all;
+  }
+  .error,
+  .success {
+    padding: 0.5em 0;
+    border-radius: 0.3em;
+    margin-bottom: 1em;
+    animation: pop 0.4s forwards;
+    transform: scale(0);
+  }
+  .error {
+    background-color: #e7a9a9;
+    color: #ff3e3e;
+  }
+  .success {
+    background-color: #d2ffdc;
+    color: #0ecb04;
+  }
+  @keyframes pop {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

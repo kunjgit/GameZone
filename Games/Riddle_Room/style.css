@@ -44,6 +44,7 @@ Objects in the Room
 /* End global color variables */
 * {
   box-sizing: border-box;
+  overflow-y: hidden;
 }
 
 html {

@@ -10,7 +10,7 @@ body {
     padding: 0;
     height: 100vh;
     background: linear-gradient(135deg, #5af3f5ac, rgba(65, 127, 220, 0.801));
-
+    overflow: hidden;
 }
 
 .wrapper {

@@ -1,0 +1,124 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+	text-decoration: none;
+}
+
+body {
+	background-image: url(https://drive.google.com/uc?export=view&id=16mGy9lP2c-jsr6yz6Uef-Uxn7vBqLVUD);
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
+/* Styling of Author of the Website 😎 */
+a {
+	color: #c73664;
+}
+
+.author {
+	position: absolute;
+	top: 96%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 1rem;
+	font-weight: 800;
+	transition: all 0.85s;
+}
+
+/* Styling of the game page */
+.container {
+	width: 90%;
+	max-width: 37.5em;
+	background-color: rgba(255, 255, 255, 0.2);
+	padding: 3em 0.5em;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	border-radius: 0.8em;
+	transition: all 0.75s;
+}
+
+h3 {
+	text-align: center;
+	width: 60%;
+	margin: 0 auto 2em auto;
+	font-size: 1.2em;
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	line-height: 1.8em;
+	color: #010c39;
+	transition: all 0.75s;
+}
+
+.draggable-objects,
+.drop-points {
+	display: flex;
+	justify-content: space-around;
+	padding: 2em;
+}
+
+.draggable-image {
+	width: 8em;
+	cursor: move;
+}
+
+img {
+	width: 8em;
+	filter: drop-shadow(0 0.3em 0.9em rgba(0, 0, 0, 0.25));
+}
+
+.countries {
+	width: 10em;
+	height: 8em;
+	display: grid;
+	place-items: center;
+	border: 0.25em dashed #010c39;
+	border-radius: 0.8em;
+}
+
+.dropped {
+	padding: 0;
+	background-color: #e5ffc8;
+}
+
+/* Styling of the loading page */
+.controls-container {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	background-image: url(https://drive.google.com/uc?export=view&id=1ayklJSX722oDopJwnW7Ougtg8fzHGp1i);
+	background-repeat: no-repeat;
+	background-size: cover;
+	flex-direction: column;
+	top: 0;
+	transition: all 0.75s;
+}
+
+.controls-container button {
+	font-size: 1.12em;
+	padding: 0.8em 1em;
+	border-radius: 0.2em;
+	border: none;
+	outline: none;
+	color: #010c39;
+	background-color: rgba(255, 255, 255, 0.5);
+	letter-spacing: 0.06em;
+	cursor: pointer;
+	transition: all 0.75s;
+}
+
+.controls-container p {
+	color: #ffffff;
+	font-size: 2em;
+	margin-bottom: 1em;
+}
+
+.hide {
+	display: none;
+}

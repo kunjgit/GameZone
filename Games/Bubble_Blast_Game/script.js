@@ -1095,9 +1095,7 @@ function generateBubbles() {
   
   // Example usage
   let bubbles = generateBubbles();
-  console.log(bubbles);
   
   // Change color of bubble with id 2
   bubbles = changeColor(bubbles, 2);
-  console.log(bubbles);
   

@@ -1,0 +1,169 @@
+/*
+Copyright 2014, Daniel Beck and Karin Beck
+
+This file is part of Green Mahjong.
+
+Green Mahjong is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Green Mahjong is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Green Mahjong.  If not, see <http://www.gnu.org/licenses/>.
+*/
+    
+/*
+Groß: 
+===
+Aussen: 100x80
+Innen: 95x75
+
+Klein: 
+=====
+Aussen:60x48
+Innen:57x45*/
+
+body {
+  font-size: 16px;
+}
+
+/*#game {
+  width: 1130px;
+  height: 780px;
+}*/
+
+#cards {
+  width: 1130px;
+  height: 780px;
+  /*height: 400px;*/
+}
+#cards[data-layout=flower] {
+  width: 820px;
+  height: 770px;
+  /*height: 400px;*/
+}
+
+#cards[data-layout=spider] {
+  width: 1050px;
+  height: 770px;
+}
+
+#cards[data-layout=cloud] {
+  width: 1020px;
+  height: 620px;
+}
+
+#cards[data-layout=fourHills] {
+  height: 850px;
+  width: 940px;
+}
+
+
+.card {
+    border-radius: 15px;
+    height: 99px;
+    width: 79px;
+    /*background: transparent url('../images/mahjong_bigscreen.png');*/
+    /*background-color: transparent;*/
+    /*background-image:  url('../images/mahjong_bigscreen_fruits.png');*/
+}
+
+/*body.hint-on .card {
+  background-image:  url('../images/mahjong_bigscreen_fruits_bw.png'); 
+}*/
+
+div.game-buttons  ul li{
+    width:70px;
+    padding: 0 0 0 16px;
+}
+
+div.game-buttons ul li img{
+    width: 48px;
+    height:48px;
+}
+.shadow {
+    height: 108px;
+    width: 88px;
+    background: transparent url('../images/shadow_bigscreen.png');
+}
+
+#gameScene{
+  /*position: absolute;*/
+  top:35px;
+  left:102px;
+  /*left:62px;*/
+}
+
+.cardZahl1 {background-position: 0 0}
+.cardZahl2 {background-position: -80px 0; }
+.cardZahl3 {background-position: -160px 0;}
+.cardZahl4 {background-position: -240px 0;}
+.cardZahl5 {background-position: -320px 0;}
+.cardZahl6 {background-position: -400px 0;}
+.cardZahl7 {background-position: -480px 0;}
+.cardZahl8 {background-position: -560px 0;}
+.cardZahl9 {background-position: -640px 0;}
+
+.cardBambus1 {background-position: -0 -100px;}
+.cardBambus2 {background-position: -80px -100px;}
+.cardBambus3 {background-position: -160px -100px;}
+.cardBambus4 {background-position: -240px  -100px;}
+.cardBambus5 {background-position: -320px -100px;}
+.cardBambus6 {background-position: -400px -100px;}
+.cardBambus7 {background-position: -480px -100px;}
+.cardBambus8 {background-position: -560px -100px;}
+.cardBambus9 {background-position: -640px -100px;}
+
+.cardMuenze1 {background-position: -0 -200px;}
+.cardMuenze2 {background-position: -80px -200px;}
+.cardMuenze3 {background-position: -160px -200px;}
+.cardMuenze4 {background-position: -240px -200px;}
+.cardMuenze5 {background-position: -320px -200px;}
+.cardMuenze6 {background-position: -400px -200px;}
+.cardMuenze7 {background-position: -480px -200px;}
+.cardMuenze8 {background-position: -560px -200px;}
+.cardMuenze9 {background-position: -640px -200px;}
+
+.cardNordwind {background-position: -720px 0;}
+.cardSuedwind {background-position: -800px  0;}
+.cardOstwind {background-position: -880px 0;}
+.cardWestwind {background-position: -960px 0;}
+
+.cardFruehling {background-position: -720px -100px;}
+.cardSommer {background-position: -800px -100px;}
+.cardHerbst {background-position: -880px -100px;}
+.cardWinter {background-position: -960px -100px;}
+
+.cardBambus {background-position: -720px -200px;}
+.cardPflaume {background-position: -800px -200px;}
+.cardOrchidee {background-position: -880px -200px;}
+.cardChrysantheme {background-position: -960px -200px;}
+
+.cardDracheGruen {background-position: -1040px 0;}
+.cardDracheRot {background-position: -1040px -100px;}
+.cardDracheWeiss {background-position: -1040px -200px;}
+
+
+
+
+.image {
+  /*border-radius: 15px;*/
+  height: 47px;
+  width: 50px;
+  border: none;
+  /*background: transparent url('../images/mahjong_bigscreen.png');*/
+  background-color: transparent;
+  background-image:  url('../images/application_icons.png');
+}
+
+
+.menu {background-position: 0 0}
+.undo {background-position: -150px 0}
+.new {background-position: -200px 0}
+.hint {background-position: -250px 0}
+.theme {background-position: -300px 0}

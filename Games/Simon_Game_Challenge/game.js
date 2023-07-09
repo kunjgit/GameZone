@@ -4,6 +4,7 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 var highest = 0;
+var toggle = false;
 
 const startGame = () => {
   if (!started) {
@@ -15,6 +16,17 @@ const startGame = () => {
 
 $(document).keypress(startGame);
 $("#play-button").click(startGame);
+
+$('.ins').click(() => {
+  if(!toggle){
+    $('.instructions-section').css('display', 'inherit');
+    toggle = true;
+  }
+  else{
+    $('.instructions-section').css('display', 'none');
+    toggle = false;
+  }
+});
 
 $(".btn").click(function () {
   var userChosenColour = $(this).attr("id");
@@ -52,14 +64,12 @@ function nextSequence() {
 
 function checkAnswer(currentLevel) {
   if (gamePattern[currentLevel] == userClickedPattern[currentLevel]) {
-    console.log("success");
     if (userClickedPattern.length == gamePattern.length) {
       setTimeout(function () {
         nextSequence();
       }, 1000);
     }
   } else {
-    console.log("wrong");
     $("#level-title").text("Game Over, Press Any Key to Restart");
     playsound("wrong");
     $("body").addClass("game-over");

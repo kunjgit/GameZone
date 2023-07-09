@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   </head>
   <body>
     <nav>
       <ul>
-        <li>MyTicTacToe</li>
+        <li> <div style=" text-align:center;"><a href="/index.html"><i style="color:white;" class="fas fa-home home-icon"></i></a></div></li>
+        <li>My Tic Tac Toe Game</li>
       </ul>
     </nav>
+    <div class="gameInfo">
+      <h1>Welcome to Simran's Tic Tac Toe Game</h1>
+    </div>
 
     <div class="gameContainer">
-        <div class="container">
-          <div class="line"></div>
+      <div class="container">
+        <div class="line"></div>
         <div class="box bt-0 bl-0"><span class="boxtext"></span></div>
         <div class="box bt-0"><span class="boxtext"></span></div>
         <div class="box bt-0 br-0"><span class="boxtext"></span></div>
@@ -28,16 +33,16 @@
         <div class="box bb-0 br-0"><span class="boxtext"></span></div>
       </div>
       <div class="gameInfo">
-        <h1>Welcome to Simran's Tic Tac Toe Game</h1>
-        <div>
+        <div class="gaming">
           <span class="info">Turn for X</span>
-          <button id="reset">Reset</button>
         </div>
+        <button id="reset">Reset</button>
         <div class="imgbox">
           <img src="sounds/excited.gif" alt="" />
         </div>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

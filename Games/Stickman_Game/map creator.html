@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>map maker</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">     
+  <script type="text/javascript" src="util.js"></script>
+  <script type="text/javascript" src="block.js"></script>
+  <script type="text/javascript" src="entity.js"></script>
+  <script type="text/javascript" src="movement.js"></script>
+  <script type="text/javascript" src="collision.js"></script>
+  <script type="text/javascript" src="enemyMovement.js"></script>
+  <script type="text/javascript" src="graphics.js"></script>
+  <script type="text/javascript">
+function begin2(){
+  canvas = document.getElementById("Canvas1");     
+  ctx = canvas.getContext("2d");
+  type = document.getElementById("type");
+  spawnY = document.getElementById("spawnY");
+  spawnX = document.getElementById("spawnX");
+  patrol = document.getElementById("patrol");
+  passive = document.getElementById("passive");
+  text = document.getElementById("text");
+  player_x = 25;
+  player_y = canvas.height-50;
+  animation = 5;
+  direction = 1;
+  spawned=1;
+  drawed = 1;
+  playerClicked=0;
+  mousedown = false;
+  changed = "";
+  enemySpawns = [];
+  obstacleKeys = ["A3B","A2B","A1B"];
+  obstacles = {                      
+    A1B: ["ctx.fillRect(","100,","canvas.height-105,","285,","85)"],
+    A2B: ["ctx.fillRect(","400,","canvas.height-145,","30,","125)"],
+    A3B: ["ctx.fillRect(", "286,", "192,", "426,", "216)"]
+  }
+  amount = 4;
+  canvas.addEventListener("mousedown", function(event){
+    mouseX = event.pageX-canvas.offsetLeft;         
+    mouseY = event.pageY-canvas.offsetTop;
+    spawnY.value = mouseY;
+    spawnX.value = mouseX;
+    mousedown = true;
+    boxBounds();  // checks which object was clicked on
+    if(mouseX>player_x-15&&mouseX<player_x+15&&mouseY<player_y+30&&mouseY>player_y-100){
+      relX = mouseX-player_x;
+      relY = mouseY-player_y;
+      playerClicked=1;
+    }
+  });
+  canvas.addEventListener("mouseup", function(event){
+    mousedown = false;
+    playerClicked=0;
+    for(var i in obstacles[changed]){
+      if(i>0){              // prevents the obstacle from getting negative values
+        if(parseInt(obstacles[changed][i].replace(/.$/,""))<10){
+          obstacles[changed][i] = "10"+obstacles[changed][i].slice(obstacles[changed][i].length-1);  
+        }
+      }
+    }
+    coords();   // updates the new coordinates of the objects
+  });
+  canvas.addEventListener("mousemove", function(event){
+    mouseX = event.pageX-canvas.offsetLeft;         
+    mouseY = event.pageY-canvas.offsetTop;
+    if(mousedown){
+      if(playerClicked==0){
+        boxChange();      // moves the clicked object
+      }
+      if(playerClicked==1){   // moves the player character
+        player_y = mouseY-relY;
+        player_x = mouseX-relX;  
+      }
+    } 
+  });
+  setInterval(draw,1000/60);
+  coords();
+  begin();
+  clearInterval(interval);
+  obstacleHitbox();
+  playerHealth = Infinity;
+  text.innerHTML = "enemy type:<br>1: slow walking high hp<br>2: fast walking lower hp<br>3: really fast jumping guy with low hp<br>4: flying guy with no physics;"
+} 
+function findLevels(){    // checks how many levels there are currently in the game and makes it easier to paste the new map
+  level = 1;
+  levels = 1;
+  x = obstacles;
+  for(;;){
+    level++;
+    levels++;
+    drawObstacles();
+    if(level==1){
+      break;
+    }    
+  }
+  obstacles = x;
+  console.log("There are "+(levels-1)+" levels currently");
+  return levels
+}         
+function draw(){                            
+  ctx.fillStyle = "#0000FF";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "#000000";
+  stickMan(); 
+  string = "";
+  for(var i in obstacleKeys){ // obstacleKeys defines the "z" axel of the objects so that the last changed is at top
+    obs = obstacles[obstacleKeys[i]];
+    for(var j in obs){
+      string += obs[j];
+    }
+    string += ";";  
+  }
+  draw2 = new Function(string);
+  draw2();
+  drawEnemies();
+}
+function coords(){
+  for(var i in obstacles){
+    eval("obs = obstacles."+i+";"+i+"Clicked = 0;");    // creates variable for each obstacle
+    for(var j in obs){         // 0=x 1=top y 2=width 3=height
+      if(j > 0){
+        eval(i+(j-1).toString()+"="+obs[j].slice(0,obs[j].length-1));
+      }
+    }
+  }
+  string2 = "";                                                           
+  string3 = "";
+  for(var j=obstacleKeys.length-1;j>-1;j--){                   // easy to maintain string functions String3 consists of mainly blocks of code found below;)                                                                                                                                                                                                                                      
+    var i = obstacleKeys[j];    // these are the functions written as a string.
+    string2 +="if(mouseX > "+i+"0 && mouseX < "+i+"0+"+i+"2 && mouseY > "+i+"1 && mouseY < "+i+"1+"+i+"3){"
+    string2 +=  "obstacleKeys.splice(obstacleKeys.indexOf('"+i+"'),1);"
+    string2 +=  "obstacleKeys.push('"+i+"');"
+    string2 +=  i+"Clicked = 1;"
+    string2 +=  "relativeX= (mouseX-"+i+"0);"
+    string2 +=  "relativeY = (mouseY-"+i+"1);"
+    string2 +=  "x0 = mouseX;"
+    string2 +=  "y0 = mouseY;"
+    string2 +=  "if(relativeX>"+i+"2-7&&relativeY>7&&relativeY<"+i+"3-7){"
+    string2 +=    "RIGHT = 1;}"
+    string2 +=  "else{RIGHT=0}"
+    string2 +=  "if(relativeY>"+i+"3-7&&relativeX>7&&relativeX<"+i+"2-7){"
+    string2 +=    "BOTTOM = 1;}"
+    string2 +=  "else{BOTTOM = 0}"
+    string2 +=  "if(relativeX<7&&relativeY>7&&relativeY<"+i+"3-7){"
+    string2 +=    "LEFT = 1;}"
+    string2 +=  "else{LEFT = 0;}"
+    string2 +=  "if(relativeY<7&&relativeX>7&&relativeX<"+i+"2-7){"
+    string2 +=  "TOP = 1;}"
+    string2 +=  "else{TOP = 0;}"
+    string2 +=  "if(relativeY<7&&relativeX<7){"
+    string2 +=    "TL = 1;}"
+    string2 +=  "else{TL = 0;}"
+    string2 +=  "if(relativeY<7&&relativeX>"+i+"2-7){"
+    string2 +=    "TR = 1;}"
+    string2 +=  "else{TR = 0;}"
+    string2 +=  "if(relativeY>"+i+"3-7&&relativeX<7){"
+    string2 +=    "BL = 1;}"
+    string2 +=  "else{BL = 0;}"
+    string2 +=  "if(relativeY>"+i+"3-7&&relativeX>"+i+"2-7){"
+    string2 +=  "BR = 1;}"
+    string2 +=  "else{BR = 0;}"
+    string2 +=  "return;}"
+    string2 +="else{"+i+"Clicked = 0;}"    
+    string3 +="if("+i+"Clicked==1){changed='"+i+"';if(RIGHT==1){return obstacles['"+i+"'][3] = ("+i+"2-(x0-mouseX)).toString()+',';}if(BOTTOM==1){return obstacles['"+i+"'][4] = ("+i+"3-(y0-mouseY)).toString()+')';}if(LEFT==1){return obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][3] = ("+i+"2+(x0-mouseX)).toString()+',';}if(TOP==1){return obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+',', obstacles['"+i+"'][4] = ("+i+"3+(y0-mouseY)).toString()+')';}if(BR==1){return obstacles['"+i+"'][4] = ("+i+"3-(y0-mouseY)).toString()+')', obstacles['"+i+"'][3] = ("+i+"2-(x0-mouseX)).toString()+',';}if(BL==1){return obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][4] = ("+i+"3-(y0-mouseY)).toString()+')', obstacles['"+i+"'][3] = ("+i+"2+(x0-mouseX)).toString()+',';}if(TR==1){return obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+',', obstacles['"+i+"'][4] = ("+i+"3+(y0-mouseY)).toString()+')', obstacles['"+i+"'][3] = ("+i+"2-(x0-mouseX)).toString()+',';}if(TL==1){return obstacles['"+i+"'][3] = ("+i+"2+(x0-mouseX)).toString()+',', obstacles['"+i+"'][4] = ("+i+"3+(y0-mouseY)).toString()+')', obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+','}""else{return obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+',';}}";
+  }                                          // WIDTH obstacles['"+i+"'][3] = ("+i+"2-(x0-mouseX)).toString()+','
+  boxBounds = new Function(string2);         // HEIGHT obstacles['"+i+"'][4] = ("+i+"3-(y0-mouseY)).toString()+')'
+  boxChange = new Function(string3);         // X obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+','
+}                                            // Y obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+','  
+function addBox(){ // creates a new box
+  obstacles["A"+amount+"B"] = ["ctx.fillRect(","100,","100,","50,","50)"];
+  obstacleKeys.push(("A"+amount+"B"));
+  amount++;
+  coords();  
+  calc = 0;
+  obstacleHitbox();
+}
+function saveMap(){    // prints a block of code into the console which consists of the map, this can be easily copied to block.js file
+  string4 = "copy this into block.js file under a new level case:\n\n    case "+findLevels()+":\n      obstacles = {\n";
+  for(var i in obstacles){
+    string4+= "        "+i+": [\""+obstacles[i][0]+"\",\""+obstacles[i][1]+"\",\""+obstacles[i][2]+"\",\""+obstacles[i][3]+"\",\""+obstacles[i][4]+"\"],\n";
+  }
+  string4 = string4.replace(/\,\s$/, "");
+  string4 += "\n      }\n      if(spawned==0){\n";
+  for(var i in enemySpawns){
+    string4 += "        "+enemySpawns[i]+"\n";
+  }
+  string4 += "        spawned=1;\n      }\n      break;";
+  console.log(string4);
+}       
+function reset1(){ // removes all the objects from the canvas
+  obstacles = {}
+  obstacleKeys = ["A1B"];
+  amount = 1;
+  obstacles["A"+amount+"B"] = ["ctx.fillRect(","-10,","-10,","1,","1)"]
+  coords();
+  enemies= [];
+  enemySpawns = [];
+}    
+function addEnemy(){      // add a new enemy to the map
+  if(type.value.match(/.+/)==null){
+    type2 = null;
+  }
+  else{
+    type2 = type.value;
+  }
+  if(spawnY.value.match(/^\d/)==null){
+    spawnY2 = null;
+  }
+  else{
+    spawnY2 = parseInt(spawnY.value);
+  }
+  if(spawnX.value.match(/^\d/)==null){
+    spawnX2 = null;
+  }
+  else{
+    spawnX2 = parseInt(spawnX.value);
+  }
+  if(patrol.value.match(/^\d/)==null){
+    patrol2 = null;
+  }
+  else{
+    patrol2 = parseInt(patrol.value);
+  }
+  if(passive.checked==false){
+    passive2 = false;
+  }
+  else{
+    passive2 = true;
+  }
+  spawnEnemy(type2,spawnY2,spawnX2,patrol2,passive2);
+  enemySpawns.push(("spawnEnemy('"+type2+"',"+spawnY2+","+spawnX2+","+patrol2+","+passive2+");"));
+}                                                                                                                                                                                                                                            
+  </script>
+  </head>
+  <body onload="begin2()">
+   <canvas id="Canvas1" width="800" height="600" style="border:1px solid #000000;"></canvas><br>
+   <input type="button" onclick="addBox()" value="Add new box">
+   <input type="button" onclick="saveMap()" value="Save the map">
+   <input type="button" onclick="addEnemy()" value="Add an Enemy">
+   <input type="button" onclick="reset1()" value="reset"><br>
+   Enemy Parameters<br>
+   Type: <input type="text" id="type" size="5" value="1">Spawn Y: <input type="text" value="100" id="spawnY"size="5">
+   Spawn X: <input type="text" value="100" id="spawnX" size="5">Patrol: <input type="text" id="patrol"size="5">
+   passive: <input type="checkbox" id="passive">
+   <div id="text"></div>
+   <div id="enemyHP"></div>
+  </body>
+</html>

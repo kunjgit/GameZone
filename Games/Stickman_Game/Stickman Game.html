@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>stickman game</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <style type="text/css">
+ /*   #enemyHP{
+      margin-top: -20px;
+      margin-left: 690px; 
+    }    */
+  </style>
+  <script type="text/javascript" src="util.js"></script>
+  <script type="text/javascript" src="block.js"></script>
+  <script type="text/javascript" src="entity.js"></script>
+  <script type="text/javascript" src="movement.js"></script>
+  <script type="text/javascript" src="collision.js"></script>
+  <script type="text/javascript" src="enemyMovement.js"></script>
+  <script type="text/javascript" src="graphics.js"></script>
+ </head> 
+  <body onload="begin()" onblur="blur()">
+  <!--
+  KNOWN BUGS AND MISSING STUFF:
+    1.The swords projectile speed was supposed to be faster when throw strenght was increased but
+    there was problem with it clipping through obstacles so had to drop it down to standard speed.
+    2.Enemies can still be pushed through obstacles
+    3.There was supposed to be different sprites for every type of enemy but time ran out...
+    4.STILL no sounds, i tried generating some with the sound generator from http://www.bfxr.net;
+    5.Enemies get knocked backwards even when hit from behind...
+    6.When an enemy dies everything flashes red for a frame, for an unknown reason...
+  
+  total line count: 2107    
+  Special thanks to Joni Toivonen for parsing the code into multiple files :)
+  Everything was written by Tommi Koponen 
+  -->
+   <canvas id="Canvas1" width="1530" height="740" style="border:1px solid #000000;">
+   </canvas>
+   <div id="text"></div>
+ <!--  <div id="enemyHP"></div>
+   <form>                          
+    <input type="button" onclick="spawnEnemy(1,canvas.height-34)" value="Spawn enemy1">
+    <input type="button" onclick="spawnEnemy(3,canvas.height-34)" value="Spawn enemy3">
+    <input type="button" onclick="spawnEnemy(1,canvas.height-34,440,canvas.width-50)" value="Spawn patrol">
+    <input type="button" onclick="spawnEnemy(2,canvas.height-105-12,232,378)" value="Spawn patrol2">   
+   </form>    -->
+   <p>Goal of the game: <p>Get to the other end of the canvas or kill the enemy<p> Instructions:<p>Hold spacebar to throw sword further!<br>While the sword is flying you can throw knives with spacebar!<br>Arrow keys to move!
+  <!--<audio id="jumpSound" src="Sounds/jump_sound.wav"></audio>-->
+  </body>
+</html>

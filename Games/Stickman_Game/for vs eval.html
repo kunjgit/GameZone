@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>For vs eval vs new function</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script type="text/javascript">
+  var timer;
+  var elapsed;
+/* RESULTS
+  each were calculated with the same boxes and repeated 5000 times to get the average
+  TESTED ON FIREFOX
+FOR-LOOP averages   NON WORKING
+10: 0.0146ms
+25: 0.0326ms
+50: 0.057ms
+100: 0.1138ms
+500: 0.5284ms
+1000: 1.0562ms
+1500: 1.6082ms
+2000: 2.2734ms
+2500: 2.9704ms
+5000: 5.4498ms
+
+EVAL averages    WORKING
+10: 0.018ms
+25: 0.0382ms
+50: 0.0682ms
+100: 0.1294ms
+500: 0.6954ms
+1000: 1.3752ms
+1500: 2.2558ms
+2000: 2.939ms
+2500: 4.2032ms
+5000: 8.7206ms
+
+Converted into function averages    WORKING
+10: 0.0038ms
+25: 0.006ms
+50: 0.0092ms
+100: 0.0192ms
+500: 0.0878ms
+1000: 0.167ms
+1500: 0.3222ms
+2000: 0.5268ms
+2500: 0.7156ms
+5000: 1.4694ms
+*/
+function begin(){
+  code = document.getElementById("code");
+  code.innerHTML = "";
+  player_x = 0;
+  player_y = 0;
+  q = 0;
+  boxHits = {};
+  calc = 0;
+  obstacles = {
+    box: ["fillRect(","100,","705,","285,","85)"],
+    rect: ["fillRect(","400,","745,","30,","125)"]
+  }
+}
+function generateObstacles(n){
+  for(var j=0;j<n;j++){
+    array = [];
+    array = ["fillRect("];
+    for(var i=0;i<3;i++){
+      array.push(Math.floor(Math.random()*801)+",");  
+    }
+    array.push(Math.floor(Math.random()*801)+")");
+    obstacles["A"+q+"B"]=array;
+    q++;
+  }
+}
+function functionHitboxes(x,y,z){
+  average = 0;
+  times = 0;
+  for(var p=0;p<z;p++){
+    timer = new Date();
+    timer = timer.getTime();
+    if(calc==0){
+      for(var i in obstacles){
+        eval("obs = obstacles."+i);
+        eval("on"+i+"=0");
+        for(var j in obs){         // 0=x 1=top y 2=width 3=height
+          if(j > 0){
+            eval(i+(j-1).toString()+"="+obs[j].slice(0,obs[j].length-1));
+            boxHits[i+(j-1).toString()]=obs[j].slice(0,obs[j].length-1);
+          }
+        }
+      }
+      string2="";                      //0,0015 per obstacle
+      string3="if(";
+      for(var i in obstacles){
+        string2+="if(x<"+i+"2+"+i+"0+25&&x>"+i+"0-25&&y>"+i+"1-32){if(x>"+i+"0-23&&y>"+i+"1){player_x="+i+"0-24;}if(x<"+i+"2+"+i+"0+27&&x>"+i+"0&&y>"+i+"1){player_x="+i+"2+"+i+"0+26;}if(y<"+i+"1+5&&x>"+i+"0-25&&x<"+i+"0+"+i+"2+25&&y>"+i+"1-26){player_y="+i+"1-31;on"+i+"=1;}else{on"+i+"=0;}}else{on"+i+"=0;}"
+        string3+="on"+i+"==0&&"
+      }
+      string3 = string3.replace(/&&$/,"")+"){onsomething=0;}else{onsomething=1;}"
+      string2 += string3;
+      testHit = new Function("x,y", string2);
+      calc=1;
+    }
+    testHit(x,y);
+    elapsed = new Date();
+    elapsed = elapsed.getTime()-timer;
+    average += elapsed;
+    times++;
+  }
+  alert(average/times);
+}
+function evalHitboxes(x,y,z){
+  average = 0;
+  times = 0;
+  for(var p=0;p<z;p++){
+    timer = new Date();
+    timer = timer.getTime();
+    if(calc==0){
+      for(var i in obstacles){
+        eval("obs = obstacles."+i);
+        eval("on"+i+"=0");
+        for(var j in obs){         // 0=x 1=top y 2=width 3=height
+          if(j > 0){
+            eval(i+(j-1).toString()+"="+obs[j].slice(0,obs[j].length-1));
+            boxHits[i+(j-1).toString()]=obs[j].slice(0,obs[j].length-1);
+          }
+        }
+      }
+      string2="";                      //0,0015 per obstacle
+      string3="if(";
+      for(var i in obstacles){
+        string2+="if(x<"+i+"2+"+i+"0+25&&x>"+i+"0-25&&y>"+i+"1-32){if(x>"+i+"0-23&&y>"+i+"1){player_x="+i+"0-24;}if(x<"+i+"2+"+i+"0+27&&x>"+i+"0&&y>"+i+"1){player_x="+i+"2+"+i+"0+26;}if(y<"+i+"1+5&&x>"+i+"0-25&&x<"+i+"0+"+i+"2+25&&y>"+i+"1-26){player_y="+i+"1-31;on"+i+"=1;}else{on"+i+"=0;}}else{on"+i+"=0;}"
+        string3+="on"+i+"==0&&"
+      }
+      string3 = string3.replace(/&&$/,"")+"){onsomething=0;}else{onsomething=1;}"
+      string2 += string3;
+      calc=1;
+    }
+    eval(string2);
+    elapsed = new Date();
+    elapsed = elapsed.getTime()-timer;
+    average += elapsed;
+    times++;
+  }
+  alert(average/times);
+}
+function forLoopHitboxes(x,y,z){
+  average = 0;
+  times = 0;
+  for(var p=0;p<z;p++){
+    timer = new Date();
+    timer = timer.getTime()
+    for(var i in obstacles){
+      box0 = obstacles[i][1].replace(",","");
+      box1 = obstacles[i][2].replace(",","");
+      box2 = obstacles[i][3].replace(",","");
+      if(x<box2+box0+25&&x>box0-25&&y>box1-32){
+        if(x>box0-23&&y>box1){
+          player_x = box0-24;
+        }
+        if(x<box2+box0+27&&x>box0&&y>box1){
+          player_x = box2+box0+26;
+        }
+        if(y<box1+5&&x>box0-25&&x<box0+box2+25){
+          player_y = box1-31;
+          onbox=1;
+        }                                         
+        else{
+          onbox=0;
+        }
+      }
+      else{
+        onbox=0;
+      }
+    }
+    elapsed = new Date();
+    elapsed = elapsed.getTime()-timer;
+    average += elapsed;
+    times++;
+  }  
+  alert(average/times);
+}
+  </script>
+ </head> 
+  <body onload="begin()">
+  <div id="code"></div>
+  </body>
+</html>

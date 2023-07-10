@@ -391,6 +391,7 @@ textarea {
 
 html {
   font-family: var(--ff-poppins);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -2422,7 +2423,7 @@ textarea.form-input::-webkit-resizer {
 }
 
 .search-container:hover > .search-input {
-  width: 400px;
+  width: 800px;
 }
 
 .search-container .search-input {
@@ -2523,8 +2524,8 @@ textarea.form-input::-webkit-resizer {
   width: 40px;
   height: 40px;
   border: none;
-  background-color: rgb(104, 98, 232);
-  background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
+  background-color: #6862e8;
+  background: linear-gradient(90deg, #9f9deb 0%, #d499de 39%, #fdc786 100%);
   color: #000;
   cursor: pointer;
   border-radius: 50%;

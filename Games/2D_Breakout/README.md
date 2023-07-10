@@ -32,13 +32,17 @@ We have draw the paddle and the ball, we will be able to control the paddle usin
 ## **Screenshots 📸**
 
 <br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
+
+![image](https://github.com/Deepanshu0703/GameZone/assets/114489502/4ed9b3f9-b855-41e5-95db-8a6bbabe966a)
 
 <br>
 
 ## **Working video 📹**
 <!-- add your working video over here -->
+
+
+
+https://github.com/Deepanshu0703/GameZone/assets/114489502/007f88d4-6e7b-4bf9-81ee-7a6a41adfe15
 
 
 

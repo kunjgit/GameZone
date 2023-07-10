@@ -6,7 +6,7 @@
 
 ## **Description 📃**
 <!-- add your game description here  -->
-- Just Like Jumping Game with HTMl, CSS, JS
+- Just Like Tennis Game with HTMl, CSS, JS
 
 ## **functionalities 🎮**
 <!-- add functionalities over here -->
@@ -25,6 +25,7 @@
 
 
 
+![Tennis_Game](https://github.com/Kalivarapubindusree/GameZone/assets/114821855/6970483c-bf24-4f59-a45c-07e3d41764da)
 
 
 

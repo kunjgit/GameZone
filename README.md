@@ -421,7 +421,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 304 | [Meme_Battle_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Meme%20Battle%20Game)|
 | 305 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
 | 306 | [Beyblade](https://github.com/kunjgit/GameZone/tree/main/Games/Beyblade)|
-| 307 | [Beyblade](https://github.com/kunjgit/GameZone/tree/main/Games/Battleship)|
+| 307 | [Battleship](https://github.com/kunjgit/GameZone/tree/main/Games/Battleship)|
 
 
 

@@ -1,19 +1,29 @@
 body {
     background-color: #393E46;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    height: 97vh;
+    overflow: hidden;
 }
 
 h1{
     color: #00B7C2;
-    font-family: 'Press Start 2P', cursive;
 }
 
 #board {
     background-color: #212121;
     width: 700px;
     height: 700px;
+}
+
+ul{
+    color: white;
+    text-align: left;
+}
+
+li{
+    margin: 1rem;
 }

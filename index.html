@@ -45,6 +45,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/particles.css">
 
   <!--
     - google font link
@@ -52,18 +53,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+  <!--
+    - Audio file for click sound
+  -->
+  <audio id="clickSound" src="./assets/audio/click-sound.wav"></audio>
 
 </head>
 <!-- Light-Dark theme SWITCH -->
-<p class="invert-color" style="margin-top: 30px; margin-left: 50px;">Light/Dark theme :</p>
-<label class="theme-toggle" style="margin-top: 4px; margin-left: 50px">
+<p class="invert-color" style="position: sticky; top: 30px; z-index:100; margin-left: 30px;">Theme :</p>
+<label class="theme-toggle" style="position: sticky; top: 58px; z-index: 100; margin-left: 30px">
   <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked>
   <span class="slider"></span>
 </label>
 
 <body>
-
-
+  
+<!-- BACKGROUND PARTICLES -->
+<div class="page-bg"></div>
+<div class="animation-wrapper">
+  <div class="particle particle-1"></div>
+  <div class="particle particle-2"></div>
+  <div class="particle particle-3"></div>
+  <div class="particle particle-4"></div>
+</div>
 
   <main>
 
@@ -72,10 +85,8 @@
       <!--
         - #NAVBAR
       -->
-      <div>
-        <h1 style="color:white; text-align: center ; font-size: 1.5cm; ">🕹️GameZone</h1>
-        <br>
-        <br>
+      <div class = "heading">
+        <span>🕹️&nbsp;</span><span>G</span><span>A</span><span>M</span><span>E</span><span>Z</span><span>O</span><span>N</span><span>E</span>
       </div>
 
 
@@ -149,7 +160,7 @@
 
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>  
   <div>
   </div>
 

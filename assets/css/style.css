@@ -2708,6 +2708,7 @@ h7{
 
 
 ul.socials{
-  margin-bottom: 1px;
+  margin-bottom: 0.5px;
   line-height: 5px;
+  padding-bottom: 18px;
 }

@@ -378,7 +378,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 270 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
 | 271 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
 | 272 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
-| 266 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe the Cloud)|
+| 266 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe%20the%20Cloud)|
 | 267 | [Cosmic_Coin_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Blaster)|
 | 266 | [Number Sliding Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Sliding_Puzzle_Game)|
 | 267 | [Reaction Time](https://github.com/kunjgit/GameZone/tree/main/Games/Reaction_Time)|

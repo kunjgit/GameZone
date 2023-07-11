@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Beyblade Game</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <h1>Beyblade Game</h1>
+  <div id="game-container">
+    <div id="player1">
+      <h2>Player 1</h2>
+      <button onclick="launchBlade(1)">Launch</button>
+      <p>Score: <span id="score1">0</span></p>
+      <p>Stamina: <span id="stamina1">100</span></p>
+      <img id="blade1" src="./assets/beyblade-1.jpg" alt="Blade 1">
+    </div>
+    <div id="player2">
+      <h2>Player 2</h2>
+      <button onclick="launchBlade(2)">Launch</button>
+      <p>Score: <span id="score2">0</span></p>
+      <p>Stamina: <span id="stamina2">100</span></p>
+      <img id="blade2" src="./assets/beyblade-2.jpg" alt="Blade 2">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -422,6 +422,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 305 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
 | 306 | [Beyblade](https://github.com/kunjgit/GameZone/tree/main/Games/Beyblade)|
 | 307 | [The labyrinth of death](https://github.com/sahaycodes/GameZone/tree/meme/Games/The labyrinth of death)|
+| 308 | [2D_BreakOut](https://github.com/kunjgit/GameZone/tree/meme/Games/2D_Breakout)|
 
 
 

@@ -1,0 +1,37 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  #game-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-top: 30px;
+    overflow: hidden;
+  }
+  
+  #character {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+  }
+  
+  .obstacle {
+    position: absolute;
+    top: 120px;
+    left: 120px;
+    width: 60px;
+    height: 60px;
+    background-color: gray;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  

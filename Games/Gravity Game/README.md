@@ -26,8 +26,4 @@ Gravity Shift is a unique game built using HTML, CSS, and JavaScript. In this ga
 - Game reset functionality.
 
 ## Preview
-
-![Gravity Shift Preview](game-preview.png)
-
-
-
+![Gravity_game](https://github.com/kumar11jr/GameZone/assets/104729493/5045cf91-eca0-4f67-b0f3-aa0968f985e3)

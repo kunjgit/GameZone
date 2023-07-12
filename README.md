@@ -320,7 +320,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 213 | [Crossword Game](https://github.com/kunjgit/GameZone/tree/main/Games/Crossword_Game)|
 | 214 | [Guess the Correct Logo](https://github.com/shruti-2412/GameZone/tree/main/Games/Guess_The_Correct_Logo)|
 | 215 | [Painting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Painting_Game)| 
-| 216 | [Platform_game_engine](https://github.com/kunjgit/GameZone/tree/main/Games/Platform_game_engine)| 
+| 216 | [Platform_game_engine](https://github.com/kunjgit/GameZone/tree/main/Games/Platform_game_engine)|
 | 217 | [Doppelkopf](https://github.com/kunjgit/GameZone/tree/main/Games/Doppelkopf)|
 | 218 | [quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/quiz_game)|
 | 218 | [Island Survival](https://github.com/kunjgit/GameZone/tree/main/Games/Island_Survival)|
@@ -378,15 +378,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 270 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
 | 271 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
 | 272 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
-| 266 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe the Cloud)|
-| 267 | [Cosmic_Coin_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Blaster)|
-| 266 | [Number Sliding Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Sliding_Puzzle_Game)|
-| 267 | [Reaction Time](https://github.com/kunjgit/GameZone/tree/main/Games/Reaction_Time)|
-| 268 | [Flag Guess Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flag_Guess_Game)|
-| 269 | [Cross_The_Road](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_The_Road)|
-| 270 | [Highway Race - Barrel Dodge](https://github.com/kunjgit/GameZone/tree/main/Games/Highway_Race)|
-| 271 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
-| 272 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
 | 273 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
 | 274 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe%20the%20Cloud)|
 | 275 | [Cosmic_Coin_Collector](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Collector)|
@@ -398,7 +389,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 281 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
 | 282 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain%20Color%20Mastermind)|
 | 283 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lizard%20Spock%20Game)|
-| 284 | [Angry Boars](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Boars)|Alphabet Learning Game
+| 284 | [Angry Boars](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Boars)|
 | 285 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet%20Learning%20Game)|
 | 286 | [Country_Guesser_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Country_Guesser_Game)|
 | 287 | [Poke_Guess_Blitz](https://github.com/kunjgit/GameZone/tree/main/Games/Poke_Guess_Blitz)|
@@ -419,8 +410,15 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 302 | [Brain Burst Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Burst_Game)|
 | 303 | [StickTheSticker](https://github.com/kunjgit/GameZone/tree/main/Games/StickTheSticker) |
 | 304 | [Meme_Battle_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Meme%20Battle%20Game)|
-| 305 | [Guitar Game](https://github.com/kunjgit/GameZone/tree/main/Games/Guitar_Game)|
-
+| 305 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
+| 306 | [Beyblade](https://github.com/kunjgit/GameZone/tree/main/Games/Beyblade)|
+| 307 | [The labyrinth of death](https://github.com/sahaycodes/GameZone/tree/meme/Games/The%20labyrinth%20of%20death)|
+| 308 | [2D_BreakOut](https://github.com/kunjgit/GameZone/tree/meme/Games/2D_Breakout)|
+| 309 | [Battleship](https://github.com/kunjgit/GameZone/tree/main/Games/Battleship)|
+| 310 | [Baseball](https://github.com/kunjgit/GameZone/tree/main/Games/Baseball)|
+| 311 | [Save_Princess](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Princess) |
+| 312 | [RoadFighter](https://github.com/kunjgit/GameZone/tree/main/Games/RoadFighter)|
+| 313 | [Guitar Game](https://github.com/kunjgit/GameZone/tree/main/Games/Guitar_Game)|
 
 
 

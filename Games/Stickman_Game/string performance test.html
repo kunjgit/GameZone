@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>String one line vs opened</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script type="text/javascript">
+/* RESULTS 
+  both methods were run 5000x1000 times to get the average
+  that was then repeated 10 times to see if there is any fluctuation on the results
+  run on mozille firefox 31.6.0
+ONE LINE:
+  0.785ms
+  0.7678ms
+  0.76ms
+  0.7568ms
+  0.7472ms
+  0.7514ms
+  0.7542ms
+  0.76ms
+  0.7566ms
+  0.766ms
+  AVERAGE: 0.7605ms
+OPENED:
+  1.0814ms
+  1.1332ms  
+  1.0986ms
+  1.0896ms
+  1.0906ms
+  1.0858ms
+  1.085ms
+  1.0728ms
+  1.0546ms
+  1.0556ms
+  AVERAGE: 1.08472
+VERDICT:
+ on average adding to string on one line compared to over multiple lines
+ is on average 29.9% faster
+*/
+function stringOneLine(){
+  count = 0;
+  times = 0;
+  for(var j=0;j<5000;j++){
+    timer = new Date();
+    timer = timer.getTime();
+    for(var i=0;i<1000;i++){
+      string2 = "";
+      string3 = "";
+      string2 += "if(mouseX > "+i+"0 && mouseX < "+i+"0+"+i+"2 && mouseY > "+i+"1 && mouseY < "+i+"1+"+i+"3){obstacleKeys.splice(obstacleKeys.indexOf('"+i+"'),1);obstacleKeys.push('"+i+"');"+i+"Clicked = 1, relativeX= (mouseX-"+i+"0), relativeY = (mouseY-"+i+"1), x0 = mouseX, y0 = mouseY;if(relativeX>"+i+"2-7&&relativeY>7&&relativeY<"+i+"3-7){RIGHT = 1;}else{RIGHT=0}if(relativeY>"+i+"3-7&&relativeX>7&&relativeX<"+i+"2-7){BOTTOM = 1;}else{BOTTOM = 0}if(relativeX<7&&relativeY>7&&relativeY<"+i+"3-7){LEFT = 1;}else{LEFT = 0;}if(relativeY<7&&relativeX>7&&relativeX<"+i+"2-7){TOP = 1;}else{TOP = 0;}if(relativeY<7&&relativeX<7){ TL = 1;}else{TL = 0;}if(relativeY<7&&relativeX>"+i+"2-7){ TR = 1;}else{TR = 0;}if(relativeY>"+i+"3-7&&relativeX<7){ BL = 1;}else{BL = 0;}if(relativeY>"+i+"3-7&&relativeX>"+i+"2-7){ BR = 1;}else{ BR = 0;}return;}else{"+i+"Clicked = 0;}";
+      string3 += "if("+i+"Clicked==1){changed = '"+i+"';if(RIGHT==1){return obstacles['"+i+"'][3] = ("+i+"2-(x0-mouseX)).toString()+',';}if(BOTTOM==1){return obstacles['"+i+"'][4] = ("+i+"3-(y0-mouseY)).toString()+')';}if(LEFT==1){return obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][3] = ("+i+"2+(x0-mouseX)).toString()+',';}if(TOP==1){return obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+',', obstacles['"+i+"'][4] = ("+i+"3+(y0-mouseY)).toString()+')';}if(BR==1){return obstacles['"+i+"'][4] = ("+i+"3-(y0-mouseY)).toString()+')', obstacles['"+i+"'][3] = ("+i+"2-(x0-mouseX)).toString()+',';}if(BL==1){return obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][4] = ("+i+"3-(y0-mouseY)).toString()+')', obstacles['"+i+"'][3] = ("+i+"2+(x0-mouseX)).toString()+',';}if(TR==1){return obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+',', obstacles['"+i+"'][4] = ("+i+"3+(y0-mouseY)).toString()+')', obstacles['"+i+"'][3] = ("+i+"2-(x0-mouseX)).toString()+',';}if(TL==1){return obstacles['"+i+"'][3] = ("+i+"2+(x0-mouseX)).toString()+',', obstacles['"+i+"'][4] = ("+i+"3+(y0-mouseY)).toString()+')', obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+','}else{return obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+',';}}"; 
+    }
+    elapsed = new Date();
+    elapsed = elapsed.getTime()-timer;
+    count += elapsed;
+    times++;
+  }
+  alert(count/times+"ms");
+}
+function stringOpened(){
+
+  count = 0;
+  times = 0;
+  for(var j=0;j<5000;j++){
+    timer = new Date();
+    timer = timer.getTime();
+    for(var i=0;i<1000;i++){
+      string2 = "";
+      string3 = "";
+      string2 +="if(mouseX > "+i+"0 && mouseX < "+i+"0+"+i+"2 && mouseY > "+i+"1 && mouseY < "+i+"1+"+i+"3){"
+      string2 +=  "obstacleKeys.splice(obstacleKeys.indexOf('"+i+"'),1);"
+      string2 +=  "obstacleKeys.push('"+i+"');"
+      string2 +=  i+"Clicked = 1;"
+      string2 +=  "relativeX= (mouseX-"+i+"0);"
+      string2 +=  "relativeY = (mouseY-"+i+"1);"
+      string2 +=  "x0 = mouseX;"
+      string2 +=  "y0 = mouseY;"
+      string2 +=  "if(relativeX>"+i+"2-7&&relativeY>7&&relativeY<"+i+"3-7){"
+      string2 +=    "RIGHT = 1;}"
+      string2 +=  "else{RIGHT=0}"
+      string2 +=  "if(relativeY>"+i+"3-7&&relativeX>7&&relativeX<"+i+"2-7){"
+      string2 +=    "BOTTOM = 1;}"
+      string2 +=  "else{BOTTOM = 0}"
+      string2 +=  "if(relativeX<7&&relativeY>7&&relativeY<"+i+"3-7){"
+      string2 +=    "LEFT = 1;}"
+      string2 +=  "else{LEFT = 0;}"
+      string2 +=  "if(relativeY<7&&relativeX>7&&relativeX<"+i+"2-7){"
+      string2 +=  "TOP = 1;}"
+      string2 +=  "else{TOP = 0;}"
+      string2 +=  "if(relativeY<7&&relativeX<7){"
+      string2 +=    "TL = 1;}"
+      string2 +=  "else{TL = 0;}"
+      string2 +=  "if(relativeY<7&&relativeX>"+i+"2-7){"
+      string2 +=    "TR = 1;}"
+      string2 +=  "else{TR = 0;}"
+      string2 +=  "if(relativeY>"+i+"3-7&&relativeX<7){"
+      string2 +=    "BL = 1;}"
+      string2 +=  "else{BL = 0;}"
+      string2 +=  "if(relativeY>"+i+"3-7&&relativeX>"+i+"2-7){"
+      string2 +=  "BR = 1;}"
+      string2 +=  "else{BR = 0;}"
+      string2 +=  "return;}"
+      string2 +="else{"+i+"Clicked = 0;}"    
+      string3 +="if("+i+"Clicked==1){"
+      string3 +=  "changed='"+i+"';"
+      string3 +=  "if(RIGHT==1){return obstacles['"+i+"'][3] = ("+i+"2-(x0-mouseX)).toString()+',';}"
+      string3 +=  "if(BOTTOM==1){return obstacles['"+i+"'][4] = ("+i+"3-(y0-mouseY)).toString()+')';}"
+      string3 +=  "if(LEFT==1){return obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][3] = ("+i+"2+(x0-mouseX)).toString()+',';}"
+      string3 +=  "if(TOP==1){return obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+',', obstacles['"+i+"'][4] = ("+i+"3+(y0-mouseY)).toString()+')';}"
+      string3 +=  "if(BR==1){return obstacles['"+i+"'][4] = ("+i+"3-(y0-mouseY)).toString()+')', obstacles['"+i+"'][3] = ("+i+"2-(x0-mouseX)).toString()+',';}"
+      string3 +=  "if(BL==1){return obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][4] = ("+i+"3-(y0-mouseY)).toString()+')', obstacles['"+i+"'][3] = ("+i+"2+(x0-mouseX)).toString()+',';}"
+      string3 +=  "if(TR==1){return obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+',', obstacles['"+i+"'][4] = ("+i+"3+(y0-mouseY)).toString()+')', obstacles['"+i+"'][3] = ("+i+"2-(x0-mouseX)).toString()+',';}"
+      string3 +=  "if(TL==1){return obstacles['"+i+"'][3] = ("+i+"2+(x0-mouseX)).toString()+',', obstacles['"+i+"'][4] = ("+i+"3+(y0-mouseY)).toString()+')', obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+','}"
+      string3 +="else{return obstacles['"+i+"'][1]=(mouseX-relativeX).toString()+',', obstacles['"+i+"'][2]=(mouseY-relativeY).toString()+',';}}";
+    }
+    elapsed = new Date();
+    elapsed = elapsed.getTime()-timer;
+    count += elapsed;
+    times++;
+  }
+  alert(count/times+"ms");
+}
+  </script>
+ </head> 
+  <body>
+  </body>
+</html>

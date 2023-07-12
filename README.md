@@ -356,7 +356,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 248 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
 | 249 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
 | 250 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
-| 251 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|
+| 251 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|         
 | 252 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
 | 253 | [Save Doraemon](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Doraemon)|
 | 254 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|
@@ -418,16 +418,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 310 | [Baseball](https://github.com/kunjgit/GameZone/tree/main/Games/Baseball)|
 | 311 | [Save_Princess](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Princess) |
 | 312 | [RoadFighter](https://github.com/kunjgit/GameZone/tree/main/Games/RoadFighter)|
-| 313 | [Baseball](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
-
-
-
-
-
-
-
-
-
+| 313 | [Guitar Game](https://github.com/kunjgit/GameZone/tree/main/Games/Guitar_Game)|
+| 314 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire) |
+| 315 | [Lady Tiger Hunter](https://github.com/kunjgit/GameZone/tree/main/Games/Lady_Tiger_Hunter)|
+| 316 | [Baseball](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
 
 
 

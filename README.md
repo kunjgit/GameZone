@@ -418,6 +418,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 310 | [Baseball](https://github.com/kunjgit/GameZone/tree/main/Games/Baseball)|
 | 311 | [Save_Princess](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Princess) |
 | 312 | [RoadFighter](https://github.com/kunjgit/GameZone/tree/main/Games/RoadFighter)|
+| 313 | [Guitar Game](https://github.com/kunjgit/GameZone/tree/main/Games/Guitar_Game)|
 
 
 

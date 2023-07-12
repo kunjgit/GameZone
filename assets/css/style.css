@@ -1300,6 +1300,7 @@ main {
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 15px;
+  border: 2px solid white;
 }
 
 .project-img::before {

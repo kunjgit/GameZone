@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="container"><canvas></canvas>
+            <p style="color: aliceblue; padding: 20px;">
+                PRESS SPACE KEY TO START <br>
+                <b>Controls:</b>
+                W Key: Upword <br>
+                A Key: Left <br>
+                S Key: Downword <br>
+                D Key: Right <br> 
+
+            </p>
+        </div>
+        <!-- build:js -->
+
+        <!-- classes -->
+        <script src="js/Player.js"></script>
+        <script src="js/World.js"></script>
+        <script src="js/Room.js"></script>
+        <script src="js/Sprite.js"></script>
+        <script src="js/Tile.js"></script>
+        <script src="js/Item.js"></script>
+
+        <!-- items -->
+        <script src="js/items/Spawn.js"></script>
+        <script src="js/items/Key.js"></script>
+        <script src="js/items/Door.js"></script>
+        <script src="js/items/Note.js"></script>
+        <script src="js/items/Spikes.js"></script>
+        <script src="js/items/Chest.js"></script>
+        <script src="js/items/LavaBoots.js"></script>
+        <script src="js/items/MovingPlatform.js"></script>
+        <script src="js/items/PopupPlatform.js"></script>
+        <script src="js/items/Thorns.js"></script>
+        <script src="js/items/Shears.js"></script>
+        <script src="js/items/Gate.js"></script>
+        <script src="js/items/Lever.js"></script>
+
+        <script src="js/constants.js"></script>
+        <script src="js/variables.js"></script>
+
+        <script src="js/keyboard.js"></script>
+        <script src="js/input.js"></script>
+        <script src="js/render.js"></script>
+        <script src="js/font.js"></script>
+        <script src="js/rooms.js"></script>
+        <script src="js/data.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/debug.js"></script>
+        <script src="js/index.js"></script>
+        <!-- endbuild -->
+        <!-- removeIf(production) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-17363771-9"></script>
+        <script data-ignore=true>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-17363771-9');
+        </script>
+        <!-- endRemoveIf(production) -->
+    </body>
+</html>

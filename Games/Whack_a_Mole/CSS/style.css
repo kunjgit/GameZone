@@ -77,7 +77,8 @@
     height: 200px;
     width: 20%;
     margin: 15px 10px;
-    border: 2px solid black;
+    border: 2px solid #9E9E9E;
+    border-radius: 15px;
 }
 
 #game-container .mole {

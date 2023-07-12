@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Baseball Game</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Baseball Game</h1>
+    <div class="field">
+      <div class="pitcher">
+        <img src="./assets/batter.jpeg" alt="Pitcher">
+      </div>
+      <button id="hitButton">Hit!</button>
+      <div class="result" id="result"></div>
+      <div class="batter">
+        <img src="./assets/pitcher.jpeg" alt="Batter">
+      </div>
+    </div>
+    <div class="scoreboard" id="scoreboard">
+      <div class="scoreboard-title">Scoreboard</div>
+      <div class="scoreboard-row">
+        <div class="label">Inning:</div>
+        <div id="inning" class="score">1</div>
+      </div>
+      <div class="scoreboard-row">
+        <div class="label">Outs:</div>
+        <div id="outs" class="score">0</div>
+      </div>
+      <div class="scoreboard-row">
+        <div class="label">Score:</div>
+        <div id="score" class="score">0</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="extra.js"></script>
+</body>
+</html>

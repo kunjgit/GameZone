@@ -33,6 +33,3 @@ https://sehaj-kahlon.github.io/Quizz-App/
 ## **Working video 📹**
 https://github.com/Sehaj-kahlon/Quizz-App/assets/114355575/5258168c-9238-4c85-990d-4492b15af902
 
-## Deployed Website
-https://sehaj-kahlon.github.io/Quizz-App/
-

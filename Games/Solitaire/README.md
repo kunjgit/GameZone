@@ -5,11 +5,13 @@
 <br>
 
 ## **Description 📃**
+
 Solitaire is a popular single-player card game played with a standard deck. The objective is to arrange the cards in a specific manner, typically by suit and in ascending order. Players make moves by rearranging the cards on the tableau or foundation piles according to specific rules. The game requires strategic thinking and problem-solving skills to create sequences and free up cards. Solitaire is enjoyed by many as a challenging and relaxing pastime.
 - 
 
 ## **functionalities 🎮**
 <!-- add functionalities over here -->
+
 In Solitaire, the functionality revolves around moving and organizing cards. Players can drag and drop cards onto other cards to create descending sequences of alternating colors. They can also move cards between the tableau and foundation piles to build ascending sequences by suit. Additionally, players can utilize the stock pile to draw new cards when needed. The functionality allows players to strategically plan their moves and aim for a successful completion of the game.
 
 - 
@@ -26,6 +28,11 @@ To play Solitaire, start by dealing out a tableau of cards, face-down, in seven 
 
 <br>
 
+![Screenshot 2023-07-12 182347](https://github.com/Deepanshu0703/GameZone/assets/114489502/8561f7b8-c218-4652-840f-3edbd4bc387a)
+
+
+
+
 
 
 <br>
@@ -33,7 +40,7 @@ To play Solitaire, start by dealing out a tableau of cards, face-down, in seven 
 ## **Working video 📹**
 <!-- add your working video over here -->
 
-
+https://github.com/Deepanshu0703/GameZone/assets/114489502/bd95e758-7246-4b77-be40-64aabd7bed0c
 
 
 

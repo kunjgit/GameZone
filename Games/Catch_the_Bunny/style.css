@@ -13,6 +13,7 @@ body {
 	block-size: 100vh;
 	inline-size: 100%;
 	font-size: 1.6rem;
+	overflow: hidden;
 }
 
 .wrapper {

@@ -2,6 +2,8 @@ var svg = document.querySelector("svg");
 var cursor = svg.createSVGPoint();
 var arrows = document.querySelector(".arrows");
 var randomAngle = 0;
+var score = 0;
+var scoreId = document.getElementById("score");
 
 // center of target
 var target = {
@@ -158,6 +160,12 @@ function hitTest(tween) {
 		if (distance < 7) {
 			selector = ".bullseye"
 		}
+		if(selector === ".bullseye"){
+			score+=10;
+		}else if(selector === ".hit"){
+			score+=5;
+		}
+		scoreId.innerHTML = score;
 		showMessage(selector);
 	}
 
@@ -165,6 +173,8 @@ function hitTest(tween) {
 
 function onMiss() {
 	// Damn!
+	score-=3;
+	scoreId.innerHTML = score;
 	showMessage(".miss");
 }
 

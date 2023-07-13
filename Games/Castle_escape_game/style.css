@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    background-color: #222;
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+}
+canvas {
+    width: 496px;
+    height: 512px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+}

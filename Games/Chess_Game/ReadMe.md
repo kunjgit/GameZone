@@ -28,4 +28,3 @@
 ![image](../../assets/images/Chess_Game.jpg)
 
 <br>
-

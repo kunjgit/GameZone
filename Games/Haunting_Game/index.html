@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="300" style="border: 1px solid #333;"></canvas>
+        <script src="./src/javascript/drawable.js"></script>
+        <script src="./src/javascript/enemy.js"></script>
+        <script src="./src/javascript/weapon.js"></script>
+        <script src="./src/javascript/particleSystem.js"></script>
+        <script src="./src/javascript/bulletParticleSystem.js"></script>
+        <script src="./src/javascript/shootParticleSystem.js"></script>
+        <script src="./src/javascript/huntingGame.js"></script>
+        <script>
+
+            // General settings
+            const frameRate = 50;
+            const canvasId = 'canvas';
+            const maxActive = 4;
+            const enemyMaxY = 200;
+            const maxMisses = 5;
+            const bggSource = './src/images/bgg.jpg'; 
+
+            // Weapon settings
+            const weaponInfo = {
+                x: 230, 
+                y: 230, 
+                w: 40, 
+                h: 90, 
+                firerate: 1, 
+                imageSource: './src/images/shotgun.png'};
+            const weapon = Weapon.create(
+                weaponInfo.x, 
+                weaponInfo.y, 
+                weaponInfo.w, 
+                weaponInfo.h, 
+                weaponInfo.firerate, 
+                weaponInfo.imageSource);
+
+            // Enemy settings
+            const enemyInfo = {
+                x: -100, 
+                y: 0, 
+                w: 40, 
+                h: 40, 
+                minSpeed: 3, 
+                maxSpeed: 9, 
+                imageSources: ['./src/images/duck1.png', './src/images/duck2.png'], 
+                noOfEnemies: 10};
+            const enemies = Enemy.createCollection(
+                enemyInfo.x, 
+                enemyInfo.y, 
+                enemyInfo.w, 
+                enemyInfo.h, 
+                enemyInfo.minSpeed, 
+                enemyInfo.maxSpeed, 
+                enemyInfo.imageSources, 
+                enemyInfo.noOfEnemies);            
+            
+            // Bullet Particle System settings
+            const bulletParticleInfo = {
+                x: -100,
+                y: 0,
+                w: 3,
+                h: 3,
+                playSpeed: 30,
+                playTime: 1000,
+                noOfDrawables: 20,
+                colors: ['red', 'yellow', 'orange'],
+                noOfParticles: 10};
+            const bulletParticleSystems = BulletParticleSystem.createCollection(
+                bulletParticleInfo.x, 
+                bulletParticleInfo.y, 
+                bulletParticleInfo.w, 
+                bulletParticleInfo.h,
+                bulletParticleInfo.playSpeed, 
+                bulletParticleInfo.playTime, 
+                bulletParticleInfo.noOfDrawables, 
+                bulletParticleInfo.colors, 
+                bulletParticleInfo.noOfParticles);
+
+            // Shoot Particle System settings
+            const shootParticleInfo = {
+                x: 130,
+                y: 230,
+                w: 3,
+                h: 3,
+                playSpeed: 5,
+                playTime: 300,
+                noOfDrawables: 20,
+                colors: ['red', 'yellow', 'orange', 'black', 'grey'],
+                noOfParticles: 10,
+                spread: .2,
+                speed: 3};
+            const shootParticleSystems = ShootParticleSystem.createCollection(
+                shootParticleInfo.x, 
+                shootParticleInfo.y, 
+                shootParticleInfo.w, 
+                shootParticleInfo.h,
+                shootParticleInfo.playSpeed, 
+                shootParticleInfo.playTime, 
+                shootParticleInfo.noOfDrawables, 
+                shootParticleInfo.colors, 
+                shootParticleInfo.noOfParticles,
+                shootParticleInfo.spread,
+                shootParticleInfo.speed);
+                
+            // Game initialization
+            const huntingGame = HuntingGame.create(canvasId, enemies, weapon, bulletParticleSystems, 
+                shootParticleSystems, frameRate, maxActive, enemyMaxY, maxMisses, bggSource);
+            huntingGame.start();
+        </script>
+    </body>
+</html>

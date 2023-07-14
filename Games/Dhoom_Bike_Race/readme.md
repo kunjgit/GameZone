@@ -10,7 +10,7 @@
 
 ## **functionalities 🎮**
 <!-- add functionalities over here -->
-- Bike Controls: Players can control the bike's speed, acceleration, braking, and direction using on-screen left, top , right , bottom keyboard inputs. T
+- Bike Controls: Players can control the bike's speed, acceleration, braking, and direction using on-screen left, top , right , bottom keyboard inputs. 
 
 - This allows them to navigate through the game's environment and perform jumps and tricks.
 <br>

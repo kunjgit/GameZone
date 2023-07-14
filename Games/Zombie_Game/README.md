@@ -24,7 +24,7 @@
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![image]("GameZone\Games\zombie_cover\Assets\img.png")
+![image]("GameZone\Games\Zombie_Game\Assets\images\Zombie_Game.png")
 <br>
 
 ## **Working video 📹**

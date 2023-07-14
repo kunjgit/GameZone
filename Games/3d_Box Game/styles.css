@@ -76,3 +76,24 @@ span.fade {
   border: none;
   cursor: pointer;
 }
+
+#score-container {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  color: white;
+  font-size: 24px;
+  text-align: right;
+  z-index: 100;
+}
+
+#score {
+  margin-bottom: 10px;
+}
+
+#highscore {
+  font-weight: bold;
+}
+
+
+

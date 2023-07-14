@@ -12,6 +12,7 @@
     />
   </head>
   <body>
+    <!-- HTML structure for the game -->
     <div
       style="
         text-align: left;
@@ -25,15 +26,17 @@
         <i style="color: black" class="fas fa-home home-icon"></i>
       </a>
     </div>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap");
-    </style>
     <div id="heading">
       <h1 class="h1-heading">3D-Box Game</h1>
     </div>
 
     <div class="overlay">
       <button id="reset-button">Reset</button>
+    </div>
+
+    <div id="score-container">
+      <div id="score">Score: 0</div>
+      <div id="highscore">High Score: 0</div>
     </div>
 
     <script
@@ -67,8 +70,9 @@
         const span = text.querySelectorAll("span")[char];
         span.classList.add("fade");
         span.classList.add("3d");
-        // Working on the colourful text
-        // span.style.backgroundColor = `-webkit-linear-gradient(#03fce3, #fcba03)`;
+        // Working on the the colourful text
+       // span.style.backgroundColor = `-webkit-linear-gradient(#03fce3, #fcba03)`;
+
 
         char++;
         if (char === splitText.length) {
@@ -165,7 +169,7 @@
         applyGravity(ground) {
           this.velocity.y += this.gravity;
 
-          // This is where we hit the ground
+           //this is where we hit the ground
           if (boxCollision({ box1: this, box2: ground })) {
             const friction = 0.7;
             this.velocity.y *= friction;
@@ -175,7 +179,7 @@
       }
 
       function boxCollision({ box1, box2 }) {
-        // Detect the collision on the x axis
+        //detect the collision on the x axis
         const zCollision = box1.front >= box2.back && box1.back <= box2.front;
         const yCollision =
           box1.bottom + box1.velocity.y <= box2.top && box1.top >= box2.bottom;
@@ -223,29 +227,29 @@
       camera.position.z = 5;
 
       const keys = {
-        a: { 
-          pressed: false 
+        a: {
+          pressed: false,
         },
-        d: { 
-          pressed: false 
+        d: {
+          pressed: false,
         },
-        s: { 
-          pressed: false 
+        s: {
+          pressed: false,
         },
-        w: { 
-          pressed: false 
+        w: {
+          pressed: false,
         },
-        up: { 
-          pressed: false 
+        up: {
+          pressed: false,
         },
-        down: { 
-          pressed: false 
+        down: {
+          pressed: false,
         },
-        left: { 
-          pressed: false 
+        left: {
+          pressed: false,
         },
-        right: { 
-          pressed: false 
+        right: {
+          pressed: false,
         },
       };
 
@@ -315,14 +319,16 @@
       let frames = 0;
       let spawnRate = 200;
       let animationID;
+      let score = 0;
+      let highScore = 0;
 
       function animate() {
         animationID = requestAnimationFrame(animate);
         renderer.render(scene, camera);
 
-        // Movement code
-        cube.velocity.x = 0; // Initially zero
-        cube.velocity.z = 0; // Initially zero
+          //movement code
+        cube.velocity.x = 0;    //initially zero
+        cube.velocity.z = 0;    //initially zero
         if (keys.a.pressed || keys.left.pressed) {
           cube.velocity.x = -0.06;
         } else if (keys.d.pressed || keys.right.pressed) {
@@ -338,12 +344,7 @@
         cube.update(ground);
         enemies.forEach((enemy) => {
           enemy.update(ground);
-          if (
-            boxCollision({
-              box1: cube,
-              box2: enemy,
-            })
-          ) {
+          if (boxCollision({ box1: cube, box2: enemy })) {
             endGame();
           }
         });
@@ -372,6 +373,16 @@
           enemy.castShadow = true;
           scene.add(enemy);
           enemies.push(enemy);
+
+          score++;
+          document.getElementById("score").textContent = `Score: ${score}`;
+
+          if (score > highScore) {
+            highScore = score;
+            document.getElementById(
+              "highscore"
+            ).textContent = `High Score: ${highScore}`;
+          }
         }
         frames++;
       }
@@ -405,6 +416,10 @@
 
         frames = 0;
         spawnRate = 200;
+
+        score = 0;
+        document.getElementById("score").textContent = `Score: ${score}`;
+
         animate();
       }
 

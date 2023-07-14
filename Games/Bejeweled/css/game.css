@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+#game_content{
+	width: 750px;
+	height: 520px;
+	margin: auto;
+	background-color: rgba(51, 51, 85, 0.4);
+	border: 3px solid rgba(34, 34, 238, 0.4);
+	border-top: 15px solid rgba(34, 34, 238, 0.4);
+	border-radius: 5px;
+}
+
+#grid{
+	position: relative;
+	width: 525px;
+	height: 525px;
+	background: url('../images/grid.png') rgba(32, 32, 32, 0.4);
+	background-repeat: no-repeat;
+}
+
+#player_info{
+	position: relative;
+	float: right;
+	top: 60px;
+	width: 230px;
+	text-align: center;
+}
+
+#player_info p, #game_level{
+	font-size: 18px;
+	margin-left: 30px;
+	color: #226622;
+}
+
+#total_score, #level{
+	padding: 70px 0 20px 0;
+	margin-left: 30px;
+	margin-top: -70px;
+	font-size: 20px;
+	height: 130px;
+	font-weight: bold;
+	color: #FFF;
+	background-image: url('../images/rose.png');
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+#total_score{
+	padding-top: 52px;
+}
+
+#goal_score{
+	font-size: 14px;
+}
+
+#level{
+	margin-bottom: -60px;
+}
+
+#level_text{
+	margin-top: 80px;
+}
+
+#time_gauge{
+	position: absolute;
+	border-radius: 20px;
+	left: 30px;
+	top: -10px;
+	width: 15px;
+	height: 400px;
+	background-color: #666;
+}
+
+#current_gauge{
+	position: absolute;
+	border-radius: 20px;
+	bottom: 0px;
+	left: 2px;
+	width: 11px;
+	height: 100%;
+	background-color: #00F000;
+}
+
+.score_gain{
+	position: absolute;
+	left: 112px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #222;
+}
+
+.gem, .bomb{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#content button{
+	cursor:pointer;
+	height: 30px;
+	margin: 0px -5px 15px 0px;
+	padding: 0 9px 0 9px;
+}
+
+#content button:hover{
+	border-color: #999;
+	-o-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#content button:active{
+	border-color: #444;
+}
+
+#player_info button{
+	cursor: pointer;
+	margin-left: 10px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border: 3px solid rgba(68 ,68, 68, 1);
+	background-color: rgba(238, 34, 34, 0.6);
+	font-size: 10pt;
+	font-family: 'Electrolize', 'Segoe UI', Helvetica, Arial, 'Trebuchet MS', sans-serif;
+	color: #FFF;
+}

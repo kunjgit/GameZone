@@ -2663,10 +2663,10 @@ span:nth-child(7) {
 
 @keyframes movement {
   0% {
-    transform: translate3d(-90px, 0, 0);
+    transform: translate3d(-110px, 0, 0);
   }
   100% {
-    transform: translate3d(85px, 0, 0);
+    transform: translate3d(105px, 0, 0);
   }
 }
 

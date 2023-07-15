@@ -18,7 +18,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fgwk4XZfxG)
 
-![Lines of code](https://img.shields.io/tokei/lines/github/kunjgit/GameZone)
 ![GitHub issues](https://img.shields.io/github/issues/kunjgit/GameZone)
 ![GitHub forks](https://img.shields.io/github/forks/kunjgit/GameZone)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kunjgit/GameZone)

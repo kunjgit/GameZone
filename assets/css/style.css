@@ -35,15 +35,22 @@
   height: 0;
 }
 
+
 .slider {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #000000;
   border-radius: 34px;
   transition: background-color 0.4s;
+  box-shadow: 0 0 20px #fb16e4;
+  
+}
+
+ .slider .dark-theme{
+  background-color: #000;
 }
 
 .slider:before {
@@ -53,9 +60,23 @@
   width: 16px;
   left: 2px;
   bottom: 2px;
-  background-color: black;
+  background : url('https://img.icons8.com/fluency/16/000000/smiling-sun.png');
   border-radius: 50%;
   transition: transform 0.4s;
+  /* box-shadow: 0 0 20px #fb16e4; */
+}
+
+.dark-theme .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background : url('https://img.icons8.com/external-flatart-icons-flat-flatarticons/16/external-moon-nature-flatart-icons-flat-flatarticons-4.png');
+  border-radius: 50%;
+  transition: transform 0.4s;
+  /* box-shadow: 0 0 20px #fb16e4; */
 }
 
 input:checked + .slider:before {
@@ -69,6 +90,7 @@ input:checked + .slider:before {
 .dark-theme .footer-content .socials li a {
   color: #000000;
 }
+
 
 a {
   text-decoration: none;
@@ -2712,3 +2734,17 @@ ul.socials{
   line-height: 5px;
   padding-bottom: 18px;
 }
+
+
+
+.project-img{
+  -webkit-box-shadow:0px 0px 21px 0px rgba(204,153,255,1);
+-moz-box-shadow: 0px 0px 21px 0px rgba(204,153,255,1);
+box-shadow: 0px 0px 21px 0px rgba(204,153,255,1);
+}
+.project-img:hover{
+  -webkit-box-shadow:0px 0px 105px 0px rgba(255,153,255,0.9);
+  -moz-box-shadow: 0px 0px 105px 0px rgba(255,153,255,0.9);
+  box-shadow: 0px 0px 105px 0px rgba(255,153,255,0.9);
+}
+

@@ -1,12 +1,14 @@
 ### Flashlight Pointer Game
 
-#### Search and find all the three rabbits
+### Description
+- Search and find all the three rabbits
+- In this game you have a flashlight which you can use to reveal a section of the webpage. 
 
-#### In this game you have a flashlight which you can use to reveal a section of the webpage. 
-#### There are three rabbits hiding in the webpage somewhere out of sight. Find all the three rabbits to win the game.
 
-#### If you find a rabbit quickly click on it and you will be awarded a point.
-#### Find all the three rabbits to win the game.
+### How to play this game
+- There are three rabbits hiding in the webpage somewhere out of sight. Find all the three rabbits to win the game.
+- If you find a rabbit quickly click on it and you will be awarded a point.
+- Find all the three rabbits to win the game.
 
 ## Image
 

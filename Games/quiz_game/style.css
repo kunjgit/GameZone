@@ -21,14 +21,14 @@ html {
   
   .container {
     margin-right:45%;
-    /* border: 1px solid black; */
     background-color: #fff;
     width: 520px;
-    height: 320px;
+    height: 500px;
     border-radius: 10px;
-    /* border: 2px solid cyan; */
+    border: 2px solid black;
     padding: 10px 10px;
-    margin-top: 10%;
+    margin-top: 5%;
+    margin-bottom: 10%;
     color: black;
     font-family: monospace;
     overflow: hidden;
@@ -41,17 +41,23 @@ html {
   h3 {
     text-align: center;
     margin: 0px -2px;
-    padding: 0rem;
+    padding: 3rem;
+    height: 150px;
+    border-bottom: 2px dotted black;
   }
   
   ul {
     list-style-type: none;
-    padding: 0;
+    padding: 30px;
+    width: 480px;
+    height: 170px;
   }
   
   ul li {
     font-size: 1.1rem;
     margin: 1rem 0;
+    width: 200px;
+    display: inline-block;
   }
   
   ul li label {
@@ -66,10 +72,10 @@ html {
     padding: 1rem;
     font-size: 1.1rem;
     background-color: black;
-    border:none;
-    color:#fff;
+    border: none;
+    color: #fff;
     border-radius: 10px;
-    margin: 35px 0px;
+    top: 400px;
   }
   button:hover{
     background-color: rgb(54, 53, 53);

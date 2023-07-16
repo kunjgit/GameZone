@@ -18,7 +18,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fgwk4XZfxG)
 
-![Lines of code](https://img.shields.io/tokei/lines/github/kunjgit/GameZone)
 ![GitHub issues](https://img.shields.io/github/issues/kunjgit/GameZone)
 ![GitHub forks](https://img.shields.io/github/forks/kunjgit/GameZone)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kunjgit/GameZone)
@@ -42,11 +41,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 <center>
 <p>
 <div align="center">
-<img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge&logo=HTML5&logoColor=white">
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black">
-<img src="https://img.shields.io/badge/Bootstrap-7952B3.svg?style=for-the-badge&logo=Bootstrap&logoColor=black">
-<img src="https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=black">
-<img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=black">
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5"><img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge&logo=HTML5&logoColor=white"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black"></a>
+<a href="https://getbootstrap.com/"><img src="https://img.shields.io/badge/Bootstrap-7952B3.svg?style=for-the-badge&logo=Bootstrap&logoColor=black"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=black"></a>
+<a href="https://v2.tailwindcss.com/docs"><img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=black"></a>
 <div>
 </p>
 </center>
@@ -320,7 +319,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 213 | [Crossword Game](https://github.com/kunjgit/GameZone/tree/main/Games/Crossword_Game)|
 | 214 | [Guess the Correct Logo](https://github.com/shruti-2412/GameZone/tree/main/Games/Guess_The_Correct_Logo)|
 | 215 | [Painting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Painting_Game)| 
-| 216 | [Platform_game_engine](https://github.com/kunjgit/GameZone/tree/main/Games/Platform_game_engine)| 
+| 216 | [Platform_game_engine](https://github.com/kunjgit/GameZone/tree/main/Games/Platform_game_engine)|
 | 217 | [Doppelkopf](https://github.com/kunjgit/GameZone/tree/main/Games/Doppelkopf)|
 | 218 | [quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/quiz_game)|
 | 218 | [Island Survival](https://github.com/kunjgit/GameZone/tree/main/Games/Island_Survival)|
@@ -356,7 +355,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 248 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
 | 249 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
 | 250 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
-| 251 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|
+| 251 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|         
 | 252 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
 | 253 | [Save Doraemon](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Doraemon)|
 | 254 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|
@@ -378,15 +377,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 270 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
 | 271 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
 | 272 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
-| 266 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe the Cloud)|
-| 267 | [Cosmic_Coin_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Blaster)|
-| 266 | [Number Sliding Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Sliding_Puzzle_Game)|
-| 267 | [Reaction Time](https://github.com/kunjgit/GameZone/tree/main/Games/Reaction_Time)|
-| 268 | [Flag Guess Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flag_Guess_Game)|
-| 269 | [Cross_The_Road](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_The_Road)|
-| 270 | [Highway Race - Barrel Dodge](https://github.com/kunjgit/GameZone/tree/main/Games/Highway_Race)|
-| 271 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
-| 272 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
 | 273 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
 | 274 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe%20the%20Cloud)|
 | 275 | [Cosmic_Coin_Collector](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Collector)|
@@ -398,7 +388,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 281 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
 | 282 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain%20Color%20Mastermind)|
 | 283 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lizard%20Spock%20Game)|
-| 284 | [Angry Boars](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Boars)|Alphabet Learning Game
+| 284 | [Angry Boars](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Boars)|
 | 285 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet%20Learning%20Game)|
 | 286 | [Country_Guesser_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Country_Guesser_Game)|
 | 287 | [Poke_Guess_Blitz](https://github.com/kunjgit/GameZone/tree/main/Games/Poke_Guess_Blitz)|
@@ -421,18 +411,16 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 304 | [Meme_Battle_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Meme%20Battle%20Game)|
 | 305 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
 | 306 | [Beyblade](https://github.com/kunjgit/GameZone/tree/main/Games/Beyblade)|
-| 307 | [The labyrinth of death](https://github.com/sahaycodes/GameZone/tree/meme/Games/The labyrinth of death)|
-
-
-
-
-
-
-
-
-
-
-
+| 307 | [The labyrinth of death](https://github.com/sahaycodes/GameZone/tree/meme/Games/The%20labyrinth%20of%20death)|
+| 308 | [2D_BreakOut](https://github.com/kunjgit/GameZone/tree/meme/Games/2D_Breakout)|
+| 309 | [Battleship](https://github.com/kunjgit/GameZone/tree/main/Games/Battleship)|
+| 310 | [Baseball](https://github.com/kunjgit/GameZone/tree/main/Games/Baseball)|
+| 311 | [Save_Princess](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Princess) |
+| 312 | [RoadFighter](https://github.com/kunjgit/GameZone/tree/main/Games/RoadFighter)|
+| 313 | [Guitar Game](https://github.com/kunjgit/GameZone/tree/main/Games/Guitar_Game)|
+| 314 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire) |
+| 315 | [Lady Tiger Hunter](https://github.com/kunjgit/GameZone/tree/main/Games/Lady_Tiger_Hunter)|
+| 316 | [Flashlight_Pointer_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flashlight_Pointer_Game)|
 
 
 
@@ -473,6 +461,12 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 - Please note that this project is released with [CODE OF CONDUCT](./.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 <br>
+
+## License
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+Terms and conditions for use, reproduction and distribution are under the [Apache-2.0 License](https://opensource.org/license/apache-2-0/).
+
 
 <!-- mentors -->
 

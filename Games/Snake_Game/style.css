@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Prosto+One&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
@@ -10,28 +11,31 @@
     justify-content: center;
     align-items: center;
     height: 45rem;
-    
 }
 
 button{
     color: darkgreen;
     border: 2px solid green;
     background: none;
+
+button {
     position: absolute;
     top: 5rem;
     left: 42rem;
     padding: 0.5rem 1rem;
     font-size: 2rem;
+
     font-family: math;
     border-radius: 0.6rem;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
-    filter: drop-shadow(2px,2px,2px black);
+    filter: drop-shadow(2px, 2px, 2px black);
     background-color: black;
     color: white;
-    transition: .3s ease;
+    transition: .8s ease;
+    box-shadow: 5px 5px 5px rgb(75, 75, 239);
 }
 
 #scoreBox{
@@ -64,14 +68,15 @@ button:hover{
     height: 75vmin;
     border: 2px solid black;
     display: grid;
-    grid-template-rows: repeat(18,1fr);
-    grid-template-columns: repeat(18,1fr);
+    border-radius: 50px;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
 }
-
 .head{
     background:red;
     transform: scale(1.02);
-    border-radius: 50%;
+    border: 2px solid purple;
+    border-radius: 4px;
 }
 
 .snake{
@@ -84,10 +89,13 @@ button:hover{
     border: none;
     border-radius:8px;
 }
-h1{
+
+
+h1 {
     margin: 0.5rem;
 }
-p{
+
+p {
     margin: 0.5rem;
 }
 .heading{
@@ -97,3 +105,13 @@ p{
     font-size: 2rem;
     margin-left: 41%; 
 }
+
+a{
+    position: relative;
+    left: -10vw;
+    top: -25vh;
+    font-size: 30px;
+    
+}
+
+

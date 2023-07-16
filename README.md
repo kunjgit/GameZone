@@ -18,7 +18,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fgwk4XZfxG)
 
-![Lines of code](https://img.shields.io/tokei/lines/github/kunjgit/GameZone)
 ![GitHub issues](https://img.shields.io/github/issues/kunjgit/GameZone)
 ![GitHub forks](https://img.shields.io/github/forks/kunjgit/GameZone)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kunjgit/GameZone)
@@ -42,11 +41,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 <center>
 <p>
 <div align="center">
-<img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge&logo=HTML5&logoColor=white">
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black">
-<img src="https://img.shields.io/badge/Bootstrap-7952B3.svg?style=for-the-badge&logo=Bootstrap&logoColor=black">
-<img src="https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=black">
-<img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=black">
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5"><img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge&logo=HTML5&logoColor=white"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black"></a>
+<a href="https://getbootstrap.com/"><img src="https://img.shields.io/badge/Bootstrap-7952B3.svg?style=for-the-badge&logo=Bootstrap&logoColor=black"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=black"></a>
+<a href="https://v2.tailwindcss.com/docs"><img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=black"></a>
 <div>
 </p>
 </center>
@@ -422,6 +421,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 314 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire) |
 | 315 | [Lady Tiger Hunter](https://github.com/kunjgit/GameZone/tree/main/Games/Lady_Tiger_Hunter)|
 | 315 | [Stone Paper Scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Stone-Paper-Scissor)|
+| 316 | [Flashlight_Pointer_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flashlight_Pointer_Game)|
 
 
 
@@ -463,6 +463,12 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 - Please note that this project is released with [CODE OF CONDUCT](./.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 <br>
+
+## License
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+Terms and conditions for use, reproduction and distribution are under the [Apache-2.0 License](https://opensource.org/license/apache-2-0/).
+
 
 <!-- mentors -->
 

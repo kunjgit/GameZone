@@ -5,25 +5,28 @@
     padding: 0;
 }
 
-.body {
-    background: linear-gradient(limegreen,rgb(0, 208, 0),rgb(211, 211, 4),yellow);
-    min-height: 100vh;
-    min-width: 100vw;
+.body{
+    background: #e3e8ee;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    height: 45rem;
 }
+
+button{
+    color: darkgreen;
+    border: 2px solid green;
+    background: none;
 
 button {
     position: absolute;
     top: 5rem;
-    left: 10rem;
-    padding: .5rem 1rem;
+    left: 42rem;
+    padding: 0.5rem 1rem;
     font-size: 2rem;
-    font-family: 'Prosto One', cursive;
-    border-radius: 50px;
 
+    font-family: math;
+    border-radius: 0.6rem;
 }
 
 button:hover {
@@ -35,53 +38,58 @@ button:hover {
     box-shadow: 5px 5px 5px rgb(75, 75, 239);
 }
 
-
-#scoreBox {
+#scoreBox{
+    border-radius: 1rem;
+    border: 2px solid #9E9E9E;
     position: absolute;
-    font-size: 39px;
-    right: 150px;
-    top: 9px;
-    font-weight: bold;
-    font-family: 'Prosto One', cursive;
+    font-size: 30px;
+    right: 40px;
+    top: 75px;
+    font-family: math;
+    padding: 3px 12px;
 }
 
-#HiScore {
+#HiScore{
+    border-radius: 1rem;
     position: absolute;
-    font-size: 39px;
-    right: 150px;
-    top: 50px;
-    font-weight: bold;
-    font-family: 'Prosto One', cursive;
+    font-size: 30px;
+    right: 25px;
+    border: 2px solid #9E9E9E;
+    top: 125px;
+    font-family: math;
+    padding: 3px 12px;
 }
 
-#board {
-    background: linear-gradient(rgb(170, 236, 170), rgb(236, 236, 167));
-    width: 90vmin;
-    height: 92vmin;
-    border: 5px solid black;
+#board{
+    margin-top: 4%;
+    border-radius: 1rem;
+    background: #0c4522;
+    width: 75vmin;
+    height: 75vmin;
+    border: 2px solid black;
     display: grid;
     border-radius: 50px;
     grid-template-rows: repeat(18, 1fr);
     grid-template-columns: repeat(18, 1fr);
 }
 .head{
-    background-image:linear-gradient(grey,purple);
+    background:red;
     transform: scale(1.02);
     border: 2px solid purple;
     border-radius: 4px;
 }
 
 .snake{
-    background-color: purple;
-    border: .25vmin solid white;
-    border-radius: 12px;
+    background: red !important; 
+    border-radius:45%;
 }
 
 .food{
-    background-image:linear-gradient(yellow,orange);
-    border: .25vmin solid black;
-    border-radius:50% ;
+    background: brown;
+    border: none;
+    border-radius:8px;
 }
+
 
 h1 {
     margin: 0.5rem;
@@ -89,6 +97,13 @@ h1 {
 
 p {
     margin: 0.5rem;
+}
+.heading{
+    color: aliceblue;
+    margin: auto;
+    display: inline;
+    font-size: 2rem;
+    margin-left: 41%; 
 }
 
 a{
@@ -98,4 +113,5 @@ a{
     font-size: 30px;
     
 }
+
 

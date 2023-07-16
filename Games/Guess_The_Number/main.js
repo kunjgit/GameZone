@@ -1,5 +1,7 @@
 var guessInput = document.getElementById("guess");
 var guessBtn = document.getElementById("my_btn");
+const resetBtn = document.querySelector('.reset-btn');
+
 var msg1 = document.getElementById("message1");
 var msg2 = document.getElementById("message2");
 var msg3 = document.getElementById("message3");
@@ -14,6 +16,7 @@ var guesses_num = [];
 
 var lives=10;
 
+resetBtn.addEventListener('click', reset);
 guessBtn.addEventListener('click', play);
 guessInput.addEventListener('keypress', function(event) {
   if (event.key === 'Enter') {
@@ -65,4 +68,18 @@ function play() {
     }
   }
 }
+}
+
+function reset () {
+  msg1.textContent = 'No. of Guesss : 0';
+  msg2.textContent = 'Guessed number are : none';
+  msg3.textContent = '';
+  
+  answer = Math.floor(Math.random() * 100) + 1;
+  no_of_guesses = 0;
+  guesses_num = [];
+
+  guessInput.value = '';
+
+  lives=10;
 }

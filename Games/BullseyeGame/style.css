@@ -14,5 +14,8 @@ svg{
 span{
 	color:white;
 	font-family:sans-serif;
-	opacity:.3;
+}
+#score{
+	font-size: large;
+	color: #88ce02;
 }

@@ -18,7 +18,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fgwk4XZfxG)
 
-![Lines of code](https://img.shields.io/tokei/lines/github/kunjgit/GameZone)
 ![GitHub issues](https://img.shields.io/github/issues/kunjgit/GameZone)
 ![GitHub forks](https://img.shields.io/github/forks/kunjgit/GameZone)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kunjgit/GameZone)
@@ -421,7 +420,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 313 | [Guitar Game](https://github.com/kunjgit/GameZone/tree/main/Games/Guitar_Game)|
 | 314 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire) |
 | 315 | [Lady Tiger Hunter](https://github.com/kunjgit/GameZone/tree/main/Games/Lady_Tiger_Hunter)|
-| 316 | [Baseball](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
+| 316 | [Flashlight_Pointer_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flashlight_Pointer_Game)|
+| 317 | [QuizzApp](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
+
 
 
 

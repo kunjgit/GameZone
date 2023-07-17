@@ -85,6 +85,7 @@ input:checked + .slider:before {
 
 .dark-theme {
   filter: invert(1) hue-rotate(180deg);
+  color: #000000;
 }
 
 .dark-theme .footer-content .socials li a {
@@ -2458,6 +2459,9 @@ textarea.form-input::-webkit-resizer {
   font-weight: 500;
   font-size: 16px;
   transition: 0.8s;
+}
+.search-container ::placeholder{
+  color: #000000;
 }
 
 .search-container .search-btn {

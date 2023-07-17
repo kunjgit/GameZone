@@ -427,23 +427,19 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 320 | [Dinoffline](https://github.com/kunjgit/GameZone/tree/main/Games/Dinoffline)|
 | 321 | [Maths_Sprint_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maths_Sprint_Game)|
 | 322 | [Etch a Sketch](https://github.com/kunjgit/GameZone/tree/main/Games/Etch-a-Sketch)|
-| 323 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
+| 323 | [QuizzApp](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
+| 324 | [Chess_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game)|
+| 325 | [Which_Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|
+| 326 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
+
+
+
 
   
+
   
+</center>
 
-
-
-
-
-
-
-
-
-
-
-
- </center>
 <br>
 <br>
 

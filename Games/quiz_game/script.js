@@ -1,11 +1,11 @@
 const quiz_data=[
     {
-    question: "Which HTML attribute is used to specify an image source?",
-    a: "src",
-    b: "alt",
-    c: "href",
-    d: "img",
-    correct: "a"
+        question: "Which HTML attribute is used to specify an image source?",
+        a: "src",
+        b: "alt",
+        c: "href",
+        d: "img",
+        correct: "a"
     },
     {
         question: "Which HTML attribute is used to specify alternate text for image?",

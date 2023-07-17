@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Snail Game</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html>
+<head>
+    <title>Snail Game</title>
+    <style>
+        body {
+            background-color: none;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+          .board {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1vw;
+            width: 100vw; /* Set the width to 100% of the viewport width */
+            max-width: 100%; /* Ensure the width doesn't exceed the viewport width */
+            overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+        .track {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            border: 1px solid #ccc;
+            background-color: #fff;
+            margin-bottom: 0.5vw;
+            padding: 1vw;
+        }
+
+        .square {
+            height: 7vw;
+            width: 7vw;
+            text-align: center;
+            font-size: 4vw;
+            line-height: 7vw;
+            border-radius: 20%;
+        }
+
+        .red { background-color: #ff6b6b; }
+        .blue { background-color: #74b9ff; }
+        .green { background-color: #55efc4; }
+        .yellow { background-color: #f9ca24; }
+        .purple { background-color: #a29bfe; }
+        .orange { background-color: #fdcb6e; }
+
+        .winning-track {
+            color: #333;
+            font-size: 5vw;
+            font-weight: bold;
+        }
+
+        .winning-track .square {
+            position: relative;
+        }
+
+        .winning-track .square::after {
+            content: attr(data-letter);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .roll-button {
+            display: block;
+            margin: 1vw auto;
+            font-size: 3vw;
+            padding: 2vw 4vw;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .roll-button:hover {
+            background-color: #2980b9;
+        }
+
+        .restart-button {
+            display: block;
+            margin: 1vw auto;
+            font-size: 3vw;
+            padding: 2vw 4vw;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .restart-button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <div class="track">
+            <div class="square red">🐌</div>
+            <div class="square red"></div>
+            <div class="square red"></div>
+            <div class="square red"></div>
+            <div class="square red"></div>
+            <div class="square red"></div>
+            <div class="square red"></div>
+            <div class="square red"></div>
+            <div class="square red"></div>
+            <div class="square red"></div>
+            <div class="square red"></div>
+            <div class="square red"></div>
+        </div>
+        <div class="track">
+            <div class="square blue">🐌</div>
+            <div class="square blue"></div>
+            <div class="square blue"></div>
+            <div class="square blue"></div>
+            <div class="square blue"></div>
+            <div class="square blue"></div>
+            <div class="square blue"></div>
+            <div class="square blue"></div>
+            <div class="square blue"></div>
+            <div class="square blue"></div>
+            <div class="square blue"></div>
+            <div class="square blue"></div>
+        </div>
+        <div class="track">
+            <div class="square green">🐌</div>
+            <div class="square green"></div>
+            <div class="square green"></div>
+            <div class="square green"></div>
+            <div class="square green"></div>
+            <div class="square green"></div>
+            <div class="square green"></div>
+            <div class="square green"></div>
+            <div class="square green"></div>
+            <div class="square green"></div>
+            <div class="square green"></div>
+            <div class="square green"></div>
+        </div>
+        <div class="track">
+            <div class="square yellow">🐌</div>
+            <div class="square yellow"></div>
+            <div class="square yellow"></div>
+            <div class="square yellow"></div>
+            <div class="square yellow"></div>
+            <div class="square yellow"></div>
+            <div class="square yellow"></div>
+            <div class="square yellow"></div>
+            <div class="square yellow"></div>
+            <div class="square yellow"></div>
+            <div class="square yellow"></div>
+            <div class="square yellow"></div>
+        </div>
+        <div class="track">
+            <div class="square purple">🐌</div>
+            <div class="square purple"></div>
+            <div class="square purple"></div>
+            <div class="square purple"></div>
+            <div class="square purple"></div>
+            <div class="square purple"></div>
+            <div class="square purple"></div>
+            <div class="square purple"></div>
+            <div class="square purple"></div>
+            <div class="square purple"></div>
+            <div class="square purple"></div>
+            <div class="square purple"></div>
+        </div>
+        <div class="track">
+            <div class="square orange">🐌</div>
+            <div class="square orange"></div>
+            <div class="square orange"></div>
+            <div class="square orange"></div>
+            <div class="square orange"></div>
+            <div class="square orange"></div>
+            <div class="square orange"></div>
+            <div class="square orange"></div>
+            <div class="square orange"></div>
+            <div class="square orange"></div>
+            <div class="square orange"></div>
+            <div class="square orange"></div>
+        </div>
+    </div>
+
+    <button onclick="rollDie()" id="roll-button" class="roll-button">Roll Die</button>
+    <button onclick="restartGame()" id="restart-button" class="restart-button" style="display: none;">Restart</button>
+
+    <script>
+        const snails = [
+            { color: 'red', position: 0 },
+            { color: 'blue', position: 0 },
+            { color: 'green', position: 0 },
+            { color: 'yellow', position: 0 },
+            { color: 'purple', position: 0 },
+            { color: 'orange', position: 0 }
+        ];
+
+        const rollButton = document.getElementById('roll-button');
+        const restartButton = document.getElementById('restart-button');
+
+        function rollDie() {
+            const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            rollButton.style.backgroundColor = randomColor;
+
+            const snail = snails.find(s => s.color === randomColor);
+            snail.position++;
+
+            const squares = document.querySelectorAll(`.board .${snail.color}`);
+            squares.forEach((square, index) => {
+                if (index === snail.position) {
+                    square.textContent = '🐌';
+                } else {
+                    square.textContent = '';
+                }
+            });
+
+            if (snail.position === 11) {
+                const winningTrack = document.querySelector(`.board .${snail.color}`).parentNode;
+                winningTrack.classList.add('winning-track');
+                const squaresInTrack = winningTrack.querySelectorAll('.square');
+                for (let i = 0; i < squaresInTrack.length - 1; i++) {
+                    squaresInTrack[i].textContent = 'WINNERSNAIL'[i];
+                }
+
+                rollButton.style.display = 'none';
+                restartButton.style.display = 'block';
+            }
+        }
+
+function restartGame() {
+    const winningTrack = document.querySelector('.winning-track');
+    if (winningTrack) {
+        winningTrack.classList.remove('winning-track');
+        const squaresInTrack = winningTrack.querySelectorAll('.square');
+        squaresInTrack.forEach((square, index) => {
+            if (index === squaresInTrack.length - 1) {
+                square.textContent = '🐌';
+            } else {
+                square.textContent = '';
+            }
+        });
+    }
+
+    snails.forEach(snail => {
+        snail.position = 0;
+        const squares = document.querySelectorAll(`.board .${snail.color}`);
+        squares[0].textContent = '🐌';
+        for (let i = 1; i < squares.length; i++) {
+            squares[i].textContent = '';
+        }
+    });
+
+    rollButton.style.backgroundColor = '#3498db';
+    rollButton.style.display = 'block';
+    restartButton.style.display = 'none';
+}
+
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>

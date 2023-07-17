@@ -7,8 +7,9 @@
 ## **Description 📃**
 - X and O have to play turn by turn.
 - whose ever turn it is ,it will be displayed on screen.
+<br>
 
-## **functionalities 🎮**
+## **Functionalities 🎮**
 - There is sound on each and every turn.
 - The gif will appear if any one wins.
 - The game can also restart in between if required.
@@ -23,11 +24,6 @@
 
 ## **Screenshots 📸**
 
-<br>
-
-![image](../../assets/images/Tic_Tac_Toe.png)
+![image](https://github.com/Abhishek-Rajput-81/GameZone/assets/96196696/aae67b43-4efc-4f67-b436-20dfcf5bd394)
 
 <br>
-
-## **Working video 📹**
-<!-- add your working video over here -->

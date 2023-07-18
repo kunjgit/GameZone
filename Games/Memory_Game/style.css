@@ -1,14 +1,9 @@
-:root {
-    /* --color-green--light: #00c46a; */
-    /* background-image: linear-gradient(135deg, #71FA32, #009DE0) ; */
-   
-}
-
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: math;
+    background: #5f4a8b;
 }
 
 body {
@@ -16,17 +11,15 @@ body {
 }
 
 .wrapper {
+    color: antiquewhite;
     box-sizing: content-box;
     width: 26.87em;
     padding: 2.5em 3em;
-    /* background-color: #ffffff; */
-    background-image: linear-gradient(to right, #BDC3C7, #ECF0F1);
+    background: #5f4a8b;
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
-    top: 50%;
-    border-radius: 0.6em;
-    box-shadow: 0 0.9em 2.8em rgba(86, 66, 0, 0.2);
+    top: 58%;
 }
 
 .game-container {
@@ -67,8 +60,7 @@ body {
 }
 
 .card-before {
-    /* background-color: var(--color-green--light); */
-    background: linear-gradient(-45deg, #71FA32, #a6dee2, #009DE0);
+    border: 2px solid #ccf281;
     font-size: 2.8em;
     font-weight: 600;
 }
@@ -94,9 +86,16 @@ body {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    /* background-color: var(--color-green--light); */
-    background-image: linear-gradient(135deg, #71FA32, #009DE0) ;
+    background: #5f4a8b;
     top: 0;
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    font-family: math;
+    color: #efa37f;
+    margin-bottom: 3rem;
 }
 
 button {
@@ -107,16 +106,25 @@ button {
 }
 
 #stop {
-    font-size: 1.1em;
     display: block;
     margin: 1.1em auto 0 auto;
-    background-color: #000000;
-    color: #ffffff;
+    font-size: 1.3em;
+    box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2);
+    background: #ccf281;
+    color: #4f3d74;
+    border-radius: 0.8rem;
+    padding: 1rem 3rem;
+    font-family: math;
 }
 
 .controls-container button {
     font-size: 1.3em;
     box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2);
+    background: #ccf281;
+    color: #4f3d74;
+    border-radius: 0.8rem;
+    padding: 1rem 3rem;
+    font-family: math;
 }
 
 .hide {

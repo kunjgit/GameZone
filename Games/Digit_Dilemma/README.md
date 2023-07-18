@@ -41,7 +41,7 @@ To play the Mastermind game, follow these steps:
 ## **Screenshots 📸**
 
 <br>
-<img src="Screenshots/Digits_Dilemma.png" alt="Game Screenshot">
+<img src="Screenshots/Digit_Dilemma.png" alt="Game Screenshot">
 
 
 

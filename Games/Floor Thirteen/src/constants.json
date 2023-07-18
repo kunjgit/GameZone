@@ -1,0 +1,14 @@
+{
+  "DEBUG": false,
+  "ASSETS_DIR": "",
+  "GAME_SCALE": 3,
+  "GAME_WIDTH": 240,
+  "GAME_HEIGHT": 180,
+  "WORLD_WIDTH": 20,
+  "WORLD_HEIGHT": 15,
+  "DROP_RATE_MEDIC": 20,
+  "DROP_RATE_WEAPON": 15,
+  "LEVELS": 13,
+  "MEDIC": 20,
+  "PLAYER_LIFE": 99
+}

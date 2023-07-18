@@ -1396,19 +1396,21 @@ main {
 
 .project-title {
   color: var(--white-2);
-  font-size: var(--fs-5);
   font-weight: var(--fw-400);
-  text-transform: capitalize;
-  line-height: 1.3;
+  line-height: 1.5;
+  /* color: #1a4e67; */
+  font-size: var(--fs-6);
   text-align: center;
+  /* background-color: #c498de; */
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
 }
 
 .project-category {
-  color: black;
+  color: aliceblue;
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   text-align: center;
-  background-color: white;
   border-radius: 0.625rem;
 }
 

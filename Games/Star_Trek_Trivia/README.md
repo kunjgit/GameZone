@@ -35,6 +35,6 @@
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![image](assets/starTrek-screenshot.png)
+![image](../../assets/images/starTrek-screenshot.png)
 
 <br>

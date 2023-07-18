@@ -31,5 +31,16 @@ The Country Guesser game is an interactive game where players have to guess the 
 
 <br>
 
-# Video Preview
-[VideoPreview.webm](https://github.com/palakag29/GameZone/assets/112793075/b3355275-87b9-41fe-b0ec-7115dd4ac026)
+## **Screenshots 📸**
+
+<br>
+<img width="388" alt="after_1" src="https://github.com/AnkitaBarbora/GameZone/assets/101138526/dd9bdbe3-1fc3-4e03-89f1-b15ca4bf201f">
+
+
+<br>
+
+## **Working video 📹**
+
+
+https://github.com/AnkitaBarbora/GameZone/assets/101138526/5344da75-c3f9-420d-9f21-dab797087fb2
+

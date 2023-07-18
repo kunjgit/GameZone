@@ -85,6 +85,7 @@ input:checked + .slider:before {
 
 .dark-theme {
   filter: invert(1) hue-rotate(180deg);
+  color: #000000;
 }
 
 .dark-theme .footer-content .socials li a {
@@ -531,12 +532,17 @@ article.active {
   background: var(--text-gradient-yellow);
   border-radius: 3px;
 }
+/* Webkit-based browsers (Chrome, Safari) */
 
 .has-scrollbar::-webkit-scrollbar {
   width: 5px;
   /* for vertical scrollbar */
   height: 5px;
   /* for horizontal scrollbar */
+  position: absolute;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .has-scrollbar::-webkit-scrollbar-track {
@@ -552,7 +558,53 @@ article.active {
 .has-scrollbar::-webkit-scrollbar-button {
   width: 20px;
 }
+/* Mozilla (Firefox) */
+.has-scrollbar::-moz-scrollbar {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
+.has-scrollbar::-moz-scrollbar-track {
+  background: var(--onyx);
+  border-radius: 5px;
+}
+
+.has-scrollbar::-moz-scrollbar-thumb {
+  background: var(--orange-yellow-crayola);
+  border-radius: 5px;
+}
+
+.has-scrollbar::-moz-scrollbar-button {
+  width: 20px;
+}
+
+/* Microsoft (Internet Explorer, Edge) */
+.has-scrollbar::-ms-scrollbar {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.has-scrollbar::-ms-scrollbar-track {
+  background: var(--onyx);
+  border-radius: 5px;
+}
+
+.has-scrollbar::-ms-scrollbar-thumb {
+  background: var(--orange-yellow-crayola);
+  border-radius: 5px;
+}
+
+.has-scrollbar::-ms-scrollbar-button {
+  width: 20px;
+}
 .content-card {
   position: relative;
   background: var(--border-gradient-onyx);
@@ -2458,6 +2510,9 @@ textarea.form-input::-webkit-resizer {
   font-weight: 500;
   font-size: 16px;
   transition: 0.8s;
+}
+.search-container ::placeholder{
+  color: #000000;
 }
 
 .search-container .search-btn {

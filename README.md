@@ -420,21 +420,21 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 313 | [Guitar Game](https://github.com/kunjgit/GameZone/tree/main/Games/Guitar_Game)|
 | 314 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire) |
 | 315 | [Lady Tiger Hunter](https://github.com/kunjgit/GameZone/tree/main/Games/Lady_Tiger_Hunter)|
-| 315 | [Stone Paper Scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Stone-Paper-Scissor)|
-| 316 | [Flashlight_Pointer_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flashlight_Pointer_Game)|
-| 317 | [Pig_game](https://github.com/KanchanBora/GameZone/tree/main/Games/Pig_game)|
-| 318 | [Asteroids 3D](https://github.com/kunjgit/GameZone/tree/main/Games/Asteroids_3D)|
-| 319 | [Lamb_Lane](https://github.com/sahaycodes/GameZone/tree/meme/Games/Lamb_Lane)|
-| 320 | [Dinoffline](https://github.com/kunjgit/GameZone/tree/main/Games/Dinoffline)|
-| 321 | [Maths_Sprint_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maths_Sprint_Game)|
-| 322 | [Etch a Sketch](https://github.com/kunjgit/GameZone/tree/main/Games/Etch-a-Sketch)|
-| 323 | [QuizzApp](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
-| 324 | [Chess_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game)|
-| 325 | [Which_Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|
-| 326 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
-| 327 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
-| 328 | [Planet Savior](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Savior)|
-| * | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
+| 316 | [Stone Paper Scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Stone-Paper-Scissor)|
+| 317 | [Flashlight_Pointer_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flashlight_Pointer_Game)|
+| 318 | [Pig_game](https://github.com/KanchanBora/GameZone/tree/main/Games/Pig_game)|
+| 319 | [Asteroids 3D](https://github.com/kunjgit/GameZone/tree/main/Games/Asteroids_3D)|
+| 320 | [Lamb_Lane](https://github.com/sahaycodes/GameZone/tree/meme/Games/Lamb_Lane)|
+| 321 | [Dinoffline](https://github.com/kunjgit/GameZone/tree/main/Games/Dinoffline)|
+| 322 | [Maths_Sprint_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maths_Sprint_Game)|
+| 323 | [Etch a Sketch](https://github.com/kunjgit/GameZone/tree/main/Games/Etch-a-Sketch)|
+| 324 | [QuizzApp](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
+| 325 | [Chess_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game)|
+| 326 | [Which_Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|
+| 327 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
+| 328 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
+| 329 | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
+| 330 | [Planet Savior](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Savior)|
 
 
  </center>

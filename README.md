@@ -435,6 +435,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 327 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
 | 328 | [Slime Attack](https://github.com/apu52/GameZone/tree/Slime-Attack-game/Games/Slime%20attack%20game)|
 | * | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
+|  *  | [Pokemon-Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon-Card Game)|
 
 
  </center>

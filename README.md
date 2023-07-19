@@ -436,11 +436,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | * | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
 
 
-
-
-
-
-
  </center>
 
 <br>

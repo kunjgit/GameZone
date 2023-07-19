@@ -433,8 +433,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 326 | [Which_Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|
 | 327 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
 | 328 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
-| 329 | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
-| 330 | [Planet Savior](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Savior)|
+| 329 | [Planet Savior](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Savior)|
+| 330 | [Pokemon-Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon-Card Game)|
 
 
  </center>

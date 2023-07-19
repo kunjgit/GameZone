@@ -434,6 +434,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 326 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
 | 327 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
 | 328 | [Planet Savior](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Savior)|
+| * | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
+
 
  </center>
 

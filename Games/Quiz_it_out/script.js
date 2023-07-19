@@ -1,6 +1,6 @@
 const questions = [
     {
-        question: "What company was originally called ?",
+        question: "Which company was originally called Cadabra ?",
         answers: [
             { text: "Flipkart", correct: false},
             { text: "Apple", correct: false},
@@ -32,7 +32,7 @@ const questions = [
             { text: "6", correct: false},
             { text: "3 ", correct: true},
             { text: "5 ", correct: false},
-            { text: "7 ", correct: false },
+            { text: "4 ", correct: false },
         ]
     },
     {
@@ -90,10 +90,44 @@ function selectAnswer(e){
     const isCorrect = selectBtn.dataset.correct === 'true';
     if(isCorrect){
         selectBtn.classList.add("correct");
+        score++;
     }else{
         selectBtn.classList.add("incorrect");
     }
+    Array.from(answerButtons.children).forEach(button => {
+        if(button.dataset.correct === "true"){
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+    nextButton.style.display = "block";
 }
 
-//To display outPut
-startQuiz();
+function showScore(){
+    resetState();
+    questionElement.innerHTML = `You Scored ${score} out of ${questions.length}`;
+    nextButton.innerHTML = "Play Again";
+    nextButton.style.display = "block";
+}
+
+function handleNextButton (){
+    currentQuestionIndex++;
+    if(currentQuestionIndex < questions.length){
+        showQuestion();
+    }else{
+        showScore();
+    }
+}
+
+nextButton.addEventListener("click", ()=> {
+    if(currentQuestionIndex < questions.length){
+        handleNextButton();
+    }else{
+        //To display outPut
+        startQuiz();
+    }
+})
+
+ //To display outPut
+ startQuiz();
+

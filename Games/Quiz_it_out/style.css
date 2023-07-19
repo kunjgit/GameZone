@@ -20,11 +20,12 @@ body {
 }
 
 .app h1{
-    font-size: 25px;
+    font-size: 50px;
     color: #001e4d;
     font-weight: 600;
     border-bottom: 1px solid #333;
     padding-bottom: 30px;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .quiz{
@@ -51,9 +52,13 @@ body {
     transition: all 0.3s;
 }
 
-.btn:hover{
-    background: #222;
+.btn:hover:not([disabled]){
+    /* background: #222; */
+    background: #023e8a;
     color: #fff;
+}
+.btn:disabled {
+    cursor: no-drop;
 }
 
 #next-btn{

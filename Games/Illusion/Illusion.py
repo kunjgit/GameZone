@@ -34,13 +34,13 @@ while running:
         elif event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 running = False
-            elif event.key == K_c:
+            elif event.key == K_a:
                 user_guess = "clockwise"
                 if user_guess == rotation_direction:
                     score += 1
                 else:
                     score -= 1
-            elif event.key == K_a:
+            elif event.key == K_c:
                 user_guess = "counterclockwise"
                 if user_guess == rotation_direction:
                     score += 1

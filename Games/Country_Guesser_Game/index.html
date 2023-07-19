@@ -14,12 +14,18 @@
 </head>
 <body>
     <div style="text-align:center;margin-top: 30px;
-    font-size: 30px; "><a href="/index.html"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+    font-size: 30px; "><a href="./index.html"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
 <div class="container">
     <h3>Guess All The Countries!</h3>
     <button id="start-btn">Start Game</button>
-    <div id="game-container" class="hidden">
-        
+	<button id="instructions-btn">Instructions</button>
+	<div id="mode-container" class="hidden">
+    <h3>Select Difficulty:</h3>
+    <button id="easy-btn">Easy </button>
+    <button id="medium-btn">Medium</button>
+    <button id="hard-btn">Hard</button>
+</div>
+    <div id="game-container" class="hidden">        
         <div id="timer"></div>
         <h6>Your Progress: <span id="progress">0</span>/195 Countries Guessed.</h6>
         <input type="text" class="form-control search" id="country" placeholder="e.g. India" onkeydown="search(this)">
@@ -30,7 +36,14 @@
 <div id="modal" class="modal hidden">
     <div class="modal-content">
         <p id="modal-text"></p>
-        <button id="new-game-btn">New Game</button>
+        <button id="new-game-btn">Replay</button>
+    </div>
+</div>
+
+<div id="instructions" class="instructions hidden">
+    <div class="instructions-content">
+		<span class="close-btn">&times;</span>
+        <p id="instructions-text"></p>
     </div>
 </div>
 

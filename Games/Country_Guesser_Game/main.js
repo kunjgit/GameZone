@@ -13,36 +13,80 @@ var newGameBtn = document.getElementById("new-game-btn");
 var interval;
 var timerValue = 0;
 
-startBtn.addEventListener("click", startGame);
+var modeContainer = document.getElementById("mode-container");
+var easyBtn = document.getElementById("easy-btn");
+var mediumBtn = document.getElementById("medium-btn");
+var hardBtn = document.getElementById("hard-btn");
+var timeLimit = 0;
+
+var instructionsBtn = document.getElementById("instructions-btn");
+var instructions = document.getElementById("instructions");
+var instructionsText = document.getElementById("instructions-text");
+
+instructionsBtn.addEventListener("click", showInstructions);
+
+function showInstructions() {
+    instructionsText.innerHTML = "<h4>Instructions:</h4><p>1. Guess the name of the country based on the given clues.</p><p>2. Type the name of the country in the input field and press Enter to submit your answer.</p><p>3. If your answer is correct, it will be added to the list of guessed countries.</p><p>4. Keep guessing until you have guessed all 195 countries. </p> <p>5. Easy: 200 seconds,  Medium: 120 seconds,  Hard: 60 seconds </p>";
+    instructions.classList.remove("hidden");
+    instructions.classList.add("show");
+}
+
+var closeBtn = document.querySelector(".close-btn");
+closeBtn.addEventListener("click", closeInstructions);
+
+function closeInstructions() {
+    instructions.classList.add("hidden");
+    instructions.classList.remove("show");
+}
+
+
+startBtn.addEventListener("click", function() {
+    startBtn.style.display = "none";
+	instructionsBtn.style.display = "none";
+    modeContainer.classList.remove("hidden");
+});
+
+easyBtn.addEventListener("click", function() {
+    timeLimit = 200; // Set the time limit for easy mode (200 seconds)
+    startGame();
+});
+
+mediumBtn.addEventListener("click", function() {
+    timeLimit = 120; // Set the time limit for medium mode (120 seconds)
+    startGame();
+});
+
+hardBtn.addEventListener("click", function() {
+    timeLimit = 60; // Set the time limit for hard mode (60 seconds)
+    startGame();
+});
+
 newGameBtn.addEventListener("click", startNewGame);
 
 function startGame() {
-    startBtn.style.display = "none";
+    modeContainer.classList.add("hidden");
     gameContainer.classList.remove("hidden");
-    startTimer();
+    startTimer(timeLimit);
     
 }
 
-function startTimer() {
-    var time = 30; // Set the time limit in seconds
-
+function startTimer(timeLimit) {
     var intervalId = setInterval(function() {
-        timer.textContent = "Time Left: " + time + "s";
-        time--;
+        timer.textContent = "Time Left: " + timeLimit + "s";
+        timeLimit--;
 
-        if (time < 0) {
+        if (timeLimit < 0) {
             clearInterval(intervalId);
             finishGame();
         }
     }, 1000);
-
-
 }
 
 function finishGame() {
     gameContainer.classList.add("hidden");
-    modalText.innerHTML = "<p id='timeUp'>Time's up!</p><p>You have guessed " + existingArr.length + " countries.</p>";
-    modal.classList.add("show");
+    modalText.innerHTML = "<p id='timeUp'>Time's up!</p><p>You have guessed " + existingArr.length + " countries. <br> Click on replay to play again in the same mode or the home button to return to main menu.</p>";
+    modal.classList.remove("hidden");
+    modal.classList.add("show");	
 }
 
 function startNewGame() {
@@ -55,7 +99,9 @@ function startNewGame() {
     misMatch.style.display = "none";
     document.querySelector(".listNations").innerHTML = "";
     modal.classList.add("hidden");
-    startBtn.style.display = "block";
+    modeContainer.classList.add("hidden");
+    gameContainer.classList.remove("hidden");
+    startTimer(timeLimit);
     gameContainer.classList.add("hidden");
     modal.classList.remove("show");
     modal.classList.add("hidden");

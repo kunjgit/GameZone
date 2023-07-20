@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa");
+html,
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-family: "Comfortaa", cursive;
+  background-color: #f2f9ff !important; /* Correct placement of !important */
+}
+#container {
+  width: 100%;
+  height: 100%;
+}
+
+.home-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 60px;
+}
+
+#container #heading {
+  position: absolute;
+  bottom: 30px;
+  width: 80%;
+  text-align: center;
+  font-size: 10vh;
+  transition: transform 0.5s ease;
+  color: black;
+  transform: translatey(500px) scale(1);
+}
+
+#container #score {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 10vh;
+  transition: transform 0.5s ease;
+  color: black;
+  transform: translatey(-200px) scale(1);
+}
+#container #game {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#container .game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#container .game-over * {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translatey(-50px);
+  color: black;
+}
+#container .game-over h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+}
+#container .ready {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#container .ready #start-button {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translatey(-50px);
+  border: 3px solid black;
+  margin: 100px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+}
+#container #instructions {
+  position: absolute;
+  width: 100%;
+  top: 16vh;
+  left: 0;
+  text-align: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+}
+#container #instructions.hide {
+  opacity: 0 !important;
+}
+#container.playing #score,
+#container.resetting #score {
+  transform: translatey(0px) scale(1);
+}
+#container.playing #instructions {
+  opacity: 1;
+}
+
+#container.ready .ready #heading {
+  opacity: 1;
+  transform: translatey(0);
+}
+
+#container.ready .ready #start-button {
+  opacity: 1;
+  transform: translatey(0);
+}
+.ready #start-button:hover {
+  background-color: rgb(1, 1, 1);
+  color: white;
+  cursor: pointer;
+}
+#container.ended #score {
+  transform: translatey(6vh) scale(1.5);
+}
+#container.ended .game-over * {
+  opacity: 1;
+  transform: translatey(0);
+}
+#container.ended .game-over p {
+  transition-delay: 0.3s;
+}

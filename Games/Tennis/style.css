@@ -1,0 +1,100 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #5bcee2;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+canvas {
+  border: 1px solid #fff;
+  background-color: #3e931f;
+}
+
+.paddle {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 100px;
+}
+
+#paddle1 {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#paddle2 {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.score-card {
+  width: 300px;
+  background-color: #333;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.player-score {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #555;
+}
+
+.player-name {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#player1Score,
+#player2Score {
+  font-weight: bold;
+}
+
+.score-card-title {
+  font-size: 24px;
+  color: #fff;
+  margin: 10px;
+}
+
+.card-button {
+  background-color: #555;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #777;
+}
+
+.footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+}

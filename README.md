@@ -100,6 +100,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 <!-- list of the games -->
 <center>
 
+
 | No. | Name of the game                                                                                                 |
 | --- | ---------------------------------------------------------------------------------------------------------------- | --- |
 | 1   | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)                               |
@@ -435,6 +436,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 329 | [Tower Of Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Of_Blocks)                           |
 | \*  | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)              |
 | \*  | [Pokemon-Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon-Card Game)                       |
+
 
  </center>
 

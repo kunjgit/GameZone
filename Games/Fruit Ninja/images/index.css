@@ -1,0 +1,87 @@
+{include ../../system/css/reset.css}
+{include ../../system/css/common.css}
+
+html, body{
+	width: 100%;
+	height: 100%;
+    background: linear-gradient(to bottom, #ff99cc 0%, #ff66ff 100%);
+	overflow: hidden;
+}
+
+body{
+	position: relative;
+}
+
+em{
+	display: none;
+}
+
+#extra, #view{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 640px;
+	height: 480px;
+	margin: -280px auto auto -320px;
+	text-align: left;
+	background: #fff;
+}
+
+#view{
+	display: block;
+	background: transparent url(blank.gif) repeat 0 0;
+	cursor: default;
+	z-index: 20;
+}
+
+#extra{
+	background: #000;
+}
+
+#extra .layer{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 640px;
+	height: 480px;
+	z-index: 10;
+}
+
+#fork{
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 356px;
+	height: 92px;
+	cursor: pointer;
+	background-image: url(fork.gif);
+	z-index: 0;
+}
+
+#desc{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	height: 80px;
+	color: #ccc;
+	line-height: 40px;
+	margin-top: 200px;
+	text-align: center;
+	font-size: 14px;
+}
+
+#desc a{
+	color: #318fe1;
+}
+
+#browser{
+	font-size: 14px;
+	line-height: 16px;
+}
+
+#browser .b{
+	color: #fff;
+	font-weight: 700;
+}

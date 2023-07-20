@@ -43,6 +43,33 @@ const questions = [
             { text: "Luxembourg", correct: false},
             { text: "Finland ", correct: true },
         ]
+    },
+    {
+        question: "Which planet has a day which lasts eight months? ",
+        answers: [
+            { text: "Venus", correct: true},
+            { text: "Jupiter ", correct: false},
+            { text: "Saturn", correct: false},
+            { text: "Mars ", correct: false },
+        ]
+    },
+    {
+        question: "Tsunami is a word in which language? ",
+        answers: [
+            { text: "Urdu", correct: false},
+            { text: "Japanese ", correct: true},
+            { text: "Spanish", correct: false},
+            { text: "French ", correct: false },
+        ]
+    },
+    {
+        question: "Who was India’s first Deputy Prime Minister? ",
+        answers: [
+            { text: "Morarji Desai", correct: false},
+            { text: "Devi Lal ", correct: false},
+            { text: "Vallabhbhai Patel", correct: true},
+            { text: "Charan Singh ", correct: false },
+        ]
     }
 ]
 

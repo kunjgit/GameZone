@@ -35,6 +35,6 @@
 
 <br>
 
-![Game image](./image.jpeg)
+![Game image](./Tower_of_blocks.jpeg)
 
 <br>

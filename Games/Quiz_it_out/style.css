@@ -7,7 +7,7 @@
 
 body {
     /* background: linear-gradient(to right,#caf0f8, #48cae4, #0096c7, #0077b6); */
-    background: linear-gradient(to right,#00296b, #b8c0ff, #c8b6ff, #770577);
+    background: linear-gradient(to right,#00296b, #b8c0ff, #c8b6ff, #b70ab7);
 }
 
 .app{
@@ -50,12 +50,13 @@ body {
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s;
+    box-shadow: cyan;
 }
 
 .btn:hover:not([disabled]){
-    /* background: #222; */
-    background: #023e8a;
+    background: rgb(253, 164, 255);
     color: #fff;
+    box-shadow: 0 0 50px 25px #fdc5f5;
 }
 .btn:disabled {
     cursor: no-drop;

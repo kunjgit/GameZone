@@ -9,12 +9,10 @@ Quiz it Out!!
 - This game can be played by an individual to test her/his knowledge by answering few quees and have fun answering them.
 
 ## **functionalities 🎮**
-<!-- add functionalities over here -->
+<Test your knowledge by playing the Game.
 - 
 <br>
 
-## **How to play? 🕹️**
-<!-- add the steps how to play games -->
 - 
 
 <br>
@@ -22,8 +20,9 @@ Quiz it Out!!
 ## **Screenshots 📸**
 
 <br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
+
+![image](../../assets/images/Quiz_it_out.png)
+
 
 <br>
 

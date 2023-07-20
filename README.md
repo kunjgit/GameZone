@@ -377,7 +377,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 270 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
 | 271 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
 | 272 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
-| 273 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
+| * |
 | 274 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe%20the%20Cloud)|
 | 275 | [Cosmic_Coin_Collector](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Collector)|
 | 276 | [Circus Charly](https://github.com/kunjgit/GameZone/tree/main/Games/Circus_Charly)|
@@ -433,7 +433,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 325 | [Which_Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|
 | 326 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
 | 327 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
-| 328 | [Cat Trap](https://github.com/kunjgit/GameZone/tree/main/Games/Cat-Trap)|
+| 328 | [Slime Attack](https://github.com/apu52/GameZone/tree/Slime-Attack-game/Games/Slime%20attack%20game)|
+| 329 | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
+| 330 | [Pokemon-Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon-Card Game)|
+| 331 | [Tennis](https://github.com/kunjgit/GameZone/tree/main/Games/Tennis)|
+| 332 | [Cat Trap](https://github.com/kunjgit/GameZone/tree/main/Games/Cat-Trap)|
 
  </center>
 

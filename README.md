@@ -412,7 +412,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 305 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
 | 306 | [Beyblade](https://github.com/kunjgit/GameZone/tree/main/Games/Beyblade)|
 | 307 | [The labyrinth of death](https://github.com/sahaycodes/GameZone/tree/meme/Games/The%20labyrinth%20of%20death)|
-| 308 | [2D_BreakOut](https://github.com/kunjgit/GameZone/tree/meme/Games/2D_Breakout)|
+| 308 | [2D_BreakOut](https://github.com/kunjgit/GameZone/tree/main/Games/2D_Breakout)|
 | 309 | [Battleship](https://github.com/kunjgit/GameZone/tree/main/Games/Battleship)|
 | 310 | [Baseball](https://github.com/kunjgit/GameZone/tree/main/Games/Baseball)|
 | 311 | [Save_Princess](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Princess) |
@@ -432,13 +432,14 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 324 | [Chess_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game)|
 | 325 | [Which_Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|
 | 326 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
-| 327 | [Digit Dilemma](https://github.com/kunjgit/GameZone/tree/main/Games/Digit_Dilemma)|
+| 327 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
+| 328 | [Slime Attack](https://github.com/apu52/GameZone/tree/Slime-Attack-game/Games/Slime%20attack%20game)|
+| * | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
+|  *  | [Pokemon-Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon-Card Game)|
+|  *  | [Digit Dilemma](https://github.com/kunjgit/GameZone/tree/main/Games/Digit_Dilemma)|
+
 
  </center>
-
-  
-</center>
-
 
 <br>
 <br>

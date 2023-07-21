@@ -1,93 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Prosto+One&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
 
 .body{
-    background:url("https://wallpapercave.com/wp/wp2409705.jpg");
-    background-size: 100vw 100vh;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    min-width: 100vw;
+    background: #e3e8ee;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    height: 45rem;
 }
 
 button{
+    color: darkgreen;
+    border: 2px solid green;
+    background: none;
+
+button {
     position: absolute;
     top: 5rem;
-    left: 10rem;
-    padding: .5rem 1rem;
+    left: 42rem;
+    padding: 0.5rem 1rem;
     font-size: 2rem;
-    font-family: 'Prosto One', cursive;
-    border-radius: .6rem;
+
+    font-family: math;
+    border-radius: 0.6rem;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
-    filter: drop-shadow(2px,2px,2px black);
+    filter: drop-shadow(2px, 2px, 2px black);
     background-color: black;
     color: white;
-    transition: .3s ease;
+    transition: .8s ease;
+    box-shadow: 5px 5px 5px rgb(75, 75, 239);
 }
 
 #scoreBox{
+    border-radius: 1rem;
+    border: 2px solid #9E9E9E;
     position: absolute;
-    font-size:39px ;
-    right: 150px;
-    top: 9px;
-    font-weight: bold;
-    font-family: 'Prosto One', cursive;
+    font-size: 30px;
+    right: 40px;
+    top: 75px;
+    font-family: math;
+    padding: 3px 12px;
 }
 
 #HiScore{
+    border-radius: 1rem;
     position: absolute;
-    font-size:39px ;
-    right: 150px;
-    top: 50px;
-    font-weight: bold;
-    font-family: 'Prosto One', cursive;
+    font-size: 30px;
+    right: 25px;
+    border: 2px solid #9E9E9E;
+    top: 125px;
+    font-family: math;
+    padding: 3px 12px;
 }
 
 #board{
-    background:linear-gradient(rgb(170, 236, 170), rgb(236, 236, 167));
-    width: 90vmin;
-    height: 92vmin;
+    margin-top: 4%;
+    border-radius: 1rem;
+    background: #0c4522;
+    width: 75vmin;
+    height: 75vmin;
     border: 2px solid black;
     display: grid;
-    grid-template-rows: repeat(18,1fr);
-    grid-template-columns: repeat(18,1fr);
+    border-radius: 50px;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
 }
-
 .head{
-    background: linear-gradient(rgb(240, 124, 124), rgb(228, 228, 129));
+    background:red;
     transform: scale(1.02);
-    border-radius: 50%;
+    border: 2px solid purple;
+    border-radius: 4px;
 }
 
 .snake{
-    background: linear-gradient(rgb(240, 124, 124), rgb(228, 228, 129));; 
+    background: red !important; 
     border-radius:45%;
 }
 
 .food{
-    background: linear-gradient(red, purple);
-    border: .25vmin solid black;
+    background: brown;
+    border: none;
     border-radius:8px;
-=======
-body {
-    font-family: 'Courier New', Courier, monospace;
+}
+
+
+h1 {
+    margin: 0.5rem;
+}
+
+p {
+    margin: 0.5rem;
+}
+.heading{
+    color: aliceblue;
+    margin: auto;
+    display: inline;
     font-size: 2rem;
-    color: white;
-    text-align: center;
-    background-color: blue;
+    margin-left: 41%; 
 }
-h1{
-    margin: 0.5rem;
+
+a{
+    position: relative;
+    left: -10vw;
+    top: -25vh;
+    font-size: 30px;
+    
 }
-p{
-    margin: 0.5rem;
-}
+
+

@@ -422,7 +422,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 314 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire) |
 | 315 | [Lady Tiger Hunter](https://github.com/kunjgit/GameZone/tree/main/Games/Lady_Tiger_Hunter)|
 
-| * | [Quiz it out](https://github.com/kunjgit/GameZone/tree/main/Games/Quiz_it_out)|
 
 
 

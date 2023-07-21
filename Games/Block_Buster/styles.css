@@ -1,0 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  #canvas1 {
+    background: linear-gradient(135deg, #ec8a8a, #c2c6ed);
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }

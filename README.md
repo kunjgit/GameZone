@@ -436,8 +436,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 331 | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
 | 332 | [Pokemon-Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon-Card Game)|
 | 333 | [Digit Dilemma](https://github.com/kunjgit/GameZone/tree/main/Games/Digit_Dilemma)|
-| 334 | [Tennis](https://github.com/kunjgit/GameZone/tree/main/Games/Tennis)|
-| 335 | [Block Buster](https://github.com/sahaycodes/GameZone/tree/meme/Games/Block_Buster)|
+| 334  | [Tennis](https://github.com/kunjgit/GameZone/tree/main/Games/Tennis)|
+| 335 | [Illusion](https://github.com/kunjgit/GameZone/tree/main/Games/Illusion)|
+| 336 | [Block Buster](https://github.com/sahaycodes/GameZone/tree/meme/Games/Block_Buster)|
 
 
 

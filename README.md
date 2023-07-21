@@ -437,10 +437,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 329 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
 | 330 | [Slime Attack](https://github.com/apu52/GameZone/tree/Slime-Attack-game/Games/Slime%20attack%20game)|
 | 331 | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
-| 332 | [Pokemon-Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon-Card Game)|
+<!-- | 332 | [Pokemon-Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon-Card Game)| -->
 | 333 | [Digit Dilemma](https://github.com/kunjgit/GameZone/tree/main/Games/Digit_Dilemma)|
 | 334  | [Tennis](https://github.com/kunjgit/GameZone/tree/main/Games/Tennis)|
-| 329 | [01_Fruit-Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/01_Fruit-Ninja)|
+| 335 | [01_Fruit-Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/01_Fruit-Ninja)|
 
  </center>
 

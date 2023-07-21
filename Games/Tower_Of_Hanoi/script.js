@@ -32,6 +32,7 @@ $(document).ready(function() {
     clear();
     towers = [[[], $(".tower1")], [[], $(".tower2")], [[], $(".tower3")]];
     disks = document.getElementById("number").value;
+    document.getElementById("minmoves").innerHTML = parseInt(Math.pow(2,disks) - 1);
     moves = 0;
     hold = null;
     for (var i = disks; i > 0; i--) towers[0][0].push(i);
@@ -50,12 +51,16 @@ $(document).ready(function() {
       }
     } else {
       var move = movedisk(hold, tower);
-      moves += 1;
+      // moves += 1;
       $(".moves").text(moves + " moves");
       if (move == 1) {
         setdisks();
       } else {
         alert("Placing a bigger disk on a smaller one is not allowed");
+        towers[hold][1]
+          .children()
+          .last()
+          .css("margin-top", "-40px"); 
       }
       hold = null;
     }
@@ -68,11 +73,13 @@ $(document).ready(function() {
     if (from.length === 0) return 0;
     else if (to.length === 0) {
       to.push(from.pop());
+      moves += 1;
       return 1;
     } else if (from[from.length - 1] > to[to.length - 1]) {
       return 0;
     } else {
       to.push(from.pop());
+      moves += 1;
       return 1;
     }
   }

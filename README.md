@@ -65,7 +65,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 - Fork the repository
 - Clone this repository `git clone "url of the repo"`
 
-* Raise and issue to add new game or to enhancement for a game (Have a look at few things you have to take care during raising issue )
+* Raise an issue to add new game or to enhance a game (Have a look at few things you have to take care during raising issue )
 
   - Select appropriate issue template
   - Make sure your idea is unique and interesting ðŸš€
@@ -88,10 +88,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
   - Now take one good screenshot of your game that you want to display it on our website and add into `assets/images` (follow the naming convention <your_folder_name>.png or .jpeg or .jpg)
   - add your folders link and name in main README.md (the one you are reading currently)
 
-- Push your changes to Github using `git push origin <name your branch>`
+- Push your changes to GitHub using `git push origin <name your branch>`
 - Submit your changes for review by creating PR
 - And you are done !
-- I will review your code and I will merge your code to the main branch of this repository and you will notified for the same
+- I will review your code and I will merge your code to the main branch of this repository and you will be notified for the same
 - If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
 
 <div align="center">

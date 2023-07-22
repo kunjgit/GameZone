@@ -320,6 +320,8 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 215 | [Painting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Painting_Game)| 
 | 216 | [Platform_game_engine](https://github.com/kunjgit/GameZone/tree/main/Games/Platform_game_engine)|
 | 217 | [Doppelkopf](https://github.com/kunjgit/GameZone/tree/main/Games/Doppelkopf)|
+| 218 | [Elemental Riddles](https://github.com/kunjgit/GameZone/tree/main/Games/Elemental_Riddles)|
+
 
 
   

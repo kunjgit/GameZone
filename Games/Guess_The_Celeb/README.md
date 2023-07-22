@@ -4,6 +4,10 @@ Welcome to the Celebrity Guessing Game! This is a JavaScript game where you have
 
 ## Demo
 
+
+https://github.com/amelia2802/GameZone/assets/49182604/3a307d8f-ce50-4726-9254-47eed651d7a8
+
+
 ## How to Play
 
 1. Open the `index.html` file in your web browser.

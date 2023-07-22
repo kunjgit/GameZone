@@ -23,24 +23,7 @@ In Keyboard Hero pressing corresponding keys on their keyboards, which is visibl
 <br>
 
 ## **Screenshots 📸**
+![Screenshot 2023-07-22 205158](https://github.com/Deepanshu0703/GameZone/assets/114489502/b049c0ab-499c-4348-830b-1b4a1521da07)
 
 <br>
-
-
-<br>
-
-## **Working video 📹**
-<!-- add your working video over here -->
-
-
-
-
-
-
-
-
-
-
-
-
 

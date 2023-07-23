@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sudoku-grid">
+        <!-- Create the 9x9 Sudoku grid using nested div elements -->
+        <!-- Use 'data-row' and 'data-col' attributes to store row and column indices -->
+        <!-- Use 'contenteditable' to allow user input -->
+        <div class="row">
+            <div class="cell" data-row="0" data-col="0" contenteditable></div>
+            <!-- Add other cells for the first row -->
+        </div>
+        <!-- Add other rows -->
+    </div>
+
+    <button onclick="checkSolution()">Check Solution</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

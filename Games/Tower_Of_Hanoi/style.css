@@ -17,8 +17,9 @@ h1 {
   text-align: center;
   width: 100%;
   position: relative;
-  color: #160f29;
+  color: #7740b1;
   font-family: Comic Sans MS;
+  font-size: 30px;
 }
 
 h2 {
@@ -27,6 +28,14 @@ h2 {
   position: relative;
   color: #160f29;
   font-family: Brush Script MT ;
+}
+
+h5 {
+  text-align: center;
+  font-size: 20px;
+  color: rgb(66, 66, 66);
+  padding: 0px;
+  margin: 0px;
 }
 
 .moves {
@@ -110,12 +119,13 @@ h2 {
 .buttons {
   font-family: Comic Sans MS;
   font-size: 20px;
-  height: 70px;
-  width: 150px;
-  border-radius: 30px;
+  height: 60px;
+  width: 130px;
+  border-radius: 20px;
   background-color: #8458B3;
   color: #ffffff;
   opacity: 0.8;
+  align-items: center;
 }
 
 #diskno {
@@ -125,13 +135,13 @@ h2 {
   margin: auto;
 }
 #number {
-  text-size: 40px;
+  font-size: 20px;
   text-align: right;
-  height: 20px;
+  height: 30px;
   width: 30px;
   font-family: Comic Sans MS;
-  border-radius: 30px;
-  background-color: #160f29;
+  border-radius: 10px;
+  background-color: #8b66b3;
   color: #ffffff;
 }
 #again {

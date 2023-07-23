@@ -36,6 +36,6 @@
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![Image]('../../../../assets/images/rock_paper_scissors_lizard_spock.png')
+![Image](../../assets/images/rock_paper_scissors_lizard_spock.png)
 
 <br>

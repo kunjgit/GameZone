@@ -23,7 +23,10 @@ Avoid Crashing into "spaceballs' (green Slime Ball Like Things), And shoot or st
 ## **Screenshots 📸**
 
 <br>
-<!-- add your screenshots like this -->
+<!-- add your screenshots like this --><img width="1381" alt="Screenshot 2023-07-25 at 1 32 55 PM" src="https://github.com/AbhishekPSingh07/GameZone/assets/79076050/52513163-3794-473c-a0bb-412ac9455612">
+<img width="1428" alt="Survivo<img width="1428" alt="Screenshot 2023-07-25 at 1 33 12 PM" src="https://github.com/AbhishekPSingh07/GameZone/assets/79076050/13e83c00-76af-435e-97ce-d94fff6ec814">
+r" src="https://github.com/AbhishekPSingh07/GameZone/assets/79076050/504f6686-f3c4-45c0-8ac6-38ed7e30d24b">
+
 <!-- ![image](url) -->
 
 <br>

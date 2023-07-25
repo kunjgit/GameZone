@@ -434,7 +434,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 329 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
 | 330 | [Slime Attack](https://github.com/apu52/GameZone/tree/Slime-Attack-game/Games/Slime%20attack%20game)|
 | 331 | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
-| 332 | [Pokemon-Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon-Card Game)|
+| 332 | [Pokemon_Card_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Card_Game)|
 | 333 | [Digit Dilemma](https://github.com/kunjgit/GameZone/tree/main/Games/Digit_Dilemma)|
 | 334 | [Tennis](https://github.com/kunjgit/GameZone/tree/main/Games/Tennis)|
 | 335 | [Illusion](https://github.com/kunjgit/GameZone/tree/main/Games/Illusion)|
@@ -442,6 +442,9 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 337 | [Guess_The_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Ball)|
 | 338 | [Doremon Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Doremon_Puzzle)|
 | 339 | [Falling_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Ball)|
+| 340 | [Guess The Celebrity](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Celeb)|
+| 341 | [Rock_Paper_Scissors_Lizard_Spock](https://github.com/kunjgit/GameZone/tree/main/Rock_Paper_Scissors_Lizard_Spock)|
+| 342 | [Elemental Riddles](https://github.com/kunjgit/GameZone/tree/main/Elemental_Riddles)|
 
 
 

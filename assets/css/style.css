@@ -17,6 +17,17 @@
 \*-----------------------------------*/
 
 /* CSS for Light-Dark Theme SWITCH */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  max-width: 100%;
+  overflow-y:scroll;
+}
 .theme-toggle {
   display: inline-block;
   position: relative;

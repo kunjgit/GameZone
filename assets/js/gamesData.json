@@ -2,157 +2,157 @@
   "1": {
     "gameTitle": "Master Typing",
     "gameUrl": "Master_Typing",
-    "thumbnailUrl": "Master_Typing.png"
+    "thumbnailUrl": "Master_Typing.webp"
   },
   "2": {
     "gameTitle": "Tilting Maze",
     "gameUrl": "Tilting_Maze",
-    "thumbnailUrl": "Tilting_Maze.png"
+    "thumbnailUrl": "Tilting_Maze.webp"
   },
   "3": {
     "gameTitle": "Simon Game",
     "gameUrl": "Simon_Game_Challenge",
-    "thumbnailUrl": "Simon-game.png"
+    "thumbnailUrl": "Simon-game.webp"
   },
   "4": {
     "gameTitle": "Snake Game",
     "gameUrl": "Snake_Game",
-    "thumbnailUrl": "Snake_Game.png"
+    "thumbnailUrl": "Snake_Game.webp"
   },
   "5": {
     "gameTitle": "Dino Runner",
     "gameUrl": "Dino_Runner_Game",
-    "thumbnailUrl": "Dino_Runner_Game.png"
+    "thumbnailUrl": "Dino_Runner_Game.webp"
   },
   "6": {
     "gameTitle": "Whack a Mole",
     "gameUrl": "Whack_a_Mole",
-    "thumbnailUrl": "Whack_a_Mole.png"
+    "thumbnailUrl": "Whack_a_Mole.webp"
   },
   "7": {
     "gameTitle": "Doraemon Jump",
     "gameUrl": "Doraemon_Jump",
-    "thumbnailUrl": "Doraemon_Jump.png"
+    "thumbnailUrl": "Doraemon_Jump.webp"
   },
   "8": {
     "gameTitle": "Black Jack",
     "gameUrl": "Black_Jack",
-    "thumbnailUrl": "Black_Jack.png"
+    "thumbnailUrl": "Black_Jack.webp"
   },
   "9": {
     "gameTitle": "Memory Game",
     "gameUrl": "Memory_Game",
-    "thumbnailUrl": "MemoryGame.png"
+    "thumbnailUrl": "MemoryGame.webp"
   },
   "10": {
     "gameTitle": "Word Guessing Game",
     "gameUrl": "Word_Guessing_Game",
-    "thumbnailUrl": "Word_Guessing_Game.png"
+    "thumbnailUrl": "Word_Guessing_Game.webp"
   },
   "11": {
     "gameTitle": "Ludo",
     "gameUrl": "Ludo_Game",
-    "thumbnailUrl": "Ludo_4_Player.PNG"
+    "thumbnailUrl": "Ludo_4_Player.webp"
   },
   "12": {
     "gameTitle": "Piano",
     "gameUrl": "Piano",
-    "thumbnailUrl": "Piano_game.png"
+    "thumbnailUrl": "Piano_game.webp"
   },
   "13": {
     "gameTitle": "Atari Breakout",
     "gameUrl": "Atari_breakout",
-    "thumbnailUrl": "Atari_breakout.png"
+    "thumbnailUrl": "Atari_breakout.webp"
   },
   "14": {
     "gameTitle": "Dinosaur Game",
     "gameUrl": "Chrome_Dinosaur_Game",
-    "thumbnailUrl": "Chrome_dinosaur_runner.png"
+    "thumbnailUrl": "Chrome_dinosaur_runner.webp"
   },
   "15": {
     "gameTitle": "Color guessing Game",
     "gameUrl": "Colour_Guessing_Game",
-    "thumbnailUrl": "Colour_Guessing_Game.png"
+    "thumbnailUrl": "Colour_Guessing_Game.webp"
   },
   "16": {
     "gameTitle": "Number guessing Game",
     "gameUrl": "Guess_The_Number",
-    "thumbnailUrl": "Guess_The_Number.png"
+    "thumbnailUrl": "Guess_The_Number.webp"
   },
   "17": {
     "gameTitle": "Car Race",
     "gameUrl": "race_car",
-    "thumbnailUrl": "race_car.png"
+    "thumbnailUrl": "race_car.webp"
   },
   "18": {
     "gameTitle": "Aim training",
     "gameUrl": "Aim_Training",
-    "thumbnailUrl": "Aim_Training.png"
+    "thumbnailUrl": "Aim_Training.webp"
   },
   "19": {
     "gameTitle": "Alien Shooter",
     "gameUrl": "Alien_Shooters",
-    "thumbnailUrl": "Alien_Shooter.png"
+    "thumbnailUrl": "Alien_Shooter.webp"
   },
   "20": {
     "gameTitle": "Fruit Ninja",
     "gameUrl": "Fruit_Ninja",
-    "thumbnailUrl": "Fruit_Ninja_Thumbnail.png"
+    "thumbnailUrl": "Fruit_Ninja_Thumbnail.webp"
   },
   "21": {
     "gameTitle": "Doodle jump",
     "gameUrl": "Doodle_Jump",
-    "thumbnailUrl": "Doodle_Jump_Game.png"
+    "thumbnailUrl": "Doodle_Jump_Game.webp"
   },
   "22": {
     "gameTitle": "Alphabet Game",
     "gameUrl": "Alphabet",
-    "thumbnailUrl": "Alphabet.png"
+    "thumbnailUrl": "Alphabet.webp"
   },
   "23": {
     "gameTitle": "Candy Crush",
     "gameUrl": "Candy_Crush",
-    "thumbnailUrl": "candy_crush.png"
+    "thumbnailUrl": "candy_crush.webp"
   },
   "24": {
     "gameTitle": "Word Association Game",
     "gameUrl": "Word_Association_Game",
-    "thumbnailUrl": "Word_Association.png"
+    "thumbnailUrl": "Word_Association.webp"
   },
   "25": {
     "gameTitle": "Tic Tac Toe",
     "gameUrl": "Tic_Tac_Toe",
-    "thumbnailUrl": "Tic_Tac_Toe.png"
+    "thumbnailUrl": "Tic_Tac_Toe.webp"
   },
   "26": {
     "gameTitle": "Flappy Bird",
     "gameUrl": "Flappy_Bird",
-    "thumbnailUrl": "Flappy_Bird_Game.png"
+    "thumbnailUrl": "Flappy_Bird_Game.webp"
   },
   "27": {
     "gameTitle": "Trivia it !",
     "gameUrl": "Trivia_It",
-    "thumbnailUrl": "Trivia_It.png"
+    "thumbnailUrl": "Trivia_It.webp"
   },
   "28": {
     "gameTitle": "Minesweeper",
     "gameUrl": "Minesweeper",
-    "thumbnailUrl": "Minesweeper.png"
+    "thumbnailUrl": "Minesweeper.webp"
   },
   "29": {
     "gameTitle": "Dice Showdown",
     "gameUrl": "Dice_Showdown_Game/dicee.html",
-    "thumbnailUrl": "Dice_Game.png"
+    "thumbnailUrl": "Dice_Game.webp"
   },
   "30": {
     "gameTitle": "Pac Man",
     "gameUrl": "Pac_Manpublic",
-    "thumbnailUrl": "Pac_man.png"
+    "thumbnailUrl": "Pac_man.webp"
   },
   "31": {
     "gameTitle": "Brick Breaker",
     "gameUrl": "Brick_Breaker",
-    "thumbnailUrl": "Brick_Breaker.png"
+    "thumbnailUrl": "Brick_Breaker.webp"
   },
   "32": {
     "gameTitle": "Magic Square",
@@ -162,62 +162,62 @@
   "33": {
     "gameTitle": "Fight Game",
     "gameUrl": "Fight_Game",
-    "thumbnailUrl": "Fight_Game.png"
+    "thumbnailUrl": "Fight_Game.webp"
   },
   "34": {
     "gameTitle": "Light House",
     "gameUrl": "Lighthouse",
-    "thumbnailUrl": "LightHouse.png"
+    "thumbnailUrl": "LightHouse.webp"
   },
   "35": {
     "gameTitle": "Lights Out !",
     "gameUrl": "Lights_Out",
-    "thumbnailUrl": "Lights_Out.png"
+    "thumbnailUrl": "Lights_Out.webp"
   },
   "36": {
     "gameTitle": "Word Scramble Game",
     "gameUrl": "Word_Scramble_Game",
-    "thumbnailUrl": "Word_Scramble_Game.png"
+    "thumbnailUrl": "Word_Scramble_Game.webp"
   },
   "37": {
     "gameTitle": "Tetris",
     "gameUrl": "Tetris",
-    "thumbnailUrl": "Tetris.png"
+    "thumbnailUrl": "Tetris.webp"
   },
   "38": {
     "gameTitle": "Interactive Quizzing",
     "gameUrl": "Interactive_Quizzing",
-    "thumbnailUrl": "Interactive_Quizzing.png"
+    "thumbnailUrl": "Interactive_Quizzing.webp"
   },
   "39": {
     "gameTitle": "Planet Defense",
     "gameUrl": "Planet_Defense",
-    "thumbnailUrl": "Planet_Defense.png"
+    "thumbnailUrl": "Planet_Defense.webp"
   },
   "40": {
     "gameTitle": "Rabbit Rush",
     "gameUrl": "Rabbit_Rush",
-    "thumbnailUrl": "rabbit.png"
+    "thumbnailUrl": "rabbit.webp"
   },
   "41": {
     "gameTitle": "Wordle",
     "gameUrl": "Wordle",
-    "thumbnailUrl": "Wordle.png"
+    "thumbnailUrl": "Wordle.webp"
   },
   "42": {
     "gameTitle": "Roll Race",
     "gameUrl": "Roll_Race",
-    "thumbnailUrl": "Roll_Race.png"
+    "thumbnailUrl": "Roll_Race.webp"
   },
   "43": {
     "gameTitle": "Menja",
     "gameUrl": "Menja",
-    "thumbnailUrl": "Menja.png"
+    "thumbnailUrl": "Menja.webp"
   },
   "44": {
     "gameTitle": "Typing Speed Test",
     "gameUrl": "Typing_Speed_Test_Game",
-    "thumbnailUrl": "Typing_Speed_Test.png"
+    "thumbnailUrl": "Typing_Speed_Test.webp"
   },
   "45": {
     "gameTitle": "Tile Game",
@@ -227,42 +227,42 @@
   "46": {
     "gameTitle": "Stick Hero Game",
     "gameUrl": "Stick_Hero_Game",
-    "thumbnailUrl": "Stick_Hero.png"
+    "thumbnailUrl": "Stick_Hero.webp"
   },
   "47": {
     "gameTitle": "Starwars Character Game",
     "gameUrl": "Starwars_Character_Game",
-    "thumbnailUrl": "starwars.png"
+    "thumbnailUrl": "starwars.webp"
   },
   "48": {
     "gameTitle": "Traffic Run",
     "gameUrl": "Traffic_Run",
-    "thumbnailUrl": "Traffic_Run.PNG"
+    "thumbnailUrl": "Traffic_Run.webp"
   },
   "49": {
     "gameTitle": "Love Result Predictor",
     "gameUrl": "Love_Result_Predictor",
-    "thumbnailUrl": "Love Result Predictor.png"
+    "thumbnailUrl": "Love Result Predictor.webp"
   },
   "50": {
     "gameTitle": "Snake and Ladders",
     "gameUrl": "Snake_and_Ladders",
-    "thumbnailUrl": "snake_and_ladder.png"
+    "thumbnailUrl": "snake_and_ladder.webp"
   },
   "51": {
     "gameTitle": "Tower Defense",
     "gameUrl": "Tower_Defense",
-    "thumbnailUrl": "tower_defense.png"
+    "thumbnailUrl": "tower_defense.webp"
   },
   "52": {
     "gameTitle": "Bird game",
     "gameUrl": "Bird_game",
-    "thumbnailUrl": "Bird_game.png"
+    "thumbnailUrl": "Bird_game.webp"
   },
   "53": {
     "gameTitle": "Bubble Blast Game",
     "gameUrl": "Bubble_Blast_Game",
-    "thumbnailUrl": "Bubble_Blast_Game.png"
+    "thumbnailUrl": "Bubble_Blast_Game.webp"
   },
 
   "54": {
@@ -274,76 +274,76 @@
   "55": {
     "gameTitle": "Drum Kit Game",
     "gameUrl": "Drum_Kit_Game",
-    "thumbnailUrl": "Drum_And_Kit.PNG"
+    "thumbnailUrl": "Drum_And_Kit.webp"
   },
 
   "56": {
     "gameTitle": "Rock Paper Scissors",
     "gameUrl": "Rock_Paper_Scissors",
-    "thumbnailUrl": "Rock_Paper_Scissors.png"
+    "thumbnailUrl": "Rock_Paper_Scissors.webp"
   },
 
   "57": {
     "gameTitle": "Frogger",
     "gameUrl": "Frogger",
-    "thumbnailUrl": "Frogger.png"
+    "thumbnailUrl": "Frogger.webp"
   },
 
   "58": {
     "gameTitle": "Not more than 5",
     "gameUrl": "Not_morethan5",
-    "thumbnailUrl": "!morethan5.png"
+    "thumbnailUrl": "!morethan5.webp"
   },
 
   "59": {
     "gameTitle": "Unruly Tower",
     "gameUrl": "Unruly_Tower",
-    "thumbnailUrl": "Unruly_Tower.png"
+    "thumbnailUrl": "Unruly_Tower.webp"
   },
 
   "60": {
     "gameTitle": "Maze Game",
     "gameUrl": "MazeGame",
-    "thumbnailUrl": "MazeGame.png"
+    "thumbnailUrl": "MazeGame.webp"
   },
 
   "61": {
     "gameTitle": "Connect4",
     "gameUrl": "Connect4",
-    "thumbnailUrl": "connect4.png"
+    "thumbnailUrl": "connect4.webp"
   },
 
   "62": {
     "gameTitle": "Spelling Bee",
     "gameUrl": "Spelling_Bee",
-    "thumbnailUrl": "spelling_bee.png"
+    "thumbnailUrl": "spelling_bee.webp"
   },
 
   "63": {
     "gameTitle": "2048",
     "gameUrl": "2048",
-    "thumbnailUrl": "2048.png"
+    "thumbnailUrl": "2048.webp"
   },
 
   "64": {
     "gameTitle": "Spin the wheel",
     "gameUrl": "Spin_the_wheel",
-    "thumbnailUrl": "Spin_the_wheel.png"
+    "thumbnailUrl": "Spin_the_wheel.webp"
   },
   "65": {
     "gameTitle": "Breakout",
     "gameUrl": "Breakout",
-    "thumbnailUrl": "Breakout.png"
+    "thumbnailUrl": "Breakout.webp"
   },
   "66": {
     "gameTitle": "Tower Blocks",
     "gameUrl": "Tower_Blocks",
-    "thumbnailUrl": "Tower_Blocks.png"
+    "thumbnailUrl": "Tower_Blocks.webp"
   },
   "67": {
     "gameTitle": "Platform Game",
     "gameUrl": "Platform_Game",
-    "thumbnailUrl": "Platform_Game.png"
+    "thumbnailUrl": "Platform_Game.webp"
   },
   "68": {
     "gameTitle": "Red Light Green Light",
@@ -353,87 +353,87 @@
   "69": {
     "gameTitle": "Squashing Your Enemy",
     "gameUrl": "Squashing_your_Enemy",
-    "thumbnailUrl": "Squashing_Your_Enemy.png"
+    "thumbnailUrl": "Squashing_Your_Enemy.webp"
   },
   "70": {
     "gameTitle": "Avax Gods",
     "gameUrl": "Avax_Gods",
-    "thumbnailUrl": "Avax_Gods.png"
+    "thumbnailUrl": "Avax_Gods.webp"
   },
   "71": {
     "gameTitle": "Flip Card Game",
     "gameUrl": "Flip_Card_Game",
-    "thumbnailUrl": "Flip_Card_Game.png"
+    "thumbnailUrl": "Flip_Card_Game.webp"
   },
   "72": {
     "gameTitle": "Bingo_Game",
     "gameUrl": "Bingo_Game",
-    "thumbnailUrl": "Bingo_Game.png"
+    "thumbnailUrl": "Bingo_Game.webp"
   },
   "73": {
     "gameTitle": "Fifteen Puzzle Game",
     "gameUrl": "Fifteen_Puzzle_Game",
-    "thumbnailUrl": "fifteen_puzzle.png"
+    "thumbnailUrl": "fifteen_puzzle.webp"
   },
   "74": {
     "gameTitle": "Stack_Game",
     "gameUrl": "Stack_Game",
-    "thumbnailUrl": "Stack_Game.png"
+    "thumbnailUrl": "Stack_Game.webp"
   },
   "75": {
     "gameTitle": "Block Io",
     "gameUrl": "Block.iogame.html",
-    "thumbnailUrl": "block.io.png"
+    "thumbnailUrl": "block.io.webp"
   },
   "76": {
     "gameTitle": "Country Guesser Game",
     "gameUrl": "Country_Guesser_Game",
-    "thumbnailUrl": "country_guesser.png"
+    "thumbnailUrl": "Country_Guesser_Game.webp"
   },
   "77": {
     "gameTitle": "Touch The Ball",
     "gameUrl": "Touch_The_Ball",
-    "thumbnailUrl": "touch_the_ball.png"
+    "thumbnailUrl": "touch_the_ball.webp"
   },
   "78": {
     "gameTitle": "Sudoku",
     "gameUrl": "Sudoku",
-    "thumbnailUrl": "sudoku.png"
+    "thumbnailUrl": "sudoku.webp"
   },
   "79": {
     "gameTitle": "Mini Golf",
     "gameUrl": "Mini_Golf",
-    "thumbnailUrl": "Mini_Golf.png"
+    "thumbnailUrl": "Mini_Golf.webp"
   },
   "80": {
     "gameTitle": "Rubik's Solver",
     "gameUrl": "Rubik's_solver",
-    "thumbnailUrl": "cube_Solver.png"
+    "thumbnailUrl": "cube_Solver.webp"
   },
   "81": {
     "gameTitle": "Shoot_The_Balloon",
     "gameUrl": "Shoot_The_Balloon",
-    "thumbnailUrl": "shoot_the_ball.png"
+    "thumbnailUrl": "shoot_the_ball.webp"
   },
   "82": {
     "gameTitle": "Don't Die To Ghosts",
     "gameUrl": "Dont_Die_To_Ghosts",
-    "thumbnailUrl": "dont_die_to_ghosts.png"
+    "thumbnailUrl": "dont_die_to_ghosts.webp"
   },
   "83": {
     "gameTitle": "SciFi Alchemy",
     "gameUrl": "SciFi_Alchemy",
-    "thumbnailUrl": "scifi_alchemy.png"
+    "thumbnailUrl": "scifi_alchemy.webp"
   },
   "84": {
     "gameTitle": "Packabunchas",
     "gameUrl": "Packabunchas",
-    "thumbnailUrl": "packabunchas.png"
+    "thumbnailUrl": "packabunchas.webp"
   },
   "85": {
     "gameTitle": "Cast and Catch",
     "gameUrl": "Cast_and_Catch",
-    "thumbnailUrl": "Cast_and_Catch.png"
+    "thumbnailUrl": "Cast_and_Catch.webp"
   },
   "86": {
     "gameTitle": "Track Not Found",
@@ -443,27 +443,27 @@
   "87": {
     "gameTitle": "Love Calculator",
     "gameUrl": "Love_Calcilove.html",
-    "thumbnailUrl": "Love_Calci.png"
+    "thumbnailUrl": "Love_Calci.webp"
   },
   "88": {
     "gameTitle": "Planet Game",
     "gameUrl": "Planet_Game",
-    "thumbnailUrl": "planet_game.png"
+    "thumbnailUrl": "planet_game.webp"
   },
   "89": {
     "gameTitle": "Snake Ladder",
     "gameUrl": "Snake_Ladder",
-    "thumbnailUrl": "snake_ladder.png"
+    "thumbnailUrl": "snake_ladder.webp"
   },
   "90": {
     "gameTitle": "Among Us",
     "gameUrl": "Among_Us_Game",
-    "thumbnailUrl": "amongus.png"
+    "thumbnailUrl": "amongus.webp"
   },
   "91": {
     "gameTitle": "Pokedex",
     "gameUrl": "Pokedex",
-    "thumbnailUrl": "pokedex.png"
+    "thumbnailUrl": "pokedex.webp"
   },
   "92": {
     "gameTitle": "Pacific Air Battle",
@@ -493,52 +493,52 @@
   "97": {
     "gameTitle": "Ball Fall Game",
     "gameUrl": "Ball_Fall_Game",
-    "thumbnailUrl": "ball_fall.png"
+    "thumbnailUrl": "ball_fall.webp"
   },
   "98": {
     "gameTitle": "Pinball",
     "gameUrl": "Pinball",
-    "thumbnailUrl": "pinball.png"
+    "thumbnailUrl": "pinball.webp"
   },
   "99": {
     "gameTitle": "Duck Hunting Game",
     "gameUrl": "Duck_Hunting_Game",
-    "thumbnailUrl": "Duck_Hunting_Game.png"
+    "thumbnailUrl": "Duck_Hunting_Game.webp"
   },
   "100": {
     "gameTitle": "Color Matcher",
     "gameUrl": "Color_Matcher",
-    "thumbnailUrl": "Color_Matcher.png"
+    "thumbnailUrl": "Color_Matcher.webp"
   },
   "101": {
     "gameTitle": "Catch the Bunny",
     "gameUrl": "Catch_the_Bunny",
-    "thumbnailUrl": "Catch_the_Bunny.png"
+    "thumbnailUrl": "Catch_the_Bunny.webp"
   },
   "102": {
     "gameTitle": "Catch me game",
     "gameUrl": "Catch_me_game",
-    "thumbnailUrl": "Catch_me_game.png"
+    "thumbnailUrl": "Catch_me_game.webp"
   },
   "103": {
     "gameTitle": "Blanks Detective",
     "gameUrl": "Blanks Detective",
-    "thumbnailUrl": "Blanks Detective.png"
+    "thumbnailUrl": "Blanks Detective.webp"
   },
   "104": {
     "gameTitle": "Falling Blocks",
     "gameUrl": "Falling_Blocks",
-    "thumbnailUrl": "Falling_Blocks.png"
+    "thumbnailUrl": "Falling_Blocks.webp"
   },
   "105": {
     "gameTitle": "Movie Guessing Game",
     "gameUrl": "Movie_Guessing_Game",
-    "thumbnailUrl": "Movie_Guessing_Game.png"
+    "thumbnailUrl": "Movie_Guessing_Game.webp"
   },
   "106": {
     "gameTitle": "Wildcard Bonanza",
     "gameUrl": "Wildcard_Bonanza",
-    "thumbnailUrl": "Wildcard_Bonanza.png"
+    "thumbnailUrl": "Wildcard_Bonanza.webp"
   },
   "107": {
     "gameTitle": "The Last Spartan",
@@ -548,12 +548,12 @@
   "108": {
     "gameTitle": "Space Exploration",
     "gameUrl": "Space_Exploration",
-    "thumbnailUrl": "space_exploration.png"
+    "thumbnailUrl": "space_exploration.webp"
   },
   "109": {
     "gameTitle": "Bow Arrow",
     "gameUrl": "Bow_Arrow",
-    "thumbnailUrl": "Bow_Arrow.PNG"
+    "thumbnailUrl": "Bow_Arrow.webp"
   },
   "110": {
     "gameTitle": "I want to Google",
@@ -563,17 +563,17 @@
   "111": {
     "gameTitle": "Space Gun",
     "gameUrl": "Space_Gun",
-    "thumbnailUrl": "space_gun.png"
+    "thumbnailUrl": "space_gun.webp"
   },
   "112": {
     "gameTitle": "Space Huggers",
     "gameUrl": "Space_Huggers",
-    "thumbnailUrl": "space_huggers.png"
+    "thumbnailUrl": "space_huggers.webp"
   },
   "113": {
     "gameTitle": "Spaceship Escort",
     "gameUrl": "Spaceship_Escort",
-    "thumbnailUrl": "spaceship_escort.png"
+    "thumbnailUrl": "spaceship_escort.webp"
   },
   "114": {
     "gameTitle": "Space Defense",
@@ -588,7 +588,7 @@
   "116": {
     "gameTitle": "3d Box",
     "gameUrl": "3d_Box Game",
-    "thumbnailUrl": "3d_Box.png"
+    "thumbnailUrl": "3d_Box.webp"
   },
   "117": {
     "gameTitle": "Escape",
@@ -598,7 +598,7 @@
   "118": {
     "gameTitle": "Retro Dungeon Puzzle",
     "gameUrl": "Retro_Dungeon_Puzzle",
-    "thumbnailUrl": "Retro_Dungeon_Puzzle.png"
+    "thumbnailUrl": "Retro_Dungeon_Puzzle.webp"
   },
   "119": {
     "gameTitle": "Immunity Collapse",
@@ -608,7 +608,7 @@
   "120": {
     "gameTitle": "Hunt Your Card",
     "gameUrl": "Hunt_Your_Card",
-    "thumbnailUrl": "Hunt_Your_Card.png"
+    "thumbnailUrl": "Hunt_Your_Card.webp"
   },
   "121": {
     "gameTitle": "Tenacity",
@@ -618,7 +618,7 @@
   "122": {
     "gameTitle": "Emoji Puzzle Game",
     "gameUrl": "Emoji_Puzzle_Game",
-    "thumbnailUrl": "Emoji_Puzzle_Game.png"
+    "thumbnailUrl": "Emoji_Puzzle_Game.webp"
   },
   "123": {
     "gameTitle": "Back To Space",
@@ -638,27 +638,27 @@
   "126": {
     "gameTitle": "Squared Lines",
     "gameUrl": "Squared Lines",
-    "thumbnailUrl": "Squared Lines.png"
+    "thumbnailUrl": "Squared Lines.webp"
   },
   "127": {
     "gameTitle": "Space War",
     "gameUrl": "Space_War",
-    "thumbnailUrl": "space_war.png"
+    "thumbnailUrl": "space_war.webp"
   },
   "128": {
     "gameTitle": "Sciarra Of Colors",
     "gameUrl": "Sciarra_Of_Colors",
-    "thumbnailUrl": "Sciarra_Of_Colors.png"
+    "thumbnailUrl": "Sciarra_Of_Colors.webp"
   },
   "129": {
     "gameTitle": "JunoJs",
     "gameUrl": "JunoJs",
-    "thumbnailUrl": "junojs.png"
+    "thumbnailUrl": "junojs.webp"
   },
   "130": {
     "gameTitle": "Fall Down",
     "gameUrl": "Fall_Down",
-    "thumbnailUrl": "falldown.png"
+    "thumbnailUrl": "falldown.webp"
   },
   "131": {
     "gameTitle": "Cat Goric",
@@ -683,7 +683,7 @@
   "135": {
     "gameTitle": "Blast Zone",
     "gameUrl": "Blast Zone",
-    "thumbnailUrl": "Blast Zone.png"
+    "thumbnailUrl": "Blast Zone.webp"
   },
   "136": {
     "gameTitle": "Free Bird",
@@ -693,17 +693,17 @@
   "137": {
     "gameTitle": "Maximise Boxes",
     "gameUrl": "MaximiseBoxes",
-    "thumbnailUrl": "MaximiseBoxes.png"
+    "thumbnailUrl": "MaximiseBoxes.webp"
   },
   "138": {
     "gameTitle": "Slide Puzzle",
     "gameUrl": "Slide_Puzzle",
-    "thumbnailUrl": "Slide_Puzzle.png"
+    "thumbnailUrl": "Slide_Puzzle.webp"
   },
   "139": {
     "gameTitle": "Diamond Run",
     "gameUrl": "Diamond_Run",
-    "thumbnailUrl": "diamond_run.png"
+    "thumbnailUrl": "diamond_run.webp"
   },
   "140": {
     "gameTitle": "Everyones Sky",
@@ -713,7 +713,7 @@
   "141": {
     "gameTitle": "Line Of Fire",
     "gameUrl": "Line_Of_Fire",
-    "thumbnailUrl": "line_of_fire.png"
+    "thumbnailUrl": "line_of_fire.webp"
   },
   "142": {
     "gameTitle": "1024 Moves",
@@ -728,27 +728,27 @@
   "144": {
     "gameTitle": "Dragon World Game",
     "gameUrl": "Dragon_World_Game",
-    "thumbnailUrl": "dragon_world.png"
+    "thumbnailUrl": "dragon_world.webp"
   },
   "145": {
     "gameTitle": "Duck Hunt",
     "gameUrl": "DuckHunt",
-    "thumbnailUrl": "DuckHunt.png"
+    "thumbnailUrl": "DuckHunt.webp"
   },
   "146": {
     "gameTitle": "Plankman",
     "gameUrl": "Plankman",
-    "thumbnailUrl": "Plankman.png"
+    "thumbnailUrl": "Plankman.webp"
   },
   "147": {
     "gameTitle": "Hold The Cloud",
     "gameUrl": "Hold_The_Cloud",
-    "thumbnailUrl": "hold_the_cloud.png"
+    "thumbnailUrl": "hold_the_cloud.webp"
   },
   "148": {
     "gameTitle": "Labyrinth",
     "gameUrl": "Labyrinth",
-    "thumbnailUrl": "labyrinth.png"
+    "thumbnailUrl": "labyrinth.webp"
   },
   "149": {
     "gameTitle": "RIP",
@@ -763,17 +763,17 @@
   "151": {
     "gameTitle": "Pixels From Space",
     "gameUrl": "Pixels_From_Space",
-    "thumbnailUrl": "pixels_from_space.png"
+    "thumbnailUrl": "pixels_from_space.webp"
   },
   "152": {
     "gameTitle": "Poker Dice",
     "gameUrl": "Poker_Dice",
-    "thumbnailUrl": "poker.png"
+    "thumbnailUrl": "poker.webp"
   },
   "153": {
     "gameTitle": "Unlock The Lock",
     "gameUrl": "Unlock_The_Lock",
-    "thumbnailUrl": "unlock_the_lock.png"
+    "thumbnailUrl": "unlock_the_lock.webp"
   },
   "154": {
     "gameTitle": "Gnomedom",
@@ -788,47 +788,47 @@
   "156": {
     "gameTitle": "Pong Ball",
     "gameUrl": "Pong_Ball",
-    "thumbnailUrl": "PONG_BALL.png"
+    "thumbnailUrl": "PONG_BALL.webp"
   },
   "157": {
     "gameTitle": "Projectile Motion Game",
     "gameUrl": "Projectile_Motion_Game",
-    "thumbnailUrl": "Projectile_Motion_Game.png"
+    "thumbnailUrl": "Projectile_Motion_Game.webp"
   },
   "158": {
     "gameTitle": "Swift",
     "gameUrl": "Swift",
-    "thumbnailUrl": "swift.png"
+    "thumbnailUrl": "swift.webp"
   },
   "159": {
     "gameTitle": "Spacepi",
     "gameUrl": "Spacepi",
-    "thumbnailUrl": "spacepi.png"
+    "thumbnailUrl": "spacepi.webp"
   },
   "160": {
     "gameTitle": "Destroyer",
     "gameUrl": "Destroyer",
-    "thumbnailUrl": "destroyer.png"
+    "thumbnailUrl": "destroyer.webp"
   },
   "161": {
     "gameTitle": "Terror_Seventy",
     "gameUrl": "Terror_Seventy",
-    "thumbnailUrl": "terror_seventy.png"
+    "thumbnailUrl": "terror_seventy.webp"
   },
   "162": {
     "gameTitle": "Humming",
     "gameUrl": "Humming",
-    "thumbnailUrl": "humming.png"
+    "thumbnailUrl": "humming.webp"
   },
   "163": {
     "gameTitle": "Word_search_puzzle",
     "gameUrl": "Word_search_puzzle",
-    "thumbnailUrl": "Word_search_puzzle.png"
+    "thumbnailUrl": "Word_search_puzzle.webp"
   },
   "164": {
     "gameTitle": "Ballarena",
     "gameUrl": "Ballarena",
-    "thumbnailUrl": "ballarena.png"
+    "thumbnailUrl": "ballarena.webp"
   },
   "165": {
     "gameTitle": "Beyonder",
@@ -838,32 +838,32 @@
   "166": {
     "gameTitle": "Shpere",
     "gameUrl": "Shpere",
-    "thumbnailUrl": "shpere.png"
+    "thumbnailUrl": "shpere.webp"
   },
   "167": {
     "gameTitle": "Short Circuit",
     "gameUrl": "Short Circuit",
-    "thumbnailUrl": "Short Circuit.png"
+    "thumbnailUrl": "Short Circuit.webp"
   },
   "168": {
     "gameTitle": "Johnny Smiter",
     "gameUrl": "Johnny_Smiter",
-    "thumbnailUrl": "johnny_smiter.png"
+    "thumbnailUrl": "johnny_smiter.webp"
   },
   "169": {
     "gameTitle": "Rectangular",
     "gameUrl": "Rectangular",
-    "thumbnailUrl": "rectangular.png"
+    "thumbnailUrl": "rectangular.webp"
   },
   "170": {
     "gameTitle": "Canon Defense",
     "gameUrl": "Canon_Defense",
-    "thumbnailUrl": "canon_defense.png"
+    "thumbnailUrl": "canon_defense.webp"
   },
   "171": {
     "gameTitle": "Trashem",
     "gameUrl": "Trashem",
-    "thumbnailUrl": "trashem.png"
+    "thumbnailUrl": "trashem.webp"
   },
   "172": {
     "gameTitle": "CHESS",
@@ -878,7 +878,7 @@
   "174": {
     "gameTitle": "Uxu",
     "gameUrl": "Uxu",
-    "thumbnailUrl": "uxu.png"
+    "thumbnailUrl": "uxu.webp"
   },
   "175": {
     "gameTitle": "Soul Jumper",
@@ -903,12 +903,12 @@
   "179": {
     "gameTitle": "Shape Blocks",
     "gameUrl": "Shape_Blocks",
-    "thumbnailUrl": "shape_block.png"
+    "thumbnailUrl": "shape_block.webp"
   },
   "180": {
     "gameTitle": "Goal Rush",
     "gameUrl": "Goal_Rush",
-    "thumbnailUrl": "Goal_Rush.png"
+    "thumbnailUrl": "Goal_Rush.webp"
   },
   "181": {
     "gameTitle": "Charon Jr",
@@ -918,52 +918,52 @@
   "182": {
     "gameTitle": "Color Matcher",
     "gameUrl": "ColorMatcher",
-    "thumbnailUrl": "ColorMatcher.png"
+    "thumbnailUrl": "ColorMatcher.webp"
   },
   "183": {
     "gameTitle": "Oh Flip",
     "gameUrl": "oh_flip",
-    "thumbnailUrl": "oh_flip.png"
+    "thumbnailUrl": "oh_flip.webp"
   },
   "184": {
     "gameTitle": "Snake Feeder Game",
     "gameUrl": "Snake_Feeder_Game",
-    "thumbnailUrl": "Snake_Feeder_Game.png"
+    "thumbnailUrl": "Snake_Feeder_Game.webp"
   },
   "185": {
     "gameTitle": "LOSSST",
     "gameUrl": "LOSSST",
-    "thumbnailUrl": "LOSSST.png"
+    "thumbnailUrl": "LOSSST.webp"
   },
   "186": {
     "gameTitle": "HangMan",
     "gameUrl": "HangMan",
-    "thumbnailUrl": "HangMan.png"
+    "thumbnailUrl": "HangMan.webp"
   },
   "187": {
     "gameTitle": "Bad Luck Brian",
     "gameUrl": "Bad_Luck_Brian",
-    "thumbnailUrl": "bad_luck_brian.png"
+    "thumbnailUrl": "bad_luck_brian.webp"
   },
   "188": {
     "gameTitle": "Bad Depot",
     "gameUrl": "Bad_Depot",
-    "thumbnailUrl": "bad_Depot.png"
+    "thumbnailUrl": "bad_Depot.webp"
   },
   "189": {
     "gameTitle": "Achluophobia",
     "gameUrl": "Achluophobia",
-    "thumbnailUrl": "Achluophobia.png"
+    "thumbnailUrl": "Achluophobia.webp"
   },
   "190": {
     "gameTitle": "Timber Terry",
     "gameUrl": "Timber_Terry",
-    "thumbnailUrl": "timber_terry.png"
+    "thumbnailUrl": "timber_terry.webp"
   },
   "191": {
     "gameTitle": "Earth Destroyer",
     "gameUrl": "Earth_Destroyer",
-    "thumbnailUrl": "earth_destroyer.png"
+    "thumbnailUrl": "earth_destroyer.webp"
   },
   "192": {
     "gameTitle": "Lonely Phantom",
@@ -978,12 +978,12 @@
   "194": {
     "gameTitle": "Sucker",
     "gameUrl": "Sucker",
-    "thumbnailUrl": "sucker.png"
+    "thumbnailUrl": "sucker.webp"
   },
   "195": {
     "gameTitle": "Sorades",
     "gameUrl": "Sorades",
-    "thumbnailUrl": "sorades.png"
+    "thumbnailUrl": "sorades.webp"
   },
   "196": {
     "gameTitle": "Thirteen",
@@ -998,57 +998,57 @@
   "198": {
     "gameTitle": "Green Mahjong",
     "gameUrl": "Green Mahjong",
-    "thumbnailUrl": "Green Mahjong.png"
+    "thumbnailUrl": "Green Mahjong.webp"
   },
   "199": {
     "gameTitle": "Drag And Drop Puzzle",
     "gameUrl": "Drag_And_Drop_Puzzle",
-    "thumbnailUrl": "Drag_And_Drop_Puzzle.png"
+    "thumbnailUrl": "Drag_And_Drop_Puzzle.webp"
   },
   "200": {
     "gameTitle": "Music Guess Game",
     "gameUrl": "Music_Guess_Game",
-    "thumbnailUrl": "Music_Guess_Game.png"
+    "thumbnailUrl": "Music_Guess_Game.webp"
   },
   "201": {
     "gameTitle": "Tower Of Hanoi",
     "gameUrl": "Tower_Of_Hanoi",
-    "thumbnailUrl": "tower_of_hanoi.png"
+    "thumbnailUrl": "tower_of_hanoi.webp"
   },
   "202": {
     "gameTitle": "Mastermind Mania",
     "gameUrl": "Mastermind_Mania",
-    "thumbnailUrl": "Mastermind_Mania.png"
+    "thumbnailUrl": "Mastermind_Mania.webp"
   },
   "203": {
     "gameTitle": "Ludo 4 Player",
     "gameUrl": "Ludo_4_Player",
-    "thumbnailUrl": "Ludo_4_Player.PNG"
+    "thumbnailUrl": "Ludo_4_Player.webp"
   },
   "204": {
     "gameTitle": "Air Balloon",
     "gameUrl": "AirBalloon",
-    "thumbnailUrl": "AirBalloon.png"
+    "thumbnailUrl": "AirBalloon.webp"
   },
   "205": {
     "gameTitle": "Space Invadors",
     "gameUrl": "Space Invaders",
-    "thumbnailUrl": "Space Invaders.png"
+    "thumbnailUrl": "Space Invaders.webp"
   },
   "206": {
     "gameTitle": "Cut The Rope",
     "gameUrl": "Cut_the_rope",
-    "thumbnailUrl": "Cut_the_rope.png"
+    "thumbnailUrl": "Cut_the_rope.webp"
   },
   "207": {
     "gameTitle": "Caeser Cipher",
     "gameUrl": "Caesar_Cipher",
-    "thumbnailUrl": "caesar.png"
+    "thumbnailUrl": "caesar.webp"
   },
   "208": {
     "gameTitle": "Monster Maker",
     "gameUrl": "Monster_Maker",
-    "thumbnailUrl": "Monster_Maker.png"
+    "thumbnailUrl": "Monster_Maker.webp"
   },
   "209": {
     "gameTitle": "Stolen Sword",
@@ -1058,7 +1058,7 @@
   "210": {
     "gameTitle": "Master Mind",
     "gameUrl": "Mastemind",
-    "thumbnailUrl": "Mastermind.png"
+    "thumbnailUrl": "Mastermind.webp"
   },
   "211": {
     "gameTitle": "Highway 404",
@@ -1068,32 +1068,32 @@
   "212": {
     "gameTitle": "Bulls eye",
     "gameUrl": "BullseyeGame",
-    "thumbnailUrl": "BullseyeGame.png"
+    "thumbnailUrl": "BullseyeGame.webp"
   },
   "213": {
     "gameTitle": "Cross Word",
     "gameUrl": "Crossword_Game",
-    "thumbnailUrl": "Crossword_Game.png"
+    "thumbnailUrl": "Crossword_Game.webp"
   },
   "214": {
     "gameTitle": "Guess the correct logo",
     "gameUrl": "Guess_The_Correct_Logo",
-    "thumbnailUrl": "Guess_The_Correct_Logo.png"
+    "thumbnailUrl": "Guess_The_Correct_Logo.webp"
   },
   "215": {
     "gameTitle": "Painting Game",
     "gameUrl": "Painting_Game",
-    "thumbnailUrl": "Painting_Game.png"
+    "thumbnailUrl": "Painting_Game.webp"
   },
   "216": {
     "gameTitle": "Platform game engine",
     "gameUrl": "Platform_game_engine",
-    "thumbnailUrl": "Platform_game_engine.PNG"
+    "thumbnailUrl": "Platform_game_engine.webp"
   },
   "217": {
     "gameTitle": "Dopplekopf",
     "gameUrl": "Doppelkopf",
-    "thumbnailUrl": "Doppelkopf.png"
+    "thumbnailUrl": "Doppelkopf.webp"
   },
   "218": {
     "gameTitle": "Island Survival",
@@ -1103,32 +1103,32 @@
   "219": {
     "gameTitle": "LinkUp",
     "gameUrl": "linkup",
-    "thumbnailUrl": "linkup.png"
+    "thumbnailUrl": "linkup.webp"
   },
   "220": {
     "gameTitle": "Trivia card",
     "gameUrl": "Trivia_Card",
-    "thumbnailUrl": "Trivia_Card.PNG"
+    "thumbnailUrl": "Trivia_Card.webp"
   },
   "221": {
     "gameTitle": "Insect Catch",
     "gameUrl": "Insect_Catch_Game",
-    "thumbnailUrl": "Insect_Catch_Game.png"
+    "thumbnailUrl": "Insect_Catch_Game.webp"
   },
   "222": {
     "gameTitle": "Carnival Game",
     "gameUrl": "Carnival_game",
-    "thumbnailUrl": "Carnival_game.png"
+    "thumbnailUrl": "Carnival_game.webp"
   },
   "223": {
     "gameTitle": "Make Me Laugh",
     "gameUrl": "Make_Me_Laugh",
-    "thumbnailUrl": "Make_Me_Laugh.png"
+    "thumbnailUrl": "Make_Me_Laugh.webp"
   },
   "224": {
     "gameTitle": "Avoider Game",
     "gameUrl": "Avoider_Game",
-    "thumbnailUrl": "Avoider_Game.png"
+    "thumbnailUrl": "Avoider_Game.webp"
   },
   "225": {
     "gameTitle": "Dungeon Crawler",
@@ -1138,217 +1138,217 @@
   "226": {
     "gameTitle": "Snake Water Gun",
     "gameUrl": "snake_water_gun",
-    "thumbnailUrl": "snake_water_gun.png"
+    "thumbnailUrl": "snake_water_gun.webp"
   },
   "227": {
     "gameTitle": "Run and Jump",
     "gameUrl": "Run and Jump",
-    "thumbnailUrl": "Run and Jump.png"
+    "thumbnailUrl": "Run and Jump.webp"
   },
   "228": {
     "gameTitle": "Chess",
     "gameUrl": "AI-CHESS-Game",
-    "thumbnailUrl": "chess.png"
+    "thumbnailUrl": "chess.webp"
   },
   "229": {
     "gameTitle": "Fruit Catching",
     "gameUrl": "Fruit_Catching",
-    "thumbnailUrl": "Fruit_Catching.png"
+    "thumbnailUrl": "Fruit_Catching.webp"
   },
   "230": {
     "gameTitle": "Crystals collector",
     "gameUrl": "Crystals_Collecter",
-    "thumbnailUrl": "Crystals_Collector.png"
+    "thumbnailUrl": "Crystals_Collector.webp"
   },
   "231": {
     "gameTitle": "Dots and Boxes",
     "gameUrl": "Dots_and_Boxes_Game",
-    "thumbnailUrl": "Dots_and_Boxes_Game.png"
+    "thumbnailUrl": "Dots_and_Boxes_Game.webp"
   },
   "232": {
     "gameTitle": "Infinite Runner",
     "gameUrl": "InfiniteRunner_Game",
-    "thumbnailUrl": "infiniteRunner.png"
+    "thumbnailUrl": "infiniteRunner.webp"
   },
   "233": {
     "gameTitle": "Mario Matching",
     "gameUrl": "mario_matching_game",
-    "thumbnailUrl": "Mario Matching.png"
+    "thumbnailUrl": "Mario Matching.webp"
   },
   "234": {
     "gameTitle": "Hand Cricket",
     "gameUrl": "Hand_Cricket",
-    "thumbnailUrl": "Hand_cricket.png"
+    "thumbnailUrl": "Hand_cricket.webp"
   },
   "235": {
     "gameTitle": "Crossword Puzzle",
     "gameUrl": "Crossword_Puzzle",
-    "thumbnailUrl": "Crossword_Puzzle.png"
+    "thumbnailUrl": "Crossword_Puzzle.webp"
   },
   "236": {
     "gameTitle": "Pixel Painter",
     "gameUrl": "Pixel_Painter",
-    "thumbnailUrl": "Pixel_Painter.png"
+    "thumbnailUrl": "Pixel_Painter.webp"
   },
   "237": {
     "gameTitle": "Riddle Room",
     "gameUrl": "Riddle_Room",
-    "thumbnailUrl": "Riddle_Room.png"
+    "thumbnailUrl": "Riddle_Room.webp"
   },
   "238": {
     "gameTitle": "Armor Alley",
     "gameUrl": "ArmorAlley",
-    "thumbnailUrl": "armor-alley_game.png"
+    "thumbnailUrl": "armor-alley_game.webp"
   },
   "239": {
     "gameTitle": "Color Switcher",
     "gameUrl": "Color_switcher",
-    "thumbnailUrl": "Color_switcher.png"
+    "thumbnailUrl": "Color_switcher.webp"
   },
   "240": {
     "gameTitle": "Maze of Cables",
     "gameUrl": "Maze_of_Cables",
-    "thumbnailUrl": "MazeofCabels.png"
+    "thumbnailUrl": "MazeofCabels.webp"
   },
   "241": {
     "gameTitle": "Escape Room",
     "gameUrl": "Escape_room",
-    "thumbnailUrl": "Escape_room.png"
+    "thumbnailUrl": "Escape_room.webp"
   },
   "242": {
     "gameTitle": "Super Mario Run",
     "gameUrl": "Super_mario_run",
-    "thumbnailUrl": "Super_mario_run.png"
+    "thumbnailUrl": "Super_mario_run.webp"
   },
   "243": {
     "gameTitle": "Doodle Draw",
     "gameUrl": "Doodle_Draw",
-    "thumbnailUrl": "Doodle_Draw.png"
+    "thumbnailUrl": "Doodle_Draw.webp"
   },
   "244": {
     "gameTitle": "Arcade Game",
     "gameUrl": "Arcade_Game",
-    "thumbnailUrl": "Arcade_Game.png"
+    "thumbnailUrl": "Arcade_Game.webp"
   },
   "245": {
     "gameTitle": "Slice Storm",
     "gameUrl": "Slice_Storm",
-    "thumbnailUrl": "Slice_Storm.png"
+    "thumbnailUrl": "Slice_Storm.webp"
   },
   "246": {
     "gameTitle": "CodePen Simulator",
     "gameUrl": "CodePen_Simulator",
-    "thumbnailUrl": "CodePen_Simulator.png"
+    "thumbnailUrl": "CodePen_Simulator.webp"
   },
   "247": {
     "gameTitle": "PianoTiles Game",
     "gameUrl": "PianoTiles_Game",
-    "thumbnailUrl": "Piano_Tiles.png"
+    "thumbnailUrl": "Piano_Tiles.webp"
   },
   "248": {
     "gameTitle": "CareTaker",
     "gameUrl": "CareTaker",
-    "thumbnailUrl": "CareTaker.png"
+    "thumbnailUrl": "CareTaker.webp"
   },
   "249": {
     "gameTitle": "UNO",
     "gameUrl": "UNO",
-    "thumbnailUrl": "UNO.png"
+    "thumbnailUrl": "UNO.webp"
   },
   "250": {
     "gameTitle": "Color Matcher",
     "gameUrl": "Color Matcher",
-    "thumbnailUrl": "Color Matcher.png"
+    "thumbnailUrl": "Color Matcher.webp"
   },
   "251": {
     "gameTitle": "Guess The_Random Shape",
     "gameUrl": "Guess_The_Random_Shape",
-    "thumbnailUrl": "Guess_The_Random_Shape.png"
+    "thumbnailUrl": "Guess_The_Random_Shape.webp"
   },
   "252": {
     "gameTitle": "Save Doraemon",
     "gameUrl": "Save_Doraemon",
-    "thumbnailUrl": "Save_Doraemon.png"
+    "thumbnailUrl": "Save_Doraemon.webp"
   },
   "253": {
     "gameTitle": "Animal Match Game",
     "gameUrl": "Animal_Match_Game",
-    "thumbnailUrl": "Animal_Match_Game.png"
+    "thumbnailUrl": "Animal_Match_Game.webp"
   },
   "254": {
     "gameTitle": "Hextris",
     "gameUrl": "Hextris",
-    "thumbnailUrl": "hextris.png"
+    "thumbnailUrl": "hextris.webp"
   },
   "255": {
     "gameTitle": "MrFakeGame",
     "gameUrl": "MrFakeGame",
-    "thumbnailUrl": "MrFakeGame.png"
+    "thumbnailUrl": "MrFakeGame.webp"
   },
   "256": {
     "gameTitle": "Checkers",
     "gameUrl": "Checkers",
-    "thumbnailUrl": "Checkers.png"
+    "thumbnailUrl": "Checkers.webp"
   },
   "257": {
     "gameTitle": "Roulette",
     "gameUrl": "Roulette",
-    "thumbnailUrl": "Roulette.png"
+    "thumbnailUrl": "Roulette.webp"
   },
   "258": {
     "gameTitle": "Aero Acrobat",
     "gameUrl": "Aero_Acrobat",
-    "thumbnailUrl": "Aero_acrobat.png"
+    "thumbnailUrl": "Aero_acrobat.webp"
   },
   "259": {
     "gameTitle": "Adventure Game",
     "gameUrl": "Adventure_Game",
-    "thumbnailUrl": "Adventure_Game.png"
+    "thumbnailUrl": "Adventure_Game.webp"
   },
   "260": {
     "gameTitle": "Pumpkin Pursuit",
     "gameUrl": "Pumpkin_Pursuit",
-    "thumbnailUrl": "Pumpkin_Pursuit.png"
+    "thumbnailUrl": "Pumpkin_Pursuit.webp"
   },
   "261": {
     "gameTitle": "Corona Shooter",
     "gameUrl": "Corona_Shooter",
-    "thumbnailUrl": "Corona_Shooter.png"
+    "thumbnailUrl": "Corona_Shooter.webp"
   },
   "262": {
     "gameTitle": "Pokemon Ball Finder",
     "gameUrl": "Pokemon_Ball_Finder",
-    "thumbnailUrl": "Pokemon Ball Finder.png"
+    "thumbnailUrl": "Pokemon Ball Finder.webp"
   },
   "263": {
     "gameTitle": "Baseketball",
     "gameUrl": "Baseketball",
-    "thumbnailUrl": "Basketball.png"
+    "thumbnailUrl": "Basketball.webp"
   },
   "264": {
     "gameTitle": "Wault Master",
     "gameUrl": "Wault_master",
-    "thumbnailUrl": "Wault_master.png"
+    "thumbnailUrl": "Wault_master.webp"
   },
   "265": {
     "gameTitle": "Number Sliding Puzzle Game",
     "gameUrl": "Number_Sliding_Puzzle_Game",
-    "thumbnailUrl": "Number_Sliding_Puzzle_Game.png"
+    "thumbnailUrl": "Number_Sliding_Puzzle_Game.webp"
   },
   "266": {
     "gameTitle": "Reaction Time",
     "gameUrl": "Reaction_Time",
-    "thumbnailUrl": "reactiontime.png"
+    "thumbnailUrl": "reactiontime.webp"
   },
   "267": {
     "gameTitle": "Flag Guess Game",
     "gameUrl": "Flag_Guess_Game",
-    "thumbnailUrl": "Flag_Guess_Game.png"
+    "thumbnailUrl": "Flag_Guess_Game.webp"
   },
   "268": {
     "gameTitle": "Cross The Road",
     "gameUrl": "Cross_The_Road",
-    "thumbnailUrl": "cross_the_road.png"
+    "thumbnailUrl": "cross_the_road.webp"
   },
   "269": {
     "gameTitle": "Highway Race",
@@ -1358,12 +1358,12 @@
   "270": {
     "gameTitle": "Bit Maze Platformer Maze",
     "gameUrl": "Bit_Maze_Platformer_Maze",
-    "thumbnailUrl": "Bit_Maze_Platformer_Maze.png"
+    "thumbnailUrl": "Bit_Maze_Platformer_Maze.webp"
   },
   "271": {
     "gameTitle": "Math Game",
     "gameUrl": "Math_Game",
-    "thumbnailUrl": "Math_Game.png"
+    "thumbnailUrl": "Math_Game.webp"
   },
   "272": {
     "gameTitle": "Space Drifter",
@@ -1373,12 +1373,12 @@
   "273": {
     "gameTitle": "Observe the Cloud",
     "gameUrl": "Observe the Cloud",
-    "thumbnailUrl": "Observe the Cloud.png"
+    "thumbnailUrl": "Observe the Cloud.webp"
   },
   "274": {
     "gameTitle": "Cosmic Coin Collector",
     "gameUrl": "Cosmic_Coin_Collector",
-    "thumbnailUrl": "Cosmic_Coin_Collector.png"
+    "thumbnailUrl": "Cosmic_Coin_Collector.webp"
   },
   "275": {
     "gameTitle": "Circus Charly",
@@ -1388,7 +1388,7 @@
   "276": {
     "gameTitle": "Pikachu Volleyball",
     "gameUrl": "Pikachu_Volleyball",
-    "thumbnailUrl": "Pikachu_Volleyball.png"
+    "thumbnailUrl": "Pikachu_Volleyball.webp"
   },
   "277": {
     "gameTitle": "Little Red Game",
@@ -1398,67 +1398,67 @@
   "278": {
     "gameTitle": "Crack The Code",
     "gameUrl": "Crack_The_Code",
-    "thumbnailUrl": "Crack_The_Code.png"
+    "thumbnailUrl": "Crack_The_Code.webp"
   },
   "279": {
     "gameTitle": "Skeleathon",
     "gameUrl": "Skeleathon",
-    "thumbnailUrl": "Skeleathon.png"
+    "thumbnailUrl": "Skeleathon.webp"
   },
   "280": {
     "gameTitle": "Shadow PokeGuess",
     "gameUrl": "Shadow_PokeGuess",
-    "thumbnailUrl": "Shadow_PokeGuess.png"
+    "thumbnailUrl": "Shadow_PokeGuess.webp"
   },
   "281": {
     "gameTitle": "Brain Color Mastermind",
     "gameUrl": "Brain Color Mastermind",
-    "thumbnailUrl": "Brain Color Mastermind.png"
+    "thumbnailUrl": "Brain Color Mastermind.webp"
   },
   "282": {
     "gameTitle": "Lizard Spock Game",
     "gameUrl": "Lizard Spock Game",
-    "thumbnailUrl": "Lizard_Spock_Game.png"
+    "thumbnailUrl": "Lizard_Spock_Game.webp"
   },
   "283": {
     "gameTitle": "Angry Boars",
     "gameUrl": "Angry_Boars",
-    "thumbnailUrl": "Angry_boars.png"
+    "thumbnailUrl": "Angry_boars.webp"
   },
   "284": {
     "gameTitle": "Alphabet Learning Game",
     "gameUrl": "Alphabet Learning Game",
-    "thumbnailUrl": "Alphabet_Learning_Game.png"
+    "thumbnailUrl": "Alphabet_Learning_Game.webp"
   },
   "285": {
     "gameTitle": "Country Guesser Game",
     "gameUrl": "Country_Guesser_Game",
-    "thumbnailUrl": "country_guesser.png"
+    "thumbnailUrl": "Country_Guesser_Game.webp"
   },
   "286": {
     "gameTitle": "Poke Guess Blitz",
     "gameUrl": "Poke_Guess_Blitz",
-    "thumbnailUrl": "Poke_Guess_Blitz.png"
+    "thumbnailUrl": "Poke_Guess_Blitz.webp"
   },
   "287": {
     "gameTitle": "Stone Paper Scissor",
     "gameUrl": "Stone-Paper-Scissor",
-    "thumbnailUrl": "StonePaper.png"
+    "thumbnailUrl": "StonePaper.webp"
   },
   "288": {
     "gameTitle": "Spider Man Go",
     "gameUrl": "Spider_Man_Go",
-    "thumbnailUrl": "spidermango.png"
+    "thumbnailUrl": "spidermango.webp"
   },
   "289": {
     "gameTitle": "Foosball",
     "gameUrl": "Foosball",
-    "thumbnailUrl": "Foosball.png"
+    "thumbnailUrl": "Foosball.webp"
   },
   "290": {
     "gameTitle": "Triangle Back to Home",
     "gameUrl": "Triangle_Back_to_Home",
-    "thumbnailUrl": "Triangle_Back_To_Home.png"
+    "thumbnailUrl": "Triangle_Back_To_Home.webp"
   },
   "291": {
     "gameTitle": "Color Crush Game",
@@ -1468,37 +1468,37 @@
   "292": {
     "gameTitle": "Trex Run",
     "gameUrl": "Trex_Run",
-    "thumbnailUrl": "t-rex.png"
+    "thumbnailUrl": "t-rex.webp"
   },
   "293": {
     "gameTitle": "Chicken Cannon",
     "gameUrl": "Chicken_Cannon",
-    "thumbnailUrl": "chicken.png"
+    "thumbnailUrl": "chicken.webp"
   },
   "294": {
     "gameTitle": "Death by Hamster",
     "gameUrl": "Death%20by%20Hamster",
-    "thumbnailUrl": "hamster.png"
+    "thumbnailUrl": "hamster.webp"
   },
   "295": {
     "gameTitle": "Trio Match",
     "gameUrl": "Trio_Match",
-    "thumbnailUrl": "Trio_Match.png"
+    "thumbnailUrl": "Trio_Match.webp"
   },
   "296": {
     "gameTitle": "Word Chain",
     "gameUrl": "Word%20Chain",
-    "thumbnailUrl": "WordChain.png"
+    "thumbnailUrl": "WordChain.webp"
   },
   "297": {
     "gameTitle": "Ball and glass",
     "gameUrl": "Ball_and_glass",
-    "thumbnailUrl": "cup.png"
+    "thumbnailUrl": "cup.webp"
   },
   "298": {
     "gameTitle": "Target Torrent",
     "gameUrl": "Target_Torrent",
-    "thumbnailUrl": "Target_Torrent.png"
+    "thumbnailUrl": "Target_Torrent.webp"
   },
   "299": {
     "gameTitle": "Reversi",
@@ -1523,12 +1523,12 @@
   "303": {
     "gameTitle": "StickTheSticker",
     "gameUrl": "StickTheSticker",
-    "thumbnailUrl": "1.png"
+    "thumbnailUrl": "1.webp"
   },
   "304": {
     "gameTitle": "Meme Battle Game",
     "gameUrl": "Meme_Battle_Game",
-    "thumbnailUrl": "BATTLE game (5).png"
+    "thumbnailUrl": "BATTLE game (5).webp"
   },
   "305": {
     "gameTitle": "Bow And Arrow",
@@ -1553,7 +1553,7 @@
   "309": {
     "gameTitle": "Battleship",
     "gameUrl": "Battleship",
-    "thumbnailUrl": "miss.png"
+    "thumbnailUrl": "miss.webp"
   },
   "310": {
     "gameTitle": "Baseball",
@@ -1563,12 +1563,12 @@
   "311": {
     "gameTitle": "Save Princess",
     "gameUrl": "Save_Princess",
-    "thumbnailUrl": "Save_Princess.png"
+    "thumbnailUrl": "Save_Princess.webp"
   },
   "312": {
     "gameTitle": "RoadFighter",
     "gameUrl": "RoadFighter",
-    "thumbnailUrl": "barrel.png"
+    "thumbnailUrl": "barrel.webp"
   },
   "313": {
     "gameTitle": "Guitar Game",
@@ -1588,7 +1588,7 @@
    "316": {
     "gameTitle": "Stone Paper Scissor",
     "gameUrl": "Stone_Paper_Scissor",
-    "thumbnailUrl": "favicon.png"
+    "thumbnailUrl": "favicon.webp"
   },
   
   "317": {
@@ -1599,12 +1599,12 @@
   "318": {
     "gameTitle": "Pig game",
     "gameUrl": "Pig_game",
-    "thumbnailUrl": "pig-game-flowchart.png"
+    "thumbnailUrl": "pig-game-flowchart.webp"
   },
   "319": {
     "gameTitle": "Asteroids 3D",
     "gameUrl": "Asteroids_3D",
-    "thumbnailUrl": "Asteroids_3D.png"
+    "thumbnailUrl": "Asteroids_3D.webp"
   },
   "320": {
     "gameTitle": "Lamb Lane",
@@ -1614,7 +1614,7 @@
   "321": {
     "gameTitle": "Dinoffline",
     "gameUrl": "Dinoffline",
-    "thumbnailUrl": "eyes0.png"
+    "thumbnailUrl": "eyes0.webp"
   },
   "322": {
     "gameTitle": "Maths Sprint Game",
@@ -1629,7 +1629,7 @@
   "324": {
     "gameTitle": "QuizzApp",
     "gameUrl": "QuizzApp",
-    "thumbnailUrl": "quizzApp1.png"
+    "thumbnailUrl": "quizzApp1.webp"
   },
   "325": {
     "gameTitle": "Chess Game",

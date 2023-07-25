@@ -7,8 +7,7 @@
 }
 
 body{
-    background-image: url("https://media.istockphoto.com/photos/topographic-map-background-concept-topo-contour-map-rendering-and-picture-id984824408?b=1&k=20&m=984824408&s=170667a&w=0&h=WwjFwR0iX4EIAAhld0ve-o9_lU7WVWCTysXLAyBZJPY=");
-    background-repeat: no-repeat;
+   background-color: black;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -46,19 +45,24 @@ body{
 .start_btn button{
     font-size: 25px;
     font-weight: 500;
-    color: #181818;
+    color: grey;
     padding: 15px 30px;
     outline: none;
-    border: none;
-    border-radius: 5px;
-    background: #fff;
+    border: 1px solid grey;
+   background: black;
     cursor: pointer;
 }
 .start_btn button:hover {
-    color: white;
-    background: rgba(114, 108, 108, 0.7);
+    color: black;
+    background: white;
+    opacity: 0.8;
     border: 1px solid rgba(45, 44, 44, 0.667);
+    font-weight:900;
+    letter-spacing: 1px;
+    box-shadow: 10px 5px 5px white;
+
 }
+
 
 .info_box{
     width: 540px;

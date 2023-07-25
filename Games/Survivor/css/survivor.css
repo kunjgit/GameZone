@@ -1,0 +1,1029 @@
+/** @license
+ *
+ * SURVIVOR: A HTML + CSS + JavaScript prototype
+ * based on the Commodore 64 version of Survivor from 1983
+ *
+ * http://schillmania.com/survivor/
+ * http://www.flickr.com/photos/schill/sets/72157628885315581/
+ * http://github.com/scottschiller/
+ *
+ * Scott Schiller wrote this beginning in December 2011, while on a plane to Hawaii.
+ * Code provided under the Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0) License:
+ * http://creativecommons.org/licenses/by-nc/3.0/
+ *
+ */
+
+body {
+ font: normal 1em "helvetica neue", helvetica, arial, sans-serif;
+ color: #ccc;
+ /* hide and scroll. */
+ overflow: hidden;
+ /* grid-tile.png */
+ background: #000 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD+/v7KB/Q9AAAAAnRSTlMAM8lDrC4AAAAQSURBVAhbY1zFAAMNg5EFALt0CCw/8KEzAAAAAElFTkSuQmCC);
+ /* don't allow highlighting / selection, by accidental click + drag etc. */
+ user-select: none;
+ /*
+  * avoid smooth image resizing, keep things pixelated - more true to the original.
+  * Firefox does a great job here; Safari is OK (though not pixel-sharp.)
+  * Chrome + Safari may be worse when using -webkit-optimize-contrast vs. default.
+  * https: //developer.mozilla.org/en-US/docs/Web/CSS/image-rendering
+  */
+  image-rendering: optimizeQuality;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  /* non-standard, but quite nice under Firefox */
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  /* chrome doesn't seem to implement this */
+  /* who knows, for IE */
+  -ms-interpolation-mode: nearest-neighbor;
+  /* font trickery */
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+#c64 h1,
+#c64 h2,
+#c64 h3,
+#c64 p {
+ margin: 0.5em 0px;
+ padding: 0px;
+ font-size: 21px;
+ line-height: 30px;
+ font-weight: normal;
+ color: #a6a6ff;
+}
+
+#c64 h1,
+#c64 h2 {
+ text-align: center;
+}
+
+#c64 h3 {
+ margin-bottom: 0px;
+}
+
+#c64 p {
+ margin: 0px;
+ line-height: 22px;
+}
+
+#c64 .loading {
+ display: none;
+}
+
+#c64 #go_go_go {
+ /* inside joke. */
+ display: none;
+}
+
+@font-face {
+    /**
+     * http://style64.org/c64-truetype
+     * see license.txt in font directory for details.
+     */
+    font-family: "C64 User Mono";
+    src: url("../font/C64_User_Mono_v1.0-STYLE.eot");
+}
+
+@font-face {
+    /**
+     * http://style64.org/c64-truetype
+     * see license.txt in font directory for details.
+     */
+    font-family: "C64 User Mono";
+    src: url("../font/C64_User_Mono_v1.0-STYLE.ttf") format("truetype"), url("../font/C64_User_Mono_v1.0-STYLE.woff") format("woff");
+}
+
+.c64 {
+ /* generic "use this font" class */
+ font-family: "C64 User Mono";
+}
+
+#c64 {
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ /* 640x480, before border etc. */
+ width: 820px;
+ height: 615px;
+ margin: -371px 0px 0px -474px;
+ background: #4444e7;
+ border: 64px solid #a6a6ff;
+ padding: 2px;
+ font-family: "C64 User Mono";
+ color: #fff;
+ cursor: pointer;
+}
+
+@media (min-resolution: 192dpi) {
+  /**
+   * in the 80s, you would have been connected through a signal converter to a TV
+   * on channel 3, or a Commodore-branded CRT "monitor" with composite video inputs,
+   * which gave higher quality rendering. Notwithstanding, there should be some fuzz.
+   * (hi-dpi only. too aggressive on non-retina screens.)
+   */
+  #c64 {
+    filter: blur(1px);
+  }
+}
+
+#c64 #cursor {
+ width: 20px;
+ height: 20px;
+ /* a tiny animated .GIF */
+ background: transparent url(data:image/gif;base64,R0lGODlhDwAPAPAAAEBA4KCg/yH/C05FVFNDQVBFMi4wAwEAAAAh+QQEKAD/ACwAAAAADwAPAEACDYSPqcvtD6OctNqLZwEAIfkEBSgAAAAsAAAAAA8ADwAAAg2Mj6nL7Q+jnLTai2cBADs=);
+ margin: 2px 0px 0px 2px;
+}
+
+#screens {
+ position: fixed;
+ left: 0px;
+ top: 0px;
+ width: 100%;
+ height: 100%;
+ z-index: 1;
+}
+
+#screen-list {
+ list-style-type: none;
+}
+
+#screen-list,
+#screen-list li {
+ margin: 0px;
+ padding: 0px;
+}
+
+#screen-list li {
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ width: 100%;
+ height: 100%;
+ z-index: 3;
+ /* by default, hide. */
+ display: none;
+}
+
+#screen-list li#boot-screen {
+ /* initially, show this one. */
+ display: block;
+}
+
+#level-end-sequence {
+ background: #000;
+}
+
+#title-screen {
+ background: #000;
+ text-align: center;
+ cursor: pointer;
+ display: none;
+}
+
+#title-screen h1,
+#title-screen h2,
+#title-screen h3 {
+ font-family: "C64 User Mono";
+ font-size: 13px;
+ line-height: 20px;
+ font-weight: normal;
+}
+
+#title-screen #title-content {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 630px;
+ height: 190px;
+ margin: -95px 0px 0px -320px;
+}
+
+#title-screen #title-header {
+ position: relative;
+ width: 609px;
+ height: 100px;
+ font-size: 0px;
+ line-height: 100px;
+ margin: 0px auto;
+ padding: 0px;
+ overflow: hidden;
+ /* title-screen-letter-tile.gif */
+  background: #000 url(../image/title-screen-letter-tile.gif);
+}
+
+#title-screen #title-header h1 {
+ position: relative;
+ width: 609px;
+ height: 100px;
+ font-size: 0px; /* hack */
+ line-height: 100px; /* hack */
+ overflow: hidden;
+ text-indent: -999em;
+ /* title-screen-cutout.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmEAAABkAgMAAACzyQ9CAAAACVBMVEUAAAAAAAD///+D3c/SAAAAAXRSTlMAQObYZgAAAAFiS0dEAmYLfGQAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAidEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVAgb24gYSBNYWOHqHdDAAADBElEQVRo3u2bTXLkIAyFGxXZs5n7cIRZJKecWcwRfJ9svI+rmGn/DcYWehZQ1VWBRZLqVj8/xIcsnMR8PF5zfNLjVUd31p11Z93ZvWHnr+F39NIPv7zw/L69ub22j7efh/e4OE7r3/j6k+gk2kvOptszmopzMrI6U7Sa423dUOxsYHVC5GzQCutHyOgMu7OgXgz9mDI64+5sKlAuwywDGmnnH6pglgGN1MwMVTDjQSP19McqmPGgkRqZqQpmPGiknn2oghkPGumJGapgxoJGNcp574K6M6g/2/snacR9FjfMx7Eny2mlvVyk3VezO+vOurPurDvrzrqzb92fff56QI3aHtdgJNpU9XzbcjWnl3UWXncH4Odb39CWn50ZHWimoTGz5syrQLONK8bTmVOB5ho6c6szqwKtMWazMxVorTFb9qYGtNaYLc40oLXGbHGmAa01Zoszo0ShJWbrPcDrUGja/1BzaMr8vW1/T5J7LjYn+n37xWTcV82fTl++HZNoV+lpB6AOIjGl3fYZsRHY0iO07W3lc8AElEEkpjRn5vRz2G8dno3Px1xoU0Ga/l9mWFfLZIpyPuasXbqaboNo4KscElPnvOkjZOw6y5Cpi0jMWbs0ZxtEOYSQmDo5c3EBWCHKIoTEnLTVORuPEGURQmJO2sX1bLnSVxYhJKbKatq4bBigZ0NiTtrl9wAP9GxITI2cmUNT7oCeDYlJtctzZoGjARJz8RmuJxOelQ0+XR9/7PGen18fx5krzDL6g1fmzB96LQ8g5GHMdu0KXZADEHIgZoU7YLnOlELkABgdrk3X+TQ3TpdGEQNUOGJEfO50aY9neQ8gxO8ETpuYxLsbp0uniJErHEHXcexpiJuLNF8rapOY9wsUjLz+EiNG1CaEZwPUoLsxYoUjZH9b4UGQAypVGuMkbUJqolSFrCJGrHCE3Eek1t0oYsQqSGyTl+up3Gk6yA3RiDst1iagX5Fvdk4RI1VBAno8Jz50scAN0V5Wb17b9P/Euj26s+6sO+vOurPW4y/KjsjB18CxHAAAAABJRU5ErkJggg==) no-repeat 50% 50%;
+}
+
+#title-screen .marquee,
+#title-screen .marquee-text {
+  /*
+   * "The <marquee> element is not valid according to the HTML or XHTML specifications. Page authors concerned with validation should not use this tag."
+   * https://developer.mozilla.org/en/HTML/Element/marquee
+   * So instead, we'll play dirty with CSS animations. :D
+   */
+  position: relative;
+  display: block;
+}
+
+#title-screen .marquee {
+  overflow: hidden;
+  /* fix a few display things */
+  width: 46em;
+  /* center underneath logo */
+  margin-left: 1em;
+}
+
+#title-screen .marquee .marquee-text {
+  width: 100%;
+  /* undo defaults */
+  text-align: left;
+  /* force one line */
+  white-space: nowrap;
+  /* ensure it's at least this long. */
+  min-width: 160em;
+  /*
+   * message is 110 characters in length; 160 will scroll it off the left end entirely. 
+   * animation will start with an offset so it scrolls in from the right.
+   */
+  animation: marquee 20s steps(160, end) infinite;
+}
+
+#help-screen,
+#game-over-screen,
+#level-passed-screen {
+ background: #000;
+ cursor: pointer;
+ display: block;
+}
+
+#help-screen,
+#game-over-screen,
+#level-passed-screen {
+ background-color: rgba(0,0,0,0.85);
+}
+
+#level-passed-screen .bd,
+#game-over-screen .bd,
+#help-screen .bd {
+ position: absolute;
+ left: 0px;
+ top: 50%;
+ width: 100%;
+ margin-top: 0px; /* set via JS */
+ text-align: center;
+}
+
+#help-screen .bd {
+ text-align: left;
+ font-size: 12px;
+ line-height: 16px;
+}
+
+#level-passed-screen .bd .wrapper {
+ text-align: left;
+}
+
+#level-passed-screen .fixed,
+#game-over-screen .fixed {
+ /* fixed-width items */
+ text-align: left;
+ max-width: 18em;
+ margin-bottom: 0.25em;
+}
+
+#game-over-screen .fixed {
+ margin-left: auto;
+ margin-right: auto;
+}
+
+#level-passed-screen .fixed .icon,
+#game-over-screen .fixed .icon {
+ position: relative;
+ display: inline-block;
+ vertical-align: middle;
+}
+
+#level-passed-screen .fixed.bad-guy,
+#game-over-screen .fixed.bad-guy {
+ /* special display tweak */
+ position: relative;
+ display: block;
+ width: auto;
+ height: auto;
+ overflow: visible;
+}
+
+#level-passed-screen .fixed.bad-guy .icon,
+#game-over-screen .fixed.bad-guy .icon {
+ /* special display tweak */
+ margin-right: 8px;
+ height: 24px;
+ background-position: 0px -51px;
+}
+
+#help-screen .bd .wrapper,
+#level-passed-screen .bd .wrapper {
+ position: relative;
+ margin: 0px auto;
+ padding: 1em;
+ max-width: 42em;
+}
+
+#help-screen .bd .wrapper {
+ max-width: 60em;
+}
+
+body.show-help #help-screen {
+ display: block;
+}
+
+body.show-help #world-container {
+ /* a little gratuitous filter nonsense, why not. */
+ filter: blur(1px);
+}
+
+#world-container {
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ width: 100%;
+ height: 100%;
+ display: none;
+}
+
+#world {
+ /* container for everything. */
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ /* will be resized via JS ... */
+ width: 0px;
+ height: 0px;
+ _background: #000;
+}
+
+.space {
+ /* the final frontier. */
+ /*
+ background-color: #000;
+ */
+}
+
+.stars {
+ display: none;
+ position:fixed;
+ left: 0px;
+ top: 0px;
+ width: 100%;
+ height: 100%;
+ /* background image? parallax? */
+}
+
+.ship,
+.ship-gunfire,
+.bad-guy,
+.turret,
+.turret-gunfire,
+.block,
+.wall {
+ position: absolute;
+ width: 31px;
+ height: 31px;
+ overflow: hidden;
+}
+
+.transform-sprite {
+ position: absolute;
+ top: 0px;
+ left: 0px;
+ width: 32px;
+ height: 128px;
+ overflow: visible;
+}
+
+/* except turret gunfire, which is relative to container. */
+.turret {
+ overflow: visible;
+}
+
+#world.hide-wall .wall,
+#world.hide-ship .ship,
+#world.hide-ship-gunfire .ship-gunfire,
+#world.hide-bad-guy .bad-guy,
+#world.hide-turret .turret,
+#world.hide-turret-gunfire .turret-gunfire,
+#world.hide-block .block,
+#world.hide-spaceball .spaceball {
+ /* for performance testing? */
+ display: none !important;
+}
+
+.ship {
+ position: absolute;
+ /* ship.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAABTUlEQVR42tWWsUoEMRRFB8VCxEZEdz/DxsJCLLdwLLe1EUvBynZawcZfyOeILJZ262IhaGOxiAZ24kGyEJKQFxMsvHBgCHlzhkxmXprf5Ppo37g0Nen7flgjon4dtiXJGDR0FaJjeINxSmIcOknk1a/CCO5gASaQMbABczAxmTGmBeWLiILW3uM0Uj+DgS87gK/I5KmxCUQ2zHmAR6/uAy4aG1FmkxRZmYuGG9hpSEqmrUQWhbJXOM/d4pOERJLNYEVQ2BdPSkU2bY5ImUQO99QPQlRsmYxPrSh2T0HkCUL+rah+6f50M8jbuz5t/gdbGGqnOYJNOINnKJEs6STRCF6cggJJQsbgGpzAPSy8gqcMyQS0KGNgCz59AVzB7rLxce0+vdf4ov1Mw1Bq5ZfS70rqZ9K54R1uYZAtCmVzTxImelSSRcEZpCmJLJLzDQ0QSrGhWeNgAAAAAElFTkSuQmCC) no-repeat 50% 50%;
+ width: 26px;
+ height: 26px;
+ padding: 3px;
+ border-radius: 32px;
+ opacity: 1;
+ transform: rotate(0deg), scale3d(1,1,1);
+ transition: box-shadow 0.2s ease-in-out;
+ transition-property: transform, opacity;
+}
+
+.ship.hidden {
+ transform: scale3d(10,10,1) !important;
+ opacity: 0;
+ transition: all 0.3s ease-out;
+ transition-property: transform, opacity;
+ *display: none; /* IE 8 */
+}
+
+.ship-thrust-up {
+ transform: rotate(0deg);
+}
+
+.ship.thrust-up.thrust-left {
+ transform: rotate(-45deg);
+}
+
+.ship.thrust-up.thrust-right {
+ transform: rotate(45deg);
+}
+
+.ship.thrust-right {
+ transform: rotate(90deg);
+}
+
+.ship.thrust-down {
+ transform: rotate(180deg);
+}
+
+.ship.thrust-down.thrust-left {
+ transform: rotate(-135deg);
+}
+
+.ship.thrust-down.thrust-right {
+ transform: rotate(135deg);
+}
+
+.ship.thrust-left {
+ transform: rotate(-90deg);
+}
+
+.ship-gunfire {
+ position: absolute;
+ width: 6px;
+ height: 6px;
+ background: #fff;
+ border-radius: 100%;
+}
+
+.big-explosion {
+ position: absolute;
+ width: 96px;
+ height: 80px;
+ margin-left: -48px;
+ margin-top: -40px;
+ /* explosion-96.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAFABAMAAACxbWSJAAAAFVBMVEUAAAA+MaJcRwCAgICJQDbQ3HH///+xGu2/AAAAAXRSTlMAQObYZgAAASVJREFUaN7tm9ENwyAMRLNCV+gKXYEVukL3H6HmAwnRAkZKyp1776dKxYvkEoyN0uMQQmwiGZ7v0IWbUa5fBpvQDmhvwCDUg6YBAwtloCtgUCFTgnYnAwmnCxGeJfY1HSG3RtjjItQaQohdncrS0gQTUsXTYBPqgbXIIKQBedv6CB5QKFIb7HACgYRyMQocXfBMnoTfCMkJqtBbNExChHmIJNStfbt4WATt0/sFzQOO0PsBlqp7EGHUNHWPVIkExl6U8VmaboYSLhe+JWEmQVXlfiEtIkGCBAlXC8reOEL0Autu5EIlfzII/9CLMglCCCHOpz4AdL3yCShEOat8GEuVAJgwPb0CFnoHa2xCmTB3sQ4m9ArdfBMmgT0vLf1fAFQQQtDzBklNU5sbQcADAAAAAElFTkSuQmCC) no-repeat 0px -96px;
+}
+
+.bad-guy {
+ position: absolute;
+ width: 32px;
+ height: 32px;
+ visibility: hidden;
+}
+
+.bad-guy .icon {
+ position: absolute;
+ width: 24px;
+ height: 24px;
+ top: 4px;
+ left: 4px;
+}
+
+.bad-guy.x .icon {
+ /* badguy-x.png */
+ background: transparent url(data:image/png;base64,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) no-repeat 0px 0px;
+}
+
+.bad-guy.smiley .icon {
+ /* badguy-smiley.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAABICAYAAADs+TUPAAAApElEQVR42u2YOw6AMAxDuf+JejsQU5ZSQ0KsNrUlT1R+DM1HPSQpX621c2R3qMeJ4eascAx5OHi7E4K/J/x9YYCpc+iNuTeJXmjxViFJG49O+kxOnc1zAtIbXWcuDGexOxwDzJMBsAUoBgC70H+1AK4oEVC/m/I3O62M0u5CRVZ88YqH8/ciHP4dYN4JgL0GwPNWhOUAhOugZ241E5pdQHrtWlsXbCcLmuCbjiAAAAAASUVORK5CYII=) no-repeat 0px 0px;
+}
+
+.bad-guy.bird .icon {
+ /* badguy-bird.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAABIAgMAAACRl92cAAAACVBMVEUAAAAAAADZ4YHc4ZZkAAAAAXRSTlMAQObYZgAAAFpJREFUGNPN0SEOw1AMBNGnD32SqKfMOYKMAvaUBd+gRYHtEEtGqxmeKWjrZJ30/hwcqOrGSk64L/DK56n2e2ZEgsp9pVWS9H/u/Da4tY7kUT4Bdo6JM6meeQNeBBzVDccw4gAAAABJRU5ErkJggg==) no-repeat 0px 0px;
+}
+
+.bad-guy.exploding {
+ background: transparent url(../image/badguy-boom.png) no-repeat 0px 0px;
+}
+
+.bad-guy.exploding .icon {
+ display: none;
+}
+
+.turret-gunfire {
+ /* turret-gunfire.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAABACAYAAAB7jnWuAAAAO0lEQVR42u3XsQkAQAgEwe+/ab8EBUWTmVzY7PABmWgScB8AANZQAAAwNcPdewECBAgQIEDAeoAvGaj6ZC38LpiJVU0AAAAASUVORK5CYII=) no-repeat 0px 0px;
+ /* initially, hide. */
+ visibility: hidden;
+}
+
+.turret-gunfire.up,
+.turret-gunfire.down {
+ background-position: 2px -32px;
+}
+
+.turret-gunfire.left,
+.turret-gunfire.right {
+ background-position: 0px 0px;
+}
+
+.block.type-0 {
+ border: 1px dotted #3399ff;
+}
+
+.block.type-0,
+.block.type-0 .transform-sprite {
+ /* block-type-0.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAACAAQMAAABQqPlZAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAERJREFUKJFjYMAC+P///wAheBgYDGhNIGwjFiB08DEwFEC5DYzUJaDGU+Y+At7n/wAkOATwEWAlNAs/0mKLsQFGUC1+AXEhYCccrnvbAAAAAElFTkSuQmCC) no-repeat 0px 0px;
+}
+
+.block.type-1 {
+ border: 1px dotted #ff3333;
+}
+
+.block.type-1,
+.block.type-1 .transform-sprite {
+ /* block-type-1.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAACAAgMAAAAXCIOJAAAADFBMVEUAAAAAAABoqUH///+Pb14MAAAAAXRSTlMAQObYZgAAAERJREFUOI3NkLENADAIw/Jkn+TJFFXsyRBVeEDeggw48CEEc7aI8XMKq89ppJAZMba29bGkKiOZf772qUYKkBFjK9LnApuVuQAKuhHCAAAAAElFTkSuQmCC) no-repeat 0px 0px;
+}
+
+.block.type-2 {
+ border: 1px dotted #33ff33;
+}
+
+.block.type-2,
+.block.type-2 .transform-sprite {
+ /* block-type-2.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAACAAgMAAAAXCIOJAAAADFBMVEUAAABoqUGJQDb///8xngp2AAAAAXRSTlMAQObYZgAAAE9JREFUOI3Nk7EBwDAMwvIkT+pJ+kHRkCFMGm3ZnPOTtm0HAFmQlgUYIBPEzLei/ARYQBsB20+Y8JofM7PaXTg0t3jOj/h540d1UHT5rp8PSTfuIAS+AyMAAAAASUVORK5CYII=) no-repeat 0px 0px;
+}
+
+.block.type-3 {
+ border: 1px dotted #ffff33;
+}
+
+.block.type-3,
+.block.type-3 .transform-sprite {
+ /* block-type-3.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAACAAgMAAAAXCIOJAAAADFBMVEUAAAAAAACJQDb///+BW6ugAAAAAXRSTlMAQObYZgAAAERJREFUOI3NkLENADAIw/Jkn+TJFFXsyRBVeEDeggw48CEEc7aI8XMKq89ppJAZMba29bGkKiOZf772qUYKkBFjK9LnApuVuQAKuhHCAAAAAElFTkSuQmCC) no-repeat 0px 0px;
+}
+
+#world.phase-1 .block {
+ background-position: 0px -32px;
+}
+
+#world.phase-2 .block {
+ background-position: 0px -64px;
+}
+
+#world.phase-3 .block {
+ background-position: 0px -96px;
+}
+
+#world.phase-4 .block {
+ background-position: 0px -128px;
+}
+
+/* translate3d-style GPU acceleration for sprites */
+
+#world.use-experimental-transforms .block {
+  /* no background here - move into an inner element */
+  background: transparent;
+}
+
+/* inner sprite element: this element gets the sprite and will be transformed, sliding within the container. */
+
+#world.use-experimental-transforms .block .transform-sprite {
+ transform: translate3d(0px, 0px, 0px);
+}
+
+#world.use-experimental-transforms.phase-1 .block .transform-sprite {
+ transform: translate3d(0px, -32px, 0px);
+}
+
+#world.use-experimental-transforms.phase-2 .block .transform-sprite {
+ transform: translate3d(0px, -64px, 0px);
+}
+
+#world.use-experimental-transforms.phase-3 .block .transform-sprite {
+ transform: translate3d(0px, -96px, 0px);
+}
+
+#world.use-experimental-transforms.phase-4 .block .transform-sprite {
+ transform: translate3d(0px, -128px, 0px);
+}
+
+/* step-based animations, too */
+
+/*
+#world.use-experimental-transforms.pulse-interval-0 .block .transform-sprite {
+ animation: pulse 2s steps(4, end) infinite;
+}
+
+#world.use-experimental-transforms.pulse-interval-1 .block .transform-sprite {
+ animation: pulse 1.467s steps(4, end) infinite;
+}
+
+#world.use-experimental-transforms.pulse-interval-2 .block .transform-sprite {
+ animation: pulse 0.933s steps(4, end) infinite;
+}
+
+#world.use-experimental-transforms.pulse-interval-3 .block .transform-sprite {
+ animation: pulse 0.4s steps(4, end) infinite;
+}
+*/
+
+@keyframes pulse {
+ from { transform: translate3d(0px, 0px, 0px); }
+ to { transform: translate3d(0px, -128px, 0px); }
+}
+
+.block.exploding,
+.wall.exploding,
+.turret.exploding {
+ /* death sequence */
+ /* base-explosion.png */
+ /* TODO: move further down so !important isn't needed? */
+ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAADACAMAAABS4JFEAAAAElBMVEVVVVVoqUF6v8d8cNqJQDb///8IAG8eAAABoklEQVR42u2YYYuDMBBEbbX//y/XAQeWB2aWnhcsd/Ml6+ZhZiRW6/LY9dqlcdmlUXK/B0gEt0MZqA0BBhcrAUOTLeDCFNZpCmtyij6g0ZO89BngEh4FqM6AT+kGYwYgpFDdAyjBfYAbZJhCmpTCsKAMbJAnJIE9wKeVNigDmmSzGo3A0GQfwMVBCgATU1gR+FmK//3w9/aDJy1D6y4dZ8CNCqyH1O8Ba5GOK/gZYJMt4PYpNAYAJlXTZAa4WSqgfgY8YYOMmQEXhmg6AkOTPYDbnCYDcPMUVgaqIf5WL1ILkPhG6rkMuGHxNozAL6doAUOTqjNgM2WESQLXp+Cl/QzQ6K3HmBngPxKajsDQZBPgU5cmCUxOoboHSAZpsg88D7HOQG3YqGovlQE2vKT7ERiaFBSBC1NYpymsySl6gAuPERguwe3XA+op6+g6AkOTWqYHPItoMgM85TCFgIkpXGfAPzX8FuYlM2CdvR5koDYIZ4DPTgPoBeBOKSyuH4ELUvC7KB+sGeCLBmNmgN9EaToAwaTrAHCb0ySBL0phZSDf/m+SPju9I9KB0AAAAABJRU5ErkJggg==) !important;
+ background-repeat: no-repeat;
+ background-position: 0px 0px;
+}
+
+.block-exploding {
+ margin: 4px;
+ width: 26px;
+ height: 26px;
+}
+
+#world.disable-pulse .block {
+ /* no pulse effect */
+ background-position: 0px -32px !important;
+}
+
+#world.use-experimental-transforms.disable-pulse .block .transform-sprite {
+ /* use-transform equivalent */
+ transform: none !important;
+}
+
+#world.disable-sprites div {
+ /* nuke sprites */
+ background-image: none !important;
+ outline: 1px solid #999;
+}
+
+#world.disable-css3 div {
+ border-radius: none !important;
+ transform: none !important;
+ transition: none !important;
+ animation: none !important;
+ box-shadow: none !important;
+ text-shadow: none !important;
+}
+
+.block {
+ border: none !important;
+}
+
+.wall,
+.turret,
+.turret-gunfire {
+ /* the stuff which bases are made of. */
+ width: 32px;
+ height: 32px;
+}
+
+.turret.type-1,
+.wall.type-1 {
+ /* base-type-1.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAFAAgMAAACgl5aJAAAADFBMVEUAAABoqUGJQDb///8xngp2AAAAAXRSTlMAQObYZgAAAKNJREFUSMfdlUEOAyEMA/3JfNKfdA+F9lKMV6xWUYOQ5gDBcUAAj4e2IElb+CxegmZeA0igmzfaQOROaNAlo87gq34N2zypP092vZM/6fvq9jLu64QsaISDJM9f359WemrMQ2ARLDqQSlLJQY1wkOkhQdLDGMcQnBVoTmpPPEx6cVvff3x6lEA6eBdDOEjyZJ9wLz0kJHoA51VfA4mau1bQXs8LVoJ9nyMPuW8AAAAASUVORK5CYII=) no-repeat 0px 0px;
+}
+
+.turret.type-2,
+.wall.type-2 {
+ /* base-type-2.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAFAAgMAAACgl5aJAAAADFBMVEUAAABoqUGJQDb///8xngp2AAAAAXRSTlMAQObYZgAAAJBJREFUSMfl0zEOgDAMA0B/0p/0J80A2SC1BKoi0S43lDRNAjBwmeYKrMMNHCCJM602XmB3fSbFMc0VtvdsWp2D/+uvyzx3h9/Pz6g4LL6DKIjqYNM23YHX6pDlI0FSj2u/RnBXkHPy9qSGSS8+6zvgGraCbEgdzscIHZI4d7dPz0eCrR5QjfozJLC+esL4fA528+t4JWi/SwAAAABJRU5ErkJggg==) no-repeat 0px 0px;
+}
+
+.turret.type-3,
+.wall.type-3 {
+ /* base-type-3.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAFAAgMAAACgl5aJAAAADFBMVEUAAABoqUGJQDb///8xngp2AAAAAXRSTlMAQObYZgAAAItJREFUSMfl00EOgCAMRNG5ZC/5LzkuBFdam6ikiSUmbwFSWpAahm3f4pj8PbrVxjdYXZ9OqNZnac+6ofC+/hoekeH396cVYnwPQSCCDHbYDmeIERlq+YCAHGM8RmGvQs6Vs1dqWOnFa32Xjhc9gS3IsB8GZaj852z37vmAbHKIedWvAYq56grt89kAOmct7wxOsZAAAAAASUVORK5CYII=) no-repeat 0px 0px;
+}
+
+.turret.type-4,
+.wall.type-4 {
+ /* base-type-4.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAFAAgMAAACgl5aJAAAADFBMVEUAAABoqUGJQDb///8xngp2AAAAAXRSTlMAQObYZgAAAItJREFUSMfl0zEOgDAMA0B/0p/0J81AywTBElBFIl1ugDZNUqBhkOQtjo+/R7fa8Aar69MJaX2W9qwbgvf11+CICr+fn1bg8fQfQRREVbBpm66QzU+SjwRJNcZ6jOCsIOfk7kkNk1681nfAHgM1IRtShf0yQoVkn7PTu+cjwVYNaI76NSRw/nWF9vlshYmuYE68ZvoAAAAASUVORK5CYII=) no-repeat 0px 0px;
+}
+
+.wall.upRight {
+ background-position: 0px 0px;
+}
+
+.wall.rightDown { /* for level editor */
+ background-position: 0px -32px;
+}
+
+.wall.downLeft { /* for level editor */
+ background-position: 0px -64px;
+}
+
+.wall.downRight { /* for level editor */
+ background-position: 0px -96px;
+}
+
+.wall.horizontal {
+ background-position: 0px -128px;
+}
+
+.turret.down.dead,
+.turret.up.dead {
+ /* dead turrets also revert to walls. */
+ /* !important needed to override JS when turret explodes. */
+ background-position: 0px -128px !important;
+}
+
+.turret.left.dead,
+.turret.right.dead,
+.wall.vertical {
+ /* dead turrets also revert to walls. */
+ background-position: 0px -160px;
+}
+
+.turret.up {
+ background-position: 0px -192px;
+}
+
+.turret.down {
+ background-position: 0px -224px;
+}
+
+.turret.left {
+ background-position: 0px -256px;
+}
+
+.turret.right {
+ background-position: 0px -288px;
+}
+
+.wall.exploded,
+.turret.exploded {
+ /* death sequence complete */
+ display: none;
+}
+
+.spaceball {
+ position: absolute;
+ width: 32px;
+ height: 32px;
+ /* spaceball.png */
+ background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAYAAAAAwr0iAAAAgElEQVR42u2WQQqAMBAD+zjv4oP8hj/xffVacxkWA6HFQG4hO+1SaPuq89776GZVHoAHqikfB3AMeFml+fUBrmMbLXn2bABsER4gD1AsrA5A4DwAFNqvXJUHkID92VF/HqBYQIVVoAkAyKIqYB7g/w+Q3CtaH4BWEgCIfstZeYAH+iJJMw1O7SUAAAAASUVORK5CYII=) no-repeat 0px 0px;
+ visibility: hidden;
+}
+
+#world.use-transform .block,
+#world.use-transform .bad-guy,
+#world.use-transform .ship-gunfire,
+#world.use-transform .turret,
+#world.use-transform .turret-gunfire,
+#world.use-transform .spaceball,
+#world.use-transform .big-explosion,
+#world.use-transform .ship-gunfire {
+ /**
+  * GPU accelation? Don't mind if I do.
+  * 04/2015 update: browsers are smart enough to optimize this shiz automagically.
+  * Forcing 500+ elements to individual layers can make things worse.
+ */
+ /*
+ -ms-transform: translate3d(0px, 0px, 0px);
+ -moz-transform: translate3d(0px, 0px, 0px);
+ -webkit-transform: translate3d(0px, 0px, 0px);
+ */
+}
+
+@keyframes marquee {
+  from {
+    text-indent: 50em;
+  }
+  to {
+    text-indent: -110em;
+  }
+}
+
+
+#world.use-transform .turret.dead {
+ /* no more GPU for you */
+ transform: none;
+}
+
+#footer {
+ position: fixed;
+ left: 0px;
+ bottom: 0px;
+ width: 100%;
+ min-height: 20px;
+ padding: 8px 8px 9px 8px;
+ font-size: 0.75em;
+ color: #999;
+ background-color: #000;
+ background-color: rgba(0,0,0,0.9);
+ text-shadow: 0px 1px 0px rgba(0,0,0,0.5);
+ border-top: 1px solid rgba(255,255,255,0.15);
+ z-index: 2;
+ line-height: 20px;
+}
+
+#footer p {
+ margin: 0px;
+ padding: 0px;
+}
+
+#footer span.divider {
+ padding: 0px 7px;
+ color: #444;
+}
+
+#footer a {
+ text-decoration: none;
+ color: #6699cc;
+}
+
+#footer a:hover {
+ color: #fff;
+}
+
+#footer a.cta {
+ padding: 0px 5px;
+ text-decoration: none;
+ color: #6699cc;
+ border-color: #114477;
+ line-height: 19px;
+ font-weight: bold;
+}
+
+#footer a.cta.help {
+ border-radius: 20px;
+ width: 10px;
+ text-align: center;
+ font-weight: bold;
+ font-size: 14px;
+ line-height: 20px;
+ vertical-align: bottom;
+}
+
+#footer a.cta:hover {
+ color: #fff;
+}
+
+#points,
+#lives,
+#smartbombs,
+#fps {
+ font-weight: bold;
+}
+
+#stats {
+ float: right;
+ padding-right: 1.5em;
+}
+
+#original {
+ display: none;
+}
+
+/* debug bits */
+
+#debug-panel {
+ position: fixed;
+ bottom: 38px;
+ right: 8px;
+ background: #000;
+ background-color: rgba(0,0,0,0.9);
+ font-family: monaco,"Andale Mono","VT-100","Lucida Console","Courier New",monospace,courier,system,sans-serif;
+ font-weight: normal;
+ font-size: 10px;
+ line-height: 10px;
+ color: #999;
+ border: 1px dotted #999;
+ border-color: rgba(255,255,255,0.25);
+ padding: 0.5em;
+ display: none;
+}
+
+#debug-panel .debug-header {
+ font-weight: bold;
+ text-align: center;
+ border-bottom: 1px dotted #999;
+ border-color: rgba(255,255,255,0.2);
+ padding-top: 5px;
+ padding-bottom: 5px;
+}
+
+#debug-panel .debug-header:first-child {
+ padding-top: 0px;
+}
+
+#debug-form,
+#debug-form ul,
+#debug-form ul li {
+ margin: 0px;
+ padding: 0px;
+}
+
+#debug-form ul {
+ list-style-type: none;
+ padding: 5px 0px;
+}
+
+#debug-form ul li {
+ padding: 2px 0px;
+ color: #666;
+}
+
+#debug-form ul.compact li {
+ /* make everything tightly spaced. */
+ padding: 0px;
+ margin-top: -2px;
+}
+
+#debug-form label {
+ position: relative;
+}
+
+#debug-form code {
+ display: inline-block;
+ color: #336699;
+}
+
+#debug-form .count {
+ color: #339933;
+}
+
+a.cta {
+ display: inline-block;
+ padding: 3px 4px;
+ background: #001133;
+ border: 1px solid #003366;
+ border-radius: 3px;
+}
+
+a.cta:hover,
+#footer a.cta:hover {
+ background-color: #336699;
+ border-color: #6699cc;
+ color: #fff;
+}
+
+a.cta:focus {
+ outline: none;
+}
+
+#tweeter {
+ display: none;
+}
+
+#footer a.tweeter {
+ display: inline-block;
+ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMCAQAAADFGyU3AAAA4ElEQVQYV1WRsQ4BQRCGlyARlRARUSgUOq8gIQpRSSQSBZHQeQAvIFGpFDoVOREnKo3bN5vf7Mxtzs3lv529/7uZ2TtjDDKGg+SugSYdaE8l8x9oY5ba38jiiXUaKiOExQZV2a04/7IsjmlsLg8/WCCHu+QWEWv0Dy1hKRIrUIQbRqwL+tRVhIfGQd92plxudU1D9BJoh5eHYrlqD0x0Ut9ySzau4CtaTMWivABZVp0C8rMockVBoQ7GKDJS4+HfasdHiNBK2gzir5IM7rIzGv5vyEIV2tBbj+0QOtHQey5+lFrhcFxfM3wAAAAASUVORK5CYII=);
+ background-repeat: no-repeat;
+ background-position: 50% 50%; 
+ border-radius: 6px;
+ width: 22px;
+ height: 19px;
+ margin-top: -3px;
+ overflow: hidden;
+ font-size: 18px;
+ line-height: 10px;
+ font-weight; bold;
+ text-indent: -99em;
+ vertical-align: middle;
+ text-align: center;
+}

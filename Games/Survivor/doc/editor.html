@@ -1,0 +1,2924 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>editor.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>editor.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>﻿<span class="comment">/** @license
+ *
+ * SURVIVOR: A HTML + CSS + JavaScript prototype
+ * based on the Commodore 64 version of Survivor from 1983
+ * -------------------------------------------------------
+ * http://schillmania.com/survivor/
+ * http://www.flickr.com/photos/schill/sets/72157628885315581/
+ * http://github.com/scottschiller/
+ *
+ * Scott Schiller wrote this beginning in December 2011, on a plane to Hawaii.
+ * Code provided under the Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0) License:
+ * http://creativecommons.org/licenses/by-nc/3.0/
+ *
+ */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Side note, 2012.02.27: holy crap, this is nowhere near pleasing the JSLINT gods yet.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+(<span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>common bits</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+  <span class="function"><span class="keyword">function</span> <span class="title">isChildOf</span><span class="params">(node, containerNode)</span> {</span>
+
+    <span class="keyword">while</span> (node &amp;&amp; containerNode &amp;&amp; node.parentNode &amp;&amp; node.parentNode !== containerNode) {
+
+      node = node.parentNode;
+
+    }
+
+    <span class="keyword">return</span> (node &amp;&amp; node.parentNode &amp;&amp; node.parentNode === containerNode);
+
+  }
+
+  <span class="keyword">var</span> utils;
+
+  utils = {
+
+    css: (<span class="keyword">function</span>() {
+
+      <span class="function"><span class="keyword">function</span> <span class="title">hasClass</span><span class="params">(o, cStr)</span> {</span>
+
+        <span class="keyword">return</span> (<span class="keyword">typeof</span>(o.className)!==<span class="string">'undefined'</span>?<span class="keyword">new</span> RegExp(<span class="string">'(^|\\s)'</span>+cStr+<span class="string">'(\\s|$)'</span>).test(o.className):<span class="literal">false</span>);
+
+      }
+
+      <span class="function"><span class="keyword">function</span> <span class="title">addClass</span><span class="params">(o, cStr)</span> {</span>
+
+        <span class="keyword">if</span> (!o || !cStr || hasClass(o,cStr)) {
+          <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// safety net</span>
+        }
+        o.className = (o.className?o.className+<span class="string">' '</span>:<span class="string">''</span>)+cStr;
+
+      }
+
+      <span class="function"><span class="keyword">function</span> <span class="title">removeClass</span><span class="params">(o, cStr)</span> {</span>
+
+        <span class="keyword">if</span> (!o || !cStr || !hasClass(o,cStr)) {
+          <span class="keyword">return</span> <span class="literal">false</span>;
+        }
+        o.className = o.className.replace(<span class="keyword">new</span> RegExp(<span class="string">'( '</span>+cStr+<span class="string">')|('</span>+cStr+<span class="string">')'</span>,<span class="string">'g'</span>),<span class="string">''</span>);
+
+      }
+
+      <span class="function"><span class="keyword">function</span> <span class="title">swapClass</span><span class="params">(o, cStr1, cStr2)</span> {</span>
+
+        <span class="keyword">var</span> tmpClass = {
+          className: o.className
+        };
+
+        removeClass(tmpClass, cStr1);
+        addClass(tmpClass, cStr2);
+
+        o.className = tmpClass.className;
+
+      }
+
+      <span class="function"><span class="keyword">function</span> <span class="title">toggleClass</span><span class="params">(o, cStr)</span> {</span>
+
+        (hasClass(o, cStr)?removeClass:addClass)(o, cStr);
+
+      }
+
+      <span class="keyword">return</span> {
+        has: hasClass,
+        add: addClass,
+        remove: removeClass,
+        swap: swapClass,
+        toggle: toggleClass
+      };
+
+    }()),
+
+    dom: (<span class="keyword">function</span>() {
+
+       <span class="function"><span class="keyword">function</span> <span class="title">findXY</span><span class="params">(obj)</span> {</span>
+
+         <span class="keyword">var</span> curleft = <span class="number">0</span>,
+             curtop = <span class="number">0</span>;
+         <span class="keyword">do</span> {
+           curleft += obj.offsetLeft;
+           curtop += obj.offsetTop;
+         } <span class="keyword">while</span> (!!(obj = obj.offsetParent));
+
+         <span class="keyword">return</span> [curleft,curtop];
+
+       }
+
+       <span class="keyword">return</span> {
+         findXY: findXY
+       };
+
+    }()),
+
+    events: (<span class="keyword">function</span>() {
+
+      <span class="keyword">var</span> add, remove, preventDefault;
+
+      add = (<span class="keyword">typeof</span> window.addEventListener !== <span class="string">'undefined'</span> ? <span class="keyword">function</span>(o, evtName, evtHandler) {
+        <span class="keyword">return</span> o.addEventListener(evtName,evtHandler,<span class="literal">false</span>);
+      } : <span class="keyword">function</span>(o, evtName, evtHandler) {
+        o.attachEvent(<span class="string">'on'</span>+evtName,evtHandler);
+      });
+
+      remove = (<span class="keyword">typeof</span> window.removeEventListener !== <span class="string">'undefined'</span> ? <span class="keyword">function</span>(o, evtName, evtHandler) {
+        <span class="keyword">return</span> o.removeEventListener(evtName,evtHandler,<span class="literal">false</span>);
+      } : <span class="keyword">function</span>(o, evtName, evtHandler) {
+        <span class="keyword">return</span> o.detachEvent(<span class="string">'on'</span>+evtName,evtHandler);
+      });
+
+      preventDefault = <span class="keyword">function</span>(e) {
+        <span class="keyword">if</span> (e.preventDefault) {
+          e.preventDefault();
+        } <span class="keyword">else</span> {
+          e.returnValue = <span class="literal">false</span>;
+          e.cancelBubble = <span class="literal">true</span>;
+        }
+      };
+
+      <span class="keyword">return</span> {
+        add: add,
+        preventDefault: preventDefault,
+        remove: remove
+      };
+
+    }())
+
+  };
+
+  <span class="keyword">var</span> screen;
+
+  <span class="function"><span class="keyword">function</span> <span class="title">Screen</span><span class="params">()</span> {</span>
+
+    <span class="keyword">var</span> data, events;
+
+    data = {
+
+      coords: {
+        x: <span class="number">0</span>,
+        y: <span class="number">0</span>,
+        lastX: <span class="literal">null</span>,
+        lastY: <span class="literal">null</span>,
+        width: <span class="number">0</span>,
+        height: <span class="number">0</span>,
+        scrollX: <span class="number">0</span>,
+        scrollY: <span class="number">0</span>
+      }
+
+    };
+
+    events = {
+
+      resize: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>note additional ORed legacy browser (IE 8, etc.) checks</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        data.coords.width = window.innerWidth || (document.documentElement.clientWidth || document.body.clientWidth || document.body.scrollWidth);
+        data.coords.height = window.innerHeight || (document.documentElement.clientHeight || document.body.clientHeight || document.body.scrollHeight);
+
+      },
+
+      scroll: <span class="keyword">function</span>() {
+
+        data.coords.scrollX = window.scrollX || document.body.scrollLeft;
+        data.coords.scrollY = window.scrollY || document.body.scrollTop;
+
+      }
+
+    };
+
+    <span class="function"><span class="keyword">function</span> <span class="title">attachEvents</span><span class="params">()</span> {</span>
+
+      utils.events.add(window, <span class="string">'resize'</span>, events.resize);
+      utils.events.add(window, <span class="string">'scroll'</span>, events.scroll);
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span> {</span>
+
+      attachEvents();
+
+      events.resize();
+
+      events.scroll();
+
+    }
+
+    <span class="keyword">return</span> {
+
+      data: data,
+      init: init
+
+    };
+
+  }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>non-shared stuff</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+  <span class="keyword">var</span> editor;
+
+  <span class="keyword">var</span> NODE_WIDTH = <span class="number">32</span>;
+  <span class="keyword">var</span> NODE_HEIGHT = <span class="number">32</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>minimum map sizes</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> WORLD_COLS_MIN = <span class="number">42</span>;
+  <span class="keyword">var</span> WORLD_ROWS_MIN = <span class="number">42</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>assume defaults</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> WORLD_COLS = WORLD_COLS_MIN;
+  <span class="keyword">var</span> WORLD_ROWS = WORLD_ROWS_MIN;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>reserved map characters</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> MAP_FREE_SPACE_CHAR = <span class="string">' '</span>;
+  <span class="keyword">var</span> MAP_ALT_FREE_SPACE_CHAR = <span class="string">'_'</span>;
+  <span class="keyword">var</span> MAP_INSIDE_BASE_CHAR = <span class="string">'·'</span>;
+  <span class="keyword">var</span> MAP_INSIDE_WALLS_CHAR = <span class="string">'.'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>special characters that don&#39;t map to items (see above)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> reservedCharacters = {
+    <span class="string">'_'</span>: <span class="literal">true</span>, <span class="comment">// escape-safe space character substitute</span>
+    <span class="string">' '</span>: <span class="literal">true</span>,
+    <span class="string">'·'</span>: <span class="literal">true</span>,
+    <span class="string">'.'</span>: <span class="literal">true</span>
+  };
+
+  <span class="keyword">var</span> dom = {
+    editor: <span class="literal">null</span>
+  };
+
+  <span class="function"><span class="keyword">function</span> <span class="title">xyToRowCol</span><span class="params">(x, y)</span> {</span>
+
+    <span class="keyword">return</span> {
+      col: Math.min(WORLD_COLS-<span class="number">1</span>, Math.max(<span class="number">0</span>, Math.floor(x/NODE_WIDTH))),
+      row: Math.min(WORLD_ROWS-<span class="number">1</span>, Math.max(<span class="number">0</span>, Math.floor(y/NODE_HEIGHT)))
+    };
+
+  }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>duplicated from survivor.js, and 0-3 added for block types</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+  <span class="keyword">var</span> charToTypeMap = {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>blocks</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="string">'0'</span>: [<span class="string">'type-0'</span>, <span class="string">'block'</span>],
+    <span class="string">'1'</span>: [<span class="string">'type-1'</span>, <span class="string">'block'</span>],
+    <span class="string">'2'</span>: [<span class="string">'type-2'</span>, <span class="string">'block'</span>],
+    <span class="string">'3'</span>: [<span class="string">'type-3'</span>, <span class="string">'block'</span>],</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>type 1</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="string">'┌'</span>: [<span class="string">'type-1'</span>, <span class="string">'wall'</span>, <span class="string">'upRight'</span>],
+    <span class="string">'┐'</span>: [<span class="string">'type-1'</span>, <span class="string">'wall'</span>, <span class="string">'rightDown'</span>],
+    <span class="string">'└'</span>: [<span class="string">'type-1'</span>, <span class="string">'wall'</span>, <span class="string">'downRight'</span>],
+    <span class="string">'┘'</span>: [<span class="string">'type-1'</span>, <span class="string">'wall'</span>, <span class="string">'downLeft'</span>],
+    <span class="string">'-'</span>: [<span class="string">'type-1'</span>, <span class="string">'wall'</span>, <span class="string">'horizontal'</span>], <span class="comment">// regular dash - used here to avoid conflict</span>
+    <span class="string">'|'</span>: [<span class="string">'type-1'</span>, <span class="string">'wall'</span>, <span class="string">'vertical'</span>], <span class="comment">// regular pipe character</span>
+    <span class="string">'┴'</span>: [<span class="string">'type-1'</span>, <span class="string">'turret'</span>, <span class="string">'up'</span>],
+    <span class="string">'├'</span>: [<span class="string">'type-1'</span>, <span class="string">'turret'</span>, <span class="string">'right'</span>],
+    <span class="string">'┬'</span>: [<span class="string">'type-1'</span>, <span class="string">'turret'</span>, <span class="string">'down'</span>],
+    <span class="string">'┤'</span>: [<span class="string">'type-1'</span>, <span class="string">'turret'</span>, <span class="string">'left'</span>],</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>type 2</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="string">'╔'</span>: [<span class="string">'type-2'</span>, <span class="string">'wall'</span>, <span class="string">'upRight'</span>],
+    <span class="string">'╗'</span>: [<span class="string">'type-2'</span>, <span class="string">'wall'</span>, <span class="string">'rightDown'</span>],
+    <span class="string">'╚'</span>: [<span class="string">'type-2'</span>, <span class="string">'wall'</span>, <span class="string">'downRight'</span>],
+    <span class="string">'╝'</span>: [<span class="string">'type-2'</span>, <span class="string">'wall'</span>, <span class="string">'downLeft'</span>],
+    <span class="string">'═'</span>: [<span class="string">'type-2'</span>, <span class="string">'wall'</span>, <span class="string">'horizontal'</span>],
+    <span class="string">'│'</span>: [<span class="string">'type-2'</span>, <span class="string">'wall'</span>, <span class="string">'vertical'</span>], <span class="comment">// not sure why ║ conflicted with type 4, but eh.</span>
+    <span class="string">'╩'</span>: [<span class="string">'type-2'</span>, <span class="string">'turret'</span>, <span class="string">'up'</span>],
+    <span class="string">'╠'</span>: [<span class="string">'type-2'</span>, <span class="string">'turret'</span>, <span class="string">'right'</span>],
+    <span class="string">'╦'</span>: [<span class="string">'type-2'</span>, <span class="string">'turret'</span>, <span class="string">'down'</span>],
+    <span class="string">'╣'</span>: [<span class="string">'type-2'</span>, <span class="string">'turret'</span>, <span class="string">'left'</span>],</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>type 3</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="string">'┏'</span>: [<span class="string">'type-3'</span>, <span class="string">'wall'</span>, <span class="string">'upRight'</span>],
+    <span class="string">'┓'</span>: [<span class="string">'type-3'</span>, <span class="string">'wall'</span>, <span class="string">'rightDown'</span>],
+    <span class="string">'┗'</span>: [<span class="string">'type-3'</span>, <span class="string">'wall'</span>, <span class="string">'downRight'</span>],
+    <span class="string">'┛'</span>: [<span class="string">'type-3'</span>, <span class="string">'wall'</span>, <span class="string">'downLeft'</span>],
+    <span class="string">'━'</span>: [<span class="string">'type-3'</span>, <span class="string">'wall'</span>, <span class="string">'horizontal'</span>],
+    <span class="string">'┃'</span>: [<span class="string">'type-3'</span>, <span class="string">'wall'</span>, <span class="string">'vertical'</span>],
+    <span class="string">'┻'</span>: [<span class="string">'type-3'</span>, <span class="string">'turret'</span>, <span class="string">'up'</span>],
+    <span class="string">'┣'</span>: [<span class="string">'type-3'</span>, <span class="string">'turret'</span>, <span class="string">'right'</span>],
+    <span class="string">'┳'</span>: [<span class="string">'type-3'</span>, <span class="string">'turret'</span>, <span class="string">'down'</span>],
+    <span class="string">'┫'</span>: [<span class="string">'type-3'</span>, <span class="string">'turret'</span>, <span class="string">'left'</span>],</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>type 4</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="string">'╓'</span>: [<span class="string">'type-4'</span>, <span class="string">'wall'</span>, <span class="string">'upRight'</span>],
+    <span class="string">'╖'</span>: [<span class="string">'type-4'</span>, <span class="string">'wall'</span>, <span class="string">'rightDown'</span>],
+    <span class="string">'╙'</span>: [<span class="string">'type-4'</span>, <span class="string">'wall'</span>, <span class="string">'downRight'</span>],
+    <span class="string">'╜'</span>: [<span class="string">'type-4'</span>, <span class="string">'wall'</span>, <span class="string">'downLeft'</span>],
+    <span class="string">'─'</span>: [<span class="string">'type-4'</span>, <span class="string">'wall'</span>, <span class="string">'horizontal'</span>],
+    <span class="string">'║'</span>: [<span class="string">'type-4'</span>, <span class="string">'wall'</span>, <span class="string">'vertical'</span>],
+    <span class="string">'╨'</span>: [<span class="string">'type-4'</span>, <span class="string">'turret'</span>, <span class="string">'up'</span>],
+    <span class="string">'╟'</span>: [<span class="string">'type-4'</span>, <span class="string">'turret'</span>, <span class="string">'right'</span>],
+    <span class="string">'╥'</span>: [<span class="string">'type-4'</span>, <span class="string">'turret'</span>, <span class="string">'down'</span>],
+    <span class="string">'╢'</span>: [<span class="string">'type-4'</span>, <span class="string">'turret'</span>, <span class="string">'left'</span>]
+
+  }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>reverse-lookup of the above (for generating map character sequences)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+  <span class="keyword">var</span> typeToCharMap = {
+
+    <span class="string">'type-0'</span>: {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>special-case: block only</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="string">'block'</span>: <span class="number">0</span>
+    },
+
+    <span class="string">'type-1'</span>: {
+
+      <span class="string">'block'</span>: <span class="number">1</span>,
+
+      <span class="string">'wall'</span>: {
+        <span class="string">'upRight'</span>: <span class="string">'┌'</span>,
+        <span class="string">'rightDown'</span>: <span class="string">'┐'</span>,
+        <span class="string">'downRight'</span>: <span class="string">'└'</span>,
+        <span class="string">'downLeft'</span>: <span class="string">'┘'</span>,
+        <span class="string">'horizontal'</span>: <span class="string">'-'</span>,
+        <span class="string">'vertical'</span>: <span class="string">'|'</span>
+      },
+
+      <span class="string">'turret'</span>: {
+        <span class="string">'up'</span>: <span class="string">'┴'</span>,
+        <span class="string">'right'</span>: <span class="string">'├'</span>,
+        <span class="string">'down'</span>: <span class="string">'┬'</span>,
+        <span class="string">'left'</span>: <span class="string">'┤'</span>
+      }
+
+    },
+
+    <span class="string">'type-2'</span>: {
+
+      <span class="string">'block'</span>: <span class="number">2</span>,
+
+      <span class="string">'wall'</span>: {
+        <span class="string">'upRight'</span>: <span class="string">'╔'</span>,
+        <span class="string">'rightDown'</span>: <span class="string">'╗'</span>,
+        <span class="string">'downRight'</span>: <span class="string">'╚'</span>,
+        <span class="string">'downLeft'</span>: <span class="string">'╝'</span>,
+        <span class="string">'horizontal'</span>: <span class="string">'═'</span>,
+        <span class="string">'vertical'</span>: <span class="string">'│'</span>
+      },
+
+      <span class="string">'turret'</span>: {
+        <span class="string">'up'</span>: <span class="string">'╩'</span>,
+        <span class="string">'right'</span>: <span class="string">'╠'</span>,
+        <span class="string">'down'</span>: <span class="string">'╦'</span>,
+        <span class="string">'left'</span>: <span class="string">'╣'</span>
+      }
+
+    },
+
+    <span class="string">'type-3'</span>: {
+
+      <span class="string">'block'</span>: <span class="number">3</span>,
+
+      <span class="string">'wall'</span>: {
+        <span class="string">'upRight'</span>: <span class="string">'┏'</span>,
+        <span class="string">'rightDown'</span>: <span class="string">'┓'</span>,
+        <span class="string">'downRight'</span>: <span class="string">'┗'</span>,
+        <span class="string">'downLeft'</span>: <span class="string">'┛'</span>,
+        <span class="string">'horizontal'</span>: <span class="string">'━'</span>,
+        <span class="string">'vertical'</span>: <span class="string">'┃'</span>
+      },
+
+      <span class="string">'turret'</span>: {
+        <span class="string">'up'</span>: <span class="string">'┻'</span>,
+        <span class="string">'right'</span>: <span class="string">'┣'</span>,
+        <span class="string">'down'</span>: <span class="string">'┳'</span>,
+        <span class="string">'left'</span>: <span class="string">'┫'</span>
+      }
+
+    },
+
+    <span class="string">'type-4'</span>: {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>&#39;block&#39;: 4,</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      <span class="string">'wall'</span>: {
+        <span class="string">'upRight'</span>: <span class="string">'╓'</span>,
+        <span class="string">'rightDown'</span>: <span class="string">'╖'</span>,
+        <span class="string">'downRight'</span>: <span class="string">'╙'</span>,
+        <span class="string">'downLeft'</span>: <span class="string">'╜'</span>,
+        <span class="string">'horizontal'</span>: <span class="string">'─'</span>,
+        <span class="string">'vertical'</span>: <span class="string">'║'</span>
+      },
+
+      <span class="string">'turret'</span>: {
+        <span class="string">'up'</span>: <span class="string">'╨'</span>,
+        <span class="string">'right'</span>: <span class="string">'╟'</span>,
+        <span class="string">'down'</span>: <span class="string">'╥'</span>,
+        <span class="string">'left'</span>: <span class="string">'╢'</span>
+      }
+
+    }
+
+  }
+
+  <span class="function"><span class="keyword">function</span> <span class="title">Cursor</span><span class="params">(oContainer)</span> {</span>
+
+    <span class="keyword">var</span> o;
+
+    <span class="keyword">var</span> data = {
+
+      active: <span class="literal">false</span>,
+      row: <span class="number">0</span>,
+      col: <span class="number">0</span>
+
+    }
+
+    <span class="keyword">var</span> css = {
+      <span class="string">'active'</span>: <span class="string">'active'</span>
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">moveToXY</span><span class="params">(x, y)</span> {</span>
+
+      <span class="keyword">var</span> position = xyToRowCol(x, y);
+
+      moveTo(position.col, position.row);
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">moveTo</span><span class="params">(col, row)</span> {</span>
+
+      <span class="keyword">if</span> (col !== data.col || row !== data.row) {
+        setPosition(col * NODE_WIDTH, row * NODE_HEIGHT);
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">selectItem</span><span class="params">(className)</span> {</span>
+
+      <span class="keyword">if</span> (o) {
+        o.className = className + (data.active ? <span class="string">' '</span> + css.active : <span class="string">''</span>);
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">setPosition</span><span class="params">(x, y)</span> {</span>
+
+      <span class="keyword">if</span> (o &amp;&amp; !isNaN(x) &amp;&amp; !isNaN(y)) {
+        o.style.left = (x+<span class="number">1</span>) + <span class="string">'px'</span>;
+        o.style.top = (y+<span class="number">1</span>) + <span class="string">'px'</span>;
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">setActive</span><span class="params">(isActive)</span> {</span>
+
+      <span class="keyword">if</span> (!data.active &amp;&amp; isActive) {
+
+        data.active = <span class="literal">true</span>;
+        <span class="keyword">if</span> (o) {
+          utils.css.add(o, css.active);
+        }
+
+      } <span class="keyword">else</span> <span class="keyword">if</span> (data.active &amp;&amp; !isActive) {
+
+        data.active = <span class="literal">false</span>;
+        <span class="keyword">if</span> (o) {
+          utils.css.remove(o, css.active);
+        }
+
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span> {</span>
+
+      o = document.createElement(<span class="string">'div'</span>);
+      o.id = <span class="string">'editor-cursor'</span>;
+
+     oContainer.appendChild(o);
+
+    }
+
+    <span class="keyword">return</span> {
+
+      init: init,
+      moveToXY: moveToXY,
+      setActive: setActive,
+      selectItem: selectItem
+
+    }
+
+  }
+
+  editor = (<span class="function"><span class="keyword">function</span> <span class="title">Editor</span><span class="params">()</span> {</span>
+
+    <span class="keyword">var</span> oContainer;
+
+    <span class="keyword">var</span> data = {
+      map: [],
+      mapString: [],
+      isPainting: <span class="literal">false</span>,
+      isDragging: <span class="literal">false</span>,
+      isDeleting: <span class="literal">false</span>,
+      selectedClass: <span class="literal">null</span>,
+      lastAnchor: {
+       row: <span class="number">0</span>,
+       col: <span class="number">0</span>
+      },
+      lastDirection: {
+        up: <span class="literal">false</span>,
+        right: <span class="literal">false</span>,
+        down: <span class="literal">false</span>,
+        left: <span class="literal">false</span>
+      },
+      lastPosition: {
+        col: <span class="number">0</span>,
+        row: <span class="number">0</span>
+      },
+      mouse: {
+        lastX: <span class="number">0</span>,
+        lastY: <span class="number">0</span>,
+        x: <span class="number">0</span>,
+        y: <span class="number">0</span>
+      }
+    }
+
+    <span class="keyword">var</span> events;
+
+    <span class="keyword">var</span> objects;
+
+    objects = {
+      cursor: <span class="literal">null</span>,
+      screen: <span class="literal">null</span>
+    }
+
+    <span class="keyword">var</span> keyDirections = {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>for keyboard navigation, moving through positions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      block: [],
+      turret: [<span class="string">'up'</span>, <span class="string">'right'</span>, <span class="string">'down'</span>, <span class="string">'left'</span>],
+      wall: [<span class="string">'leftDown'</span>, <span class="string">'horizontal'</span>, <span class="string">'rightDown'</span>, <span class="string">'downRight'</span>, <span class="string">'downLeft'</span>, <span class="string">'vertical'</span>]
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">getNextDirection</span><span class="params">(class1, class2)</span> {</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>cycle through directional arrays based on key press counter, and return class</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      <span class="keyword">var</span> result;
+
+      <span class="keyword">if</span> (data.selectedClass &amp;&amp; data.selectedClass.split(<span class="string">' '</span>).length === <span class="number">2</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>block etc., no direction</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="keyword">return</span> [class1, class2];
+      }
+
+      <span class="keyword">if</span> (keyPressCount &gt;= keyDirections[class2].length) {
+        keyPressCount = <span class="number">0</span>;
+      }
+
+      result = [class1, class2, keyDirections[class2][keyPressCount]].join(<span class="string">' '</span>);
+
+      keyPressCount++;
+
+      <span class="keyword">return</span> result;
+
+    }
+
+    <span class="keyword">var</span> keyPressCount = <span class="number">0</span>;
+    <span class="keyword">var</span> lastKey;
+
+    <span class="function"><span class="keyword">function</span> <span class="title">resetKeyCount</span><span class="params">(key)</span> {</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>reset count when a different key is pressed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="keyword">if</span> (key !== lastKey) {
+        keyPressCount = <span class="number">0</span>;
+        lastKey = key;
+      }
+
+    }
+
+    <span class="keyword">var</span> keys = {
+
+      <span class="string">'46'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>delete</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        selectItem(<span class="string">'block delete'</span>);
+      },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>blocks</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      <span class="string">'49'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>1</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        selectItem(<span class="string">'type-0 block'</span>);
+      },
+
+      <span class="string">'50'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>2</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        selectItem(<span class="string">'type-1 block'</span>);
+      },
+
+      <span class="string">'51'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>3</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        selectItem(<span class="string">'type-2 block'</span>);
+      },
+
+      <span class="string">'52'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>4</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        selectItem(<span class="string">'type-3 block'</span>);
+      },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>wall types</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      <span class="string">'90'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>z</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="keyword">var</span> className = getNextDirection(<span class="string">'type-1'</span>, <span class="string">'wall'</span>);
+        selectItem(className);
+      },
+
+      <span class="string">'88'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>x</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="keyword">var</span> className = getNextDirection(<span class="string">'type-2'</span>, <span class="string">'wall'</span>);
+        selectItem(className);
+      },
+
+      <span class="string">'67'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>c</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="keyword">var</span> className = getNextDirection(<span class="string">'type-3'</span>, <span class="string">'wall'</span>);
+        selectItem(className);
+      },
+
+      <span class="string">'86'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>v</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="keyword">var</span> className = getNextDirection(<span class="string">'type-4'</span>, <span class="string">'wall'</span>);
+        selectItem(className);
+      },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>turret</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      <span class="string">'84'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>t (turret)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="keyword">var</span> className = getNextDirection(<span class="string">'type-1'</span>, <span class="string">'turret'</span>);
+        selectItem(className);
+      },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>turret directions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      <span class="string">'65'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>a (left)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        selectItem(<span class="string">'type-1 turret left'</span>);
+      },
+
+      <span class="string">'66'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>b</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="keyword">var</span> className = getNextDirection(<span class="string">'type-1'</span>, <span class="string">'wall'</span>);
+        selectItem(className);
+      },
+
+      <span class="string">'68'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>d (right)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        selectItem(<span class="string">'type-1 turret right'</span>);
+      },
+
+      <span class="string">'83'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>s (down)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        selectItem(<span class="string">'type-1 turret down'</span>);
+      },
+
+      <span class="string">'87'</span>: <span class="keyword">function</span>() {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <p>w (up)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        selectItem(<span class="string">'type-1 turret up'</span>);
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">selectItem</span><span class="params">(className)</span> {</span>
+
+      data.selectedClass = className;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              <p>assign to the cursor, also</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      objects.cursor.selectItem(className);
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">resetLastPosition</span><span class="params">()</span> {</span>
+
+      data.lastPosition = {
+        col: <span class="literal">null</span>,
+        row: <span class="literal">null</span>
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">resetLastDirection</span><span class="params">()</span> {</span>
+
+        data.lastDirection = [];
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">addDirection</span><span class="params">(newDirection)</span> {</span>
+
+      data.lastDirection.push(newDirection);
+
+      <span class="keyword">if</span> (data.lastDirection.length &gt; <span class="number">2</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-43">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <p>take the oldest off the array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        data.lastDirection.shift();
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">setAnchor</span><span class="params">(location)</span> {</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-44">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-44">&#182;</a>
+              </div>
+              <p>track the anchor point, for drawing ranges</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      data.lastAnchor = {
+        row: location.row,
+        col: location.col
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">beginPaint</span><span class="params">()</span> {</span>
+
+      <span class="keyword">if</span> (!data.isPainting) {
+
+        data.isPainting = <span class="literal">true</span>;
+
+        objects.cursor.setActive(<span class="literal">true</span>);
+
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">endPaint</span><span class="params">()</span> {</span>
+
+      <span class="keyword">if</span> (data.isPainting) {
+
+        data.isPainting = <span class="literal">false</span>;
+
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">paintItemAtXY</span><span class="params">(x, y)</span> {</span>
+
+      <span class="keyword">var</span> char;
+      <span class="keyword">var</span> joinChar;
+      <span class="keyword">var</span> joinClass;
+      <span class="keyword">var</span> classTypes;
+      <span class="keyword">var</span> lastItem;
+      <span class="keyword">var</span> lastClass;
+      <span class="keyword">var</span> position = xyToRowCol(x, y);
+      <span class="keyword">var</span> row;
+      <span class="keyword">var</span> col;
+      <span class="keyword">var</span> latestDirection;
+
+      <span class="keyword">var</span> labelToDirectionMap = {
+        <span class="string">'up'</span>: <span class="string">'vertical'</span>,
+        <span class="string">'down'</span>: <span class="string">'vertical'</span>,
+        <span class="string">'left'</span>: <span class="string">'horizontal'</span>,
+        <span class="string">'right'</span>: <span class="string">'horizontal'</span>
+      }
+
+      <span class="keyword">var</span> correctDirectionMap = {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-45">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-45">&#182;</a>
+              </div>
+              <p>editor may generate these directions, but map them to the proper CSS and map characters.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="string">'leftDown'</span>: <span class="string">'upRight'</span>,
+        <span class="string">'upLeft'</span>: <span class="string">'rightDown'</span>,
+        <span class="string">'rightUp'</span>: <span class="string">'downLeft'</span>,
+        <span class="string">'leftUp'</span>: <span class="string">'downRight'</span>
+      }
+
+      col = position.col;
+      row = position.row;
+
+      <span class="keyword">if</span> (data.isDeleting || (data.selectedClass &amp;&amp; data.selectedClass.match(<span class="regexp">/delete/i</span>))) {
+
+        deleteAtPosition(col, row);
+        <span class="keyword">return</span> <span class="literal">false</span>;
+
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-46">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-46">&#182;</a>
+              </div>
+              <p>if data is undefined or different from the current item, draw there</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      <span class="keyword">if</span> (!data.selectedClass) {
+
+        console.log(<span class="string">'nothing selected'</span>);
+        <span class="keyword">return</span> <span class="literal">false</span>;
+
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-47">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-47">&#182;</a>
+              </div>
+              <p>determine character to use for map, based on className</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      classTypes = data.selectedClass.split(<span class="string">' '</span>);
+
+      <span class="keyword">if</span> (classTypes.length === <span class="number">3</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-48">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-48">&#182;</a>
+              </div>
+              <p>eg., type-3 wall upRight</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-49">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-49">&#182;</a>
+              </div>
+              <p>if last direction known, attempt to intelligently guess what direction we&#39;re going in.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="keyword">if</span> (classTypes[<span class="number">1</span>] === <span class="string">'wall'</span> &amp;&amp; data.lastPosition.col !== <span class="literal">null</span> &amp;&amp; data.lastPosition.row !== <span class="literal">null</span> &amp;&amp; (data.lastPosition.col !== col || data.lastPosition.row !== row)) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-50">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-50">&#182;</a>
+              </div>
+              <p>determine our direction.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          <span class="keyword">if</span> (row &lt; data.lastPosition.row) {
+            addDirection(<span class="string">'up'</span>);
+          } <span class="keyword">else</span> <span class="keyword">if</span> (col &gt; data.lastPosition.col) {
+            addDirection(<span class="string">'right'</span>);
+          } <span class="keyword">else</span> <span class="keyword">if</span> (row &gt; data.lastPosition.row) {
+            addDirection(<span class="string">'down'</span>);
+          } <span class="keyword">else</span> <span class="keyword">if</span> (col &lt; data.lastPosition.col) {
+            addDirection(<span class="string">'left'</span>);
+          }
+
+          latestDirection = (data.lastDirection.length &gt; <span class="number">1</span> &amp;&amp; data.lastDirection[data.lastDirection.length-<span class="number">1</span>] ? data.lastDirection : <span class="literal">null</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-51">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-51">&#182;</a>
+              </div>
+              <p>if we had a change in direction...</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+          lastItem = data.map[data.lastPosition.row][data.lastPosition.col];
+
+          lastClass = lastItem.className.split(<span class="string">' '</span>);
+
+          <span class="keyword">if</span> (latestDirection &amp;&amp; (labelToDirectionMap[latestDirection[<span class="number">0</span>]] !== labelToDirectionMap[latestDirection[<span class="number">1</span>]])) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-52">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-52">&#182;</a>
+              </div>
+              <p>apply &quot;joining&quot; piece to last item, if applicable</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-53">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-53">&#182;</a>
+              </div>
+              <p>join &#39;down&#39; + &#39;left&#39; to &#39;downLeft&#39;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            lastClass[<span class="number">2</span>] = data.lastDirection[<span class="number">0</span>] + data.lastDirection[<span class="number">1</span>].charAt(<span class="number">0</span>).toUpperCase() + data.lastDirection[<span class="number">1</span>].substr(<span class="number">1</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-54">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-54">&#182;</a>
+              </div>
+              <p>special case: substitute classNames in some cases</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="keyword">if</span> (correctDirectionMap[lastClass[<span class="number">2</span>]]) {
+              lastClass[<span class="number">2</span>] = correctDirectionMap[lastClass[<span class="number">2</span>]];
+            }
+
+            joinChar = typeToCharMap[lastClass[<span class="number">0</span>]][lastClass[<span class="number">1</span>]][lastClass[<span class="number">2</span>]];
+
+            applyCharAtPosition(joinChar, [lastClass[<span class="number">0</span>], lastClass[<span class="number">1</span>], lastClass[<span class="number">2</span>]].join(<span class="string">' '</span>), data.lastPosition.col, data.lastPosition.row);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-55">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-55">&#182;</a>
+              </div>
+              <p>apply new direction based on modified className</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            selectItem([classTypes[<span class="number">0</span>], classTypes[<span class="number">1</span>], labelToDirectionMap[latestDirection[<span class="number">1</span>]]].join(<span class="string">' '</span>));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-56">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-56">&#182;</a>
+              </div>
+              <p>ensure appropriate character is applied</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            classTypes[<span class="number">2</span>] = labelToDirectionMap[latestDirection[<span class="number">1</span>]];
+
+          } <span class="keyword">else</span> <span class="keyword">if</span> (data.lastDirection &amp;&amp; data.lastDirection[<span class="number">0</span>] !== lastClass[<span class="number">2</span>]) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-57">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-57">&#182;</a>
+              </div>
+              <p>change in direction after first paint</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            selectItem([classTypes[<span class="number">0</span>], classTypes[<span class="number">1</span>], labelToDirectionMap[data.lastDirection[<span class="number">0</span>]]].join(<span class="string">' '</span>));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-58">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-58">&#182;</a>
+              </div>
+              <p>ensure appropriate character is applied</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            classTypes[<span class="number">2</span>] = labelToDirectionMap[data.lastDirection[<span class="number">0</span>]];
+
+          }
+
+        }
+
+        char = typeToCharMap[classTypes[<span class="number">0</span>]][classTypes[<span class="number">1</span>]][classTypes[<span class="number">2</span>]];
+
+      } <span class="keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-59">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-59">&#182;</a>
+              </div>
+              <p>eg., type-0 block</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+        char = typeToCharMap[classTypes[<span class="number">0</span>]][classTypes[<span class="number">1</span>]];
+
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-60">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-60">&#182;</a>
+              </div>
+              <p>update last position</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      data.lastPosition.col = col;
+      data.lastPosition.row = row;
+
+<span class="comment">/*</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-61">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-61">&#182;</a>
+              </div>
+              <p>special case: substitute classNames in some cases</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      if (data.selectedClass.length === 3 &amp;&amp; correctDirectionMap[data.selectedClass[2]]) {
+        data.selectedClass[2] = correctDirectionMap[data.selectedClass[2]];
+      }
+*/
+
+      applyCharAtPosition(char, data.selectedClass, col, row);
+
+    }
+
+    function deleteAtPosition(col, row) {
+
+      if (typeof data.map[row][col] !== 'undefined' &amp;&amp; data.map[row][col].node) {
+
+        data.map[row][col].node.parentNode.removeChild(data.map[row][col].node);
+        data.map[row][col].node = null;
+        data.map[row][col].char = null;
+        data.map[row][col].className = null,
+        data.map[row][col].classArray = [];
+
+      }
+
+    }
+
+    function applyCharAtPosition(char, className, col, row, ignoreUntyped) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-62">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-62">&#182;</a>
+              </div>
+              <p>special case: turrets inherit their class from an existing wall
+and can only be placed when a wall is present.
+can be ignored.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      <span class="keyword">var</span> classArray = className.split(<span class="string">' '</span>);
+
+      <span class="keyword">var</span> isUntypedTurret = (!ignoreUntyped &amp;&amp; classArray[<span class="number">1</span>] === <span class="string">'turret'</span>);
+
+      <span class="keyword">var</span> isExistingWall;
+
+      <span class="keyword">if</span> (!data.map[row][col]) {
+
+        <span class="keyword">if</span> (!isUntypedTurret) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-63">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-63">&#182;</a>
+              </div>
+              <p>uninitialized map space</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          data.map[row][col] = {
+            <span class="string">'char'</span>: <span class="literal">null</span>,
+            <span class="string">'className'</span>: className,
+            <span class="string">'classArray'</span>: classArray,
+            <span class="string">'node'</span>: <span class="literal">null</span>
+          }
+
+        } <span class="keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-64">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-64">&#182;</a>
+              </div>
+              <p>turrets are not allowed on empty space. need wall first.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          <span class="keyword">return</span> <span class="literal">false</span>;
+
+        }
+
+      }
+
+      <span class="keyword">if</span> (data.map[row][col].char !== char) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-65">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-65">&#182;</a>
+              </div>
+              <p>is it a wall? we can then apply a turret.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        isExistingWall = (data.map[row][col].classArray[<span class="number">1</span>] === <span class="string">'wall'</span>);
+
+        <span class="keyword">if</span> (isUntypedTurret) {
+
+          <span class="keyword">if</span> (isExistingWall) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-66">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-66">&#182;</a>
+              </div>
+              <p>override case: turret type inherits from wall type</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            classArray[<span class="number">0</span>] = data.map[row][col].classArray[<span class="number">0</span>];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-67">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-67">&#182;</a>
+              </div>
+              <p>new map character...</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            char = typeToCharMap[classArray[<span class="number">0</span>]][classArray[<span class="number">1</span>]][classArray[<span class="number">2</span>]];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-68">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-68">&#182;</a>
+              </div>
+              <p>and update local className</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            className = classArray.join(<span class="string">' '</span>);
+
+          } <span class="keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-69">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-69">&#182;</a>
+              </div>
+              <p>turrets can&#39;t be placed on things that aren&#39;t walls</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="keyword">return</span> <span class="literal">false</span>;
+
+          }
+
+        }
+
+        data.map[row][col].char = char;
+
+        <span class="keyword">if</span> (!data.map[row][col].node) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-70">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-70">&#182;</a>
+              </div>
+              <p>create the node</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+          data.map[row][col].node = document.createElement(<span class="string">'div'</span>);
+
+          data.map[row][col].node.style.left = (col * NODE_WIDTH) + <span class="string">'px'</span>;
+          data.map[row][col].node.style.top = (row * NODE_HEIGHT) + <span class="string">'px'</span>;
+
+          oContainer.appendChild(data.map[row][col].node);
+
+        }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-71">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-71">&#182;</a>
+              </div>
+              <p>in any event, update the class name</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+        data.map[row][col].className = className;
+        data.map[row][col].node.className = className;
+        data.map[row][col].classArray = classArray;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-72">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-72">&#182;</a>
+              </div>
+              <p>glorious hack for nice transition effects</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        setTimeout(<span class="keyword">function</span>(){
+
+          data.map[row][col].node.className = className + <span class="string">' animate-in'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-73">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-73">&#182;</a>
+              </div>
+              <p>not sure if this actually improves performance on slow machines. seems like not.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          <span class="comment">/*</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-74">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-74">&#182;</a>
+              </div>
+              <p>glorious hack #2: and in another half-second, remove it.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            setTimeout(function() {
+              data.map[row][col].node.className += ' animate-complete';
+            }, 500);
+           */
+
+        },10);
+
+      }
+
+    }
+
+    function drawRange(origFrom, origTo) {
+
+      var lastPosition,
+          from = {},
+          to = {},
+          i, j, k, l,
+          sel = data.selectedClass.split(' '),
+          className,
+          char;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-75">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-75">&#182;</a>
+              </div>
+              <p>normalize from -&gt; to in ascending order</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      <span class="keyword">if</span> (origFrom.col &lt;= origTo.col) {
+        from.col = origFrom.col;
+        to.col = origTo.col;
+      } <span class="keyword">else</span> {
+        from.col = origTo.col;
+        to.col = origFrom.col;
+      }
+
+      <span class="keyword">if</span> (origFrom.row &lt;= origTo.row) {
+        from.row = origFrom.row;
+        to.row = origTo.row;
+      } <span class="keyword">else</span> {
+        from.row = origTo.row;
+        to.row = origFrom.row;
+      }
+
+      <span class="comment">/**
+        * here's where we attempt to be SMRT (--homer.)
+        * if drawing a wall, just go around the perimeter
+        * because filling with walls is undesirable.
+        * only do perimeters if we're spanning more multiple rows and columns, though.
+        */</span>
+
+      <span class="keyword">if</span> (!data.selectedClass.match(<span class="regexp">/wall/i</span>) || (from.row === to.row || from.col === to.col)) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-76">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-76">&#182;</a>
+              </div>
+              <p>normal fill</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="keyword">for</span> (i=from.row, j=to.row; i&lt;=j; i++) {
+          <span class="keyword">for</span> (k=from.col, l=to.col; k&lt;=l; k++) {
+            paintItemAtXY(k*NODE_WIDTH, i*NODE_HEIGHT);
+          }
+        }
+
+      } <span class="keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-77">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-77">&#182;</a>
+              </div>
+              <p>draw walls only around the edges.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+        i = from.row;
+        <span class="keyword">for</span> (k=from.col, l=to.col; k&lt;=l; k++) {
+          paintItemAtXY(k*NODE_WIDTH, i*NODE_HEIGHT);
+        }
+
+        i = to.row;
+        <span class="keyword">for</span> (k=from.col, l=to.col; k&lt;=l; k++) {
+          paintItemAtXY(k*NODE_WIDTH, i*NODE_HEIGHT);
+        }
+
+        k = from.col;
+        <span class="keyword">for</span> (i=from.row, j=to.row; i&lt;=j; i++) {
+          paintItemAtXY(k*NODE_WIDTH, i*NODE_HEIGHT);
+        }
+
+        k = to.col;
+        <span class="keyword">for</span> (i=from.row, j=to.row; i&lt;=j; i++) {
+          paintItemAtXY(k*NODE_WIDTH, i*NODE_HEIGHT);
+        }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-78">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-78">&#182;</a>
+              </div>
+              <p>and apply the appropriate corners as though they&#39;d been painted individually.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+        resetLastDirection();
+        resetLastPosition();
+
+        selectItem([sel[<span class="number">0</span>], sel[<span class="number">1</span>], <span class="string">'upRight'</span>].join(<span class="string">' '</span>));
+        paintItemAtXY(from.col*NODE_WIDTH, from.row*NODE_HEIGHT);
+
+        resetLastDirection();
+        resetLastPosition();
+
+        selectItem([sel[<span class="number">0</span>], sel[<span class="number">1</span>], <span class="string">'rightDown'</span>].join(<span class="string">' '</span>));
+        paintItemAtXY(to.col*NODE_WIDTH, from.row*NODE_HEIGHT);
+
+        resetLastDirection();
+        resetLastPosition();
+
+        selectItem([sel[<span class="number">0</span>], sel[<span class="number">1</span>], <span class="string">'downRight'</span>].join(<span class="string">' '</span>));
+        paintItemAtXY(from.col*NODE_WIDTH, to.row*NODE_HEIGHT);
+
+        resetLastDirection();
+        resetLastPosition();
+
+        selectItem([sel[<span class="number">0</span>], sel[<span class="number">1</span>], <span class="string">'downLeft'</span>].join(<span class="string">' '</span>));
+        paintItemAtXY(to.col*NODE_WIDTH, to.row*NODE_HEIGHT);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-79">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-79">&#182;</a>
+              </div>
+              <p>restore originally-selected class?
+selectItem(sel.join(&#39; &#39;));</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+      }
+
+    }
+
+    events = {
+
+      delegated: {
+
+        keydown: <span class="keyword">function</span>(e) {
+
+          <span class="keyword">var</span> code = e.keyCode || e.charCode;
+
+          <span class="keyword">if</span> (keys[code]) {
+            resetKeyCount(code);
+            keys[code](e);
+          }
+
+        },
+
+        mousedown: <span class="keyword">function</span>(e) {
+
+          <span class="keyword">var</span> target = e.target || e.srcElement,
+              nodeName = target.nodeName,
+              className,
+              xy,
+              o;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-80">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-80">&#182;</a>
+              </div>
+              <p>are we in the editor toolbox? set &quot;mode&quot;, in that case.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+          <span class="keyword">if</span> (target === dom.editor || isChildOf(target, dom.editor)) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-81">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h1">
+                <a class="pilcrow" href="#section-81">&#182;</a>
+              </div>
+              <h1>editor-controls click</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-82">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-82">&#182;</a>
+              </div>
+              <p>was it a block, wall, turret item etc.?</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            <span class="keyword">if</span> (nodeName.match(<span class="regexp">/^(a|input|textarea)$/i</span>)) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-83">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-83">&#182;</a>
+              </div>
+              <p>something clickable</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>              <span class="keyword">if</span> (nodeName.toLowerCase() === <span class="string">'a'</span>) {
+
+                <span class="keyword">if</span> (target.className &amp;&amp; target.className.match(<span class="regexp">/exclude/i</span>) &amp;&amp; e.button !== <span class="number">2</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-84">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-84">&#182;</a>
+              </div>
+              <p>must be doing something stupid, here.
+if there&#39;s no target attribute, just force-load the damn link.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                  <span class="keyword">if</span> (!target.getAttribute(<span class="string">'target'</span>)) {
+                    window.location.href = target.href;
+                    <span class="keyword">return</span> <span class="literal">false</span>;
+                  }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-85">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-85">&#182;</a>
+              </div>
+              <p>otherwise...</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                  utils.events.preventDefault(e);
+                  <span class="keyword">return</span> <span class="literal">true</span>;
+
+                }
+
+                <span class="keyword">if</span> (target.id === <span class="string">'clear-map'</span>) {
+                  
+                  utils.events.preventDefault(e);
+                  <span class="keyword">return</span> <span class="literal">true</span>;
+
+                }
+
+                <span class="keyword">if</span> (target.id === <span class="string">'instruction-toggle'</span>) {
+
+                  o = document.getElementById(<span class="string">'instructions'</span>);
+
+                  <span class="keyword">if</span> (o.className !== <span class="string">''</span>) {
+
+                    o.className = <span class="string">''</span>;
+                    o.style.height = <span class="string">'0px'</span>;
+
+                  } <span class="keyword">else</span> {
+
+                    o.className = <span class="string">'open'</span>;
+                    o.style.height = o.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>].offsetHeight + <span class="string">'px'</span>;
+
+                  }
+
+                  utils.events.preventDefault(e);
+
+                  <span class="keyword">return</span> <span class="literal">true</span>;
+
+                }
+
+                className = target.className;
+
+                selectItem(className);
+
+                utils.events.preventDefault(e);
+
+                <span class="keyword">return</span> <span class="literal">false</span>;
+
+              }
+
+            } <span class="keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-86">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-86">&#182;</a>
+              </div>
+              <p>start dragging</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+              data.isDragging = <span class="literal">true</span>;
+
+              xy = utils.dom.findXY(dom.editor);
+
+              data.mouse.lastX = (e.clientX - xy[<span class="number">0</span>]);
+              data.mouse.lastY = (e.clientY - xy[<span class="number">1</span>]);
+
+              utils.events.preventDefault(e);
+
+              <span class="keyword">return</span> <span class="literal">false</span>;
+
+            }
+             
+          } <span class="keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-87">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-87">&#182;</a>
+              </div>
+              <p>are we near the window boundary, though? maybe scrollbars? don&#39;t start painting in that case.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            <span class="keyword">if</span> ((objects.screen.data.coords.width - e.clientX) &lt;= <span class="number">16</span> || (objects.screen.data.coords.height - e.clientY) &lt;= <span class="number">16</span>) {
+
+              <span class="keyword">return</span> <span class="literal">false</span>;
+
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-88">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-88">&#182;</a>
+              </div>
+              <p>otherwise...</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            beginPaint();
+
+            <span class="keyword">if</span> (e.button === <span class="number">2</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-89">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-89">&#182;</a>
+              </div>
+              <p>if right-click, then delete.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+              data.isDeleting = <span class="literal">true</span>;
+
+              utils.events.preventDefault(e);
+
+              <span class="keyword">if</span> (e.stopPropagation) {
+                e.stopPropagation();
+              } <span class="keyword">else</span> {
+                e.cancelBubble = <span class="literal">true</span>;
+              }
+
+              <span class="keyword">return</span> <span class="literal">false</span>;
+
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-90">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-90">&#182;</a>
+              </div>
+              <p>if we have an anchor and the shift key is down, this is a special case. draw a range.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="keyword">if</span> (data.lastAnchor &amp;&amp; e.shiftKey) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-91">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-91">&#182;</a>
+              </div>
+              <p>HACK
+delete character at anchor point?
+deleteAtPosition(data.lastAnchor.col, data.lastAnchor.row);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+              drawRange(data.lastAnchor, xyToRowCol(e.clientX + objects.screen.data.coords.scrollX, e.clientY + objects.screen.data.coords.scrollY));
+
+            } <span class="keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-92">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-92">&#182;</a>
+              </div>
+              <p>&quot;if you haven&#39;t gotten where you&#39;re going, you aren&#39;t there yet.&quot; -- George Carlin</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+              resetLastDirection();
+
+              resetLastPosition();
+
+            }
+
+            setAnchor(xyToRowCol(e.clientX + objects.screen.data.coords.scrollX, e.clientY + objects.screen.data.coords.scrollY));
+
+            <span class="keyword">if</span> (!data.lastAnchor || !e.shiftKey) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-93">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-93">&#182;</a>
+              </div>
+              <p>non-range case</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+              paintItemAtXY(e.clientX + objects.screen.data.coords.scrollX, e.clientY + objects.screen.data.coords.scrollY);
+
+            }
+
+            utils.events.preventDefault(e);
+
+            <span class="keyword">return</span> <span class="literal">false</span>;
+
+          }
+
+        },
+
+        mousemove: <span class="keyword">function</span>(e) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-94">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-94">&#182;</a>
+              </div>
+              <p>find nearest x/y, move cursor as needed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+          <span class="keyword">if</span> (data.isPainting) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-95">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-95">&#182;</a>
+              </div>
+              <p>&quot;paint&quot; objects on the grid</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            paintItemAtXY(e.clientX + objects.screen.data.coords.scrollX, e.clientY + objects.screen.data.coords.scrollY);
+
+          } <span class="keyword">else</span> <span class="keyword">if</span> (data.isDragging) {
+
+            dom.editor.style.left = (e.clientX - data.mouse.lastX) + <span class="string">'px'</span>;
+            dom.editor.style.top = (e.clientY - data.mouse.lastY) + <span class="string">'px'</span>;
+
+          }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-96">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-96">&#182;</a>
+              </div>
+              <p>show the cursor at the relevant column + row.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          objects.cursor.moveToXY(e.clientX + objects.screen.data.coords.scrollX, e.clientY + objects.screen.data.coords.scrollY);
+
+        },
+
+        mouseup: <span class="keyword">function</span>(e) {
+
+          console.log(<span class="string">'mouseup()'</span>);
+
+          data.isDragging = <span class="literal">false</span>;
+
+          data.isDeleting = <span class="literal">false</span>;
+
+          objects.cursor.setActive(<span class="literal">false</span>);
+
+          endPaint();
+
+          generateMap();
+
+        },
+
+        click: <span class="keyword">function</span>(e) {
+
+          <span class="keyword">var</span> target = e.target || e.srcElement;
+
+          <span class="keyword">if</span> (isChildOf(target, dom.editor)) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-97">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h1">
+                <a class="pilcrow" href="#section-97">&#182;</a>
+              </div>
+              <h1>editor-controls click</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-98">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-98">&#182;</a>
+              </div>
+              <p>prevent follow-through on links</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+            <span class="keyword">if</span> (target.nodeName.toLowerCase() === <span class="string">'a'</span>) {
+
+              <span class="keyword">if</span> (target.className &amp;&amp; target.className === <span class="string">'exclude'</span>) {
+
+                window.open(target.href, <span class="string">'survivorGame'</span>);
+                <span class="keyword">return</span> <span class="literal">false</span>;
+
+              }
+
+              utils.events.preventDefault(e);
+
+              <span class="keyword">return</span> <span class="literal">false</span>;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">generateMap</span><span class="params">()</span> {</span>
+
+      <span class="keyword">var</span> mapData = [];
+      <span class="keyword">var</span> i, j, k, l;
+      <span class="keyword">var</span> EMPTY_MAP_CHAR = <span class="string">' '</span>;
+      <span class="keyword">var</span> textArray = [];
+      <span class="keyword">var</span> foundItems = <span class="literal">false</span>;
+      <span class="keyword">var</span> removed;
+      <span class="keyword">var</span> pathName = window.location.pathname.split(<span class="string">'/'</span>);
+
+      <span class="keyword">for</span> (i=<span class="number">0</span>, j=data.map.length; i&lt;j; i++) {
+        mapData[i] = [];
+        <span class="keyword">for</span> (k=<span class="number">0</span>, l=data.map[i].length; k&lt;l; k++) {
+          mapData[i][k] = (data.map[i][k] &amp;&amp; data.map[i][k].char !== <span class="literal">null</span> ? data.map[i][k].char : EMPTY_MAP_CHAR);
+        }
+        textArray.push(<span class="string">"'"</span> + mapData[i].join(<span class="string">''</span>) + <span class="string">"'"</span>);
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-99">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-99">&#182;</a>
+              </div>
+              <p>simple hack: trim empty lines from bottom (assuming user builds from the top)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      
+      <span class="keyword">for</span> (i=textArray.length; i-- &amp;&amp; !foundItems;) {
+        <span class="keyword">if</span> (textArray.length &gt; <span class="number">16</span> &amp;&amp; textArray[i].match(<span class="regexp">/^\'(\s)+\'$/i</span>)) {
+          removed = textArray.splice(i, <span class="number">1</span>);
+        } <span class="keyword">else</span> {
+          foundItems = <span class="literal">true</span>;
+        }
+      }
+
+      <span class="keyword">if</span> (removed) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-100">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-100">&#182;</a>
+              </div>
+              <p>hack: apply one last item to the end of the array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        textArray.push(removed);
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-101">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-101">&#182;</a>
+              </div>
+              <p>join with slahes, remove newlines, and replace MAP_FREE_SPACE_CHAR with MAP_ALT_FREE_SPACE_CHAR</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      data.mapString = textArray.join(<span class="string">'/'</span>).replace(<span class="regexp">/\n/gi</span>, <span class="string">''</span>).replace(<span class="regexp">/\'/gi</span>, <span class="string">''</span>).replace(<span class="regexp">/\s/g</span>, MAP_ALT_FREE_SPACE_CHAR);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-102">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-102">&#182;</a>
+              </div>
+              <p>to preserve link: drop the last item, join and add trailing slash</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      pathName.splice(pathName.length-<span class="number">1</span>, <span class="number">1</span>);
+      pathName = pathName.join(<span class="string">'/'</span>) + <span class="string">'/'</span>;
+
+      document.getElementById(<span class="string">'generate-map'</span>).href = (!window.location.protocol.match(<span class="regexp">/http/i</span>) ? <span class="string">'index.html'</span> : pathName) + <span class="string">'?mapData='</span> + data.mapString;
+
+      document.getElementById(<span class="string">'map-data'</span>).value = textArray.join(<span class="string">',\n'</span>);
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">parseMapFromURL</span><span class="params">()</span> {</span>
+
+      <span class="keyword">var</span> winLoc,
+          paramName,
+          stringOffset,
+          mapData;
+
+      paramName = <span class="string">'mapData='</span>;
+
+      winLoc = window.location.href.toString();
+      stringOffset = winLoc.indexOf(paramName);
+
+      <span class="keyword">if</span> (stringOffset !== -<span class="number">1</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-103">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-103">&#182;</a>
+              </div>
+              <p>here&#39;s your array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        mapData = decodeURI(winLoc.substr(stringOffset + paramName.length)).split(<span class="string">'/'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-104">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-104">&#182;</a>
+              </div>
+              <p>a valid map should have rows + columns, at least</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="keyword">if</span> (mapData.length &amp;&amp; mapData[<span class="number">0</span>].length) {
+
+          WORLD_COLS = (mapData[<span class="number">0</span>].length &gt; WORLD_COLS ? mapData[<span class="number">0</span>].length : WORLD_COLS);
+          WORLD_ROWS = (mapData.length &gt; WORLD_ROWS ? mapData.length : WORLD_ROWS);
+
+        }
+
+      }
+
+      <span class="keyword">return</span> mapData;
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">drawMapFromData</span><span class="params">(mapData)</span> {</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-105">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-105">&#182;</a>
+              </div>
+              <p>loop through mapData array, drawing characters on the screen.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="keyword">var</span> i, j, k, l,
+          char;
+
+      <span class="keyword">for</span> (i=<span class="number">0</span>, j=mapData.length; i&lt;j; i++) {
+        <span class="keyword">for</span> (k=<span class="number">0</span>, l=mapData[i].length; k&lt;l; k++) {
+          char = mapData[i].charAt(k);
+          <span class="keyword">if</span> (char !== <span class="literal">null</span> &amp;&amp; char !== <span class="literal">undefined</span> &amp;&amp; <span class="keyword">typeof</span> reservedCharacters[char] === <span class="string">'undefined'</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-106">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-106">&#182;</a>
+              </div>
+              <p>note use of ignoreUntypedTurret here.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            applyCharAtPosition(char, charToTypeMap[char].join(<span class="string">' '</span>), k, i, <span class="literal">true</span>);
+          }
+        }
+      }
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">initMap</span><span class="params">()</span> {</span>
+
+      <span class="keyword">var</span> i,
+          mapData;
+
+      oContainer = document.getElementById(<span class="string">'editor-contents'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-107">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-107">&#182;</a>
+              </div>
+              <p>has map data been provided? use that if so</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      mapData = parseMapFromURL();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-108">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-108">&#182;</a>
+              </div>
+              <p>make the document reflect the world size</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      oContainer.style.width = (WORLD_COLS * NODE_WIDTH) + <span class="string">'px'</span>;
+      oContainer.style.height = (WORLD_ROWS * NODE_HEIGHT) + <span class="string">'px'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-109">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-109">&#182;</a>
+              </div>
+              <p>create an empty map</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;WORLD_ROWS; i++) {
+        data.map[i] = <span class="keyword">new</span> Array(WORLD_COLS);
+      }
+
+      <span class="keyword">if</span> (mapData) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-110">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-110">&#182;</a>
+              </div>
+              <p>populate the map with existing data</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        drawMapFromData(mapData);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-111">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-111">&#182;</a>
+              </div>
+              <p>and update the &quot;play&quot; link</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        generateMap();
+
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-112">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-112">&#182;</a>
+              </div>
+              <p>and overflow:visible?</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">addEvents</span><span class="params">()</span> {</span>
+
+      utils.events.add(document, <span class="string">'keydown'</span>, events.delegated.keydown);
+      utils.events.add(document, <span class="string">'mousedown'</span>, events.delegated.mousedown);
+      utils.events.add(document, <span class="string">'mousemove'</span>, events.delegated.mousemove);
+      utils.events.add(document, <span class="string">'mouseup'</span>, events.delegated.mouseup);
+      utils.events.add(document, <span class="string">'click'</span>, events.delegated.click);
+
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span> {</span>
+
+      initMap();
+
+      dom.editor = document.getElementById(<span class="string">'editor-controls'</span>);
+
+      objects.screen = <span class="keyword">new</span> Screen();
+      objects.screen.init();
+
+      objects.cursor = <span class="keyword">new</span> Cursor(document.getElementById(<span class="string">'editor-screen'</span>));
+      objects.cursor.init();
+
+      addEvents();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-113">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-113">&#182;</a>
+              </div>
+              <p>choose the default thing to draw with.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      selectItem(document.getElementById(<span class="string">'block-list'</span>).getElementsByTagName(<span class="string">'a'</span>)[<span class="number">0</span>].className);
+
+      document.getElementById(<span class="string">'map-data'</span>).value = <span class="string">''</span>;
+
+    }
+
+    <span class="keyword">return</span> {
+      init: init
+    }
+
+  }());
+
+  window.onload = <span class="keyword">function</span>() {
+
+    editor.init();
+
+  }
+
+}());</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

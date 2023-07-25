@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <title>SURVIVOR (1982 Commodore 64 game remake): Level Editor</title>
+ <meta name="description" content="Design, test and play. your own &quot;Survivor&quot; levels using level creation and editing tool portion of the browser-based Survivor C64 game remake. Written as a prototype / demo of JavaScript and browser capabilities. Original Atari 2600 game by Richard Carr, (C) 1982 Synapse Software. Created for the C64 by Ewing Soft (1983.)" />
+ <meta name="keywords" content="Survivor, JavaScript, HTML, DHTML, animation, CSS3, arcade, retro, space, shooter, arcade game, browser game, commodore 64" />
+ <meta name="author" content="Scott Schiller" />
+ <!--
+ /** @license
+  *
+  * SURVIVOR: A HTML + CSS + JavaScript prototype
+  * based on the Commodore 64 version of Survivor from 1983
+  *
+  * http://schillmania.com/survivor/
+  * http://www.flickr.com/photos/schill/sets/72157628885315581/
+  *
+  * Scott Schiller wrote this beginning in December 2011, while on a plane to Hawaii.
+  * Code provided under the Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0) License:
+  * http://creativecommons.org/licenses/by-nc/3.0/
+  *
+  */
+ -->
+ <link rel="stylesheet" href="css/survivor.css" />
+ <link rel="stylesheet" href="css/editor.css" />
+ <script src="script/editor.js"></script>
+</head>
+
+<body style="overflow:visible">
+
+<div id="editor-screen">
+
+ <div id="editor-contents"></div>
+
+ <div id="editor-controls">
+
+  <div class="bd">
+
+   <!-- content goes here -->
+
+   <h1>LEVEL EDITOR</h1>
+
+   <p>
+    Background musical inspiration: <br />
+    <a href="http://www.youtube.com/watch?v=btPJPFnesV4&amp;list=PLBAB23D461827111C" rel="nofollow" title="Popular songs from 1982 and 1983, when the original 'Survivor' game was released." target="yt_survivor" onclick="return false" class="exclude">arcade era</a> (1982-83) / <a href="http://www.youtube.com/watch?v=PWcaPIOiD_0&amp;list=PLB4B5B0B78FB29258" rel="nofollow" title="A few random songs, not limited to 80's hits." target="yt_survivor" onclick="return false" class="exclude">modern</a> (2012)
+   </p>
+
+   <p class="compact"><a id="instruction-toggle" href="#instructions" title="Show/hide instructions">Instructions &#8620;</a></p>
+
+   <div id="instructions">
+
+    <div>
+
+     <p class="compact">Select below and place or "paint" blocks, walls + turrets on the map.</p>
+
+     <h2>How to build a level</h2>
+
+     <p class="compact">Make bases out of walls. Harden bases by surrounding them with blocks, and placing turrets on top of walls.</p>
+
+     <p class="compact">Each base should use a unique wall type. Once all turrets of a given type are destroyed during gameplay, the base will explode. The level ends when all turrets have been destroyed.</p>
+
+     <h2>Tips and tricks: Shift + click, keyboard shortcuts</h2>
+
+     <p class="compact">Click once to set a "start" drawing point, then move the mouse to the destination and <b>shift+click</b> to draw a base or fill an area with blocks.</p>
+
+     <p class="compact">Use keyboard shortcuts (<b>1-4</b> for bases, <b>zxcv</b> for walls, <b>wasd</b> for turrets and the small <b>⌦</b> delete key) to select items faster. Pushing <b>zxcv</b> multiple times will cycle through wall shapes.</p>
+
+     <p class="compact">Not sure what things should look like? See the <a href="./" title="Survivor: Default level" class="exclude">original game</a> for reference.</p>
+
+    </div>
+
+   </div>
+
+   <h2 style="float:right">Delete&nbsp;<span title="Keyboard shortcut for delete" class="keys">⌦</span></h2>
+
+   <h2 style="float:left">Blocks <span title="Keyboard shortcuts for blocks" class="keys">(1-4)</span></h2>
+
+   <ul id="block-list" class="icons">
+    <li><a href="#" class="type-0 block">block type 0</a></li>
+    <li><a href="#" class="type-1 block">block type 1</a></li>
+    <li><a href="#" class="type-2 block">block type 2</a></li>
+    <li><a href="#" class="type-3 block">block type 3</a></li>
+    <li><a href="#" class="block delete">delete</a></li>
+   </ul>
+
+   <h2>Base walls <span title="Keyboard shortcuts for walls. Press multiple times to cycle through shapes." class="keys">(zxcv)</span></h2>
+
+   <ul id="wall-list" style="clear:both" class="icons">
+
+    <li><a href="#" class="type-1 wall upRight">base type 1 wall up right</a></li>
+    <li><a href="#" class="type-1 wall horizontal">base type 1 wall horizontal</a></li>
+    <li><a href="#" class="type-1 wall rightDown">base type 1 wall right down</a></li>
+    <li><a href="#" class="type-1 wall downRight">base type 1 wall down right</a></li>
+    <li><a href="#" class="type-1 wall downLeft">base type 1 wall down left</a></li>
+    <li><a href="#" class="type-1 wall vertical">base type 1 wall vertical</a></li>
+
+    <li><a href="#" class="type-2 wall upRight">base type 2 wall up right</a></li>
+    <li><a href="#" class="type-2 wall horizontal">base type 2 wall horizontal</a></li>
+    <li><a href="#" class="type-2 wall rightDown">base type 2 wall right down</a></li>
+    <li><a href="#" class="type-2 wall downRight">base type 2 wall down right</a></li>
+    <li><a href="#" class="type-2 wall downLeft">base type 2 wall down left</a></li>
+    <li><a href="#" class="type-2 wall vertical">base type 2 wall vertical</a></li>
+
+    <li><a href="#" class="type-3 wall upRight">base type 3 wall up right</a></li>
+    <li><a href="#" class="type-3 wall horizontal">base type 3 wall horizontal</a></li>
+    <li><a href="#" class="type-3 wall rightDown">base type 3 wall right down</a></li>
+    <li><a href="#" class="type-3 wall downRight">base type 3 wall down right</a></li>
+    <li><a href="#" class="type-3 wall downLeft">base type 3 wall down left</a></li>
+    <li><a href="#" class="type-3 wall vertical">base type 3 wall vertical</a></li>
+
+    <li><a href="#" class="type-4 wall upRight">base type 4 wall up right</a></li>
+    <li><a href="#" class="type-4 wall horizontal">base type 4 wall horizontal</a></li>
+    <li><a href="#" class="type-4 wall rightDown">base type 4 wall right down</a></li>
+    <li><a href="#" class="type-4 wall downRight">base type 4 wall down right</a></li>
+    <li><a href="#" class="type-4 wall downLeft">base type 4 wall down left</a></li>
+    <li><a href="#" class="type-4 wall vertical">base type 4 wall vertical</a></li>
+
+   </ul>
+
+   <p>Turrets <span title="Keyboard shortcuts for turrets" class="keys">(wasd)</span></p>
+
+   <ul class="icons">
+
+    <li><a href="#" class="type-1 turret up">base type 1 turret up</a></li>
+    <li><a href="#" class="type-1 turret left">base type 1 turret left</a></li>
+    <li><a href="#" class="type-1 turret down">base type 1 turret down</a></li>
+    <li><a href="#" class="type-1 turret right">base type 1 turret right</a></li>
+
+   </ul>
+
+   <p class="compact">
+    <span class="note">Turrets must be placed on walls.</span>
+   </p>
+
+   <p>
+    <a href="#" id="clear-map" title="Removes all items from the map" onclick="window.location.hash='';window.location.reload()" class="cta clear exclude">Clear map</a>
+    <a href="./" id="generate-map" title="Try out your level in the game" onclick="return true" class="cta exclude">Play level &raquo;</a>
+   </p>
+
+   <textarea id="map-data" onfocus="this.select()" onmouseup="this.select()" placeholder="/* map data goes here */"></textarea>
+
+  </div>
+ </div>
+
+</div>
+
+</body>
+</html>

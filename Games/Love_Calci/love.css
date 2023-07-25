@@ -20,7 +20,7 @@ body {
   align-items: center;
   background-image: url(bglove.jpg);
   padding-top: 50px ;
-  
+  overflow: hidden;
  
 
 }

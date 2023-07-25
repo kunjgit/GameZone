@@ -10,6 +10,9 @@ body {
     #6284ff 50%,
     #ff0000 100%
   );
+  background-position: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -47,12 +50,50 @@ span.fade {
 }
 
 .gameover {
-  color: #23a6d5;
+  color: black;
   font-size: 3rem;
-  position: absolute;
-  top: 10px;
+  position: fixed;
+  top: 100px;
   width: 100%;
   text-align: center;
   z-index: 110;
   display: block;
 }
+
+.overlay {
+  position: fixed;
+  bottom: 100px;
+  right: 130px;
+  z-index: 9999;
+}
+
+#reset-button {
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  background-color: gray;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#score-container {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  color: white;
+  font-size: 24px;
+  text-align: right;
+  z-index: 100;
+}
+
+#score {
+  margin-bottom: 10px;
+}
+
+#highscore {
+  font-weight: bold;
+}
+
+
+

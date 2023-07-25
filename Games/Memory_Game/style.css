@@ -12,15 +12,15 @@
 }
 
 body {
-    background-color: #009DE0;
+    background-color:#0a3c2f;
 }
 
 .wrapper {
     box-sizing: content-box;
     width: 26.87em;
     padding: 2.5em 3em;
-    /* background-color: #ffffff; */
-    background-image: linear-gradient(to right, #BDC3C7, #ECF0F1);
+  
+    background-color: #0d614b;
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -61,20 +61,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 4px solid #000000;
+    border: 2px solid #000000;
     transition: transform 0.7s ease-out;
     backface-visibility: hidden;
 }
 
 .card-before {
-    /* background-color: var(--color-green--light); */
-    background: linear-gradient(-45deg, #71FA32, #a6dee2, #009DE0);
+    background-color: var(--color-green--light);
+    
     font-size: 2.8em;
     font-weight: 600;
 }
 
 .card-after {
     background-color: #ffffff;
+    opacity:0.8;
     transform: rotateY(180deg);
 }
 
@@ -95,7 +96,7 @@ body {
     width: 100%;
     height: 100%;
     /* background-color: var(--color-green--light); */
-    background-image: linear-gradient(135deg, #71FA32, #009DE0) ;
+    background-image: linear-gradient(135deg, #1e4e07, #009DE0) ;
     top: 0;
 }
 
@@ -110,8 +111,9 @@ button {
     font-size: 1.1em;
     display: block;
     margin: 1.1em auto 0 auto;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: white;
+    opacity: 0.75;
+    color: black;
 }
 
 .controls-container button {

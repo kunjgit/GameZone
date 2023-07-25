@@ -1,6 +1,7 @@
 *,
 body {
   margin: 0;
+  overflow: hidden;
 }
 #table,
 canvas {

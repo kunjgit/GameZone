@@ -434,17 +434,15 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 329 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
 | 330 | [Slime Attack](https://github.com/apu52/GameZone/tree/Slime-Attack-game/Games/Slime%20attack%20game)|
 | 331 | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
-
-| * | [Pokemon_Card_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Card_Game)|
-=======
-
+| 332 | [Pokemon_Card_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Card_Game)|
 | 333 | [Digit Dilemma](https://github.com/kunjgit/GameZone/tree/main/Games/Digit_Dilemma)|
 | 334 | [Tennis](https://github.com/kunjgit/GameZone/tree/main/Games/Tennis)|
 | 335 | [Illusion](https://github.com/kunjgit/GameZone/tree/main/Games/Illusion)|
 | 336 | [Block Buster](https://github.com/sahaycodes/GameZone/tree/meme/Games/Block_Buster)|
 | 337 | [Guess_The_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Ball)|
 | 338 | [Doremon Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Doremon_Puzzle)|
-| 339 | [Rock_Paper_Scissors_Lizard_Spock](https://github.com/kunjgit/GameZone/tree/main/Rock_Paper_Scissors_Lizard_Spock)|
+| 339 | [Guess The Celebrity](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Celeb)|
+| 340 | [Rock_Paper_Scissors_Lizard_Spock](https://github.com/kunjgit/GameZone/tree/main/Rock_Paper_Scissors_Lizard_Spock)|
 
 
 

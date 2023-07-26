@@ -441,7 +441,6 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 336 | [Block Buster](https://github.com/sahaycodes/GameZone/tree/meme/Games/Block_Buster)|
 | 337 | [Guess_The_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Ball)|
 | 338 | [Doremon Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Doremon_Puzzle)|
-
 | 339 | [Guess The Celebrity](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Celeb)|
 | 340 | [Rock_Paper_Scissors_Lizard_Spock](https://github.com/kunjgit/GameZone/tree/main/Rock_Paper_Scissors_Lizard_Spock)|
 | 341 | [Elemental Riddles](https://github.com/kunjgit/GameZone/tree/main/Elemental_Riddles)|
@@ -449,7 +448,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 343 | [Hit Target](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_Target)|
 | 344 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/Archery)|
 | 345 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Games/Click_circle)|
-| 344 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/The_Cube)|
+| 346 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/The_Cube)|
 
  </center>
 

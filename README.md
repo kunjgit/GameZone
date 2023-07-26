@@ -443,7 +443,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 338 | [Doremon Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Doremon_Puzzle)|
 | 339 | [Guess The Celebrity](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Celeb)|
 | 340 | [Rock_Paper_Scissors_Lizard_Spock](https://github.com/kunjgit/GameZone/tree/main/Rock_Paper_Scissors_Lizard_Spock)|
-| 341 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle)|
+| 341 | [Elemental Riddles](https://github.com/kunjgit/GameZone/tree/main/Elemental_Riddles)|
+| 342 | [Falling_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Ball)|
+| 343 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle)|
+
 
 
 

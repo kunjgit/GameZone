@@ -1,0 +1,16 @@
+{
+    "output": {
+        "dir": "../../assets/css/",
+        "structure": "nested"
+    },
+    "compile": {
+        "style": "compressed",             
+        "line-numbers": false,      
+        "line-comments": false,     
+        "load-path": false,         
+        "plugin-path": false,       
+        "sourcemap": false,         
+        "omit-map-comment": false,  
+        "precision": false          
+    }
+}

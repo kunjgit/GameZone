@@ -28,5 +28,8 @@ To play the cube game, follow these steps in simple English:
 
 ## **Screenshots 📸**
 
+![Screenshot 2023-07-27 005336](https://github.com/Deepanshu0703/GameZone/assets/114489502/b9d6d8fe-4878-45b6-9665-6b6485a61500)
+
+
 <br>
 

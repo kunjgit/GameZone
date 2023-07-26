@@ -448,6 +448,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 342 | [Falling_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Ball)|
 | 343 | [Hit Target](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_Target)|
 | 344 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/Archery)|
+| 345 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle
 
  </center>
 

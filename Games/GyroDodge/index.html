@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GyroDodge</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+
+  <div class="overlay hide" id="game-start">
+    <div class="info">
+      <h2>Destroy All The Astroids</h2>
+      <h2 id="game-start-timer"></h2>
+    </div>
+  </div>
+  <div class="overlay" id="game-over">
+    <div class="info">
+      <h2>Game Over</h2>
+      <br>
+      <button id="game-restart">Restart</button>
+    </div>
+  </div>
+  <div class="overlay" id="game-win">
+    <div class="info">
+      <h2 id="game-win-level">You Win!</h2>
+      <br>
+      <button id="next-level">Next Level</button>
+    </div>
+  </div>
+  <h3 class="ui-text" id="level">Level: </h3>
+  <h3 class="ui-text" id="score">Score: </h3>
+
+  <script src="./js/AssetMan.js"></script>
+  <script src="./js/Bullet.js"></script>
+  <script src="./js/Particle.js"></script>
+  <script src="./js/Rock.js"></script>
+  <script src="./js/Player.js"></script>
+  <script src="./js/Game.js"></script>
+  <script src="./js/index.js"></script>
+  <div id="p5_loading" class="loadingclass">
+    <div class="loading-wrapper">
+      <div class="loader"></div>
+      <p>Loading Please Wait...</p>
+    </div>
+  </div>
+
+  <!-- Mobile Debug (Dev) -->
+  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+</body>
+
+</html>

@@ -37,5 +37,5 @@
 
 .contributor-card:nth-child(4n+1),
 .contributor-card:nth-child(4n+3) {
-    margin-top: -30px;
+    margin-top: -4px;
 }

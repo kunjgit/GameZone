@@ -447,6 +447,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 341 | [Elemental Riddles](https://github.com/kunjgit/GameZone/tree/main/Elemental_Riddles)|
 | 342 | [Falling_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Ball)|
 | 343 | [Hit Target](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_Target)|
+| 344 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/Archery)|
 
  </center>
 

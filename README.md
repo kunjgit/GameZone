@@ -133,7 +133,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 27 | [Trivia It](https://hithub.com/kunjgit/GameZone/tree/main/Games/Trivia_It)|
 | 28 | [Minesweeper](https://github.com/kunjgit/GameZone/tree/main/Games/Minesweeper)|
 | 29 | [Dice ShowDown Game](https://github.com/Himanshu07-debug/GameZone/tree/main/Games/Dice_Showdown_Game)|
-| 30 | [Pac_Man Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pac_Man_Game)|
+| 30 | [Pac Man Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pac_Man_Game)|
 | 31 | [Brick Breaker Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Breaker)|
 | 32 | [Magic Square Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_Square)|
 | 33 | [Fight Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fight_Game)|
@@ -148,10 +148,10 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 42 | [Roll Race Game](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_Race)|
 | 43 | [Menja Game](https://github.com/kunjgit/GameZone/tree/main/Games/Menja)|
 | 44 | [Typing Speed Test Game](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test_Game)|
-| 45 | [Tile_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
-| 46 | [Stick_Hero_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Stick_Hero_Game)|
-| 47 | [Starwars_Character_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Starwars_Character_Game)|
-| 48 | [Traffic_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
+| 45 | [Tile Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tile_Game)|
+| 46 | [Stick Hero Game](https://github.com/kunjgit/GameZone/tree/main/Games/Stick_Hero_Game)|
+| 47 | [Starwars Character Game](https://github.com/kunjgit/GameZone/tree/main/Games/Starwars_Character_Game)|
+| 48 | [Traffic Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
 | 49 | [Love Result Predictor](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Result_Predictor)|
 | 51 | [Tower Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Defense)|
 | 52 | [Bird Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bird_game)|
@@ -331,7 +331,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 226 | [Dungeon_Crawler](https://github.com/kunjgit/GameZone/tree/main/Games/Dungeon_Crawler)|
 | 227 | [snake_water_gun](https://github.com/kunjgit/GameZone/tree/main/Games/snake_water_gun)|
 | 228 | [Run and Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Run_and_Jump)|
-| 229 | [AI-CHESS-Game](https://github.com/kunjgit/GameZone/tree/main/Games/AI-CHESS-Game)|
+| 229 | [AI CHESS Game](https://github.com/kunjgit/GameZone/tree/main/Games/AI_CHESS_Game)|
 | 230 | [Fruit_Catching](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching)|
 | 231 | [Bulls eye](https://github.com/kunjgit/GameZone/tree/main/Games/Bulls_eye)|
 | 232 | [Crystals_Collecter](https://github.com/kunjgit/GameZone/tree/main/Games/Crystals_Collecter)|
@@ -376,7 +376,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 271 | [Bit_Maze_Platformer_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Bit_Maze_Platformer_Maze)|
 | 272 | [Math Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Game)|
 | 273 | [Space Drifter](https://github.com/kunjgit/GameZone/tree/main/Games/space_drifter)|
-| 274 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe%20the%20Cloud)|
+| 274 | [Observe the Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Observe_the_Cloud)|
 | 275 | [Cosmic_Coin_Collector](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Coin_Collector)|
 | 276 | [Circus Charly](https://github.com/kunjgit/GameZone/tree/main/Games/Circus_Charly)|
 | 277 | [Pikachu_Volleyball](https://github.com/kunjgit/GameZone/tree/main/Games/Pikachu_Volleyball)|
@@ -410,7 +410,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 305 | [Match_Color_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Match_Color_Game)|
 | 306 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
 | 307 | [Beyblade](https://github.com/kunjgit/GameZone/tree/main/Games/Beyblade)|
-| 308 | [The labyrinth of death](https://github.com/sahaycodes/GameZone/tree/meme/Games/The%20labyrinth%20of%20death)|
+| 308 | [The labyrinth of death](https://github.com/sahaycodes/GameZone/tree/meme/Games/The_labyrinth_of_death)|
 | 309 | [2D_BreakOut](https://github.com/kunjgit/GameZone/tree/main/Games/2D_Breakout)|
 | 310 | [Battleship](https://github.com/kunjgit/GameZone/tree/main/Games/Battleship)|
 | 311 | [Baseball](https://github.com/kunjgit/GameZone/tree/main/Games/Baseball)|

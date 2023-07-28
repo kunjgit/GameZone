@@ -65,7 +65,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 - Fork the repository
 - Clone this repository `git clone "url of the repo"`
 
-* Raise and issue to add new game or to enhancement for a game (Have a look at few things you have to take care during raising issue )
+* Raise an issue to add new game or to enhancement for a game (Have a look at few things you have to take care during raising issue )
 
   - Select appropriate issue template
   - Make sure your idea is unique and interesting ðŸš€

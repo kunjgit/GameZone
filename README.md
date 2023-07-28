@@ -188,12 +188,12 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 83 | [SciFi_Alchemy](https://github.com/kunjgit/GameZone/tree/main/Games/SciFi_Alchemy)|
 | 84 | [Packabunchas](https://github.com/kunjgit/GameZone/tree/main/Games/Packabunchas)|
 | 85 | [Cast and Catch](https://github.com/Sheetal-05/GameZone/tree/main/Games/Cast_and_Catch)|
-| 86 | [Track_Not_Found](https://github.com/kunjgit/GameZone/tree/main/Games/Track_Not_Found)|
+| 86 | [Track Not Found](https://github.com/kunjgit/GameZone/tree/main/Games/Track_Not_Found)|
 | 87 | [Love Calculator Game](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Calci)|
 | 88 | [Planet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Planet_Game)|
-| 89 | [Snake_Ladder](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Ladder)|
+| 89 | [Snake Ladder](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Ladder)|
 | 90 | [Among Us Game](https://github.com/kunjgit/GameZone/tree/main/Games/Among_Us_Game)|
-| 91 | [Pokedex_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokedex)|
+| 91 | [Pokedex Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokedex)|
 | 92 | [Pacific Air Battle](https://github.com/kunjgit/GameZone/tree/main/Games/Pacific_Air_Battle)|
 | 93 | [Dante](https://github.com/kunjgit/GameZone/tree/main/Games/Dante)|
 | 94 | [Ping Pong Multiplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Multiplayer)|
@@ -205,7 +205,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 100 | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher)|
 | 101 | [Catch_the_Bunny](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_Bunny)|
 | 102 | [Catch_me_game](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_me_game)|
-| 103 | [Blank Detective](https://github.com/kunjgit/GameZone/tree/main/Games/Blanks%20Detective)|
+| 103 | [Blank Detective](https://github.com/kunjgit/GameZone/tree/main/Games/Blanks_Detective)|
 | 104 | [Falling Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Blocks)|
 | 105 | [Movie Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Movie_Guessing_Game)|
 | 106 | [Wildcard_Bonanza](https://github.com/kunjgit/GameZone/tree/main/Games/Wildcard_Bonanza)|
@@ -228,7 +228,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 123 | [Back To Space](https://github.com/kunjgit/GameZone/tree/main/Games/Back_To_Space)|
 | 124 | [Snooze](https://github.com/kunjgit/GameZone/tree/main/Games/Snooze)|
 | 125 | [Galaxy Rider](https://github.com/kunjgit/GameZone/tree/main/Games/Galaxy_Rider)||
-| 126 | [Squared Lines](https://github.com/kunjgit/GameZone/tree/main/Games/Squared%20Lines)|
+| 126 | [Squared Lines](https://github.com/kunjgit/GameZone/tree/main/Games/Squared_Lines)|
 | 127 | [Space War](https://github.com/kunjgit/GameZone/tree/main/Games/Space_War)|
 | 128 | [Sciara of Colors](https://github.com/kunjgit/GameZone/tree/main/Games/Sciara_Of_Colors)|
 | 129 | [JunoJs](https://github.com/kunjgit/GameZone/tree/main/Games/JunoJs)|
@@ -432,7 +432,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 327 | [Which_Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|
 | 328 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
 | 329 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire-up)|
-| 330 | [Slime Attack](https://github.com/apu52/GameZone/tree/Slime-Attack-game/Games/Slime%20attack%20game)|
+| 330 | [Slime Attack](https://github.com/apu52/GameZone/tree/Slime-Attack-game/Games/Slime_attack_game)|
 | 331 | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
 | 332 | [Pokemon_Card_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Card_Game)|
 | 333 | [Digit Dilemma](https://github.com/kunjgit/GameZone/tree/main/Games/Digit_Dilemma)|
@@ -441,14 +441,13 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 336 | [Block Buster](https://github.com/sahaycodes/GameZone/tree/meme/Games/Block_Buster)|
 | 337 | [Guess_The_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Ball)|
 | 338 | [Doremon Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Doremon_Puzzle)|
-
 | 339 | [Guess The Celebrity](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Celeb)|
 | 340 | [Rock_Paper_Scissors_Lizard_Spock](https://github.com/kunjgit/GameZone/tree/main/Rock_Paper_Scissors_Lizard_Spock)|
 | 341 | [Elemental Riddles](https://github.com/kunjgit/GameZone/tree/main/Elemental_Riddles)|
 | 342 | [Falling_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Ball)|
 | 343 | [Hit Target](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_Target)|
 | 344 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/Archery)|
-| 345 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle
+| 345 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle)
 | 346 | [color_switch_challenger](https://github.com/kunjgit/GameZone/tree/main/color_switch_challenger)|
 
  </center>

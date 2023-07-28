@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules</title>
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #232323;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffca28;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            color: #ddd;
+        }
+
+        /* Add a border and padding to the content area */
+        body > * {
+            border: 1px solid #444;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #333;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Center the content vertically */
+        html, body {
+            height: 150vh;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ol {
+            list-style-type: none;
+            padding-left: 0;
+            counter-reset: rule-counter;
+        }
+
+        li {
+            counter-increment: rule-counter;
+            position: relative;
+            margin-bottom: 10px;
+            padding-left: 30px;
+            color: #ddd;
+        }
+
+        li:before {
+            content: counter(rule-counter) ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffca28;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Simon Game Rules:</h1>
+
+    <ol>
+        <li>Simon will show a sequence of colors (lights or sounds) in a specific pattern.</li>
+        <li>Remember and repeat the pattern shown by Simon by clicking or pressing the corresponding color buttons.</li>
+        <li>The pattern will start with just one color. After successfully repeating the pattern, Simon will add one more color to the sequence in the next turn.</li>
+        <li>The game continues to add one more color to the pattern with each successful repetition.</li>
+        <li>If you make a mistake and fail to repeat the correct pattern, the game will end, and your score will be displayed.</li>
+        <li>Pay close attention to the growing pattern and stay focused as the game becomes more challenging.</li>
+        <li>Challenge yourself to beat your high score and reach the highest level possible.</li>
+        <li>Have fun and enjoy the game!</li>
+        <li>Remember, the Simon game gets progressively harder as you advance through the levels, so be prepared for an exciting and memory-testing experience!</li>
+    </ol>
+</body>
+</html>

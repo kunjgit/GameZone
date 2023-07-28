@@ -18,7 +18,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 
 ## Why to Open Source
 
-Contributing in open sorce increases your opportunities to work with deifferent projects and mentors, getting to know various insights and ideas. It is a platform where contributors grow together with a construvtive and a positive attitude.
+Contributing in open source increases your opportunities to work with different projects and mentors, getting to know various insights and ideas. It is a platform where contributors grow together with a construvtive and a positive attitude.
 
 This repository also provides one such platforms where contributers come over and put their ideas of new games and make our website as interactive as much they can!
 

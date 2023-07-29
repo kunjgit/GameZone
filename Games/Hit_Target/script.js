@@ -3,10 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
   const target = document.getElementById("target");
   const scoreDisplay = document.getElementById("score");
   const timerDisplay = document.getElementById("timer");
+  const restartButton = document.createElement("button");
+  restartButton.textContent = "Restart Game";
+  restartButton.style.display = "none";
 
   let score = 0;
   let time = 10;
   let timer;
+  let colors = ["red", "blue", "green", "yellow", "orange", "purple"];
 
   function startGame() {
     score = 0;
@@ -22,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     score++;
     scoreDisplay.textContent = "Score: " + score;
     moveTarget();
+    changeTargetColor();
   }
 
   function updateTimer() {
@@ -35,7 +40,15 @@ document.addEventListener("DOMContentLoaded", function() {
   function endGame() {
     clearInterval(timer);
     gameBoard.removeEventListener("click", increaseScore);
-    alert("Game Over! Your score is: " + score);
+    target.style.backgroundColor = "red"; // Reset the target color to default
+    restartButton.style.display = "block";
+    restartButton.addEventListener("click", restartGame);
+    gameBoard.appendChild(restartButton);
+  }
+
+  function restartGame() {
+    restartButton.style.display = "none";
+    startGame();
   }
 
   function moveTarget() {
@@ -47,6 +60,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     target.style.left = randomX + "px";
     target.style.top = randomY + "px";
+  }
+
+  function changeTargetColor() {
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    target.style.backgroundColor = randomColor;
   }
 
   startGame();

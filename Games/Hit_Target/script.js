@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const timerDisplay = document.getElementById("timer");
   const restartButton = document.createElement("button");
   restartButton.textContent = "Restart Game";
-  restartButton.style.display = "none";
 
   let score = 0;
   let time = 10;
@@ -18,15 +17,17 @@ document.addEventListener("DOMContentLoaded", function() {
     scoreDisplay.textContent = "Score: 0";
     timerDisplay.textContent = "Time: 10";
 
-    target.addEventListener("click", increaseScore);
+    target.addEventListener("click", handleTargetClick);
     timer = setInterval(updateTimer, 1000);
   }
 
-  function increaseScore() {
-    score++;
-    scoreDisplay.textContent = "Score: " + score;
-    moveTarget();
-    changeTargetColor();
+  function handleTargetClick() {
+    if (time > 0) {
+      score++;
+      scoreDisplay.textContent = "Score: " + score;
+      moveTarget();
+      changeTargetColor();
+    }
   }
 
   function updateTimer() {
@@ -39,15 +40,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function endGame() {
     clearInterval(timer);
-    gameBoard.removeEventListener("click", increaseScore);
+    gameBoard.removeEventListener("click", handleTargetClick);
     target.style.backgroundColor = "red"; // Reset the target color to default
-    restartButton.style.display = "block";
+
+    // Remove the existing restart button, if any
+    const existingRestartButton = document.getElementById("restart-button");
+    if (existingRestartButton) {
+      existingRestartButton.remove();
+    }
+
+    restartButton.setAttribute("id", "restart-button");
     restartButton.addEventListener("click", restartGame);
     gameBoard.appendChild(restartButton);
   }
 
   function restartGame() {
-    restartButton.style.display = "none";
+    restartButton.remove();
     startGame();
   }
 

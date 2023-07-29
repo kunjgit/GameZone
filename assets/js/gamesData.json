@@ -336,9 +336,9 @@
     "thumbnailUrl": "Breakout.webp"
   },
   "66": {
-    "gameTitle": "Tower Blocks",
-    "gameUrl": "Tower_Blocks",
-    "thumbnailUrl": "Tower_Blocks.webp"
+    "gameTitle": "Maths Sprint Game",
+    "gameUrl": "Maths_Sprint_Game",
+    "thumbnailUrl": "Maths_Sprint_Game.png"
   },
   "67": {
     "gameTitle": "Platform Game",
@@ -346,9 +346,9 @@
     "thumbnailUrl": "Platform_Game.webp"
   },
   "68": {
-    "gameTitle": "Red Light Green Light",
-    "gameUrl": "Red_Light_Green_Light",
-    "thumbnailUrl": "squid_game.webp"
+    "gameTitle": "Keyboard Hero",
+    "gameUrl": "Keyboard_Hero",
+    "thumbnailUrl": "Keyboard_Hero.webp"
   },
   "69": {
     "gameTitle": "Squashing Your Enemy",

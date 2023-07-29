@@ -24,6 +24,8 @@ body{
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+  margin-top:70px ;
+  margin-left: -753px;
 }
 .wrapper .input-field{
   opacity: 0;
@@ -182,3 +184,66 @@ li:not(:first-child) span{
     margin-top: 10px;
   }
 }
+
+
+/* background */
+html {
+  height:100%;
+}
+
+body {
+  margin:0;
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+.content123 {
+  background-color:rgba(255,255,255,.8);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  left:50%;
+  padding:10vmin;
+  position:fixed;
+  text-align:center;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+.heading {
+  font-size: 3rem;
+  color: black;
+  background-color: rgba(255, 0, 0, 0.712);
+  border: #f5f5c6;
+  border-radius: 15px;
+  padding: 2px 120px 2px 120px;
+  margin-top: -290px;
+}
+

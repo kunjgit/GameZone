@@ -449,6 +449,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 344 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/Archery)|
 | 345 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle)
 | 346 | [color_switch_challenger](https://github.com/kunjgit/GameZone/tree/main/color_switch_challenger)|
+| 347 | [Musical_Floor](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Floor)|
 
  </center>
 

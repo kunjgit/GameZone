@@ -17,6 +17,13 @@
   #progress:hover{
     opacity: 1;
   background-color: #df87ef;
+  animation:animate 1s linear infinite;
+  }
+
+  @keyframes animate{
+    50%{
+      transform: translateY(-8px);
+    }
   }
   #progress-value {
     display: block;

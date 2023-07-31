@@ -54,7 +54,7 @@ window.addEventListener('scroll', function() {
 //Focusing on the input box on clicking anywhere in the container div, and not just in the input box(which is 60% width) which leaves dead space on both sides
 // Get references to the div and input elements
 const searchContainer = document.getElementById("search-container-id");
-const searchInput = document.getElementById("search-input-id");
+const searchInput = document.getElementById("searchbar");
 
 // Add a click event listener to the div
 searchContainer.addEventListener("click", function () {

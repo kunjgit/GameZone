@@ -439,6 +439,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 294 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
 | 295 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
 | 296 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death by Hamster)|
+| 297 | [Tenzies](https://github.com/kunjgit/GameZone/tree/main/Games/Tenzies)|
 
 
 

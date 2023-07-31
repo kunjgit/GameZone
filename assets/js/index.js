@@ -1,5 +1,5 @@
 // Generate <li> tags dynamically
-const generateLiTags = (gamesData) => {
+const generateLiTags = gamesData => {
   const liTags = [];
 
   for (let tagNumber = 1; tagNumber <= 286; tagNumber++) {
@@ -27,28 +27,30 @@ const generateLiTags = (gamesData) => {
     }
   }
 
-  return liTags.join("\n");
+  return liTags.join('\n');
 };
 
 // Fetch the game data from the JSON file
-fetch("./assets/js/gamesData.json")
-  .then((response) => response.json())
-  .then((gamesData) => {
-    const projectListContainer = document.querySelector(".project-list");
+fetch('./assets/js/gamesData.json')
+  .then(response => response.json())
+  .then(gamesData => {
+    const projectListContainer = document.querySelector('.project-list');
     projectListContainer.innerHTML = generateLiTags(gamesData);
     getPageNumbers();
     getProjectsInPage();
   })
-  .catch((error) => console.error("Error fetching game data:", error));
+  .catch(error => console.error('Error fetching game data:', error));
 
-window.addEventListener("scroll", function () {
-  var scrollToTopButton = document.getElementById("progress");
+window.addEventListener('scroll', function() {
+  var scrollToTopButton = document.getElementById('progress');
   if (window.pageYOffset > 200) {
-    scrollToTopButton.style.display = "block";
+    scrollToTopButton.style.display = 'block';
   } else {
-    scrollToTopButton.style.display = "none";
+    scrollToTopButton.style.display = 'none';
   }
 });
+
+
 //Focusing on the input box on clicking anywhere in the container div, and not just in the input box(which is 60% width) which leaves dead space on both sides
 // Get references to the div and input elements
 const searchContainer = document.getElementById("search-container-id");

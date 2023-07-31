@@ -3,6 +3,9 @@
     src: url(./FredokaOne-Regular.ttf);
 }
 
+body{
+    overflow:hidden;
+}
 html {
     width: 100%;
     height: 100%;

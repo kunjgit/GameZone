@@ -42,6 +42,10 @@ function getProjectsInPage() {
 
   pageTile.forEach((elem, index) => {
     elem.addEventListener('click', () => {
+      window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+      });
       pageTile[pageActive].classList.remove('active');
       pageActive = index;
       elem.classList.add('active');
@@ -75,6 +79,10 @@ function goToNextPage() {
   pageActive++;
   pageTile[pageActive].click();
   pageTile[pageActive].classList.add('active');
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
 
@@ -84,22 +92,11 @@ function goToPreviousPage() {
   pageActive--;
   pageTile[pageActive].click();
   pageTile[pageActive].classList.add('active');
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
-
-
-
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
-
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
 
 
 // testimonials variables
@@ -136,8 +133,8 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 }
 
 // add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+modalCloseBtn && modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+overlay && overlay.addEventListener("click", testimonialsModalFunc);
 
 
 
@@ -147,7 +144,7 @@ const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
+select && select.addEventListener("click", function () { elementToggleFunc(this); });
 
 // add event in all select items
 for (let i = 0; i < selectItems.length; i++) {

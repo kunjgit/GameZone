@@ -39,12 +39,16 @@
     <link rel="icon" type="image/x-icon" href="greenmahjong32.ico">
     <link rel="shortcut icon" type="image/x-icon" href="greenmahjong32.ico">
     <link type="image/x-icon" href="greenmahjong32.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   </head>
   <body>
     <div id="background">
     </div>
 
     <div class="game-buttons upperbuttons">
+      <div style="text-align: left;
+      font-size: 30px;
+      padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
       <ul>
 
         <li >
@@ -53,19 +57,19 @@
           </a>
         </li>
         <li id="themeButton">
-          <a class="button small">
+          <button class="button small">
             <div class="image theme"></div>
-          </a>
+          </button>
         </li>
         <li id="undoButton">
-          <a class="button small">
+          <button class="button small">
             <div class="image undo"></div>
-          </a>
+          </button>
         </li>
         <li id="activateHints">
-          <a class="button small">
+          <button class="button small">
             <div class="image hint"></div>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -130,13 +134,13 @@
     <div id="menuScreen" class="scene" style="background: rgba(0,0,0,0.75)" data-page="menu" data-back-options="resumeGame">
       <section><h1 data-l10n-id="gamePaused">Game Paused</h1>
         <!--<br>-->
-        <a class="addBorder" id="newGameButton" data-l10n-id="startNewGame" data-page-option="startNewGame" data-back="-2">Start new game</a>
+        <button class="addBorder" id="newGameButton" data-l10n-id="startNewGame" data-page-option="startNewGame" data-back="-2">Start new game</button>
         <!--<h2 class="addBorder"  id="themeButton" data-l10n-id="changeTheme">Change Theme</h2>-->
-        <a class="addBorder"  id="gameStatisticsButton" href="#gamestatistics"  data-l10n-id="gameStatistics">Game statistics</a>
-        <a class="addBorder" id="aboutButton" href="#about"  data-l10n-id="about">About the Game</a>
-        <a class="addBorder" id="resumeGameButton" data-l10n-id="resumeGame" data-back="-1"  data-page-options="resumeGame">Resume Game</a>
+        <button class="addBorder"  id="gameStatisticsButton" href="#gamestatistics"  data-l10n-id="gameStatistics">Game statistics</button>
+        <button class="addBorder" id="aboutButton" href="#about"  data-l10n-id="about">About the Game</button>
+        <button class="addBorder" id="resumeGameButton" data-l10n-id="resumeGame" data-back="-1"  data-page-options="resumeGame">Resume Game</button>
       </section>
-      <!--<p><a class="button" id="closeAboutScreenButton" data-l10n-id="close">Resume game</a></p>-->
+      <!--<p><button class="button" id="closeAboutScreenButton" data-l10n-id="close">Resume game</button></p>-->
     </div>
 
 
@@ -159,7 +163,7 @@
         <h4 data-point="5gamesWon" data-l10n-id="5gamesWon">Level elite: At least 5 games won!</h4>
         <h4 data-point="10gamesWon" data-l10n-id="10gamesWon">Level heroic: At least 10 games won!</h4>
       </section>
-      <p><a class="button" data-l10n-id="closeStatistics" data-back="-1">Close statistics</a></p>
+      <p><button class="button" data-l10n-id="closeStatistics" data-back="-1">Close statistics</button></p>
     </div>
 
     <div class="scene gameStatisticsScreen" data-page="gamestatisticswin" data-back-options="resumeFinishedGame">
@@ -181,7 +185,7 @@
         <h4 data-point="5gamesWon" data-l10n-id="5gamesWon">Level elite: At least 5 games won!</h4>
         <h4 data-point="10gamesWon" data-l10n-id="10gamesWon">Level heroic: At least 10 games won!</h4>
       </section>
-      <p><a class="button" data-l10n-id="closeStatistics" data-back="-1"  data-page-options="resumeFinishedGame">Close statistics</a></p>
+      <p><button class="button" data-l10n-id="closeStatistics" data-back="-1"  data-page-options="resumeFinishedGame">Close statistics</button></p>
     </div>
 
 
@@ -204,7 +208,7 @@
         <h4 data-point="5gamesWon" data-l10n-id="5gamesWon">Level elite: At least 5 games won!</h4>
         <h4 data-point="10gamesWon" data-l10n-id="10gamesWon">Level heroic: At least 10 games won!</h4>
       </section>
-      <p><a class="button" data-l10n-id="closeStatistics" data-back="-1"  data-page-options="resumeFinishedGame">Close statistics</a></p>
+      <p><button class="button" data-l10n-id="closeStatistics" data-back="-1"  data-page-options="resumeFinishedGame">Close statistics</button></p>
     </div>
 
 
@@ -220,7 +224,7 @@
         <p>Yi ZHU</p>
         <p>J.O. Aho</p>
       </section>
-      <p><a class="button" data-l10n-id="back-to-menu" data-back="-1">Back to menu</a></p>
+      <p><button class="button" data-l10n-id="back-to-menu" data-back="-1">Back to menu</button></p>
     </div>
 
     <div id="versionInformationDialog">
@@ -244,7 +248,7 @@
       <div class="scrollable">
         <!--<h1 data-l10n-id="congratulation">Congratulations!</h1>-->
         <h3><span data-l10n-id="points">Points: </span><span class="pointsReached">Test</span></h3>
-        <a class="button" id="newGameButtonWin" data-l10n-id="startNewGame" data-back="-1"  data-page-options="startNewGame" >Start new game</a>
+        <button class="button" id="newGameButtonWin" data-l10n-id="startNewGame" data-back="-1"  data-page-options="startNewGame" >Start new game</button>
         <a class="button" data-l10n-id="gameStatistics" href="#gamestatisticswin">Game statistics</a>
       </div>
     </div>

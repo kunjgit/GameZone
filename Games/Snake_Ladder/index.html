@@ -9,8 +9,12 @@
     <script src="js/modernizr.js"></script> <!-- Modernizr -->
     <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="scss/style.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
+    <div style="text-align: left; margin-left: 40px;
+    margin-top: 10px;
+    font-size: 30px;"><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
     <div class="modal effect">
         <div class="content">
             <div class="selection">
@@ -37,13 +41,13 @@
                         <i></i> <span>Computer</span>
                     </label>
                 </div>
-                <div class="go"><a class="lets-roll">Let's Roll</a></div>
+                <div class="go"><button class="lets-roll">Let's Roll</button></div>
             </div>
             <div class="who-won" style="display:none;">
                 <p class="greetings">Congratulations!</p>
                 <img src="imgs/avatar1.png" class="which-avatar-won">
                 <p class="won-or-lose">You won!</p>
-                <div class="go"><a class="play-again">Play Again?</a></div>
+                <div class="go"><button class="play-again">Play Again?</button></div>
             </div>
         </div>
     </div><!--Modal Box Ends-->
@@ -104,7 +108,7 @@
             </div>
             <div class="whose-turn">
                 <img src="imgs/caret8.png" class="caret">
-                <a class="turn"> Computer's turn</a>
+                <button class="turn"> Computer's turn</button>
             </div>
             <div class="dice-and-roll">
                 <img src="imgs/dice6.png" alt="dice6" id="dice_img">

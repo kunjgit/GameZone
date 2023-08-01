@@ -1,0 +1,85 @@
+.card {
+  width: 120px;
+  height: 260px;
+  margin: 10px;
+  padding: 0.5em 1.5em;
+  background: rgb(230, 230, 230);
+  border-radius: 15px;
+  box-shadow: 0px 1px 10px rgb(0, 0, 0);
+  cursor: default;
+}
+
+.hiddenCard {
+  width: 110px;
+  height: 250px;
+  margin: 10px;
+  padding: 0.5em 1.5em;
+  background-image: linear-gradient(176deg, #ffffff 8.33%, #ff0000 8.33%, #ff0000 50%, #ffffff 50%, #ffffff 58.33%, #ff0000 58.33%, #ff0000 100%);
+  background-size: 60.00px 4.20px;
+  border: 5px solid white;
+  border-radius: 15px;
+  box-shadow: 0px 1px 10px rgb(0, 0, 0);
+  cursor: default;
+}
+
+.black {
+  color: black;
+}
+
+.red {
+  color: red;
+}
+
+.value {
+  font-size: 400%;
+  margin: 0;
+}
+
+.suit {
+  font-size: 600%;
+  margin: 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  .card {
+    width: 70px;
+    height: 180px;
+  }
+
+  .hiddenCard {
+    width: 60px;
+    height: 170px;
+  }
+
+  .value {
+    font-size: 300%;
+  }
+
+  .suit {
+    font-size: 500%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 45px;
+    height: 100px;
+    padding: 5px 10px;
+  }
+
+  .hiddenCard {
+    width: 41px;
+    height: 96px;
+    padding: 5px 10px;
+    border: 2px solid white;
+  }
+
+  .value {
+    font-size: 150%;
+  }
+
+  .suit {
+    font-size: 250%;
+  }
+}

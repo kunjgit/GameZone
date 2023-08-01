@@ -1,0 +1,99 @@
+.controlsContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0.5em 1em 1em 1em;
+}
+
+.betContainer {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 0 0.5em;
+  padding: 0 1em;
+  width: 40%;
+  background: black;
+  border: 5px solid white;
+  border-radius: 15px;
+  box-shadow: 0px 1px 10px rgb(0, 0, 0);
+}
+
+.input {
+  width: 1px;
+  flex-grow: 1;
+  margin: 0 0 0 0.5em;
+  font-size: 200%;
+  text-align: right;
+  margin: 5px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: black;
+  color: white;
+}
+
+.inputError {
+  width: 1px;
+  flex-grow: 1;
+  margin: 0 0 0 0.5em;
+  font-size: 200%;
+  text-align: right;
+  margin: 5px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: black;
+  color: red;
+}
+
+.input::-webkit-inner-spin-button, 
+.inputError::-webkit-inner-spin-button {
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.button {
+  color: white;
+  font-weight: bold;
+  margin: 0 0.5em;
+  padding: 1em;
+  width: 30%;
+  background: black;
+  outline: none;
+  border: 5px solid white;
+  border-radius: 15px;
+  box-shadow: 0px 1px 10px rgb(0, 0, 0);
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    color: black;
+    background: white;
+    border: 5px solid black;
+  }
+}
+
+.button:disabled {
+  color: gray;
+  background: rgb(60, 60, 60);
+  border: 5px solid gray;
+}
+
+@media screen and (max-width: 992px) {
+  .betContainer {
+    width: 50%;    
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .betContainer {
+    width: 70%;        
+  }
+  .betContainer h4 {
+    font-size: 75%;        
+  }
+  .betContainer input {
+    font-size: 125%;        
+  }
+}

@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: rgb(0, 78, 0);
+  margin: 0;
+  font-family: 'Lexend Exa', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,47 @@
+.statusContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5em 0.5em 0.5em 1em;
+  padding: 1em;
+  width: 60%;
+  background: black;
+  border: 5px solid white;
+  border-radius: 15px;
+  box-shadow: 0px 1px 10px rgb(0, 0, 0);
+}
+
+.balance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5em 1em 0.5em 0.5em;
+  padding: 1em;
+  width: 30%;
+  background: black;
+  border: 5px solid white;
+  border-radius: 15px;
+  box-shadow: 0px 1px 10px rgb(0, 0, 0);
+}
+
+.value {
+  color: white;
+  text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  .value {
+    font-size: 150%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .value {
+    font-size: 115%;
+  }
+}

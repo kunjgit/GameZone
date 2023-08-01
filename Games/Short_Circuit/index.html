@@ -1,0 +1,240 @@
+<html>
+<head>
+<meta name="google" value="notranslate">
+<meta name="theme-color" content="#000000" />
+<meta charset="UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/> 
+<meta name="apple-mobile-web-app-capable" content="yes" /> 
+<meta name="mobile-web-app-capable" content="yes">
+<style>
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative
+}
+
+*.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+H1 {
+  padding: 30px 20px 30px 20px;
+  font-family: Roboto Black, Arial Black;
+}
+H1:hover {
+  background-color: #BBBBBB;
+  color: black;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<meta name="viewport" content="user-scalable=no"/> <!--320-->
+</head>
+<body unselectable="on" class="unselectable" style="color:white;overflow:hidden;background-color:black">
+  <div style="text-align: left; margin-left: 40px;
+  margin-top: 30px;
+  font-size: 30px;
+  padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+  <div align="center">
+   <br><nobr>
+   <canvas id="view" width=600" height="600" style="background-color:#eeeeee;display:none"></canvas>
+   <canvas id="controls-landscape" width="500" height="500" style="display:none;background-color:#222222"></canvas>
+   </nobr>
+   <div id='notouch' style="display:none"><font face='Courier'>Arrow keys to Move, ESC for Options, S to toggle Sound</font></div>
+</div>
+<div id="touchControls" align="center" style="display:none">
+   <br><br>
+   <div style="width:100%;background-color:#222222">
+      <canvas id="controls-portrait" width="500" height="500" style="background-color:#222222"></canvas>
+   </div>
+   <br><br><br><br><br> 
+</div>
+<div id="touchPadding" style="display:none">
+   <br><br>
+</div>
+<maps style="display:none">
+  <map>
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXX~S~H~O~R~TXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XX~C~I~R~C~U~I~TXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXX^^XXXXXXXXXXXXXX
+XXE4F5F5F5F5F5D1XXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+  </map>
+  <map>
+XX................XX
+..^^................
+....D8..F9..........
+....F6F3............
+......RA............
+........E2B ........
+......RC....RA......
+....................
+....................
+XX................XX
+  </map>
+  <map>
+XXXXXXXXXXXXXXXXXXXX
+....XXXXXXXXXXXX..^^
+......XXXXXXXX......
+..R5....XXXX....R5..
+..XC..F5X5X5F5..X9..
+..XAXXXXXXXXXXXXXA..
+..E2XXXXXXXXXXXXD2..
+..XXXXXXXXXXXXXXXX..
+....................
+XXXXXXXXXXXXXXXXXXXX
+  </map>
+  <map>
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXX......XXXXXXXX
+XXXXXX..XX..XXXXXXXX
+XXXXXX^^XXR5XXXXXXXX
+XXXXE4F5..F5F5D1XXXX
+XXXXXX..XX....XXXXXX
+XXXXXX......XXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+  </map>
+  <map>
+XXXXXXE8XXSXXXXXXXXX
+XXXX..FAXX..XXXXXXXX
+XXXX..RA..RA....XXXX
+XXXX..XA....^^..XXXX
+XXXX..XAXXXXD8XXXXXX
+XX....RA......XXXXXX
+XX....F6X5X5X3XXXXXX
+XXXX........XXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+  </map>
+  <map>
+XXXXXXXXXXXXXXXXXXXX
+XX......XX........XX
+XX......XX........XX
+XX......XX....R5..XX
+XX......E8........XX
+XCF5..............XX
+XA......XX..R5....XX
+XA..R3..XX........XX
+XA......XX......^^XX
+X6X5X5X5X5D1XXXXXXXX
+  </map>
+  <map>
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+....................
+....F5F5F5F5F5F5....
+^^E8RDR7RDR7RDR7D2..
+....F5F5F5F5F5F5....
+....................
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+  </map>
+  <map>
+................^^XX
+..XXXXXCX5R5X5X5E1XX
+..XX..XA............
+FCX5..X3XX..XXXXXX..
+XAXX..XX........XX..
+FAR5......D8XX..XX..
+F6X5F5X5X5X3XX..XX..
+..XX............XX..
+..XXXXXXXXXXXXXXXX..
+....................
+  </map>
+  <map>
+XXXXXXXXXXXXXXXXXXXX
+XXXX............XXXX
+XX................XX
+^^....FCFAF9D9......
+......RCF3F3F3......
+......RCF6RAFC......
+......R5FEF1FD......
+XX..E4F3FEF9R3....XX
+XXXX............XXXX
+XXXXXXXXXXXXXXXXXXXX
+  </map>
+  <map>
+XXXXXXXXXXXXXXXXXXXX
+XXXX............XXXX
+XXXX..XX..FCD1..XXXX
+XXXX....R3RA....XXXX
+XXXX..FC^^R5....XXXX
+XXXX..E2....XX..XXXX
+XXXX............XXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXX
+  </map>
+  <map>
+XX......E8........XX
+XX..RC..FA....R9..XX
+XX..RC........R9..XX
+XX..RC........R9..XX
+XX......^^........XX
+XX................XX
+XX..R6........R3..XX
+XX..R6........R3..XX
+XX..R6..FA....R3..XX
+XX......D2........XX
+  </map>
+  <map>
+XX....XXXXXXXX..^^XX
+..R6F5F5F9FCF5F5RC..
+..FA..XXFAFAXX..FA..
+XXFAXXXXE2D2XXXXFAXX
+XXFAXXXXXXXXXXXXFAXX
+XXFAXXXXXXXXXXXXFAXX
+XXFAXXXXXXXXXXXXFAXX
+..FA..XXXXXXXX..FA..
+..R3F5F5F5F5F5F5R9..
+XX....XXXXXXXX....XX
+  </map>
+  <map>
+XX................SX
+..X8..X8....X8..X8..
+..X6XDX3XCX9XA..XA..
+....X2..X6X3X6X5X3..
+..........^^........
+X8......X8X8XCX9..X8
+XA..X8..XAXAXAX6X9XA
+X6X5X7X5X3X2X2..X6X3
+....................
+XX................XX
+  </map>
+</maps>
+<div id="restartButton" style="display:none;position:absolute; posTop:0px; posLeft:0px; top:0px; left:0px">
+  <svg width="100" height="100">
+    <circle cx="50" cy="50" r="15" stroke="#CCCCCC" stroke-width="30" fill="#000000" />
+    <line x1="40" y1="40" x2="21" y2="21" style="stroke:#CCCCCC;stroke-width:15" />
+    <line x1="60" y1="60" x2="79" y2="79" style="stroke:#CCCCCC;stroke-width:15" />
+    <line x1="40" y1="60" x2="21" y2="79" style="stroke:#CCCCCC;stroke-width:15" />
+    <line x1="60" y1="40" x2="79" y2="21" style="stroke:#CCCCCC;stroke-width:15" />
+    <line x1="50" y1="25" x2="50" y2="10" style="stroke:#CCCCCC;stroke-width:15" />
+    <line x1="25" y1="50" x2="10" y2="50" style="stroke:#CCCCCC;stroke-width:15" />
+    <line x1="50" y1="75" x2="50" y2="90" style="stroke:#CCCCCC;stroke-width:15" />
+    <line x1="75" y1="50" x2="90" y2="50" style="stroke:#CCCCCC;stroke-width:15" />
+    <circle cx="50" cy="50" r="15" stroke="#666666" stroke-width="15" />
+  </svg>
+</div>
+<div id="popDialog" align="center" style="display:none; position:absolute; background-color:#AAAAAA; posTop:0px; posLeft: 0px; top:0px; left:0px;width:400px;box-shadow: 10px 10px 0px #333333;">
+   <H1>RESTART LEVEL</H1>
+   <H1>PREVIOUS LEVEL</H1>
+   <H1>NEXT LEVEL</H1>
+   <H1 id='sounder'>SOUND ON</H1>
+</div>
+
+<script src="shortcircuit.js"></script>
+</body>
+</html>

@@ -209,7 +209,7 @@ This repository also provides one such platforms where contributers come over an
 | 97 | [Ball_Fall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Fall_Game)|
 | 98 | [Pinball](https://github.com/kunjgit/GameZone/tree/main/Games/Pinball)|
 | 99 | [Duck_Hunting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Duck_Hunting_Game)|
-| 100 | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher)|
+| 100 | [Color Turner](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Turner)|
 | 101 | [Catch_the_Bunny](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_Bunny)|
 | 102 | [Catch_me_game](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_me_game)|
 | 103 | [Blank Detective](https://github.com/kunjgit/GameZone/tree/main/Games/Blanks_Detective)|
@@ -291,7 +291,7 @@ This repository also provides one such platforms where contributers come over an
 | 179 | [Shape Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Shape_Blocks)|
 | 180 | [Goal_Rush](https://github.com/kunjgit/GameZone/tree/main/Games/Goal_Rush)|
 | 181 | [Charon Jr](https://github.com/kunjgit/GameZone/tree/main/Games/Charon_Jr)|
-| 182 | [ColorMatcher](https://github.com/kunjgit/GameZone/tree/main/Games/ColorMatcher)|
+| 182 | [Color Shifter](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Shifter)|
 | 183 | [Oh, flip](https://github.com/kunjgit/GameZone/tree/main/Games/oh_flip)|
 | 184 | [Snake Feeder Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Feeder_Game)|
 | 185 | [LOSSST](https://github.com/kunjgit/GameZone/tree/main/Games/LOSSST)|
@@ -361,7 +361,7 @@ This repository also provides one such platforms where contributers come over an
 | 249 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
 | 250 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
 | 251 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
-| 252 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matchers)|         
+| 252 | [Remember the color](https://github.com/kunjgit/GameZone/tree/main/Games/Remember%20the%20color)|         
 | 253 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
 | 254 | [Save Doraemon](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Doraemon)|
 | 255 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|

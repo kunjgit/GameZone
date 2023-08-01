@@ -42,6 +42,10 @@ function getProjectsInPage() {
 
   pageTile.forEach((elem, index) => {
     elem.addEventListener('click', () => {
+      window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+      });
       pageTile[pageActive].classList.remove('active');
       pageActive = index;
       elem.classList.add('active');

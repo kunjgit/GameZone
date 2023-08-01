@@ -456,7 +456,8 @@ This repository also provides one such platforms where contributers come over an
 | 344 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/Archery)|
 | 345 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle)
 | 346 | [color_switch_challenger](https://github.com/kunjgit/GameZone/tree/main/color_switch_challenger)|
-|  *  | [Puzzle_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzle_Game)|
+| 347 | [Puzzle_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzle_Game)|
+| 348 | [Quizify](https://github.com/kunjgit/GameZone/tree/main/Quizify)|
 
  </center>
 

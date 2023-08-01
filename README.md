@@ -225,7 +225,7 @@ This repository also provides one such platforms where contributers come over an
 | 113 | [Spaceship_Escort](https://github.com/kunjgit/GameZone/tree/main/Games/Spaceship_Escort)|
 | 114 | [Space Defence](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Defence)|
 | 115 | [Glitch Buster](https://github.com/kunjgit/GameZone/tree/main/Games/Glitch_Buster)|
-| 116 | [3D-Box Game](https://github.com/kunjgit/GameZone/tree/main/Games/3d_Box%20Game)|
+| 116 | [3D-Box Game](https://github.com/kunjgit/GameZone/tree/main/Games/3d_Box_Game)|
 | 117 | [Escape](https://github.com/kunjgit/GameZone/tree/main/Games/Escape)|
 | 118 | [Retro_Dungeon_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Retro_Dungeon_Puzzle)|
 | 119 | [Immunity Collapse](https://github.com/kunjgit/GameZone/tree/main/Games/Immunity_Collapse)|
@@ -392,9 +392,9 @@ This repository also provides one such platforms where contributers come over an
 | 280 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
 | 281 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
 | 282 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Color_Mastermind)|
-| 283 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lizard%20Spock%20Game)|
+| 283 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lizard_Spock_Game)|
 | 284 | [Angry Boars](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Boars)|
-| 285 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet%20Learning%20Game)|
+| 285 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet_Learning_Game)|
 | 286 | [Country_Guesser_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Country_Guesser_Game)|
 | 287 | [Poke_Guess_Blitz](https://github.com/kunjgit/GameZone/tree/main/Games/Poke_Guess_Blitz)|
 | 288 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/main/Games/Spider_Man_Go)|
@@ -413,7 +413,7 @@ This repository also provides one such platforms where contributers come over an
 | 301 | [Scribble](https://github.com/kunjgit/GameZone/tree/main/Games/Scribble)|
 | 302 | [Brain Burst Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Burst_Game)|
 | 303 | [StickTheSticker](https://github.com/kunjgit/GameZone/tree/main/Games/StickTheSticker) |
-| 304 | [Meme_Battle_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Meme%20Battle%20Game)|
+| 304 | [Meme_Battle_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Meme_Battle_Game)|
 | 305 | [Match_Color_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Match_Color_Game)|
 | 306 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
 | 307 | [Beyblade](https://github.com/kunjgit/GameZone/tree/main/Games/Beyblade)|
@@ -433,7 +433,7 @@ This repository also provides one such platforms where contributers come over an
 | 321 | [Lamb_Lane](https://github.com/sahaycodes/GameZone/tree/meme/Games/Lamb_Lane)|
 | 322 | [Dinoffline](https://github.com/kunjgit/GameZone/tree/main/Games/Dinoffline)|
 | 323 | [Maths_Sprint_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maths_Sprint_Game)|
-| 324 | [Etch a Sketch](https://github.com/kunjgit/GameZone/tree/main/Games/Etch-a-Sketch)|
+| 324 | [Etch a Sketch](https://github.com/kunjgit/GameZone/tree/main/Games/Etch_a_Sketch)|
 | 325 | [QuizzApp](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
 | 326 | [Chess_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game)|
 | 327 | [Which_Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|

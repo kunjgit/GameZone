@@ -209,7 +209,7 @@ This repository also provides one such platforms where contributers come over an
 | 97 | [Ball_Fall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Fall_Game)|
 | 98 | [Pinball](https://github.com/kunjgit/GameZone/tree/main/Games/Pinball)|
 | 99 | [Duck_Hunting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Duck_Hunting_Game)|
-| 100 | [Color Matcher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matcher)|
+| 100 | [Color Turner](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Turner)|
 | 101 | [Catch_the_Bunny](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_Bunny)|
 | 102 | [Catch_me_game](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_me_game)|
 | 103 | [Blank Detective](https://github.com/kunjgit/GameZone/tree/main/Games/Blanks_Detective)|
@@ -225,7 +225,7 @@ This repository also provides one such platforms where contributers come over an
 | 113 | [Spaceship_Escort](https://github.com/kunjgit/GameZone/tree/main/Games/Spaceship_Escort)|
 | 114 | [Space Defence](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Defence)|
 | 115 | [Glitch Buster](https://github.com/kunjgit/GameZone/tree/main/Games/Glitch_Buster)|
-| 116 | [3D-Box Game](https://github.com/kunjgit/GameZone/tree/main/Games/3d_Box%20Game)|
+| 116 | [3D-Box Game](https://github.com/kunjgit/GameZone/tree/main/Games/3d_Box_Game)|
 | 117 | [Escape](https://github.com/kunjgit/GameZone/tree/main/Games/Escape)|
 | 118 | [Retro_Dungeon_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Retro_Dungeon_Puzzle)|
 | 119 | [Immunity Collapse](https://github.com/kunjgit/GameZone/tree/main/Games/Immunity_Collapse)|
@@ -291,7 +291,7 @@ This repository also provides one such platforms where contributers come over an
 | 179 | [Shape Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Shape_Blocks)|
 | 180 | [Goal_Rush](https://github.com/kunjgit/GameZone/tree/main/Games/Goal_Rush)|
 | 181 | [Charon Jr](https://github.com/kunjgit/GameZone/tree/main/Games/Charon_Jr)|
-| 182 | [ColorMatcher](https://github.com/kunjgit/GameZone/tree/main/Games/ColorMatcher)|
+| 182 | [Color Shifter](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Shifter)|
 | 183 | [Oh, flip](https://github.com/kunjgit/GameZone/tree/main/Games/oh_flip)|
 | 184 | [Snake Feeder Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Feeder_Game)|
 | 185 | [LOSSST](https://github.com/kunjgit/GameZone/tree/main/Games/LOSSST)|
@@ -361,7 +361,7 @@ This repository also provides one such platforms where contributers come over an
 | 249 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
 | 250 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
 | 251 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
-| 252 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matchers)|         
+| 252 | [Remember the color](https://github.com/kunjgit/GameZone/tree/main/Games/Remember%20the%20color)|         
 | 253 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
 | 254 | [Save Doraemon](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Doraemon)|
 | 255 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|
@@ -392,9 +392,9 @@ This repository also provides one such platforms where contributers come over an
 | 280 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
 | 281 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
 | 282 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Color_Mastermind)|
-| 283 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lizard%20Spock%20Game)|
+| 283 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lizard_Spock_Game)|
 | 284 | [Angry Boars](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Boars)|
-| 285 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet%20Learning%20Game)|
+| 285 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet_Learning_Game)|
 | 286 | [Country_Guesser_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Country_Guesser_Game)|
 | 287 | [Poke_Guess_Blitz](https://github.com/kunjgit/GameZone/tree/main/Games/Poke_Guess_Blitz)|
 | 288 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/main/Games/Spider_Man_Go)|
@@ -413,7 +413,7 @@ This repository also provides one such platforms where contributers come over an
 | 301 | [Scribble](https://github.com/kunjgit/GameZone/tree/main/Games/Scribble)|
 | 302 | [Brain Burst Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Burst_Game)|
 | 303 | [StickTheSticker](https://github.com/kunjgit/GameZone/tree/main/Games/StickTheSticker) |
-| 304 | [Meme_Battle_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Meme%20Battle%20Game)|
+| 304 | [Meme_Battle_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Meme_Battle_Game)|
 | 305 | [Match_Color_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Match_Color_Game)|
 | 306 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
 | 307 | [Beyblade](https://github.com/kunjgit/GameZone/tree/main/Games/Beyblade)|
@@ -433,7 +433,7 @@ This repository also provides one such platforms where contributers come over an
 | 321 | [Lamb_Lane](https://github.com/sahaycodes/GameZone/tree/meme/Games/Lamb_Lane)|
 | 322 | [Dinoffline](https://github.com/kunjgit/GameZone/tree/main/Games/Dinoffline)|
 | 323 | [Maths_Sprint_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maths_Sprint_Game)|
-| 324 | [Etch a Sketch](https://github.com/kunjgit/GameZone/tree/main/Games/Etch-a-Sketch)|
+| 324 | [Etch a Sketch](https://github.com/kunjgit/GameZone/tree/main/Games/Etch_a_Sketch)|
 | 325 | [QuizzApp](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
 | 326 | [Chess_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game)|
 | 327 | [Which_Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|
@@ -456,7 +456,11 @@ This repository also provides one such platforms where contributers come over an
 | 344 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/Archery)|
 | 345 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle)
 | 346 | [color_switch_challenger](https://github.com/kunjgit/GameZone/tree/main/color_switch_challenger)|
-| 347 | [word_blitz](https://github.com/kunjgit/GameZone/tree/main/word_blitz)|
+| 347 | [Puzzle_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzle_Game)|
+| 348 | [Quizify](https://github.com/kunjgit/GameZone/tree/main/Quizify)|
+| 349 | [word_blitz](https://github.com/kunjgit/GameZone/tree/main/word_blitz)|
+
+
 
  </center>
 

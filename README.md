@@ -16,6 +16,13 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 <br>
 <p>
 
+## Why to Open Source
+
+Contributing in open source increases your opportunities to work with different projects and mentors, getting to know various insights and ideas. It is a platform where contributors grow together with a construvtive and a positive attitude.
+
+This repository also provides one such platforms where contributers come over and put their ideas of new games and make our website as interactive as much they can!
+
+
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fgwk4XZfxG)
 
 ![GitHub issues](https://img.shields.io/github/issues/kunjgit/GameZone)
@@ -269,7 +276,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 164 | [Ballarena](https://github.com/kunjgit/GameZone/tree/main/Games/Ballarena)|
 | 165 | [Beyonder](https://github.com/kunjgit/GameZone/tree/main/Games/Beyonder)|
 | 166 | [Shpere](https://github.com/kunjgit/GameZone/tree/main/Games/Shpere)|
-| 167 | [Short Circuit](https://github.com/kunjgit/GameZone/tree/main/Games/Short%20Circuit)|
+| 167 | [Short Circuit](https://github.com/kunjgit/GameZone/tree/main/Games/Short_Circuit)|
 | 168 | [Johnny Smiter](https://github.com/kunjgit/GameZone/tree/main/Games/Johnny_Smiter)|
 | 169 | [Rectangular](https://github.com/kunjgit/GameZone/tree/main/Games/Rectangular)|
 | 170 | [Canon_Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Canon_Defense)|
@@ -307,7 +314,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 202 | [Mastermind_Mania](https://github.com/kunjgit/GameZone/tree/main/Games/Mastermind_Mania)|
 | 203 | [Ludo_4_Player](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_4_Player)|
 | 204 | [AirBalloon](https://github.com/kunjgit/GameZone/tree/main/Games/AirBalloon)|
-| 205 | [Space Invaders](https://github.com/kunjgit/GameZone/tree/main/Games/Space%20Invaders)|
+| 205 | [Space Invaders](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Invaders)|
 | 206 | [Cut the Rope](https://github.com/kunjgit/GameZone/tree/main/Games/Cut_the_rope)|
 | 207 | [Caesar&Cipher](https://github.com/kunjgit/GameZone/tree/main/Games/Caesar_Cipher)|
 | 208 | [Monster_Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Monster_Maker)|
@@ -354,7 +361,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 249 | [Piano_Tiles](https://github.com/kunjgit/GameZone/tree/main/Games/PianoTiles_Game)|
 | 250 | [CareTaker](https://github.com/kunjgit/GameZone/tree/main/Games/CareTaker)|
 | 251 | [UNO](https://github.com/kunjgit/GameZone/tree/main/Games/UNO)|
-| 252 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color%20Matcher)|         
+| 252 | [Color Matcher](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Matchers)|         
 | 253 | [Guess The Random Shape](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Random_Shape)|
 | 254 | [Save Doraemon](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Doraemon)|
 | 255 | [Animal_Match_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Match_Game)|
@@ -384,7 +391,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 279 | [Crack_The_Code](https://github.com/kunjgit/GameZone/tree/main/Games/Crack_The_Code)|
 | 280 | [Skeleathon](https://github.com/kunjgit/GameZone/tree/main/Games/Skeleathon)|
 | 281 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
-| 282 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain%20Color%20Mastermind)|
+| 282 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Color_Mastermind)|
 | 283 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lizard%20Spock%20Game)|
 | 284 | [Angry Boars](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Boars)|
 | 285 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet%20Learning%20Game)|
@@ -396,7 +403,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 291 | [Color_Crush_Game ](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Crush_Game )|
 | 292 | [Trex_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Trex_Run)|
 | 293 | [Chicken_Cannon](https://github.com/kunjgit/GameZone/tree/main/Games/Chicken_cannon)|
-| 294 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death%20by%20Hamster)|
+| 294 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death_by_Hamster)|
 | 295 | [Trio_Match](https://github.com/kunjgit/GameZone/tree/main/Games/Trio_Match)|
 | 296 | [Word Chain](https://github.com/kunjgit/GameZone/tree/main/Games/WordChain)
 | 297 | [Ball_and_glass](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_and_glass)|
@@ -419,7 +426,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 314 | [Guitar Game](https://github.com/kunjgit/GameZone/tree/main/Games/Guitar_Game)|
 | 315 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire) |
 | 316 | [Lady Tiger Hunter](https://github.com/kunjgit/GameZone/tree/main/Games/Lady_Tiger_Hunter)|
-| 317 | [Stone Paper Scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Stone-Paper-Scissor)|
+| 317 | [Stone Paper Scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Stone_paper_scissor)|
 | 318 | [Flashlight_Pointer_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flashlight_Pointer_Game)|
 | 319 | [Pig_game](https://github.com/KanchanBora/GameZone/tree/main/Games/Pig_game)|
 | 320 | [Asteroids 3D](https://github.com/kunjgit/GameZone/tree/main/Games/Asteroids_3D)|
@@ -449,7 +456,11 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 344 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/Archery)|
 | 345 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle)
 | 346 | [color_switch_challenger](https://github.com/kunjgit/GameZone/tree/main/color_switch_challenger)|
+
 | 347 | [Musical_Floor](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Floor)|
+
+|  *  | [Puzzle_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzle_Game)|
+
 
  </center>
 

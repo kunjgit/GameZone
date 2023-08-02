@@ -464,6 +464,7 @@ This repository also provides one such platforms where contributers come over an
 | 352 | [Puzzle_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzle_Game)|
 | 353 | [Quizify](https://github.com/kunjgit/GameZone/tree/main/Quizify)|
 | 354 | [word blitz](https://github.com/kunjgit/GameZone/tree/main/word_blitz)|
+|  *  | [Color_Blast_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Blast_Game)|
 
 
 

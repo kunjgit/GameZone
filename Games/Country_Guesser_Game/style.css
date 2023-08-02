@@ -1,5 +1,5 @@
 body {
-    background-color: #FFD700;
+    background-color: #283E4A;
 }
 
 .container {
@@ -14,7 +14,7 @@ h4,
 h6 {
     margin-top: 15px;
     font-weight: bold;
-    color: #333333;
+    color: white;
     margin-bottom: 1em;
 }
 
@@ -28,7 +28,7 @@ p #timeUp {
     font-weight: bold;
     margin-top: 5px;
     font-size: 20px;
-    color:red;
+    color: rgb(247, 44, 44);
 }
 
 input {
@@ -39,7 +39,7 @@ input {
 #timer {
     margin-top: 1rem;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .hidden {
@@ -47,7 +47,7 @@ input {
 }
 
 .misMatch {
-    color: red;
+    color: rgb(247, 44, 44);
     font-size: 14px;
 }
 
@@ -58,7 +58,7 @@ input {
 }
 
 .guessed-country {
-    color: #333333;
+    color: white;
 }
 
 /* Button Styles */
@@ -69,24 +69,29 @@ button {
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
+    background-color: #1a7e44;
+    color:white;
 }
-
+#instructions-btn:hover{
+    background-color: transparent;
+    }
 #start-btn,
 #new-game-btn {
-    background-color: #4285f4;
+    background-color: #1a7e44;
     color: white;
-    border: none;
+  
 }
 
 #start-btn:hover,
 #new-game-btn:hover {
-    background-color: #2ecc71;
+   background-color:#283E4A;
+   
 }
 
 #easy-btn,
 #medium-btn,
 #hard-btn {
-    background-color: #fbbc05;
+    background-color: #1a7e44;
     color: white;
     border: none;
     margin-top: 10px;
@@ -95,7 +100,7 @@ button {
 #easy-btn:hover,
 #medium-btn:hover,
 #hard-btn:hover {
-    background-color: #2ecc71;
+    background-color: #6cc290;
 }
 
 /* Modal Styles */

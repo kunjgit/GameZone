@@ -19,10 +19,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   </head>
 
   <body>
-    <div class="main-container">
+    <div style="text-align: left; margin-left: 40px;
+    margin-top: 30px;
+    font-size: 30px;
+    padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
     <h1 id="level-title">Press Any Key to Start</h1>
     <h2 id="highest">Highest reached level : 0</h2>
     <div class="container">
@@ -36,29 +40,27 @@
           <div type="button" id="blue" class="btn blue"></div>
         </div>
       </div>
+      <div class="instructions-section">
+        <h2><u>Instructions</u></h2>
+        <p>
+          <b>Objective:</b>To remember and repeat a sequence of colors shown by
+          the game. The sequence will keep getting longer as you progress. Your
+          goal is to replicate the sequence accurately to achieve the highest
+          level possible.
+        </p>
+        <ol>
+          <li>Remember the sequence of colors shown.</li>
+          <li>Click on the colors in the same sequence.</li>
+          <li>The sequence will keep getting longer as you progress.</li>
+          <li>If you make a mistake, the game will end.</li>
+        </ol>
+        <h2>All the best :)</h2>
+      </div>
     </div>
 
-    <h1 id="play-button1">
-      <i id="play-button" class="fa fa-regular fa-circle-play"></i>
-      <button class="ins">Instructions</button>
+    <h1 id="play-button">
+      <i class="fa fa-regular fa-circle-play"></i>
     </h1>
-    <div class="instructions-section">
-      <h2><u>Instructions</u></h2>
-      <p>
-        <b>Objective:</b>To remember and repeat a sequence of colors shown by
-        the game. The sequence will keep getting longer as you progress. Your
-        goal is to replicate the sequence accurately to achieve the highest
-        level possible.
-      </p>
-      <ol>
-        <li>Remember the sequence of colors shown.</li>
-        <li>Click on the colors in the same sequence.</li>
-        <li>The sequence will keep getting longer as you progress.</li>
-        <li>If you make a mistake, the game will end.</li>
-      </ol>
-      <h2>All the best :)</h2>
-    </div>
-    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="game.js"></script>
   </body>

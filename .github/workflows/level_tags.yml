@@ -38,11 +38,6 @@ jobs:
               tagsToAdd.push('level2');
             }
 
-            // Check if issue title contains "New game"
-            if (title && title.toLowerCase().includes('new game')) {
-              tagsToAdd.push('level3');
-            }
-
             if (tagsToAdd.length > 0) {
               // Add tags to the issue
               await github.issues.addLabels({

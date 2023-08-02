@@ -86,6 +86,7 @@
 <meta name="apple-mobile-web-app-title" content="Armor Alley: Remastered" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <link rel="apple-touch-startup-image" href="image/app-images/armor_alley_game_image_512x512.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 <!-- all kinds of icons -->
 <link rel="apple-touch-icon" sizes="72x72" href="image/app-icons/favicon-72x72.png" />
@@ -241,6 +242,7 @@
 <!-- While running: Remove "game-paused" class to see the full game UI, or add nopause=1 to URL. -->
 <body style="background: #000; overflow: hidden">
   <!-- To reduce "Cumulative Layout Shift", initially hide until first resize / scale / layout. -->
+
   <div id="aa" style="visibility: hidden">
 
     <div id="world-wrapper">
@@ -264,7 +266,8 @@
 
             <div id="mtv-bnb-in" style="visibility: hidden"></div>
             <div id="bnb-vs" style="visibility: hidden"></div>
-
+            <div style="text-align: center;margin-top:-40px;
+            font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
             <h1>Armor Alley</h1>
 
             <div id="game-menu" style="visibility: hidden">
@@ -477,6 +480,9 @@
             </div>
 
             <ul id="stats-bar" class="stats-bar">
+              <li style="text-align: left; margin-left: 40px;
+              margin-top: 10px;
+              font-size: 10px;padding:10px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></li>
               <li class="inventory-item">
                 <span class="letter-block">M</span>
                 <a

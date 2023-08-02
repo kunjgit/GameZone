@@ -1,4 +1,4 @@
-// Jai shree ram
+
 import React from "react"
 import Die from "./Die"
 import { nanoid } from "nanoid"

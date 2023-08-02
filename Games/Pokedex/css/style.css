@@ -11,6 +11,7 @@ body {
   text-align: center;
   background: linear-gradient(to bottom, #6ab7f5, #fff);
   min-height: 100vh;
+  overflow: hidden;
 }
 
 main {

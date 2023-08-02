@@ -125,7 +125,7 @@ function assessment() {
   // Create the content of the popup
   const popupHTML = `
     <h2>Typing Result</h2>
-    <p>You typed with a speed of <stong> ${correctEntry} CPM </strong>.<br>Your accuracy was <strong> ${acc}% </strong>.</p>
+    <p>You typed with a speed of <strong> ${correctEntry} CPM </strong>.<br>Your accuracy was <strong> ${acc}% </strong>.</p>
   `;
 
   // Set the content of the popup

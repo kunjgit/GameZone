@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+  }
+  
+  h1 {
+    color: #007BFF;
+  }
+  
+  .game-container {
+    position: relative;
+    width: 900px;
+    height: 900px;
+    border: 2px solid #007BFF;
+    overflow: hidden;
+    margin: 20px auto;
+    border-radius:8px;
+  }
+  
+  .snake, .apple {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .snake {
+    background-color: #007BFF;
+  }
+  
+  .apple {
+    background-color: #FF6347;
+  }
+  
+  

@@ -464,84 +464,8 @@ This repository also provides one such platforms where contributers come over an
 | 352 | [Puzzle_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzle_Game)|
 | 353 | [Quizify](https://github.com/kunjgit/GameZone/tree/main/Quizify)|
 | 354 | [word blitz](https://github.com/kunjgit/GameZone/tree/main/word_blitz)|
-| 355 | [Know Your Country](https://github.com/kunjgit/GameZone/tree/main/Games/Know_Your_Country)|
-=======
-| 281 | [Shadow_PokeGuess](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_PokeGuess)|
-| 282 | [Brain Color Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Color_Mastermind)|
-| 283 | [Lizard Spock Game](https://github.com/kunjgit/GameZone/tree/main/Games/Lizard_Spock_Game)|
-| 284 | [Angry Boars](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Boars)|
-| 285 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet_Learning_Game)|
-| 286 | [Country_Guesser_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Country_Guesser_Game)|
-| 287 | [Poke_Guess_Blitz](https://github.com/kunjgit/GameZone/tree/main/Games/Poke_Guess_Blitz)|
-| 288 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/main/Games/Spider_Man_Go)|
-| 289 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
-| 290 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
-| 291 | [Alphabet Learning Game](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Alphabet%20Learning%20Game)|
-| 292 | [Trex_Run](https://github.com/kunjgit/GameZone/tree/main/Games/Trex_Run)|
-| 293 | [Chicken_Cannon](https://github.com/kunjgit/GameZone/tree/main/Games/Chicken_cannon)|
-| 294 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death_by_Hamster)|
-| 295 | [Trio_Match](https://github.com/kunjgit/GameZone/tree/main/Games/Trio_Match)|
-| 296 | [Word Chain](https://github.com/kunjgit/GameZone/tree/main/Games/WordChain)
-| 297 | [Ball_and_glass](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_and_glass)|
-| 298 | [Target_Torrent](https://github.com/kunjgit/GameZone/tree/main/Games/Target_Torrent)|
-| 299 | [Reversi](https://github.com/kunjgit/GameZone/tree/main/Games/Reversi)|  
-| 300 | [reaction_teaser](https://github.com/kunjgit/GameZone/pull/2134/files)|
-| 301 | [Scribble](https://github.com/kunjgit/GameZone/tree/main/Games/Scribble)|
-| 302 | [Brain Burst Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Burst_Game)|
-| 303 | [StickTheSticker](https://github.com/kunjgit/GameZone/tree/main/Games/StickTheSticker) |
-| 304 | [Meme_Battle_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Meme_Battle_Game)|
-| 305 | [Match_Color_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Match_Color_Game)|
-| 306 | [Bow_And_Arrow](https://github.com/kunjgit/GameZone/tree/main/Games/Bow_And_Arrow)|
-| 307 | [Beyblade](https://github.com/kunjgit/GameZone/tree/main/Games/Beyblade)|
-| 308 | [The labyrinth of death](https://github.com/sahaycodes/GameZone/tree/meme/Games/The_labyrinth_of_death)|
-| 309 | [2D BreakOut](https://github.com/kunjgit/GameZone/tree/main/Games/2D_Breakout)|
-| 310 | [Battleship](https://github.com/kunjgit/GameZone/tree/main/Games/Battleship)|
-| 311 | [Baseball](https://github.com/kunjgit/GameZone/tree/main/Games/Baseball)|
-| 312 | [Save Princess](https://github.com/kunjgit/GameZone/tree/main/Games/Save_Princess) |
-| 313 | [RoadFighter](https://github.com/kunjgit/GameZone/tree/main/Games/RoadFighter)|
-| 314 | [Guitar Game](https://github.com/kunjgit/GameZone/tree/main/Games/Guitar_Game)|
-| 315 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire) |
-| 316 | [Lady Tiger Hunter](https://github.com/kunjgit/GameZone/tree/main/Games/Lady_Tiger_Hunter)|
-| 317 | [Stone Paper Scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Stone_paper_scissor)|
-| 318 | [Flashlight_Pointer_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flashlight_Pointer_Game)|
-| 319 | [Pig game](https://github.com/KanchanBora/GameZone/tree/main/Games/Pig_game)|
-| 320 | [Asteroids 3D](https://github.com/kunjgit/GameZone/tree/main/Games/Asteroids_3D)|
-| 321 | [Lamb Lane](https://github.com/sahaycodes/GameZone/tree/meme/Games/Lamb_Lane)|
-| 322 | [Dinoffline](https://github.com/kunjgit/GameZone/tree/main/Games/Dinoffline)|
-| 323 | [Maths Sprint Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maths_Sprint_Game)|
-| 324 | [Etch a Sketch](https://github.com/kunjgit/GameZone/tree/main/Games/Etch_a_Sketch)|
-| 325 | [QuizzApp](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
-| 326 | [Chess Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game)|
-| 327 | [Which Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|
-| 328 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
-| 329 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire_up)|
-| 330 | [Slime Attack](https://github.com/apu52/GameZone/tree/Slime-Attack-game/Games/Slime_attack_game)|
-| 331 | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|
-| 332 | [Pokemon_Card_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Card_Game)|
-| 333 | [Digit Dilemma](https://github.com/kunjgit/GameZone/tree/main/Games/Digit_Dilemma)|
-| 334 | [Tennis](https://github.com/kunjgit/GameZone/tree/main/Games/Tennis)|
-| 335 | [Illusion](https://github.com/kunjgit/GameZone/tree/main/Games/Illusion)|
-| 336 | [Block Buster](https://github.com/sahaycodes/GameZone/tree/meme/Games/Block_Buster)|
-| 337 | [Guess_The_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Ball)|
-| 338 | [Doremon Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Doremon_Puzzle)|
-| 339 | [Guess The Celebrity](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Celeb)|
-| 340 | [Rock_Paper_Scissors_Lizard_Spock](https://github.com/kunjgit/GameZone/tree/main/Rock_Paper_Scissors_Lizard_Spock)|
-| 341 | [Elemental Riddles](https://github.com/kunjgit/GameZone/tree/main/Elemental_Riddles)|
-| 342 | [Falling_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Ball)|
-| 343 | [Hit Target](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_Target)|
-| 344 | [Archery](https://github.com/kunjgit/GameZone/tree/main/Games/Archery)|
-| 345 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle)
-| 346 | [color_switch_challenger](https://github.com/kunjgit/GameZone/tree/main/color_switch_challenger)|
-| 347 | [Puzzle_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzle_Game)|
-| 348 | [Quizify](https://github.com/kunjgit/GameZone/tree/main/Quizify)|
-| 349 | [word blitz](https://github.com/kunjgit/GameZone/tree/main/word_blitz)|
-| 350 | [Othello](https://github.com/kunjgit/GameZone/tree/main/Othello)|
-| 351 | [Click_circle](https://github.com/kunjgit/GameZone/tree/main/Click_circle)
-| 352 | [color_switch_challenger](https://github.com/kunjgit/GameZone/tree/main/color_switch_challenger)|
-| 353 | [Puzzle_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzle_Game)|
-| 354 | [Quizify](https://github.com/kunjgit/GameZone/tree/main/Quizify)|
-| 355 | [word blitz](https://github.com/kunjgit/GameZone/tree/main/word_blitz)|
-
+| 355 | [Code Cracker](https://github.com/kunjgit/GameZone/tree/main/Code-Cracker)|
+| 356 | [Know Your Country](https://github.com/kunjgit/GameZone/tree/main/Games/Know_Your_Country)|
 
 
 

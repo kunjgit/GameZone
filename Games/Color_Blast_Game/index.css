@@ -1,0 +1,77 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  max-width: 100%;
+  background: radial-gradient(circle, rgba(238,174,174,1) 0%, rgba(153,148,233,1) 100%);
+  
+  font-family: Lato, sans-serif;
+}
+.container {
+  min-height: 100%;
+  max-width: 950px;
+  margin-top: 50px;
+  margin-left: 250px;
+  
+}
+.game-box {
+  position: relative;
+  padding: 20px 0 0;
+}
+canvas {
+  position: relative;
+  max-width: 100%;
+  border: 2px solid black;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+.multicolor-text {
+    text-align: center;
+    font-size: 50px;
+    background: linear-gradient(to left,
+            violet,
+            indigo,
+            blue,
+            green,
+            yellow,
+            orange,
+            red);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.content {
+  color: #ccc;
+  text-align: center;
+  padding: 0 20px;
+}
+
+p {
+  margin: 10px 0;
+  font-size: 18px;
+  line-height: 1.5em;
+  color: black;
+}
+code {
+  background: whitesmoke;
+  color: green;
+  border-radius: 12px;
+  line-height: 1.3em;
+  display: inline-block;
+  border-radius: 3px;
+  font-family: monospace;
+  padding: 1px 5px;
+  margin: 0 2px;
+}
+
+
+ 

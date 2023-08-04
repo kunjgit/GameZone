@@ -466,7 +466,10 @@ This repository also provides one such platforms where contributers come over an
 | 354 | [word blitz](https://github.com/kunjgit/GameZone/tree/main/word_blitz)
 | 355 | [Code Cracker](https://github.com/kunjgit/GameZone/tree/main/Code-Cracker)|
 | 356 | [Know Your Country](https://github.com/kunjgit/GameZone/tree/main/Games/Know_Your_Country)|
-|  *  | [Musical_Floor](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Floor)|
+| 357  | [Musical_Floor](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Floor)|
+| 358  | [Sky_Dodge](https://github.com/kunjgit/GameZone/tree/main/Games/Sky_Dodge)|
+| 359  | [Rocket_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Rocket_Game)|
+
 
 
 

@@ -16,7 +16,7 @@ HTML , Css, Javascript
 ## Play here:- https://64cd0ac217e8c41ac148a414--joyful-malasada-6e788a.netlify.app/
 
 Demo Screenshot:-
-![Alt text](image.png)
+![Alt text](assets/README/image.png)
 
-![Alt text](image-1.png)
+![Alt text](assets/README/image-1.png)
 

@@ -405,7 +405,7 @@ This repository also provides one such platforms where contributers come over an
 | 293 | [Spider Man Go](https://github.com/kunjgit/GameZone/tree/lizard-game/Games/Spider_Man_Go)|
 | 294 | [Foosball](https://github.com/kunjgit/GameZone/tree/main/Games/Foosball)|
 | 295 | [Triangle_Back_to_Home](https://github.com/kunjgit/GameZone/tree/main/Games/Triangle_Back_To_Home)|
-| 296 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death by Hamster)|
+| 296 | [Death by Hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Death%20by%20Hamster)|
 | 297 | [Tenzies](https://github.com/kunjgit/GameZone/tree/main/Games/Tenzies)|
 | 298 | [Target_Torrent](https://github.com/kunjgit/GameZone/tree/main/Games/Target_Torrent)|
 | 299 | [Reversi](https://github.com/kunjgit/GameZone/tree/main/Games/Reversi)|  
@@ -463,11 +463,13 @@ This repository also provides one such platforms where contributers come over an
 | 351 | [color_switch_challenger](https://github.com/kunjgit/GameZone/tree/main/color_switch_challenger)|
 | 352 | [Puzzle_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzle_Game)|
 | 353 | [Quizify](https://github.com/kunjgit/GameZone/tree/main/Quizify)|
-| 354 | [word blitz](https://github.com/kunjgit/GameZone/tree/main/word_blitz)
+| 354 | [word blitz](https://github.com/kunjgit/GameZone/tree/main/word_blitz)|
 | 355 | [Code Cracker](https://github.com/kunjgit/GameZone/tree/main/Code-Cracker)|
 | 356 | [Know Your Country](https://github.com/kunjgit/GameZone/tree/main/Games/Know_Your_Country)|
 | 357 | [Musical_Floor](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Floor)|
-| 358 | [Memorization_card](https://github.com/kunjgit/GameZone/tree/main/Games/Memorization_card)|
+| 358 | [Sky_Dodge](https://github.com/kunjgit/GameZone/tree/main/Sky_Dodge)|
+| 359 | [Memorization_card](https://github.com/kunjgit/GameZone/tree/main/Games/Memorization_card)|
+
 
 
 

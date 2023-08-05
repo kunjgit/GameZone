@@ -4,6 +4,8 @@
 
 @import 'https://fonts.googleapis.com/css?family=Permanent+Marker';
 @import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@1,8..144,500&display=swap');
 /**
  * copyright 2022 @codewithsadee
  */
@@ -1363,6 +1365,12 @@ main {
   animation: scaleUp 0.25s ease forwards;
 }
 
+.btn{
+  padding: 5px 0px;
+  font-size: 20px;
+  font-family: 'League Spartan', sans-serif;
+}
+
 @keyframes scaleUp {
   0% {
     transform: scale(0.5);
@@ -1454,6 +1462,7 @@ main {
 .project-title,
 .project-category {
   margin-left: 10px;
+  font-family: 'Roboto Serif', serif;
 }
 
 .project-title {

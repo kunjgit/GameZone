@@ -468,7 +468,8 @@ This repository also provides one such platforms where contributers come over an
 | 356 | [Know Your Country](https://github.com/kunjgit/GameZone/tree/main/Games/Know_Your_Country)|
 | 357 | [Musical_Floor](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Floor)|
 | 358 | [Sky_Dodge](https://github.com/kunjgit/GameZone/tree/main/Sky_Dodge)|
-| 359 | [Rotating_Elements](https://github.com/tanujbordikar/GameZone/tree/main/Rotating_Elements)|
+| 359 | [Memorization_card](https://github.com/kunjgit/GameZone/tree/main/Games/Memorization_card)|
+| 360 | [Rotating_Elements](https://github.com/tanujbordikar/GameZone/tree/Rotating_Elements)|
 
 
 

@@ -2764,11 +2764,11 @@ span:nth-child(7) {
 }
 
 .unique-color-dark {
-  background-color: #FA8DF3 !important;
+  background-color: #b616c7 !important;
 }
 
 .bg-light {
-  background-color: #f1ef73 !important;
+  background-color: #73c1f1 !important;
 }
 
 
@@ -2787,6 +2787,8 @@ h7{
 
 #footer{
   height: 5px;
+  font-style: cursive;
+  
 }
 
 .list-unstyled{
@@ -2803,7 +2805,7 @@ h7{
 ul.socials{
   margin-bottom: 0.5px;
   line-height: 5px;
-  padding-bottom: 18px;
+  padding-bottom: 30px;
 }
 
 
@@ -2817,5 +2819,9 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1);
   -webkit-box-shadow:0px 0px 105px 0px rgba(255,153,255,0.9);
   -moz-box-shadow: 0px 0px 105px 0px rgba(255,153,255,0.9);
   box-shadow: 0px 0px 105px 0px rgba(255,153,255,0.9);
+}
+
+.social-text{
+  font-size: 2rem;
 }
 

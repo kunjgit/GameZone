@@ -13,7 +13,7 @@ You can turn off the music and sound effects from the home page and also choose 
 # Tech stack
 HTML , Css, Javascript
 
-## Play here:- https://64cd0ac217e8c41ac148a414--joyful-malasada-6e788a.netlify.app/
+## Play here:- https://64cdf4cd2039341b0ca4a62e--inquisitive-starlight-4c9f15.netlify.app/
 
 Demo Screenshot:-
 ![Alt text](assets/README/image.png)

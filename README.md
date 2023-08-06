@@ -473,7 +473,9 @@ This repository also provides one such platforms where contributers come over an
 | 360 | [Response_Reaction](https://github.com/kunjgit/GameZone/tree/main/Games/Response_Reaction)|
 | 361 | [Truth and Dare](https://github.com/kunjgit/GameZone/tree/main/Games/Truth_And_Dare)|
 | 362 | [Rotating_Elements](https://github.com/tanujbordikar/GameZone/tree/Rotating_Elements)|
-| 363 | [Anime Clicker](https://github.com/kunjgit/GameZone/tree/main/Games/Anime_Clicker)|
+| 363 | [Chopsticks](https://github.com/kunjgit/GameZone/tree/main/Games/Chopsticks)|
+| 364 | [Anime Clicker](https://github.com/kunjgit/GameZone/tree/main/Games/Anime_Clicker)|
+
 
 
 

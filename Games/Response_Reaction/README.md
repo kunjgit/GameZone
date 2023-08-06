@@ -33,6 +33,7 @@ Continue clicking the highlighted squares until the game either gets too fast or
 <br>
 
 ## **Screenshots 📸**
+![Response_Reaction](https://github.com/Deepanshu0703/GameZone/assets/114489502/637740af-f7e1-48ad-8432-552452b3fedc)
 
 
 <br>

@@ -1,0 +1,176 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+html,
+body {
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #DFF6FD;
+	height: 100%;
+	color: #555555;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.hidden {
+	display: none;
+}
+
+svg {
+	position: absolute;
+	width: 2em;
+	height: 2em;
+	padding: 1.2em;
+	fill: #555555;
+	cursor: pointer;
+}
+
+#selector .instructions {
+	text-align: center;
+	width: 100%;
+	font-size: 1.3em;
+	padding-top: 1em;
+	-webkit-transition: .3s ease-in-out;
+	-moz-transition: .3s ease-in-out;
+	-o-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+#selector .level {
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	margin-top: -1em;
+	-webkit-transition: .3s ease-in-out;
+	-moz-transition: .3s ease-in-out;
+	-o-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+#selector .countdown {
+	text-align: center;
+	display: none;
+	font-size: 5em;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	margin-top: -1em;
+	-webkit-transition: .3s ease-in-out;
+	-moz-transition: .3s ease-in-out;
+	-o-transition: .3s ease-in-out;
+	-ms-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+#selector .level .levelicon {
+	width: 3em;
+	height: 3em;
+	display: inline-block;
+	border-radius: 4em;
+	margin-right: 10%;
+	cursor: pointer;
+	-webkit-transition: .2s ease-in-out;
+	-moz-transition: .2s ease-in-out;
+	-o-transition: .2s ease-in-out;
+	-ms-transition: .2s ease-in-out;
+	transition: .2s ease-in-out;
+}
+
+#selector .level .levelicon:last-child {
+	margin: 0;
+}
+
+#howtoplay {
+	display: none;
+}
+
+#howtoplay .instructions {
+	text-align: center;
+	width: 100%;
+	font-size: 1.3em;
+	padding-top: 1em;
+	-webkit-transition: .3s ease-in-out;
+	-moz-transition: .3s ease-in-out;
+	-o-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+#howtoplay ol {
+	margin-top: 3em;
+}
+
+#howtoplay ol li {
+	margin-bottom: 1em;
+	font-size:1.2em;
+}
+
+.selected {
+	display: table;
+}
+
+.cellselect {
+	background-color: #4ADE9B;
+}
+
+table {
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+
+table tr td {
+	border: 3px solid #4ADE9B;
+	cursor: pointer;
+}
+
+#gameover {
+	display: none;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 2em;
+}
+
+#gameover .gameoverheader {
+	display: block;
+	font-size: 2.5em;
+	margin-bottom: 1em;
+}
+
+#gameover .gameovervalue {
+	display: block;
+	font-size: 1.5em;
+	margin-bottom: 1em;
+}
+
+#gameover .gameovertext {
+	display: block;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#gameover a {
+	color: green;
+}
+
+@media screen and (max-height: 270px) {
+	#selector .level {
+		top: 70%;
+	}
+	#selector .countdown {
+		top: 70%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	#selector .instructions {
+		text-align: right;
+		margin-left: -.5em
+	}
+	
+	#howtoplay .instructions {
+		text-align: right;
+		margin-left: -.5em
+	}
+	
+	svg {
+		padding: 1.2em .5em;
+	}
+}

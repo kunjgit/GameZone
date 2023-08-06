@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="./assets/img/logo.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Cooli" />
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="./assets/img/logo.png"
+    />
+
+    <link rel="mask-icon" type="image/x-icon" href="./assets/img/logo.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <title>Flappy Bubble Sofa</title>
+  </head>
+
+  <body translate="no">
+    <div id="container">
+      <canvas id="backcanvas"></canvas><canvas id="canvas"></canvas>
+      <div id="load">
+        <h1>Loading</h1>
+      </div>
+      <div id="home">
+        <h1 id="h1"> 2048 by Abhiraj</h1>
+        <p id="p">
+          <b>How to play!</b><br />❖ Drag pieces around<br />❖ Stack those with
+          the same number<br />❖ Get to 2048 to win the game
+        </p>
+        <div id="start">NEW GAME</div>
+        <div id="menu">
+          <input type="checkbox" class="opt" id="m" checked="checked" /><label
+            for="m"
+            >Music</label
+          ><br /><input
+            type="checkbox"
+            class="opt"
+            id="s"
+            checked="checked"
+          /><label for="s">Sound FX</label><br /><input
+            type="checkbox"
+            class="opt"
+            id="q"
+            checked="checked"
+          /><label for="q">High Quality</label><br/>
+          <input type="checkbox" class="opt" id="d" checked="checked" /><label for="d">Dark Mode</label>
+        </div>
+      </div>
+      <div id="end" style="display: none">
+        <h1 id="h1">You win</h1>
+        <p><b>Let's party!</b></p>
+        <div id="reset">PLAY AGAIN</div>
+      </div>
+    </div>
+
+    <div id="menu-controls">
+      <div id="menu">
+        <div><span id="close-menu-controls">X</span></div>
+        <div class="clear"></div>
+        <input type="checkbox" class="opt" id="m" checked="checked" /><label
+          for="m"
+          >Music</label
+        ><br /><input
+          type="checkbox"
+          class="opt"
+          id="s"
+          checked="checked"
+        /><label for="s">Sound FX</label><br /><input
+          type="checkbox"
+          class="opt"
+          id="q"
+          checked="checked"
+        /><label for="q">High Quality</label>
+      </div>
+    </div>
+
+    <!-- js -->
+    <script src="./assets/js/main.js" id="rendered-js"></script>
+  </body>
+</html>

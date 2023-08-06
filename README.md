@@ -469,6 +469,7 @@ This repository also provides one such platforms where contributers come over an
 | 357 | [Musical_Floor](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Floor)|
 | 358 | [Sky_Dodge](https://github.com/kunjgit/GameZone/tree/main/Sky_Dodge)|
 | 359 | [Memorization_card](https://github.com/kunjgit/GameZone/tree/main/Games/Memorization_card)|
+| 360 | [Truth and Dare](https://github.com/kunjgit/GameZone/tree/main/Games/Truth_And_Dare)|
 
 
 

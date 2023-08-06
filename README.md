@@ -470,7 +470,9 @@ This repository also provides one such platforms where contributers come over an
 | 358 | [Sky_Dodge](https://github.com/kunjgit/GameZone/tree/main/Sky_Dodge)|
 | 358 | [Swap Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Swap-Card-Game)|
 | 359 | [Memorization_card](https://github.com/kunjgit/GameZone/tree/main/Games/Memorization_card)|
-| 360 | [Rotating_Elements](https://github.com/tanujbordikar/GameZone/tree/Rotating_Elements)|
+| 360 | [Truth and Dare](https://github.com/kunjgit/GameZone/tree/main/Games/Truth_And_Dare)|
+| 361 | [Rotating_Elements](https://github.com/tanujbordikar/GameZone/tree/Rotating_Elements)|
+
 
 
 

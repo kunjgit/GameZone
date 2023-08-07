@@ -1,0 +1,91 @@
+* {
+	font-family: cursive;
+}
+
+body {
+	background-color: lightskyblue;
+}
+
+#gameContainer {
+	background-color: black;
+	width: 480px;
+	height: 480px;
+	padding: 20px;
+	position: absolute;
+	top: 38%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 0 100px 0 black;
+}
+
+.update {
+	position: absolute;
+	bottom: -6%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 1.4rem;
+	text-align: center;
+	font-weight: 700;
+}
+
+.player {
+	background-color: lightgreen;
+	box-shadow: 0 0 100px 0 black;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.red {
+	background-color: lightsalmon;
+	box-shadow: 0 0 100px 0 black;
+	padding: 5px;
+	border-radius: 10px;
+	margin: 10px 0;
+}
+
+.black {
+	background-color: rgb(46, 45, 45);
+	color: white;
+	box-shadow: 0 0 100px 0 black;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.row {
+	width: 100%;
+}
+
+.square {
+	float: left;
+	width: 60px;
+	height: 60px;
+}
+
+.circle {
+	border-radius: 50%;
+	width: 94%;
+	height: 94%;
+	margin: 3%;
+	color: black;
+	text-align: center;
+	line-height: 56px;
+}
+
+.square:hover {
+	cursor: pointer;
+	opacity: .8;
+}
+
+#startGame {
+	width: 120px;
+	padding: 10px;
+	margin-top: 10px;
+	text-align: center;
+	background-color: black;
+	color: white;
+}
+
+#startGame:hover {
+	color: red;
+	cursor: pointer;
+}

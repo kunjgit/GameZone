@@ -470,14 +470,13 @@ This repository also provides one such platforms where contributers come over an
 | 358 | [Sky_Dodge](https://github.com/kunjgit/GameZone/tree/main/Sky_Dodge)|
 | 358 | [Swap Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Swap-Card-Game)|
 | 359 | [Memorization_card](https://github.com/kunjgit/GameZone/tree/main/Games/Memorization_card)|
-| 360 | [Smashing_Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Smashing_Blocks)|
-| 361 | [Response_Reaction](https://github.com/kunjgit/GameZone/tree/main/Games/Response_Reaction)|
-| 362 | [Truth and Dare](https://github.com/kunjgit/GameZone/tree/main/Games/Truth_And_Dare)|
-| 363 | [Rotating_Elements](https://github.com/tanujbordikar/GameZone/tree/Rotating_Elements)|
-| 364 | [Chopsticks](https://github.com/kunjgit/GameZone/tree/main/Games/Chopsticks)|
-| 365 | [Anime Clicker](https://github.com/kunjgit/GameZone/tree/main/Games/Anime_Clicker)|
+| 360 | [Response_Reaction](https://github.com/kunjgit/GameZone/tree/main/Games/Response_Reaction)|
+| 361 | [Truth and Dare](https://github.com/kunjgit/GameZone/tree/main/Games/Truth_And_Dare)|
+| 362 | [Rotating_Elements](https://github.com/tanujbordikar/GameZone/tree/Rotating_Elements)|
+| 363 | [Chopsticks](https://github.com/kunjgit/GameZone/tree/main/Games/Chopsticks)|
+| 364 | [Anime Clicker](https://github.com/kunjgit/GameZone/tree/main/Games/Anime_Clicker)|
+| 365 | [3D Snake](https://github.com/kunjgit/GameZone/tree/main/Games/3d_Snake)|
 | 366 | [Road Car Game](https://github.com/kunjgit/GameZone/tree/main/Games/road_car)|
-
 | 367 | [Rocket_Showdown](https://github.com/tanujbordikar/GameZone/tree/Rocket_Showdown)|
 
 

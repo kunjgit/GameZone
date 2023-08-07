@@ -17,6 +17,16 @@
 \*-----------------------------------*/
 
 /* CSS for Light-Dark Theme SWITCH */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 100%;
+  overflow-y:scroll;
+}
 .theme-toggle {
   display: inline-block;
   position: relative;
@@ -37,6 +47,7 @@
 
 
 .slider {
+  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
@@ -46,7 +57,6 @@
   border-radius: 34px;
   transition: background-color 0.4s;
   box-shadow: 0 0 20px #fb16e4;
-  
 }
 
  .slider .dark-theme{
@@ -2754,11 +2764,11 @@ span:nth-child(7) {
 }
 
 .unique-color-dark {
-  background-color: #FA8DF3 !important;
+  background-color: #b616c7 !important;
 }
 
 .bg-light {
-  background-color: #f1ef73 !important;
+  background-color: #73c1f1 !important;
 }
 
 
@@ -2777,6 +2787,8 @@ h7{
 
 #footer{
   height: 5px;
+  font-style: cursive;
+  
 }
 
 .list-unstyled{
@@ -2793,7 +2805,7 @@ h7{
 ul.socials{
   margin-bottom: 0.5px;
   line-height: 5px;
-  padding-bottom: 18px;
+  padding-bottom: 30px;
 }
 
 
@@ -2807,5 +2819,9 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1);
   -webkit-box-shadow:0px 0px 105px 0px rgba(255,153,255,0.9);
   -moz-box-shadow: 0px 0px 105px 0px rgba(255,153,255,0.9);
   box-shadow: 0px 0px 105px 0px rgba(255,153,255,0.9);
+}
+
+.social-text{
+  font-size: 2rem;
 }
 

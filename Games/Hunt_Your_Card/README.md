@@ -2,16 +2,19 @@
 
 ---
 
+## **Description 📃**
+
+- Select the correct card.
+
 <br>
 
-## **Description 📃**
-Select the correct card.
-
 ## **functionalities 🎮**
+
 - Shuffling cards for player 
 - Score updation every time player selects the correct card
 - 4 Rounds are there 
 - Score increase as per the Rounds.
+
 <br>
 
 ## **How to play? 🕹️**
@@ -23,12 +26,22 @@ Select the correct card.
 <br>
 
 ## **Screenshots 📸**
-![Hunt_Your_Card](https://github.com/dhruvishavaghani/Hunt-Your-Card/assets/109460833/765c1b72-7e05-4668-a397-5a327d19de28)
 
-
-<br>
+![image](https://github.com/kunjgit/GameZone/assets/114330097/a5eeef2d-f210-4c95-9f74-0727cdb302fa)
 
 <br>
 
 ## **Working video 📹**
-<!-- add your working video over here -->
+
+https://github.com/kunjgit/GameZone/assets/114330097/00479ee9-11be-4208-818c-dff1d9afdc99
+
+<br>
+
+## **Enhancement Done By 👦**
+
+[Avdhesh Varshney](https://github.com/Avdhesh-Varshney)
+
+<br>
+
+### Happy Coding!
+

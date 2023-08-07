@@ -478,6 +478,7 @@ This repository also provides one such platforms where contributers come over an
 | 365 | [3D Snake](https://github.com/kunjgit/GameZone/tree/main/Games/3d_Snake)|
 | 366 | [Road Car Game](https://github.com/kunjgit/GameZone/tree/main/Games/road_car)|
 | 367 | [Rocket_Showdown](https://github.com/tanujbordikar/GameZone/tree/Rocket_Showdown)|
+| 368 | [PathPlex](https://github.com/kunjgit/GameZone/tree/main/Games/Pathplex)|
 
 
 

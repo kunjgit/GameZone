@@ -10,6 +10,7 @@ An exhilarating 3D maze game where players take control of a rolling ball, navig
 ## **Functionalities 🎮**
 
 The game features stunning visuals, challenging puzzles, and an immersive experience that will test players' skills, patience, and problem-solving abilities.
+
 <br>
 
 ## **How to play? 🕹️**
@@ -18,6 +19,7 @@ The game features stunning visuals, challenging puzzles, and an immersive experi
 2. Use the designated controls (arrow keys, WASD, or device tilting) to control the rolling ball's movement through the maze.
 3. Your goal is to guide the ball from its starting point to the exit of the maze. The path is filled with twists, turns, and obstacles made of bricks.
 4. Successfully reach the exit to complete the level. The game will automatically advance you to the next, more challenging maze.
+   
 <br>
 
 ## **Installation**

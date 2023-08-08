@@ -480,7 +480,12 @@ This repository also provides one such platforms where contributers come over an
 | 368 | [Rocket_Showdown](https://github.com/tanujbordikar/GameZone/tree/Rocket_Showdown)|
 | 369 | [Find Extra Cube](https://github.com/kunjgit/GameZone/tree/main/Games/Find_Extra_Cube)|
 | 370 | [PathPlex](https://github.com/kunjgit/GameZone/tree/main/Games/Pathplex)|
-| 371 | [Typing Game](https://github.com/Ishan-77/GameZone/tree/main/Games/Typing_Game)|
+| 371 | [CSS Crossword](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Crossword)|
+| 372 | [CSS Select](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Select)|
+| 373 | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Squid_Game)|
+| 374 | [Flip Coin](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Coin)|
+| 375 | [Witty Word Quest](https://github.com/kunjgit/GameZone/tree/main/Games/witty_word_quest)|
+| 376 | [Typing Game](https://github.com/Ishan-77/GameZone/tree/main/Games/Typing_Game)|
 
 
  </center>

@@ -485,6 +485,7 @@ This repository also provides one such platforms where contributers come over an
 | 373 | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Squid_Game)|
 | 374 | [Flip Coin](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Coin)|
 | 375 | [Witty Word Quest](https://github.com/kunjgit/GameZone/tree/main/Games/witty_word_quest)|
+| 376 | [Typing Game](https://github.com/Ishan-77/GameZone/tree/main/Games/Typing_Game)|
 
 
  </center>

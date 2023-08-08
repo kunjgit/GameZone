@@ -1,0 +1,118 @@
+﻿body {
+    font-family: 'Segoe UI', Calibri, Arial;
+    margin: 0;
+    background-color: #cce;
+    user-select: none;
+}
+
+h1 {
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 5px 10px 5px white;
+    color: #a46;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 3px 0px;
+    text-align: center;
+}
+
+#collage hr {
+    border: none;
+    border-top: 2px solid #f5f2f2;
+    height: 1px;
+}
+
+#collage #playPanel {
+    background-color: rgba(red, green, blue, 0.2);
+    padding: 10px 0px;
+    margin: 2.5rem auto;
+    max-width: 800px;
+    width: 95%;
+    box-shadow: 0 0 50px 0 black;
+    border-radius: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#collage #actualImageBox {
+    display: inline-block;
+    font-size: 0.8em;
+    margin: 10px 10px;
+    vertical-align: top;
+    width: 280px;
+}
+
+#collage #stepBox,
+#collage #timeBox {
+    display: inline-block;
+    width: 48%;
+    font-size: 1.2em;
+    color: #a46;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#collage #stepBox div {
+    display: inline-block;
+    padding: 1px 4px;
+    margin: 0px auto;
+    max-width: 800px;
+}
+
+#collage img#actualImage {
+    border: 2px solid #a46;
+    height: 280px;
+    width: 280px;
+}
+
+#collage #sortable {
+    border: 2px solid #a46;
+    list-style-type: none;
+    display: inline-block;
+    margin: 10px;
+    padding: 0;
+    width: 400px;
+}
+
+#collage #sortable li {
+    background-size: 400% 400%;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+#levelPanel {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.01em;
+    margin: 6% 0;
+    cursor: pointer;
+}
+
+#collage button {
+    background-color: #f5f2f2;
+    border: 1px solid #cce;
+    display: inline;
+    font-size: 14px;
+    height: auto;
+    width: auto;
+    padding: 3px 8px;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

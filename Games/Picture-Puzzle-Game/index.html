@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/neeruti.jpg" type="image/x-icon">
+    <title>Picture Puzzle 📸</title>
+    <link href="./style.css" rel="stylesheet" />
+    <script src="./js/jquery-2.1.1.min.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="./js/script.js"></script>
+</head>
+
+<body>
+    <div id="collage">
+        <h1>Picture Puzzle 📸</h1>
+        <hr />
+        <div id="playPanel">
+            <h3 id="imgTitle"></h3>
+            <hr />
+            <div style="display:inline-block; margin:auto; width:95%; vertical-align:top;">
+                <ul id="sortable" class="sortable"></ul>
+                <div id="actualImageBox">
+                    <div id="stepBox">
+                        <div>Count:</div>
+                        <div class="stepCount">0</div>
+                    </div>
+                    <div id="timeBox">
+                        Time: <span id="timerPanel"></span> seconds
+                    </div>
+                    <img id="actualImage" />
+                    <div>See the picture and solve the puzzle.</div>
+                    <p id="levelPanel">
+                        <input type="radio" name="level" id="easy" checked="checked" value="3" /> <label
+                            for="easy">Easy</label>
+                        <input type="radio" name="level" id="medium" value="4" /> <label for="medium">Medium</label>
+                        <input type="radio" name="level" id="hard" value="5" /> <label for="hard">Hard</label>
+                        <input type="radio" name="level" id="veryhard" value="6" /> <label for="veryhard">Very
+                            Hard</label>
+                    </p>
+                    <div>
+                        <button id="btnRule" type="button" class="btn" onclick="rules();">Rules</button>
+                        <button id="newPhoto" type="button" class="btn">Next Picture</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="gameOver" style="display:none;">
+            <div style="background-color: #fc9e9e; padding: 5px 10px 20px 10px; text-align: center; ">
+                <h2 style="text-align:center">Game over !!</h2>
+                Congratulations!! <br /> You got the picture ready.
+                <br />
+                Time: <span class="stepCount">0</span> steps.
+                <br />
+                Time spent: <span class="timeCount">0</span> seconds.<br />
+                <div>
+                    <button type="button" onclick="window.location.reload(true);">Play again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

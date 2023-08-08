@@ -484,7 +484,7 @@ This repository also provides one such platforms where contributers come over an
 | 372 | [CSS Select](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Select)|
 | 373 | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Squid_Game)|
 | 374 | [Flip Coin](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Coin)|
-
+| 375 | [Witty Word Quest](https://github.com/kunjgit/GameZone/tree/main/Games/witty_word_quest)|
 
 
  </center>

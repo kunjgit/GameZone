@@ -480,6 +480,7 @@ This repository also provides one such platforms where contributers come over an
 | 368 | [Rocket_Showdown](https://github.com/tanujbordikar/GameZone/tree/Rocket_Showdown)|
 | 369 | [Find Extra Cube](https://github.com/kunjgit/GameZone/tree/main/Games/Find_Extra_Cube)|
 | 370 | [PathPlex](https://github.com/kunjgit/GameZone/tree/main/Games/Pathplex)|
+| 371 | [CSS Select](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Select)|
 
 
  </center>

@@ -481,6 +481,9 @@ This repository also provides one such platforms where contributers come over an
 | 369 | [Find Extra Cube](https://github.com/kunjgit/GameZone/tree/main/Games/Find_Extra_Cube)|
 | 370 | [PathPlex](https://github.com/kunjgit/GameZone/tree/main/Games/Pathplex)|
 | 371 | [CSS Crossword](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Crossword)|
+| 372 | [CSS Select](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Select)|
+| 373 | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Squid_Game)|
+| 374 | [Flip Coin](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Coin)|
 
 
 

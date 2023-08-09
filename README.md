@@ -482,8 +482,14 @@ This repository also provides one such platforms where contributers come over an
 | 370 | [PathPlex](https://github.com/kunjgit/GameZone/tree/main/Games/Pathplex)|
 | 371 | [CSS Select](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Select)|
 | 372 | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Squid_Game)|
-| 373 | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)|
-
+| 371 | [CSS Crossword](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Crossword)|
+| 372 | [CSS Select](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Select)|
+| 373 | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Squid_Game)|
+| 374 | [Flip Coin](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Coin)|
+| 375 | [Witty Word Quest](https://github.com/kunjgit/GameZone/tree/main/Games/witty_word_quest)|
+| 376 | [Typing Game](https://github.com/Ishan-77/GameZone/tree/main/Games/Typing_Game)|
+| 377 | [numeral-whiz](https://github.com/Ishan-77/GameZone/tree/main/Games/numeral-whiz)|
+| 373 | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)|
 
 
  </center>

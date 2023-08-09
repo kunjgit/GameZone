@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Flexcode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans|Fredoka+One|Source+Code+Pro' rel='stylesheet'
+    type='text/css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <section id="sidebar">
+    <div class="header">
+      <div>
+        <h1 class="title">Flexcode</h1>
+      </div>
+      <div id="level-counter">
+        <span class="arrow left">
+          <span class="triangle"></span>
+        </span>
+        <span id="level-indicator">
+          <span id="labelLevel" class="translate">Level</span>
+          <span class="current">1</span>
+          <span id="labelOf" class="translate">of</span>
+          <span class="total">1</span>
+          <span class="caret">▾</span>
+        </span>
+        <span class="arrow right">
+          <span class="triangle"></span>
+        </span>
+        <div id="levelsWrapper" class="tooltip">
+          <div id="levels"></div>
+          <div id="labelReset" class="translate">Reset</div>
+        </div>
+      </div>
+    </div>
+    <p id="instructions"></p>
+    <div id="editor">
+      <div id="css">
+        <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+        <pre id="before"></pre>
+        <textarea id="code" autofocus autocapitalize="none"></textarea>
+        <pre id="after"></pre>
+      </div>
+      <button id="next" class="translate">Next</button>
+    </div>
+
+    <div class="bsa-custom"></div>
+  </section>
+  <section id="view">
+    <div id="board">
+      <div id="pond">
+      </div>
+      <div id="background">
+      </div>
+    </div>
+  </section>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/docs.js"></script>
+  <script src="js/messages.js"></script>
+  <script src="js/game.js"></script>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-23019901-13', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');
+  </script>
+  <div id="fb-root"></div>
+  <script>(function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=916849395036923";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- BuySellAds -->
+  <script type="text/javascript" src="//m.servedby-buysellads.com/monetization.custom.js"></script>
+  <script>
+    (function () {
+      if (typeof _bsa !== 'undefined' && _bsa) {
+        _bsa.init('custom', 'CK7D427U', 'placement:flexboxfroggycom', {
+          target: '.bsa-custom',
+          template:
+            `
+    <div class="native-ad">
+      <a href="##statlink##"><span class="sponsor">Sponsor</span> ##company## — ##description##</a>
+    </div>
+    `
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>

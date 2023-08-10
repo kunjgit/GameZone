@@ -1,0 +1,81 @@
+.canvas-container {
+  text-align: center;
+  background-color: tomato;
+}
+
+#canvas {
+  background-color: rgb(30, 30, 30);
+  /* background-color: white; */
+  border: 2px solid white;
+}
+
+body {
+  position: relative;
+   font-family: 'Roboto Mono', sans-serif;
+   font-size: 20px;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+img {
+  max-width: 50px;
+  height: auto;
+  margin-right: 15px;
+}
+
+li {
+  margin: .5em;
+  /* margin-top: 1em; */
+}
+#overlay {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  padding: 2%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96%;
+  height: 94.2%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.ctrl {
+  display: inline-block;
+  padding: 6px 1px;
+  background-color: red;
+  border-radius: 5px;
+  color: black;
+  margin-right: .7em;
+}
+strong {
+  display: inline-block;
+}
+
+li {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+}
+
+.space {
+  color: black;
+  background-color: lightgray;
+  margin-right: .5em;
+  display: inline-block;
+  padding: 4px 1px;
+  border-radius: 5px;
+}
+
+.logger {
+  /* font-size: 1em; */
+  padding: 1.5em 0 1.5em 0;
+  margin: 0 2em;
+  display: block;
+  margin-top: 70%;
+  text-align: center;
+}

@@ -1,0 +1,58 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ9_cWrVaiJ4B_zUKM81BjI0HhTzUPfJdhmKidEC8G4xq0fGXzeZfFRqcbWZXW8Pr_NTg&usqp=CAU); */
+            background-repeat: no-repeat;
+            background-size:contain;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #f0afaf;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .vitrina {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .tarjeta {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .tarjeta img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        .tarjeta label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .tarjeta button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .tarjeta button:hover {
+            background-color: #ff3d35;
+            transform: scale(1.05);
+        }
+   

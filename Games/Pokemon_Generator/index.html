@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeGenerator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div>
+        <div class="navbar">
+            <heading>
+                <p><h1>RANDOM POKEMON GENERATOR</h1></p>
+            </heading>
+        </div>
+
+        <div class="vitrina" id="vitrina">
+            <!-- Tarjeta will be inserted here -->
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+<!-- <script>
+    let contenedor;
+    const total_pokemons = 500;
+
+    window.onload = inicio;
+
+    function aleatorio(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    function inicio() {
+        contenedor = document.getElementById("vitrina");
+        pintarVitrina(); // Initially paint the vitrina
+        window.addEventListener("click", pintarVitrina);
+    }
+
+    function pintarVitrina() {
+        traerDatos(aleatorio(1, total_pokemons));
+    }
+
+    function traerDatos(id) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+            .then(response => response.json())
+            .then(function(data) {
+                let nombre = data.name;
+                let url = data.sprites.other.dream_world.front_default;
+                if (nombre && url) {
+                    imprimirTarjeta(nombre, url);
+                }
+            });
+    }
+
+    function imprimirTarjeta(nombre, url) {
+        let template = `<div class="tarjeta">
+          <img src="${url}" alt="${nombre}">
+            <br>
+            <label>${nombre}</label> <br>
+            <button onclick="pintarVitrina()">Click to Change</button>
+        </div>`;
+        contenedor.innerHTML = template;
+    }
+</script> -->
+</html>

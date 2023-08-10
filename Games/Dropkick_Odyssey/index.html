@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Game | DKM</title>
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="overlay">
+      <section>
+        <h1>how to play</h1>
+        <ul>
+          <li>
+            <img src="./assets/images/left-arrow-variant-key-on-keyboard.svg" alt="keyboard left arrow">
+            <span>move left</span>
+          </li>
+          <li>
+            <img src="./assets/images/keyboard-key-pointing-to-right.svg" alt="keyboard right arrow">
+            <span>move right</span>
+          </li>
+          <li>
+            <img src="./assets/images/keyboard-key-arrow-up.svg" alt="keyboard right arrow">
+            <span>Jump!</span>
+          </li>
+          <li>
+            <span class="ctrl"><strong>ctrl</strong>
+          </span>
+            <span>Attack with a <br> <strong>
+              Dropkick!
+            </strong>
+          </span>
+          </li>
+        </ul>
+      </section>
+      <section>
+        press <span class="space">space key</span>to continue
+        <div id="logger"></div>
+      </section>
+      <section class="instructions">
+        <h1>Instructions:</h1>
+        <ul>
+          <li>1) avoid contact</li>
+          <li><br></li>
+          <li>2) DROPKICK everything <br> in your way</li>
+          <li><br></li>
+          <li>3) DROPKICK the boss <br>to win</li>
+        </ul>
+      </section>
+      </div>
+      <div class="canvas-container">
+    <canvas id="canvas"></canvas>
+  </div>
+  <script src="./javascript/Component.js"></script>
+  <script src="./javascript/Player.js"></script>
+  <script src="./javascript/Enemy.js"></script>
+  <script src="./javascript/helperObj.js"></script>
+  <script src="./javascript/main.js"></script>
+</body>
+</html>

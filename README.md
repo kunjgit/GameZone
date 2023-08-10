@@ -491,6 +491,7 @@ This repository also provides one such platforms where contributers come over an
 | 379 | [numeral-whiz](https://github.com/Ishan-77/GameZone/tree/main/Games/numeral-whiz)|
 | 380 | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)|
 | 381 | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road)|
+| 382 | [Pokemon_Generator](https://github.com/killerraj369/GameZone/tree/main/Games/Pokemon_Generator)|
 
  </center>
 

@@ -468,21 +468,30 @@ This repository also provides one such platforms where contributers come over an
 | 356 | [Know Your Country](https://github.com/kunjgit/GameZone/tree/main/Games/Know_Your_Country)|
 | 357 | [Musical_Floor](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Floor)|
 | 358 | [Sky_Dodge](https://github.com/kunjgit/GameZone/tree/main/Sky_Dodge)|
-| 358 | [Swap Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Swap-Card-Game)|
-| 359 | [Memorization_card](https://github.com/kunjgit/GameZone/tree/main/Games/Memorization_card)|
-| 360 | [Smashing_Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Smashing_Blocks)|
-| 361 | [Response_Reaction](https://github.com/kunjgit/GameZone/tree/main/Games/Response_Reaction)|
-| 362 | [Truth and Dare](https://github.com/kunjgit/GameZone/tree/main/Games/Truth_And_Dare)|
-| 363 | [Rotating_Elements](https://github.com/tanujbordikar/GameZone/tree/Rotating_Elements)|
-| 364 | [Chopsticks](https://github.com/kunjgit/GameZone/tree/main/Games/Chopsticks)|
-| 365 | [Anime Clicker](https://github.com/kunjgit/GameZone/tree/main/Games/Anime_Clicker)|
-| 365 | [Go Game](https://github.com/kunjgit/GameZone/tree/main/Games/Go)|
-
-
-
-
-
-
+| 359 | [Swap Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Swap-Card-Game)|
+| 360 | [Memorization_card](https://github.com/kunjgit/GameZone/tree/main/Games/Memorization_card)|
+| 361 | [Smashing_Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Smashing_Blocks)|
+| 362 | [Response_Reaction](https://github.com/kunjgit/GameZone/tree/main/Games/Response_Reaction)|
+| 363 | [Truth and Dare](https://github.com/kunjgit/GameZone/tree/main/Games/Truth_And_Dare)|
+| 364 | [Rotating_Elements](https://github.com/tanujbordikar/GameZone/tree/Rotating_Elements)|
+| 365 | [Chopsticks](https://github.com/kunjgit/GameZone/tree/main/Games/Chopsticks)|
+| 366 | [Anime Clicker](https://github.com/kunjgit/GameZone/tree/main/Games/Anime_Clicker)|
+| 367 | [3D Snake](https://github.com/kunjgit/GameZone/tree/main/Games/3d_Snake)|
+| 368 | [Rocket_Showdown](https://github.com/tanujbordikar/GameZone/tree/Rocket_Showdown)|
+| 369 | [Find Extra Cube](https://github.com/kunjgit/GameZone/tree/main/Games/Find_Extra_Cube)|
+| 370 | [PathPlex](https://github.com/kunjgit/GameZone/tree/main/Games/Pathplex)|
+| 371 | [CSS Select](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Select)|
+| 372 | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Squid_Game)|
+| 373 | [CSS Crossword](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Crossword)|
+| 374 | [CSS Select](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Select)|
+| 375 | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Squid_Game)|
+| 376 | [Flip Coin](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Coin)|
+| 377 | [Witty Word Quest](https://github.com/kunjgit/GameZone/tree/main/Games/witty_word_quest)|
+| 378 | [Typing Game](https://github.com/Ishan-77/GameZone/tree/main/Games/Typing_Game)|
+| 379 | [numeral-whiz](https://github.com/Ishan-77/GameZone/tree/main/Games/numeral-whiz)|
+| 380 | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)|
+| 381 | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road)|
+| 382 | [Go Game](https://github.com/kunjgit/GameZone/tree/main/Games/Go)|
 
 
  </center>

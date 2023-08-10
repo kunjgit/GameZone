@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/45b5e06856.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="options-bar">
+      CỜ VÂY
+      <div class="reset-btn btn">
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+        <span class="tooltiptext">NEW GAME</span>
+      </div>
+      <div class="undo-btn btn">
+        <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+        <span class="tooltiptext">UNDO</span>
+      </div>
+    </div>
+    <div class="game">
+      <canvas></canvas>
+      <div class="board"></div>
+    </div>
+    <div id="test"></div>
+    <script src="index.js"></script>
+  </body>
+</html>

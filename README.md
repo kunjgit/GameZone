@@ -466,7 +466,7 @@ This repository also provides one such platforms where contributers come over an
 | 354 | [word blitz](https://github.com/kunjgit/GameZone/tree/main/word_blitz)|
 | 355 | [Code Cracker](https://github.com/kunjgit/GameZone/tree/main/Code_Cracker)|
 | 356 | [Know Your Country](https://github.com/kunjgit/GameZone/tree/main/Games/Know_Your_Country)|
-| 357 | [Musical_Floor](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Floor)|
+| 357 | [Musical_Floor](https://github.com/tanujbordikar/GameZone/tree/main/Games/Musical_Floor)|
 | 358 | [Sky_Dodge](https://github.com/kunjgit/GameZone/tree/main/Sky_Dodge)|
 | 359 | [Swap Card Game](https://github.com/kunjgit/GameZone/tree/main/Games/Swap-Card-Game)|
 | 360 | [Memorization_card](https://github.com/kunjgit/GameZone/tree/main/Games/Memorization_card)|
@@ -492,6 +492,7 @@ This repository also provides one such platforms where contributers come over an
 | 380 | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)|
 | 381 | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road)|
 | 382 | [HueHero](https://github.com/kunjgit/GameZone/tree/main/Games/HueHero)|
+| 383 | [Hangman_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hangman_Game)
 
   
  </center>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <title>Juego del ahorcado</title>
+    </head>
+    <body>
+        <header>
+            <div class="nav">
+                <a href="#" id="btn-modal" class="btn-config"><img src="assets/buttons/btn-settings.png"></a>
+            </div>
+        </header>
+
+        <main>
+            <div class="start-game" id="start-game" style="display: block;">
+                <div class="contenedor-titulo">
+                    <!--<img src="/img/Avatar.PNG" class="avatar" alt="avatar">-->
+                    <h1 class="title">Hangman game</h1>
+                    <a id="btn-modal" class="btn-jugar" onclick="Play()"><img src="assets/buttons/btn-play.png"></a>
+                </div>
+            </div>
+
+            <!--Modal configuración-->
+            <div id="modal-config" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <H2 class="modal-title">Administrar palabras</H2>
+                    <div class="formulario">
+                        <form id="form">
+                            <label for="nueva_palabra">Nueva palabra:</label>
+                            <input type="text" id="nueva_palabra" name="nueva_palabra" placeholder="ingrese la palabra aquí">
+                            <button class="btn-agregar-categoria" onclick="formValidation()">Guardar</button>
+                            <div id="mensaje" class="msg_error"></div>
+                            <div id="mensajeGuardado" class="msg_guardado"></div>
+                            <div id="mensajeAdvertencia" class="msg_advertencia"></div>
+                        </form>
+                    </div>
+
+                    <div id="contenedor-palabras">
+                        <ul id="lista-palabras-disp">
+                            <li class="list-item">PERRO</li>
+                            <li class="list-item">GATO</li>
+                            <li class="list-item">MOSCA</li>
+                            <li class="list-item">CABALLO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal Game Over-->
+            <div id="modal-gameOver" class="modal">
+                <div class="modal-win-los">
+                    <h1 class="modal-title-gameOver" id="title-gameOver">Has perdido!</h1>
+                    <img src="assets/ahorcado_assets/head_loss.png"class="modal-loss-img">
+                    <p class="correct">palabra correcta:</p>
+                    <div id="correct_word" class="correct"></div>
+                    <hr>
+                    <div class="contenedor-botones">
+                        <a id="btn-inicio" class="inicio" onclick="btn_home()"><img src="assets/buttons/Btn_Inicio.png"></a>
+                        <a id="btn-reiniciar" class="reiniciar" onclick="btn_reiniciar()"><img src="assets/buttons/Btn_Reiniciar.png"></a>
+                    </div>
+                </div>
+
+            </div>
+            <!--Modal Ganador-->
+            <div id="modal-winner" class="modal">
+                <div class="modal-win-los">
+                    <h1 class="modal-title-winner">Felicidades!</h1>
+                    <img src="assets/ahorcado_assets/head_winner.png" class="modal-loss-img">
+                    <p class="txt_hasGanado">¡Has ganado!</p>
+                    <div class="contenedor-botones">
+                        <a id="btn-inicio" class="inicio"  onclick="btn_home()"><img src="assets/buttons/Btn_Inicio.png"></a>
+                        <a id="btn-reiniciar" class="reiniciar" onclick="btn_reiniciar()"><img src="assets/buttons/Btn_Reiniciar.png"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game-section" style="display: none;">
+                <div class="sprite-section">
+                    <img id="imagen_ahorcado" src="assets/ahorcado_assets/intento_0.png" class="sprite-ahorcado">
+
+                    <div class="card-word">
+                        <div class="palabra-buscar">
+                            <p>Palabra:</p>
+                            <div id="resultado" class="resultado"></div>
+                            <hr>
+                        </div>
+                        <p class=" " id="intentos">Intentos restantes: 0</p>
+                        <div class="desistir-section">
+                            <button class="desistir" onclick="rendirse()">Rendirse</button>
+                        </div>
+                    </div>
+                </div>
+                <section class="keyword-section">
+                    <button id="a" class="letra" onclick="inputUsuario('A', this.id)">A</button>
+                    <button id="b" class="letra" onclick="inputUsuario('B', this.id)">B</button>
+                    <button id="c" class="letra" onclick="inputUsuario('C', this.id)">C</button>
+                    <button id="d" class="letra" onclick="inputUsuario('D', this.id)">D</button>
+                    <button id="e" class="letra" onclick="inputUsuario('E', this.id)">E</button>
+                    <button id="f" class="letra" onclick="inputUsuario('F', this.id)">F</button>
+                    <button id="g" class="letra" onclick="inputUsuario('G', this.id)">G</button>
+                    <button id="h" class="letra" onclick="inputUsuario('H', this.id)">H</button>
+                    <button id="i" class="letra" onclick="inputUsuario('I', this.id)">I</button>
+                    <button id="j" class="letra" onclick="inputUsuario('J', this.id)">J</button>
+                    <button id="k" class="letra" onclick="inputUsuario('K', this.id)">K</button>
+                    <button id="l" class="letra" onclick="inputUsuario('L', this.id)">L</button>
+                    <button id="m" class="letra" onclick="inputUsuario('M', this.id)">M</button>
+                    <button id="n" class="letra" onclick="inputUsuario('N', this.id)">N</button>
+                    <button id="o" class="letra" onclick="inputUsuario('O', this.id)">O</button>
+                    <button id="p" class="letra" onclick="inputUsuario('P', this.id)">P</button>
+                    <button id="q" class="letra" onclick="inputUsuario('Q', this.id)">Q</button>
+                    <button id="r" class="letra" onclick="inputUsuario('R', this.id)">R</button>
+                    <button id="s" class="letra" onclick="inputUsuario('S', this.id)">S</button>
+                    <button id="t" class="letra" onclick="inputUsuario('T', this.id)">T</button>
+                    <button id="u" class="letra" onclick="inputUsuario('U', this.id)">U</button>
+                    <button id="v" class="letra" onclick="inputUsuario('V', this.id)">V</button>
+                    <button id="w" class="letra" onclick="inputUsuario('W', this.id)">W</button>
+                    <button id="x" class="letra" onclick="inputUsuario('X', this.id)">X</button>
+                    <button id="y" class="letra" onclick="inputUsuario('Y', this.id)">Y</button>
+                    <button id="z" class="letra" onclick="inputUsuario('Z', this.id)">Z</button>
+                </section>
+            </div>
+
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <p class="create-by">created by Diego Valdez</p>
+                <ul>
+                    <li class="footer-item"><a href="https://www.facebook.com/D4vc198/" target="_blank"><img src="assets/icons/facebook-square-brands.png" class="item-img"></a></li>
+                    <li class="footer-item"><a href="https://www.linkedin.com/in/diego-a-valdez-a4405a213/" target="_blank"><img src="assets/icons/linkedin-brands.png" class="item-img"></a></li>
+                    <li class="footer-item"><a href="https://github.com/d4vc-198" target="_blank"><img src="assets/icons/github-square-brands.png" class="item-img"></a></li>
+                </ul>
+            </div>
+        </footer>
+
+        <script src="js/behavior.js"></script>
+    </body>
+</html>

@@ -27,6 +27,7 @@ A guessing game where you must guess the right word so as not to lose
 <br>
 
 ## **Screenshots 📸**
+![Captura](https://github.com/D4vc-198/GameZone/assets/69604964/0d3ff68a-12ec-44b9-93d9-72d3dd49002b)
 
 <br>
 

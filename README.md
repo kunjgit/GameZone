@@ -530,9 +530,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 
 <!-- mentors -->
 
-<div align="center">
-<h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Man%20Teacher%20Light%20Skin%20Tone.png" alt="Robot" width="40" height="40" /> Mentors</font></h2>
-</div>
+
 
 <br>
 <br>

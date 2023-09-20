@@ -5,3 +5,4 @@ How to play:
 Tap on the screen to stack a tower block 
 Stack up the blocks as high as you can.
 Try to beat your friend score
+Block stack on one upon another.

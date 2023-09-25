@@ -30,12 +30,12 @@ jobs:
 
             // Check if issue text contains "Documentation Bug"
             if (body && body.toLowerCase().includes('documentation bug')) {
-              tagsToAdd.push('level1');
+              tagsToAdd.push('Documentation Bug 🐛');
             }
 
             // Check if issue title contains "Enhancement"
             if (title && title.toLowerCase().includes('enhancement')) {
-              tagsToAdd.push('level2');
+              tagsToAdd.push('Enhancement ⚡️');
             }
 
             if (tagsToAdd.length > 0) {

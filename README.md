@@ -77,7 +77,7 @@ We love showcasing the games people have contributed! Visit our [website](https:
     - `[Issue Title]: Issue Name`
     - ex .`[New game]: Super Mario`
 
-  - Make sure you select the program in which you are participating 🔥
+  - Make sure to select the program in which you are participating 🔥
 
 - You can start working on the code **after** you have been assigned the issue.
 - Create your new branch using `git checkout -b <name of your branch> `
@@ -516,7 +516,7 @@ We love showcasing the games people have contributed! Visit our [website](https:
 ## License
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Terms and conditions for use, reproduction and distribution are under the [Apache-2.0 License](https://opensource.org/license/apache-2-0/).
+Terms and conditions for use, reproduction, and distribution are under the [Apache-2.0 License](https://opensource.org/license/apache-2-0/).
 
 
 <!-- mentors -->

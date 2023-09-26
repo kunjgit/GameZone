@@ -1474,6 +1474,25 @@ main {
   font-weight: var(--fw-300);
   text-align: center;
   border-radius: 0.625rem;
+  display: flex;
+  justify-content: center;
+  
+ 
+}
+
+.project-category .project-category2 {
+
+background-color: rgb(159, 157, 235);
+margin-top: 0.5rem;
+border-radius: 0.5rem;
+padding:0 5px;
+
+
+}
+
+.project-category .project-category2:hover{
+  background-color: #434343;
+  color: #ffffff;
 }
 
 

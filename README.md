@@ -6,21 +6,17 @@
 </div>
 <div align="center">
 
-<h3><font size="4">This open source repository contains a collection of games built on basic tech stacks in web development. Use your creativity, build your own game and contribute to the repository by making a PR 🎮
-<br>
-Make sure you star the repository and show your love to us💗
-<br>
-Also join the discord server for GameZone and start collaborating with others 🚀
+<font size="4">Interested in game and/or web development? This open-source repository contains a collection of games built using tech stacks popular in web development. Want to add your own game, or improve upon an existing game? Check out the Let's Get Started section! Visit our [website](https://kunjgit.github.io/GameZone/) to check out what people have contributed, or our [discord](https://discord.com/invite/fgwk4XZfxG) to start collaborating with others. Don't forget to show us your 💗 by starring the repository! 
 </font>
 <br>
 <br>
 <p>
 
-## Why to Open Source
+## Why Open-Source
 
-Contributing in open source increases your opportunities to work with different projects and mentors, getting to know various insights and ideas. It is a platform where contributors grow together with a construvtive and a positive attitude.
+Contributing to open-source projects can help you improve or learn new skills and find mentors. It is also a place where contributors can grow together with a constructive and positive attitude. 
 
-This repository also provides one such platforms where contributers come over and put their ideas of new games and make our website as interactive as much they can!
+We love showcasing the games people have contributed! Visit our [website](https://kunjgit.github.io/GameZone/) to check them out!
 
 
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fgwk4XZfxG)
@@ -72,34 +68,31 @@ This repository also provides one such platforms where contributers come over an
 - Fork the repository
 - Clone this repository `git clone "url of the repo"`
 
-* Raise and issue to add new game or to enhancement for a game (Have a look at few things you have to take care during raising issue )
+* Raise an issue to add a new game or an enhancement for an existing game
 
-  - Select appropriate issue template
+  - Select an appropriate issue template
   - Make sure your idea is unique and interesting 🚀
 
-  * Don't alter the issue title. You are supposed to write your issue name after that only.
-    - `[Issue Title]: Your Issue` make sure you just add your issue name
+  * Don't alter the issue title. Write the issue name after the issue title.
+    - `[Issue Title]: Issue Name`
     - ex .`[New game]: Super Mario`
 
   - Make sure you select the program in which you are participating 🔥
 
-- Wait till you have been assigned the issue
-- After you have been assigned the issue start working on the code
+- You can start working on the code **after** you have been assigned the issue.
 - Create your new branch using `git checkout -b <name of your branch> `
 
-* Having your code into the repository
-  - Make your game folder into `Games` folder by the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
-  - Add your code files (index.html,style.css,script.js) in your game folder
-  - Create `README.md` file in your folder and add all the functionalities and how you can play that game in that README file , also include screenshots of working game , video of a game explaining (if required).
-  - To create `Your_Folder/README.md ` checkout the template [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md)
-  - Now take one good screenshot of your game that you want to display it on our website and add into `assets/images` (follow the naming convention <your_folder_name>.png or .jpeg or .jpg)
-  - add your folders link and name in main README.md (the one you are reading currently)
+* Contributing to the repository:
+  - Use the naming convention mentioned in [Contributing Guidelines](./.github/CONTRIBUTING_GUIDELINE.md)
+  - Add your code files (index.html, style.css, script.js) in your game folder
+  - Create `README.md` file in your folder using the [Game README Template](./Games/FOLDER_README_TEMPLATE.md). This README should contain all functionalities, how to play the game, screenshots of the working game, and if required, a video of the gameplay
+  - Take a screenshot of your game so we can display it on our website and add it to `assets/images`. Make sure to follow the name conventions of your folder (e.g.; <your_folder_name>.png or .jpg)
+  - Add your folder's link and name to the main README.md
 
 - Push your changes to Github using `git push origin <name your branch>`
-- Submit your changes for review by creating PR
-- And you are done !
-- I will review your code and I will merge your code to the main branch of this repository and you will notified for the same
-- If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
+- Create a PR to submit your changes for review
+- Your code will be reviewed, and if approved, you will be notified that it has been merged to the main branch of this repository.
+- New to GitHub or need a refresher? Refer to the [Contributing Guidelines](./.github/CONTRIBUTING_GUIDELINE.md) for useful links
 
 <div align="center">
   <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Robot" width="40" height="40" /> Games</font></h2>
@@ -505,9 +498,7 @@ This repository also provides one such platforms where contributers come over an
 
 <!-- contributing guideline detail -->
 
-- Read our [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md) to get all details about contributing to **GameZone**
-- Learn all about development process and all information you need to contribute to our project
-- If you are having the basic queries make sure you checkout resources there
+- Read our [Contributing Guidelines](./.github/CONTRIBUTING_GUIDELINE.md) to get all details about contributing to **GameZone**! You'll learn all about the development process and any information you might need to contribute to our project. 
 
 <br>
 
@@ -518,7 +509,7 @@ This repository also provides one such platforms where contributers come over an
 </div>
 <br>
 
-- Please note that this project is released with [CODE OF CONDUCT](./.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+- Please note that this project has a [Code of Conduct](./.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 <br>
 
@@ -546,8 +537,8 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 </div>
 <br>
 
-- This project thanking all the contributors for having your valuable contribution to our project
-- Make sure you show some love by giving ⭐ to our repository
+- Thanks to all your invaluable contributions to our project!
+- Don't forget to show some love by giving a ⭐ to our repository!
 
 <br>
 

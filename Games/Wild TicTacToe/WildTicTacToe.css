@@ -1,0 +1,91 @@
+body {
+    background-color: black; 
+}
+.Title {
+    color: cyan;
+    margin-top: 30px;
+    margin-right: 0px;
+    text-align: center;
+}
+
+.Board {
+    margin-left: 590px;
+}
+.grid-container {
+    margin-left: 440px;
+    margin-top: -30px;
+}
+.grid-button {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    border-color: white;
+
+}
+
+.image{
+    width: 90px;
+    height: 90px;
+    margin-bottom: 7px;
+    padding-right: 2px;
+}
+
+.Reset {
+    position: relative;
+    margin-top: -300px;
+    margin-bottom: 1000px;
+    margin-left: -150px;
+    padding-top: 20px;
+    padding-left:18px;
+    padding-right: 18px;
+    padding-bottom: 18px;
+    width: 120px;
+    font-size: 20px;
+    border-radius: 60px;
+    background-color: rgb(84, 80, 80);
+    border-color: rgb(84, 80, 80);
+    border-style: solid;
+    color: cyan;
+}
+
+.Message {
+    position: relative;
+    font-size: 30px;
+    color: cyan;
+    text-align: center;
+    margin-left: 900px;
+    margin-top: -1300px;
+}
+
+.Option {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    top: -300px;
+    font-size: 25px;
+}
+
+.Pressed {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    top: -300px;
+    font-size: 25px;
+    background-color: rgb(70, 68, 68);
+}
+
+.cont2 {
+    margin-left: 100px;
+    margin-top: -170px;
+}
+.SP {
+    position: relative;
+    font-size: 23px;
+    color: cyan;
+    margin-left: 110px;
+    margin-bottom: -5px;
+
+}

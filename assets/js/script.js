@@ -214,7 +214,9 @@ function enableDarkTheme() {
       element.tagName !== 'BODY' &&
       !element.classList.contains('ignore-dark-theme') &&
       !element.classList.contains('project-category') &&
-      !element.classList.contains('footer')
+      !element.classList.contains('footer') &&
+      !element.classList.contains('project-item') &&
+      !element.classList.contains('search-container')
     ) {
       element.classList.add('dark-theme');
     }

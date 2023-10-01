@@ -41,8 +41,22 @@ let alienVelocityX = 1; //alien moving speed
 let bulletArray = [];
 let bulletVelocityY = -10; //bullet moving speed
 
+//game variables
 let score = 0;
 let gameOver = false;
+let gameStarted = false;
+
+function blink(blinktext){
+    
+
+    // Add a click event listener to the body of the document
+    document.body.addEventListener('click', () => {
+        // Remove the "blink" class to stop the animation
+        blinkText.classList.remove('blink');
+        // Add a class to stop the blinking animation
+        blinkText.classList.add('stop-blinking');
+    })
+}
 
 window.onload = function () {
     board = document.getElementById("board");
@@ -55,14 +69,14 @@ window.onload = function () {
     shipImg.onload = function () {
         context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
     }
+    const blinkText = document.querySelector("#blinktext")
+    blink(blinkText)
+  
+    // check for mouse-click to start the game;
+    if (!gameStarted) {
+        document.body.addEventListener("click", main)
 
-    alienImg = new Image();
-    generateAliens();
-    createAliens();
-
-    requestAnimationFrame(update);
-    document.addEventListener("keydown", moveShip);
-    document.addEventListener("keyup", shoot);
+    }
 }
 
 function generateAliens() {
@@ -238,4 +252,21 @@ function resetGame() {
     generateAliens();
     createAliens();
     alienVelocityX = 1;
+}
+function main() {
+    gameStarted = true
+    let title = document.querySelector(".title")
+    let startscreen = document.querySelector(".startscreen")
+    title.style.display = 'none'
+    startscreen.style.display = 'none'
+
+    document.body.removeEventListener('click', main)// removing the previously added 
+    //event listener after the game started.
+    alienImg = new Image();
+    generateAliens();
+    createAliens();
+
+    requestAnimationFrame(update);
+    document.addEventListener("keydown", moveShip);
+    document.addEventListener("keyup", shoot);
 }

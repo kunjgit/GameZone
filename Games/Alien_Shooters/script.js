@@ -46,15 +46,15 @@ let score = 0;
 let gameOver = false;
 let gameStarted = false;
 
-function blink(blinktext){
-    
+function blink(blinktext) {
+
 
     // Add a click event listener to the body of the document
     document.body.addEventListener('click', () => {
         // Remove the "blink" class to stop the animation
-        blinkText.classList.remove('blink');
+        blinktext.classList.remove('blink');
         // Add a class to stop the blinking animation
-        blinkText.classList.add('stop-blinking');
+        blinktext.classList.add('stop-blinking');
     })
 }
 
@@ -71,7 +71,7 @@ window.onload = function () {
     }
     const blinkText = document.querySelector("#blinktext")
     blink(blinkText)
-  
+
     // check for mouse-click to start the game;
     if (!gameStarted) {
         document.body.addEventListener("click", main)
@@ -84,12 +84,17 @@ function generateAliens() {
     alienImg.src = "./assets/" + n + ".png";
 }
 
-function update() {
+function update(e) {
     requestAnimationFrame(update);
 
     if (gameOver) {
+        endscreen('block', score)
         if (e.code == "Space") {
             resetGame();
+        }
+        if (e.code == 'KeyQ') {
+            gameStarted = false
+            location.reload()
         }
         return;
     }
@@ -119,9 +124,7 @@ function update() {
 
             if (alien.y >= ship.y) {
                 gameOver = true;
-                context.fillStyle = "#F806CC";
-                context.font = "30px 'Play'";
-                context.fillText("Press 'Space' to Restart", 93, 250);
+
             }
         }
     }
@@ -168,10 +171,12 @@ function update() {
     }
 
     //score
-    context.font = "23px 'Play' ";
-    context.fillStyle = "#FFED00";
-    context.fillText("Score: ", 5, 20)
-    context.fillText(score, 75, 20);
+    if (!gameOver) {
+        context.font = "23px 'Play' ";
+        context.fillStyle = "#FFED00";
+        context.fillText("Score: ", 5, 20)
+        context.fillText(score, 75, 20);
+    }
 }
 
 function moveShip(e) {
@@ -188,6 +193,13 @@ function moveShip(e) {
     else if ((e.code == "ArrowRight" || e.code == "KeyD") && ship.x + shipVelocityX + ship.width <= board.width) {
         ship.x += shipVelocityX; //move right one tile
     }
+}
+
+function endscreen(display_value = 'none', score_txt) {
+    context.clearRect(0, 0, boardWidth, boardHeight)
+    document.querySelector(".endscreen").style.display = display_value
+    document.querySelector("#scorecnt").innerText = score_txt
+
 }
 
 function createAliens() {
@@ -238,6 +250,7 @@ function detectCollision(a, b) {
 function resetGame() {
     score = 0;
     gameOver = false;
+    document.querySelector('.endscreen').style.display = 'none'
 
     ship = {
         x: shipX,
@@ -268,5 +281,6 @@ function main() {
 
     requestAnimationFrame(update);
     document.addEventListener("keydown", moveShip);
+    document.addEventListener("keydown", update);
     document.addEventListener("keyup", shoot);
 }

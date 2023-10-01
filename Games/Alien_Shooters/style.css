@@ -36,8 +36,16 @@ li{
     position: absolute;
     width: 700px;
 }
-p{
+
+
+.startscreen p{
     color: yellow;
+}
+.endscreen{
+    position: absolute;
+    display: none;
+    color: white;
+    font-size: larger;
 }
 @keyframes blink {
     0% { opacity: 1; }

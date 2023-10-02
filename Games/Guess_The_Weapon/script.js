@@ -15,11 +15,15 @@ const ansBody = document.getElementById("result");
 const maskImg = document.getElementById("mask");
 let question = [], i = 0, score = 0, wrongCount = 0, clickCount = 0;
 
+// Function to start the game by clicking the start button
+
 startBtn.addEventListener('click', () => {
     intro.classList.add('fadeOut');
     initQuestions();
     gameBox.classList.remove("showResult");
 });
+
+// Array Of Objects For Questions And Answers
 
 const initQuestions = () => {
     question = [];
@@ -33,6 +37,8 @@ const initQuestions = () => {
     changeQuestion(i);
 }
 
+// Function For Changing The Active Class
+
 options.forEach((option) => {
     option.addEventListener("click", () => {
         options.forEach((opt) => {
@@ -42,6 +48,8 @@ options.forEach((option) => {
     })
 });
 
+// Function For Changing The Question
+
 const changeQuestion = (i) => {
     image.src = info[question[i]].img_src;
     opt1.textContent = info[question[i]].option1;
@@ -49,6 +57,8 @@ const changeQuestion = (i) => {
     opt3.textContent = info[question[i]].option3;
     opt4.textContent = info[question[i]].option4;
 }
+
+// Function For Checking The Answer And Deside the correct Answer and Wrong Answer and give score to the user
 
 nextBtn.addEventListener("click", () => {
     let selected = document.querySelector(".active");
@@ -104,6 +114,8 @@ nextBtn.addEventListener("click", () => {
     }
 })
 
+// Function For Giving Hint To The User
+
 showHint.addEventListener("click", () => {
     if (clickCount === 0) {
         maskImg.style.height = info[question[i]].maskh;
@@ -116,6 +128,8 @@ showHint.addEventListener("click", () => {
         score--;
     }
 })
+
+// Function For Restart The Game By Showing The Main Screen
 
 replayBtn.addEventListener("click", () => {
     initQuestions();

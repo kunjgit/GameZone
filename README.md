@@ -492,7 +492,7 @@ This repository also provides one such platforms where contributers come over an
 | 380 | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)|
 | 381 | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road)|
 | 382 | [HueHero](https://github.com/kunjgit/GameZone/tree/main/Games/HueHero)|
-| 382 | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner)|
+| 383 | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner)|
   
  </center>
 

@@ -493,7 +493,8 @@ This repository also provides one such platforms where contributers come over an
 | 381 | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road)|
 | 382 | [HueHero](https://github.com/kunjgit/GameZone/tree/main/Games/HueHero)|
 | 383 | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner)|
-| 383 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)|
+| 384 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)|
+| 385 | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)|
   
  </center>
 

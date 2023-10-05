@@ -21,6 +21,7 @@ const MAX_LEVEL = 3;
 let GAME_OVER = false;
 let leftArrow = false;
 let rightArrow = false;
+let gameStarted = false;
 
 // CREATE THE PADDLE
 const paddle = {
@@ -291,12 +292,13 @@ function update(){
 // GAME LOOP
 function loop(){
     // CLEAR THE CANVAS
-    ctx.drawImage(BG_IMG, 0, 0);
-    
-    draw();
-    
-    update();
-    
+    if (gameStarted) {
+        ctx.drawImage(BG_IMG, 0, 0);
+
+        draw();
+
+        update();
+        }
     if(! GAME_OVER){
         requestAnimationFrame(loop);
     }
@@ -350,19 +352,16 @@ function showYouLose(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+document.addEventListener("keydown", function(event){
+    if (!gameStarted) {
+        gameStarted = true;
+        
+    }
+    if(event.keyCode == 37){
+        leftArrow = true;
+    } else if(event.keyCode == 39){
+        rightArrow = true;
+    }
+});
 
 

@@ -35,8 +35,11 @@ window.onload = function () {
   setInterval(updateAll, 1000 / framesPerSecond);
 
   canvas.addEventListener("mousemove", updateMousePos);
+
   brickReset();
   ballRest();
+  canvas.addEventListener("touchstart", touchStart);
+  canvas.addEventListener("touchmove", touchMove);
 };
 
 function updateAll() {
@@ -195,6 +198,21 @@ function updateMousePos(evt) {
   // ballSpeedY = 4;
   // ballSpeedY = -4;
 }
+function touchStart(evt) {
+  var touch = evt.touches[0];
+  mouseX = touch.clientX;
+  mouseY = touch.clientY;
+  evt.preventDefault(); // Prevent default touch event behavior
+}
+
+function touchMove(evt) {
+  var touch = evt.touches[0];
+  mouseX = touch.clientX;
+  mouseY = touch.clientY;
+  paddleX = mouseX - PADDLE_WIDTH / 2;
+  evt.preventDefault(); // Prevent default touch event behavior
+}
+
 
 /**********GamePlay Draw functions***********/
 function playArea() {

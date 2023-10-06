@@ -1457,8 +1457,8 @@ main {
 }
 
 .project-title {
-  color: var(--white-2);
-  font-weight: var(--fw-400);
+  color: black;
+  font-weight: bold;
   line-height: 1.5;
   /* color: #1a4e67; */
   font-size: var(--fs-6);

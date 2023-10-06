@@ -1,7 +1,13 @@
 
-
+// game variable
+let gameStarted = false;
+let gameOver = false;
+let startTime
+let endTime
+// html elements
+const instructions= document.querySelector(".instructions");
+const info= document.querySelector(".info");
 /* Customisable map data */
-
 var map = {
 
     tile_size: 16,
@@ -21,20 +27,20 @@ var map = {
     script   [optional] - refers to a script in the scripts section, executed if it is touched.
     
     */
-    
+
     keys: [
-        {id: 0, colour: '#333', solid: 0},
-        {id: 1, colour: '#888', solid: 0},
-        {id: 2,colour: '#555',solid: 1,bounce: 0.35},
-        {id: 3,colour: 'rgba(121, 220, 242, 0.4)',friction: {x: 0.9,y: 0.9},gravity: {x: 0,y: 0.1},jump: 1,fore: 1},
-        {id: 4,colour: '#777',jump: 1},
-        {id: 5,colour: '#E373FA',solid: 1,bounce: 1.1},
-        {id: 6,colour: '#666',solid: 1,bounce: 0},
-        {id: 7,colour: '#73C6FA',solid: 0,script: 'change_colour'},
-        {id: 8,colour: '#FADF73',solid: 0,script: 'next_level'},
-        {id: 9,colour: '#C93232',solid: 0,script: 'death'},
-        {id: 10,colour: '#555',solid: 1},
-        {id: 11,colour: '#0FF',solid: 0,script: 'unlock'}
+        { id: 0, colour: '#333', solid: 0 },
+        { id: 1, colour: '#888', solid: 0 },
+        { id: 2, colour: '#555', solid: 1, bounce: 0.35 },
+        { id: 3, colour: 'rgba(121, 220, 242, 0.4)', friction: { x: 0.9, y: 0.9 }, gravity: { x: 0, y: 0.1 }, jump: 1, fore: 1 },
+        { id: 4, colour: '#777', jump: 1 },
+        { id: 5, colour: '#E373FA', solid: 1, bounce: 1.1 },
+        { id: 6, colour: '#666', solid: 1, bounce: 0 },
+        { id: 7, colour: '#73C6FA', solid: 0, script: 'change_colour' },
+        { id: 8, colour: '#FADF73', solid: 0, script: 'next_level' },
+        { id: 9, colour: '#C93232', solid: 0, script: 'death' },
+        { id: 10, colour: '#555', solid: 1 },
+        { id: 11, colour: '#0FF', solid: 0, script: 'unlock' }
     ],
 
     /* An array representing the map tiles. Each number corresponds to a key */
@@ -103,12 +109,12 @@ var map = {
     ],
 
     /* Default gravity of the map */
-    
+
     gravity: {
         x: 0,
         y: 0.3
     },
-    
+
     /* Velocity limits */
 
     vel_limit: {
@@ -117,13 +123,13 @@ var map = {
     },
 
     /* Movement speed when the key is pressed */
-    
+
     movement_speed: {
         jump: 6,
         left: 0.3,
         right: 0.3
     },
-    
+
     /* The coordinates at which the player spawns and the colour of the player */
 
     player: {
@@ -131,7 +137,7 @@ var map = {
         y: 2,
         colour: '#FF9900'
     },
-    
+
     /* scripts refered to by the "script" variable in the tile keys */
 
     scripts: {
@@ -139,7 +145,7 @@ var map = {
         change_colour: 'game.player.colour = "#"+(Math.random()*0xFFFFFF<<0).toString(16);',
         /* you could load a new map variable here */
         next_level: 'alert("Yay! You won! Reloading map.");game.load_map(map);',
-        death: 'alert("You died!");game.load_map(map);',
+        death: 'alert("You died!");gameOver=true;game.load_map(map);',
         unlock: 'game.current_map.keys[10].solid = 0;game.current_map.keys[10].colour = "#888";'
     }
 };
@@ -148,22 +154,22 @@ var map = {
 
 var Clarity = function () {
 
-    this.alert_errors   = false;
-    this.log_info       = true;
-    this.tile_size      = 16;
+    this.alert_errors = false;
+    this.log_info = true;
+    this.tile_size = 16;
     this.limit_viewport = false;
-    this.jump_switch    = 0;
-    
+    this.jump_switch = 0;
+
     this.viewport = {
         x: 200,
         y: 200
     };
-    
+
     this.camera = {
         x: 0,
         y: 0
     };
-    
+
     this.key = {
         left: false,
         right: false,
@@ -176,17 +182,17 @@ var Clarity = function () {
             x: 0,
             y: 0
         },
-        
+
         vel: {
             x: 0,
             y: 0
         },
-        
+
         can_jump: true
     };
 
     window.onkeydown = this.keydown.bind(this);
-    window.onkeyup   = this.keyup.bind(this);
+    window.onkeyup = this.keyup.bind(this);
 };
 
 Clarity.prototype.error = function (message) {
@@ -211,15 +217,15 @@ Clarity.prototype.keydown = function (e) {
     var _this = this;
 
     switch (e.keyCode) {
-    case 37:
-        _this.key.left = true;
-        break;
-    case 38:
-        _this.key.up = true;
-        break;
-    case 39:
-        _this.key.right = true;
-        break;
+        case 37:
+            _this.key.left = true;
+            break;
+        case 38:
+            _this.key.up = true;
+            break;
+        case 39:
+            _this.key.right = true;
+            break;
     }
 };
 
@@ -228,23 +234,23 @@ Clarity.prototype.keyup = function (e) {
     var _this = this;
 
     switch (e.keyCode) {
-    case 37:
-        _this.key.left = false;
-        break;
-    case 38:
-        _this.key.up = false;
-        break;
-    case 39:
-        _this.key.right = false;
-        break;
+        case 37:
+            _this.key.left = false;
+            break;
+        case 38:
+            _this.key.up = false;
+            break;
+        case 39:
+            _this.key.right = false;
+            break;
     }
 };
 
 Clarity.prototype.load_map = function (map) {
 
-    if (typeof map      === 'undefined'
-     || typeof map.data === 'undefined'
-     || typeof map.keys === 'undefined') {
+    if (typeof map === 'undefined'
+        || typeof map.data === 'undefined'
+        || typeof map.keys === 'undefined') {
 
         this.error('Error: Invalid map data!');
 
@@ -254,22 +260,22 @@ Clarity.prototype.load_map = function (map) {
     this.current_map = map;
 
     this.current_map.background = map.background || '#333';
-    this.current_map.gravity = map.gravity || {x: 0, y: 0.3};
+    this.current_map.gravity = map.gravity || { x: 0, y: 0.3 };
     this.tile_size = map.tile_size || 16;
 
     var _this = this;
-    
+
     this.current_map.width = 0;
     this.current_map.height = 0;
 
     map.keys.forEach(function (key) {
 
         map.data.forEach(function (row, y) {
-            
+
             _this.current_map.height = Math.max(_this.current_map.height, y);
 
             row.forEach(function (tile, x) {
-                
+
                 _this.current_map.width = Math.max(_this.current_map.width, x);
 
                 if (tile == key.id)
@@ -277,23 +283,23 @@ Clarity.prototype.load_map = function (map) {
             });
         });
     });
-    
+
     this.current_map.width_p = this.current_map.width * this.tile_size;
     this.current_map.height_p = this.current_map.height * this.tile_size;
 
     this.player.loc.x = map.player.x * this.tile_size || 0;
     this.player.loc.y = map.player.y * this.tile_size || 0;
     this.player.colour = map.player.colour || '#000';
-  
-    this.key.left  = false;
-    this.key.up    = false;
+
+    this.key.left = false;
+    this.key.up = false;
     this.key.right = false;
-    
+
     this.camera = {
         x: 0,
         y: 0
     };
-    
+
     this.player.vel = {
         x: 0,
         y: 0
@@ -332,12 +338,12 @@ Clarity.prototype.draw_map = function (context, fore) {
 
                 var t_x = (x * this.tile_size) - this.camera.x;
                 var t_y = (y * this.tile_size) - this.camera.y;
-                
-                if(t_x < -this.tile_size
-                || t_y < -this.tile_size
-                || t_x > this.viewport.x
-                || t_y > this.viewport.y) continue;
-                
+
+                if (t_x < -this.tile_size
+                    || t_y < -this.tile_size
+                    || t_x > this.viewport.x
+                    || t_y > this.viewport.y) continue;
+
                 this.draw_tile(
                     t_x,
                     t_y,
@@ -362,60 +368,60 @@ Clarity.prototype.move_player = function () {
         Math.round(this.player.loc.x / this.tile_size),
         Math.round(this.player.loc.y / this.tile_size)
     );
-     
-    if(tile.gravity) {
-        
+
+    if (tile.gravity) {
+
         this.player.vel.x += tile.gravity.x;
         this.player.vel.y += tile.gravity.y;
-        
+
     } else {
-        
+
         this.player.vel.x += this.current_map.gravity.x;
         this.player.vel.y += this.current_map.gravity.y;
     }
-    
+
     if (tile.friction) {
 
         this.player.vel.x *= tile.friction.x;
         this.player.vel.y *= tile.friction.y;
     }
 
-    var t_y_up   = Math.floor(tY / this.tile_size);
+    var t_y_up = Math.floor(tY / this.tile_size);
     var t_y_down = Math.ceil(tY / this.tile_size);
-    var y_near1  = Math.round((this.player.loc.y - offset) / this.tile_size);
-    var y_near2  = Math.round((this.player.loc.y + offset) / this.tile_size);
+    var y_near1 = Math.round((this.player.loc.y - offset) / this.tile_size);
+    var y_near2 = Math.round((this.player.loc.y + offset) / this.tile_size);
 
-    var t_x_left  = Math.floor(tX / this.tile_size);
+    var t_x_left = Math.floor(tX / this.tile_size);
     var t_x_right = Math.ceil(tX / this.tile_size);
-    var x_near1   = Math.round((this.player.loc.x - offset) / this.tile_size);
-    var x_near2   = Math.round((this.player.loc.x + offset) / this.tile_size);
+    var x_near1 = Math.round((this.player.loc.x - offset) / this.tile_size);
+    var x_near2 = Math.round((this.player.loc.x + offset) / this.tile_size);
 
-    var top1    = this.get_tile(x_near1, t_y_up);
-    var top2    = this.get_tile(x_near2, t_y_up);
+    var top1 = this.get_tile(x_near1, t_y_up);
+    var top2 = this.get_tile(x_near2, t_y_up);
     var bottom1 = this.get_tile(x_near1, t_y_down);
     var bottom2 = this.get_tile(x_near2, t_y_down);
-    var left1   = this.get_tile(t_x_left, y_near1);
-    var left2   = this.get_tile(t_x_left, y_near2);
-    var right1  = this.get_tile(t_x_right, y_near1);
-    var right2  = this.get_tile(t_x_right, y_near2);
+    var left1 = this.get_tile(t_x_left, y_near1);
+    var left2 = this.get_tile(t_x_left, y_near2);
+    var right1 = this.get_tile(t_x_right, y_near1);
+    var right2 = this.get_tile(t_x_right, y_near2);
 
 
     if (tile.jump && this.jump_switch > 15) {
 
         this.player.can_jump = true;
-        
+
         this.jump_switch = 0;
-        
+
     } else this.jump_switch++;
-    
+
     this.player.vel.x = Math.min(Math.max(this.player.vel.x, -this.current_map.vel_limit.x), this.current_map.vel_limit.x);
     this.player.vel.y = Math.min(Math.max(this.player.vel.y, -this.current_map.vel_limit.y), this.current_map.vel_limit.y);
-    
+
     this.player.loc.x += this.player.vel.x;
     this.player.loc.y += this.player.vel.y;
-    
+
     this.player.vel.x *= .9;
-    
+
     if (left1.solid || left2.solid || right1.solid || right2.solid) {
 
         /* fix overlap */
@@ -438,13 +444,13 @@ Clarity.prototype.move_player = function () {
         if (right2.solid && right2.bounce > bounce) bounce = right2.bounce;
 
         this.player.vel.x *= -bounce || 0;
-        
+
     }
-    
+
     if (top1.solid || top2.solid || bottom1.solid || bottom2.solid) {
 
         /* fix overlap */
-        
+
         while (this.get_tile(x_near1, Math.floor(this.player.loc.y / this.tile_size)).solid
             || this.get_tile(x_near2, Math.floor(this.player.loc.y / this.tile_size)).solid)
             this.player.loc.y += 0.1;
@@ -454,48 +460,48 @@ Clarity.prototype.move_player = function () {
             this.player.loc.y -= 0.1;
 
         /* tile bounce */
-        
+
         var bounce = 0;
-        
+
         if (top1.solid && top1.bounce > bounce) bounce = top1.bounce;
         if (top2.solid && top2.bounce > bounce) bounce = top2.bounce;
         if (bottom1.solid && bottom1.bounce > bounce) bounce = bottom1.bounce;
         if (bottom2.solid && bottom2.bounce > bounce) bounce = bottom2.bounce;
-        
+
         this.player.vel.y *= -bounce || 0;
 
         if ((bottom1.solid || bottom2.solid) && !tile.jump) {
-            
+
             this.player.on_floor = true;
             this.player.can_jump = true;
         }
-        
+
     }
-    
+
     // adjust camera
 
-    var c_x = Math.round(this.player.loc.x - this.viewport.x/2);
-    var c_y = Math.round(this.player.loc.y - this.viewport.y/2);
+    var c_x = Math.round(this.player.loc.x - this.viewport.x / 2);
+    var c_y = Math.round(this.player.loc.y - this.viewport.y / 2);
     var x_dif = Math.abs(c_x - this.camera.x);
     var y_dif = Math.abs(c_y - this.camera.y);
-    
-    if(x_dif > 5) {
-        
+
+    if (x_dif > 5) {
+
         var mag = Math.round(Math.max(1, x_dif * 0.1));
-    
-        if(c_x != this.camera.x) {
-            
+
+        if (c_x != this.camera.x) {
+
             this.camera.x += c_x > this.camera.x ? mag : -mag;
-            
-            if(this.limit_viewport) {
-                
-                this.camera.x = 
+
+            if (this.limit_viewport) {
+
+                this.camera.x =
                     Math.min(
                         this.current_map.width_p - this.viewport.x + this.tile_size,
                         this.camera.x
                     );
-                
-                this.camera.x = 
+
+                this.camera.x =
                     Math.max(
                         0,
                         this.camera.x
@@ -503,24 +509,24 @@ Clarity.prototype.move_player = function () {
             }
         }
     }
-    
-    if(y_dif > 5) {
-        
+
+    if (y_dif > 5) {
+
         var mag = Math.round(Math.max(1, y_dif * 0.1));
-        
-        if(c_y != this.camera.y) {
-            
+
+        if (c_y != this.camera.y) {
+
             this.camera.y += c_y > this.camera.y ? mag : -mag;
-        
-            if(this.limit_viewport) {
-                
-                this.camera.y = 
+
+            if (this.limit_viewport) {
+
+                this.camera.y =
                     Math.min(
                         this.current_map.height_p - this.viewport.y + this.tile_size,
                         this.camera.y
                     );
-                
-                this.camera.y = 
+
+                this.camera.y =
                     Math.max(
                         0,
                         this.camera.y
@@ -528,12 +534,12 @@ Clarity.prototype.move_player = function () {
             }
         }
     }
-    
-    if(this.last_tile != tile.id && tile.script) {
-    
+
+    if (this.last_tile != tile.id && tile.script) {
+
         eval(this.current_map.scripts[tile.script]);
     }
-    
+
     this.last_tile = tile.id;
 };
 
@@ -548,7 +554,7 @@ Clarity.prototype.update_player = function () {
     if (this.key.up) {
 
         if (this.player.can_jump && this.player.vel.y > -this.current_map.vel_limit.y) {
-            
+
             this.player.vel.y -= this.current_map.movement_speed.jump;
             this.player.can_jump = false;
         }
@@ -594,14 +600,14 @@ Clarity.prototype.draw = function (context) {
 /* Setup of the engine */
 
 window.requestAnimFrame =
-  window.requestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.mozRequestAnimationFrame ||
-  window.oRequestAnimationFrame ||
-  window.msRequestAnimationFrame ||
-  function(callback) {
-    return window.setTimeout(callback, 1000 / 60);
-  };
+    window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (callback) {
+        return window.setTimeout(callback, 1000 / 60);
+    };
 
 var canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d');
@@ -610,21 +616,33 @@ canvas.width = 400;
 canvas.height = 400;
 
 var game = new Clarity();
-    game.set_viewport(canvas.width, canvas.height);
-    game.load_map(map);
+game.set_viewport(canvas.width, canvas.height);
+game.load_map(map);
 
-    /* Limit the viewport to the confines of the map */
-    game.limit_viewport = true;
+/* Limit the viewport to the confines of the map */
+game.limit_viewport = true;
 
-var Loop = function() {
-  
-  ctx.fillStyle = '#333';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
-  game.update();
-  game.draw(ctx);
-  
-  window.requestAnimFrame(Loop);
+var Loop = function () {
+    document.body.addEventListener('click', () => {
+        gameStarted = true;
+    })
+    if (gameStarted&!gameOver) {
+        startTime=Date.now()
+        ctx.fillStyle = '#333';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        game.update();
+        game.draw(ctx);
+        //Removing startscreen ui when player clicks
+        instructions.style.display='none';
+        info.style.display='none';
+        
+    }
+    // if(gameOver){
+    //     endTime=Date.now();
+    //     console.log(endTime-startTime)
+    // }
+    window.requestAnimationFrame(Loop);
 };
 
 Loop();

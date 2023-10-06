@@ -1,37 +1,73 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
-}
+} */
 
 body {
-  background: #f2f2f2;
+  background: grey;
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  text-align: center;
+  height: 97vh;
+
 }
 
 canvas {
-  display:block;
+  color: black;
   margin: 40px auto 20px;
   border: 1px solid #333;
-  box-shadow: 0 0 16px 2px rgba(0,0,0,0.8);
+  box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.8);
 }
 
-p, a {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 19px;
-  color: #777;
-  display: block;
+.instructions {
+  color: white;
+  position: absolute;
+  margin-bottom: 20px;
+  padding: 20px 20px;
   width: 400px;
-  margin: 0 auto;
-  text-align: center;
-  text-decoration:none;
+  font-size: 19px;
+  text-decoration: none;
 }
 
 .info {
-  margin:14px auto;
-  text-align: justify;
+  color: white;
+  position: absolute;
+  width: 400px;
+  text-wrap: wrap;
   font-size: 18px;
-  color: #999;
+  margin-left: 800px;
 }
 
 a {
-  color:#3377ee;
+  color: #3377ee;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to the <p> element */
+.blink {
+  animation: blink 1s infinite;
+  /* Adjust the duration as needed */
+}
+
+/* Add a class to stop the animation */
+.stop-blinking {
+  animation: none;
 }

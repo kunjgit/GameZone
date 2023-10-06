@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Platform game</title>
@@ -7,22 +8,36 @@
   <link rel="stylesheet" href="./style.css">
 
 </head>
+
 <body>
   <div style="text-align: left; margin-left: 40px;
   margin-top: 30px;
   font-size:50px;
-  padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
-<!-- partial:index.partial.html -->
-<canvas id="canvas"></canvas>
+  padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;"
+        class="fas fa-home home-icon"></i></a></div>
+  <!-- partial:index.partial.html -->
+  <canvas id="canvas"></canvas>
 
-<p>
-  Use the left, right and up arrow keys to move.
-</p>
-<p class="info">
-  The map data is fully customisable and scriptable (all contained within the "map" variable). See the comments in the code for instructions.
-</p>
-<br>
-  <script  src="./script.js"></script>
+  <div class="instructions">
+    <p>
+      Use the left, right and up arrow keys to move.
+    </p>
+    <p class="blink" id="blinktext">click anywhere to start</p>
+  </div>
+  <div class="info">
+    <p>
+      The map data is fully customisable and scriptable (all contained within the "map" variable). See the comments in
+      the
+      code for instructions.
+    </p>
+  </div>
+  <!-- <div class="endscreen">
+    <p>YOU DIED!!</p>
+    <p class="blink">click anywhere to try again</p> -->
+  </div>
+  <br>
+  <script src="./script.js"></script>
 
 </body>
+
 </html>

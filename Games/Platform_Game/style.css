@@ -42,6 +42,27 @@ canvas {
   font-size: 18px;
   margin-left: 800px;
 }
+.deathscreen{
+  display: none;
+  color: white;
+  position: absolute;
+  margin-bottom: 20px;
+  padding: 20px 20px;
+  width: 400px;
+  font-size: 19px;
+  text-decoration: none;
+
+}
+.endscreen{
+  display: none;
+  color: white;
+  position: absolute;
+  margin-bottom: 20px;
+  padding: 20px 20px;
+  width: 400px;
+  font-size: 19px;
+  text-decoration: none;
+}
 
 a {
   color: #3377ee;

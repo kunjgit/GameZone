@@ -2,11 +2,16 @@
 // game variable
 let gameStarted = false;
 let gameOver = false;
+let gameEnded = false
 let startTime
 let endTime
+let time=0;
 // html elements
-const instructions= document.querySelector(".instructions");
-const info= document.querySelector(".info");
+const instructions = document.querySelector(".instructions");
+const info = document.querySelector(".info");
+const deathscreen = document.querySelector(".deathscreen");
+const endScreen = document.querySelector(".endscreen");
+const timeText = document.querySelector(".timer")
 /* Customisable map data */
 var map = {
 
@@ -144,8 +149,8 @@ var map = {
         /* you can just use "this" instead of your engine variable ("game"), but Codepen doesn't like it */
         change_colour: 'game.player.colour = "#"+(Math.random()*0xFFFFFF<<0).toString(16);',
         /* you could load a new map variable here */
-        next_level: 'alert("Yay! You won! Reloading map.");game.load_map(map);',
-        death: 'alert("You died!");gameOver=true;game.load_map(map);',
+        next_level: 'endTime=new Date();gameEnded=true',
+        death: 'gameOver=true;',
         unlock: 'game.current_map.keys[10].solid = 0;game.current_map.keys[10].colour = "#888";'
     }
 };
@@ -217,6 +222,7 @@ Clarity.prototype.keydown = function (e) {
     var _this = this;
 
     switch (e.keyCode) {
+        //for arrow keys
         case 37:
             _this.key.left = true;
             break;
@@ -226,6 +232,17 @@ Clarity.prototype.keydown = function (e) {
         case 39:
             _this.key.right = true;
             break;
+        // for a,w,s,d
+        case 65://A
+            _this.key.left = true;
+            break;
+        case 68://D
+            _this.key.right = true;
+            break;
+        case 32://space
+        _this.key.up = true;
+        break;
+        
     }
 };
 
@@ -242,6 +259,16 @@ Clarity.prototype.keyup = function (e) {
             break;
         case 39:
             _this.key.right = false;
+            break;
+                // for a,w,s,d
+                case 65://A
+                _this.key.left = false;
+                break;
+            case 68://D
+                _this.key.right = false;
+                break;
+            case 32://space
+            _this.key.up = false;
             break;
     }
 };
@@ -621,27 +648,64 @@ game.load_map(map);
 
 /* Limit the viewport to the confines of the map */
 game.limit_viewport = true;
+function death() {
+    if (gameOver) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        deathscreen.style.display = 'block';
+    }
+    else {
+        game.load_map(map)
+        deathscreen.style.display = 'none';
+        endScreen.style.display='none';
+        startTime= new Date();
+    }
+
+}
+function gameEnd(){
+    gameStarted=false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    endScreen.style.display='block';
+    time=endTime-startTime;
+    timeText.innerText = time/1000
+
+
+
+}
 
 var Loop = function () {
     document.body.addEventListener('click', () => {
-        gameStarted = true;
+        if(!gameStarted&&!gameEnded){
+            gameStarted=true;
+            startTime = new Date();
+        }
+        else if(gameStarted && gameOver){
+            gameOver=false;
+            death()// to reload the game and hide deathscreen
+        }
+        else if(gameEnded){
+            gameStarted=true;
+            gameEnded=false;
+            death();
+        }
     })
-    if (gameStarted&!gameOver) {
-        startTime=Date.now()
+    if (gameStarted & !gameOver) {
+        
+
         ctx.fillStyle = '#333';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         game.update();
         game.draw(ctx);
         //Removing startscreen ui when player clicks
-        instructions.style.display='none';
-        info.style.display='none';
-        
+        instructions.style.display = 'none';
+        info.style.display = 'none';
+        if(gameOver) death()
+       
+
     }
-    // if(gameOver){
-    //     endTime=Date.now();
-    //     console.log(endTime-startTime)
-    // }
+    if(gameEnded) gameEnd();
+
+   
     window.requestAnimationFrame(Loop);
 };
 

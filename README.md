@@ -160,6 +160,7 @@ This repository also provides one such platforms where contributers come over an
 | 47 | [Starwars Character Game](https://github.com/kunjgit/GameZone/tree/main/Games/Starwars_Character_Game)|
 | 48 | [Traffic Run](https://github.com/kunjgit/GameZone/tree/main/Games/Traffic_Run)|
 | 49 | [Love Result Predictor](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Result_Predictor)|
+| 50 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
 | 51 | [Tower Defense](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Defense)|
 | 52 | [Bird Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bird_game)|
 | 53 | [Bubble Blast Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bubble_Blast_Game)|
@@ -437,7 +438,7 @@ This repository also provides one such platforms where contributers come over an
 | 325 | [QuizzApp](https://github.com/kunjgit/GameZone/tree/main/Games/QuizzApp)|
 | 326 | [Chess Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game)|
 | 327 | [Which Color](https://github.com/sahaycodes/GameZone/tree/main/Games/Which_Color)|
-| 328 | [Snail_Game](https://github.com/sahaycodes/GameZone/tree/meme/Games/Snail_Game)|
+| * | 
 | 329 | [Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Solitaire_up)|
 | 330 | [Slime Attack](https://github.com/apu52/GameZone/tree/Slime-Attack-game/Games/Slime_attack_game)|
 | 331 | [Star_Trek_Trivia](https://github.com/kunjgit/GameZone/tree/starTrek-trivia/Games/Star_Trek_Trivia)|

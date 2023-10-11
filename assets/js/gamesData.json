@@ -245,9 +245,9 @@
     "thumbnailUrl": "Love Result Predictor.webp"
   },
   "50": {
-    "gameTitle": "Snake and Ladders",
-    "gameUrl": "Snake_and_Ladders",
-    "thumbnailUrl": "snake_and_ladder.webp"
+    "gameTitle": "Snail Game",
+    "gameUrl": "Snail_Game",
+    "thumbnailUrl": "Snail_Game.png"
   },
   "51": {
     "gameTitle": "Tower Defense",
@@ -453,7 +453,7 @@
   "89": {
     "gameTitle": "Snake Ladder",
     "gameUrl": "Snake_Ladder",
-    "thumbnailUrl": "snake_ladder.webp"
+    "thumbnailUrl": "snake_and_ladder.webp"
   },
   "90": {
     "gameTitle": "Among Us",
@@ -1639,12 +1639,7 @@
   "326": {
     "gameTitle": "Which Color",
     "gameUrl": "Which_Color",
-    "thumbnailUrl": "Which_Color"
-  },
-  "327": {
-    "gameTitle": "Snail Game",
-    "gameUrl": "Snail_Game",
-    "thumbnailUrl": "Snail_Game"
+    "thumbnailUrl": "Which_Color.jpg"
   }
   
 }

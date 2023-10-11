@@ -1,0 +1,17 @@
+Mole Bash Mania
+Mole Bash Mania is an arcade game, in which the player uses a small rubber mallet to hit robotic toy moles that pop up randomly in holes laid out across the surface of the machine.
+The objective of the game is to hit the mole to get more points.
+The game runs for 15 seconds with the mole moving randomly across 3 x 3 matrix.
+
+Tech Stack
+HTML
+CSS
+Javascript
+
+Functionalities
+Random selection of a hole to place the Mole.
+Start button triggers the timer and movement of Mole across the grid.
+Start button gets disabled untill 20 seconds are over.
+To score 10 points you have to hit the mole by clicking on it before it disappers.
+Counting of total score.
+Responsive Layout.

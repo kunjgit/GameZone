@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip-And-Match-Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/659567f0e4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- <audio autoplay preload="auto" loop id="myAudio">
+        <source src="./sounds/BGM.mp3" type="audio/mp3" >
+    </audio> -->
+    <section class="game_screen">
+        <!-- <div class="menu">
+            <li><img src="./images/high-volume.png" alt=""></li>
+            <li><img src="./images/high-volume.png" alt=""></li>
+            <li><img src="./images/high-volume.png" alt=""></li>
+            <li><img src="./images/high-volume.png" alt=""></li>
+            <li><img src="./images/high-volume.png" alt=""></li>
+            <li><img src="./images/high-volume.png" alt=""></li>
+        </div> -->
+        <div class="grid_wrapper">
+            <div class="grid_cell" id="cell1">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon1.png" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell2">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon2.png" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell3">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon3.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell4">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon4.png" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell5">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon5.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell6">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon6.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell7">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon7.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell8">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon8.png" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell9">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon1.png" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell10">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon2.png" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell11">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon3.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell12">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon4.png" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell13">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon5.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell14">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon6.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell15">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon7.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid_cell" id="cell16">
+                <div class="front_view">
+                    <i class="fa-solid fa-question" style="color: #212121;"></i>
+                </div>
+                <div class="back_view">
+                    <img src="./images/icon8.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="home_screen">
+        <header >
+            <h1>Flip 'n' Match</h1>
+        </header>
+
+        <main>
+            <div class="wrapper">
+                <ul class="game_options">
+                    <li class="option_items" id="play">Play</li>
+                    <li class="option_items" id="level">
+                        <i class="fa-solid fa-caret-left" id="left" style="color: rgba(0, 0, 0, 0.813);"></i>
+                        <p>Easy</p>
+                        <i class="fa-solid fa-caret-right" id="right" style="color: rgba(0, 0, 0, 0.813);"></i>
+                    </li>
+                </ul>
+                <ul class="sounds">
+                    <li id="sound"><img src="./images/high-volume.png" alt=""></li>
+                    <li id="music" class="clicked"><img src="./images/music-note (1).png" alt=""></li>
+                </ul>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Created with ❤️ by Shivansh Goel</p>
+        </footer>
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

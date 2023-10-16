@@ -1,0 +1,109 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
+  }
+  
+  h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #007BFF;
+    text-align: center;
+    font-size: 28px;
+  }
+  
+  #gameContainer {
+    text-align: center;
+    position: relative;
+  }
+  
+  #itemsContainer {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    line-height: 1.6;
+    animation: fadeIn 1s;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  #instruction, #result {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #menuContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .emoji-button {
+    font-size: 30px;
+    padding: 10px;
+    background-color: #eee;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s;
+    outline: none;
+  }
+  
+  .emoji-button.selected {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  #userInput, #checkButton {
+    display: none;
+  }
+  
+  #checkButton {
+    display: block;
+    margin: 20px auto 0;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+  
+  #checkButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

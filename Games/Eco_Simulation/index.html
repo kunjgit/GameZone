@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/svg/utilty/favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/animals.css" />
+    <title>Ocean Ecosystem</title>
+  </head>
+  <body>
+    <div class="tab header">
+      <div class="tab-item">
+        <h2 id="living-count">Population Count: loading</h2>
+      </div>
+      <div class="tab-item">
+        <h2 id="dead-count">Deaths: loading</h2>
+      </div>
+      <div class="tab-item">
+        <h2 id="timer">Simulation Time: loading</h2>
+      </div>
+      <div class="tab-item">
+        <h2 id="settingsBtn" class="fake-btn">Settings</h2>
+      </div>
+      <div class="tab-item">
+        <h3 id="author">
+          <a
+            target="_blank"
+            class="fake-btn"
+            style="text-decoration: none"
+            href="https://github.com/sscorpi/ocean-ecosystem"
+            >Source Code</a
+          >
+        </h3>
+      </div>
+    </div>
+    <div class="settings" id="settings">
+      <button id="settingsClose">Close</button>
+      <div class="sections">
+        <h2>World Rules</h2>
+        <div class="section">
+          <input type="checkbox" name="agingDisabler" id="agingDisabler" />
+          <label for="agingDisabler">Disable Aging</label>
+        </div>
+        <div class="section">
+          <input type="checkbox" name="shrimpSpawn" id="shrimpSpawn" />
+          <label for="shrimpSpawn">Disable Shrimp Spawn</label>
+        </div>
+        <div class="section">
+          <input type="checkbox" name="oldAgeDisabler" id="oldAgeDisabler" />
+          <label for="oldAgeDisabler">Disable Death by Old Age</label>
+        </div>
+        <div class="section">
+          <input type="checkbox" name="hungerDisabler" id="hungerDisabler" />
+          <label for="hungerDisabler">Disable Hunger</label>
+        </div>
+        <div class="section">
+          <input
+            type="checkbox"
+            name="breedingDisabler"
+            id="breedingDisabler"
+          />
+          <label for="breedingDisabler">Disable Breeding</label>
+        </div>
+        <div class="section">
+          <input type="checkbox" name="disableEscaping" id="disableEscaping" />
+          <label for="disableEscaping">Disable Horror</label>
+        </div>
+        <div class="section">
+          <button id="changeBg" class="btn default">
+            Change Background: 1
+          </button>
+        </div>
+      </div>
+      <div class="sections">
+        <h2>General</h2>
+        <div class="section">
+          <input
+            type="checkbox"
+            name="roleContainerHider"
+            id="roleContainerHider"
+          />
+          <label for="roleContainerHider">Hide Role Containers</label>
+        </div>
+        <div class="section">
+          <button id="reset-timer" class="btn default">Reset Timer</button>
+        </div>
+        <h2>Actions</h2>
+        <div class="section">
+          <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="section">
+          <select id="kind">
+            <option value="shark">Shark</option>
+            <option value="piranha">Piranha</option>
+            <option value="angler">Angler Fish</option>
+            <option value="dolphin">Dolphin</option>
+            <option value="octopus">Octopus</option>
+            <option value="goldenfish">Golden Fish</option>
+            <option value="seahorse">Seahorse</option>
+            <option value="clown">Clown Fish</option>
+            <option value="ballon">Balloon Fish</option>
+            <option value="turtle">Sea Turtle</option>
+          </select>
+        </div>
+        <div class="section">
+          <button id="create-animal" class="btn positive">
+            Create Creature
+          </button>
+        </div>
+        <div class="section">
+          <button
+            class="btn negative"
+            title="Eliminate half of living things"
+            id="thanos-snap-btn"
+          >
+            Thanos Snap
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="info-box" class="info-box">
+      <h2>Selected animal info;</h2>
+      <span id="species">Species: </span>
+      <span id="generation">Generation: </span>
+      <span id="genes">Genes: </span>
+      <span id="age">Age: </span>
+      <span id="hunger">Hunger: </span>
+      <span id="speed">Speed: </span>
+      <span id="stamina">Stamina: </span>
+      <button id="kill-fish" class="btn negative">Kill this fish</button>
+      <button id="hide">Hide Box</button>
+    </div>
+    <div class="aquarium"></div>
+    <script type="module" src="src/js/main.js"></script>
+    <script src="src/js/timer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+html {
+    height: 100%;
+    width: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/006/691/887/small/yellow-question-mark-background-with-text-space-quiz-symbol-vector.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: auto;
+    
+  }
+  
+  .container {
+    margin-right:45%;
+    background-color: #fff;
+    width: 520px;
+    height: 500px;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px 10px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    color: black;
+    font-family: monospace;
+    overflow: hidden;
+  }
+  
+  .header {
+    font-size: 1.3rem;
+  }
+  
+  h3 {
+    text-align: center;
+    margin: 0px -2px;
+    padding: 3rem;
+    height: 150px;
+    border-bottom: 2px dotted black;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 30px;
+    width: 480px;
+    height: 170px;
+  }
+  
+  ul li {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    width: 200px;
+    display: inline-block;
+  }
+  
+  ul li label {
+    cursor: pointer;
+  }
+  
+  button {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    background-color: black;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    top: 400px;
+  }
+  button:hover{
+    background-color: rgb(54, 53, 53);
+  }

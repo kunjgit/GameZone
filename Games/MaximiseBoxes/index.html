@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="./js/edge.js"></script>
+  <script defer src="./js/box.js"></script>
+  <script defer src="./js/board.js"></script>
+  <script defer src="./js/game.js"></script>
+  <title>Maximise Boxes</title>
+</head>
+
+<body>
+
+  <div class="settings">
+    <div style="text-align:center;
+    margin-top:-600px;
+      font-size: 30px;
+      padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+    <div class = "form">
+      <h1 class="heading"
+        style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+        ▁ ▂ ▄ ▅ ▆ ▇ █ MAXIMISE BOXES!! █ ▇ ▆ ▅ ▄ ▂ ▁</h1>
+      <h3 class = "instructions-heading">Instructions</h3>
+      <p class="instructions">
+        1. Select the number of rows, columns and players. <br>
+        2. The player who has maximum number of boxes on board is the winner. <br>
+        3. Players will switch after every turn. But the player who has filled the last box, will get one extra chance
+        consecutively. <br></p>
+    </div>
+    <div class="form">
+      <div>
+        <h2>What size of Board do you want? :</h2>
+      </div>
+      <div class="form-item">
+        <label for="rows">Rows : <span class="details">(between 5 and 30)</span></label>
+        <input type="number" id="rows" min="5" max="30" value="6" />
+      </div>
+      <div class="form-item">
+        <label for="columns">Columns : <span class="details">(between 5 and 30)</span></label>
+        <input type="number" id="columns" min="5" max="30" value="6" />
+      </div>
+      <div class="form-item">
+        <label for="players-count">Players : <span class="details">(between 2 and 6)</span></label>
+        <input type="number" id="players-count" min="2" max="6" value="2" />
+      </div>
+      <button class="start-btn">START</button>
+    </div>
+  </div>
+
+  <div class="players" style="margin-top: 50px;"></div>
+  <div class="player-turn">
+    <div class="bg" style="margin-top: 60px;"><span class="name">PlayerX</span>'s turn</div>
+  </div>
+
+  <div class="board" style="margin-top: 154px;"></div>
+
+</body>
+
+</html>

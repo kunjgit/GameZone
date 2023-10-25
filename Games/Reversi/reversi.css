@@ -1,0 +1,52 @@
+* {
+  background-color: black;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#game-board {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 420px;
+  height: 420px;
+}
+
+.square {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  border-top: 100px;
+  background-color: green;
+}
+
+ .highlight {
+  background-color: #58ff66bd;
+} 
+.piece {
+  width: 45px;
+  height: 45px;
+  margin: 2.5px;
+  border-radius: 50%;
+}
+
+.piece-w,
+.piece-wk {
+  background-color: ivory;
+  border: 1px solid rgb(255, 255, 255);
+  box-shadow: 0 10px 10px rgba(71, 71, 71, 0.3);
+}
+
+.piece-b,
+.piece-bk {
+  background-color: black;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 15px 15px rgba(71, 71, 71, 0.3);
+}

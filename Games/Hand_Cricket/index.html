@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /><title>Hand-Cricket</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+</head>
+<body>
+    <div style="text-align: left; margin-left: 40px;
+    margin-top: 30px;
+    font-size: 30px;
+    padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+    <section id="result-box">
+        <div id="restart"><box-icon name='revision' id="rotate" onclick="restart_the_game()"></box-icon></div>
+        <div id="display_result"></div>
+    </section>
+    <div id="game-name">
+        HAND CRICKET
+    </div>
+    <div id="choose-point">
+        <div class="name" ><label for="name-input">NAME</label><input type="text" id="name-input"/></div>
+        <div id="toss">TOSS</div>
+       <div class="box-container" id="toss-container"> <button class="box-name"id="head" onclick="toss_fun()">Head</button> <button class="box-name" id="tail" onclick="toss_fun()">Tail</button></div>
+        <div id="outcome"></div>
+        <div id="choose">CHOOSE</div>
+        <div class="box-container" id="toss-win-container"> <button class="box-name"id="bat" onclick="first_bat()">Bat</button> <button class="box-name" id="ball" onclick="first_ball()">Ball</button></div>
+    </div>
+
+    <section id="score-container">
+        <div id="first-inning-score"></div>
+        <div id="second-inning-score"></div>
+    </section>
+    
+    <section id="game-container">
+        <div>
+            <div id="display-name" class="players-name">YOU</div>
+            <div id="images-container">
+                <button class="run-button" id="run_1"><img src="images/one.png" alt="ONE" class="run" ></button>    
+                <button class="run-button" id="run_2"><img src="images/two.png" alt="TWO"class="run"></button>
+                <button class="run-button" id="run_3"><img src="images/three.png" alt="THREE"class="run" ></button>
+                <button class="run-button" id="run_4"><img src="images/four.png" alt="FOUR"class="run" ></button>
+                <button class="run-button" id="run_5"><img src="images/five.png" alt="FIVE"class="run" ></button>
+                <button class="run-button" id="run_6"><img src="images/six.png" alt="SIX"class="run"></button>
+            </div>
+            <div class="image-output" id="player-run"></div>
+        </div>
+        <div class="line"></div>
+        <div>
+            <div class="players-name">COMPUTER</div>
+            <div class="image-output" id="computer-run"></div>
+        </div>
+    </section>
+
+   
+    <script src="script.js" defer></script>
+</body>
+</html>

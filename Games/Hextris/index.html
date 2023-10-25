@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<title>Hextris</title>
+		<meta name="description" content="An addictive puzzle game inspired by Tetris.">
+		<link rel="icon" type="image/png" href="favicon.ico">
+		<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="style/fa/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<script type='text/javascript' src="vendor/hammer.min.js"></script>
+		<script type='text/javascript' src="vendor/js.cookie.js"></script>
+		<script type='text/javascript' src="vendor/jsonfn.min.js"></script>
+		<script type='text/javascript' src="vendor/keypress.min.js"></script>
+		<script type='text/javascript' src="vendor/jquery.js"></script>
+		<script type='text/javascript' src="js/save-state.js"></script>
+		<script type='text/javascript' src="js/view.js"></script>
+		<script type='text/javascript' src="js/wavegen.js"></script>
+		<script type='text/javascript' src="js/math.js"></script>
+		<script type='text/javascript' src="js/Block.js"></script>
+		<script type='text/javascript' src="js/Hex.js"></script>
+		<script type='text/javascript' src="js/Text.js"></script>
+		<script type='text/javascript' src="js/comboTimer.js"></script>
+		<script type='text/javascript' src="js/checking.js"></script>
+		<script type='text/javascript' src='js/update.js'></script>
+		<script type='text/javascript' src='js/render.js'></script>
+		<script type='text/javascript' src="js/input.js"></script>
+		<script type='text/javascript' src="js/main.js"></script>
+		<script type='text/javascript' src="js/initialization.js"></script>
+		<script src="vendor/sweet-alert.min.js"></script>
+		<link rel="stylesheet" href="style/rrssb.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	</head>
+	<body>
+		<div style="text-align:right;
+		margin-top: 30px;
+		font-size: 30px;
+		padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:rgb(23, 23, 71);" class="fas fa-home home-icon"></i></a></div>
+		<canvas id="canvas"></canvas>
+		<div id="overlay" class="faded overlay"></div>
+		<div id='startBtn' ></div>
+		<div id="helpScreen" class='unselectable'>
+			<div id='inst_main_body'></div>
+		</div>
+		<img id="openSideBar" class='helpText' src="./images/btn_help.svg"/>
+		<div class="faded overlay"></div>
+		<img id="pauseBtn" src="./images/btn_pause.svg"/>
+		<img id='restartBtn' src="./images/btn_restart.svg"/>
+		<div id='HIGHSCORE'>HIGH SCORE</div>
+		<script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-51272720-2', 'auto'); ga('send', 'pageview');
+		</script>
+		<div id='highScoreInGameText'>
+			<div id='highScoreInGameTextHeader'>HIGH SCORE</div><div id='currentHighScore'>10292</div>
+		</div>
+		<div id="gameoverscreen">
+			<div id='container'>
+				<div id='gameOverBox' class='GOTitle'>GAME OVER</div>
+				<div id='cScore'>1843</div>
+				<div id='highScoresTitle' class='GOTitle'>HIGH SCORES</div>
+				<div class='score'><span class='scoreNum'>1.</span> <div id="1place" style="display:inline;">0</div></div>
+				<div class='score'><span class='scoreNum'>2.</span> <div id="2place" style="display:inline;">0</div></div>
+				<div class='score'><span class='scoreNum'>3.</span> <div id="3place" style="display:inline;">0</div></div>
+			</div>
+			<div id='bottomContainer'>
+				<img id='restart' src='./images/btn_restart.svg' height='57px'>
+				<div id='buttonCont'>
+				<ul class="rrssb-buttons">		
+				</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src='vendor/rrssb.min.js'></script>
+	</body>
+</html>

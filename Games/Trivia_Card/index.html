@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Trivia Card</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div style="text-align: center;
+        font-size: 30px;
+        padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+		<h1>Let's Play !</h1>
+		<div id="game">
+			<!--If answer is correct this sound is played -->
+			<audio id="correctSound">
+				<source src="./assets/claps.mp3" type="audio/mpeg" />
+			</audio>
+			<!-- If answer is wrong this sound is played -->
+			<audio id="wrongSound">
+				<source src="./assets/failure.mp3" type="audio/mpeg" />
+			</audio>
+		</div>
+
+		<h2>Score: <span id="score"></span></h2>
+
+		<script src="script.js"></script>
+	</body>
+</html>

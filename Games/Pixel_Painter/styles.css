@@ -1,0 +1,27 @@
+#canvas {
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+}
+
+.pixel {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+#colorPalette {
+  display: flex;
+  margin-top: 10px;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  cursor: pointer;
+}

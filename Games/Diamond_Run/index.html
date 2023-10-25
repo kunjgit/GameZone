@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Diamond Run</title>
+		<style type="text/css">
+
+div, canvas{
+  margin: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+body {
+	overflow-x : hidden;
+	overflow-y : hidden;
+	background: #000;
+}
+
+img {
+	display:none;
+}
+
+div#m {
+	position: fixed;
+    left:30%;
+	top:30%;
+	width:25%;
+	padding:3%;
+	background: #688;
+	color: #fff;
+	border: white 4px solid;
+	border-radius: 10px;
+	z-index:1;
+	font: 3vmin cursive;
+}
+	
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	</head>
+	<body>
+		<div style="text-align:left;margin-top: 20px;margin-left: 40px;
+        font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+		<div>
+		<canvas id="c"></canvas>
+		<canvas id="o"></canvas>
+		<div id="m">.</div>
+		<img id="s" src="images/sprites.png" />
+		</div>
+		<script language="Javascript" src="js/game.js"></script>
+		<script language="Javascript" src="js/levelLoader.js"></script>		
+		<script language="Javascript" src="js/world.js"></script>
+		<script language="Javascript" src="js/renderer.js"></script>		
+		<script language="Javascript" src="js/controls.js"></script>		
+		<script language="Javascript" src="js/main.js"></script>		
+		<script language="Javascript" src="js/menuDriver.js"></script>		
+			
+</body></html>

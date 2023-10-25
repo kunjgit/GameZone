@@ -1,3 +1,8 @@
+function instructions(){
+    alert("Use the arrow keys to move the snake and eat the square boxes.")
+}
+
+
 //Game requirements
 let inputDir={x:0,y:0}
 let direction={x:0,y:0};

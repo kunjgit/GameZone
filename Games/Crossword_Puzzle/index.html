@@ -1,0 +1,165 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossword Puzzle</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+  <div style="text-align:center;
+  font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+ <div class="container crosswordDisplay">
+  
+    <div class="row">
+    <!-- Create & Play buttons required for user generated crossword - disabled for Proscribed questions -->
+        <div class="btn btn-default disabled" id="btnCreate"><strong>Create</strong></div>
+        <div class="btn btn-default disabled" id="btnPlay"><strong>Play</strong></div>
+      
+        <div class="btn btn-default" id="btnReset"><strong>Reset</strong></div>
+         <div class="btn btn-default" id="btnCheck"><strong>Check Answers</strong></div>
+      </div>
+    
+      <div class="center crossword" id="crossword"></div>
+      
+    <div class="btn shuf" id="btnGen"><strong>Shuffle</strong></div>
+      
+      
+      <div class="col-lg-6 ">
+      <div class="clueBlock" id="cluesAcross">
+        <div class="clueDirection" id="directionAcross"><u>ACROSS</u></div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Isa" />
+          <span class="lineNum"></span>
+          <input class="clue" value="The bringer of the Gospel (3)" />
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Dawud" />
+          <span class="lineNum"></span>
+          <input class="clue" value="The bringer of the Psalms (5)" />
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Musa" />
+          <span class="lineNum"></span>
+          <input class="clue" value="The bringer of the Torah (4)" />
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Ibrahim"/>
+          <span class="lineNum"></span>
+          <input class="clue" value="The bringer of the scrolls (7)" />
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Nabi"/>
+          <span class="lineNum"></span>
+          <input class="clue" value="A prophet (4)" />
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Rasul"/>
+          <span class="lineNum"></span>
+          <input class="clue" value="A messenger (4)" />
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Nadir"/>
+          <span class="lineNum"></span>
+          <input class="clue" value="A warner (5)" />
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Risalah"/>
+          <span class="lineNum"></span>
+          <input class="clue" value="(A belief in) the message (7)" />
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Angel"/>
+          <span class="lineNum"></span>
+          <input class="clue" value="An intermediary between God and rasul (5)" />
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Twentyfive"/>
+          <span class="lineNum"></span>
+          <input class="clue" value="Number of prophets mentioned in the Qur’an (10)" />
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Distorted"/>
+          <span class="lineNum"></span>
+          <input class="clue" value="Damaged messages (9)"/>
+        </div>
+    
+        <div class="line">
+          <input class="word" type="text" value="Lost"/>   
+          <span class="lineNum"></span>   
+          <input class="clue" value="The Safira cannot be seen by humanity because they are (4)" />
+        </div>
+        
+        <div class="line">
+          <input class="word" type="text" value="Muhammad"/>   
+          <span class="lineNum"></span>   
+          <input class="clue" value="Final rasul (8)" />
+        </div>
+        
+        <div class="line">
+          <input class="word" type="text" value="Qur'an"/>   
+          <span class="lineNum"></span>   
+          <input class="clue" value="Final message or revelation (6)" />
+        </div>
+        
+        <div class="line">
+          <input class="word" type="text" value="Sinless"/>   
+          <span class="lineNum"></span>   
+          <input class="clue" value="Special quality of a prophet (7)" />
+        </div>
+        
+          <div class="line">
+          <input class="word" type="text" value="DivineAssistance"/>   
+          <span class="lineNum"></span>   
+          <input class="clue" value="In order to work out the meaning of life humanity needs (6, 10) " />
+        </div>
+        
+            <div class="line">
+          <input class="word" type="text" value="Communicate"/>   
+          <span class="lineNum"></span>   
+          <input class="clue" value="God cannot do this directly with humans (11)" />
+        </div>
+        
+        <div class="line">
+          <input class="word" type="text" value="Seal"/>   
+          <span class="lineNum"></span>   
+          <input class="clue" value="Muhammad is known as the ________ of the prophets (4)" />
+        </div>
+        
+        <div class="line">
+          <input class="word" type="text" value="Wahy"/>   
+          <span class="lineNum"></span>   
+          <input class="clue" value="Revelation (4)" />
+        </div>
+        
+        <div class="line">
+          <input class="word" type="text" value="Written"/>   
+          <span class="lineNum"></span>   
+          <input class="clue" value="The message of a rasul is (7)" />
+        </div>
+        
+        </div>      
+      </div>
+      
+      <div class="col-lg-6">
+      <div class="clueBlock" id="cluesDown">
+        <div class="clueDirection" id="directionDown"><u>DOWN</u></div>
+      </div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

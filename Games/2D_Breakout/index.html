@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2D Breakout Game</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Germania+One">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+
+    <div style="text-align: left; margin-left: 10px;
+    margin-top: 10px;
+    font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a>
+    </div>
+
+    <div class="Game-Card">
+    <div class="sound">
+        <img src="img/SOUND_ON.png" alt="sound-on" id="sound">
+    </div>
+    
+    <div id="gameover">
+        <img src="img/youwon.png" alt="youwon" id="youwon">
+        <img src="img/gameover.png" alt="gameover" id="youlose">
+        <div id="restart">Play Again!</div>
+    </div>
+   
+    <canvas id="breakout" width="400" height="500"></canvas>
+    </div>
+    
+    <script src="components.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

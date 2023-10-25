@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <style>
+        html, body {
+          width:  100%;
+          height: 100%;
+          margin: 0px;
+          overflow: hidden;
+          display: block;
+          background: #222a33;
+        }
+        canvas{
+          border: 3px solid #dd2244;
+        }
+        #container{
+            margin: auto;
+            text-align: center;
+        }
+        #timer{
+            margin: 10px auto;
+            height: 15px;
+            background-color: #ccc;
+        }
+        #timerBar{
+            background-color: #0c0;
+            height: 15px;
+            text-align: center;
+        }
+        #cable{
+            margin: 10px auto;
+            height: 15px;
+            background-color: #ccc;
+        }
+        #cableBar{
+            background-color: #04a;
+            height: 15px;
+            text-align: center;
+            color: white;
+        }
+        #popover {
+            background-color: rgba(0, 68, 170, 0.85);
+            border-radius: 5px;
+            bottom: 42px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+            color: #fff;
+            display: none;
+            font-size: 12px;
+            font-family: 'Helvetica',sans-serif;
+            padding: 7px 10px;
+            position: absolute;
+            width: 150px;
+            z-index: 4;
+
+          }
+          #popover::before {
+            border-top: 7px solid rgba(0,0,0,0.85);
+                border-right: 7px solid transparent;
+                border-left: 7px solid transparent;
+                bottom: -7px;
+                content: '';
+                display: block;
+                left: 50%;
+                margin-left: -7px;
+                position: absolute;
+          }
+          #curtain {
+            text-align: center;
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-color: #111;
+            color: #eee;
+          }
+          #startButton{
+            background-color: #0000CC;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+          }
+          #startButton:hover {
+            box-shadow: 0 1px 10px 0 rgba(220, 220, 220, 0.24), 0 1px 15px 0 rgba(220, 220, 220, 0.19);
+          }
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    </head>
+    <body>
+        <div id="curtain">
+          <div style="text-align:center;
+          font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+            <br /><br />
+            <h1>Welcome to Cable Maze</h1>
+            <h2>We need to replace the LAN cable. You have to connect the LAN cable to the socket (blue circle) before everything goes offline !</h2>
+            <p>Use arrow keys to move inside the maze</p>
+            <p>Remember two things are limited : <strong>time</strong> and <strong>cable length</strong></p>
+            <button id="startButton"><b>Start Now</b></button>
+        </div>
+        <div style="text-align:center;
+        font-size: 15px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+        <div id="timer">
+            <div id="timerBar">Time</div>
+        </div>
+        <div id="container">
+            <canvas id='gameCanvas' tabindex=0></canvas>
+        </div>
+        <div id="cable">
+            <div id="cableBar">Cable</div><span id="popover">No more cable remaining !</span>
+        </div>
+
+        <script src='main.js'></script>
+    </body>
+</html>

@@ -1,22 +1,27 @@
 var name1 = "Player1";
 var name2 = "Player2";
 $(".start").click(function(){
-    $("#dicebtn").css("visibility","visible");
-    //$(".turn").show();
     $(".diceimg").css("opacity","1");
-    name1 = prompt("Enter player 1's name : ");
-    $(".pl1").text(name1);
 
-    name2 = prompt("Enter player2's name : ");
-    $(".pl2").text(name2);
+    dicebtn.style.display='block';
 
+ name1= document.getElementById("pl1").value;
+ name2= document.getElementById("pl2").value;
+
+if (name1!=name2){
+    
+    let ctr = 1, c1 = -1, c2 = -1;
+    if (name1===""||name2==="") alert("Enter the name.");
+    else{
+        window.location="#target";
+document.getElementById("plr1").innerHTML = name1;
+document.getElementById("plr2").innerHTML = name2;
     $(".start").text("New Game");
 
     $(".pl1path").attr("src","images\\path\\path-1.png");
     $(".pl2path").attr("src","images\\path\\path-1.png");
     $(".turn").text(name1+"\'s turn");
 
-    var ctr = 1, c1 = -1, c2 = -1;
     $(".roll").click(function(){
         //ctr++;
         var num=Math.floor(Math.random()*6+1);
@@ -37,7 +42,7 @@ $(".start").click(function(){
                     if(c1==9){
                         $(".pl1path").attr("src","images\\path\\pathvictory.png");
                         $(".turn").text(name1+"\ wins!!");
-                        $("#dicebtn").css("visibility","hidden");
+                        dicebtn.style.display='none';
                       //  $(".turn").hide();
                         $(".diceimg").css("opacity","0.5");
                         return;
@@ -62,7 +67,7 @@ $(".start").click(function(){
                     if(c2==9){
                         $(".pl2path").attr("src","images\\path\\pathvictory.png");
                         $(".turn").text(name2+"\ wins!!");
-                        $("#dicebtn").css("visibility","hidden");
+                        dicebtn.style.display='none';
                        // $(".turn").hide();
                         $(".diceimg").css("opacity","0.5");
                         return;
@@ -97,8 +102,8 @@ $(".start").click(function(){
                     if(c1==9){
                         $(".pl1path").attr("src","images\\path\\pathvictory.png");
                         $(".turn").text(name1+"\ wins!!");
-                        $(".roll").hide();
-                       // $(".turn").hide();
+                        dicebtn.style.display='none';
+                              // $(".turn").hide();
                         $(".diceimg").css("opacity","0.5");
                         return;
                     }
@@ -115,7 +120,7 @@ $(".start").click(function(){
                     if(c2==9){
                         $(".pl2path").attr("src","images\\path\\pathvictory.png");
                         $(".turn").text(name2+"\ wins!!");
-                        $(".roll").hide();
+                        dicebtn.style.display='none';
                       //  $(".turn").hide();
                         $(".diceimg").css("opacity","0.5");
                         return;
@@ -128,4 +133,14 @@ $(".start").click(function(){
     if(c1==9 || c2==9){
         return;
     }
+}
+}
+else if (name1===""||name2==="") alert("Enter the name.");
+else alert("Names are same, enter different names.")
 });
+
+function roll(){
+    if(document.getElementById("begin").innerHTML=="Begin Game") {
+    alert('Please click "Begin Game".');
+    window.location="#landing-container";}
+}

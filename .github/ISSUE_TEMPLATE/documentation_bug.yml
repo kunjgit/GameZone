@@ -31,6 +31,7 @@ body:
       label: Select program in which you are contributing
       multiple: true
       options:
+        - hacktoberfest
         - GSSoC23
         - Other
   - type: checkboxes

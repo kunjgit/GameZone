@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Space Exploration</title>
+<meta name="viewport" content="width=device-width">
+<meta name="monetization" content="$coil.xrptipbot.com/IaQo0r8KT6aT9SCXmCK-ag">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAk0lEQVQ4ja3TsQ3CMBCF4TeCW1J4CqehZRIEEyQLeAGP5AXSpqaFATzATwXIIGKso3jFWbpPZ1snSRjzKmKMAP0AwLquANyupR9IKQFQSt3sNTPo3AZyzpRSnuMfRJW9Loxa2m8QQvhofmTU8g2pD0yA19wEdjpuAZMNMF/hL4DpG9/jNTHo9Psu9MY5ZwPME0jiDv1Zar/nQik/AAAAAElFTkSuQmCC">
+<!--delete from here-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link rel="stylesheet" href="res/game.css">
+<script src="res/global.js" defer></script>
+<script src="res/storage.js" defer></script>
+<script src="res/fullscreen.js" defer></script>
+<script src="res/music.js" defer></script>
+<script src="res/melody.js" defer></script>
+<script src="res/draw.js" defer></script>
+<script src="res/update.js" defer></script>
+<script src="res/play.js" defer></script><!--play inits gold-->
+<script src="res/unlock.js" defer></script><!--unlock uses gold-->
+<script src="res/game.js" defer></script>
+<!--delete to here-->
+<!--delete line
+<style>
+insert min.css
+</style>
+delete line-->
+</head><body>
+    <div style="text-align: left; margin-left: 20px;
+    margin-top: 10px;
+    font-size: 30px;"><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+<section id="menu">
+<h1>Space Exploration</h1>
+<p>Explore <b>space</b> by flying from planet to planet. You don’t have to visit all planets, just try to go as far as possible.</p>
+<p>To leave the orbit of a planet just click or tap the screen, or press the <i>space</i>bar.</p>
+<p>The more successful you are, the more coins you get. Use these coins to unlock new spacecrafts for your next explorations.</p>
+<h2>Spacecrafts</h2>
+<button id="button0">
+<canvas id="spaceship0" width="40" height="40"></canvas><br>Record: <span id="record0"></span>
+</button>
+<button id="button1" disabled>
+<div class="e"><canvas id="spaceship1" width="40" height="40"></canvas><br>Record: <span id="record1"></span></div>
+<div class="d"><span class="large-q">?</span><br>Collect 10 coins<br>to unlock</div>
+</button>
+<button id="button2" disabled>
+<div class="e"><canvas id="spaceship2" width="40" height="40"></canvas><br>Record: <span id="record2"></span></div>
+<div class="d"><span class="large-q">?</span><br>Collect 25 coins<br>to unlock</div>
+</button>
+<button id="button3" disabled>
+<div class="e"><canvas id="spaceship3" width="40" height="40"></canvas><br>Record: <span id="record3"></span></div>
+<div class="d"><span class="large-q">?</span><br>Collect 50 coins<br>to unlock</div>
+</button>
+<button id="button4" disabled>
+<div class="e"><canvas id="spaceship4" width="40" height="40"></canvas><br>Record: <span id="record4"></span></div>
+<div class="d"><span class="large-q">?</span><br>Subscribe to Coil<br>to unlock</div>
+</button>
+<p>Select your spacecraft to start the game.</p>
+<p>Collect coins to unlock new spacecrafts. Currently you have <span id="gold"></span> coins.</p>
+<p>The last spacecraft is exclusively for Coil subscribers—or for passionate players who collect 5000 coins.</p>
+<h2>Planets</h2>
+<table>
+<tr><td><canvas id="planet0" width="60" height="60"></canvas></td><td>There is nothing special about <b>blue planets</b>.</td></tr>
+<tr><td><canvas id="planet1" width="60" height="60"></canvas></td><td><b>Orange planets</b> are cloudy, which makes it hard to see where you are.</td></tr>
+<tr><td><canvas id="planet2" width="60" height="60"></canvas></td><td><b>Red planets</b> are dangerous! Leave them as soon as possible after arrival.</td></tr>
+<tr><td><canvas id="planet5" width="60" height="60"></canvas></td><td><b>Green planets</b> will brighten up when it is a good time to leave.</td></tr>
+<tr><td><canvas id="planet6" width="60" height="60"></canvas></td><td>If you get lost in space after leaving a <b>violet planet</b>, a wormhole will appear and save you once.</td></tr>
+<tr><td><canvas id="planet4" width="60" height="60"></canvas></td><td>When you reach a <b>silver planet</b> you get 5 coins.</td></tr>
+<tr><td><canvas id="planet3" width="60" height="60"></canvas></td><td>When you reach a <b>golden planet</b> you get 10 coins.</td></tr>
+</table>
+</section>
+<section id="game" hidden>
+<header id="header">
+<label><input type="checkbox" id="fullscreen"><span class="on"><svg title="Exit fullscreen [f]" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff"><path d="M22,3.41l-5.29,5.29L20,12h-8V4l3.29,3.29L20.59,2L22,3.41z M3.41,22l5.29-5.29L12,20v-8H4l3.29,3.29L2,20.59L3.41,22z"/></svg></span><span class="off"><svg title="Enter fullscreen [f]" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff"><polygon points="21,11 21,3 13,3 16.29,6.29 6.29,16.29 3,13 3,21 11,21 7.71,17.71 17.71,7.71"/></svg></span></label>
+<label><input type="checkbox" id="sound"><span class="on"><svg title="Mute music [m]" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff"><path d="M15 8v8.55c-.94-.54-2.1-.75-3.33-.32-1.34.48-2.37 1.67-2.61 3.07a4.007 4.007 0 0 0 4.59 4.65c1.96-.31 3.35-2.11 3.35-4.1V10h2c1.1 0 2-.9 2-2s-.9-2-2-2h-2c-1.1 0-2 .9-2 2z"/></svg></span><span class="off"><svg title="Unmute music [m]" height="24px" viewBox="0 0 24 24" width="24px" fill="#fff"><path d="M17 12.61V10h2c1.1 0 2-.9 2-2s-.9-2-2-2h-2c-1.1 0-2 .9-2 2v3.61l2 2zM8.12 6.56a.996.996 0 1 0-1.41 1.41l8.29 8.3v.28c-.94-.54-2.1-.75-3.33-.32-1.34.48-2.37 1.67-2.61 3.07a4.007 4.007 0 0 0 4.59 4.65c1.96-.31 3.35-2.11 3.35-4.1v-1.58l5.02 5.02a.996.996 0 1 0 1.41-1.41L8.12 6.56z"/></svg></span></label>
+</header>
+<canvas id="canvas"></canvas>
+<div id="overlay" hidden>
+<h2>You are lost in space.</h2>
+<p id="result"></p>
+<p><button id="button-retry"><svg height="24px" width="24px" viewBox="0 0 24 24" fill="#fff"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg> Retry</button></p>
+<p><button id="button-menu"><svg height="24px" width="24px" viewBox="0 0 24 24" fill="#fff"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg> Menu</button></p>
+</div>
+</section>
+<!--delete line
+<script>
+insert min.js
+</script>
+delete line-->
+</body></html>

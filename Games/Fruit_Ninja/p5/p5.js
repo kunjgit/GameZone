@@ -37389,7 +37389,6 @@
                 for (i = glyphs.length - 1; i > 0; i -= 1) {
                   var g = glyphs.get(i);
                   if (g.unicode > 65535) {
-                    console.log('Adding CMAP format 12 (needed!)');
                     isPlan0Only = false;
                     break;
                   }

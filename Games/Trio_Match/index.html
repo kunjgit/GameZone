@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Block Puzzle Game</title>
+  <meta name="viewport" content="width=device-width"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+<body>
+  <div style="text-align: left; margin-left: 10px;
+    margin-top: 30px;
+    font-size: 40px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+<!-- partial:index.partial.html -->
+<div class="info">
+  <div class="points hide">Points: 0</div>
+  <div class="level hide">Level: 0</div>
+  <div class="clicks hide">Clicks: 0</div>
+</div>
+
+<div class="container">
+  <div class="col">
+    <div class="start">Start</div>
+  </div>
+</div>
+
+<div id="restart" class="restart hide">Restart Level</div>
+
+<div class="rules">
+  <h2>Rules</h2>
+  <ol>
+    <li>
+  		This is a game of matching colors. When three match up they will go away and you will get points. Only three will clear if more than three of the same color touch.
+    </li>
+    <li>
+      Click on a row and the entire row will move to the top of the column.
+    </li>
+    <li>
+      When the blocks are cleared the blocks on the right will move left in their own row.
+    </li>
+    <li>
+      The fewer the clicks made the more points you will gain.
+    </li>
+  </ol>
+  <p>
+  	There are a total of 25 levels to play! Have fun!
+  </p>
+</div>
+
+<!--
+  Color Pallette "Flat" by darqfaux via colourlovers.com
+  ... found at this link:
+  http://www.colourlovers.com/palette/101556/Flat
+
+  with the addition of beccapurple #663399 
+-->
+<!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

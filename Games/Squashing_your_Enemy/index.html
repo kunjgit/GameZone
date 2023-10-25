@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squashing your enemy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body{
+            margin: 0;
+            background: rgb(0, 0, 0);
+            overflow:hidden;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: right; margin-left: 20px;
+        font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+    <div class = "fixed text-white text-sm ml-2 mt-2 select-none">
+        <span>Score : </span>
+        <span id="score">0</span>
+    </div>
+    <div class="fixed inset-0 flex items-center justify-center" id="pointscard">
+        <div class="bg-white max-w-md w-full p-6 text-center">
+            <h1 class="text-4xl font-bold" id="pointscardscore">0</h1>
+            <p class = "text-sm text-gray-700">Points</p>
+            <div>
+                <button class = "bg-gray-500 text-white w-full py-3 rounded-full" id="startgame">Start Game</button>
+            </div>
+        </div>
+    </div>
+    <canvas></canvas>
+    <script src="script.js"></script>
+</body>
+</html>

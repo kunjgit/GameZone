@@ -73,7 +73,7 @@ window.onload = function () {
     document.addEventListener("keydown", moveDino);
 }
 
-function update() {
+function update(e) {
     requestAnimationFrame(update);
     if(gameOver){
         if(e.code == "KeyR"){
@@ -132,7 +132,7 @@ function moveDino(e) {
 
 }
 
-function placeCactus() {
+function placeCactus(e) {
     if(gameOver){
         if(e.code == "KeyR"){
             resetGame();

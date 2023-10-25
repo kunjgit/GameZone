@@ -1,7 +1,7 @@
 //Game requirements
 let inputDir={x:0,y:0}
 let direction={x:0,y:0};
-let speed=10;
+// let speed=10;
 let score=0;
 let lastPaintTime=0;
 let snakeArr=[{x:Math.round(2+16*Math.random()),y:Math.round(2+16*Math.random())}];
@@ -10,6 +10,12 @@ let foodSound=new Audio('./assets/food.mp3');
 let gameOverSound=new Audio('./assets/gameover.mp3');
 let moveSound=new Audio ('./assets/move.mp3');
 let musicSound=new Audio('./assets/music.mp3')
+
+//game level
+
+function easy(){
+    let speed = 10
+}
 
 //Game Function
 function isCollide(snakeArr){

@@ -8,7 +8,7 @@ The objective of the game is simple: control a snake and gobble up as many apple
 
 ## **Description 📃**
 Welcome to our exhilarating 3D Snake Game, a dazzling feat of frontend development crafted with HTML, CSS, and JavaScript.
-- Technology Stack used are HTML,CSS,Java
+- Technology Stack used are HTML,CSS
 
 ## **functionalities 🕹️**
 - The game area will contain a snake.

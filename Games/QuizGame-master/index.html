@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+    <link href="./assets/style.css" type="text/css" rel="stylesheet" />
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+    <title>API-Trivia</title>
+  </head>
+  <body>
+    <div>
+      <header
+        class="mdc-top-app-bar mdc-top-app-bar--short"
+        style="background: transparent;"
+      >
+        <div class="mdc-top-app-bar__row">
+          <section
+            class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+            style="justify-content: space-between;"
+          >
+            <button
+              class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+            >
+              menu
+            </button>
+            <span
+              class="mdc-top-app-bar__title"
+              style="font-size: 2.1rem; color: black"
+              >Quiz Game</span
+            >
+          </section>
+          <section
+            class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+            role="toolbar"
+          >
+            <button
+              id="sign-in-or-out-button"
+              onclick="trySampleRequest();"
+              style="margin-left: 25px"
+            >
+              Sign In/Authorize
+            </button>
+            <button
+              class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+              aria-label="Bookmark this page"
+            >
+              bookmark
+            </button>
+          </section>
+        </div>
+      </header>
+      <div id="results" class="animated zoomIn">
+        Winner!
+      </div>
+      <div
+        class="mdc-card demo-card"
+        style="margin: 40px auto 80px;max-width: 756px;padding:10px;"
+      >
+        <div
+          class="mdc-card__primary-action demo-card__primary-action"
+          tabindex="0"
+        >
+          <div
+            id="questionPic"
+            class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+          ></div>
+          <div class="demo-card__primary">
+            <h2
+              id="question"
+              class="demo-card__title mdc-typography mdc-typography--headline6"
+            ></h2>
+            <h3
+              class="demo-card__subtitle mdc-typography mdc-typography--subtitle2"
+            >
+              Choices:
+            </h3>
+          </div>
+          <div
+            id="choices"
+            class="demo-card__secondary mdc-typography mdc-typography--body2"
+          ></div>
+        </div>
+        <div class="mdc-card__actions">
+          <div class="mdc-card__action-buttons">
+            <button
+              id="submit"
+              class="mdc-button mdc-card__action mdc-card__action--button"
+            >
+              <span class="mdc-button__ripple"></span> Submit
+            </button>
+          </div>
+          <div class="mdc-card__action-icons">
+            <button
+              class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
+              title="Share"
+              data-mdc-ripple-is-unbounded="true"
+            >
+              share
+            </button>
+            <button
+              class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
+              title="More options"
+              data-mdc-ripple-is-unbounded="true"
+            >
+              more_vert
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script type="text/javascript" src="./assets/googleAuth.js"></script>
+    <!-- <script
+      async
+      defer
+      src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()"
+    ></script> -->
+    <script type="text/javascript" src="./assets/progress-ring.js"></script>
+    <script type="text/javascript" src="./assets/app.js"></script>
+  </body>
+</html>

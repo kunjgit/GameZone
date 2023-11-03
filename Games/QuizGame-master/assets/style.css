@@ -1,0 +1,46 @@
+body {
+    background: burlywood;
+}
+
+.demo-card {
+    margin-top: 160px !important;
+}
+
+#questionPic {
+    display: flex;
+    justify-content: center;
+}
+
+#choices {
+    display: flex;
+    flex-direction: column;
+}
+
+#submit {
+    background: repeating-radial-gradient(black, transparent 100px);
+    color: white;
+}
+
+.mdc-icon-button {
+    color: black !important;
+}
+
+.mdc-top-app-bar {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, .12);
+}
+
+.mdc-top-app-bar__row {
+    height: 80px !important;
+}
+
+#results {
+    display: none;
+    font-size: 6rem;
+    border: 5px dashed black;
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+    top: 100px;
+    position: relative;
+    font-size: 2.6rem;
+}

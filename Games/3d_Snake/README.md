@@ -24,7 +24,6 @@ Welcome to our exhilarating 3D Snake Game, a dazzling feat of frontend developme
 - With each apple consumed, your snake will extend its length, making navigation more challenging.
 - Remember, the game is over if your snake collides with a wall or itself.
 
-
 ## **Tips 💡**
 
 Here are some useful tips to maximize your gaming experience:

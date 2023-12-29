@@ -18,10 +18,11 @@ const generateLiTags = gamesData => {
                 <img src="./assets/images/${thumbnailUrl}" alt="${gameTitle}" loading="lazy">
               </figure>
               <h3 class="project-title"><a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label=${gameTitle}>${tagNumber}. ${gameTitle} 🔗</a></h3>
-              <p class="project-category">Play and have fun!</p>
+              <p class="project-category" ><button class="project-category2" ><a href="./Games/${gameUrl}" target = "_blank" aria-label=${gameTitle}" target="_blank" </a>Play and have fun!</button></p>
             </a>
           </li>
         `;
+       
 
       liTags.push(liTag);
     }

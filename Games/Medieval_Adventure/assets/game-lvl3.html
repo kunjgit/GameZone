@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Battle</title>
+</head>
+<link rel="stylesheet" href="../style.css" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+<body class="game3" id="game">
+    <div id="game-bloc">
+        <div id="character-bloc">
+            <div id="character-hp__container">
+                <div id="character-hp"></div>    
+            </div>
+            <div id="character-energy__container">
+                <div id="character-energy"></div>
+            </div>
+            <div id="character-xp__container">
+                <div id="character-xp"></div>
+            </div>
+        </div>
+        <div id="monster-bloc3" class="dragon">
+            <div id="monster-hp__container">
+                <div id="monster-hp"></div>
+            </div>
+        </div>
+    </div>
+    <div id="infos-bloc">
+        <div id="spell-bloc">
+            <div id="spell1" class="btn btn-spell"><img src="./img/Potion.png"></img>
+            </div>
+            <div id="spell2" class="btn btn-spell"><img src="./img/Sword.png"></img>
+            </div>
+            <div id="next" class="btn btn-spell">Pass</div>
+        </div>
+        <div id="log-bloc">
+            <p>...</p>
+        </div>
+        <div id="counter-bloc">
+            <p>Round 0</p>
+            
+        </div>
+
+    </div>    
+    <script type='module' src="../assets/module/game-lvl3.js"></script>
+</body>
+
+</html>

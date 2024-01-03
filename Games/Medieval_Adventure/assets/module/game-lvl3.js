@@ -37,7 +37,7 @@ const hpJoueurMax = joueur.hp;
 const energieJoueurMax = joueur.energie;
 
 document.getElementById("counter-bloc").innerHTML = 'Round </br>' + tour;
-document.getElementById("log-bloc").innerHTML = heroName + " gagne de l'experience, il continue sa route et tombe sur un dragon !!";
+document.getElementById("log-bloc").innerHTML = heroName + " gains experience, continues on his way and comes across a dragon !";
 document.getElementById("character-xp").style.width = '60%';
 joueur.xp += 6;
 
@@ -61,10 +61,10 @@ capacite2.addEventListener('click', function () {
 
 pass.addEventListener('click', function () {
     if (window.localStorage.getItem('Protection') == 'true'){
-        document.getElementById("log-bloc").innerHTML = heroName + ' se protège, il ne reçoit donc aucun dégat.'
+        document.getElementById("log-bloc").innerHTML = heroName + ' protects itself, so it doesn\'t take any damage.'
         window.localStorage.setItem('Protection', 'false');
     } else {
-        document.getElementById("log-bloc").innerHTML = 'Le monstre vous inflige ' + ennemi.attack(joueur) + " dégats.";
+        document.getElementById("log-bloc").innerHTML = 'The monster inflicts ' + ennemi.attack(joueur) + " damage.";
         let hpJoueurRestant = joueur.hp * 100 / hpJoueurMax;
         document.getElementById("character-hp").style.width = hpJoueurRestant+'%';
         if (joueur.hp <= 0){

@@ -1,0 +1,23 @@
+.player-bases [player-id="P3"].player-base {
+    border-color: #FFDE15;
+}
+
+.player-bases [player-id="P2"].player-base {
+    border-color: #049645;
+}
+
+.player-bases [player-id="P3"].player-base {
+    top: 0;
+    right: 0;
+    left: unset;
+    border-color: #049645;
+    border-radius: 0 10% 0 0;
+}
+
+.player-bases [player-id="P2"].player-base {
+    top: 0;
+    left: 0;
+    right: unset;
+    border-color: #FFDE15;
+    border-radius: 10% 0 0 0 ;
+}

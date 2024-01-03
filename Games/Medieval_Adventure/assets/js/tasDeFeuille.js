@@ -6,7 +6,7 @@ class TasDeFeuille extends Monster {
     }
 
     /**
-    * Attaque du monstre
+    * Attack
     */
     attack(ennemi){
         var degat = Math.floor(Math.random() * this.power) + 1;

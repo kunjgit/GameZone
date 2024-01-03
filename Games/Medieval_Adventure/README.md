@@ -8,7 +8,7 @@
 To complete the game, you'll have to fight the various creatures in your path, making strategic choices. 
 
 ## **functionalities 🎮**
-You can choose your character, a knight or a sorcerer. Each has two different abilities, making for a different gaming experience. 
+You can choose your character, a warrior or a wizard. Each has two different abilities, making for a different gaming experience. 
 
 <br>
 

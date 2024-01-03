@@ -12,7 +12,7 @@ class Wizard extends Character{
     }
 
     /**
-    * Soin
+    * Care
     */
     capacite1(){
         if (this.energie >= 5 ){
@@ -31,7 +31,7 @@ class Wizard extends Character{
     }
 
     /**
-     * Attaque basique du hero 
+     * Attack
      */
     capacite2(ennemi){
         if(this.energie >= 2){

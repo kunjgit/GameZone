@@ -11,6 +11,7 @@ class Monster{
         this.energie = energie;
     }
 
+    // Setter and getter
     get getHp() {
         return this.hp;
     }

@@ -26,7 +26,7 @@ class Blob extends Character {
     }
 
     /**
-     * Attaque
+     * Attack
      */
     capacite2(ennemi){
         if(this.energie >= 1){

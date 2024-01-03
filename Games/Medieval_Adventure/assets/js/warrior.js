@@ -12,7 +12,7 @@ class Warrior extends Character {
     }
 
     /**
-    * Bouclier
+    * Shield
     */
     capacite1(){
         if(this.energie >= 4){
@@ -24,7 +24,7 @@ class Warrior extends Character {
     }
 
     /**
-     * Epée
+     * Sword
      */
     capacite2(ennemi){
         if(this.energie >= 2){

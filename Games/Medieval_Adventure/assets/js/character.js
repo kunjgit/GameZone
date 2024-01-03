@@ -1,12 +1,12 @@
 class Character{
     /**
      * Personnage choisi
-     * @param {string} name Nom du personnage
-     * @param {int} hp Point de vie du personnage
-     * @param {int} power Pouvoir du personnage
-     * @param {int} xp Xp du personnage
-     * @param {int} xpMax Xp Max du personnage
-     * @param {int} energie Energie du personnage
+     * @param {string} name Name 
+     * @param {int} hp Hp
+     * @param {int} power Power
+     * @param {int} xp Xp
+     * @param {int} xpMax Xp Maximum
+     * @param {int} energie Energie
      */
 
     constructor(name, hp, power, xp, xpMax, energie){
@@ -17,7 +17,7 @@ class Character{
         this.xpMax = xpMax;
         this.energie = energie;
     }
-
+    // Setter and Getter
     get getName() {
         return this.name;
     }

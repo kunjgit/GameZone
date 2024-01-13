@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="icon" type="image/png" href="./Image/icon.png" />
+    <title>Gun_From_Sound</title>
+  </head>
+  <body>
+    <div id="intro">
+      <h1>Gun From Sound</h1>
+      <p>
+        This is a guess game for guessing the correct name of the weapon. You
+        will given three gun firing sound and You will get three chance to identify it.
+        The more you take chance the less you will get score.
+      </p>
+      <button id="start_btn">
+        Lets Start<i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+    <div id="game" class="showResult">
+      <div id="image_box">
+        <audio
+          controls
+          controlsList="nodownload"
+          src=""
+          type="audio/mp3"
+        ></audio>
+      </div>
+      <ul>
+        <li id="opt1">Value1</li>
+        <li id="opt2">Value2</li>
+        <li id="opt3">Value3</li>
+        <li id="opt4">Value4</li>
+      </ul>
+      <div class="option">
+        <button id="next_ques">
+          Next<i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+    <div id="result" class="showReplay">
+      <h1>Awesome you are a Pro Player<br />Your score is 5</h1>
+      <button id="replay">Play Again<i class="fa-solid fa-play"></i></button>
+    </div>
+    <script src="info.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+const info = [
+    { audio_src: "./asset/AA-12.mp3", option1: "Benelli Supernova", option2: "Banelli M1", option3: "AA-12", option4: "Double Barreled Shotgun", answer: "AA-12"},
+    { audio_src: "./asset/AK_47.mp3", option1: "AK-9", option2: "ACR", option3: "AKM", option4: "AK-47", answer: "AK-47"},
+    { audio_src: "./asset/PKM.mp3", option1: "AK-74", option2: "AK-12", option3: "PKM", option4: "AK-107", answer: "PKM"},
+    { audio_src: "./asset/BanelliM4.mp3", option1: "AM17", option2: "AMP-69", option3: "BanelliM4", option4: "Beretta ARX160", answer: "BanelliM4"},
+    { audio_src: "./asset/Barrett50M82.mp3", option1: "Barrett50M82", option2: "AR-15", option3: "AA-12", option4: "Pindad SS2", answer: "Barrett50M82"},
+    { audio_src: "./asset/Desert_Eagle.mp3", option1: "Vektor CR-21", option2: "Valmet M76", option3: "Desert_Eagle", option4: "Sturmgewehr 44", answer: "Desert_Eagle"},
+    { audio_src: "./asset/G36.mp3", option1: "Armsel Striker", option2: "Remington Model 10", option3: "G36", option4: "MAUL", answer: "G36"},
+    { audio_src: "./asset/M95.mp3", option1: "AW50", option2: "M95", option3: "AX50", option4: "Remington MSR", answer: "M95"},
+    { audio_src: "./asset/M249.mp3", option1: "GL06", option2: "GLX 160", option3: "M249", option4: "GP-25", answer: "M249"},
+    { audio_src: "./asset/MP5.mp3", option1: "AA52", option2: "AEK-999", option3: "Breda 38", option4: "MP5", answer: "MP5"},
+    { audio_src: "./asset/MP40.mp3", option1: "MP40", option2: "AMT AutoMag", option3: "Beretta M9", option4: "Astra Model 903", answer: "MP40"},
+    { audio_src: "./asset/P90.mp3", option1: "Valmet M76", option2: "T86", option3: "P90", option4: "Stoner 63", answer: "P90"},
+    { audio_src: "./asset/PKM.mp3", option1: "SR-47", option2: "SAR-21", option3: "PKM", option4: "Rk-62", answer: "PKM"},
+    { audio_src: "./asset/SPAS12.mp3", option1: "Bazooka", option2: "SPAS12", option3: "MK-153", option4: "M72 LAW", answer: "SPAS12"},
+    { audio_src: "./asset/Thompson.mp3", option1: "Thompson", option2: "AK-9", option3: "MK-153", option4: "AK-63", answer: "Thompson"},
+];

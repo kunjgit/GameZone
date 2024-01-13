@@ -1375,6 +1375,28 @@ main {
 
 .project-item>a {
   width: 100%;
+  position: relative;
+}
+
+.project-item .favouriteIconWrapper {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.favorites {
+  position: fixed;
+  width: 2rem;
+  height: 2rem;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
 }
 
 .project-img {

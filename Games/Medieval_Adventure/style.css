@@ -1,0 +1,452 @@
+/*GLOBAL*/
+
+body {
+    background-color: black;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: rgb(69, 50, 50);
+    text-align: center;
+}
+
+h1,h2,h3,h4,p{
+    font-family: 'VT323', monospace;
+}
+
+.btn {
+    background-color: rgb(76, 57, 57);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    border-bottom: 7px solid rgb(69, 50, 50);
+    padding: 5px 15px 5px 15px;
+    font-size: 2vw;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(96, 79, 79);
+    border-color: rgb(76, 57, 57);
+}
+
+.btn:active {
+    background-color: rgb(76, 57, 57);
+    border-color: rgb(69, 50, 50);
+}
+
+.btn-spell img {
+    height: 25px;
+    width: auto;
+}
+
+/* CHOIX PERSO */
+
+#inscription-bloc,
+#win-bloc,
+#game-over-bloc {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s;
+}
+
+#persoName {
+    background-color: rgb(99, 79, 79);
+    color: white;
+    padding: 10px;
+    font-size: 1.5vw;
+    border: none;
+    border: 4px inset rgb(69, 50, 50);
+}
+
+#perso-select__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.perso-select__card {
+    height: 190px;
+    width: 220px;
+    margin: 100px;
+    background-repeat: no-repeat;
+    border: 5px solid rgb(69, 50, 50);
+    border-radius: 10px;
+    transition: all 0.6s;
+    cursor: pointer;
+}
+
+.perso-select__card:hover {
+    transform: scale(1.2);
+}
+
+.perso-select__card::after {
+    content: " ";    
+    background-size: contain;
+    position: absolute;
+    bottom: 0;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+}
+
+/*GAME*/
+
+.index {
+    background-image: url(./assets/img/Fond.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.game {
+    background-image: url(./assets/img/Map1.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.game2 {
+    background-image: url(./assets/img/Map2.png);
+    background-size: cover;
+    height: 100vh;
+}
+.game3 {
+    background-image: url(./assets/img/Map3.png);
+    background-size: cover;
+    height: 100vh;
+}
+.game-over {
+    background-image: url(./assets/img/Fond.png);
+    background-size: cover;
+    height: 100vh;
+}
+.win {
+    background-image: url(./assets/img/Fond.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+#game-bloc {
+    width: 80%;
+    height: 200px;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#character-bloc,
+#monster-bloc {
+    width: 90px;
+    height: 200px;
+    margin-left: 50px;
+    margin-right: 50px;
+    transform: scale(1.5);
+    transition: opacity 0.6s all;
+    position: relative;
+}
+
+#monster-bloc3 {
+    width: 150px;
+    height: 200px;
+    margin-left: 50px;
+    margin-right: 50px;
+    transform: scale(1.5);
+    transition: opacity 0.6s all;
+    position: relative;
+}
+
+
+#character-hp__container,
+#monster-hp__container {
+    content: " ";
+    position: absolute;
+    width: 100px;
+    height: 10px;
+    background-color: black;
+    top: 0;
+    left: 0;
+}
+
+#character-hp,
+#monster-hp {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#character-energy__container {
+    content: " ";
+    position: absolute;
+    width: 100px;
+    height: 10px;
+    background-color: black;
+    top: -10px;
+    left: 0;
+}
+
+#character-energy {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#character-xp__container {
+    content: " ";
+    position: absolute;
+    width: 100px;
+    height: 10px;
+    top: -20px;
+    left: 0;
+}
+
+#character-xp {
+    content: " ";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: green;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* ACTION BLOC */
+
+#infos-bloc {
+    position: fixed;
+    width: 100%;
+    bottom: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+
+#actions-bloc {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    display: flex;
+}
+
+#spell-bloc,
+#counter-bloc,
+#log-bloc {
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin: 10px;
+}
+
+#log-bloc {
+    width: 30vw;
+}
+
+
+
+/* ANIMATIONS */
+
+.wizardIdleIndex {
+    animation: wizardIdleIndex 1.2s steps(6) infinite;
+    background-size: auto;
+    background: url("./assets/img/Idle.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes wizardIdleIndex {
+    100% {
+        background-position: -1386px;
+    }
+}
+.wizardIdle {
+    animation: wizardIdle 1.2s steps(6) infinite;
+    background-size: auto;
+    background: url("./assets/img/Idle.png") -67px;
+    background-repeat: no-repeat;
+}
+
+@keyframes wizardIdle {
+    100% {
+        background-position: -1453px;
+    }
+}
+
+.warriorIdleIndex {
+    animation: warriorIdleIndex 1.2s steps(6) infinite;
+    background-size: auto;
+    background: url("./assets/img/Warrior.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes warriorIdleIndex {
+    100% {
+        background-position: -1386px;
+    }
+}
+
+.warriorIdle {
+    animation: warriorIdle 1.2s steps(6) infinite;
+    background-size: auto;
+    background: url("./assets/img/Warrior.png") -67px;
+    background-repeat: no-repeat;
+}
+
+@keyframes warriorIdle {
+    100% {
+        background-position: -1453px;
+    }
+}
+
+.blobIdle {
+    animation: blobIdle 1.2s steps(6) infinite;
+    background-size: auto;
+    background: url("./assets/img/Blob.png") -67px;
+    background-repeat: no-repeat;
+}
+
+@keyframes blobIdle {
+    100% {
+        background-position: -1453px;
+    }
+}
+
+.monsterdIdle {
+    animation: monsterdIdle 1.2s steps(9) infinite;
+    background-size: auto;
+    background: url("./assets/img/IdleMonster.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes monsterdIdle {
+    100% {
+        background-position: -810px;
+    }
+}
+
+.monsterFeuilleIdle {
+    animation: monsterFeuilleIdle 1.2s steps(5) infinite;
+    background-size: auto;
+    background: url("./assets/img/Monster-lvl2-idle.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes monsterFeuilleIdle {
+    100% {
+        background-position: -600px;
+    }
+}
+
+.dragon {
+    animation: dragon 1.2s steps(4) infinite;
+    background-size: auto;
+    background: url("./assets/img/Dragon.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes dragon {
+    100% {
+        background-position: -576px;
+    }
+}
+
+.animAttack {
+    animation: animAttack 0.5s steps(8);
+    background-size: auto;
+    background: url("./assets/img/Attack1.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes animAttack {
+    100% {
+        background-position: -1848px;
+    }
+}
+
+.animAttack2 {
+    animation: animAttack2 0.5s steps(8);
+    background-size: auto;
+    background: url("./assets/img/Attack2.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes animAttack2 {
+    100% {
+        background-position: -1848px;
+    }
+}
+
+.animAttack3 {
+    animation: animAttack3 800s steps(4);
+    background-size: auto;
+    background: url("./assets/img/Attack3.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes animAttack3 {
+    100% {
+        background-position: -736px;
+    }
+}
+
+.animDeath {
+    animation: animDeath 1.2s steps(7);
+    background-size: auto;
+    background: url("./assets/img/Death.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes animDeath {
+    100% {
+        background-position: -1617px;
+    }
+}
+
+.animHitMonster {
+    animation: animHitMonster 1.2s steps(3);
+    background-size: auto;
+    background: url("./assets/img/hitmonster.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes animHitMonster {
+    100% {
+        background-position: -270px;
+    }
+}
+
+.animAttackMonster {
+    animation: animAttackMonster 1.2s steps(16);
+    background-size: auto;
+    background: url("./assets/img/Attack.png") left center;
+    background-repeat: no-repeat;
+}
+
+@keyframes animAttackMonster {
+    100% {
+        background-position: -1440px;
+    }
+}

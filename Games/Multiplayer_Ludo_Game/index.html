@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LudoJS Tutorial</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body onload="reset()">
+    <div class="playerNumber">
+        <button class="number1 selected" onclick="changePlayer(1)">1</button>
+        <button class="number2" onclick="changePlayer(2)">2</button>
+        <button class="number3" onclick="changePlayer(3)">3</button>
+        <button class="number4" onclick="changePlayer(4)">4</button>
+    </div>
+    <div class="names">
+        <div class="player1 display">
+            <label class="input">
+                <input class="input__field player1name" type="text" placeholder=" " />
+                <span class="input__label">Player 1</span>
+            </label>
+        </div>
+        <div class="player2">
+            <label class="input">
+                <input class="input__field player2name" type="text" placeholder=" " />
+                <span class="input__label">Player 2</span>
+            </label>
+        </div>
+        <div class="player3">
+            <label class="input">
+                <input class="input__field player3name" type="text" placeholder=" " />
+                <span class="input__label">Player 3</span>
+            </label>
+        </div>
+        <div class="player4">
+            <label class="input">
+                <input class="input__field player4name" type="text" placeholder=" " />
+                <span class="input__label">Player 4</span>
+            </label>
+        </div>
+    </div>
+    <button class="start" onclick="start()">START</button>
+    <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LudoJS Tutorial</title>
+    <link rel="stylesheet" href="../common/style.css">
+    <link rel="stylesheet" href="./style2.css">
+</head>
+<body>
+    <div class="ludo-container">
+        <div class="ludo">
+            <div class="player-pieces">
+                <div class="player-piece" player-id="P1" piece="0">
+                    <img class="player-piece-img" src="../assets/images/horse-blue.svg"/>
+                </div>
+                <div class="player-piece" player-id="P1" piece="1">
+                    <img class="player-piece-img" src="../assets/images/horse-blue.svg"/>
+                </div>
+                <div class="player-piece" player-id="P1" piece="2">                    
+                    <img class="player-piece-img" src="../assets/images/horse-blue.svg"/>
+                </div>
+                <div class="player-piece" player-id="P1" piece="3">
+                    <img class="player-piece-img" src="../assets/images/horse-blue.svg"/>
+                </div>
+                
+                <div class="player-piece" player-id="P2" piece="0">
+                    <img class="player-piece-img" src="../assets/images/horse-yellow.svg"/>
+                </div>
+                <div class="player-piece" player-id="P2" piece="1">
+                    <img class="player-piece-img" src="../assets/images/horse-yellow.svg"/>
+                </div>
+                <div class="player-piece" player-id="P2" piece="2">
+                    <img class="player-piece-img" src="../assets/images/horse-yellow.svg"/>
+                </div>
+                <div class="player-piece" player-id="P2" piece="3">
+                    <img class="player-piece-img" src="../assets/images/horse-yellow.svg"/>
+                </div>
+
+                <div class="player-piece" player-id="P3" piece="0">
+                    <img class="player-piece-img" src="../assets/images/horse-green.svg"/>
+                </div>
+                <div class="player-piece" player-id="P3" piece="1">
+                    <img class="player-piece-img" src="../assets/images/horse-green.svg"/>
+                </div>
+                <div class="player-piece" player-id="P3" piece="2">
+                    <img class="player-piece-img" src="../assets/images/horse-green.svg"/>
+                </div>
+                <div class="player-piece" player-id="P3" piece="3">
+                    <img class="player-piece-img" src="../assets/images/horse-green.svg"/>
+                </div>
+            </div>
+
+            <div class="player-bases">
+                <div class="player-base" player-id="P1"></div>
+                <div class="player-base" player-id="P2"></div>
+                <div class="player-base" player-id="P3"></div>
+                <div class="player-base" player-id="P4"></div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="row">
+                <button id="dice-btn" class="btn btn-dice">Roll</button>
+                <div class="dice-value"></div>
+                <button id="reset-btn" class="btn btn-reset">Reset</button>
+                <button id="reset-btn" class="btn btn-reset" onclick="window.location.href = '../index.html'">Menu</button>
+            </div>
+            <h2 class="active-player">Active Player: <span></span> </h2>
+        </div>
+    </div>
+
+    <script src="./index.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #87CEEB; /* Sky Blue */
+  }
+  
+  .ladoo-catcher {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #FFD700; /* Gold */
+    border-radius: 50%;
+  }
+  
+  .ladoo, .non-edible {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  .ladoo {
+    background-color: #8B4513; /* Saddle Brown */
+  }
+  
+  .non-edible {
+    background-color: #808080; /* Gray */
+  }
+  
+  #score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #FF4500; /* Orange Red */
+    font-size: 30px;
+    font-weight: bold;
+  }
+  

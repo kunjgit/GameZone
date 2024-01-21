@@ -1388,6 +1388,8 @@ main {
   transform: translate(-50%, -50%) scale(var(--scale));
   font-size: 15px;
   text-align: center;
+  font-size: 15px;
+  text-align: center;
   padding: 18px;
   border-radius: 12px;
   opacity: 0;

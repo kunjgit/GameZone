@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  canvas {
+    background-image:url(assets/img/back.png);
+    display: block;
+    margin: auto;
+    border: 2px solid white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  h1{
+    color: aliceblue;
+    position:absolute;
+    size:large;
+    padding:30px;
+  }
+  /* Existing styles */
+canvas {
+  background-color: black;
+  display: block;
+  margin: auto;
+  border: 2px solid white;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+#gameOver {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#restartButton {
+  padding: 10px 20px;
+  background-color: #db3434;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#restartButton:hover {
+  background-color: #b92935;
+}
+
+.hidden {
+  display: none;
+}

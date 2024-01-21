@@ -1404,19 +1404,24 @@ main {
 }
 
 .project-item-icon-box {
-  --scale: 0.8;
-
+  --scale: 0.7;
   background: var(--jet);
   color: var(--orange-yellow-crayola);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(var(--scale));
-  font-size: 20px;
+  font-size: 15px;
+  text-align: center;
   padding: 18px;
   border-radius: 12px;
   opacity: 0;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   transition: var(--transition-1);
 }
 
@@ -1440,8 +1445,8 @@ main {
 
 
 #joystick {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
   transition: var(--transition-1);
   aspect-ratio: 1.25/1;
@@ -2511,16 +2516,24 @@ textarea.form-input::-webkit-resizer {
 }
 
 .search-container:hover > .search-input {
-  width: 800px;
+  width: 600px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 920px) {
+  .search-container:hover > .search-input {
+    width: 90vw;
+    font-size: 16px;
+  }
 }
 
 .search-container .search-input {
   background: transparent;
   border: none;
   outline: none;
-  width: 0px;
+  width: 10px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 0px;
   transition: 0.8s;
 }
 .search-container ::placeholder{
@@ -2532,7 +2545,6 @@ textarea.form-input::-webkit-resizer {
   right: 12px; /* Adjusted right positioning for icon */
 }
 .search-btn{
-  padding-right:10px ;
 }
 
 /*-----------------------------------*\
@@ -2547,6 +2559,8 @@ textarea.form-input::-webkit-resizer {
   justify-content: center;
   align-items: center;
   margin-top: 5rem;
+  width: 100%;
+  gap: 2rem;
 }
 
 #prev-page-tile,
@@ -2577,19 +2591,23 @@ textarea.form-input::-webkit-resizer {
   justify-content: center;
   flex-wrap: wrap;
   margin-right: 5px;
+  gap: 5px;
 }
 
 /* pagination styling */
 .pagination_section .page-tile {
   border: 2px solid rosybrown;
   font-size: 20px;
-  padding: 5px 15px;
-  margin: 2px;
   color: wheat;
   cursor: pointer;
   border-radius: 50%;
   opacity: 0.7;
   transition: all 0.5s ease 0s;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* pagination hover effect on non-active */
@@ -2663,7 +2681,6 @@ textarea.form-input::-webkit-resizer {
 
 /* GameZone heading **/
 .heading {
-  margin-top: -2%;
   font: 5.5vw/1 Permanent Marker;
   display: flex;
   align-items: center;
@@ -2671,8 +2688,6 @@ textarea.form-input::-webkit-resizer {
   height: auto;
   text-align: center;
   color: snow;  
-  padding-bottom: 6%;
-  padding-top: 3%;
 }
 
 span {

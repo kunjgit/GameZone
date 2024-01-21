@@ -14,11 +14,13 @@ const generateLiTags = gamesData => {
               <figure class="project-img">
                 <div class="project-item-icon-box">
                   <img id="joystick" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Eye" width="3" />
+                  <p class="gameTitle">${gameTitle}</p>
                 </div>
                 <img src="./assets/images/${thumbnailUrl}" alt="${gameTitle}" loading="lazy">
               </figure>
-              <h3 class="project-title"><a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label=${gameTitle}>${tagNumber}. ${gameTitle} 🔗</a></h3>
-              <p class="project-category">Play and have fun!</p>
+              <!-- <h3 class="project-title"><a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label=${gameTitle}>${tagNumber}. ${gameTitle} 🔗</a></h3>
+               <p class="project-category">Play and have fun!</p>
+              -->
             </a>
           </li>
         `;

@@ -22,7 +22,7 @@ body:
       label: Select program in which you are contributing
       multiple: true
       options:
-        - IWOC 2.0
+        - IWOC2024
         - hacktobefest
         - GSSoC23
         - Other

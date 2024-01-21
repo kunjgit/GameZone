@@ -75,3 +75,27 @@ jobs:
               issue_number: number,
               labels: ["hacktoberfest"]
             });
+
+      - name: Add label if issue body contains "IWOC2024"
+        id: check_label_iwoc
+        run: |
+          if grep -qE "IWOC2024" <<< "${{ github.event.issue.body }}"; then
+            echo "::set-output name=add_label_iwoc::true"
+          else
+            echo "::set-output name=add_label_iwoc::false"
+          fi
+
+      - name: Add label "IWOC2024"
+        if: ${{ steps.check_label_iwoc.outputs.add_label_iwoc == 'true' }}
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const { owner, repo, number } = context.issue;
+
+            await github.issues.addLabels({
+              owner: owner,
+              repo: repo,
+              issue_number: number,
+              labels: ["IWOC2024"]
+            });

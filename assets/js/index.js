@@ -14,8 +14,6 @@ const generateLiTags = (gamesData) => {
               <figure class="project-img">
                 <div class="project-item-icon-box">
                   <img id="joystick" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Eye" width="3" />
-                  <p class="gameTitle">${gameTitle}</p>
-                  <p class="gameTitle">${gameTitle}</p>
                 </div>
                 <img src="./assets/images/${thumbnailUrl}" alt="${gameTitle}" loading="lazy">
               </figure>

@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: url("./images/pokeball2.png"),auto;
+    background-color: black;
+    /* z-index: -1; */
+}
+.game_screen::before{
+    content: "";
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: url("https://wallpapers.com/images/hd/all-pokemon-pictures-03imn29v8gsd3lup.jpg") no-repeat center/cover;
+    /* filter: blur(1px); */
+    opacity: 0.4;
+    z-index: 0;
+
+}
+.game_screen{
+    /* position: absolute; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* background: url("https://wallpapers.com/images/hd/all-pokemon-pictures-03imn29v8gsd3lup.jpg") center center/cover; */
+    align-items: center;
+    background-color: black;
+    /* padding:4vh 0vw; */
+    width: 100vw !important;
+    /* z-index: 100; */
+    /* background-color: rgb(205, 57, 57); */
+    color: rgb(177, 177, 177);
+    display: none;
+    /* border: 2px solid red; */
+}
+.game_screen .menu{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 40vh;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: flex-start;
+    justify-content: space-around;
+    /* border: 2px solid red; */
+    margin-right: 10vw;
+}
+.menu li{
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+.menu li img{
+    display: flex;
+    width: 90%;
+    /* border: 2px solid red; */
+}
+.grid_wrapper::before{
+    content: "";
+    width: 590px;
+    height: 590px;
+    margin: -20px;
+    border-radius: 10px;
+    position: absolute;
+    background: url("https://www.coliseugeek.com.br/wp-content/uploads/2023/01/6776c-clickwallpapers-pokemon-4k-img2-scaled-1.jpg") no-repeat center/cover;
+    filter: blur(1px);
+    opacity: 1;
+    z-index: -1;
+
+}
+.grid_wrapper{
+    display: grid;
+    width: 550px;
+    height: 550px;
+    padding: 20px;
+    border-radius: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    column-gap: 13px;
+    row-gap: 13px;
+    z-index: 1;
+    /* background-color: rgb(0, 0, 0); */
+}
+.grid_cell{
+    width: 125px;
+    height: 125px;
+    display: flex;
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    box-shadow: 0.1px 0.1px 5px 1px rgba(0, 0, 0, 0.422);
+    background-color: antiquewhite;
+}
+.grid_cell .front_view{
+    display: none;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+    text-shadow: 4px 2px 5px green;
+}
+.grid_cell .back_view{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.visible{
+    display: flex !important;
+}
+.grid_cell .back_view img{
+    display: flex;
+    border-radius: 10px;
+    width: 100%;
+    max-height: 100%;
+}
+.home_screen::before{
+    content: "";
+    width: 100%;
+    height: 104vh;
+    margin: -20px;
+    border-radius: 10px;
+    position: absolute;
+    background: url("https://wallpapers.com/images/hd/pikachu-with-pokemon-friends-uxxa8pvbvsqj0v3h.jpg") no-repeat center/cover;
+    filter: blur(1px);
+    opacity: 0.2;
+    z-index: -1;
+
+}
+.home_screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* display: none; */
+}
+.home_screen header h1{
+    font-size: 6em;
+    margin: 5vh 0 0 0;
+    color: rgb(0, 204, 255);
+    /* background-color: aqua; */
+}
+.wrapper{
+    height: 60vh;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color: blueviolet; */
+}
+.game_options{
+    list-style-type: none;
+    /* background-color: aliceblue; */
+    width: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.option_items{
+    color: rgba(0, 0, 0, 0.813);
+    display: flex;
+    /* border: 2px solid red; */
+    min-width: 70%;
+    justify-content: center;
+    background-color: rgb(60, 86, 172);
+    background-image: linear-gradient(#F0433C,#FEC329);
+    font-size: 3em;
+    border-radius: 20px;
+    margin: 1vh 0vw;
+    padding: 2vh 1vw;
+}
+#level{
+    display: flex;
+    justify-content: space-between;
+}
+.sounds{
+    display: flex;
+    /* border: 2px solid red; */
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+    align-items: center;
+    /* align-content: center; */
+    /* border: 2px solid red; */
+    /* min-width: 70%; */
+}
+.clicked{
+    opacity: 0.5;
+    scale: 0.9;
+    transition: 0.5s;
+}
+.sounds li{
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+.sounds li img{
+    width: 70%;
+    display: flex;
+}
+.correct{
+    scale: 1.2 !important;
+    opacity: 0 !important;
+    transform: rotateZ(5deg) !important;
+    transition: 0.2s !important;
+    visibility: hidden;
+}
+.home_screen footer{
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+}

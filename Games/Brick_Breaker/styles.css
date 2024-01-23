@@ -5,7 +5,6 @@ body {
   margin: 0 auto;
   text-align: center;
 }
-
 #header-container {
   text-align: center;
   font-size: 40px;
@@ -16,4 +15,11 @@ body {
   font-size: 24px;
   color: white;
   padding: 10px;
+}
+
+/* RESPONSIVENESS */
+@media only screen and (max-width: 800px) {
+  #gameCanvas {
+    width: 100%;
+  }
 }

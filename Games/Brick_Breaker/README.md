@@ -5,7 +5,7 @@
 <br>
 
 ## **Description 📃**
-- This is a classic Brick Breaking Game made using HTML & CSS only that we all know and love!
+- This is a classic Brick Breaking Game made using HTML & CSS, JS only that we all know and love!
 
 ## **functionalities 🎮**
 - Features of a classic Brick Breaking Game

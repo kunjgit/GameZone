@@ -5,27 +5,44 @@
 <br>
 
 ## **Description 📃**
-In the 2D Breakout game, you need to break all the bricks using a bouncing ball, a ball that you need to prevent from leaving the game area using the paddle.
-- 
+In the 2D Breakout game, your objective is to eliminate all the bricks by controlling a bouncing ball and ensuring it doesn't exit the game area by maneuvering the paddle!
 
-## **functionalities 🎮**
+
+## **Functionalities 🎮**
 <!-- add functionalities over here -->
-When the ball hit the paddle, the ball should go in a definite direction based on where the ball hit the paddle so the paddle won't act like a wall. which means you can determine where the ball goes when you hit it with the paddle.
+- When the ball hits the paddle, it will move in a specific direction determined by the point of impact on the paddle, ensuring that the paddle doesn't act as an immovable barrier. 
+This allows you to control the ball's trajectory when striking it with the paddle.
 
-We have the bricks in the game, add a collision detection function, when the ball hit a brick, the brick must disappear and then increment the player's score.
+- Within the game, we also implemented a collision detection function. For example, when the ball collides with a brick, the brick disappears, and the player's score increments accordingly.
 
-The player has 3 lives, when he loses a life, we reset the ball position and give him a chance to continue playing, when he loses all the 3 lives, it's a game over, we show him a game over message, and a "play again" button to play over.
+- The player starts with 3 lives. If a life is lost, the ball's position resets, granting the player an opportunity to continue playing. When all 3 lives are lost, the game ends, displaying a "Game Over" message and a "Play Again" button for restarting.
 
-To win the game, the player has to break all the bricks on each level, and he has to complete 7 levels, when he passes from a level to another, the number of bricks increases and also the speed of the ball.
+- To achieve victory in the game, the player must break all the bricks on each of the 7 levels. As the player progresses through the levels, the number of bricks increases, and so does the ball's speed.
 
-We have also implement some sounds in the game, and we will create a button for when you want to turn ON/OFF the sounds.
-- 
+> We implemented interactive sounds into the game and added a toggle sound button in the left lower corner of the screen to turn the sound OFF/ON!
+
 <br>
 
 ## **How to play? 🕹️**
 <!-- add the steps how to play games -->
-We have draw the paddle and the ball, we will be able to control the paddle using the left and the right arrows on the keyboard, we will make the ball moves, and we will also implement the collision detection logic, so when the ball hits a wall it must change the direction.
-- 
+In order to install and start playing the game on your local computer, please follow these steps:
+1. Fork the [GameZone](https://github.com/eludwin/GameZone) repository.
+    a. Fork the repository by clicking on the fork button on the top of the GameZone's page. This will create a copy of GameZone's repository in your account.
+2. Clone the repository to your machine.
+    a. Go to your GitHub account, open the forked repository, click on the code button and then click the copy to clipboard icon.
+    b. Open a terminal and run the following git command:
+```
+git clone "url you just copied"
+```
+3. Open the 2D_Breakout file.
+4. Run index.html in your default browser.
+5. Enjoy the game!
+
+### **Game Mechanics**:
+- Both the paddle and the ball are drawn on the screen. 
+- The paddle control is enabled through the left and right arrow keys on the keyboard. 
+- The ball's movement is animated when it touches the paddle.
+- Due to collision detection logic, when the ball hits a wall, it changes direction accordingly.
 
 <br>
 
@@ -37,7 +54,7 @@ We have draw the paddle and the ball, we will be able to control the paddle usin
 
 <br>
 
-## **Working video 📹**
+## **Video Preview 📹**
 <!-- add your working video over here -->
 
 

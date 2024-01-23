@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #120381;
+    padding: 1rem;
+  }
+  
+  .game-container {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    background-color: #c6fa0b;
+    border: 5px solid #333;
+    overflow: hidden;
+  }
+  
+  .monster {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #d60f94;
+    border: 2px solid #333;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #070101;
+    font-size: 18px;
+  }
+  

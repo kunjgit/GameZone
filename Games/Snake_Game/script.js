@@ -16,6 +16,10 @@ let gameOverSound=new Audio('./assets/gameover.mp3');
 let moveSound=new Audio ('./assets/move.mp3');
 let musicSound=new Audio('./assets/music.mp3')
 
+//game level
+
+
+
 //Game Function
 function isCollide(snakeArr){
     //Self Bump 

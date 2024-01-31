@@ -23,7 +23,7 @@ const resetGame = () => {
 const getRandomWord = () => {
     // Selecting a random word and hint from the wordList
     const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
-    currentWord = word; // Making currentWord as random word
+    currentWord = word.toUpperCase(); // Making currentWord as random word
     document.querySelector(".hint-text b").innerText = hint;
     resetGame();
 }
@@ -37,37 +37,67 @@ const gameOver = (isVictory) => {
     gameModal.classList.add("show");
 }
 
-const initGame = (button, clickedLetter) => {
-    // Checking if clickedLetter is exist on the currentWord
+
+const initGame = (clickedLetter) => {
+    let guessedAll = true;
+
+    // Checking if clickedLetter exists in the currentWord
     if(currentWord.includes(clickedLetter)) {
         // Showing all correct letters on the word display
         [...currentWord].forEach((letter, index) => {
             if(letter === clickedLetter) {
-                correctLetters.push(letter);
+                correctLetters[index] = letter; // Storing correct letters with their position
                 wordDisplay.querySelectorAll("li")[index].innerText = letter;
                 wordDisplay.querySelectorAll("li")[index].classList.add("guessed");
             }
         });
     } else {
-        // If clicked letter doesn't exist then update the wrongGuessCount and hangman image
+        // If clicked letter doesn't exist, then update the wrongGuessCount and hangman image
         wrongGuessCount++;
         hangmanImage.src = `images/hangman-${wrongGuessCount}.svg`;
+        guessedAll = false;
     }
-    button.disabled = true; // Disabling the clicked button so user can't click again
+
+    // Disabling the clicked button
+    document.querySelectorAll(`.keyboard button`).forEach(button => {
+        if (button.innerText === clickedLetter) {
+            button.disabled = true;
+        }
+    });
+
     guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
 
-    // Calling gameOver function if any of these condition meets
+    // Checking if all letters have been guessed correctly
+    [...currentWord].forEach((letter, index) => {
+        if (correctLetters[index] !== letter) {
+            guessedAll = false;
+        }
+    });
+
+    // Calling gameOver function if any of these conditions meet
     if(wrongGuessCount === maxGuesses) return gameOver(false);
-    if(correctLetters.length === currentWord.length) return gameOver(true);
+    if(guessedAll) return gameOver(true);
 }
 
-// Creating keyboard buttons and adding event listeners
-for (let i = 97; i <= 122; i++) {
-    const button = document.createElement("button");
-    button.innerText = String.fromCharCode(i);
-    keyboardDiv.appendChild(button);
-    button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
-}
+
+// Creating a qwerty keyboard button and adding event listeners
+const qwertyRows = [
+    ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+    ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
+];
+
+qwertyRows.forEach(row => {
+    const rowDiv = document.createElement("div");
+    rowDiv.className = "keyboard-row";
+    row.forEach(letter => {
+        const button = document.createElement("button");
+        button.innerText = letter;
+        rowDiv.appendChild(button);
+        button.addEventListener("click", () => initGame(letter));
+    });
+    keyboardDiv.appendChild(rowDiv);
+});
 
 getRandomWord();
 playAgainBtn.addEventListener("click", getRandomWord);

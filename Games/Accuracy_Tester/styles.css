@@ -1,0 +1,84 @@
+body {
+  background-color: #363636;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: #b1b1b1;
+}
+
+#gameContainer {
+  margin-top: 20px;
+  position: relative;
+}
+
+#score,
+#highScore,
+#timer,
+#lives {
+  font-size: 20px;
+  color: #b1b1b1;
+  margin-bottom: 10px;
+}
+
+#circles {
+  position: relative;
+  width: 1300px;
+  height: 700px;
+  margin: 0 auto;
+  background-color: #858585;
+  border: 7px solid #000000;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  animation: circle 2s linear forwards;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f00;
+  cursor: pointer;
+  transition: top 0.5s ease-in-out, left 0.5s ease-in-out;
+}
+
+@keyframes circle {
+  100% {
+    transform: scale(0);
+  }
+}
+
+.circle:hover {
+  background-color: #f00;
+  transform: scale(1.2);
+}
+
+#scoreValue,
+#highScoreValue {
+  font-weight: bold;
+}
+
+#timerValue,
+#livesValue {
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+.start-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  #circles {
+    width: 80%;
+    height: 300px;
+  }
+}

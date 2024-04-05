@@ -35,7 +35,7 @@ Accuracy Tester
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-    ![Game image](../../assets/images/Accuracy_Tester.jpeg)
+    ![image](../../assets/images/Accuracy_Tester.jpeg)
 <br>
 
 

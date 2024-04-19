@@ -44,66 +44,77 @@ class Character{
     
 }
 
-class Player{
-    constructor(guessCount = 3, questionCount = 0){
-        this.guessCount = guessCount
-        this.questionCount = questionCount
+// Define a class named Player
+class Player {
+    // Constructor method with default values for guess count and question count
+    constructor(guessCount = 3, questionCount = 0) {
+        // Initialize instance variables
+        this.guessCount = guessCount; // Number of guesses allowed
+        this.questionCount = questionCount; // Number of questions answered
+        // Array of game character names
         this.currentChars = [
             "mario", "luigi", "bowser", "cloud", "donkeykong", "doom",
             "ganon", "inkling", "jinx", "joker", "kratos", "lara",
             "leon", "link", "masterchief", "nathan", "pacman", "pikachu",
             "ryu", "samus", "snake", "steve", "tracer", "zelda",
-        ]
-
-    }
-    updateGuessCount(){
-        this.guessCount--
-        guessCounter.textContent = this.guessCount
-    }
-    updateQuestionCount(){
-        this.questionCount++
-        questionCounter.textContent = this.questionCount
-    }
-    win(){
-        resultTitle.textContent = "Congrats! You won!"
-        scoreText.textContent =  "You sure know your game characters!"
-        this.checkScore()
-        this.checkStars()
-        modalBackground.style.display = "block"
-        updatesModal.style.display = "block"
-    }
-    lose(){
-        resultTitle.textContent = "You Lost"
-        scoreText.textContent =  "Better luck next time."
-        this.checkScore()
-        stars.textContent = "☆☆☆"
-        modalBackground.style.display = "block"
-        updatesModal.style.display = "block"
-
-    }
-    checkScore(){
-        scoreNumber.textContent = this.questionCount * 1000
-        
-
-    }
-    checkStars(){
-        if(this.questionCount < 6){
-            
-            stars.textContent = "★★★"
-        }
-        else if(this.questionCount >=6 && this.questionCount<=11){
-            stars.textContent = "★★☆"
-        }
-        else if(this.questionCount >=12 && this.questionCount<=16){
-            stars.textContent = "★☆☆"
-        }
-        else{
-            stars.textContent = "☆☆☆"
-        }
+        ];
     }
 
-    
+    // Method to update guess count and update corresponding HTML element
+    updateGuessCount() {
+        this.guessCount--; // Decrement guess count
+        guessCounter.textContent = this.guessCount; // Update guess counter in HTML
+    }
+
+    // Method to update question count and update corresponding HTML element
+    updateQuestionCount() {
+        this.questionCount++; // Increment question count
+        questionCounter.textContent = this.questionCount; // Update question counter in HTML
+    }
+
+    // Method to handle win scenario
+    win() {
+        // Update result and score display in HTML
+        resultTitle.textContent = "Congrats! You won!";
+        scoreText.textContent = "You sure know your game characters!";
+        this.checkScore(); // Check and update score
+        this.checkStars(); // Check and update star rating
+        // Display modal
+        modalBackground.style.display = "block";
+        updatesModal.style.display = "block";
+    }
+
+    // Method to handle lose scenario
+    lose() {
+        // Update result and score display in HTML
+        resultTitle.textContent = "You Lost";
+        scoreText.textContent = "Better luck next time.";
+        this.checkScore(); // Check and update score
+        stars.textContent = "☆☆☆"; // Reset star rating
+        // Display modal
+        modalBackground.style.display = "block";
+        updatesModal.style.display = "block";
+    }
+
+    // Method to calculate and display score based on question count
+    checkScore() {
+        scoreNumber.textContent = this.questionCount * 1000; // Calculate score and update HTML
+    }
+
+    // Method to calculate and display star rating based on question count
+    checkStars() {
+        if (this.questionCount < 6) {
+            stars.textContent = "★★★"; // 3 stars for fewer questions
+        } else if (this.questionCount >= 6 && this.questionCount <= 11) {
+            stars.textContent = "★★☆"; // 2 stars for moderate questions
+        } else if (this.questionCount >= 12 && this.questionCount <= 16) {
+            stars.textContent = "★☆☆"; // 1 star for more questions
+        } else {
+            stars.textContent = "☆☆☆"; // No stars for too many questions
+        }
+    }
 }
+
 /* ======================
 GLOBAL VARS
 =========================*/
@@ -143,13 +154,11 @@ console.log(player)
 FUNCTIONS
 ============================= */
 const startTutorial = () => {
-    console.log("yerr ")
     menu.style.display = "none"
     tutorial.style.display = "block"
 }
 
 const startGame = () => {
-    console.log("game startedddd")
     computedChars = randomizeChars()
     console.log(computedChars)
     setupGame()
@@ -164,47 +173,48 @@ const setupGame = () =>{
 
 const randomizeChars = () =>{
     console.log(Math.floor(Math.random() * 24))
-    console.log("yerrrr")
     return  chrisList[Math.floor(Math.random() * 24)];
 }
 
 const makeGuess = () => {
-    
-    cancelBtn.style.display = "block"
-    
-    characters.forEach((character) =>{
+    // Display cancel button
+    cancelBtn.style.display = "block";
 
-        let characterName = character.querySelector(".name")
+    // Iterate over each character element
+    characters.forEach((character) => {
+        // Get the character name element
+        let characterName = character.querySelector(".name");
 
-        if(player.currentChars.includes(character.id)){
+        // Check if the character ID is included in the player's current characters
+        if (player.currentChars.includes(character.id)) {
+            // Add an event listener to the character element
+            character.addEventListener('click', function () {
+                // Update guess count for the player
+                player.updateGuessCount();
 
-            character.addEventListener('click', function (){
-                player.updateGuessCount()
-                if(computedChars.lastName !== character.id && player.guessCount === 0){
-                    console.log("you lose")
-                    player.lose()
-
+                // Check if the clicked character matches the last name of the computed characters
+                if (computedChars.lastName !== character.id && player.guessCount === 0) {
+                    console.log("you lose");
+                    // Player loses the game
+                    player.lose();
+                } else if (computedChars.lastName === character.id) {
+                    console.log("You win");
+                    // Player wins the game
+                    player.win();
+                } else if (computedChars.lastName !== character.id && player.guessCount !== 0) {
+                    // Display try again modal if the character is not correct and guesses are left
+                    tryModal.style.display = "block";
+                    modalBackground.style.display = "block";
                 }
-                else if(computedChars.lastName === character.id){
-                    console.log("You win")
-                    player.win()
-
-                }
-                else if (computedChars.lastName !== character.id && player.guessCount !== 0){
-                   tryModal.style.display = "block"
-                   modalBackground.style.display = "block"
-
-                }
-            })
-            
+            });
+        } else {
+            // Style characters that are not included in player's current characters
+            character.style.backgroundColor = "#c7c7c7";
+            character.classList.add("no-click");
         }
-        else{
-            character.style.backgroundColor = "#c7c7c7"
-            character.classList.add("no-click")
-        }
- 
-    })
-}
+    });
+};
+
 
 const cancelGuess = () => {
     
@@ -212,7 +222,6 @@ const cancelGuess = () => {
     characters.forEach((character) =>{  
    
         if(player.currentChars.includes(character.id)){
-            console.log("this character is emotionally available")
         }
         else{
             character.classList.remove("no-click")
@@ -251,7 +260,6 @@ playAgain.addEventListener("click", restartGame)
 characters.forEach((character) =>{
     let charactername = character.querySelector(".name")
     if(player.currentChars.includes(character.id)){
-        console.log("this character is emotionally available")
         character.addEventListener('mouseenter', function (){
             charactername.style.backgroundColor = "#094f8f"
             charactername.style.color = "aliceblue"
@@ -288,6 +296,8 @@ characters.forEach((character) =>{
     })
 })
 
+
+//Question logic below
 askButtons.forEach((question) =>{
     question.addEventListener('click', function(){
   

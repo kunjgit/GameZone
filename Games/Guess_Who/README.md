@@ -29,7 +29,7 @@ BUT THERE IS A CATCH! You only have 3 chances to guess. If you fail 3 times, you
 ## **Screenshots 📸**
 
 <br>
-![image](../../images/Guess_Who.png)
+![image](../../assets/images/Guess_Who.png)
 
 <br>
 

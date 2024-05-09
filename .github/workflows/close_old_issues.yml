@@ -64,7 +64,7 @@ jobs:
         with:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
-            const olderIssueNumbers = '${{ steps.fetch_issues.outputs.older_issues }}'.split(',');
+            const olderIssueNumbers = Buffer.from('${{ steps.fetch_issues.outputs.older_issues }}', 'utf-8').toString().split(',');
 
             for (const issueNumber of olderIssueNumbers) {
               // Get the issue details

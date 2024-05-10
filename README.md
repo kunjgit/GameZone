@@ -68,37 +68,66 @@ This repository also provides one such platforms where contributers come over an
 
 <!-- contribution steps -->
 
-- Fork the repository
-- Clone this repository `git clone "url of the repo"`
+# Contribution Guidelines
 
-* Raise and issue to add new game or to enhancement for a game (Have a look at few things you have to take care during raising issue )
+Thank you for your interest in contributing to our repository! Below are the step-by-step guidelines to help you navigate through the contribution process efficiently.
 
-  - Select appropriate issue template
-  - Make sure your idea is unique and interesting 🚀
+## Forking and Cloning the Repository
 
-  * Don't alter the issue title. You are supposed to write your issue name after that only.
-    - `[Issue Title]: Your Issue` make sure you just add your issue name
-    - ex .`[New game]: Super Mario`
+1. Fork the repository to your GitHub account.
+2. Clone the forked repository to your local machine using the following command:
 
-  - Make sure you select the program in which you are participating 🔥
+   ```
+   git clone <url_of_the_repo>
+    ```
+# Raising an Issue
 
-- Wait till you have been assigned the issue
-- After you have been assigned the issue start working on the code
-- Create your new branch using `git checkout -b <name of your branch> `
+To contribute to our repository, please follow these steps to raise an issue:
 
-* Having your code into the repository
-  - Make your game folder into `Games` folder by the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
-  - Add your code files (index.html,style.css,script.js) in your game folder
-  - Create `README.md` file in your folder and add all the functionalities and how you can play that game in that README file , also include screenshots of working game , video of a game explaining (if required).
-  - To create `Your_Folder/README.md ` checkout the template [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md)
-  - Now take one good screenshot of your game that you want to display it on our website and add into `assets/images` (follow the naming convention <your_folder_name>.png or .jpeg or .jpg)
-  - add your folders link and name in main README.md (the one you are reading currently)
+1. Navigate to the repository's Issues section.
+2. Click on "New Issue".
+3. Select the appropriate issue template.
+4. Ensure your idea is unique and interesting.
+5. Do not alter the issue title format. Add your issue name after the provided title format.
+   - Example: `[New game]: Super Mario`
+6. Make sure to indicate the program in which you are participating.
+7. Wait until you have been assigned the issue.
 
-- Push your changes to Github using `git push origin <name your branch>`
-- Submit your changes for review by creating PR
-- And you are done !
-- I will review your code and I will merge your code to the main branch of this repository and you will notified for the same
-- If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
+# Working on the Code
+
+After being assigned the issue, follow these steps to work on the code:
+
+1. Start working on the code.
+2. Create a new branch using the following command:
+
+   ```
+   git checkout -b <name_of_your_branch>
+   # Adding Your Code
+
+To contribute your game to our repository, follow these steps:
+
+1. Create your game folder within the `Games` folder, following the naming convention mentioned in the CONTRIBUTING GUIDELINE.
+2. Add your code files (`index.html`, `style.css`, `script.js`) in your game folder.
+3. Create a `README.md` file in your folder and add all the functionalities and instructions on how to play the game. Include screenshots or videos if necessary.
+4. Use the [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md) for creating `Your_Folder/README.md`.
+5. Take one good screenshot of your game and add it to `assets/images` following the naming convention `<your_folder_name>.png` or `.jpeg` or `.jpg`.
+6. Add your folder's link and name in the main `README.md`.
+
+# Pushing Changes and Creating a Pull Request
+
+1. Push your changes to GitHub using the following command:
+
+   ```
+   git push origin <name_your_branch>
+   ```
+2. Submit your changes for review by creating a Pull Request (PR).
+3. 
+# Review and Merging
+
+- Your pull request will be reviewed, and feedback may be provided if necessary. 
+- Once approved, your code will be merged into the main branch of the repository. 
+- You will be notified once your code is merged.
+
 
 <div align="center">
   <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Robot" width="40" height="40" /> Games</font></h2>

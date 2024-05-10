@@ -2473,7 +2473,6 @@ textarea.form-input::-webkit-resizer {
   color: var(--white-1);
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
   width: 100%;
   gap: 2rem;
 }
@@ -2512,6 +2511,7 @@ textarea.form-input::-webkit-resizer {
   flex-wrap: wrap;
   margin-right: 5px;
   gap: 5px;
+  padding-top: 0%;
 }
 
 /* pagination styling */
@@ -2617,8 +2617,8 @@ textarea.form-input::-webkit-resizer {
   height: auto;
   text-align: center;
   color: snow;
-  padding-bottom: 6%;
-  padding-top: 3%;
+  padding-bottom: 40%;
+  padding-top: 10%;
 }
 
 span {

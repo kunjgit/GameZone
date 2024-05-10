@@ -2,6 +2,11 @@ name: Close Older Issues
 
 on:
   workflow_dispatch:
+    inputs:
+      repo:
+        description: 'Repository name'
+        required: true
+        default: ${{ github.repository }}
 
 jobs:
   close-older-issues:
@@ -17,7 +22,7 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install --prefix .github octokit
+        run: npm install @actions/github
 
       - name: Fetch opened issues
         id: fetch_issues
@@ -26,36 +31,23 @@ jobs:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const oneWeekAgo = new Date();
-            oneWeekAgo.setDate(oneWeekAgo.getDate() - 3);
+            oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
-            let allIssues = [];
-            let page = 1;
-            let stopFetching = false;
+            let olderIssues = [];
 
-            while (!stopFetching) {
-              const { data: issues } = await github.issues.listForRepo({
+            for await (const response of github.paginate.iterator(
+              github.issues.listForRepo.endpoint.merge({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 state: 'open',
                 sort: 'created',
                 direction: 'asc',
-                per_page: 100,
-                page
-              });
-
-              for (const issue of issues) {
-                if (issue.pull_request === undefined && new Date(issue.created_at) < oneWeekAgo) {
-                  allIssues.push(issue);
-                } else {
-                  stopFetching = true;
-                  break;
-                }
-              }
-
-              page++;
+                per_page: 100
+              })
+            )) {
+              olderIssues = olderIssues.concat(response.data.filter(issue => new Date(issue.created_at) < oneWeekAgo && !issue.pull_request));
             }
 
-            const olderIssues = allIssues.filter(issue => issue.pull_request === undefined);
             core.setOutput('older_issues', olderIssues.map(issue => issue.number).join(','));
 
       - name: Close older issues and comment
@@ -64,16 +56,9 @@ jobs:
         with:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
-            const olderIssueNumbers = Buffer.from('${{ steps.fetch_issues.outputs.older_issues }}', 'utf-8').toString().split(',');
+            const olderIssueNumbers = '${{ steps.fetch_issues.outputs.older_issues }}'.split(',');
 
             for (const issueNumber of olderIssueNumbers) {
-              // Get the issue details
-              const { data: issue } = await github.issues.get({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: parseInt(issueNumber)
-              });
-
               // Close the older issue
               await github.issues.update({
                 owner: context.repo.owner,
@@ -87,7 +72,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: parseInt(issueNumber),
-                body: `Hello @${issue.user.login}, Time's Uppp!⏰ \n Sorry for closing your issue! \n But it's more than a week since we haven't received anything from your side 😢 . \n Come up with new ideas, create a new issue and make sure you finish it within a week! 🔥 \n All the best! 🚀 \n Happy Hacking! 💗`
+                body: `Hello @${issue.user.login}, Time's up!⏰ \n Sorry for closing your issue! \n But it's more than a week since we haven't received anything from your side 😢 . \n Come up with new ideas, create a new issue and make sure you finish it within a week! 🔥 \n All the best! 🚀 \n Happy Hacking! 💗`
               });
 
               console.log(`Closed and commented on issue #${issueNumber}.`);

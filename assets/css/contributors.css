@@ -1,6 +1,8 @@
 .contributors {
     margin: 0;
     padding: 0;
+    padding-top: 200px;
+    padding-bottom: 2%;
 }
 
 .contributors h1 {
@@ -8,7 +10,7 @@
     text-align: center;
     color: white;
     font-size: 2.5rem;
-    margin-bottom: 4%;
+    margin-bottom: 2%;
 }
 
 .contributors h1:hover {

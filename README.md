@@ -106,7 +106,7 @@ After being assigned the issue, follow these steps to work on the code:
 
 To contribute your game to our repository, follow these steps:
 
-1. Create your game folder within the `Games` folder, following the naming convention mentioned in the [CONTRIBUTING GUIDELINE](./CONTRIBUTING_GUIDELINE.md).
+1. Create your game folder within the `Games` folder, following the naming convention mentioned in the [CONTRIBUTING GUIDELINE](./CONTRIBUTING.md).
 2. Add your code files (`index.html`, `style.css`, `script.js`) in your game folder.
 3. Create a `README.md` file in your folder and add all the functionalities and instructions on how to play the game. Include screenshots or videos if necessary.
 4. Use the [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md) for creating `Your_Folder/README.md`.

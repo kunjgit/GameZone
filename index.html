@@ -108,14 +108,13 @@
 
 
 
-
-        <div class="search-container" id="search-container-id">
-          <input type="text" class="search-input" placeholder="Search" onkeyup="search_game()" id="searchbar">
-          <div class="search-btn">
-            <i class="fa fa-search" aria-hidden="true"></i>
-
-          </div>
+        <div class="search-container">
+          <input type="text" class="search-input" placeholder="Search..." onkeyup="search_game()" id="searchbar">
+          <span class="search-clear-button">&times;</span>
+          <span class="search-btn">&#128269;</span>
         </div>
+        
+        
 
 
 
@@ -237,6 +236,27 @@
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.querySelector(".search-input");
+  const clearButton = document.querySelector(".search-clear-button");
+
+  searchInput.addEventListener("input", handleInputChange);
+  clearButton.addEventListener("click", clearSearch);
+
+  function handleInputChange() {
+    const inputValue = searchInput.value.trim();
+    clearButton.style.display = inputValue ? "block" : "none";
+  }
+
+  function clearSearch() {
+    searchInput.value = "";
+    clearButton.style.display = "none";
+    searchInput.focus();
+  }
+});
+
+  </script>
   <div>
   </div>
 

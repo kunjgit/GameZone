@@ -2400,42 +2400,41 @@ textarea.form-input::-webkit-resizer {
   transition: 0.8s;
   --border-width: 4px;
   border-radius: calc(2 * var(--border-width));
-  
-  
-
-  &::after {
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(
-      60deg,
-      hsl(224, 85%, 66%),
-      hsl(269, 85%, 66%),
-      hsl(314, 85%, 66%),
-      hsl(359, 85%, 66%),
-      hsl(44, 85%, 66%),
-      hsl(89, 85%, 66%),
-      hsl(134, 85%, 66%),
-      hsl(179, 85%, 66%)
-    );
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
-    animation: moveGradient 4s alternate infinite;
-  }
 }
 
-.search-container:hover > .search-input {
-  width: 600px;
+.search-container::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)
+  );
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+
+/* Adjusted hover effect for smoother transition */
+.search-container:hover .search-input {
+  width: 200px;
   font-size: 16px;
 }
 
 @media screen and (max-width: 920px) {
-  .search-container:hover > .search-input {
+  .search-container:hover .search-input {
     width: 90vw;
     font-size: 16px;
   }
@@ -2448,19 +2447,134 @@ textarea.form-input::-webkit-resizer {
   width: 10px;
   font-weight: 500;
   font-size: 0px;
-  transition: 0.8s;
+  transition: width 0.8s, font-size 0.8s;
 }
+
 .search-container ::placeholder {
   color: #000000;
 }
 
-.search-container .search-btn {
-  position: absolute; /* Added position absolute for icon positioning */
-  right: 12px; /* Adjusted right positioning for icon */
+.search-container {
+  background-color: aliceblue;
+  position: relative;
+  height: 40px;
+  padding: 0px 16px; /* Adjusted padding */
+  margin-bottom: 40px;
+  color: #000;
+  display: flex;
+  justify-content: center; /* Center align the content horizontally */
+  align-items: center;
+  cursor: pointer;
+  transition: 0.8s;
+  --border-width: 4px;
+  border-radius: calc(2 * var(--border-width));
 }
+
+.search-container::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)
+  );
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+
+/* Adjusted hover effect for smoother transition */
+.search-container:hover .search-input {
+  width: 200px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 920px) {
+  .search-container:hover .search-input {
+    width: 90vw;
+    font-size: 16px;
+  }
+}
+
+.search-container .search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 10px;
+  font-weight: 500;
+  font-size: 0px;
+  transition: width 0.8s, font-size 0.8s;
+  text-align: center; /* Center align the text */
+}
+
+.search-container ::placeholder {
+  color: #000000;
+}
+
+.search-container {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  transition: all 0.3s ease;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 6px 12px;
+  font-size: 16px;
+  transition: width 0.3s ease;
+}
+
+.search-input:focus {
+  width: 200px;
+}
+
+.search-clear-button {
+  display: none;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search-clear-button:hover {
+  color: #333;
+}
+
+.search-container:focus-within .search-clear-button {
+  display: block;
+}
+
 .search-btn {
-  padding-right: 10px;
+  color: #666;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
+
+.search-btn:hover {
+  color: #333;
+}
+
+
+
 
 /*-----------------------------------*\
   #PAGINATION SECTION

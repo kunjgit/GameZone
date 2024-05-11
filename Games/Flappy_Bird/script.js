@@ -125,8 +125,6 @@ function Update(){
         }else{
             context.fillText(HighScore,255,400);
         }
-        
-
     }
 }
 function placePipes(){

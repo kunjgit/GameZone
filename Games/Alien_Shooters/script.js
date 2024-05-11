@@ -43,6 +43,7 @@ let bulletVelocityY = -10; //bullet moving speed
 
 //game variables
 let score = 0;
+let HighScore = 0;      /*HIGHSCORE */
 let gameOver = false;
 let gameStarted = false;
 
@@ -88,7 +89,7 @@ function update(e) {
     requestAnimationFrame(update);
 
     if (gameOver) {
-        endscreen('block', score)
+        endscreen('block', score,HighScore)
         if (e.code == "Space") {
             resetGame();
         }
@@ -124,7 +125,6 @@ function update(e) {
 
             if (alien.y >= ship.y) {
                 gameOver = true;
-
             }
         }
     }
@@ -174,13 +174,24 @@ function update(e) {
     if (!gameOver) {
         context.font = "23px 'Play' ";
         context.fillStyle = "#FFED00";
-        context.fillText("Score: ", 5, 20)
+        context.fillText("Score: ", 5, 20);
+        context.fillText("HighScore: ",330,20);
         context.fillText(score, 75, 20);
+        if(score > HighScore){   /* ADDED HIGHSCORE */
+            context.fillText(score,450,20);
+        }else{
+            context.fillText(HighScore,450,20);
+        }
     }
 }
 
 function moveShip(e) {
     if (gameOver) {
+        if(score> HighScore){     /* Changing the previous high score */
+            context.fillText(score,255,400);
+        }else{
+            context.fillText(HighScore,255,400);
+        }
         if (e.code == "Space") {
             resetGame();
         }
@@ -195,11 +206,15 @@ function moveShip(e) {
     }
 }
 
-function endscreen(display_value = 'none', score_txt) {
+function endscreen(display_value = 'none', score_txt,HighScore_txt) {
     context.clearRect(0, 0, boardWidth, boardHeight)
     document.querySelector(".endscreen").style.display = display_value
     document.querySelector("#scorecnt").innerText = score_txt
-
+    document.querySelector("#highscorecnt").innerText = HighScore_txt
+    if (score>HighScore){
+        HighScore = score;
+    }
+    
 }
 
 function createAliens() {
@@ -224,7 +239,6 @@ function shoot(e) {
         if (e.code == "Space") {
             resetGame();
         }
-        return;
     }
 
     if (e.code == "Space") {

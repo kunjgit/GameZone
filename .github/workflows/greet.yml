@@ -49,7 +49,7 @@ jobs:
               owner: owner,
               repo: repo,
               issue_number: number,
-              labels: ["GSSoC24"]
+              labels: ["gssoc"]
             });
 
 

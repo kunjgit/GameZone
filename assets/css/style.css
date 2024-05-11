@@ -2480,6 +2480,7 @@ textarea.form-input::-webkit-resizer {
 #prev-page-tile,
 #next-page-tile {
   padding: 10px;
+  justify-content: center;
   background-color: rgb(104, 98, 232);
   background: linear-gradient(
     90deg,
@@ -2511,13 +2512,15 @@ textarea.form-input::-webkit-resizer {
   flex-wrap: wrap;
   margin-right: 5px;
   gap: 5px;
-  padding-top: 0%;
+  /* padding-top: 7%; */
+  margin-top: 5%;
 }
 
 /* pagination styling */
 .pagination_section .page-tile {
   /* border: 2px solid rosybrown; */
   font-size: 20px;
+  justify-content: center;
   color: wheat;
   padding: 5px 15px;
   cursor: pointer;
@@ -2617,7 +2620,7 @@ textarea.form-input::-webkit-resizer {
   height: auto;
   text-align: center;
   color: snow;
-  padding-bottom: 40%;
+  padding-bottom: 27%;
   padding-top: 10%;
 }
 

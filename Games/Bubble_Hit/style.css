@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Signika+Negative:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'PT Serif', serif;
+}
+
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #2fdcdf, #00cef0, #00bdfa, #4fa9f9, #8492ea);
+}
+
+#panel {
+    overflow: hidden;
+    width: 80%;
+    height: 90%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#ptop {
+    padding: 0px 5%; 
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 95px;
+    background-color: #00bbea;
+}
+
+.box {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    font-weight: 600;
+    font-size: 18px; 
+    padding: 10px 15px;
+    background-image: linear-gradient(to right bottom, #046eb7, #0072b7, #0077b8, #007bb7, #0b7fb7);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.elem {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 10px; 
+    color: white;
+}
+
+.elem h4 {
+    font-weight: 500;
+    font-size: 18px; 
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#pbtm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    height: calc(100% - 95px);
+}
+
+.bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 47px;
+    height: 47px;
+    background-image: linear-gradient(to bottom, #2fdcdf, #00cef0, #00bdfa, #4fa9f9, #8492ea);
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
+}
+
+/* Media Query for screens with a maximum width of 600px */
+@media (max-width: 600px) {
+    #ptop {
+        padding: 0px 2%; 
+    }
+
+    .box {
+        font-size: 16px; 
+    }
+
+    .elem {
+        gap: 5px; 
+    }
+
+    .elem h4 {
+        font-size: 16px; 
+    }
+
+    .bubble {
+        width: 40px; 
+        height: 40px; 
+        font-size: 18px; 
+    }
+}
+
+.bubble:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to top, #023e9c, #1545a2, #224ca8, #2c54ae, #355bb4);
+}

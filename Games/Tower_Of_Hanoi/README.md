@@ -32,7 +32,7 @@ These rules create an interesting and often perplexing problem that requires car
 
 <br>
 
-![image]([https://github.com/AnkitaBarbora/GameZone/assets/101138526/9825878b-96c2-4e65-a648-5fe7c5ef6312"](https://github.com/triggereddown/contri_assets/blob/main/Tower_of_Hanoi.png)) 
+![image](https://github.com/triggereddown/contri_assets/blob/main/Tower_of_Hanoi.png) 
 
 <br>
 

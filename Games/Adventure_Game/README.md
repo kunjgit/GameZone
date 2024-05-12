@@ -29,7 +29,8 @@
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![Image](D:\GIrlScript Summer of Code 2023\GameZone\Games\Adventure_Game\Adventure_Game.png)
+
+![Image](https://raw.githubusercontent.com/kunjgit/GameZone/main/Games/Adventure_Game/Adventure_Game.png)
 
 <br>
 

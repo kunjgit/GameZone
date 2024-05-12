@@ -15,7 +15,7 @@ Battleship
 
 ## **Screenshots 📸**
 
-<br>
+
 ![image](../../assets/images/Battleship.png)
 
 <br>

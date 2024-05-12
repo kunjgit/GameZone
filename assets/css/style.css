@@ -194,13 +194,16 @@ footer {
   color: #ffffff;
 }
 
-.fa-twitter:hover {
-  color: rgb(36, 186, 255);
-}
+
+a:hover svg {
+  fill:rgb(0, 119, 181);
+} 
+
 
 .fa-linkedin-square:hover {
   color: rgb(0, 119, 181);
 }
+
 .footer-bottom {
   background: #000;
 

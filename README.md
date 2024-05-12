@@ -69,15 +69,15 @@ This repository also provides one such platforms where contributers come over an
 - **Start working on the code** after you've been assigned.
 
 - **Create your new branch:**
-- 
 ```bash
 git checkout -b <name-of-your-branch>
 ```
 
 - **Adding your code:**
-
+  - Make your game folder into `Games` folder by the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
   - Place your game files (e.g., index.html, style.css, script.js) in a folder under Games.
   - Create a README.md file in your game folder detailing the functionalities and how to play the game. Include screenshots or videos if necessary.
+  - To create `Your_Folder/README.md ` checkout the template [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md)
   - Add a screenshot of your game to assets/images (naming convention: <your_folder_name>.png).
   - Update the main README.md to include your game's information.
 

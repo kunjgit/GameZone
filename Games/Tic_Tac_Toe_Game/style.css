@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500&family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    border-right:7px solid skyblue;
+    border-left:7px solid skyblue;
+    border-bottom:7px solid skyblue;
+}
+nav{
+    border:7px solid skyblue;
+    background-color: blueviolet;
+    color:white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav ul li{
+    font-size: 27px;
+    font-family:'Roboto', sans-serif;
+    list-style: none;
+}
+.gamecontainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+}
+.line{
+    background-color: rgb(0, 140, 255);
+    width:20vw;
+    height: 3px;
+    position: absolute;
+    display: none;
+}
+.imgbox{
+    display: flex;
+    justify-content: center;
+}
+.imgbox img{
+    height: 30vh;
+    display: none;
+    margin-top: 20px;
+
+   
+}
+.container{
+    display: grid;
+    grid-template-columns:repeat(3,10vw);
+    grid-template-rows:repeat(3,10vw);
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+.box{
+    border: 2px solid blueviolet;
+    font-size: 8vw;
+}
+.box:hover{
+    background-color: rgb(234, 221, 246);
+    cursor: pointer;
+}
+.boxtext{
+     display: flex;
+    justify-content: center;
+}
+.gameinfo{
+    padding:0 34px;
+    font-family:'Baloo Bhaina 2', cursive;
+}
+.info{
+    text-align: center;
+    font-size: 2vh;
+}
+#reset{
+    background-color:rgb(156, 96, 212);
+
+    
+    font-weight: bold;
+    color: white;
+    width: auto;
+    padding:1vh;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+#turn{
+    color: gray;
+    font-size: 2.5vh;
+}
+@media screen and (max-width:800px) {
+    .gamecontainer{
+        flex-wrap: wrap;
+    }
+    .gameinfo{
+        margin-top: 34px;
+    }
+    .gameinfo h1{
+        font-size: 1.5rem;
+    }
+    .container{
+    grid-template-columns:repeat(3,20vw);
+    grid-template-rows:repeat(3,20vw);
+    }
+}

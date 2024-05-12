@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: helvetica;
 }
 
 body {
@@ -28,6 +29,10 @@ body {
 }
 
 .white {
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
     width: 68px;
     height: 280px;
     border-radius: 0 0 5px 5px;
@@ -41,11 +46,16 @@ body {
 }
 
 .black {
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
     width: 38px;
     height: 160px;
     border-radius: 0 0 5px 5px;
     position: absolute;
     background-color: #000;
+    color: white;
 }
 
 .black:nth-child(1) {

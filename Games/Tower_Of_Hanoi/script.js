@@ -1,5 +1,9 @@
-$(document).ready(function() {
-  var towers = [[[], $(".tower1")], [[], $(".tower2")], [[], $(".tower3")]],
+$(document).ready(function () {
+  var towers = [
+      [[], $(".tower1")],
+      [[], $(".tower2")],
+      [[], $(".tower3")],
+    ],
     moves = 0,
     disks = null,
     hold = null;
@@ -30,9 +34,15 @@ $(document).ready(function() {
 
   function initGame() {
     clear();
-    towers = [[[], $(".tower1")], [[], $(".tower2")], [[], $(".tower3")]];
+    towers = [
+      [[], $(".tower1")],
+      [[], $(".tower2")],
+      [[], $(".tower3")],
+    ];
     disks = document.getElementById("number").value;
-    document.getElementById("minmoves").innerHTML = parseInt(Math.pow(2,disks) - 1);
+    document.getElementById("minmoves").innerHTML = parseInt(
+      Math.pow(2, disks) - 1
+    );
     moves = 0;
     hold = null;
     for (var i = disks; i > 0; i--) towers[0][0].push(i);
@@ -44,10 +54,7 @@ $(document).ready(function() {
     if (hold === null) {
       if (!jQuery.isEmptyObject(towers[tower][0])) {
         hold = tower;
-        towers[hold][1]
-          .children()
-          .last()
-          .css("margin-top", "-170px");
+        towers[hold][1].children().last().css("margin-top", "-170px");
       }
     } else {
       var move = movedisk(hold, tower);
@@ -57,10 +64,7 @@ $(document).ready(function() {
         setdisks();
       } else {
         alert("Placing a bigger disk on a smaller one is not allowed");
-        towers[hold][1]
-          .children()
-          .last()
-          .css("margin-top", "-40px"); 
+        towers[hold][1].children().last().css("margin-top", "-40px");
       }
       hold = null;
     }
@@ -94,19 +98,39 @@ $(document).ready(function() {
     else return 0;
   }
 
-  $(".tower").click(function() {
+  $(".tower").click(function () {
     handle($(this).attr("value"));
   });
 
-  $("#again").click(function() {
-	
-	if (confirm("You will lose your progress")==true){
-    var disks = document.getElementById("number").value;
-    initGame();
-	}
-	else{
-		void(0);
-	}
+  $("#again").click(function () {
+    if (confirm("You will lose your progress") == true) {
+      var disks = document.getElementById("number").value;
+      initGame();
+    } else {
+      void 0;
+    }
   });
   initGame();
 });
+
+// Function to handle increasing the number of disks
+function increaseDisks() {
+  var input = document.getElementById("number");
+  var currentValue = parseInt(input.value);
+  if (currentValue < parseInt(input.max)) {
+    input.value = currentValue + 1;
+  }
+}
+
+// Function to handle decreasing the number of disks
+function decreaseDisks() {
+  var input = document.getElementById("number");
+  var currentValue = parseInt(input.value);
+  if (currentValue > parseInt(input.min)) {
+    input.value = currentValue - 1;
+  }
+}
+
+document.querySelector(".increase").addEventListener("click", increaseDisks);
+
+document.querySelector(".decrease").addEventListener("click", decreaseDisks);

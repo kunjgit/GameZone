@@ -1935,7 +1935,10 @@
     "gameTitle": "Guess_The_Weapon",
     "gameUrl": "Guess_The_Weapon",
     "thumbnailUrl": "icon.png"
+  },
+  "386": {
+    "gameTitle": "Bulls_and_Cows",
+    "gameUrl": "Bulls_and_Cows",
+    "thumbnailUrl": "bulls-and-cows.png"
   }
-  
-  
 }

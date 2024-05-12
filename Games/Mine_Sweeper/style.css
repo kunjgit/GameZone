@@ -1,0 +1,1956 @@
+@charset "UTF-8";
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:700';
+body {
+  min-height: 100vh;
+  padding: 1px;
+  box-sizing: border-box;
+  background: teal url(https://assets.codepen.io/15664/bliss.jpg) center/cover no-repeat;
+  counter-reset: mines 10;
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+input {
+  visibility: hidden;
+  position: absolute;
+  top: -99px;
+  left: -99px;
+}
+
+input[id^=f]:checked {
+  counter-increment: mines -1;
+}
+
+.infos {
+  order: 2;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 216px;
+}
+
+.timer {
+  font-family: "Roboto Sans", monospace;
+  font-size: 0;
+  background: #ccc;
+  border: 1px solid #808080;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  padding: 0 0.5rem;
+}
+.timer .separator {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1rem;
+}
+.timer .separator:before {
+  content: ":";
+}
+@keyframes digit {
+  from {
+    top: 0;
+  }
+  to {
+    top: -1000%;
+  }
+}
+@keyframes digitTo6 {
+  from {
+    top: 0;
+  }
+  to {
+    top: -600%;
+  }
+}
+@keyframes extend {
+  from {
+    width: 0;
+  }
+  10%, to {
+    width: auto;
+  }
+}
+.timer .digit {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  font-size: 1rem;
+}
+.timer .digit:before {
+  content: "0";
+  visibility: hidden;
+}
+.timer .digit:after {
+  content: "0 \a 1 \a 2 \a 3 \a 4 \a 5 \a 6 \a 7 \a 8 \a 9";
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: digit 1s steps(10) infinite paused;
+}
+.timer .digit:nth-last-child(1):after {
+  animation-duration: 10s;
+}
+.timer .digit:nth-last-child(2):after {
+  content: "0 \a 1 \a 2 \a 3 \a 4 \a 5";
+  animation-name: digitTo6;
+  animation-timing-function: steps(6);
+  animation-duration: 60s;
+}
+.timer .digit:nth-last-child(4):after {
+  animation-duration: 600s;
+}
+.timer .digit:nth-last-child(5):after {
+  animation-duration: 6000s;
+}
+.timer .digit:nth-last-child(6) {
+  width: 0;
+  animation: extend 60000s steps(1) infinite paused;
+}
+.timer .digit:nth-last-child(6):after {
+  animation-duration: 60000s;
+}
+
+.counter {
+  display: inline-block;
+  border: 1px solid #808080;
+  background: #ccc;
+  padding: 0 0.5rem;
+  font-size: 1.25rem;
+  font-family: "Roboto Sans", monospace;
+  height: 2.25rem;
+  line-height: 2.25rem;
+}
+.counter:before {
+  content: "🤔";
+  font-size: 1rem;
+  margin-right: 0.5em;
+}
+.counter:after {
+  content: counter(mines);
+}
+
+input[id^=c]:checked ~ .infos .timer .digit, input[id^=c]:checked ~ .infos .timer .digit:after {
+  animation-play-state: running;
+}
+
+.actionSelector {
+  order: 1;
+  text-align: center;
+  margin: 10px;
+  cursor: default;
+}
+.actionSelector label {
+  display: inline-block;
+  position: relative;
+  width: 1.8em;
+  height: 1.8em;
+  text-align: center;
+  line-height: 1.8em;
+  cursor: pointer;
+}
+.actionSelector label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  border-radius: 50%;
+  background: rgba(210, 210, 210, 0.8);
+  box-sizing: border-box;
+  border: 1px solid #808080;
+  transition: transform 0.3s, border-radius 0.3s;
+  transition-timing-function: cubic-bezier(0.75, 1.75, 0.75, 0.75);
+  z-index: -1;
+}
+
+#modeMine:checked ~ .actionSelector label[for=modeMine],
+#modeFlag:checked ~ .actionSelector label[for=modeFlag] {
+  cursor: default;
+}
+#modeMine:checked ~ .actionSelector label[for=modeMine]:before,
+#modeFlag:checked ~ .actionSelector label[for=modeFlag]:before {
+  transform: scale(1);
+  border-radius: 2px;
+}
+
+.grid {
+  order: 3;
+  user-select: none;
+  position: relative;
+  margin: 10px auto;
+  width: 9em;
+  height: 9em;
+  font-size: 24px;
+  display: flex;
+  flex-flow: row wrap;
+  border: solid #808080;
+  border-width: 1px 0 0 1px;
+}
+.grid label {
+  display: block;
+  position: relative;
+  width: 1em;
+  height: 1em;
+  background: #c0c0c0;
+  box-sizing: border-box;
+  border: solid #808080;
+  border-width: 0 1px 1px 0;
+  flex: 0 0 11.1111111111%;
+  overflow: hidden;
+  cursor: pointer;
+  pointer-events: none;
+}
+.grid label:before {
+  content: "";
+  font-size: 0.9rem;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.grid label:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: #c0c0c0;
+  border: 2px outset #ececec;
+  font-size: 0.75rem;
+  text-align: center;
+  pointer-events: auto;
+}
+.grid label:active:after {
+  background: #bdbdbd;
+  border: solid #999;
+  border-width: 2px 0 0 2px;
+}
+.grid .flags {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  opacity: 0;
+  visibility: hidden;
+}
+.grid .error, .grid .victory {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 0, 0, 0.75);
+  color: #fff;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.grid .victory {
+  background: rgba(0, 10, 0, 0.75);
+}
+
+#modeFlag:checked ~ .grid .flags {
+  visibility: visible;
+}
+
+#modeMine:checked ~ .grid:active ~ .infos .counter:before {
+  content: "😓" !important;
+}
+
+input[id^=f]:checked ~ .infos .counter:before {
+  content: "😐";
+}
+
+input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ .infos .counter:before {
+  content: "😏";
+}
+
+input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ .infos .counter:before {
+  content: "🙂";
+}
+
+input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ .infos .counter:before {
+  content: "😊";
+}
+
+input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ .infos .counter:before {
+  content: "😃";
+}
+
+input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ .infos .counter:before {
+  content: "🤓";
+}
+
+input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ .infos .counter:before {
+  content: "😕";
+}
+
+input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ .infos .counter:before {
+  content: "😒";
+}
+
+input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ .infos .counter:before {
+  content: "😠";
+}
+
+input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ input[id^=f]:checked ~ .infos .counter:before {
+  content: "🖕";
+}
+
+.grid label:nth-child(2):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(3):before {
+  content: "💣";
+  font-size: 0.75rem;
+}
+
+#c3:checked ~ .grid .error {
+  opacity: 1;
+  visibility: visible;
+}
+#c3:checked ~ .grid > label:after {
+  visibility: hidden;
+}
+#c3:checked ~ .grid label:nth-child(3) {
+  background-color: #f00;
+}
+#c3:checked ~ .grid:active ~ .infos .timer .digit, #c3:checked ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+#c3:checked ~ .infos .counter:before {
+  content: "😣" !important;
+}
+#c3:checked ~ .infos .timer .digit, #c3:checked ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+.grid label:nth-child(4):before {
+  content: "💣";
+  font-size: 0.75rem;
+}
+
+#c4:checked ~ .grid .error {
+  opacity: 1;
+  visibility: visible;
+}
+#c4:checked ~ .grid > label:after {
+  visibility: hidden;
+}
+#c4:checked ~ .grid label:nth-child(4) {
+  background-color: #f00;
+}
+#c4:checked ~ .grid:active ~ .infos .timer .digit, #c4:checked ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+#c4:checked ~ .infos .counter:before {
+  content: "😣" !important;
+}
+#c4:checked ~ .infos .timer .digit, #c4:checked ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+.grid label:nth-child(5):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(11):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(12):before {
+  content: "3";
+  color: #ff1300;
+}
+
+.grid label:nth-child(13):before {
+  content: "3";
+  color: #ff1300;
+}
+
+.grid label:nth-child(14):before {
+  content: "2";
+  color: #008100;
+}
+
+.grid label:nth-child(16):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(17):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(18):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(21):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(22):before {
+  content: "💣";
+  font-size: 0.75rem;
+}
+
+#c22:checked ~ .grid .error {
+  opacity: 1;
+  visibility: visible;
+}
+#c22:checked ~ .grid > label:after {
+  visibility: hidden;
+}
+#c22:checked ~ .grid label:nth-child(22) {
+  background-color: #f00;
+}
+#c22:checked ~ .grid:active ~ .infos .timer .digit, #c22:checked ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+#c22:checked ~ .infos .counter:before {
+  content: "😣" !important;
+}
+#c22:checked ~ .infos .timer .digit, #c22:checked ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+.grid label:nth-child(23):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(25):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(26):before {
+  content: "💣";
+  font-size: 0.75rem;
+}
+
+#c26:checked ~ .grid .error {
+  opacity: 1;
+  visibility: visible;
+}
+#c26:checked ~ .grid > label:after {
+  visibility: hidden;
+}
+#c26:checked ~ .grid label:nth-child(26) {
+  background-color: #f00;
+}
+#c26:checked ~ .grid:active ~ .infos .timer .digit, #c26:checked ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+#c26:checked ~ .infos .counter:before {
+  content: "😣" !important;
+}
+#c26:checked ~ .infos .timer .digit, #c26:checked ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+.grid label:nth-child(27):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(28):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(29):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(30):before {
+  content: "2";
+  color: #008100;
+}
+
+.grid label:nth-child(31):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(32):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(34):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(35):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(36):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(37):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(38):before {
+  content: "💣";
+  font-size: 0.75rem;
+}
+
+#c38:checked ~ .grid .error {
+  opacity: 1;
+  visibility: visible;
+}
+#c38:checked ~ .grid > label:after {
+  visibility: hidden;
+}
+#c38:checked ~ .grid label:nth-child(38) {
+  background-color: #f00;
+}
+#c38:checked ~ .grid:active ~ .infos .timer .digit, #c38:checked ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+#c38:checked ~ .infos .counter:before {
+  content: "😣" !important;
+}
+#c38:checked ~ .infos .timer .digit, #c38:checked ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+.grid label:nth-child(39):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(46):before {
+  content: "2";
+  color: #008100;
+}
+
+.grid label:nth-child(47):before {
+  content: "2";
+  color: #008100;
+}
+
+.grid label:nth-child(48):before {
+  content: "3";
+  color: #ff1300;
+}
+
+.grid label:nth-child(49):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(50):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(51):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(52):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(53):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(55):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(56):before {
+  content: "💣";
+  font-size: 0.75rem;
+}
+
+#c56:checked ~ .grid .error {
+  opacity: 1;
+  visibility: visible;
+}
+#c56:checked ~ .grid > label:after {
+  visibility: hidden;
+}
+#c56:checked ~ .grid label:nth-child(56) {
+  background-color: #f00;
+}
+#c56:checked ~ .grid:active ~ .infos .timer .digit, #c56:checked ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+#c56:checked ~ .infos .counter:before {
+  content: "😣" !important;
+}
+#c56:checked ~ .infos .timer .digit, #c56:checked ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+.grid label:nth-child(57):before {
+  content: "3";
+  color: #ff1300;
+}
+
+.grid label:nth-child(58):before {
+  content: "💣";
+  font-size: 0.75rem;
+}
+
+#c58:checked ~ .grid .error {
+  opacity: 1;
+  visibility: visible;
+}
+#c58:checked ~ .grid > label:after {
+  visibility: hidden;
+}
+#c58:checked ~ .grid label:nth-child(58) {
+  background-color: #f00;
+}
+#c58:checked ~ .grid:active ~ .infos .timer .digit, #c58:checked ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+#c58:checked ~ .infos .counter:before {
+  content: "😣" !important;
+}
+#c58:checked ~ .infos .timer .digit, #c58:checked ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+.grid label:nth-child(59):before {
+  content: "2";
+  color: #008100;
+}
+
+.grid label:nth-child(60):before {
+  content: "2";
+  color: #008100;
+}
+
+.grid label:nth-child(61):before {
+  content: "💣";
+  font-size: 0.75rem;
+}
+
+#c61:checked ~ .grid .error {
+  opacity: 1;
+  visibility: visible;
+}
+#c61:checked ~ .grid > label:after {
+  visibility: hidden;
+}
+#c61:checked ~ .grid label:nth-child(61) {
+  background-color: #f00;
+}
+#c61:checked ~ .grid:active ~ .infos .timer .digit, #c61:checked ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+#c61:checked ~ .infos .counter:before {
+  content: "😣" !important;
+}
+#c61:checked ~ .infos .timer .digit, #c61:checked ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+.grid label:nth-child(62):before {
+  content: "2";
+  color: #008100;
+}
+
+.grid label:nth-child(64):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(65):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(66):before {
+  content: "3";
+  color: #ff1300;
+}
+
+.grid label:nth-child(67):before {
+  content: "💣";
+  font-size: 0.75rem;
+}
+
+#c67:checked ~ .grid .error {
+  opacity: 1;
+  visibility: visible;
+}
+#c67:checked ~ .grid > label:after {
+  visibility: hidden;
+}
+#c67:checked ~ .grid label:nth-child(67) {
+  background-color: #f00;
+}
+#c67:checked ~ .grid:active ~ .infos .timer .digit, #c67:checked ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+#c67:checked ~ .infos .counter:before {
+  content: "😣" !important;
+}
+#c67:checked ~ .infos .timer .digit, #c67:checked ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+.grid label:nth-child(68):before {
+  content: "2";
+  color: #008100;
+}
+
+.grid label:nth-child(69):before {
+  content: "2";
+  color: #008100;
+}
+
+.grid label:nth-child(70):before {
+  content: "💣";
+  font-size: 0.75rem;
+}
+
+#c70:checked ~ .grid .error {
+  opacity: 1;
+  visibility: visible;
+}
+#c70:checked ~ .grid > label:after {
+  visibility: hidden;
+}
+#c70:checked ~ .grid label:nth-child(70) {
+  background-color: #f00;
+}
+#c70:checked ~ .grid:active ~ .infos .timer .digit, #c70:checked ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+#c70:checked ~ .infos .counter:before {
+  content: "😣" !important;
+}
+#c70:checked ~ .infos .timer .digit, #c70:checked ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+.grid label:nth-child(71):before {
+  content: "2";
+  color: #008100;
+}
+
+.grid label:nth-child(75):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(76):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(77):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(78):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(79):before {
+  content: "1";
+  color: #0000ff;
+}
+
+.grid label:nth-child(80):before {
+  content: "1";
+  color: #0000ff;
+}
+
+#f1:not(:checked) ~ #f2:not(:checked) ~ #f3:checked ~ #f4:checked ~ #f5:not(:checked) ~ #f6:not(:checked) ~ #f7:not(:checked) ~ #f8:not(:checked) ~ #f9:not(:checked) ~ #f10:not(:checked) ~ #f11:not(:checked) ~ #f12:not(:checked) ~ #f13:not(:checked) ~ #f14:not(:checked) ~ #f15:not(:checked) ~ #f16:not(:checked) ~ #f17:not(:checked) ~ #f18:not(:checked) ~ #f19:not(:checked) ~ #f20:not(:checked) ~ #f21:not(:checked) ~ #f22:checked ~ #f23:not(:checked) ~ #f24:not(:checked) ~ #f25:not(:checked) ~ #f26:checked ~ #f27:not(:checked) ~ #f28:not(:checked) ~ #f29:not(:checked) ~ #f30:not(:checked) ~ #f31:not(:checked) ~ #f32:not(:checked) ~ #f33:not(:checked) ~ #f34:not(:checked) ~ #f35:not(:checked) ~ #f36:not(:checked) ~ #f37:not(:checked) ~ #f38:checked ~ #f39:not(:checked) ~ #f40:not(:checked) ~ #f41:not(:checked) ~ #f42:not(:checked) ~ #f43:not(:checked) ~ #f44:not(:checked) ~ #f45:not(:checked) ~ #f46:not(:checked) ~ #f47:not(:checked) ~ #f48:not(:checked) ~ #f49:not(:checked) ~ #f50:not(:checked) ~ #f51:not(:checked) ~ #f52:not(:checked) ~ #f53:not(:checked) ~ #f54:not(:checked) ~ #f55:not(:checked) ~ #f56:checked ~ #f57:not(:checked) ~ #f58:checked ~ #f59:not(:checked) ~ #f60:not(:checked) ~ #f61:checked ~ #f62:not(:checked) ~ #f63:not(:checked) ~ #f64:not(:checked) ~ #f65:not(:checked) ~ #f66:not(:checked) ~ #f67:checked ~ #f68:not(:checked) ~ #f69:not(:checked) ~ #f70:checked ~ #f71:not(:checked) ~ #f72:not(:checked) ~ #f73:not(:checked) ~ #f74:not(:checked) ~ #f75:not(:checked) ~ #f76:not(:checked) ~ #f77:not(:checked) ~ #f78:not(:checked) ~ #f79:not(:checked) ~ #f80:not(:checked) ~ #f81:not(:checked) ~ .grid > label:after {
+  visibility: hidden;
+}
+#f1:not(:checked) ~ #f2:not(:checked) ~ #f3:checked ~ #f4:checked ~ #f5:not(:checked) ~ #f6:not(:checked) ~ #f7:not(:checked) ~ #f8:not(:checked) ~ #f9:not(:checked) ~ #f10:not(:checked) ~ #f11:not(:checked) ~ #f12:not(:checked) ~ #f13:not(:checked) ~ #f14:not(:checked) ~ #f15:not(:checked) ~ #f16:not(:checked) ~ #f17:not(:checked) ~ #f18:not(:checked) ~ #f19:not(:checked) ~ #f20:not(:checked) ~ #f21:not(:checked) ~ #f22:checked ~ #f23:not(:checked) ~ #f24:not(:checked) ~ #f25:not(:checked) ~ #f26:checked ~ #f27:not(:checked) ~ #f28:not(:checked) ~ #f29:not(:checked) ~ #f30:not(:checked) ~ #f31:not(:checked) ~ #f32:not(:checked) ~ #f33:not(:checked) ~ #f34:not(:checked) ~ #f35:not(:checked) ~ #f36:not(:checked) ~ #f37:not(:checked) ~ #f38:checked ~ #f39:not(:checked) ~ #f40:not(:checked) ~ #f41:not(:checked) ~ #f42:not(:checked) ~ #f43:not(:checked) ~ #f44:not(:checked) ~ #f45:not(:checked) ~ #f46:not(:checked) ~ #f47:not(:checked) ~ #f48:not(:checked) ~ #f49:not(:checked) ~ #f50:not(:checked) ~ #f51:not(:checked) ~ #f52:not(:checked) ~ #f53:not(:checked) ~ #f54:not(:checked) ~ #f55:not(:checked) ~ #f56:checked ~ #f57:not(:checked) ~ #f58:checked ~ #f59:not(:checked) ~ #f60:not(:checked) ~ #f61:checked ~ #f62:not(:checked) ~ #f63:not(:checked) ~ #f64:not(:checked) ~ #f65:not(:checked) ~ #f66:not(:checked) ~ #f67:checked ~ #f68:not(:checked) ~ #f69:not(:checked) ~ #f70:checked ~ #f71:not(:checked) ~ #f72:not(:checked) ~ #f73:not(:checked) ~ #f74:not(:checked) ~ #f75:not(:checked) ~ #f76:not(:checked) ~ #f77:not(:checked) ~ #f78:not(:checked) ~ #f79:not(:checked) ~ #f80:not(:checked) ~ #f81:not(:checked) ~ .grid .victory {
+  opacity: 1;
+  visibility: visible;
+}
+#f1:not(:checked) ~ #f2:not(:checked) ~ #f3:checked ~ #f4:checked ~ #f5:not(:checked) ~ #f6:not(:checked) ~ #f7:not(:checked) ~ #f8:not(:checked) ~ #f9:not(:checked) ~ #f10:not(:checked) ~ #f11:not(:checked) ~ #f12:not(:checked) ~ #f13:not(:checked) ~ #f14:not(:checked) ~ #f15:not(:checked) ~ #f16:not(:checked) ~ #f17:not(:checked) ~ #f18:not(:checked) ~ #f19:not(:checked) ~ #f20:not(:checked) ~ #f21:not(:checked) ~ #f22:checked ~ #f23:not(:checked) ~ #f24:not(:checked) ~ #f25:not(:checked) ~ #f26:checked ~ #f27:not(:checked) ~ #f28:not(:checked) ~ #f29:not(:checked) ~ #f30:not(:checked) ~ #f31:not(:checked) ~ #f32:not(:checked) ~ #f33:not(:checked) ~ #f34:not(:checked) ~ #f35:not(:checked) ~ #f36:not(:checked) ~ #f37:not(:checked) ~ #f38:checked ~ #f39:not(:checked) ~ #f40:not(:checked) ~ #f41:not(:checked) ~ #f42:not(:checked) ~ #f43:not(:checked) ~ #f44:not(:checked) ~ #f45:not(:checked) ~ #f46:not(:checked) ~ #f47:not(:checked) ~ #f48:not(:checked) ~ #f49:not(:checked) ~ #f50:not(:checked) ~ #f51:not(:checked) ~ #f52:not(:checked) ~ #f53:not(:checked) ~ #f54:not(:checked) ~ #f55:not(:checked) ~ #f56:checked ~ #f57:not(:checked) ~ #f58:checked ~ #f59:not(:checked) ~ #f60:not(:checked) ~ #f61:checked ~ #f62:not(:checked) ~ #f63:not(:checked) ~ #f64:not(:checked) ~ #f65:not(:checked) ~ #f66:not(:checked) ~ #f67:checked ~ #f68:not(:checked) ~ #f69:not(:checked) ~ #f70:checked ~ #f71:not(:checked) ~ #f72:not(:checked) ~ #f73:not(:checked) ~ #f74:not(:checked) ~ #f75:not(:checked) ~ #f76:not(:checked) ~ #f77:not(:checked) ~ #f78:not(:checked) ~ #f79:not(:checked) ~ #f80:not(:checked) ~ #f81:not(:checked) ~ .grid:active ~ .infos .timer .digit, #f1:not(:checked) ~ #f2:not(:checked) ~ #f3:checked ~ #f4:checked ~ #f5:not(:checked) ~ #f6:not(:checked) ~ #f7:not(:checked) ~ #f8:not(:checked) ~ #f9:not(:checked) ~ #f10:not(:checked) ~ #f11:not(:checked) ~ #f12:not(:checked) ~ #f13:not(:checked) ~ #f14:not(:checked) ~ #f15:not(:checked) ~ #f16:not(:checked) ~ #f17:not(:checked) ~ #f18:not(:checked) ~ #f19:not(:checked) ~ #f20:not(:checked) ~ #f21:not(:checked) ~ #f22:checked ~ #f23:not(:checked) ~ #f24:not(:checked) ~ #f25:not(:checked) ~ #f26:checked ~ #f27:not(:checked) ~ #f28:not(:checked) ~ #f29:not(:checked) ~ #f30:not(:checked) ~ #f31:not(:checked) ~ #f32:not(:checked) ~ #f33:not(:checked) ~ #f34:not(:checked) ~ #f35:not(:checked) ~ #f36:not(:checked) ~ #f37:not(:checked) ~ #f38:checked ~ #f39:not(:checked) ~ #f40:not(:checked) ~ #f41:not(:checked) ~ #f42:not(:checked) ~ #f43:not(:checked) ~ #f44:not(:checked) ~ #f45:not(:checked) ~ #f46:not(:checked) ~ #f47:not(:checked) ~ #f48:not(:checked) ~ #f49:not(:checked) ~ #f50:not(:checked) ~ #f51:not(:checked) ~ #f52:not(:checked) ~ #f53:not(:checked) ~ #f54:not(:checked) ~ #f55:not(:checked) ~ #f56:checked ~ #f57:not(:checked) ~ #f58:checked ~ #f59:not(:checked) ~ #f60:not(:checked) ~ #f61:checked ~ #f62:not(:checked) ~ #f63:not(:checked) ~ #f64:not(:checked) ~ #f65:not(:checked) ~ #f66:not(:checked) ~ #f67:checked ~ #f68:not(:checked) ~ #f69:not(:checked) ~ #f70:checked ~ #f71:not(:checked) ~ #f72:not(:checked) ~ #f73:not(:checked) ~ #f74:not(:checked) ~ #f75:not(:checked) ~ #f76:not(:checked) ~ #f77:not(:checked) ~ #f78:not(:checked) ~ #f79:not(:checked) ~ #f80:not(:checked) ~ #f81:not(:checked) ~ .grid:active ~ .infos .timer .digit:after {
+  animation: none;
+}
+
+#f1:not(:checked) ~ #f2:not(:checked) ~ #f3:checked ~ #f4:checked ~ #f5:not(:checked) ~ #f6:not(:checked) ~ #f7:not(:checked) ~ #f8:not(:checked) ~ #f9:not(:checked) ~ #f10:not(:checked) ~ #f11:not(:checked) ~ #f12:not(:checked) ~ #f13:not(:checked) ~ #f14:not(:checked) ~ #f15:not(:checked) ~ #f16:not(:checked) ~ #f17:not(:checked) ~ #f18:not(:checked) ~ #f19:not(:checked) ~ #f20:not(:checked) ~ #f21:not(:checked) ~ #f22:checked ~ #f23:not(:checked) ~ #f24:not(:checked) ~ #f25:not(:checked) ~ #f26:checked ~ #f27:not(:checked) ~ #f28:not(:checked) ~ #f29:not(:checked) ~ #f30:not(:checked) ~ #f31:not(:checked) ~ #f32:not(:checked) ~ #f33:not(:checked) ~ #f34:not(:checked) ~ #f35:not(:checked) ~ #f36:not(:checked) ~ #f37:not(:checked) ~ #f38:checked ~ #f39:not(:checked) ~ #f40:not(:checked) ~ #f41:not(:checked) ~ #f42:not(:checked) ~ #f43:not(:checked) ~ #f44:not(:checked) ~ #f45:not(:checked) ~ #f46:not(:checked) ~ #f47:not(:checked) ~ #f48:not(:checked) ~ #f49:not(:checked) ~ #f50:not(:checked) ~ #f51:not(:checked) ~ #f52:not(:checked) ~ #f53:not(:checked) ~ #f54:not(:checked) ~ #f55:not(:checked) ~ #f56:checked ~ #f57:not(:checked) ~ #f58:checked ~ #f59:not(:checked) ~ #f60:not(:checked) ~ #f61:checked ~ #f62:not(:checked) ~ #f63:not(:checked) ~ #f64:not(:checked) ~ #f65:not(:checked) ~ #f66:not(:checked) ~ #f67:checked ~ #f68:not(:checked) ~ #f69:not(:checked) ~ #f70:checked ~ #f71:not(:checked) ~ #f72:not(:checked) ~ #f73:not(:checked) ~ #f74:not(:checked) ~ #f75:not(:checked) ~ #f76:not(:checked) ~ #f77:not(:checked) ~ #f78:not(:checked) ~ #f79:not(:checked) ~ #f80:not(:checked) ~ #f81:not(:checked) ~ .infos .counter:before {
+  content: "😎";
+}
+#f1:not(:checked) ~ #f2:not(:checked) ~ #f3:checked ~ #f4:checked ~ #f5:not(:checked) ~ #f6:not(:checked) ~ #f7:not(:checked) ~ #f8:not(:checked) ~ #f9:not(:checked) ~ #f10:not(:checked) ~ #f11:not(:checked) ~ #f12:not(:checked) ~ #f13:not(:checked) ~ #f14:not(:checked) ~ #f15:not(:checked) ~ #f16:not(:checked) ~ #f17:not(:checked) ~ #f18:not(:checked) ~ #f19:not(:checked) ~ #f20:not(:checked) ~ #f21:not(:checked) ~ #f22:checked ~ #f23:not(:checked) ~ #f24:not(:checked) ~ #f25:not(:checked) ~ #f26:checked ~ #f27:not(:checked) ~ #f28:not(:checked) ~ #f29:not(:checked) ~ #f30:not(:checked) ~ #f31:not(:checked) ~ #f32:not(:checked) ~ #f33:not(:checked) ~ #f34:not(:checked) ~ #f35:not(:checked) ~ #f36:not(:checked) ~ #f37:not(:checked) ~ #f38:checked ~ #f39:not(:checked) ~ #f40:not(:checked) ~ #f41:not(:checked) ~ #f42:not(:checked) ~ #f43:not(:checked) ~ #f44:not(:checked) ~ #f45:not(:checked) ~ #f46:not(:checked) ~ #f47:not(:checked) ~ #f48:not(:checked) ~ #f49:not(:checked) ~ #f50:not(:checked) ~ #f51:not(:checked) ~ #f52:not(:checked) ~ #f53:not(:checked) ~ #f54:not(:checked) ~ #f55:not(:checked) ~ #f56:checked ~ #f57:not(:checked) ~ #f58:checked ~ #f59:not(:checked) ~ #f60:not(:checked) ~ #f61:checked ~ #f62:not(:checked) ~ #f63:not(:checked) ~ #f64:not(:checked) ~ #f65:not(:checked) ~ #f66:not(:checked) ~ #f67:checked ~ #f68:not(:checked) ~ #f69:not(:checked) ~ #f70:checked ~ #f71:not(:checked) ~ #f72:not(:checked) ~ #f73:not(:checked) ~ #f74:not(:checked) ~ #f75:not(:checked) ~ #f76:not(:checked) ~ #f77:not(:checked) ~ #f78:not(:checked) ~ #f79:not(:checked) ~ #f80:not(:checked) ~ #f81:not(:checked) ~ .infos .timer .digit, #f1:not(:checked) ~ #f2:not(:checked) ~ #f3:checked ~ #f4:checked ~ #f5:not(:checked) ~ #f6:not(:checked) ~ #f7:not(:checked) ~ #f8:not(:checked) ~ #f9:not(:checked) ~ #f10:not(:checked) ~ #f11:not(:checked) ~ #f12:not(:checked) ~ #f13:not(:checked) ~ #f14:not(:checked) ~ #f15:not(:checked) ~ #f16:not(:checked) ~ #f17:not(:checked) ~ #f18:not(:checked) ~ #f19:not(:checked) ~ #f20:not(:checked) ~ #f21:not(:checked) ~ #f22:checked ~ #f23:not(:checked) ~ #f24:not(:checked) ~ #f25:not(:checked) ~ #f26:checked ~ #f27:not(:checked) ~ #f28:not(:checked) ~ #f29:not(:checked) ~ #f30:not(:checked) ~ #f31:not(:checked) ~ #f32:not(:checked) ~ #f33:not(:checked) ~ #f34:not(:checked) ~ #f35:not(:checked) ~ #f36:not(:checked) ~ #f37:not(:checked) ~ #f38:checked ~ #f39:not(:checked) ~ #f40:not(:checked) ~ #f41:not(:checked) ~ #f42:not(:checked) ~ #f43:not(:checked) ~ #f44:not(:checked) ~ #f45:not(:checked) ~ #f46:not(:checked) ~ #f47:not(:checked) ~ #f48:not(:checked) ~ #f49:not(:checked) ~ #f50:not(:checked) ~ #f51:not(:checked) ~ #f52:not(:checked) ~ #f53:not(:checked) ~ #f54:not(:checked) ~ #f55:not(:checked) ~ #f56:checked ~ #f57:not(:checked) ~ #f58:checked ~ #f59:not(:checked) ~ #f60:not(:checked) ~ #f61:checked ~ #f62:not(:checked) ~ #f63:not(:checked) ~ #f64:not(:checked) ~ #f65:not(:checked) ~ #f66:not(:checked) ~ #f67:checked ~ #f68:not(:checked) ~ #f69:not(:checked) ~ #f70:checked ~ #f71:not(:checked) ~ #f72:not(:checked) ~ #f73:not(:checked) ~ #f74:not(:checked) ~ #f75:not(:checked) ~ #f76:not(:checked) ~ #f77:not(:checked) ~ #f78:not(:checked) ~ #f79:not(:checked) ~ #f80:not(:checked) ~ #f81:not(:checked) ~ .infos .timer .digit:after {
+  animation-play-state: paused;
+}
+
+#f1:checked ~ .grid label:nth-child(1):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f1:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(1):after {
+  pointer-events: auto;
+}
+
+#c1:checked ~ .grid label:nth-child(1):after, #c1:checked ~ .grid label:nth-child(10):after, #c1:checked ~ .grid label:nth-child(19):after, #c1:checked ~ .grid label:nth-child(28):after, #c1:checked ~ .grid label:nth-child(11):after, #c1:checked ~ .grid label:nth-child(20):after, #c1:checked ~ .grid label:nth-child(28):after, #c1:checked ~ .grid label:nth-child(11):after, #c1:checked ~ .grid label:nth-child(29):after, #c1:checked ~ .grid label:nth-child(12):after, #c1:checked ~ .grid label:nth-child(21):after, #c1:checked ~ .grid label:nth-child(30):after, #c1:checked ~ .grid label:nth-child(29):after, #c1:checked ~ .grid label:nth-child(2):after, #c1:checked ~ .grid label:nth-child(11):after, #c1:checked ~ .grid label:nth-child(2):after, #c1:checked ~ .grid label:nth-child(11):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c10:checked ~ .grid label:nth-child(1):after, #c10:checked ~ .grid label:nth-child(10):after, #c10:checked ~ .grid label:nth-child(19):after, #c10:checked ~ .grid label:nth-child(28):after, #c10:checked ~ .grid label:nth-child(11):after, #c10:checked ~ .grid label:nth-child(20):after, #c10:checked ~ .grid label:nth-child(28):after, #c10:checked ~ .grid label:nth-child(11):after, #c10:checked ~ .grid label:nth-child(29):after, #c10:checked ~ .grid label:nth-child(12):after, #c10:checked ~ .grid label:nth-child(21):after, #c10:checked ~ .grid label:nth-child(30):after, #c10:checked ~ .grid label:nth-child(29):after, #c10:checked ~ .grid label:nth-child(2):after, #c10:checked ~ .grid label:nth-child(11):after, #c10:checked ~ .grid label:nth-child(2):after, #c10:checked ~ .grid label:nth-child(11):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c19:checked ~ .grid label:nth-child(1):after, #c19:checked ~ .grid label:nth-child(10):after, #c19:checked ~ .grid label:nth-child(19):after, #c19:checked ~ .grid label:nth-child(28):after, #c19:checked ~ .grid label:nth-child(11):after, #c19:checked ~ .grid label:nth-child(20):after, #c19:checked ~ .grid label:nth-child(28):after, #c19:checked ~ .grid label:nth-child(11):after, #c19:checked ~ .grid label:nth-child(29):after, #c19:checked ~ .grid label:nth-child(12):after, #c19:checked ~ .grid label:nth-child(21):after, #c19:checked ~ .grid label:nth-child(30):after, #c19:checked ~ .grid label:nth-child(29):after, #c19:checked ~ .grid label:nth-child(2):after, #c19:checked ~ .grid label:nth-child(11):after, #c19:checked ~ .grid label:nth-child(2):after, #c19:checked ~ .grid label:nth-child(11):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c20:checked ~ .grid label:nth-child(1):after, #c20:checked ~ .grid label:nth-child(10):after, #c20:checked ~ .grid label:nth-child(19):after, #c20:checked ~ .grid label:nth-child(28):after, #c20:checked ~ .grid label:nth-child(11):after, #c20:checked ~ .grid label:nth-child(20):after, #c20:checked ~ .grid label:nth-child(28):after, #c20:checked ~ .grid label:nth-child(11):after, #c20:checked ~ .grid label:nth-child(29):after, #c20:checked ~ .grid label:nth-child(12):after, #c20:checked ~ .grid label:nth-child(21):after, #c20:checked ~ .grid label:nth-child(30):after, #c20:checked ~ .grid label:nth-child(29):after, #c20:checked ~ .grid label:nth-child(2):after, #c20:checked ~ .grid label:nth-child(11):after, #c20:checked ~ .grid label:nth-child(2):after, #c20:checked ~ .grid label:nth-child(11):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f2:checked ~ .grid label:nth-child(2):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f2:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(2):after {
+  pointer-events: auto;
+}
+
+#c2:checked ~ .grid label:nth-child(2):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f3:checked ~ .grid label:nth-child(3):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f3:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(3):after {
+  pointer-events: auto;
+}
+
+#c3:checked ~ .grid label:nth-child(3):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f4:checked ~ .grid label:nth-child(4):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f4:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(4):after {
+  pointer-events: auto;
+}
+
+#c4:checked ~ .grid label:nth-child(4):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f5:checked ~ .grid label:nth-child(5):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f5:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(5):after {
+  pointer-events: auto;
+}
+
+#c5:checked ~ .grid label:nth-child(5):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f6:checked ~ .grid label:nth-child(6):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f6:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(6):after {
+  pointer-events: auto;
+}
+
+#c6:checked ~ .grid label:nth-child(6):after, #c6:checked ~ .grid label:nth-child(5):after, #c6:checked ~ .grid label:nth-child(14):after, #c6:checked ~ .grid label:nth-child(15):after, #c6:checked ~ .grid label:nth-child(5):after, #c6:checked ~ .grid label:nth-child(14):after, #c6:checked ~ .grid label:nth-child(23):after, #c6:checked ~ .grid label:nth-child(24):after, #c6:checked ~ .grid label:nth-child(14):after, #c6:checked ~ .grid label:nth-child(23):after, #c6:checked ~ .grid label:nth-child(32):after, #c6:checked ~ .grid label:nth-child(33):after, #c6:checked ~ .grid label:nth-child(23):after, #c6:checked ~ .grid label:nth-child(32):after, #c6:checked ~ .grid label:nth-child(41):after, #c6:checked ~ .grid label:nth-child(31):after, #c6:checked ~ .grid label:nth-child(40):after, #c6:checked ~ .grid label:nth-child(30):after, #c6:checked ~ .grid label:nth-child(39):after, #c6:checked ~ .grid label:nth-child(48):after, #c6:checked ~ .grid label:nth-child(31):after, #c6:checked ~ .grid label:nth-child(49):after, #c6:checked ~ .grid label:nth-child(32):after, #c6:checked ~ .grid label:nth-child(50):after, #c6:checked ~ .grid label:nth-child(49):after, #c6:checked ~ .grid label:nth-child(32):after, #c6:checked ~ .grid label:nth-child(50):after, #c6:checked ~ .grid label:nth-child(42):after, #c6:checked ~ .grid label:nth-child(32):after, #c6:checked ~ .grid label:nth-child(50):after, #c6:checked ~ .grid label:nth-child(51):after, #c6:checked ~ .grid label:nth-child(34):after, #c6:checked ~ .grid label:nth-child(43):after, #c6:checked ~ .grid label:nth-child(51):after, #c6:checked ~ .grid label:nth-child(34):after, #c6:checked ~ .grid label:nth-child(52):after, #c6:checked ~ .grid label:nth-child(35):after, #c6:checked ~ .grid label:nth-child(44):after, #c6:checked ~ .grid label:nth-child(34):after, #c6:checked ~ .grid label:nth-child(52):after, #c6:checked ~ .grid label:nth-child(35):after, #c6:checked ~ .grid label:nth-child(53):after, #c6:checked ~ .grid label:nth-child(36):after, #c6:checked ~ .grid label:nth-child(45):after, #c6:checked ~ .grid label:nth-child(35):after, #c6:checked ~ .grid label:nth-child(53):after, #c6:checked ~ .grid label:nth-child(36):after, #c6:checked ~ .grid label:nth-child(54):after, #c6:checked ~ .grid label:nth-child(53):after, #c6:checked ~ .grid label:nth-child(62):after, #c6:checked ~ .grid label:nth-child(63):after, #c6:checked ~ .grid label:nth-child(53):after, #c6:checked ~ .grid label:nth-child(62):after, #c6:checked ~ .grid label:nth-child(71):after, #c6:checked ~ .grid label:nth-child(72):after, #c6:checked ~ .grid label:nth-child(62):after, #c6:checked ~ .grid label:nth-child(71):after, #c6:checked ~ .grid label:nth-child(80):after, #c6:checked ~ .grid label:nth-child(81):after, #c6:checked ~ .grid label:nth-child(71):after, #c6:checked ~ .grid label:nth-child(80):after, #c6:checked ~ .grid label:nth-child(53):after, #c6:checked ~ .grid label:nth-child(52):after, #c6:checked ~ .grid label:nth-child(51):after, #c6:checked ~ .grid label:nth-child(25):after, #c6:checked ~ .grid label:nth-child(34):after, #c6:checked ~ .grid label:nth-child(16):after, #c6:checked ~ .grid label:nth-child(25):after, #c6:checked ~ .grid label:nth-child(34):after, #c6:checked ~ .grid label:nth-child(7):after, #c6:checked ~ .grid label:nth-child(16):after, #c6:checked ~ .grid label:nth-child(8):after, #c6:checked ~ .grid label:nth-child(16):after, #c6:checked ~ .grid label:nth-child(17):after, #c6:checked ~ .grid label:nth-child(9):after, #c6:checked ~ .grid label:nth-child(17):after, #c6:checked ~ .grid label:nth-child(18):after, #c6:checked ~ .grid label:nth-child(18):after, #c6:checked ~ .grid label:nth-child(17):after, #c6:checked ~ .grid label:nth-child(16):after, #c6:checked ~ .grid label:nth-child(25):after, #c6:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c15:checked ~ .grid label:nth-child(6):after, #c15:checked ~ .grid label:nth-child(5):after, #c15:checked ~ .grid label:nth-child(14):after, #c15:checked ~ .grid label:nth-child(15):after, #c15:checked ~ .grid label:nth-child(5):after, #c15:checked ~ .grid label:nth-child(14):after, #c15:checked ~ .grid label:nth-child(23):after, #c15:checked ~ .grid label:nth-child(24):after, #c15:checked ~ .grid label:nth-child(14):after, #c15:checked ~ .grid label:nth-child(23):after, #c15:checked ~ .grid label:nth-child(32):after, #c15:checked ~ .grid label:nth-child(33):after, #c15:checked ~ .grid label:nth-child(23):after, #c15:checked ~ .grid label:nth-child(32):after, #c15:checked ~ .grid label:nth-child(41):after, #c15:checked ~ .grid label:nth-child(31):after, #c15:checked ~ .grid label:nth-child(40):after, #c15:checked ~ .grid label:nth-child(30):after, #c15:checked ~ .grid label:nth-child(39):after, #c15:checked ~ .grid label:nth-child(48):after, #c15:checked ~ .grid label:nth-child(31):after, #c15:checked ~ .grid label:nth-child(49):after, #c15:checked ~ .grid label:nth-child(32):after, #c15:checked ~ .grid label:nth-child(50):after, #c15:checked ~ .grid label:nth-child(49):after, #c15:checked ~ .grid label:nth-child(32):after, #c15:checked ~ .grid label:nth-child(50):after, #c15:checked ~ .grid label:nth-child(42):after, #c15:checked ~ .grid label:nth-child(32):after, #c15:checked ~ .grid label:nth-child(50):after, #c15:checked ~ .grid label:nth-child(51):after, #c15:checked ~ .grid label:nth-child(34):after, #c15:checked ~ .grid label:nth-child(43):after, #c15:checked ~ .grid label:nth-child(51):after, #c15:checked ~ .grid label:nth-child(34):after, #c15:checked ~ .grid label:nth-child(52):after, #c15:checked ~ .grid label:nth-child(35):after, #c15:checked ~ .grid label:nth-child(44):after, #c15:checked ~ .grid label:nth-child(34):after, #c15:checked ~ .grid label:nth-child(52):after, #c15:checked ~ .grid label:nth-child(35):after, #c15:checked ~ .grid label:nth-child(53):after, #c15:checked ~ .grid label:nth-child(36):after, #c15:checked ~ .grid label:nth-child(45):after, #c15:checked ~ .grid label:nth-child(35):after, #c15:checked ~ .grid label:nth-child(53):after, #c15:checked ~ .grid label:nth-child(36):after, #c15:checked ~ .grid label:nth-child(54):after, #c15:checked ~ .grid label:nth-child(53):after, #c15:checked ~ .grid label:nth-child(62):after, #c15:checked ~ .grid label:nth-child(63):after, #c15:checked ~ .grid label:nth-child(53):after, #c15:checked ~ .grid label:nth-child(62):after, #c15:checked ~ .grid label:nth-child(71):after, #c15:checked ~ .grid label:nth-child(72):after, #c15:checked ~ .grid label:nth-child(62):after, #c15:checked ~ .grid label:nth-child(71):after, #c15:checked ~ .grid label:nth-child(80):after, #c15:checked ~ .grid label:nth-child(81):after, #c15:checked ~ .grid label:nth-child(71):after, #c15:checked ~ .grid label:nth-child(80):after, #c15:checked ~ .grid label:nth-child(53):after, #c15:checked ~ .grid label:nth-child(52):after, #c15:checked ~ .grid label:nth-child(51):after, #c15:checked ~ .grid label:nth-child(25):after, #c15:checked ~ .grid label:nth-child(34):after, #c15:checked ~ .grid label:nth-child(16):after, #c15:checked ~ .grid label:nth-child(25):after, #c15:checked ~ .grid label:nth-child(34):after, #c15:checked ~ .grid label:nth-child(7):after, #c15:checked ~ .grid label:nth-child(16):after, #c15:checked ~ .grid label:nth-child(8):after, #c15:checked ~ .grid label:nth-child(16):after, #c15:checked ~ .grid label:nth-child(17):after, #c15:checked ~ .grid label:nth-child(9):after, #c15:checked ~ .grid label:nth-child(17):after, #c15:checked ~ .grid label:nth-child(18):after, #c15:checked ~ .grid label:nth-child(18):after, #c15:checked ~ .grid label:nth-child(17):after, #c15:checked ~ .grid label:nth-child(16):after, #c15:checked ~ .grid label:nth-child(25):after, #c15:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c24:checked ~ .grid label:nth-child(6):after, #c24:checked ~ .grid label:nth-child(5):after, #c24:checked ~ .grid label:nth-child(14):after, #c24:checked ~ .grid label:nth-child(15):after, #c24:checked ~ .grid label:nth-child(5):after, #c24:checked ~ .grid label:nth-child(14):after, #c24:checked ~ .grid label:nth-child(23):after, #c24:checked ~ .grid label:nth-child(24):after, #c24:checked ~ .grid label:nth-child(14):after, #c24:checked ~ .grid label:nth-child(23):after, #c24:checked ~ .grid label:nth-child(32):after, #c24:checked ~ .grid label:nth-child(33):after, #c24:checked ~ .grid label:nth-child(23):after, #c24:checked ~ .grid label:nth-child(32):after, #c24:checked ~ .grid label:nth-child(41):after, #c24:checked ~ .grid label:nth-child(31):after, #c24:checked ~ .grid label:nth-child(40):after, #c24:checked ~ .grid label:nth-child(30):after, #c24:checked ~ .grid label:nth-child(39):after, #c24:checked ~ .grid label:nth-child(48):after, #c24:checked ~ .grid label:nth-child(31):after, #c24:checked ~ .grid label:nth-child(49):after, #c24:checked ~ .grid label:nth-child(32):after, #c24:checked ~ .grid label:nth-child(50):after, #c24:checked ~ .grid label:nth-child(49):after, #c24:checked ~ .grid label:nth-child(32):after, #c24:checked ~ .grid label:nth-child(50):after, #c24:checked ~ .grid label:nth-child(42):after, #c24:checked ~ .grid label:nth-child(32):after, #c24:checked ~ .grid label:nth-child(50):after, #c24:checked ~ .grid label:nth-child(51):after, #c24:checked ~ .grid label:nth-child(34):after, #c24:checked ~ .grid label:nth-child(43):after, #c24:checked ~ .grid label:nth-child(51):after, #c24:checked ~ .grid label:nth-child(34):after, #c24:checked ~ .grid label:nth-child(52):after, #c24:checked ~ .grid label:nth-child(35):after, #c24:checked ~ .grid label:nth-child(44):after, #c24:checked ~ .grid label:nth-child(34):after, #c24:checked ~ .grid label:nth-child(52):after, #c24:checked ~ .grid label:nth-child(35):after, #c24:checked ~ .grid label:nth-child(53):after, #c24:checked ~ .grid label:nth-child(36):after, #c24:checked ~ .grid label:nth-child(45):after, #c24:checked ~ .grid label:nth-child(35):after, #c24:checked ~ .grid label:nth-child(53):after, #c24:checked ~ .grid label:nth-child(36):after, #c24:checked ~ .grid label:nth-child(54):after, #c24:checked ~ .grid label:nth-child(53):after, #c24:checked ~ .grid label:nth-child(62):after, #c24:checked ~ .grid label:nth-child(63):after, #c24:checked ~ .grid label:nth-child(53):after, #c24:checked ~ .grid label:nth-child(62):after, #c24:checked ~ .grid label:nth-child(71):after, #c24:checked ~ .grid label:nth-child(72):after, #c24:checked ~ .grid label:nth-child(62):after, #c24:checked ~ .grid label:nth-child(71):after, #c24:checked ~ .grid label:nth-child(80):after, #c24:checked ~ .grid label:nth-child(81):after, #c24:checked ~ .grid label:nth-child(71):after, #c24:checked ~ .grid label:nth-child(80):after, #c24:checked ~ .grid label:nth-child(53):after, #c24:checked ~ .grid label:nth-child(52):after, #c24:checked ~ .grid label:nth-child(51):after, #c24:checked ~ .grid label:nth-child(25):after, #c24:checked ~ .grid label:nth-child(34):after, #c24:checked ~ .grid label:nth-child(16):after, #c24:checked ~ .grid label:nth-child(25):after, #c24:checked ~ .grid label:nth-child(34):after, #c24:checked ~ .grid label:nth-child(7):after, #c24:checked ~ .grid label:nth-child(16):after, #c24:checked ~ .grid label:nth-child(8):after, #c24:checked ~ .grid label:nth-child(16):after, #c24:checked ~ .grid label:nth-child(17):after, #c24:checked ~ .grid label:nth-child(9):after, #c24:checked ~ .grid label:nth-child(17):after, #c24:checked ~ .grid label:nth-child(18):after, #c24:checked ~ .grid label:nth-child(18):after, #c24:checked ~ .grid label:nth-child(17):after, #c24:checked ~ .grid label:nth-child(16):after, #c24:checked ~ .grid label:nth-child(25):after, #c24:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c33:checked ~ .grid label:nth-child(6):after, #c33:checked ~ .grid label:nth-child(5):after, #c33:checked ~ .grid label:nth-child(14):after, #c33:checked ~ .grid label:nth-child(15):after, #c33:checked ~ .grid label:nth-child(5):after, #c33:checked ~ .grid label:nth-child(14):after, #c33:checked ~ .grid label:nth-child(23):after, #c33:checked ~ .grid label:nth-child(24):after, #c33:checked ~ .grid label:nth-child(14):after, #c33:checked ~ .grid label:nth-child(23):after, #c33:checked ~ .grid label:nth-child(32):after, #c33:checked ~ .grid label:nth-child(33):after, #c33:checked ~ .grid label:nth-child(23):after, #c33:checked ~ .grid label:nth-child(32):after, #c33:checked ~ .grid label:nth-child(41):after, #c33:checked ~ .grid label:nth-child(31):after, #c33:checked ~ .grid label:nth-child(40):after, #c33:checked ~ .grid label:nth-child(30):after, #c33:checked ~ .grid label:nth-child(39):after, #c33:checked ~ .grid label:nth-child(48):after, #c33:checked ~ .grid label:nth-child(31):after, #c33:checked ~ .grid label:nth-child(49):after, #c33:checked ~ .grid label:nth-child(32):after, #c33:checked ~ .grid label:nth-child(50):after, #c33:checked ~ .grid label:nth-child(49):after, #c33:checked ~ .grid label:nth-child(32):after, #c33:checked ~ .grid label:nth-child(50):after, #c33:checked ~ .grid label:nth-child(42):after, #c33:checked ~ .grid label:nth-child(32):after, #c33:checked ~ .grid label:nth-child(50):after, #c33:checked ~ .grid label:nth-child(51):after, #c33:checked ~ .grid label:nth-child(34):after, #c33:checked ~ .grid label:nth-child(43):after, #c33:checked ~ .grid label:nth-child(51):after, #c33:checked ~ .grid label:nth-child(34):after, #c33:checked ~ .grid label:nth-child(52):after, #c33:checked ~ .grid label:nth-child(35):after, #c33:checked ~ .grid label:nth-child(44):after, #c33:checked ~ .grid label:nth-child(34):after, #c33:checked ~ .grid label:nth-child(52):after, #c33:checked ~ .grid label:nth-child(35):after, #c33:checked ~ .grid label:nth-child(53):after, #c33:checked ~ .grid label:nth-child(36):after, #c33:checked ~ .grid label:nth-child(45):after, #c33:checked ~ .grid label:nth-child(35):after, #c33:checked ~ .grid label:nth-child(53):after, #c33:checked ~ .grid label:nth-child(36):after, #c33:checked ~ .grid label:nth-child(54):after, #c33:checked ~ .grid label:nth-child(53):after, #c33:checked ~ .grid label:nth-child(62):after, #c33:checked ~ .grid label:nth-child(63):after, #c33:checked ~ .grid label:nth-child(53):after, #c33:checked ~ .grid label:nth-child(62):after, #c33:checked ~ .grid label:nth-child(71):after, #c33:checked ~ .grid label:nth-child(72):after, #c33:checked ~ .grid label:nth-child(62):after, #c33:checked ~ .grid label:nth-child(71):after, #c33:checked ~ .grid label:nth-child(80):after, #c33:checked ~ .grid label:nth-child(81):after, #c33:checked ~ .grid label:nth-child(71):after, #c33:checked ~ .grid label:nth-child(80):after, #c33:checked ~ .grid label:nth-child(53):after, #c33:checked ~ .grid label:nth-child(52):after, #c33:checked ~ .grid label:nth-child(51):after, #c33:checked ~ .grid label:nth-child(25):after, #c33:checked ~ .grid label:nth-child(34):after, #c33:checked ~ .grid label:nth-child(16):after, #c33:checked ~ .grid label:nth-child(25):after, #c33:checked ~ .grid label:nth-child(34):after, #c33:checked ~ .grid label:nth-child(7):after, #c33:checked ~ .grid label:nth-child(16):after, #c33:checked ~ .grid label:nth-child(8):after, #c33:checked ~ .grid label:nth-child(16):after, #c33:checked ~ .grid label:nth-child(17):after, #c33:checked ~ .grid label:nth-child(9):after, #c33:checked ~ .grid label:nth-child(17):after, #c33:checked ~ .grid label:nth-child(18):after, #c33:checked ~ .grid label:nth-child(18):after, #c33:checked ~ .grid label:nth-child(17):after, #c33:checked ~ .grid label:nth-child(16):after, #c33:checked ~ .grid label:nth-child(25):after, #c33:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c41:checked ~ .grid label:nth-child(6):after, #c41:checked ~ .grid label:nth-child(5):after, #c41:checked ~ .grid label:nth-child(14):after, #c41:checked ~ .grid label:nth-child(15):after, #c41:checked ~ .grid label:nth-child(5):after, #c41:checked ~ .grid label:nth-child(14):after, #c41:checked ~ .grid label:nth-child(23):after, #c41:checked ~ .grid label:nth-child(24):after, #c41:checked ~ .grid label:nth-child(14):after, #c41:checked ~ .grid label:nth-child(23):after, #c41:checked ~ .grid label:nth-child(32):after, #c41:checked ~ .grid label:nth-child(33):after, #c41:checked ~ .grid label:nth-child(23):after, #c41:checked ~ .grid label:nth-child(32):after, #c41:checked ~ .grid label:nth-child(41):after, #c41:checked ~ .grid label:nth-child(31):after, #c41:checked ~ .grid label:nth-child(40):after, #c41:checked ~ .grid label:nth-child(30):after, #c41:checked ~ .grid label:nth-child(39):after, #c41:checked ~ .grid label:nth-child(48):after, #c41:checked ~ .grid label:nth-child(31):after, #c41:checked ~ .grid label:nth-child(49):after, #c41:checked ~ .grid label:nth-child(32):after, #c41:checked ~ .grid label:nth-child(50):after, #c41:checked ~ .grid label:nth-child(49):after, #c41:checked ~ .grid label:nth-child(32):after, #c41:checked ~ .grid label:nth-child(50):after, #c41:checked ~ .grid label:nth-child(42):after, #c41:checked ~ .grid label:nth-child(32):after, #c41:checked ~ .grid label:nth-child(50):after, #c41:checked ~ .grid label:nth-child(51):after, #c41:checked ~ .grid label:nth-child(34):after, #c41:checked ~ .grid label:nth-child(43):after, #c41:checked ~ .grid label:nth-child(51):after, #c41:checked ~ .grid label:nth-child(34):after, #c41:checked ~ .grid label:nth-child(52):after, #c41:checked ~ .grid label:nth-child(35):after, #c41:checked ~ .grid label:nth-child(44):after, #c41:checked ~ .grid label:nth-child(34):after, #c41:checked ~ .grid label:nth-child(52):after, #c41:checked ~ .grid label:nth-child(35):after, #c41:checked ~ .grid label:nth-child(53):after, #c41:checked ~ .grid label:nth-child(36):after, #c41:checked ~ .grid label:nth-child(45):after, #c41:checked ~ .grid label:nth-child(35):after, #c41:checked ~ .grid label:nth-child(53):after, #c41:checked ~ .grid label:nth-child(36):after, #c41:checked ~ .grid label:nth-child(54):after, #c41:checked ~ .grid label:nth-child(53):after, #c41:checked ~ .grid label:nth-child(62):after, #c41:checked ~ .grid label:nth-child(63):after, #c41:checked ~ .grid label:nth-child(53):after, #c41:checked ~ .grid label:nth-child(62):after, #c41:checked ~ .grid label:nth-child(71):after, #c41:checked ~ .grid label:nth-child(72):after, #c41:checked ~ .grid label:nth-child(62):after, #c41:checked ~ .grid label:nth-child(71):after, #c41:checked ~ .grid label:nth-child(80):after, #c41:checked ~ .grid label:nth-child(81):after, #c41:checked ~ .grid label:nth-child(71):after, #c41:checked ~ .grid label:nth-child(80):after, #c41:checked ~ .grid label:nth-child(53):after, #c41:checked ~ .grid label:nth-child(52):after, #c41:checked ~ .grid label:nth-child(51):after, #c41:checked ~ .grid label:nth-child(25):after, #c41:checked ~ .grid label:nth-child(34):after, #c41:checked ~ .grid label:nth-child(16):after, #c41:checked ~ .grid label:nth-child(25):after, #c41:checked ~ .grid label:nth-child(34):after, #c41:checked ~ .grid label:nth-child(7):after, #c41:checked ~ .grid label:nth-child(16):after, #c41:checked ~ .grid label:nth-child(8):after, #c41:checked ~ .grid label:nth-child(16):after, #c41:checked ~ .grid label:nth-child(17):after, #c41:checked ~ .grid label:nth-child(9):after, #c41:checked ~ .grid label:nth-child(17):after, #c41:checked ~ .grid label:nth-child(18):after, #c41:checked ~ .grid label:nth-child(18):after, #c41:checked ~ .grid label:nth-child(17):after, #c41:checked ~ .grid label:nth-child(16):after, #c41:checked ~ .grid label:nth-child(25):after, #c41:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c40:checked ~ .grid label:nth-child(6):after, #c40:checked ~ .grid label:nth-child(5):after, #c40:checked ~ .grid label:nth-child(14):after, #c40:checked ~ .grid label:nth-child(15):after, #c40:checked ~ .grid label:nth-child(5):after, #c40:checked ~ .grid label:nth-child(14):after, #c40:checked ~ .grid label:nth-child(23):after, #c40:checked ~ .grid label:nth-child(24):after, #c40:checked ~ .grid label:nth-child(14):after, #c40:checked ~ .grid label:nth-child(23):after, #c40:checked ~ .grid label:nth-child(32):after, #c40:checked ~ .grid label:nth-child(33):after, #c40:checked ~ .grid label:nth-child(23):after, #c40:checked ~ .grid label:nth-child(32):after, #c40:checked ~ .grid label:nth-child(41):after, #c40:checked ~ .grid label:nth-child(31):after, #c40:checked ~ .grid label:nth-child(40):after, #c40:checked ~ .grid label:nth-child(30):after, #c40:checked ~ .grid label:nth-child(39):after, #c40:checked ~ .grid label:nth-child(48):after, #c40:checked ~ .grid label:nth-child(31):after, #c40:checked ~ .grid label:nth-child(49):after, #c40:checked ~ .grid label:nth-child(32):after, #c40:checked ~ .grid label:nth-child(50):after, #c40:checked ~ .grid label:nth-child(49):after, #c40:checked ~ .grid label:nth-child(32):after, #c40:checked ~ .grid label:nth-child(50):after, #c40:checked ~ .grid label:nth-child(42):after, #c40:checked ~ .grid label:nth-child(32):after, #c40:checked ~ .grid label:nth-child(50):after, #c40:checked ~ .grid label:nth-child(51):after, #c40:checked ~ .grid label:nth-child(34):after, #c40:checked ~ .grid label:nth-child(43):after, #c40:checked ~ .grid label:nth-child(51):after, #c40:checked ~ .grid label:nth-child(34):after, #c40:checked ~ .grid label:nth-child(52):after, #c40:checked ~ .grid label:nth-child(35):after, #c40:checked ~ .grid label:nth-child(44):after, #c40:checked ~ .grid label:nth-child(34):after, #c40:checked ~ .grid label:nth-child(52):after, #c40:checked ~ .grid label:nth-child(35):after, #c40:checked ~ .grid label:nth-child(53):after, #c40:checked ~ .grid label:nth-child(36):after, #c40:checked ~ .grid label:nth-child(45):after, #c40:checked ~ .grid label:nth-child(35):after, #c40:checked ~ .grid label:nth-child(53):after, #c40:checked ~ .grid label:nth-child(36):after, #c40:checked ~ .grid label:nth-child(54):after, #c40:checked ~ .grid label:nth-child(53):after, #c40:checked ~ .grid label:nth-child(62):after, #c40:checked ~ .grid label:nth-child(63):after, #c40:checked ~ .grid label:nth-child(53):after, #c40:checked ~ .grid label:nth-child(62):after, #c40:checked ~ .grid label:nth-child(71):after, #c40:checked ~ .grid label:nth-child(72):after, #c40:checked ~ .grid label:nth-child(62):after, #c40:checked ~ .grid label:nth-child(71):after, #c40:checked ~ .grid label:nth-child(80):after, #c40:checked ~ .grid label:nth-child(81):after, #c40:checked ~ .grid label:nth-child(71):after, #c40:checked ~ .grid label:nth-child(80):after, #c40:checked ~ .grid label:nth-child(53):after, #c40:checked ~ .grid label:nth-child(52):after, #c40:checked ~ .grid label:nth-child(51):after, #c40:checked ~ .grid label:nth-child(25):after, #c40:checked ~ .grid label:nth-child(34):after, #c40:checked ~ .grid label:nth-child(16):after, #c40:checked ~ .grid label:nth-child(25):after, #c40:checked ~ .grid label:nth-child(34):after, #c40:checked ~ .grid label:nth-child(7):after, #c40:checked ~ .grid label:nth-child(16):after, #c40:checked ~ .grid label:nth-child(8):after, #c40:checked ~ .grid label:nth-child(16):after, #c40:checked ~ .grid label:nth-child(17):after, #c40:checked ~ .grid label:nth-child(9):after, #c40:checked ~ .grid label:nth-child(17):after, #c40:checked ~ .grid label:nth-child(18):after, #c40:checked ~ .grid label:nth-child(18):after, #c40:checked ~ .grid label:nth-child(17):after, #c40:checked ~ .grid label:nth-child(16):after, #c40:checked ~ .grid label:nth-child(25):after, #c40:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c42:checked ~ .grid label:nth-child(6):after, #c42:checked ~ .grid label:nth-child(5):after, #c42:checked ~ .grid label:nth-child(14):after, #c42:checked ~ .grid label:nth-child(15):after, #c42:checked ~ .grid label:nth-child(5):after, #c42:checked ~ .grid label:nth-child(14):after, #c42:checked ~ .grid label:nth-child(23):after, #c42:checked ~ .grid label:nth-child(24):after, #c42:checked ~ .grid label:nth-child(14):after, #c42:checked ~ .grid label:nth-child(23):after, #c42:checked ~ .grid label:nth-child(32):after, #c42:checked ~ .grid label:nth-child(33):after, #c42:checked ~ .grid label:nth-child(23):after, #c42:checked ~ .grid label:nth-child(32):after, #c42:checked ~ .grid label:nth-child(41):after, #c42:checked ~ .grid label:nth-child(31):after, #c42:checked ~ .grid label:nth-child(40):after, #c42:checked ~ .grid label:nth-child(30):after, #c42:checked ~ .grid label:nth-child(39):after, #c42:checked ~ .grid label:nth-child(48):after, #c42:checked ~ .grid label:nth-child(31):after, #c42:checked ~ .grid label:nth-child(49):after, #c42:checked ~ .grid label:nth-child(32):after, #c42:checked ~ .grid label:nth-child(50):after, #c42:checked ~ .grid label:nth-child(49):after, #c42:checked ~ .grid label:nth-child(32):after, #c42:checked ~ .grid label:nth-child(50):after, #c42:checked ~ .grid label:nth-child(42):after, #c42:checked ~ .grid label:nth-child(32):after, #c42:checked ~ .grid label:nth-child(50):after, #c42:checked ~ .grid label:nth-child(51):after, #c42:checked ~ .grid label:nth-child(34):after, #c42:checked ~ .grid label:nth-child(43):after, #c42:checked ~ .grid label:nth-child(51):after, #c42:checked ~ .grid label:nth-child(34):after, #c42:checked ~ .grid label:nth-child(52):after, #c42:checked ~ .grid label:nth-child(35):after, #c42:checked ~ .grid label:nth-child(44):after, #c42:checked ~ .grid label:nth-child(34):after, #c42:checked ~ .grid label:nth-child(52):after, #c42:checked ~ .grid label:nth-child(35):after, #c42:checked ~ .grid label:nth-child(53):after, #c42:checked ~ .grid label:nth-child(36):after, #c42:checked ~ .grid label:nth-child(45):after, #c42:checked ~ .grid label:nth-child(35):after, #c42:checked ~ .grid label:nth-child(53):after, #c42:checked ~ .grid label:nth-child(36):after, #c42:checked ~ .grid label:nth-child(54):after, #c42:checked ~ .grid label:nth-child(53):after, #c42:checked ~ .grid label:nth-child(62):after, #c42:checked ~ .grid label:nth-child(63):after, #c42:checked ~ .grid label:nth-child(53):after, #c42:checked ~ .grid label:nth-child(62):after, #c42:checked ~ .grid label:nth-child(71):after, #c42:checked ~ .grid label:nth-child(72):after, #c42:checked ~ .grid label:nth-child(62):after, #c42:checked ~ .grid label:nth-child(71):after, #c42:checked ~ .grid label:nth-child(80):after, #c42:checked ~ .grid label:nth-child(81):after, #c42:checked ~ .grid label:nth-child(71):after, #c42:checked ~ .grid label:nth-child(80):after, #c42:checked ~ .grid label:nth-child(53):after, #c42:checked ~ .grid label:nth-child(52):after, #c42:checked ~ .grid label:nth-child(51):after, #c42:checked ~ .grid label:nth-child(25):after, #c42:checked ~ .grid label:nth-child(34):after, #c42:checked ~ .grid label:nth-child(16):after, #c42:checked ~ .grid label:nth-child(25):after, #c42:checked ~ .grid label:nth-child(34):after, #c42:checked ~ .grid label:nth-child(7):after, #c42:checked ~ .grid label:nth-child(16):after, #c42:checked ~ .grid label:nth-child(8):after, #c42:checked ~ .grid label:nth-child(16):after, #c42:checked ~ .grid label:nth-child(17):after, #c42:checked ~ .grid label:nth-child(9):after, #c42:checked ~ .grid label:nth-child(17):after, #c42:checked ~ .grid label:nth-child(18):after, #c42:checked ~ .grid label:nth-child(18):after, #c42:checked ~ .grid label:nth-child(17):after, #c42:checked ~ .grid label:nth-child(16):after, #c42:checked ~ .grid label:nth-child(25):after, #c42:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c43:checked ~ .grid label:nth-child(6):after, #c43:checked ~ .grid label:nth-child(5):after, #c43:checked ~ .grid label:nth-child(14):after, #c43:checked ~ .grid label:nth-child(15):after, #c43:checked ~ .grid label:nth-child(5):after, #c43:checked ~ .grid label:nth-child(14):after, #c43:checked ~ .grid label:nth-child(23):after, #c43:checked ~ .grid label:nth-child(24):after, #c43:checked ~ .grid label:nth-child(14):after, #c43:checked ~ .grid label:nth-child(23):after, #c43:checked ~ .grid label:nth-child(32):after, #c43:checked ~ .grid label:nth-child(33):after, #c43:checked ~ .grid label:nth-child(23):after, #c43:checked ~ .grid label:nth-child(32):after, #c43:checked ~ .grid label:nth-child(41):after, #c43:checked ~ .grid label:nth-child(31):after, #c43:checked ~ .grid label:nth-child(40):after, #c43:checked ~ .grid label:nth-child(30):after, #c43:checked ~ .grid label:nth-child(39):after, #c43:checked ~ .grid label:nth-child(48):after, #c43:checked ~ .grid label:nth-child(31):after, #c43:checked ~ .grid label:nth-child(49):after, #c43:checked ~ .grid label:nth-child(32):after, #c43:checked ~ .grid label:nth-child(50):after, #c43:checked ~ .grid label:nth-child(49):after, #c43:checked ~ .grid label:nth-child(32):after, #c43:checked ~ .grid label:nth-child(50):after, #c43:checked ~ .grid label:nth-child(42):after, #c43:checked ~ .grid label:nth-child(32):after, #c43:checked ~ .grid label:nth-child(50):after, #c43:checked ~ .grid label:nth-child(51):after, #c43:checked ~ .grid label:nth-child(34):after, #c43:checked ~ .grid label:nth-child(43):after, #c43:checked ~ .grid label:nth-child(51):after, #c43:checked ~ .grid label:nth-child(34):after, #c43:checked ~ .grid label:nth-child(52):after, #c43:checked ~ .grid label:nth-child(35):after, #c43:checked ~ .grid label:nth-child(44):after, #c43:checked ~ .grid label:nth-child(34):after, #c43:checked ~ .grid label:nth-child(52):after, #c43:checked ~ .grid label:nth-child(35):after, #c43:checked ~ .grid label:nth-child(53):after, #c43:checked ~ .grid label:nth-child(36):after, #c43:checked ~ .grid label:nth-child(45):after, #c43:checked ~ .grid label:nth-child(35):after, #c43:checked ~ .grid label:nth-child(53):after, #c43:checked ~ .grid label:nth-child(36):after, #c43:checked ~ .grid label:nth-child(54):after, #c43:checked ~ .grid label:nth-child(53):after, #c43:checked ~ .grid label:nth-child(62):after, #c43:checked ~ .grid label:nth-child(63):after, #c43:checked ~ .grid label:nth-child(53):after, #c43:checked ~ .grid label:nth-child(62):after, #c43:checked ~ .grid label:nth-child(71):after, #c43:checked ~ .grid label:nth-child(72):after, #c43:checked ~ .grid label:nth-child(62):after, #c43:checked ~ .grid label:nth-child(71):after, #c43:checked ~ .grid label:nth-child(80):after, #c43:checked ~ .grid label:nth-child(81):after, #c43:checked ~ .grid label:nth-child(71):after, #c43:checked ~ .grid label:nth-child(80):after, #c43:checked ~ .grid label:nth-child(53):after, #c43:checked ~ .grid label:nth-child(52):after, #c43:checked ~ .grid label:nth-child(51):after, #c43:checked ~ .grid label:nth-child(25):after, #c43:checked ~ .grid label:nth-child(34):after, #c43:checked ~ .grid label:nth-child(16):after, #c43:checked ~ .grid label:nth-child(25):after, #c43:checked ~ .grid label:nth-child(34):after, #c43:checked ~ .grid label:nth-child(7):after, #c43:checked ~ .grid label:nth-child(16):after, #c43:checked ~ .grid label:nth-child(8):after, #c43:checked ~ .grid label:nth-child(16):after, #c43:checked ~ .grid label:nth-child(17):after, #c43:checked ~ .grid label:nth-child(9):after, #c43:checked ~ .grid label:nth-child(17):after, #c43:checked ~ .grid label:nth-child(18):after, #c43:checked ~ .grid label:nth-child(18):after, #c43:checked ~ .grid label:nth-child(17):after, #c43:checked ~ .grid label:nth-child(16):after, #c43:checked ~ .grid label:nth-child(25):after, #c43:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c44:checked ~ .grid label:nth-child(6):after, #c44:checked ~ .grid label:nth-child(5):after, #c44:checked ~ .grid label:nth-child(14):after, #c44:checked ~ .grid label:nth-child(15):after, #c44:checked ~ .grid label:nth-child(5):after, #c44:checked ~ .grid label:nth-child(14):after, #c44:checked ~ .grid label:nth-child(23):after, #c44:checked ~ .grid label:nth-child(24):after, #c44:checked ~ .grid label:nth-child(14):after, #c44:checked ~ .grid label:nth-child(23):after, #c44:checked ~ .grid label:nth-child(32):after, #c44:checked ~ .grid label:nth-child(33):after, #c44:checked ~ .grid label:nth-child(23):after, #c44:checked ~ .grid label:nth-child(32):after, #c44:checked ~ .grid label:nth-child(41):after, #c44:checked ~ .grid label:nth-child(31):after, #c44:checked ~ .grid label:nth-child(40):after, #c44:checked ~ .grid label:nth-child(30):after, #c44:checked ~ .grid label:nth-child(39):after, #c44:checked ~ .grid label:nth-child(48):after, #c44:checked ~ .grid label:nth-child(31):after, #c44:checked ~ .grid label:nth-child(49):after, #c44:checked ~ .grid label:nth-child(32):after, #c44:checked ~ .grid label:nth-child(50):after, #c44:checked ~ .grid label:nth-child(49):after, #c44:checked ~ .grid label:nth-child(32):after, #c44:checked ~ .grid label:nth-child(50):after, #c44:checked ~ .grid label:nth-child(42):after, #c44:checked ~ .grid label:nth-child(32):after, #c44:checked ~ .grid label:nth-child(50):after, #c44:checked ~ .grid label:nth-child(51):after, #c44:checked ~ .grid label:nth-child(34):after, #c44:checked ~ .grid label:nth-child(43):after, #c44:checked ~ .grid label:nth-child(51):after, #c44:checked ~ .grid label:nth-child(34):after, #c44:checked ~ .grid label:nth-child(52):after, #c44:checked ~ .grid label:nth-child(35):after, #c44:checked ~ .grid label:nth-child(44):after, #c44:checked ~ .grid label:nth-child(34):after, #c44:checked ~ .grid label:nth-child(52):after, #c44:checked ~ .grid label:nth-child(35):after, #c44:checked ~ .grid label:nth-child(53):after, #c44:checked ~ .grid label:nth-child(36):after, #c44:checked ~ .grid label:nth-child(45):after, #c44:checked ~ .grid label:nth-child(35):after, #c44:checked ~ .grid label:nth-child(53):after, #c44:checked ~ .grid label:nth-child(36):after, #c44:checked ~ .grid label:nth-child(54):after, #c44:checked ~ .grid label:nth-child(53):after, #c44:checked ~ .grid label:nth-child(62):after, #c44:checked ~ .grid label:nth-child(63):after, #c44:checked ~ .grid label:nth-child(53):after, #c44:checked ~ .grid label:nth-child(62):after, #c44:checked ~ .grid label:nth-child(71):after, #c44:checked ~ .grid label:nth-child(72):after, #c44:checked ~ .grid label:nth-child(62):after, #c44:checked ~ .grid label:nth-child(71):after, #c44:checked ~ .grid label:nth-child(80):after, #c44:checked ~ .grid label:nth-child(81):after, #c44:checked ~ .grid label:nth-child(71):after, #c44:checked ~ .grid label:nth-child(80):after, #c44:checked ~ .grid label:nth-child(53):after, #c44:checked ~ .grid label:nth-child(52):after, #c44:checked ~ .grid label:nth-child(51):after, #c44:checked ~ .grid label:nth-child(25):after, #c44:checked ~ .grid label:nth-child(34):after, #c44:checked ~ .grid label:nth-child(16):after, #c44:checked ~ .grid label:nth-child(25):after, #c44:checked ~ .grid label:nth-child(34):after, #c44:checked ~ .grid label:nth-child(7):after, #c44:checked ~ .grid label:nth-child(16):after, #c44:checked ~ .grid label:nth-child(8):after, #c44:checked ~ .grid label:nth-child(16):after, #c44:checked ~ .grid label:nth-child(17):after, #c44:checked ~ .grid label:nth-child(9):after, #c44:checked ~ .grid label:nth-child(17):after, #c44:checked ~ .grid label:nth-child(18):after, #c44:checked ~ .grid label:nth-child(18):after, #c44:checked ~ .grid label:nth-child(17):after, #c44:checked ~ .grid label:nth-child(16):after, #c44:checked ~ .grid label:nth-child(25):after, #c44:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c45:checked ~ .grid label:nth-child(6):after, #c45:checked ~ .grid label:nth-child(5):after, #c45:checked ~ .grid label:nth-child(14):after, #c45:checked ~ .grid label:nth-child(15):after, #c45:checked ~ .grid label:nth-child(5):after, #c45:checked ~ .grid label:nth-child(14):after, #c45:checked ~ .grid label:nth-child(23):after, #c45:checked ~ .grid label:nth-child(24):after, #c45:checked ~ .grid label:nth-child(14):after, #c45:checked ~ .grid label:nth-child(23):after, #c45:checked ~ .grid label:nth-child(32):after, #c45:checked ~ .grid label:nth-child(33):after, #c45:checked ~ .grid label:nth-child(23):after, #c45:checked ~ .grid label:nth-child(32):after, #c45:checked ~ .grid label:nth-child(41):after, #c45:checked ~ .grid label:nth-child(31):after, #c45:checked ~ .grid label:nth-child(40):after, #c45:checked ~ .grid label:nth-child(30):after, #c45:checked ~ .grid label:nth-child(39):after, #c45:checked ~ .grid label:nth-child(48):after, #c45:checked ~ .grid label:nth-child(31):after, #c45:checked ~ .grid label:nth-child(49):after, #c45:checked ~ .grid label:nth-child(32):after, #c45:checked ~ .grid label:nth-child(50):after, #c45:checked ~ .grid label:nth-child(49):after, #c45:checked ~ .grid label:nth-child(32):after, #c45:checked ~ .grid label:nth-child(50):after, #c45:checked ~ .grid label:nth-child(42):after, #c45:checked ~ .grid label:nth-child(32):after, #c45:checked ~ .grid label:nth-child(50):after, #c45:checked ~ .grid label:nth-child(51):after, #c45:checked ~ .grid label:nth-child(34):after, #c45:checked ~ .grid label:nth-child(43):after, #c45:checked ~ .grid label:nth-child(51):after, #c45:checked ~ .grid label:nth-child(34):after, #c45:checked ~ .grid label:nth-child(52):after, #c45:checked ~ .grid label:nth-child(35):after, #c45:checked ~ .grid label:nth-child(44):after, #c45:checked ~ .grid label:nth-child(34):after, #c45:checked ~ .grid label:nth-child(52):after, #c45:checked ~ .grid label:nth-child(35):after, #c45:checked ~ .grid label:nth-child(53):after, #c45:checked ~ .grid label:nth-child(36):after, #c45:checked ~ .grid label:nth-child(45):after, #c45:checked ~ .grid label:nth-child(35):after, #c45:checked ~ .grid label:nth-child(53):after, #c45:checked ~ .grid label:nth-child(36):after, #c45:checked ~ .grid label:nth-child(54):after, #c45:checked ~ .grid label:nth-child(53):after, #c45:checked ~ .grid label:nth-child(62):after, #c45:checked ~ .grid label:nth-child(63):after, #c45:checked ~ .grid label:nth-child(53):after, #c45:checked ~ .grid label:nth-child(62):after, #c45:checked ~ .grid label:nth-child(71):after, #c45:checked ~ .grid label:nth-child(72):after, #c45:checked ~ .grid label:nth-child(62):after, #c45:checked ~ .grid label:nth-child(71):after, #c45:checked ~ .grid label:nth-child(80):after, #c45:checked ~ .grid label:nth-child(81):after, #c45:checked ~ .grid label:nth-child(71):after, #c45:checked ~ .grid label:nth-child(80):after, #c45:checked ~ .grid label:nth-child(53):after, #c45:checked ~ .grid label:nth-child(52):after, #c45:checked ~ .grid label:nth-child(51):after, #c45:checked ~ .grid label:nth-child(25):after, #c45:checked ~ .grid label:nth-child(34):after, #c45:checked ~ .grid label:nth-child(16):after, #c45:checked ~ .grid label:nth-child(25):after, #c45:checked ~ .grid label:nth-child(34):after, #c45:checked ~ .grid label:nth-child(7):after, #c45:checked ~ .grid label:nth-child(16):after, #c45:checked ~ .grid label:nth-child(8):after, #c45:checked ~ .grid label:nth-child(16):after, #c45:checked ~ .grid label:nth-child(17):after, #c45:checked ~ .grid label:nth-child(9):after, #c45:checked ~ .grid label:nth-child(17):after, #c45:checked ~ .grid label:nth-child(18):after, #c45:checked ~ .grid label:nth-child(18):after, #c45:checked ~ .grid label:nth-child(17):after, #c45:checked ~ .grid label:nth-child(16):after, #c45:checked ~ .grid label:nth-child(25):after, #c45:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c54:checked ~ .grid label:nth-child(6):after, #c54:checked ~ .grid label:nth-child(5):after, #c54:checked ~ .grid label:nth-child(14):after, #c54:checked ~ .grid label:nth-child(15):after, #c54:checked ~ .grid label:nth-child(5):after, #c54:checked ~ .grid label:nth-child(14):after, #c54:checked ~ .grid label:nth-child(23):after, #c54:checked ~ .grid label:nth-child(24):after, #c54:checked ~ .grid label:nth-child(14):after, #c54:checked ~ .grid label:nth-child(23):after, #c54:checked ~ .grid label:nth-child(32):after, #c54:checked ~ .grid label:nth-child(33):after, #c54:checked ~ .grid label:nth-child(23):after, #c54:checked ~ .grid label:nth-child(32):after, #c54:checked ~ .grid label:nth-child(41):after, #c54:checked ~ .grid label:nth-child(31):after, #c54:checked ~ .grid label:nth-child(40):after, #c54:checked ~ .grid label:nth-child(30):after, #c54:checked ~ .grid label:nth-child(39):after, #c54:checked ~ .grid label:nth-child(48):after, #c54:checked ~ .grid label:nth-child(31):after, #c54:checked ~ .grid label:nth-child(49):after, #c54:checked ~ .grid label:nth-child(32):after, #c54:checked ~ .grid label:nth-child(50):after, #c54:checked ~ .grid label:nth-child(49):after, #c54:checked ~ .grid label:nth-child(32):after, #c54:checked ~ .grid label:nth-child(50):after, #c54:checked ~ .grid label:nth-child(42):after, #c54:checked ~ .grid label:nth-child(32):after, #c54:checked ~ .grid label:nth-child(50):after, #c54:checked ~ .grid label:nth-child(51):after, #c54:checked ~ .grid label:nth-child(34):after, #c54:checked ~ .grid label:nth-child(43):after, #c54:checked ~ .grid label:nth-child(51):after, #c54:checked ~ .grid label:nth-child(34):after, #c54:checked ~ .grid label:nth-child(52):after, #c54:checked ~ .grid label:nth-child(35):after, #c54:checked ~ .grid label:nth-child(44):after, #c54:checked ~ .grid label:nth-child(34):after, #c54:checked ~ .grid label:nth-child(52):after, #c54:checked ~ .grid label:nth-child(35):after, #c54:checked ~ .grid label:nth-child(53):after, #c54:checked ~ .grid label:nth-child(36):after, #c54:checked ~ .grid label:nth-child(45):after, #c54:checked ~ .grid label:nth-child(35):after, #c54:checked ~ .grid label:nth-child(53):after, #c54:checked ~ .grid label:nth-child(36):after, #c54:checked ~ .grid label:nth-child(54):after, #c54:checked ~ .grid label:nth-child(53):after, #c54:checked ~ .grid label:nth-child(62):after, #c54:checked ~ .grid label:nth-child(63):after, #c54:checked ~ .grid label:nth-child(53):after, #c54:checked ~ .grid label:nth-child(62):after, #c54:checked ~ .grid label:nth-child(71):after, #c54:checked ~ .grid label:nth-child(72):after, #c54:checked ~ .grid label:nth-child(62):after, #c54:checked ~ .grid label:nth-child(71):after, #c54:checked ~ .grid label:nth-child(80):after, #c54:checked ~ .grid label:nth-child(81):after, #c54:checked ~ .grid label:nth-child(71):after, #c54:checked ~ .grid label:nth-child(80):after, #c54:checked ~ .grid label:nth-child(53):after, #c54:checked ~ .grid label:nth-child(52):after, #c54:checked ~ .grid label:nth-child(51):after, #c54:checked ~ .grid label:nth-child(25):after, #c54:checked ~ .grid label:nth-child(34):after, #c54:checked ~ .grid label:nth-child(16):after, #c54:checked ~ .grid label:nth-child(25):after, #c54:checked ~ .grid label:nth-child(34):after, #c54:checked ~ .grid label:nth-child(7):after, #c54:checked ~ .grid label:nth-child(16):after, #c54:checked ~ .grid label:nth-child(8):after, #c54:checked ~ .grid label:nth-child(16):after, #c54:checked ~ .grid label:nth-child(17):after, #c54:checked ~ .grid label:nth-child(9):after, #c54:checked ~ .grid label:nth-child(17):after, #c54:checked ~ .grid label:nth-child(18):after, #c54:checked ~ .grid label:nth-child(18):after, #c54:checked ~ .grid label:nth-child(17):after, #c54:checked ~ .grid label:nth-child(16):after, #c54:checked ~ .grid label:nth-child(25):after, #c54:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c63:checked ~ .grid label:nth-child(6):after, #c63:checked ~ .grid label:nth-child(5):after, #c63:checked ~ .grid label:nth-child(14):after, #c63:checked ~ .grid label:nth-child(15):after, #c63:checked ~ .grid label:nth-child(5):after, #c63:checked ~ .grid label:nth-child(14):after, #c63:checked ~ .grid label:nth-child(23):after, #c63:checked ~ .grid label:nth-child(24):after, #c63:checked ~ .grid label:nth-child(14):after, #c63:checked ~ .grid label:nth-child(23):after, #c63:checked ~ .grid label:nth-child(32):after, #c63:checked ~ .grid label:nth-child(33):after, #c63:checked ~ .grid label:nth-child(23):after, #c63:checked ~ .grid label:nth-child(32):after, #c63:checked ~ .grid label:nth-child(41):after, #c63:checked ~ .grid label:nth-child(31):after, #c63:checked ~ .grid label:nth-child(40):after, #c63:checked ~ .grid label:nth-child(30):after, #c63:checked ~ .grid label:nth-child(39):after, #c63:checked ~ .grid label:nth-child(48):after, #c63:checked ~ .grid label:nth-child(31):after, #c63:checked ~ .grid label:nth-child(49):after, #c63:checked ~ .grid label:nth-child(32):after, #c63:checked ~ .grid label:nth-child(50):after, #c63:checked ~ .grid label:nth-child(49):after, #c63:checked ~ .grid label:nth-child(32):after, #c63:checked ~ .grid label:nth-child(50):after, #c63:checked ~ .grid label:nth-child(42):after, #c63:checked ~ .grid label:nth-child(32):after, #c63:checked ~ .grid label:nth-child(50):after, #c63:checked ~ .grid label:nth-child(51):after, #c63:checked ~ .grid label:nth-child(34):after, #c63:checked ~ .grid label:nth-child(43):after, #c63:checked ~ .grid label:nth-child(51):after, #c63:checked ~ .grid label:nth-child(34):after, #c63:checked ~ .grid label:nth-child(52):after, #c63:checked ~ .grid label:nth-child(35):after, #c63:checked ~ .grid label:nth-child(44):after, #c63:checked ~ .grid label:nth-child(34):after, #c63:checked ~ .grid label:nth-child(52):after, #c63:checked ~ .grid label:nth-child(35):after, #c63:checked ~ .grid label:nth-child(53):after, #c63:checked ~ .grid label:nth-child(36):after, #c63:checked ~ .grid label:nth-child(45):after, #c63:checked ~ .grid label:nth-child(35):after, #c63:checked ~ .grid label:nth-child(53):after, #c63:checked ~ .grid label:nth-child(36):after, #c63:checked ~ .grid label:nth-child(54):after, #c63:checked ~ .grid label:nth-child(53):after, #c63:checked ~ .grid label:nth-child(62):after, #c63:checked ~ .grid label:nth-child(63):after, #c63:checked ~ .grid label:nth-child(53):after, #c63:checked ~ .grid label:nth-child(62):after, #c63:checked ~ .grid label:nth-child(71):after, #c63:checked ~ .grid label:nth-child(72):after, #c63:checked ~ .grid label:nth-child(62):after, #c63:checked ~ .grid label:nth-child(71):after, #c63:checked ~ .grid label:nth-child(80):after, #c63:checked ~ .grid label:nth-child(81):after, #c63:checked ~ .grid label:nth-child(71):after, #c63:checked ~ .grid label:nth-child(80):after, #c63:checked ~ .grid label:nth-child(53):after, #c63:checked ~ .grid label:nth-child(52):after, #c63:checked ~ .grid label:nth-child(51):after, #c63:checked ~ .grid label:nth-child(25):after, #c63:checked ~ .grid label:nth-child(34):after, #c63:checked ~ .grid label:nth-child(16):after, #c63:checked ~ .grid label:nth-child(25):after, #c63:checked ~ .grid label:nth-child(34):after, #c63:checked ~ .grid label:nth-child(7):after, #c63:checked ~ .grid label:nth-child(16):after, #c63:checked ~ .grid label:nth-child(8):after, #c63:checked ~ .grid label:nth-child(16):after, #c63:checked ~ .grid label:nth-child(17):after, #c63:checked ~ .grid label:nth-child(9):after, #c63:checked ~ .grid label:nth-child(17):after, #c63:checked ~ .grid label:nth-child(18):after, #c63:checked ~ .grid label:nth-child(18):after, #c63:checked ~ .grid label:nth-child(17):after, #c63:checked ~ .grid label:nth-child(16):after, #c63:checked ~ .grid label:nth-child(25):after, #c63:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c72:checked ~ .grid label:nth-child(6):after, #c72:checked ~ .grid label:nth-child(5):after, #c72:checked ~ .grid label:nth-child(14):after, #c72:checked ~ .grid label:nth-child(15):after, #c72:checked ~ .grid label:nth-child(5):after, #c72:checked ~ .grid label:nth-child(14):after, #c72:checked ~ .grid label:nth-child(23):after, #c72:checked ~ .grid label:nth-child(24):after, #c72:checked ~ .grid label:nth-child(14):after, #c72:checked ~ .grid label:nth-child(23):after, #c72:checked ~ .grid label:nth-child(32):after, #c72:checked ~ .grid label:nth-child(33):after, #c72:checked ~ .grid label:nth-child(23):after, #c72:checked ~ .grid label:nth-child(32):after, #c72:checked ~ .grid label:nth-child(41):after, #c72:checked ~ .grid label:nth-child(31):after, #c72:checked ~ .grid label:nth-child(40):after, #c72:checked ~ .grid label:nth-child(30):after, #c72:checked ~ .grid label:nth-child(39):after, #c72:checked ~ .grid label:nth-child(48):after, #c72:checked ~ .grid label:nth-child(31):after, #c72:checked ~ .grid label:nth-child(49):after, #c72:checked ~ .grid label:nth-child(32):after, #c72:checked ~ .grid label:nth-child(50):after, #c72:checked ~ .grid label:nth-child(49):after, #c72:checked ~ .grid label:nth-child(32):after, #c72:checked ~ .grid label:nth-child(50):after, #c72:checked ~ .grid label:nth-child(42):after, #c72:checked ~ .grid label:nth-child(32):after, #c72:checked ~ .grid label:nth-child(50):after, #c72:checked ~ .grid label:nth-child(51):after, #c72:checked ~ .grid label:nth-child(34):after, #c72:checked ~ .grid label:nth-child(43):after, #c72:checked ~ .grid label:nth-child(51):after, #c72:checked ~ .grid label:nth-child(34):after, #c72:checked ~ .grid label:nth-child(52):after, #c72:checked ~ .grid label:nth-child(35):after, #c72:checked ~ .grid label:nth-child(44):after, #c72:checked ~ .grid label:nth-child(34):after, #c72:checked ~ .grid label:nth-child(52):after, #c72:checked ~ .grid label:nth-child(35):after, #c72:checked ~ .grid label:nth-child(53):after, #c72:checked ~ .grid label:nth-child(36):after, #c72:checked ~ .grid label:nth-child(45):after, #c72:checked ~ .grid label:nth-child(35):after, #c72:checked ~ .grid label:nth-child(53):after, #c72:checked ~ .grid label:nth-child(36):after, #c72:checked ~ .grid label:nth-child(54):after, #c72:checked ~ .grid label:nth-child(53):after, #c72:checked ~ .grid label:nth-child(62):after, #c72:checked ~ .grid label:nth-child(63):after, #c72:checked ~ .grid label:nth-child(53):after, #c72:checked ~ .grid label:nth-child(62):after, #c72:checked ~ .grid label:nth-child(71):after, #c72:checked ~ .grid label:nth-child(72):after, #c72:checked ~ .grid label:nth-child(62):after, #c72:checked ~ .grid label:nth-child(71):after, #c72:checked ~ .grid label:nth-child(80):after, #c72:checked ~ .grid label:nth-child(81):after, #c72:checked ~ .grid label:nth-child(71):after, #c72:checked ~ .grid label:nth-child(80):after, #c72:checked ~ .grid label:nth-child(53):after, #c72:checked ~ .grid label:nth-child(52):after, #c72:checked ~ .grid label:nth-child(51):after, #c72:checked ~ .grid label:nth-child(25):after, #c72:checked ~ .grid label:nth-child(34):after, #c72:checked ~ .grid label:nth-child(16):after, #c72:checked ~ .grid label:nth-child(25):after, #c72:checked ~ .grid label:nth-child(34):after, #c72:checked ~ .grid label:nth-child(7):after, #c72:checked ~ .grid label:nth-child(16):after, #c72:checked ~ .grid label:nth-child(8):after, #c72:checked ~ .grid label:nth-child(16):after, #c72:checked ~ .grid label:nth-child(17):after, #c72:checked ~ .grid label:nth-child(9):after, #c72:checked ~ .grid label:nth-child(17):after, #c72:checked ~ .grid label:nth-child(18):after, #c72:checked ~ .grid label:nth-child(18):after, #c72:checked ~ .grid label:nth-child(17):after, #c72:checked ~ .grid label:nth-child(16):after, #c72:checked ~ .grid label:nth-child(25):after, #c72:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c81:checked ~ .grid label:nth-child(6):after, #c81:checked ~ .grid label:nth-child(5):after, #c81:checked ~ .grid label:nth-child(14):after, #c81:checked ~ .grid label:nth-child(15):after, #c81:checked ~ .grid label:nth-child(5):after, #c81:checked ~ .grid label:nth-child(14):after, #c81:checked ~ .grid label:nth-child(23):after, #c81:checked ~ .grid label:nth-child(24):after, #c81:checked ~ .grid label:nth-child(14):after, #c81:checked ~ .grid label:nth-child(23):after, #c81:checked ~ .grid label:nth-child(32):after, #c81:checked ~ .grid label:nth-child(33):after, #c81:checked ~ .grid label:nth-child(23):after, #c81:checked ~ .grid label:nth-child(32):after, #c81:checked ~ .grid label:nth-child(41):after, #c81:checked ~ .grid label:nth-child(31):after, #c81:checked ~ .grid label:nth-child(40):after, #c81:checked ~ .grid label:nth-child(30):after, #c81:checked ~ .grid label:nth-child(39):after, #c81:checked ~ .grid label:nth-child(48):after, #c81:checked ~ .grid label:nth-child(31):after, #c81:checked ~ .grid label:nth-child(49):after, #c81:checked ~ .grid label:nth-child(32):after, #c81:checked ~ .grid label:nth-child(50):after, #c81:checked ~ .grid label:nth-child(49):after, #c81:checked ~ .grid label:nth-child(32):after, #c81:checked ~ .grid label:nth-child(50):after, #c81:checked ~ .grid label:nth-child(42):after, #c81:checked ~ .grid label:nth-child(32):after, #c81:checked ~ .grid label:nth-child(50):after, #c81:checked ~ .grid label:nth-child(51):after, #c81:checked ~ .grid label:nth-child(34):after, #c81:checked ~ .grid label:nth-child(43):after, #c81:checked ~ .grid label:nth-child(51):after, #c81:checked ~ .grid label:nth-child(34):after, #c81:checked ~ .grid label:nth-child(52):after, #c81:checked ~ .grid label:nth-child(35):after, #c81:checked ~ .grid label:nth-child(44):after, #c81:checked ~ .grid label:nth-child(34):after, #c81:checked ~ .grid label:nth-child(52):after, #c81:checked ~ .grid label:nth-child(35):after, #c81:checked ~ .grid label:nth-child(53):after, #c81:checked ~ .grid label:nth-child(36):after, #c81:checked ~ .grid label:nth-child(45):after, #c81:checked ~ .grid label:nth-child(35):after, #c81:checked ~ .grid label:nth-child(53):after, #c81:checked ~ .grid label:nth-child(36):after, #c81:checked ~ .grid label:nth-child(54):after, #c81:checked ~ .grid label:nth-child(53):after, #c81:checked ~ .grid label:nth-child(62):after, #c81:checked ~ .grid label:nth-child(63):after, #c81:checked ~ .grid label:nth-child(53):after, #c81:checked ~ .grid label:nth-child(62):after, #c81:checked ~ .grid label:nth-child(71):after, #c81:checked ~ .grid label:nth-child(72):after, #c81:checked ~ .grid label:nth-child(62):after, #c81:checked ~ .grid label:nth-child(71):after, #c81:checked ~ .grid label:nth-child(80):after, #c81:checked ~ .grid label:nth-child(81):after, #c81:checked ~ .grid label:nth-child(71):after, #c81:checked ~ .grid label:nth-child(80):after, #c81:checked ~ .grid label:nth-child(53):after, #c81:checked ~ .grid label:nth-child(52):after, #c81:checked ~ .grid label:nth-child(51):after, #c81:checked ~ .grid label:nth-child(25):after, #c81:checked ~ .grid label:nth-child(34):after, #c81:checked ~ .grid label:nth-child(16):after, #c81:checked ~ .grid label:nth-child(25):after, #c81:checked ~ .grid label:nth-child(34):after, #c81:checked ~ .grid label:nth-child(7):after, #c81:checked ~ .grid label:nth-child(16):after, #c81:checked ~ .grid label:nth-child(8):after, #c81:checked ~ .grid label:nth-child(16):after, #c81:checked ~ .grid label:nth-child(17):after, #c81:checked ~ .grid label:nth-child(9):after, #c81:checked ~ .grid label:nth-child(17):after, #c81:checked ~ .grid label:nth-child(18):after, #c81:checked ~ .grid label:nth-child(18):after, #c81:checked ~ .grid label:nth-child(17):after, #c81:checked ~ .grid label:nth-child(16):after, #c81:checked ~ .grid label:nth-child(25):after, #c81:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c7:checked ~ .grid label:nth-child(6):after, #c7:checked ~ .grid label:nth-child(5):after, #c7:checked ~ .grid label:nth-child(14):after, #c7:checked ~ .grid label:nth-child(15):after, #c7:checked ~ .grid label:nth-child(5):after, #c7:checked ~ .grid label:nth-child(14):after, #c7:checked ~ .grid label:nth-child(23):after, #c7:checked ~ .grid label:nth-child(24):after, #c7:checked ~ .grid label:nth-child(14):after, #c7:checked ~ .grid label:nth-child(23):after, #c7:checked ~ .grid label:nth-child(32):after, #c7:checked ~ .grid label:nth-child(33):after, #c7:checked ~ .grid label:nth-child(23):after, #c7:checked ~ .grid label:nth-child(32):after, #c7:checked ~ .grid label:nth-child(41):after, #c7:checked ~ .grid label:nth-child(31):after, #c7:checked ~ .grid label:nth-child(40):after, #c7:checked ~ .grid label:nth-child(30):after, #c7:checked ~ .grid label:nth-child(39):after, #c7:checked ~ .grid label:nth-child(48):after, #c7:checked ~ .grid label:nth-child(31):after, #c7:checked ~ .grid label:nth-child(49):after, #c7:checked ~ .grid label:nth-child(32):after, #c7:checked ~ .grid label:nth-child(50):after, #c7:checked ~ .grid label:nth-child(49):after, #c7:checked ~ .grid label:nth-child(32):after, #c7:checked ~ .grid label:nth-child(50):after, #c7:checked ~ .grid label:nth-child(42):after, #c7:checked ~ .grid label:nth-child(32):after, #c7:checked ~ .grid label:nth-child(50):after, #c7:checked ~ .grid label:nth-child(51):after, #c7:checked ~ .grid label:nth-child(34):after, #c7:checked ~ .grid label:nth-child(43):after, #c7:checked ~ .grid label:nth-child(51):after, #c7:checked ~ .grid label:nth-child(34):after, #c7:checked ~ .grid label:nth-child(52):after, #c7:checked ~ .grid label:nth-child(35):after, #c7:checked ~ .grid label:nth-child(44):after, #c7:checked ~ .grid label:nth-child(34):after, #c7:checked ~ .grid label:nth-child(52):after, #c7:checked ~ .grid label:nth-child(35):after, #c7:checked ~ .grid label:nth-child(53):after, #c7:checked ~ .grid label:nth-child(36):after, #c7:checked ~ .grid label:nth-child(45):after, #c7:checked ~ .grid label:nth-child(35):after, #c7:checked ~ .grid label:nth-child(53):after, #c7:checked ~ .grid label:nth-child(36):after, #c7:checked ~ .grid label:nth-child(54):after, #c7:checked ~ .grid label:nth-child(53):after, #c7:checked ~ .grid label:nth-child(62):after, #c7:checked ~ .grid label:nth-child(63):after, #c7:checked ~ .grid label:nth-child(53):after, #c7:checked ~ .grid label:nth-child(62):after, #c7:checked ~ .grid label:nth-child(71):after, #c7:checked ~ .grid label:nth-child(72):after, #c7:checked ~ .grid label:nth-child(62):after, #c7:checked ~ .grid label:nth-child(71):after, #c7:checked ~ .grid label:nth-child(80):after, #c7:checked ~ .grid label:nth-child(81):after, #c7:checked ~ .grid label:nth-child(71):after, #c7:checked ~ .grid label:nth-child(80):after, #c7:checked ~ .grid label:nth-child(53):after, #c7:checked ~ .grid label:nth-child(52):after, #c7:checked ~ .grid label:nth-child(51):after, #c7:checked ~ .grid label:nth-child(25):after, #c7:checked ~ .grid label:nth-child(34):after, #c7:checked ~ .grid label:nth-child(16):after, #c7:checked ~ .grid label:nth-child(25):after, #c7:checked ~ .grid label:nth-child(34):after, #c7:checked ~ .grid label:nth-child(7):after, #c7:checked ~ .grid label:nth-child(16):after, #c7:checked ~ .grid label:nth-child(8):after, #c7:checked ~ .grid label:nth-child(16):after, #c7:checked ~ .grid label:nth-child(17):after, #c7:checked ~ .grid label:nth-child(9):after, #c7:checked ~ .grid label:nth-child(17):after, #c7:checked ~ .grid label:nth-child(18):after, #c7:checked ~ .grid label:nth-child(18):after, #c7:checked ~ .grid label:nth-child(17):after, #c7:checked ~ .grid label:nth-child(16):after, #c7:checked ~ .grid label:nth-child(25):after, #c7:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c8:checked ~ .grid label:nth-child(6):after, #c8:checked ~ .grid label:nth-child(5):after, #c8:checked ~ .grid label:nth-child(14):after, #c8:checked ~ .grid label:nth-child(15):after, #c8:checked ~ .grid label:nth-child(5):after, #c8:checked ~ .grid label:nth-child(14):after, #c8:checked ~ .grid label:nth-child(23):after, #c8:checked ~ .grid label:nth-child(24):after, #c8:checked ~ .grid label:nth-child(14):after, #c8:checked ~ .grid label:nth-child(23):after, #c8:checked ~ .grid label:nth-child(32):after, #c8:checked ~ .grid label:nth-child(33):after, #c8:checked ~ .grid label:nth-child(23):after, #c8:checked ~ .grid label:nth-child(32):after, #c8:checked ~ .grid label:nth-child(41):after, #c8:checked ~ .grid label:nth-child(31):after, #c8:checked ~ .grid label:nth-child(40):after, #c8:checked ~ .grid label:nth-child(30):after, #c8:checked ~ .grid label:nth-child(39):after, #c8:checked ~ .grid label:nth-child(48):after, #c8:checked ~ .grid label:nth-child(31):after, #c8:checked ~ .grid label:nth-child(49):after, #c8:checked ~ .grid label:nth-child(32):after, #c8:checked ~ .grid label:nth-child(50):after, #c8:checked ~ .grid label:nth-child(49):after, #c8:checked ~ .grid label:nth-child(32):after, #c8:checked ~ .grid label:nth-child(50):after, #c8:checked ~ .grid label:nth-child(42):after, #c8:checked ~ .grid label:nth-child(32):after, #c8:checked ~ .grid label:nth-child(50):after, #c8:checked ~ .grid label:nth-child(51):after, #c8:checked ~ .grid label:nth-child(34):after, #c8:checked ~ .grid label:nth-child(43):after, #c8:checked ~ .grid label:nth-child(51):after, #c8:checked ~ .grid label:nth-child(34):after, #c8:checked ~ .grid label:nth-child(52):after, #c8:checked ~ .grid label:nth-child(35):after, #c8:checked ~ .grid label:nth-child(44):after, #c8:checked ~ .grid label:nth-child(34):after, #c8:checked ~ .grid label:nth-child(52):after, #c8:checked ~ .grid label:nth-child(35):after, #c8:checked ~ .grid label:nth-child(53):after, #c8:checked ~ .grid label:nth-child(36):after, #c8:checked ~ .grid label:nth-child(45):after, #c8:checked ~ .grid label:nth-child(35):after, #c8:checked ~ .grid label:nth-child(53):after, #c8:checked ~ .grid label:nth-child(36):after, #c8:checked ~ .grid label:nth-child(54):after, #c8:checked ~ .grid label:nth-child(53):after, #c8:checked ~ .grid label:nth-child(62):after, #c8:checked ~ .grid label:nth-child(63):after, #c8:checked ~ .grid label:nth-child(53):after, #c8:checked ~ .grid label:nth-child(62):after, #c8:checked ~ .grid label:nth-child(71):after, #c8:checked ~ .grid label:nth-child(72):after, #c8:checked ~ .grid label:nth-child(62):after, #c8:checked ~ .grid label:nth-child(71):after, #c8:checked ~ .grid label:nth-child(80):after, #c8:checked ~ .grid label:nth-child(81):after, #c8:checked ~ .grid label:nth-child(71):after, #c8:checked ~ .grid label:nth-child(80):after, #c8:checked ~ .grid label:nth-child(53):after, #c8:checked ~ .grid label:nth-child(52):after, #c8:checked ~ .grid label:nth-child(51):after, #c8:checked ~ .grid label:nth-child(25):after, #c8:checked ~ .grid label:nth-child(34):after, #c8:checked ~ .grid label:nth-child(16):after, #c8:checked ~ .grid label:nth-child(25):after, #c8:checked ~ .grid label:nth-child(34):after, #c8:checked ~ .grid label:nth-child(7):after, #c8:checked ~ .grid label:nth-child(16):after, #c8:checked ~ .grid label:nth-child(8):after, #c8:checked ~ .grid label:nth-child(16):after, #c8:checked ~ .grid label:nth-child(17):after, #c8:checked ~ .grid label:nth-child(9):after, #c8:checked ~ .grid label:nth-child(17):after, #c8:checked ~ .grid label:nth-child(18):after, #c8:checked ~ .grid label:nth-child(18):after, #c8:checked ~ .grid label:nth-child(17):after, #c8:checked ~ .grid label:nth-child(16):after, #c8:checked ~ .grid label:nth-child(25):after, #c8:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c9:checked ~ .grid label:nth-child(6):after, #c9:checked ~ .grid label:nth-child(5):after, #c9:checked ~ .grid label:nth-child(14):after, #c9:checked ~ .grid label:nth-child(15):after, #c9:checked ~ .grid label:nth-child(5):after, #c9:checked ~ .grid label:nth-child(14):after, #c9:checked ~ .grid label:nth-child(23):after, #c9:checked ~ .grid label:nth-child(24):after, #c9:checked ~ .grid label:nth-child(14):after, #c9:checked ~ .grid label:nth-child(23):after, #c9:checked ~ .grid label:nth-child(32):after, #c9:checked ~ .grid label:nth-child(33):after, #c9:checked ~ .grid label:nth-child(23):after, #c9:checked ~ .grid label:nth-child(32):after, #c9:checked ~ .grid label:nth-child(41):after, #c9:checked ~ .grid label:nth-child(31):after, #c9:checked ~ .grid label:nth-child(40):after, #c9:checked ~ .grid label:nth-child(30):after, #c9:checked ~ .grid label:nth-child(39):after, #c9:checked ~ .grid label:nth-child(48):after, #c9:checked ~ .grid label:nth-child(31):after, #c9:checked ~ .grid label:nth-child(49):after, #c9:checked ~ .grid label:nth-child(32):after, #c9:checked ~ .grid label:nth-child(50):after, #c9:checked ~ .grid label:nth-child(49):after, #c9:checked ~ .grid label:nth-child(32):after, #c9:checked ~ .grid label:nth-child(50):after, #c9:checked ~ .grid label:nth-child(42):after, #c9:checked ~ .grid label:nth-child(32):after, #c9:checked ~ .grid label:nth-child(50):after, #c9:checked ~ .grid label:nth-child(51):after, #c9:checked ~ .grid label:nth-child(34):after, #c9:checked ~ .grid label:nth-child(43):after, #c9:checked ~ .grid label:nth-child(51):after, #c9:checked ~ .grid label:nth-child(34):after, #c9:checked ~ .grid label:nth-child(52):after, #c9:checked ~ .grid label:nth-child(35):after, #c9:checked ~ .grid label:nth-child(44):after, #c9:checked ~ .grid label:nth-child(34):after, #c9:checked ~ .grid label:nth-child(52):after, #c9:checked ~ .grid label:nth-child(35):after, #c9:checked ~ .grid label:nth-child(53):after, #c9:checked ~ .grid label:nth-child(36):after, #c9:checked ~ .grid label:nth-child(45):after, #c9:checked ~ .grid label:nth-child(35):after, #c9:checked ~ .grid label:nth-child(53):after, #c9:checked ~ .grid label:nth-child(36):after, #c9:checked ~ .grid label:nth-child(54):after, #c9:checked ~ .grid label:nth-child(53):after, #c9:checked ~ .grid label:nth-child(62):after, #c9:checked ~ .grid label:nth-child(63):after, #c9:checked ~ .grid label:nth-child(53):after, #c9:checked ~ .grid label:nth-child(62):after, #c9:checked ~ .grid label:nth-child(71):after, #c9:checked ~ .grid label:nth-child(72):after, #c9:checked ~ .grid label:nth-child(62):after, #c9:checked ~ .grid label:nth-child(71):after, #c9:checked ~ .grid label:nth-child(80):after, #c9:checked ~ .grid label:nth-child(81):after, #c9:checked ~ .grid label:nth-child(71):after, #c9:checked ~ .grid label:nth-child(80):after, #c9:checked ~ .grid label:nth-child(53):after, #c9:checked ~ .grid label:nth-child(52):after, #c9:checked ~ .grid label:nth-child(51):after, #c9:checked ~ .grid label:nth-child(25):after, #c9:checked ~ .grid label:nth-child(34):after, #c9:checked ~ .grid label:nth-child(16):after, #c9:checked ~ .grid label:nth-child(25):after, #c9:checked ~ .grid label:nth-child(34):after, #c9:checked ~ .grid label:nth-child(7):after, #c9:checked ~ .grid label:nth-child(16):after, #c9:checked ~ .grid label:nth-child(8):after, #c9:checked ~ .grid label:nth-child(16):after, #c9:checked ~ .grid label:nth-child(17):after, #c9:checked ~ .grid label:nth-child(9):after, #c9:checked ~ .grid label:nth-child(17):after, #c9:checked ~ .grid label:nth-child(18):after, #c9:checked ~ .grid label:nth-child(18):after, #c9:checked ~ .grid label:nth-child(17):after, #c9:checked ~ .grid label:nth-child(16):after, #c9:checked ~ .grid label:nth-child(25):after, #c9:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f7:checked ~ .grid label:nth-child(7):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f7:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(7):after {
+  pointer-events: auto;
+}
+
+#f8:checked ~ .grid label:nth-child(8):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f8:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(8):after {
+  pointer-events: auto;
+}
+
+#f9:checked ~ .grid label:nth-child(9):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f9:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(9):after {
+  pointer-events: auto;
+}
+
+#f10:checked ~ .grid label:nth-child(10):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f10:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(10):after {
+  pointer-events: auto;
+}
+
+#f11:checked ~ .grid label:nth-child(11):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f11:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(11):after {
+  pointer-events: auto;
+}
+
+#c11:checked ~ .grid label:nth-child(11):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f12:checked ~ .grid label:nth-child(12):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f12:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(12):after {
+  pointer-events: auto;
+}
+
+#c12:checked ~ .grid label:nth-child(12):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f13:checked ~ .grid label:nth-child(13):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f13:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(13):after {
+  pointer-events: auto;
+}
+
+#c13:checked ~ .grid label:nth-child(13):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f14:checked ~ .grid label:nth-child(14):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f14:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(14):after {
+  pointer-events: auto;
+}
+
+#c14:checked ~ .grid label:nth-child(14):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f15:checked ~ .grid label:nth-child(15):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f15:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(15):after {
+  pointer-events: auto;
+}
+
+#f16:checked ~ .grid label:nth-child(16):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f16:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(16):after {
+  pointer-events: auto;
+}
+
+#c16:checked ~ .grid label:nth-child(16):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f17:checked ~ .grid label:nth-child(17):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f17:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(17):after {
+  pointer-events: auto;
+}
+
+#c17:checked ~ .grid label:nth-child(17):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f18:checked ~ .grid label:nth-child(18):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f18:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(18):after {
+  pointer-events: auto;
+}
+
+#c18:checked ~ .grid label:nth-child(18):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f19:checked ~ .grid label:nth-child(19):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f19:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(19):after {
+  pointer-events: auto;
+}
+
+#f20:checked ~ .grid label:nth-child(20):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f20:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(20):after {
+  pointer-events: auto;
+}
+
+#f21:checked ~ .grid label:nth-child(21):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f21:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(21):after {
+  pointer-events: auto;
+}
+
+#c21:checked ~ .grid label:nth-child(21):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f22:checked ~ .grid label:nth-child(22):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f22:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(22):after {
+  pointer-events: auto;
+}
+
+#c22:checked ~ .grid label:nth-child(22):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f23:checked ~ .grid label:nth-child(23):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f23:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(23):after {
+  pointer-events: auto;
+}
+
+#c23:checked ~ .grid label:nth-child(23):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f24:checked ~ .grid label:nth-child(24):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f24:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(24):after {
+  pointer-events: auto;
+}
+
+#f25:checked ~ .grid label:nth-child(25):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f25:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(25):after {
+  pointer-events: auto;
+}
+
+#c25:checked ~ .grid label:nth-child(25):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f26:checked ~ .grid label:nth-child(26):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f26:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(26):after {
+  pointer-events: auto;
+}
+
+#c26:checked ~ .grid label:nth-child(26):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f27:checked ~ .grid label:nth-child(27):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f27:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(27):after {
+  pointer-events: auto;
+}
+
+#c27:checked ~ .grid label:nth-child(27):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f28:checked ~ .grid label:nth-child(28):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f28:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(28):after {
+  pointer-events: auto;
+}
+
+#c28:checked ~ .grid label:nth-child(28):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f29:checked ~ .grid label:nth-child(29):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f29:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(29):after {
+  pointer-events: auto;
+}
+
+#c29:checked ~ .grid label:nth-child(29):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f30:checked ~ .grid label:nth-child(30):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f30:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(30):after {
+  pointer-events: auto;
+}
+
+#c30:checked ~ .grid label:nth-child(30):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f31:checked ~ .grid label:nth-child(31):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f31:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(31):after {
+  pointer-events: auto;
+}
+
+#c31:checked ~ .grid label:nth-child(31):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f32:checked ~ .grid label:nth-child(32):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f32:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(32):after {
+  pointer-events: auto;
+}
+
+#c32:checked ~ .grid label:nth-child(32):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f33:checked ~ .grid label:nth-child(33):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f33:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(33):after {
+  pointer-events: auto;
+}
+
+#f34:checked ~ .grid label:nth-child(34):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f34:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(34):after {
+  pointer-events: auto;
+}
+
+#c34:checked ~ .grid label:nth-child(34):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f35:checked ~ .grid label:nth-child(35):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f35:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(35):after {
+  pointer-events: auto;
+}
+
+#c35:checked ~ .grid label:nth-child(35):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f36:checked ~ .grid label:nth-child(36):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f36:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(36):after {
+  pointer-events: auto;
+}
+
+#c36:checked ~ .grid label:nth-child(36):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f37:checked ~ .grid label:nth-child(37):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f37:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(37):after {
+  pointer-events: auto;
+}
+
+#c37:checked ~ .grid label:nth-child(37):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f38:checked ~ .grid label:nth-child(38):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f38:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(38):after {
+  pointer-events: auto;
+}
+
+#c38:checked ~ .grid label:nth-child(38):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f39:checked ~ .grid label:nth-child(39):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f39:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(39):after {
+  pointer-events: auto;
+}
+
+#c39:checked ~ .grid label:nth-child(39):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f40:checked ~ .grid label:nth-child(40):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f40:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(40):after {
+  pointer-events: auto;
+}
+
+#f41:checked ~ .grid label:nth-child(41):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f41:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(41):after {
+  pointer-events: auto;
+}
+
+#f42:checked ~ .grid label:nth-child(42):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f42:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(42):after {
+  pointer-events: auto;
+}
+
+#f43:checked ~ .grid label:nth-child(43):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f43:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(43):after {
+  pointer-events: auto;
+}
+
+#f44:checked ~ .grid label:nth-child(44):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f44:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(44):after {
+  pointer-events: auto;
+}
+
+#f45:checked ~ .grid label:nth-child(45):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f45:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(45):after {
+  pointer-events: auto;
+}
+
+#f46:checked ~ .grid label:nth-child(46):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f46:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(46):after {
+  pointer-events: auto;
+}
+
+#c46:checked ~ .grid label:nth-child(46):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f47:checked ~ .grid label:nth-child(47):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f47:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(47):after {
+  pointer-events: auto;
+}
+
+#c47:checked ~ .grid label:nth-child(47):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f48:checked ~ .grid label:nth-child(48):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f48:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(48):after {
+  pointer-events: auto;
+}
+
+#c48:checked ~ .grid label:nth-child(48):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f49:checked ~ .grid label:nth-child(49):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f49:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(49):after {
+  pointer-events: auto;
+}
+
+#c49:checked ~ .grid label:nth-child(49):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f50:checked ~ .grid label:nth-child(50):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f50:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(50):after {
+  pointer-events: auto;
+}
+
+#c50:checked ~ .grid label:nth-child(50):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f51:checked ~ .grid label:nth-child(51):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f51:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(51):after {
+  pointer-events: auto;
+}
+
+#c51:checked ~ .grid label:nth-child(51):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f52:checked ~ .grid label:nth-child(52):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f52:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(52):after {
+  pointer-events: auto;
+}
+
+#c52:checked ~ .grid label:nth-child(52):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f53:checked ~ .grid label:nth-child(53):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f53:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(53):after {
+  pointer-events: auto;
+}
+
+#c53:checked ~ .grid label:nth-child(53):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f54:checked ~ .grid label:nth-child(54):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f54:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(54):after {
+  pointer-events: auto;
+}
+
+#f55:checked ~ .grid label:nth-child(55):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f55:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(55):after {
+  pointer-events: auto;
+}
+
+#c55:checked ~ .grid label:nth-child(55):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f56:checked ~ .grid label:nth-child(56):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f56:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(56):after {
+  pointer-events: auto;
+}
+
+#c56:checked ~ .grid label:nth-child(56):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f57:checked ~ .grid label:nth-child(57):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f57:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(57):after {
+  pointer-events: auto;
+}
+
+#c57:checked ~ .grid label:nth-child(57):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f58:checked ~ .grid label:nth-child(58):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f58:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(58):after {
+  pointer-events: auto;
+}
+
+#c58:checked ~ .grid label:nth-child(58):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f59:checked ~ .grid label:nth-child(59):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f59:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(59):after {
+  pointer-events: auto;
+}
+
+#c59:checked ~ .grid label:nth-child(59):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f60:checked ~ .grid label:nth-child(60):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f60:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(60):after {
+  pointer-events: auto;
+}
+
+#c60:checked ~ .grid label:nth-child(60):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f61:checked ~ .grid label:nth-child(61):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f61:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(61):after {
+  pointer-events: auto;
+}
+
+#c61:checked ~ .grid label:nth-child(61):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f62:checked ~ .grid label:nth-child(62):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f62:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(62):after {
+  pointer-events: auto;
+}
+
+#c62:checked ~ .grid label:nth-child(62):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f63:checked ~ .grid label:nth-child(63):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f63:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(63):after {
+  pointer-events: auto;
+}
+
+#f64:checked ~ .grid label:nth-child(64):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f64:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(64):after {
+  pointer-events: auto;
+}
+
+#c64:checked ~ .grid label:nth-child(64):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f65:checked ~ .grid label:nth-child(65):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f65:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(65):after {
+  pointer-events: auto;
+}
+
+#c65:checked ~ .grid label:nth-child(65):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f66:checked ~ .grid label:nth-child(66):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f66:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(66):after {
+  pointer-events: auto;
+}
+
+#c66:checked ~ .grid label:nth-child(66):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f67:checked ~ .grid label:nth-child(67):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f67:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(67):after {
+  pointer-events: auto;
+}
+
+#c67:checked ~ .grid label:nth-child(67):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f68:checked ~ .grid label:nth-child(68):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f68:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(68):after {
+  pointer-events: auto;
+}
+
+#c68:checked ~ .grid label:nth-child(68):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f69:checked ~ .grid label:nth-child(69):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f69:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(69):after {
+  pointer-events: auto;
+}
+
+#c69:checked ~ .grid label:nth-child(69):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f70:checked ~ .grid label:nth-child(70):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f70:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(70):after {
+  pointer-events: auto;
+}
+
+#c70:checked ~ .grid label:nth-child(70):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f71:checked ~ .grid label:nth-child(71):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f71:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(71):after {
+  pointer-events: auto;
+}
+
+#c71:checked ~ .grid label:nth-child(71):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f72:checked ~ .grid label:nth-child(72):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f72:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(72):after {
+  pointer-events: auto;
+}
+
+#f73:checked ~ .grid label:nth-child(73):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f73:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(73):after {
+  pointer-events: auto;
+}
+
+#c73:checked ~ .grid label:nth-child(73):after, #c73:checked ~ .grid label:nth-child(64):after, #c73:checked ~ .grid label:nth-child(65):after, #c73:checked ~ .grid label:nth-child(74):after, #c73:checked ~ .grid label:nth-child(64):after, #c73:checked ~ .grid label:nth-child(65):after, #c73:checked ~ .grid label:nth-child(66):after, #c73:checked ~ .grid label:nth-child(75):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#c74:checked ~ .grid label:nth-child(73):after, #c74:checked ~ .grid label:nth-child(64):after, #c74:checked ~ .grid label:nth-child(65):after, #c74:checked ~ .grid label:nth-child(74):after, #c74:checked ~ .grid label:nth-child(64):after, #c74:checked ~ .grid label:nth-child(65):after, #c74:checked ~ .grid label:nth-child(66):after, #c74:checked ~ .grid label:nth-child(75):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f74:checked ~ .grid label:nth-child(74):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f74:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(74):after {
+  pointer-events: auto;
+}
+
+#f75:checked ~ .grid label:nth-child(75):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f75:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(75):after {
+  pointer-events: auto;
+}
+
+#c75:checked ~ .grid label:nth-child(75):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f76:checked ~ .grid label:nth-child(76):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f76:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(76):after {
+  pointer-events: auto;
+}
+
+#c76:checked ~ .grid label:nth-child(76):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f77:checked ~ .grid label:nth-child(77):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f77:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(77):after {
+  pointer-events: auto;
+}
+
+#c77:checked ~ .grid label:nth-child(77):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f78:checked ~ .grid label:nth-child(78):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f78:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(78):after {
+  pointer-events: auto;
+}
+
+#c78:checked ~ .grid label:nth-child(78):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f79:checked ~ .grid label:nth-child(79):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f79:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(79):after {
+  pointer-events: auto;
+}
+
+#c79:checked ~ .grid label:nth-child(79):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f80:checked ~ .grid label:nth-child(80):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f80:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(80):after {
+  pointer-events: auto;
+}
+
+#c80:checked ~ .grid label:nth-child(80):after {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#f81:checked ~ .grid label:nth-child(81):after {
+  content: "🚩";
+  pointer-events: none;
+  visibility: visible !important;
+}
+#f81:checked ~ #modeFlag:checked ~ .grid .flags label:nth-child(81):after {
+  pointer-events: auto;
+}

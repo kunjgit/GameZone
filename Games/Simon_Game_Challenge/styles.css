@@ -9,12 +9,12 @@ body {
 #level-title {
   font-family: "Press Start 2P", cursive;
   font-size: 3rem;
-  margin: 5%;
+  margin: 1px;
   color: #fef2bf;
 }
 #play-button {
   font-family: "Press Start 2P", cursive;
-  font-size: 3rem;
+  font-size: 7rem;
   color: #fef2bf;
 }
 
@@ -36,18 +36,19 @@ body {
   display: flex;
   flex-direction: column;
   width: 70%;
-  margin: auto;
-  margin-left: 80px;
+  margin: 30px;
+  margin-left: 50px;
 }
 
 .instructions-section {
   background-color: #fef2bf;
-  font-size: 1.5rem;
+  font-size: medium;
+  font-weight: bold;
   flex: 1;
-  padding: 10px;
-  margin: 20px;
+  padding: 8px;
+  margin: 5px;
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   justify-content: center;
 }
 
@@ -59,17 +60,17 @@ body {
   .game-section,
   .instructions-section {
     width: 100%;
-    margin: 20px auto;
+    margin: 10px auto;
   }
 }
 
 .btn {
-  margin: 25px;
   display: inline-block;
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   border: 5px solid black;
   border-radius: 10%;
+  margin: 5px;
 }
 
 .game-over {
@@ -142,3 +143,5 @@ body {
     font-size: 3.5rem;
   }
 }
+
+

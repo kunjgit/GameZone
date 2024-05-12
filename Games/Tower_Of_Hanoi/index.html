@@ -5,24 +5,45 @@
   <title>Tower of Hanoi</title>
   <link rel="stylesheet" type="text/css" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <!-- adding fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-  <div style="text-align: left; margin-left: 40px;
-  margin-top: 30px;
-  font-size: 30px;
-  padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+    <div class="navbar">
+        <a href="https://kunjgit.github.io/GameZone/"><i class="fas fa-home home-icon"></i></a>
+        <h1 class="poetsen-one-regular">Welcome To Tower Of Hanoi</h1>
+        <div class="navbar-icons">
+          <a href="https://github.com/kunjgit" class="icon-link"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/kunj199/" class="icon-link"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+ 
   <div id="canvas">
     <div id="title">
-      <h1>Welcome To Tower Of Hanoi</h1>
-	  <h5>Enhance your logical thinking and problem-solving skills<h5>
-	  <h2>Enjoy!</h2></div>
-	<div id="diskno">
-      Number of disks: <input type="number" id="number" max="7" min="1" value="7"></input>
-      </br>Minimum number of moves: <output id="minmoves"></output>
-    </div>
+        <!-- Added class to the required files -->
+	  <h5 class="poetsen-one-regular">Enhance your logical thinking and problem-solving skills<h5>
+	  <h2 class="poetsen-one-regular">Enjoy!</h2></div>
+      
+      <!-- change -->
+      <div id="diskno">
+        <span class="poetsen-one-regular">Number of disks:</span> 
+        <div class="number-input">
+          <button class="arrow decrease">-</button>
+          <input class="no_disc" type="number" id="number" max="7" min="1" value="7">
+          <button class="arrow increase">+</button>
+        </div>
+        <br> 
+        <span class="poetsen-one-regular">Minimum number of moves:</span> 
+        <output id="minmoves"></output>
+      </div>
+     
 	</br>
-    <div class="moves"></div>
+    <div class="moves-container">
+        <div class="moves"></div>
+      </div>
     </br>
     <div id="towers">
       <div class="tower" value="0">
@@ -45,7 +66,7 @@
     </br>
     </br>
     <div id="again">
-      <button type="button" class="buttons">Play Again</button>
+      <button type="button" class="buttons" >Play Again</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

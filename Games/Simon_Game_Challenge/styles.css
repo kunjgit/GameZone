@@ -14,7 +14,7 @@ body {
 }
 #play-button {
   font-family: "Press Start 2P", cursive;
-  font-size: 7rem;
+  font-size: 6rem;
   color: #fef2bf;
 }
 
@@ -22,7 +22,7 @@ body {
   cursor: pointer;
   transform: scale(1.1);
   transition: .2s ease;
-  color: #e90064;
+  color: #be3a16;
   filter: drop-shadow(2px 2px 1px black);
 }
 
@@ -44,6 +44,7 @@ body {
   background-color: #fef2bf;
   font-size: medium;
   font-weight: bold;
+  border-radius: 30px 0 30px;
   flex: 1;
   padding: 8px;
   margin: 5px;

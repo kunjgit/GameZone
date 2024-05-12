@@ -5,7 +5,7 @@ let turn_music = new Audio('ding.mp3');
 open_game = new Audio('music.mp3');
 open_game.play();
 let gamesuccess = new Audio('success.mp3');
-let gameover_music = new Audio('gamedraw.wav');
+let gameover_music = new Audio('gameover.mp3');
 
 let turn = 'X';
 

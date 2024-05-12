@@ -12,8 +12,9 @@ body {
 
 .container {
     position: absolute;
-    width: 50%;
-    min-width: 580px;
+    width: auto;
+    margin-top:55px;
+    min-width: 300px;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;

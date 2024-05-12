@@ -16,14 +16,19 @@ let timeLeft = 30;
 let hitPosition = null;
 let timerId = null;
 let randomMoleId = null;
-let gameInitializing = false;
+let gameInitializing = false; // made a variable so that system can have suffient time for setup
 
 
 
 startButton.addEventListener("click", () => {
     if (!gameInitializing) {
+      // hence game will not be disturbed even after simultaneous clicks on start button
+
+      // Disable the start button to prevent multiple clicks
       startButton.disabled = true;
       gameInitializing = true;
+
+      // Clear existing intervals before starting new ones
       clearInterval(timerId);
       clearInterval(randomMoleId);
 
@@ -49,6 +54,7 @@ startButton.addEventListener("click", () => {
       yourScore = 0;
       yourScoreH3.innerHTML = `Your Score: ${yourScore}`;
 
+      // After initialization is complete, enable the start button
       startButton.disabled = false;
       gameInitializing = false;
     }

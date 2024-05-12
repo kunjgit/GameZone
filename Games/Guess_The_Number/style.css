@@ -18,6 +18,7 @@ body {
     margin-top:55px;
     /* min width for device is 300 px */
     min-width: 300px;
+
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;

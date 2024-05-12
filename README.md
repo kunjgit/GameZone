@@ -45,13 +45,14 @@
 - **Clone this repository:**
   ```sh
   git clone https://github.com/YourUsername/GameZone.git
+  
 - **Raise an issue:**
-
-- Select the appropriate issue template.
-- Ensure your idea is unique and interesting 🚀
-- Don't alter the issue title; simply add your issue name after it.
-  [Issue Title]: Your Issue
-  Example: [New game]: Super Mario
+  - Select the appropriate issue template.
+  - Ensure your idea is unique and interesting 🚀
+  - Don't alter the issue title; simply add your issue name after it.
+     - [Issue Title]: Your Issue
+     -  Example: [New game]: Super Mario
+     -  
 - **Wait for assignment** on the issue.
 
 - **Start working on the code** after you've been assigned.
@@ -64,10 +65,10 @@ git checkout -b <name-of-your-branch>
 
 - **Adding your code:**
 
-- Place your game files (e.g., index.html, style.css, script.js) in a folder under Games.
-- Create a README.md file in your game folder detailing the functionalities and how to play the game. Include screenshots or videos if necessary.
-- Add a screenshot of your game to assets/images (naming convention: <your_folder_name>.png).
-- Update the main README.md to include your game's information.
+  - Place your game files (e.g., index.html, style.css, script.js) in a folder under Games.
+  - Create a README.md file in your game folder detailing the functionalities and how to play the game. Include screenshots or videos if necessary.
+  - Add a screenshot of your game to assets/images (naming convention: <your_folder_name>.png).
+  - Update the main README.md to include your game's information.
 
 - **Push your changes** to GitHub:
 ```bash

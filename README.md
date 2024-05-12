@@ -3,7 +3,8 @@
 </div>
 
 <div align="center">
-  <h3><font size="4">Welcome to GameZone! This open-source repository is a collection of games built using basic web development technologies. Unleash your creativity, build your own game, and contribute by making a pull request (PR) 🎮 Don't forget to star the repository and show your support! 💗 Join our Discord server to collaborate with other developers 🚀</font></h3>
+  <h3><font size="4">Welcome to GameZone!
+    This open-source repository is a collection of games built using basic web development technologies. Unleash your creativity, build your own game, and contribute by making a pull request (PR) 🎮 Don't forget to star the repository and show your support! 💗 Join our Discord server to collaborate with other developers 🚀</font></h3>
   
   [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fgwk4XZfxG)
   

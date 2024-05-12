@@ -63,7 +63,7 @@ This repository also provides one such platforms where contributers come over an
   - Don't alter the issue title; simply add your issue name after it.
      - [Issue Title]: Your Issue
      -  Example: [New game]: Super Mario
-     -  
+  - Make sure you select the program in which you are participating 🔥
 - **Wait for assignment** on the issue.
 
 - **Start working on the code** after you've been assigned.

@@ -16,33 +16,42 @@ let timeLeft = 30;
 let hitPosition = null;
 let timerId = null;
 let randomMoleId = null;
-
+let gameInitializing = false;
 
 
 
 startButton.addEventListener("click", () => {
-    scoreSection.classList.remove("hide");
-    timeLeftH3.classList.remove("hide");
-    pauseResumeButton.classList.remove("hide");
-    gameContainer.classList.remove("hide");
+    if (!gameInitializing) {
+      startButton.disabled = true;
+      gameInitializing = true;
+      clearInterval(timerId);
+      clearInterval(randomMoleId);
 
-    gameMusic.currentTime = 0;
-    gameMusic.play();
+      scoreSection.classList.remove("hide");
+      timeLeftH3.classList.remove("hide");
+      pauseResumeButton.classList.remove("hide");
+      gameContainer.classList.remove("hide");
 
-    timeLeft = 30;
-    timerId = setInterval(countDown, 1000);
-    randomMoleId = setInterval(randomMole, 1000);
+      gameMusic.currentTime = 0;
+      gameMusic.play();
 
-    let highScoreLibrary = localStorage.getItem("highScore");
-    if (highScoreLibrary == null) {
+      timeLeft = 30;
+      timerId = setInterval(countDown, 1000);
+      randomMoleId = setInterval(randomMole, 1000);
+
+      let highScoreLibrary = localStorage.getItem("highScore");
+      if (highScoreLibrary == null) {
         highScoreH3.innerHTML = `High Score: ${highScore}`;
-    }
-    else {
+      } else {
         highScoreH3.innerHTML = `High Score: ${highScoreLibrary}`;
-    }
+      }
 
-    yourScore = 0;
-    yourScoreH3.innerHTML = `Your Score: ${yourScore}`;
+      yourScore = 0;
+      yourScoreH3.innerHTML = `Your Score: ${yourScore}`;
+
+      startButton.disabled = false;
+      gameInitializing = false;
+    }
 })
 
 
@@ -68,8 +77,8 @@ pauseResumeButton.addEventListener("click", () => {
 
 
 function countDown() {
-    timeLeft--;
     timeLeftH3.innerHTML = `Time Left: ${timeLeft}`;
+    timeLeft--;
 
     if (timeLeft == 0) {
         gameMusic.pause();
@@ -84,13 +93,16 @@ function countDown() {
 
 
 function randomMole() {
-    squares.forEach(squares => {
-        squares.classList.remove("mole");
-    })
+    if (timerId != null && randomMoleId != null) {
+            squares.forEach((squares) => {
+              squares.classList.remove("mole");
+            });
 
-    let randomSquare = squares[Math.floor(Math.random() * squares.length)];
-    randomSquare.classList.add("mole");
-    hitPosition = randomSquare.id;
+            let randomSquare =
+              squares[Math.floor(Math.random() * squares.length)];
+            randomSquare.classList.add("mole");
+            hitPosition = randomSquare.id;
+    }
 }
 
 
@@ -121,7 +133,7 @@ squares.forEach(squares => {
                 setTimeout(() => {
                     hitMusic.currentTime = 0;
                     hitMusic.pause();
-                }, 1000);
+                }, 500);
 
                 ++yourScore;
                 yourScoreH3.innerHTML = `Your Score: ${yourScore}`;

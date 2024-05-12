@@ -8,7 +8,12 @@
     <br>
     Don't forget to star the repository and show your support! 
     <br>💗 Join our Discord server to collaborate with other developers 🚀</font></h3>
-  
+
+  ## Why to Open Source
+
+Contributing in open source increases your opportunities to work with different projects and mentors, getting to know various insights and ideas. It is a platform where contributors grow together with a construvtive and a positive attitude.
+This repository also provides one such platforms where contributers come over and put their ideas of new games and make our website as interactive as much they can!
+
   [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fgwk4XZfxG)
   
   ![GitHub issues](https://img.shields.io/github/issues/kunjgit/GameZone)

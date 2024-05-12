@@ -92,6 +92,7 @@ git push origin <name-of-your-branch>
 
 - **Stay engaged** and collaborate with the community.
 
+- If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
 
 
 <div align="center">

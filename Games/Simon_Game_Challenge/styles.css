@@ -5,17 +5,25 @@ body {
 
 #highest {
   color: #fef2bf;
+  margin-right:320px;
+  padding: 0px;
+  margin-bottom: 0px;
 }
 #level-title {
   font-family: "Press Start 2P", cursive;
-  font-size: 3rem;
-  margin: 1px;
+  font-size: 2.5rem;
+  margin-right:500px;
+  margin-left: 230px;
   color: #fef2bf;
+  margin-top: 0px;
+  margin-bottom:5px;
 }
 #play-button {
   font-family: "Press Start 2P", cursive;
-  font-size: 7rem;
+  font-size: 5rem;
   color: #fef2bf;
+  margin-right: 360px;
+  margin-top:0px;
 }
 
 #play-button > i:hover {
@@ -56,11 +64,17 @@ body {
   .container {
     flex-direction: column;
   }
-
+  #highest{
+    margin:0%;
+  }
+  #level-title{
+    margin:1px;
+  }
   .game-section,
   .instructions-section {
     width: 100%;
-    margin: 10px auto;
+    margin-left:6px;
+    /* margin: 10px auto; */
   }
 }
 
@@ -108,9 +122,13 @@ body {
     height: 150px;
     width: 150px;
   }
+  #highest{
+    margin:0%;
+  }
   #level-title,
   #play-button {
     font-size: 5rem;
+    margin:0%;
   }
 }
 
@@ -123,9 +141,13 @@ body {
     height: 100px;
     width: 100px;
   }
+  #highest{
+    margin:0%;
+  }
   #level-title,
   #play-button {
     font-size: 3.5rem;
+    margin:0%;
   }
 }
 
@@ -138,9 +160,13 @@ body {
     height: 100px;
     width: 100px;
   }
+  #highest{
+    margin:0%;
+  }
   #level-title,
   #play-button {
     font-size: 3.5rem;
+    margin:0%;
   }
 }
 

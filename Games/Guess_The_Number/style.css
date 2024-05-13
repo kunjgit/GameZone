@@ -11,11 +11,14 @@ body {
 }
 
 .container {
+
     position: absolute;
-    width: 50%;
-/*     separate home button from the guessing number container */
+    /* responsive */
+    width: auto;
     margin-top:55px;
-    min-width: 580px;
+    /* min width for device is 300 px */
+    min-width: 300px;
+
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;

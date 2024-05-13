@@ -1,11 +1,11 @@
 # **Game_Name** 
 
-Dragon_Game
+Dragon World Game
 
 <br>
 
 ## **Description 📃**
-**Dragon_Game: Dodge, Defeat, Dominate!**
+**Dragon World Game: Dodge, Defeat, Dominate!**
 
 Welcome to Dragon_Game, where you'll embody a majestic dragon on a daring quest. Dodge fierce attacks from mythical foes, showcasing your agility and wit. With stunning HTML, CSS, and JavaScript visuals, immerse yourself in a world of fantasy and magic. Collect allies, hone your reflexes, and conquer legendary treasures. Are you ready to unleash your inner dragon and etch your name in legend?
 - 

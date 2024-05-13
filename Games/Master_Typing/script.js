@@ -18,10 +18,18 @@ function getRandomKey() {
   return keys[getRandomNumber(0, keys.length - 1)];
 }
 
+let lastPopUpkey=null;
 function targetRandomKey() {
   const key = document.getElementById(getRandomKey());
   key.classList.add("selected");
-  let start = Date.now();
+  lastPopUpkey=key;
+ 
+}
+// Function to unselect the last popped-up key
+function unselectLastPopUpKey() {
+  if (lastPopUpkey) {
+    lastPopUpkey.classList.remove("selected");
+  }
 }
 
 function getTimestamp() {
@@ -70,7 +78,7 @@ document.addEventListener("keyup", (event) => {
   // }
 });
 
-targetRandomKey();
+
 
 // ---------------------For the Timer--------------------------------
 
@@ -79,8 +87,12 @@ var intervalId;
 var secondsLeft = 60;
 
 function startTimer() {
+
+  const startButton = document.querySelector("button:nth-of-type(1)");
+  
+  targetRandomKey();
   // Disable the start button
-  document.querySelector("button:nth-of-type(1)").disabled = true;
+ startButton.disabled = true;
 
   // Reset the counts entries
   totalEntry = 0;
@@ -105,6 +117,7 @@ function restartTimer() {
   clearInterval(intervalId);
   secondsLeft = 60;
   timerElement.textContent = "00:00";
+   unselectLastPopUpKey();
 
   // Enable the start button
   document.querySelector("button:nth-of-type(1)").disabled = false;

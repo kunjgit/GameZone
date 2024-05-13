@@ -66,10 +66,7 @@
 }
 
 #profile-container button:active {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 0px 150px;
+    background-color: burlywood;
 }
 
 #profile-container button .hide {

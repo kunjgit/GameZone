@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage Predictor Game</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <a href="https://kunjgit.github.io/GameZone/">HOME<i class='bx bx-home-heart'></i></a>
+    </div>
+    <div class="container">
+        <h1>Marriage Predictor Game</h1>
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" placeholder="Your Name">
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" placeholder="Your Age">
+        <label for="gender">Select your gender:</label>
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <button onclick="predictMarriage()">Predict!</button>
+        <div id="prediction"></div>
+        <img src="" alt="" id="prediction-image">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

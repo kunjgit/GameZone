@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee+Spice&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+body {
+    font-family: "Bungee Spice", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    background-color: #f0f0f0;
+    background-image: url("https://wallpapercave.com/wp/wp3284859.gif");
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    background-position: right;
+    cursor: none;
+}
+.header i{
+    position: relative;
+    color:white;
+    left:713px;
+    font-size: 43px;
+    
+}
+.cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 9999;
+    pointer-events: none;
+    background: radial-gradient(circle, rgb(255, 242, 0), rgb(0, 255, 225), rgb(244, 10, 201));
+    mix-blend-mode: difference;
+}
+
+    .container {
+        max-width: 600px;
+        margin: 120px auto;
+        padding: 20px;
+        background-color: #0c0b0b;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        animation: borderAnimation 4s infinite ;
+        border: 5px solid #000000; /* Initial border color */
+        box-shadow: 0 0 23px cyan;
+        position: relative; /* Ensure footer doesn't overlap */
+        z-index: 1;
+    
+}
+@keyframes borderAnimation {
+    0% {
+        border-color: #fb5c5c;
+    }
+    20% {
+        border-color: #ffcc00;
+    }
+    40% {
+        border-color: #007bff;
+    }
+    60%{
+        border-color: green;
+    }
+    80%{
+        border-color: crimson;
+
+    }
+    100%{
+        border-color: cyan;
+    }
+}
+
+h1 {
+    color: #0d0606;
+}
+h1:hover{
+    box-shadow: 0 0 12px rgb(244, 129, 149);
+    cursor:pointer;
+}
+
+input[type="text"] {
+    width: 94%;
+    padding: 10px;
+    margin: 12px 0;
+    border: 7px solid #61cdee;
+    border-radius: 3px;
+    box-shadow: 0 0 12px rgb(233, 252, 125);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #f7ff01;
+    color: #0b0505;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 22px;
+}
+
+button:hover {
+    background-color: #83fc75;
+    font-weight: bold;
+    box-shadow: 0 0 22px rgb(248, 11, 208);
+}
+
+
+
+

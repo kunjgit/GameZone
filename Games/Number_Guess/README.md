@@ -18,6 +18,7 @@
 <br>
 
 ## **Screenshots 📸**
+![Screenshot](https://github.com/prasad-chavan1/GameZone/assets/97186762/1dad173c-f038-46ce-b949-e9c5cdea8e34)
 
 
 <br>

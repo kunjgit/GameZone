@@ -71,3 +71,13 @@ for (let i = 97; i <= 122; i++) {
 
 getRandomWord();
 playAgainBtn.addEventListener("click", getRandomWord);
+
+const returnHomeButton = document.getElementById("return-home");
+
+// Redirect function
+const redirectToHomePage = () => {
+    window.location.href = "https://kunjgit.github.io/GameZone/";
+}
+
+// Add event listener to the "Return Home" button
+returnHomeButton.addEventListener("click", redirectToHomePage);

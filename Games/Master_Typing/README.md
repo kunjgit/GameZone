@@ -5,7 +5,7 @@
 <br>
 
 ## **Description 📃** 
-- this game is build to improve your muscle memory by giving random keys to click within 1 min it is build on basic web tech stacks such as html , css , js and bootstrap
+- this game is build to improve your muscle memory by giving random keys to click within 1 min. It is built on basic web tech stacks such as html , css , js and bootstrap
 
 ## **functionalities 🎮** 
 - random key generation

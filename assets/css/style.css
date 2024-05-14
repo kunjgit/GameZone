@@ -194,16 +194,13 @@ footer {
   color: #ffffff;
 }
 
-
-a:hover svg {
-  fill:rgb(0, 119, 181);
-} 
-
+.fa-twitter:hover {
+  color: rgb(36, 186, 255);
+}
 
 .fa-linkedin-square:hover {
   color: rgb(0, 119, 181);
 }
-
 .footer-bottom {
   background: #000;
 
@@ -1711,6 +1708,52 @@ textarea.form-input::-webkit-resizer {
     height: auto;
   }
 }
+/* .search-container:hover > .search-input {
+  width: 600px;
+  font-size: 16px;
+} */
+.search-container {
+  background-color: aliceblue;
+  position: relative;
+  height: 40px;
+  padding: 0px 16px 0px 14px;
+  margin-bottom:5px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.8s;
+  --border-width: 4px;
+  border-radius: calc(2 * var(--border-width));
+  width:auto;
+  
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+  }
+}
 
 /**
  * responsive larger than 580px screen
@@ -1848,7 +1891,49 @@ textarea.form-input::-webkit-resizer {
   .navbar-link {
     --fs-8: 14px;
   }
-
+  .search-container {
+    background-color: aliceblue;
+    position: relative;
+    height: 40px;
+    padding: 0px 16px 0px 14px;
+    margin-bottom:5px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.8s;
+    --border-width: 4px;
+    border-radius: calc(2 * var(--border-width));
+    width: auto;
+    
+  
+    &::after {
+      position: absolute;
+      content: "";
+      top: calc(-1 * var(--border-width));
+      left: calc(-1 * var(--border-width));
+      z-index: -1;
+      width: calc(100% + var(--border-width) * 2);
+      height: calc(100% + var(--border-width) * 2);
+      background: linear-gradient(
+        60deg,
+        hsl(224, 85%, 66%),
+        hsl(269, 85%, 66%),
+        hsl(314, 85%, 66%),
+        hsl(359, 85%, 66%),
+        hsl(44, 85%, 66%),
+        hsl(89, 85%, 66%),
+        hsl(134, 85%, 66%),
+        hsl(179, 85%, 66%)
+      );
+      background-size: 300% 300%;
+      background-position: 0 50%;
+      border-radius: calc(2 * var(--border-width));
+      animation: moveGradient 4s alternate infinite;
+    }
+  }
+  
   /**
    * #ABOUT
    */
@@ -2066,8 +2151,55 @@ textarea.form-input::-webkit-resizer {
 
   /**
    * NAVBAR
-   */
 
+   */
+  .search-container:hover > .search-input {
+    width: 600px;
+    font-size: 16px;
+  }
+  .search-container {
+    background-color: aliceblue;
+    position: relative;
+    height: 40px;
+    padding: 0px 16px 0px 14px;
+    margin-bottom:5px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.8s;
+    --border-width: 4px;
+    border-radius: calc(2 * var(--border-width));
+    width: auto;
+    
+  
+    &::after {
+      position: absolute;
+      content: "";
+      top: calc(-1 * var(--border-width));
+      left: calc(-1 * var(--border-width));
+      z-index: -1;
+      width: calc(100% + var(--border-width) * 2);
+      height: calc(100% + var(--border-width) * 2);
+      background: linear-gradient(
+        60deg,
+        hsl(224, 85%, 66%),
+        hsl(269, 85%, 66%),
+        hsl(314, 85%, 66%),
+        hsl(359, 85%, 66%),
+        hsl(44, 85%, 66%),
+        hsl(89, 85%, 66%),
+        hsl(134, 85%, 66%),
+        hsl(179, 85%, 66%)
+      );
+      background-size: 300% 300%;
+      background-position: 0 50%;
+      border-radius: calc(2 * var(--border-width));
+      animation: moveGradient 4s alternate infinite;
+    }
+  }
+  
   .navbar-link {
     --fs-8: 15px;
   }
@@ -2189,7 +2321,49 @@ textarea.form-input::-webkit-resizer {
   /**
    * NAVBAR
    */
-
+   .search-container {
+    background-color: aliceblue;
+    position: relative;
+    height: 40px;
+    padding: 0px 16px 0px 14px;
+    margin-bottom:5px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.8s;
+    --border-width: 4px;
+    border-radius: calc(2 * var(--border-width));
+    width: auto;
+    
+  
+    &::after {
+      position: absolute;
+      content: "";
+      top: calc(-1 * var(--border-width));
+      left: calc(-1 * var(--border-width));
+      z-index: -1;
+      width: calc(100% + var(--border-width) * 2);
+      height: calc(100% + var(--border-width) * 2);
+      background: linear-gradient(
+        60deg,
+        hsl(224, 85%, 66%),
+        hsl(269, 85%, 66%),
+        hsl(314, 85%, 66%),
+        hsl(359, 85%, 66%),
+        hsl(44, 85%, 66%),
+        hsl(89, 85%, 66%),
+        hsl(134, 85%, 66%),
+        hsl(179, 85%, 66%)
+      );
+      background-size: 300% 300%;
+      background-position: 0 50%;
+      border-radius: calc(2 * var(--border-width));
+      animation: moveGradient 4s alternate infinite;
+    }
+  }
+  
   .navbar {
     position: absolute;
     bottom: auto;
@@ -2394,7 +2568,7 @@ textarea.form-input::-webkit-resizer {
   position: relative;
   height: 40px;
   padding: 0px 16px 0px 14px;
-  margin-bottom: 40px;
+  margin-bottom:5px;
   color: #000;
   display: flex;
   justify-content: center;
@@ -2403,7 +2577,7 @@ textarea.form-input::-webkit-resizer {
   transition: 0.8s;
   --border-width: 4px;
   border-radius: calc(2 * var(--border-width));
-  
+  width: auto;
   
 
   &::after {
@@ -2448,7 +2622,7 @@ textarea.form-input::-webkit-resizer {
   background: transparent;
   border: none;
   outline: none;
-  width: 10px;
+  width: 20rem;
   font-weight: 500;
   font-size: 0px;
   transition: 0.8s;
@@ -2456,6 +2630,122 @@ textarea.form-input::-webkit-resizer {
 .search-container ::placeholder {
   color: #000000;
 }
+.search-container {
+  background-color: aliceblue;
+  position: relative;
+  height: 40px;
+  padding: 0px 12px; /* Adjusted padding for smaller screens */
+  margin-bottom: 5px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.8s;
+  --border-width: 3px; /* Adjusted border width for smaller screens */
+  border-radius: calc(2 * var(--border-width));
+  width: auto;
+}
+
+.search-container::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)
+  );
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+
+@keyframes moveGradient {
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 700px) {
+  .search-container {
+    padding: 0px 8px; /* Further adjusted padding for smaller screens */
+    --border-width: 2px; /* Further adjusted border width for smaller screens */
+  }
+}
+.search-container {
+  background-color: aliceblue;
+  position: relative;
+  height: 40px;
+  padding: 0px 12px; /* Adjusted padding for smaller screens */
+  margin-bottom: 5px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.8s;
+  --border-width: 3px; /* Adjusted border width for smaller screens */
+  border-radius: calc(2 * var(--border-width));
+  width: auto;
+}
+
+.search-container input {
+  width: 200px; /* Fixed width for the input field */
+  max-width: 100%; /* Ensure the input field doesn't exceed the container's width */
+  overflow: hidden; /* Hide any content that overflows the input field */
+}
+
+.search-container::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)
+  );
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+
+
+@keyframes moveGradient {
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .search-container input {
+    width: 150px; /* Reduced width for smaller screens */
+  }
+} */
 
 .search-container .search-btn {
   position: absolute; /* Added position absolute for icon positioning */
@@ -2483,7 +2773,6 @@ textarea.form-input::-webkit-resizer {
 #prev-page-tile,
 #next-page-tile {
   padding: 10px;
-  justify-content: center;
   background-color: rgb(104, 98, 232);
   background: linear-gradient(
     90deg,
@@ -2515,15 +2804,13 @@ textarea.form-input::-webkit-resizer {
   flex-wrap: wrap;
   margin-right: 5px;
   gap: 5px;
-  /* padding-top: 7%; */
-  margin-top: 5%;
+  padding-top: 0%;
 }
 
 /* pagination styling */
 .pagination_section .page-tile {
   /* border: 2px solid rosybrown; */
   font-size: 20px;
-  justify-content: center;
   color: wheat;
   padding: 5px 15px;
   cursor: pointer;
@@ -2623,8 +2910,8 @@ textarea.form-input::-webkit-resizer {
   height: auto;
   text-align: center;
   color: snow;
-  padding-bottom: 27%;
-  padding-top: 10%;
+  padding-bottom: 9%;
+  padding-top: 14%;
 }
 
 span {

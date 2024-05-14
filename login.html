@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+
+<div class="login-container">
+    <form id="login-form" class="login-form" onsubmit="return validateForm()">
+        <h2>Login</h2>
+        <div class="input-container">
+            <label for="username"></label>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <div class="input-container">
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit">Login</button>
+        <p id="error-message" class="error-message"></p>
+    </form>
+    <p class="forgot-password-link"><a href="#">Forgot password</a></p>
+    <div class="google-sign-in">
+        <h3>Sign in with Google</h3>
+        <button onclick="signInWithGoogle()">Sign in with Google</button>
+    </div>
+    <p class="sign-up-link">Don't have an account? <a href="#">Sign Up</a></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

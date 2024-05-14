@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="alter"><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+        <h2>Stone Paper Scissors </h2><br>
+        <button onclick="
+        play('stone');
+        const but1=document.querySelector('.but1');
+        but1.style.height='223px';
+        but1.style.width='121px';
+        const but2=document.querySelector('.but2');
+        but2.style.height='223px';
+        but2.style.width='121px';
+        const but3=document.querySelector('.but3');
+        but3.style.height='223px';
+        but3.style.width='121px';
+        const but5=document.querySelector('.but5');
+        but5.style.bottom='24px';
+        " class="but1 but"></button>
+        <button class="but2 but" onclick="
+        play('paper');
+        const but1=document.querySelector('.but1');
+        but1.style.height='223px';
+        but1.style.width='121px';
+        const but2=document.querySelector('.but2');
+        but2.style.height='223px';
+        but2.style.width='121px';
+        const but3=document.querySelector('.but3');
+        but3.style.height='223px';
+        but3.style.width='121px';
+        const but5=document.querySelector('.but5');
+        but5.style.bottom='24px';
+        " ></button>
+        <button onclick="
+        play('scissors');
+        const but1=document.querySelector('.but1');
+        but1.style.height='223px';
+        but1.style.width='121px';
+        const but2=document.querySelector('.but2');
+        but2.style.height='223px';
+        but2.style.width='121px';
+        const but3=document.querySelector('.but3');
+        but3.style.height='223px';
+        but3.style.width='121px';
+        const but5=document.querySelector('.but5');
+        but5.style.bottom='24px';
+        " class="but3 but"></button>
+        <p class="moves"></p>
+        <p class="result"></p>
+        <p class="scores"></p>
+        <button onclick="
+        score.wins=0;
+        score.loses=0;
+        score.tie=0;
+        updateScores();
+        " class="but4 btn">Reset Score</button>
+        <button onclick="
+        change();
+        autoPlay();
+        " class="but5 btn">Auto Play</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(45deg,rgb(158, 44, 171),rgb(41, 102, 177));
+    display: flex;
+    /* background-color: black; */
+    /* justify-content: center;  */
+    /* border: 2px solid red; */
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+}
+button:hover{
+    cursor: pointer;
+}
+.but{
+    width: 123px;
+    height: 170px;
+    border-radius: 80px;
+    border: 12px solid white;
+}
+.but3{
+    background: url('./assets/scissors-emoji.png') center/cover;
+    position: relative;
+    top:-40px;
+    left:5px;
+}
+.but1{
+    background: url('./assets/stone-emoji.png') center center/cover;
+    position: relative;
+    top:46px;
+    left: -138px;
+
+}
+.but2{
+    background: url('./assets/paper-emoji.png') center center/cover;
+    position: relative;
+    top: -80px;
+    left: 130px;
+}
+.btn{
+    width: 100px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+.but4{
+    margin-top: 45px;
+    /* margin-left: 1px; */
+    position: relative;
+    right: 60px;
+    display: inline;
+}
+.but5{
+    position: relative;
+    left: 90px;
+    bottom: 37px;
+}
+h2{
+    font-size: 35px;
+    color: white;
+    font-family:'Courier New', Courier, monospace;
+    position: relative;
+    top: 37px;
+}
+.result{
+    color: white;
+    font-size: 24px;
+}
+.scores{
+    color: white;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.img{
+    width:35px;
+    height: 28px;
+}
+.moves{
+    color: white;
+    font-size: 19px;
+}
+.btn:hover{
+    background: transparent;
+}
+.alter{
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: 5px
+}
+
+@media screen and(max-width:384px){
+    .but2{
+        left: 110px;
+    }
+}
+/* @media only screen and(max-width:568px){
+    .alter{
+        top: 0px;
+        left: 50%;
+    }
+}  */

@@ -1,5 +1,8 @@
-**Description 📃:**
+**Bubble_Hit 📃:**
 
+<br>
+
+## **Description 📃:** 
 Bubble Hit is a fun game where you match numbers to pop bubbles. Look at the number in the box at the top left corner, then pop bubbles with the same number. It's easy and exciting! Keep popping bubbles to score points and beat the clock.
 
 
@@ -19,14 +22,12 @@ Bubble Hit is a fun game where you match numbers to pop bubbles. Look at the num
 
 
 **Screenshots 📸:**
-
-![Game image](./assets/bubble_hit.png)
-![Game image](./assets/responsive.png)
-
+![Game image](../../assets/images/Bubble_Hit.png)
+![Responsive image](../../assets/images/Bubble_Hit_responsiveness.png)
+![Favicon image](../../assets/images/Bubble_Hit_Favicon.png)
 
 **Working video 📹:**
-
-![Game Video](./assets/Working_video.mp4)
+![Game Video](../../assets/animations/Bubble_Hit_Working_video.mp4)
 
 
 

@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2c3e50;
+}
+
+#table {
+    width: 600px;
+    height: 300px;
+    background-color: #27ae60;
+    position: relative;
+    overflow: hidden;
+}
+
+#net {
+    width: 4px;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#ball {
+    width: 20px;
+    height: 20px;
+    background-color: #f39c12;
+    position: absolute;
+    border-radius: 50%;
+}
+
+#paddle-left, #paddle-right {
+    width: 20px;
+    height: 100px;
+    background-color: #3498db;
+    position: absolute;
+}
+
+#paddle-left {
+    left: 0;
+}
+
+#paddle-right {
+    right: 0;
+}
+
+#score {
+    color: #fff;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#controls {
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+}
+
+#menu-options {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#menu-options button {
+    display: block;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#menu-options button:hover {
+    background-color: #2980b9;
+}

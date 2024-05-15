@@ -21,7 +21,7 @@ Progressive Difficulty: The game gradually increases in difficulty as the tower 
 <br>
 
 ## **Screenshots 📸**
-<bGames/Tower_Stack/GameDemo.pngr>
+<Games/Tower_Stack/GameDemo.png>
 
 
 

@@ -4,9 +4,12 @@ let score = 0;
 let gameOver = false;
 let moleIntervalId;
 let plantIntervalId;
-
+let speed = 2500;
 window.onload = function() {
     setGame();
+    document.getElementById('speed-slider').addEventListener('input',()=>{
+        speed = 3000 - parseInt(document.getElementById('speed-slider').value)*500;
+    });
 }
 
 function setGame() {
@@ -18,8 +21,8 @@ function setGame() {
         tile.addEventListener("click", selectTile);
         document.getElementById("board").appendChild(tile);
     }
-    setInterval(setMole, 2500); // 1000 miliseconds = 1 second, every 1 second call setMole
-    setInterval(setPlant, 5000); // 2000 miliseconds = 2 seconds, every 2 second call setPlant
+    setInterval(setMole, speed); // 1000 miliseconds = 1 second, every 1 second call setMole
+    setInterval(setPlant, 2000); // 2000 miliseconds = 2 seconds, every 2 second call setPlant
 }
 
 function getRandomTile() {
@@ -82,6 +85,9 @@ function selectTile() {
 window.onload = function() {
     setGame();
     document.querySelector('.start-btn').addEventListener('click', startNewGame);
+    document.getElementById('speed-slider').addEventListener('input',()=>{
+        speed = 3000 - parseInt(document.getElementById('speed-slider').value)*500;
+    });
 }
 
 function setGame() {
@@ -97,8 +103,8 @@ function setGame() {
 
 function startNewGame() {
     resetGame();
-    moleIntervalId = setInterval(setMole, 2500); // 1000 miliseconds = 1 second, every 1 second call setMole
-    plantIntervalId = setInterval(setPlant, 5000); // 2000 miliseconds = 2 seconds, every 2 second call setPlant
+    moleIntervalId = setInterval(setMole, speed); // 1000 miliseconds = 1 second, every 1 second call setMole
+    plantIntervalId = setInterval(setPlant, 2000); // 2000 miliseconds = 2 seconds, every 2 second call setPlant
 }
 
 function resetGame() {

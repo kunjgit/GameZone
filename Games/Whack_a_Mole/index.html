@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whac a Mole</title>
+    <title>Whack a Mole</title>
     <link rel="stylesheet" href="mole.css">
     <script src="mole.js"></script>
 </head>
 <body>
-    <h1>Whac a Mole</h1>
-    <h2 id="score">0</h2>
+    <h1>Whack a Mole</h1>
+    <h1>Score:<h2 id="score">0</h2>
+    <div id="speed-section">
+        <label for="speed-slider">Speed:</label>
+        <input type="range" id="speed-slider" min="1" max="5" value="3">
+    </div>
+    &nbsp;
     <div id="button-section">
         <button class="start-btn">Start New Game</button>
     </div>

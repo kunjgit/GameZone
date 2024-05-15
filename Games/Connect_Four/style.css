@@ -1,72 +1,98 @@
-html, body {
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(
-        to top, 
-        darkslategray, 
-        black 
-    );
-    color: 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-image: url(abstract-gradient-background-with-colorful-and-modern-style-vector.jpg);
+  background-size: cover; /* This will make sure the image covers the whole area */
+  background-repeat: no-repeat;
 }
-body * {
-    font-family: sans-serif;
-}          
-#container {
-    text-align: center;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+.wrapper {
+  width: 33.75em;
+  background-color: #ffffff;
+  position: absolute;
+  padding: 2em;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 1.25em;
+  border-radius: 0.5em;
 }
-#canvas {
-    margin: 0 auto;
-    margin-bottom: 40px;
-    padding: 0;
-    display: block;
-    background-color: rgba(10, 10, 10, 0.3);
-    border: 9px solid darkslategray;
-    border-radius: 0;
-    overflow: hidden;
-    z-index: 20;
-    cursor: pointer;
-    box-shadow: 0 10px 130px 0 black;
-    
+.container {
+  margin: 1.25em auto;
+  width: 33.75em;
+  border-radius: 0.6em;
+  overflow: hidden;
+  background-color: #416cea;
 }
-span, #data {
-    font-family: sans-serif;
-    color: white;
-    font-size: 16px;
-    text-align: center;
+#information {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
 }
-input {
-    border: none;
-    text-align: center;
-    background-color: rgb(100, 170, 180);
-    color: white;
-    padding: 6px;
-    width: 170px;
-    font-size: 20px;
-    margin: 0 4px;
-    border-radius: 20px;
-    border-bottom: 5px solid teal;
+.player-wrappers {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-input[type="submit"] {
-    background-color: crimson;
-    border-bottom: 5px solid maroon;
-    width: 50px;
+.player1:before {
+  content: "";
+  display: inline-block;
+  width: 3.12em;
+  height: 3.12em;
+  border-radius: 50%;
+  background: radial-gradient(#fff04e 1.12em, #ffc400 1.25em);
 }
-input[type="submit"]:active {
-    background-color: black;
-    transform: translateY(5px);
-    border-bottom: 0px solid black;
+.player2:before {
+  content: "";
+  display: inline-block;
+  width: 3.12em;
+  height: 3.12em;
+  border-radius: 50%;
+  background: radial-gradient(#ff4747 1.12em, #c00303 1.25em);
 }
-input::-webkit-input-placeholder {color: teal;}
-input:focus::-webkit-input-placeholder {color: rgb(100, 170, 180);}
-input:focus {outline: none;}
-h1 {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    color: white;
-    letter-spacing: 3px;
+#playerTurn {
+  margin: 1em 0;
+  text-align: right;
+}
+#playerTurn span {
+  font-weight: 600;
+}
+.startScreen {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #416cea;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.startScreen button {
+  background-color: #ffffff;
+  font-size: 1.4em;
+  padding: 1em 2em;
+  border: none;
+  outline: none;
+  border-radius: 2em;
+  cursor: pointer;
+}
+.grid-row {
+  margin: 0 auto;
+  display: flex;
+}
+.grid-box {
+  width: 5em;
+  height: 5em;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(white 1.37em, #416cea 1.43em);
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+#message {
+  margin-bottom: 1em;
+  color: #ffffff;
+  font-size: 1.2em;
 }

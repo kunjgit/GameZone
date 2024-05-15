@@ -40,5 +40,6 @@ jobs:
           script: |
             const { owner, repo, number } = context.issue;
             const label = 'New Game 🎮';
-            await github.issues.addLabels({ owner, repo, issue_number: number, labels: [label] });
+            const level_label='level3';
+            await github.issues.addLabels({ owner, repo, issue_number: number, labels: [label,level_label] });
             console.log(`Added label "${label}" to the issue.`);

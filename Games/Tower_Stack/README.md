@@ -20,7 +20,7 @@
 <br>
 
 ## **Screenshots 📸**
-[image]](../../assets/images/Tower_Stack.png)
+[image](../../assets/images/Tower_Stack.png)
 
 
 

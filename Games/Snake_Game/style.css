@@ -16,7 +16,10 @@
 button{
     color: darkgreen;
     border: 2px solid green;
+
     background: none;
+}
+
 
 button {
     position: absolute;
@@ -108,10 +111,6 @@ p {
 
 a{
     position: relative;
-    left: -10vw;
-    top: -25vh;
     font-size: 30px;
     
 }
-
-

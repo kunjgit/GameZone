@@ -26,10 +26,10 @@
 
 ## **Screenshots 📸**
 
-<br>
+
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![Image](D:\GIrlScript Summer of Code 2023\GameZone\Games\Adventure_Game\Adventure_Game.png)
+![image](https://github.com/Bindusree1515/GameZone/assets/91887086/8cdc9db1-2215-41e3-8593-3a0dcd22e3b4) 
 
 <br>
 

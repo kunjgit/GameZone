@@ -5,17 +5,25 @@ body {
 
 #highest {
   color: #fef2bf;
+  margin-right:320px;
+  padding: 0px;
+  margin-bottom: 0px;
 }
 #level-title {
   font-family: "Press Start 2P", cursive;
-  font-size: 3rem;
-  margin: 5%;
+  font-size: 2.5rem;
+  margin-right:500px;
+  margin-left: 230px;
   color: #fef2bf;
+  margin-top: 0px;
+  margin-bottom:5px;
 }
 #play-button {
   font-family: "Press Start 2P", cursive;
-  font-size: 3rem;
+  font-size: 5rem;
   color: #fef2bf;
+  margin-right: 360px;
+  margin-top:0px;
 }
 
 #play-button > i:hover {
@@ -36,18 +44,19 @@ body {
   display: flex;
   flex-direction: column;
   width: 70%;
-  margin: auto;
-  margin-left: 80px;
+  margin: 30px;
+  margin-left: 50px;
 }
 
 .instructions-section {
   background-color: #fef2bf;
-  font-size: 1.5rem;
+  font-size: medium;
+  font-weight: bold;
   flex: 1;
-  padding: 10px;
-  margin: 20px;
+  padding: 8px;
+  margin: 5px;
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   justify-content: center;
 }
 
@@ -55,21 +64,27 @@ body {
   .container {
     flex-direction: column;
   }
-
+  #highest{
+    margin:0%;
+  }
+  #level-title{
+    margin:1px;
+  }
   .game-section,
   .instructions-section {
     width: 100%;
-    margin: 20px auto;
+    margin-left:6px;
+    /* margin: 10px auto; */
   }
 }
 
 .btn {
-  margin: 25px;
   display: inline-block;
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   border: 5px solid black;
   border-radius: 10%;
+  margin: 5px;
 }
 
 .game-over {
@@ -107,9 +122,13 @@ body {
     height: 150px;
     width: 150px;
   }
+  #highest{
+    margin:0%;
+  }
   #level-title,
   #play-button {
     font-size: 5rem;
+    margin:0%;
   }
 }
 
@@ -122,9 +141,13 @@ body {
     height: 100px;
     width: 100px;
   }
+  #highest{
+    margin:0%;
+  }
   #level-title,
   #play-button {
     font-size: 3.5rem;
+    margin:0%;
   }
 }
 
@@ -137,8 +160,14 @@ body {
     height: 100px;
     width: 100px;
   }
+  #highest{
+    margin:0%;
+  }
   #level-title,
   #play-button {
     font-size: 3.5rem;
+    margin:0%;
   }
 }
+
+

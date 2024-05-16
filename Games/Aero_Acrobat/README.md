@@ -35,7 +35,7 @@ finding appropriate values of x for which (time % x) evaluated to every ~1-3 sec
 * HTML and CSS
 * HTML Canvas
 
-- 
+
 <br>
 
 ## **How to play? 🕹️**
@@ -47,7 +47,6 @@ finding appropriate values of x for which (time % x) evaluated to every ~1-3 sec
 <br>
 
 ## **Screenshots 📸**
-
 <br>
 <!-- add your screenshots like this -->
 

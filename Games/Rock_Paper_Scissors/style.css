@@ -64,3 +64,16 @@ button{
 #scoreText {
     font-size: 18px;
 }
+.btn{
+    color: white;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 6px;
+    margin-top: 6px;
+    height: 43px;
+    cursor: pointer;
+}
+.btn:hover{
+    border: 2px solid white;
+    background-color: black;
+}

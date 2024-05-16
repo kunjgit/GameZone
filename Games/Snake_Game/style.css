@@ -16,7 +16,6 @@
 button{
     color: darkgreen;
     border: 2px solid green;
-
     background: none;
 }
 
@@ -27,10 +26,24 @@ button {
     /* left: 42rem; */
     padding: 0.5rem 1rem;
     font-size: 2rem;
-
     font-family: math;
     border-radius: 0.6rem;
 }
+
+.instructions{
+     border-radius: 1rem;
+    position: absolute;
+    font-size: 30px;
+    left: 10px;
+    top: 75px;
+    width: fit-content;
+    font-family: math;
+    color: darkgreen;
+    border: 2px solid green;
+    background: none;
+    padding: 0.5rem 1rem;
+   }
+
 
 button:hover {
     cursor: pointer;

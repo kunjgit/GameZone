@@ -17,6 +17,7 @@ h1 {
 }
 
 canvas {
+  width: 50vw;
   border: 1px solid #fff;
   background-color: #3e931f;
 }

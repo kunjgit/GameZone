@@ -15,14 +15,14 @@ const paddle1 = {
   x: 10,
   y: canvas.height / 2 - 50,
   width: 10,
-  height: 100
+  height: 50
 };
 
 const paddle2 = {
   x: canvas.width - 20,
   y: canvas.height / 2 - 50,
   width: 10,
-  height: 100
+  height: 50
 };
 
 let player1Score = 0;

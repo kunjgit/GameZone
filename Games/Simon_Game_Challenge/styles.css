@@ -47,7 +47,13 @@ body {
   margin: 30px;
   margin-left: 50px;
 }
-
+.asdf{
+  display:flex;
+}
+.asdf .load{
+display:inline-block;
+align-items: left;
+}
 .instructions-section {
   background-color: #fef2bf;
   font-size: medium;

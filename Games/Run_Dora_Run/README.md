@@ -38,7 +38,7 @@
 
 <br>
 <!-- add your screenshots like this -->
-![Screenshot 2024-05-17 222145](https://github.com/kshitizvardhan/GameZone/assets/143323194/fded0f9d-79fe-427b-a9fb-10688c061580)
+[Screenshot 2024-05-17 222145](https://github.com/kshitizvardhan/GameZone/assets/143323194/fded0f9d-79fe-427b-a9fb-10688c061580)
 
 <!-- ![image](url) -->
 

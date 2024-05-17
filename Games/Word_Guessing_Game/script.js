@@ -20,6 +20,8 @@ let nextnewelement;
 let elementvalue;
 let ans;
 
+wordUsed=[];    //array of words used till now
+
 element = document.querySelector('.emoji-display');
 let msg = document.querySelector('.status-msg');
 
@@ -80,12 +82,16 @@ function getRandomWord() {
     //Getting the word randomly from the list
     if(count<=9)
     document.getElementsByClassName('wrapper')[0].style.display = 'block';
-    let randomobject = wordlist[Math.floor(Math.random() * wordlist.length)];
+    let randomobject;                                                           //Declaring word, so we can use it otside do-while loop
+    do{                                                                         //Getting a random word, one time
+    randomobject = wordlist[Math.floor(Math.random() * wordlist.length)];
+    //Getting the word from the object
+    word = randomobject.word;
+    }   while(wordUsed.includes(word));                                         //If the word is already in the used words list, pick another ranndom word
+    wordUsed.push(word);                                                        //Appending the word to the used words list
     element = document.querySelector('.emoji-display')
     newelement = document.createElement("span");
     element.appendChild(newelement);
-    //Getting the word from the object
-    word = randomobject.word;
     //Getting the hint from the object
     hint.innerText = randomobject.hint;
 

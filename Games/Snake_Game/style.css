@@ -32,7 +32,7 @@ button {
 
 }
 
-
+/*Changed color*/
 button:hover {
     cursor: pointer;
     filter: drop-shadow(2px, 2px, 2px black);
@@ -63,7 +63,7 @@ button:hover {
     font-family: math;
     padding: 3px 12px;
 }
-
+/*Changed color*/
 #board{
     margin-top: 4%;
     border-radius: 1rem;
@@ -76,20 +76,21 @@ button:hover {
     grid-template-rows: repeat(18, 1fr);
     grid-template-columns: repeat(18, 1fr);
 }
+/*Changed color*/
 .head{
     background:#ffcd6e;
     transform: scale(1.5);
     border: 4px solid white;
     border-radius:45%;
 }
-
+/*Changed color*/
 .snake{
     background:#fffbaa !important; 
     border-radius:45%;
       border: 1px solid white;
     
 }
-
+/*Changed color*/
 .food{
     background: #8b491c;
     border: none;

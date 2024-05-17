@@ -1,0 +1,40 @@
+        .navdiv {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Align buttons to the right */
+            margin-top: 45px;
+            margin-right: 30px;
+        }
+    
+        
+        .login{
+            background-color: #640D6B;
+            margin-left: 10px;
+            border-radius: 10px;
+            padding: 10px;
+            width: 90px;
+            /* border: none;  */
+            cursor: pointer;
+        }
+       .signup{
+            background-color:#A91D3A;
+            margin-left: 10px;
+            border-radius: 10px;
+            padding: 10px;
+            width: 90px;
+            /* border: none;  */
+            cursor: pointer;
+        }
+        
+        
+        button a {
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            text-decoration: none; /* Remove underline */
+        }
+        
+        button:hover {
+            background-color: #333; /* Darken button color on hover */
+        }
+        

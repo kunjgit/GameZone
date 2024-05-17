@@ -91,10 +91,10 @@ function draw() {
   drawBall();
 
   drawPaddles();
-  context.fillStyle = "#ffffff";
-  context.font = "20px Arial";
-  context.fillText("Player 1: " + player1Score, 10, 20);
-  context.fillText("Player 2: " + player2Score, canvas.width - 120, 20);
+  const p1score=document.getElementById("player1Score")
+  p1score.innerHTML=player1Score
+  const p2score=document.getElementById("player2Score")
+  p2score.innerHTML=player2Score
 }
 
 

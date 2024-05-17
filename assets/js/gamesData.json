@@ -1935,7 +1935,11 @@
     "gameTitle": "Guess_The_Weapon",
     "gameUrl": "Guess_The_Weapon",
     "thumbnailUrl": "Guess_The_Weapon.png"
+  },
+  "386": {
+    "gameTitle": "escaperoom",
+    "gameUrl": "escaperoom",
+    "thumbnailUrl": "escaperoom.png"
   }
-  
   
 }

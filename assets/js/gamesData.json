@@ -1919,23 +1919,29 @@
   "382": {
     "gameTitle": "HueHero",
     "gameUrl": "HueHero",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "HueHero.png"
   },
   "383": {
     "gameTitle": "Puzzel_Winner",
     "gameUrl": "Puzzel_Winner",
-    "thumbnailUrl": "icon.png"
+    "thumbnailUrl": "Puzzel_Winner.png"
   },
   "384": {
     "gameTitle": "Emoji_Intruder",
     "gameUrl": "Emoji_Intruder",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Emoji_intruder.png"
   },
   "385": {
     "gameTitle": "Guess_The_Weapon",
     "gameUrl": "Guess_The_Weapon",
-    "thumbnailUrl": "icon.png"
+    "thumbnailUrl": "Guess_The_Weapon.png"
+  },
+  "386": {
+    "gameTitle": "Earth_Guardian",
+    "gameUrl": "Earth_Guardian",
+    "thumbnailUrl": "Earth_Guardian.png"
   }
+  
   
   
 }

@@ -17,10 +17,11 @@ h1 {
 }
 
 canvas {
+  width: 50vw;
   border: 1px solid #fff;
   background-color: #3e931f;
 }
-
+/* 
 .paddle {
   position: absolute;
   display: block;
@@ -38,33 +39,31 @@ canvas {
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.score-card {
-  width: 300px;
-  background-color: #333;
-  border-radius: 10px;
-  margin-top: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.player-score {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #555;
-}
-
+} */
+/* 
 .player-name {
   margin-right: 10px;
   font-weight: bold;
-}
+} */
 
-#player1Score,
-#player2Score {
+#player1Score{
+  position: relative;
+  font-size: 50px;
   font-weight: bold;
+  color: rgba(255, 0, 0, 0.43);
+  background-color: white;
+  border-radius: 5px;
 }
 
+#player2Score {
+  position: relative;
+  font-size: 50px;
+  font-weight: bold;
+  color: rgba(0, 0, 255, 0.43);
+  background-color: white;
+  border-radius: 5px;
+}
+/* 
 .score-card-title {
   font-size: 24px;
   color: #fff;
@@ -97,4 +96,4 @@ canvas {
 
 .footer a:hover {
   color: #fff;
-}
+} */

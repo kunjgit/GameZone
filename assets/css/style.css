@@ -194,13 +194,16 @@ footer {
   color: #ffffff;
 }
 
-.fa-twitter:hover {
-  color: rgb(36, 186, 255);
-}
+
+a:hover svg {
+  fill:rgb(0, 119, 181);
+} 
+
 
 .fa-linkedin-square:hover {
   color: rgb(0, 119, 181);
 }
+
 .footer-bottom {
   background: #000;
 
@@ -2480,6 +2483,7 @@ textarea.form-input::-webkit-resizer {
 #prev-page-tile,
 #next-page-tile {
   padding: 10px;
+  justify-content: center;
   background-color: rgb(104, 98, 232);
   background: linear-gradient(
     90deg,
@@ -2511,13 +2515,15 @@ textarea.form-input::-webkit-resizer {
   flex-wrap: wrap;
   margin-right: 5px;
   gap: 5px;
-  padding-top: 0%;
+  /* padding-top: 7%; */
+  margin-top: 5%;
 }
 
 /* pagination styling */
 .pagination_section .page-tile {
   /* border: 2px solid rosybrown; */
   font-size: 20px;
+  justify-content: center;
   color: wheat;
   padding: 5px 15px;
   cursor: pointer;
@@ -2617,7 +2623,7 @@ textarea.form-input::-webkit-resizer {
   height: auto;
   text-align: center;
   color: snow;
-  padding-bottom: 40%;
+  padding-bottom: 27%;
   padding-top: 10%;
 }
 
@@ -2844,4 +2850,27 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1); */
   background: linear-gradient(343deg, rgba(120, 47, 152, 1) 0%, rgba(5, 50, 129, 1) 82%, rgba(52, 39, 100, 1) 100%);
   filter: blur(600px);
   z-index: -10;
+}
+
+#suggestion-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  top: -37px;
+}
+
+#suggestion-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestion-list li:hover {
+  background-color: #f0f0f0;
 }

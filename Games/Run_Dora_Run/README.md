@@ -38,10 +38,16 @@
 
 <br>
 <!-- add your screenshots like this -->
+![Screenshot 2024-05-17 222145](https://github.com/kshitizvardhan/GameZone/assets/143323194/fded0f9d-79fe-427b-a9fb-10688c061580)
+
 <!-- ![image](url) -->
 
 <br>
 
 ## **Working video 📹**
 <!-- add your working video over here -->
+
+https://github.com/kshitizvardhan/GameZone/assets/143323194/0456ec30-3bdd-4f76-acf7-aa3dc1b4f4e7
+
+
 

@@ -2851,3 +2851,26 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1); */
   filter: blur(600px);
   z-index: -10;
 }
+
+#suggestion-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  top: -37px;
+}
+
+#suggestion-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestion-list li:hover {
+  background-color: #f0f0f0;
+}

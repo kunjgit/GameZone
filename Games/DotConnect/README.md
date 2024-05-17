@@ -18,14 +18,17 @@ DotConnect is an exciting game built with HTML, CSS, and JavaScript, offering pl
 
 <!-- ![Image 1](images/image1.png) -->
 **How it appears:**
-<img src="images/image1.png" alt="Description of Image1" width="500" height="300">
+
+<img src="images/image1.png" width="500" height="300">
 
 **How it appears while playing:**
+
 <!-- ![Image 2](images/image2.png) -->
-<img src="images/image2.png" alt="Description of Image2" width="500" height="300">
+<img src="images/image2.png" width="500" height="300">
 
 **How it appears on winning:**
-<img src="images/image3.png" alt="Description of Image3" width="500" height="300">
+
+<img src="images/image3.png" width="500" height="300">
 
 
 

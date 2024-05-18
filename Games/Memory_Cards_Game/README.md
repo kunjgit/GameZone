@@ -28,10 +28,15 @@
 
 <br>
 <!-- add your screenshots like this -->
-![tittle](https://github.com/kunjgit/GameZone/assets/118452811/c1968d69-b75a-4e60-bb9a-64f1b4086deb)
+
+![tittle](https://github.com/VesperAkshay/GameZone/assets/118452811/6e16d90c-c326-4bcf-bdd3-dc67a855fe6c)
 
 
 <br>
 
 ## **Working video 📹**
+
+
+https://github.com/VesperAkshay/GameZone/assets/118452811/988f5c70-cbf2-44d4-b21d-f50c3a82e596
+
 

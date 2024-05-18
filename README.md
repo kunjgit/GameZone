@@ -193,7 +193,7 @@ This repository also provides one such platforms where contributers come over an
 
 
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               |
-
+[Slide_Master_Puzzle](https://github.com/kunjgit/GameZone/tree/Main/Games/Slide_Master_Puzz)
  </center>
 
 <br>

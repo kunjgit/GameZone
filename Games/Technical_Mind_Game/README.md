@@ -46,5 +46,4 @@ This is a simple memory card game project built using HTML, CSS, and JavaScript.
 
 Enjoy the Memory Card Game! If you have any questions or feedback, feel free to reach out.
 
-this is working video of my game 
-![Video Demo]('demo.mp4')
+

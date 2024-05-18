@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Verly.js</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      color: #ce072e;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 10px;
+    }
+
+    canvas {
+      outline: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="c"></canvas>
+  <script src="../../dist/verly.bundle.js"></script>
+
+
+  <script>
+    window.onload = function () {
+      let canvas = document.getElementById('c');
+      let ctx = canvas.getContext('2d');
+      let width = 600;
+      let height = 600;
+      canvas.width = width;
+      canvas.height = height;
+
+      let verly = new Verly(16, canvas, ctx);
+
+      let ragdoll = new Entity(16, verly);
+      let x0 = 100;
+      let y0 = 100;
+
+      // Head
+      ragdoll.addPoint(x0, y0 - 10).setRadius(15).setMass(5);
+
+      // Groin
+      ragdoll.addPoint(x0, y0 + 100);
+
+      // Hips
+      ragdoll.addPoint(x0 + 28, y0 + 100);
+      ragdoll.addPoint(x0 - 28, y0 + 100);
+
+      // Knees
+      ragdoll.addPoint(x0 + 30, y0 + 150);
+      ragdoll.addPoint(x0 - 30, y0 + 150);
+
+      // Feet
+      ragdoll.addPoint(x0 + 30, y0 + 190).setRadius(10).setMass(20);
+      ragdoll.addPoint(x0 - 30, y0 + 190).setRadius(10).setMass(20);
+
+      // Neck
+      ragdoll.addPoint(x0, y0 + 25);
+
+      // Shoulders
+      ragdoll.addPoint(x0 + 30, y0 + 30);
+      ragdoll.addPoint(x0 - 30, y0 + 30);
+
+      // Hands
+      ragdoll.addPoint(x0 + 50, y0 + 70).setRadius(10).setMass(5);
+      ragdoll.addPoint(x0 - 50, y0 + 70).setRadius(10).setMass(5);
+
+
+
+      // "Muscles"
+
+      // Hips
+      ragdoll.addStick(1, 2);
+      ragdoll.addStick(1, 3);
+      // Legs
+      ragdoll.addStick(2, 4);
+      ragdoll.addStick(3, 5);
+      ragdoll.addStick(4, 6);
+      ragdoll.addStick(5, 7);
+
+      ragdoll.addStick(0, 8);
+      ragdoll.addStick(8, 1);
+
+      // Left arm
+      ragdoll.addStick(8, 9);
+      ragdoll.addStick(9, 11);
+
+      // Right arm
+      ragdoll.addStick(8, 10);
+      ragdoll.addStick(10, 12);
+      ragdoll.addStick(5, 4, 100).setHidden(true);
+      ragdoll.addStick(7, 6, 100).setHidden(true);
+
+      // head - arm
+      ragdoll.addAngleStick(0, 8, 10, 0.1);
+      ragdoll.addAngleStick(0, 8, 9, 0.1);
+      ragdoll.addAngleStick(10, 8, 9, 0.1);
+
+      // body
+      ragdoll.addAngleStick(10, 8, 1, 0.1);
+      ragdoll.addAngleStick(9, 8, 1, 0.1);
+
+      // hips
+      ragdoll.addAngleStick(8, 1, 3, 0.1);
+      ragdoll.addAngleStick(8, 1, 2, 0.1);
+      ragdoll.addAngleStick(3, 1, 2, 0.1);
+
+      // legs
+      ragdoll.addAngleStick(1, 3, 5, 0.1);
+      ragdoll.addAngleStick(5, 3, 1, 0.1);
+
+      ragdoll.addAngleStick(1, 2, 4, 0.1);
+      // ragdoll.addAngleStick(4, 2, 1, 0.1);
+
+      // lower legs
+      ragdoll.addAngleStick(3, 5, 7, 0.1);
+      ragdoll.addAngleStick(7, 5, 3, 0.1);
+
+      ragdoll.addAngleStick(2, 4, 6, 0.1);
+      ragdoll.addAngleStick(6, 4, 2, 0.1);
+
+
+
+
+      ragdoll.setGravity(new Vector(0, 1))
+      verly.addEntity(ragdoll)
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        verly.update();
+        verly.render();
+        verly.interact();
+
+        // verly.renderPointIndex();
+
+        // ddMotor(x, y, time, radius, speed) {
+        ragdoll.points[0].addMotor(
+          ragdoll.points[0].pos.x,
+          ragdoll.points[0].pos.y,
+          verly.currentFrame / 5,
+          random(5, 15),
+          random(-0.5, 0.5)
+        )
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+  </script>
+
+</body>
+
+</html>

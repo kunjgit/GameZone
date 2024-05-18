@@ -1,0 +1,14 @@
+{
+  "source": {
+    "include": [
+      "src/",
+      "./readme.md"
+    ],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "destination": "docs/",
+    "template": "node_modules/better-docs/"
+  }
+}

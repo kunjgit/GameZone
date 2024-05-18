@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Verly.js Web Components</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      color: #ce072e;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 10px;
+    }
+
+    canvas {
+      outline: 1px solid black;
+    }
+  </style>
+  <script src="../../dist/verly.bundle.js"></script>
+
+  <script src="./Component.js"></script>
+  <script src="./index.js"></script>
+</head>
+
+<body>
+
+  <canvas width="500" height="600" is="verly-canvas">
+    <verly-box type="box" x="300" y="100" width="100" height="100"></verly-box>
+    <verly-entity type="box" x="300" y="100" width="100" height="100"></verly-entity>
+    <verly-entity type="hexagon" x="100" y="100"></verly-entity>
+    <verly-entity type="cloth" x="200" y="150" segs="20"></verly-entity>
+  </canvas>
+
+
+</body>
+
+</html>

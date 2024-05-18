@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Verly.js | joinEntities</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      color: #ce072e;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <canvas id="c"></canvas>
+  <script src="../dist/verly.bundle.js"></script>
+  <script>
+
+    window.onload = function () {
+      let canvas = document.getElementById('c');
+      let ctx = canvas.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      let verly = new Verly(16, canvas, ctx);
+
+      let box = verly.createBox(100, 100, 100, 100);
+      let rope = verly.createRope(100, 100, 15, 10, 0);
+      let customEntity = new Entity(16, verly);
+      customEntity.addPoint(150, 200);
+
+      // verly.joinEntities(...Entity)
+      let mix = verly.joinEntities(box, rope, customEntity);
+      mix.addStick(0, 2);
+      mix.addStick(0, 18, 20);
+      mix.addStick(2, 19, 50);
+      mix.addStick(1, 19, 135);
+      mix.addStick(3, 19, 135);
+
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        verly.update();
+        verly.render();
+        verly.interact();
+
+        verly.renderPointIndex();
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
+</body>
+
+</html>

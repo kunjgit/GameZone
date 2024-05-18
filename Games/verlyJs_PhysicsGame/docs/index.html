@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Muli:100,400,700|Oswald:300|Inconsolata,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+</head>
+
+<body>
+    <div id="stickyNavbarOverlay"></div>
+    <div class="top-navbar">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    
+                    
+                        <h1 class="navbar-item">Documentation</h1>
+                    
+                    <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-3" id="sidebarNav">
+                <div class="sidebar">
+                    <nav>
+                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="AngleStick.html">AngleStick</a></li><li><a href="Entity.html">Entity</a></li><li><a href="Point.html">Point</a></li><li><a href="Stick.html">Stick</a></li><li><a href="TypoGraphy.html">TypoGraphy</a></li><li><a href="Vector.html">Vector</a></li><li><a href="Verly.html">Verly</a></li></ul><h3>Global</h3><ul><li><a href="global.html#clamp">clamp</a></li><li><a href="global.html#degrees">degrees</a></li><li><a href="global.html#lerp">lerp</a></li><li><a href="global.html#normalizedRandom">normalizedRandom</a></li><li><a href="global.html#radians">radians</a></li><li><a href="global.html#random">random</a></li></ul></div>
+                    </nav>
+                </div>
+            </div>
+            <div class="column is-9-desktop">
+                <div class="content" id="main-content-wrapper">
+                    <header class="page-title">
+                        <p>Title</p>
+                        <h1>Home</h1>
+                    </header>
+                    
+                    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>Verly.js</h1>
+<p>Easy to integrate verlet physics engine.</p>
+<blockquote>
+<ul>
+<li>Yet another physics engine? really?</li>
+<li>Yes because i love physics :heart:.</li>
+</ul>
+</blockquote>
+<p><strong>Read my article on medium about <a href="#">Making a Verlet Physics Engine in JavaScript</a></strong></p>
+<h2>cool things made with Verly.js</h2>
+<ul>
+<li><a href="https://github.com/mdazfar2/">VerlyRangeSlider</a></li>
+<li><a href="https://github.com/mdazfar2">Ship</a></li>
+<li><a href="https://github.com/mdazfar2">Parasites</a></li>
+<li><a href="https://github.com/mdazfar2">Swingy Text</a></li>
+<li><a href="https://github.com/mdazfar2">Happy Holi</a></li>
+<li><strong>See more <a href="https://github.com/mdazfar2">examples</a></strong></li>
+</ul>
+<hr>
+<h2>Installation</h2>
+<h2>local development</h2>
+<p>after cloning the repo in command line run to build</p>
+<pre class="prettyprint source lang-bash"><code>npm install && npm run build
+</code></pre>
+<h1>Usage</h1>
+<h2>import CDN link</h2>
+<pre class="prettyprint source lang-html"><code>&lt;!-- add this to head -->
+&lt;script src=&quot;https://cdn.jsdelivr.net/gh/anuraghazra/Verly.js@v1.2.1/dist/verly.bundle.js&quot;>&lt;/script>
+</code></pre>
+<pre class="prettyprint source lang-js"><code>  window.onload = function () {
+    let canvas = document.getElementById('c');
+    let ctx = canvas.getContext('2d');
+    let width = 600;
+    let height = 600;
+    canvas.width = width;
+    canvas.height = height;
+
+    // iteration, canvas, ctx
+    let verly = new Verly(16, canvas, ctx);
+
+    // x, y, w, h
+    verly.createBox(20, 100, 100, 100);
+    // x, y, segments, radius
+    verly.createHexagon(200, 200, 16, 50);
+    // x, y, w, h, segments, pinOffset
+    verly.createCloth(300, 200, 300, 300, 15, 2);
+    // x, y, segments, gap, pin
+    verly.createRope(500, 150, 20, 15, 0);
+    // x, y
+    verly.createRagdoll(300, 200);
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      verly.update();
+      verly.render();
+
+      // for interacting with points
+      verly.interact();
+      
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+
+</code></pre>
+<hr>
+<h2>Author</h2>
+<ul>
+<li>https://github.com/mdazfar2</li>
+<li>azfaralam.ops@gmail.com</li>
+</ul>
+<p>Contributions Are Welcomed.</p>
+<p>Made with :heart: and JavaScript</p></article>
+    </section>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Sat Jul 13 2019 16:49:15 GMT+0530 (India Standard Time)</p>
+        <p class="sidebar-created-by">
+            <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+            <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers</a>
+        </p>
+    </div>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/app.min.js"></script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

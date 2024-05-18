@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Verly.js</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      color: #ce072e;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="c"></canvas>
+  <script src="../dist/verly.bundle.js"></script>
+
+  <script>
+    window.onload = function () {
+      let canvas = document.getElementById('c');
+      let ctx = canvas.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      let PARTICLE_COUNT = 400;
+      let verly = new Verly(16, canvas, ctx);
+
+      let particle = new Entity(16, verly);
+      let p1 = particle.addPoint(0, 0).setRadius(10);
+      let p2 = particle.addPoint(0, 0).setRadius(10);
+
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particle.addPoint(random(width), random(height)).setRadius(4);
+      }
+      particle.setGravity(new Vector(0, 0));
+      verly.addEntity(particle);
+
+      let angle = 0;
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particle.points.length; i++) {
+          particle.points[i].resolveBehaviors(particle.points[0], width / 2, -0.8);
+          particle.points[i].resolveBehaviors(particle.points[0], 100, 5);
+          particle.points[i].resolveBehaviors(particle.points[1], width / 2, -0.8);
+          particle.points[i].resolveBehaviors(particle.points[1], 100, 5);
+
+          for (let j = 0; j < particle.points.length; j++) {
+            // if (i !== 0 || i !== 1) {
+            particle.points[i].resolveBehaviors(particle.points[j], p1.radius, 3);
+            // }
+          }
+        }
+        verly.update();
+        verly.render();
+        verly.interact();
+
+
+        p1.addMotor(200, 200, verly.currentFrame, 100, 0.07);
+        p2.pos.setXY(verly.mouse.coord.x || 200, verly.mouse.coord.y || 200);
+
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+  </script>
+</body>
+
+</html>

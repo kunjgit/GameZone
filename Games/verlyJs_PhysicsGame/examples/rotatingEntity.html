@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Verly.js</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      color: #ce072e;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <canvas id="c"></canvas>
+
+  <script src="../dist/verly.bundle.js"></script>
+  <script src="../src/Objects.js"></script>
+  <script>
+
+    window.onload = function () {
+      let canvas = document.getElementById('c');
+      let ctx = canvas.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      let verly = new Verly(16, canvas, ctx);
+
+      let b1 = new Box(200, 110, 20, 100, 16, verly);
+      b1.setGravity(new Vector())
+      verly.addEntity(b1);
+
+      for (p of b1.points) {
+        let absSize = new Vector(b1.width / 2, b1.height / 2);
+        let boxcenter = new Vector(b1.x - absSize.x, b1.y - absSize.y);
+        let rot = radians(25);
+        p.rotate(rot, boxcenter);
+        p.resetVelocity();
+      }
+
+      let b2 = new Box(150, 125, 20, 100, 16, verly);
+      b2.setGravity(new Vector())
+      verly.addEntity(b2);
+
+      for (p of b2.points) {
+        let absSize = new Vector(b2.width / 2, b2.height / 2);
+        let boxcenter = new Vector(b2.x - absSize.x, b2.y - absSize.y);
+        let rot = radians(-25);
+        p.rotate(rot, boxcenter);
+        p.resetVelocity();
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        verly.update();
+        verly.render();
+        verly.interact();
+        // verly.renderPointIndex();
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+  </script>
+</body>
+
+</html>

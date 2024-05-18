@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Verly.js Fluid Gyroscope</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      color: #ce072e;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <canvas id="c"></canvas>
+  <script src="../dist/verly.bundle.js"></script>
+  <script>
+
+    window.onload = function () {
+      let canvas = document.getElementById('c');
+      let ctx = canvas.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      let gravity = new Vector();
+      // Our browser supports DeviceOrientation
+      window.addEventListener("deviceorientation", function (event) {
+        // process event.alpha, event.beta and event.gamma
+        gravity.setXY(-event.beta, -event.gamma)
+      }, true);
+
+      let verly = new Verly(16, canvas, ctx);
+
+      let particles = new Entity(16, verly);
+      function addParticles(x, y) {
+        particles.addPoint(x, y).setRadius(3);
+      }
+
+      for (let i = 0; i < 700; i++) {
+        addParticles(random(width), random(height));
+      }
+
+      verly.addEntity(particles);
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.points.length; i++) {
+          let p1 = particles.points[i];
+          p1.setGravity(gravity.normalize());
+          for (let j = 0; j < particles.points.length; j++) {
+            let p2 = particles.points[j];
+
+            p1.resolveBehaviors(p2, p1.radius * p1.radius * 5)
+          }
+        }
+
+        verly.update();
+        verly.render();
+        verly.interact();
+        // verly.renderPointIndex();
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
+</body>
+
+</html>

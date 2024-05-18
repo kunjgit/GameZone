@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>JSDoc: Entity.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Muli:100,400,700|Oswald:300|Inconsolata,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+</head>
+
+<body>
+    <div id="stickyNavbarOverlay"></div>
+    <div class="top-navbar">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    
+                    
+                        <h1 class="navbar-item">Documentation</h1>
+                    
+                    <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-3" id="sidebarNav">
+                <div class="sidebar">
+                    <nav>
+                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="AngleStick.html">AngleStick</a></li><li><a href="Entity.html">Entity</a></li><li><a href="Point.html">Point</a></li><li><a href="Stick.html">Stick</a></li><li><a href="TypoGraphy.html">TypoGraphy</a></li><li><a href="Vector.html">Vector</a></li><li><a href="Verly.html">Verly</a></li></ul><h3>Global</h3><ul><li><a href="global.html#clamp">clamp</a></li><li><a href="global.html#degrees">degrees</a></li><li><a href="global.html#lerp">lerp</a></li><li><a href="global.html#normalizedRandom">normalizedRandom</a></li><li><a href="global.html#radians">radians</a></li><li><a href="global.html#random">random</a></li></ul></div>
+                    </nav>
+                </div>
+            </div>
+            <div class="column is-9-desktop">
+                <div class="content" id="main-content-wrapper">
+                    <header class="page-title">
+                        <p>Source</p>
+                        <h1>Entity.js</h1>
+                    </header>
+                    
+                    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>class Entity {
+
+  /**
+   * @param {number} iterations 
+   * @param {Verly} verlyInstance 
+   */
+  constructor(iterations, verlyInstance) {
+    this.points = [];
+    this.sticks = [];
+    this.verlyInstance = verlyInstance;
+    this.iterations = iterations || 16;
+  }
+
+
+  // join(...args) {
+  //   let points = [];
+  //   let sticks = [];
+
+  //   // loop through the args and push points and sticks to the array
+  //   for (let i = 0; i &lt; args.length; i++) {
+  //     points.push(args[i].points);
+  //     sticks.push(args[i].sticks);
+  //   }
+
+  //   // join multiple arrays
+  //   points = [].concat.apply([], points);
+  //   sticks = [].concat.apply([], sticks);
+
+  //   // add the arrays to the mix::Entity
+  //   this.points = points;
+  //   this.sticks = sticks;
+
+  //   return this; // return for chaining
+  // }
+
+  /**
+   * sets the gravity of this entity
+   * @param {Vector} g 
+   */
+  setGravity(g) {
+    for (let i = 0; i &lt; this.points.length; i++) {
+      this.points[i].setGravity(g);
+    }
+  }
+
+  /**
+   * sets the friction of this entity
+   * @param {number} f 
+   */
+  setFriction(f) {
+    for (let i = 0; i &lt; this.points.length; i++) {
+      this.points[i].setFriction(f);
+    }
+  }
+
+  /**
+   * pin a specific Point
+   * @param {number} index 
+   */
+  pin(index) {
+    this.points[index].pin();
+  }
+
+  /**
+   * remove a specific Point
+   * @param {Point} p
+   */
+  removeSticks(p) {
+    this.sticks.splice(this.sticks.indexOf(p.sticks[0]), 1);
+    p.sticks.splice(0, 1);
+  }
+
+  /**
+   * 
+   * @param {Number} x 
+   * @param {Number} y 
+   */
+  setVelocity(x, y) {
+    this.points.map(e => {
+      e.oldpos.x += x;
+      e.oldpos.y += y;
+    })
+  }
+
+  /**
+   * adds a Point in points array with {x,y,vx,vy,radius}
+   * @param {Number|Point} x 
+   * @param {Number=} y 
+   * @param {Number=} vx 
+   * @param {Number=} vy 
+   * @param {Number=} radius 
+   * @returns {Point}
+   */
+  addPoint(x, y, vx, vy, radius) {
+    let p
+    if (x instanceof Point) {
+      p = x;
+    } else {
+      p = new Point(x, y, vx, vy, radius);
+    }
+    this.points.push(p);
+    return p;
+  }
+
+  /**
+   * adds a stick inbetween two points
+   * @param {number|Point} p1 
+   * @param {number|Point=} p2 
+   * @param {number=} length 
+   * @param {number=} stiffness 
+   * @param {boolean=} ishidden 
+   */
+  addStick(p1, p2, length, stiffness, ishidden) {
+    let stick;
+    if (p1 instanceof Stick) {
+      stick = p1;
+    } else {
+      stick = new Stick(this.points[p1], this.points[p2], length, stiffness, ishidden);
+    }
+    this.sticks.push(stick);
+    return stick;
+  }
+
+  /**
+   * adds a AngleStick in between 3 points
+   * @param {Point} p1
+   * @param {Point} p2
+   * @param {Point} p3
+   * @param {number} stiffness
+   * @returns {AngleStick}
+   */
+  addAngleStick(p1, p2, p3, stiffness) {
+    let stick;
+    if (p1 instanceof AngleStick) {
+      stick = p1;
+    } else {
+      stick = new AngleStick(this.points[p1], this.points[p2], this.points[p3], stiffness);
+    }
+    this.sticks.push(stick);
+    return stick;
+  }
+
+  /**
+   * 
+   */
+  updatePoints() {
+    for (let i = 0; i &lt; this.points.length; i++) {
+      this.points[i].update(this.verlyInstance);
+    }
+  }
+
+  /**
+   * @methdo updateSticks
+   * @param {Number=} stepCoef 
+   */
+  updateSticks(stepCoef) {
+    for (let i = 0; i &lt; this.sticks.length; i++) {
+      this.sticks[i].update(stepCoef);
+    }
+  }
+
+  /**
+   */
+  updateConstraints() {
+    for (let i = 0; i &lt; this.points.length; i++) {
+      this.points[i].constrain(this.verlyInstance);
+    }
+  }
+
+  /**
+   */
+  update() {
+    // var stepCoef = 1 / this.iterations;
+    this.updatePoints();
+    for (let j = 0; j &lt; this.iterations; ++j) {
+      this.updateSticks();
+      this.updateConstraints();
+    }
+  }
+
+  /**
+   */
+  renderPoints() {
+    for (let i = 0; i &lt; this.points.length; i++) {
+      this.points[i].render(this.verlyInstance.ctx);
+    }
+  }
+
+  /**
+   */
+  renderSticks() {
+    for (let i = 0; i &lt; this.sticks.length; i++) {
+      this.sticks[i].render(this.verlyInstance.ctx);
+    }
+  }
+
+  /**
+   */
+  renderPointIndex() {
+    for (let i = 0; i &lt; this.points.length; i++) {
+      this.verlyInstance.ctx.beginPath();
+      this.verlyInstance.ctx.fillStyle = 'black';
+      this.verlyInstance.ctx.fillText(i, this.points[i].pos.x + 5, this.points[i].pos.y - 6);
+      this.verlyInstance.ctx.closePath();
+    }
+  }
+
+
+  /**
+   */
+  render() {
+    this.renderPoints();
+    this.renderSticks();
+  }
+}
+
+export default Entity;</code></pre>
+        </article>
+    </section>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Sat Jul 13 2019 16:49:15 GMT+0530 (India Standard Time)</p>
+        <p class="sidebar-created-by">
+            <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+            <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers</a>
+        </p>
+    </div>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/app.min.js"></script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

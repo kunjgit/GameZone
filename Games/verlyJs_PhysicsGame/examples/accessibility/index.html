@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Verly.js</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        color: #ce072e;
+      }
+
+      div.point {
+        position: absolute;
+        border-radius: 50px;
+        width: 15px;
+        height: 15px;
+        transform: translate(-50%, -50%);
+      }
+      div.point:focus {
+        border: .5px solid black;
+      }
+      canvas {
+        outline: 1px solid black;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="c"></canvas>
+    <script src="../../dist/verly.bundle.js"></script>
+
+    <script>
+      window.onload = function () {
+        let canvas = document.getElementById("c");
+        let ctx = canvas.getContext("2d");
+        let width = 800;
+        let height = 400;
+        canvas.width = width;
+        canvas.height = height;
+
+        let verly = new Verly(8, canvas, ctx);
+
+        let box = verly.createBox(50, 100, 50, 50);
+        let rope = verly.createRope(300, 50, 20, 15, 0);
+        // let cloth = verly.createCloth(150, 120, 200, 200, 15, 2);
+        let ragdoll = verly.createRagdoll(600, 50);
+        let hexagon = verly.createHexagon(250, 100, 8, 40, 1, 3);
+
+        // setup accessibility
+        verly.entities.forEach(entity => entity.setupAccessibility());
+
+        function animate() {
+          ctx.clearRect(0, 0, width, height);
+
+          verly.update();
+          verly.render();
+          verly.interact();
+
+          requestAnimationFrame(animate);
+        }
+        animate();
+      };
+    </script>
+  </body>
+</html>

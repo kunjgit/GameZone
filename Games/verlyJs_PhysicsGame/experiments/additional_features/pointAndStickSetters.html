@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Verly.js</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      color: #ce072e;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 10px;
+    }
+
+    canvas {
+      outline: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="c"></canvas>
+  <script src="../../dist/verly.bundle.js"></script>
+
+
+  <script>
+    window.onload = function () {
+      let canvas = document.getElementById('c');
+      let ctx = canvas.getContext('2d');
+      let width = 600;
+      let height = 600;
+      canvas.width = width;
+      canvas.height = height;
+
+      let verly = new Verly(16, canvas, ctx);
+
+      const box = new Entity(16, verly);
+      box.addPoint(100, 100).setRadius(20).setMass(20);
+      box.addPoint(300, 100, 0, 0);
+      box.addPoint(300, 250, 0, 0);
+      box.addPoint(100, 250, 0, 0);
+      box.addStick(0, 1);
+      box.addStick(1, 2);
+      box.addStick(2, 3);
+
+      let s = new Stick(box.points[3], box.points[0]).setColor('green');
+      box.addStick(s).setLength(200);
+      box.addStick(3, 1).setHidden(true);
+
+      verly.addEntity(box);
+
+      verly.createRagdoll(200, 200)
+
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        verly.update();
+        verly.render();
+        verly.interact();
+
+        verly.renderPointIndex();
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+  </script>
+
+</body>
+
+</html>

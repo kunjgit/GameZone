@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Verly.js</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      color: #ce072e;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <canvas id="c"></canvas>
+  <script src="../dist/verly.bundle.js"></script>
+
+  <script>
+
+
+    window.onload = function () {
+      let canvas = document.getElementById('c');
+      let ctx = canvas.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+      
+      let verly = new Verly(8, canvas, ctx);
+
+      let rag = verly.createRagdoll(150, 150);
+      let hexa = verly.createHexagon(200, 100, 16, 30);
+      let hexa2 = verly.createHexagon(200, 100, 16, 30);
+
+      let r = verly.joinEntities(rag, hexa, hexa2);
+      r.addStick(11, 46, 10);
+      r.addStick(12, 29, 10);
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        verly.update();
+        verly.render();
+        verly.interact();
+        
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
+</body>
+
+</html>

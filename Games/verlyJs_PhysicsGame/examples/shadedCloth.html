@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Shaded Cloth</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      color: #ce072e;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <canvas id="c"></canvas>
+
+  <script src="../dist/verly.bundle.js"></script>
+
+  <script>
+
+    window.onload = function () {
+      let canvas = document.getElementById('c');
+      let ctx = canvas.getContext('2d');
+      let width = clamp(window.innerWidth, 600, Infinity);
+      let height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      let verly = new Verly(16, canvas, ctx);
+
+      class Cloth extends Entity {
+        constructor(posx, posy, w, h, segments, pinOffset, itteration, verlyInstance) {
+          super(itteration, verlyInstance);
+          verly.dontPush = true;
+          let c = verly.createCloth(posx, posy, w, h, segments, pinOffset);
+          this.points = c.points;
+          this.sticks = c.sticks;
+
+          this.segments = segments;
+        }
+
+        renderPoints() { } //nothing
+        renderSticks() {
+          let colorPos = Math.min(width, height) * 0.5 / this.segments;
+          let x, y;
+          for (y = 1; y < this.segments; ++y) {
+            for (x = 1; x < this.segments; ++x) {
+              ctx.beginPath();
+
+              let i1 = (y - 1) * this.segments + x - 1;
+              let i2 = (y) * this.segments + x;
+
+              ctx.moveTo(this.points[i1].pos.x, this.points[i1].pos.y);
+              ctx.lineTo(this.points[i1 + 1].pos.x, this.points[i1 + 1].pos.y);
+
+              ctx.lineTo(this.points[i2].pos.x, this.points[i2].pos.y);
+              ctx.lineTo(this.points[i2 - 1].pos.x, this.points[i2 - 1].pos.y);
+
+              let off = this.points[i2].pos.x - this.points[i1].pos.x;
+              off += this.points[i2].pos.y - this.points[i1].pos.y;
+              off *= 0.25;
+              let coef = Math.round((Math.abs(off) / colorPos) * 255);
+              if (coef > 255)
+                coef = 255;
+
+              let color = "rgba(" + coef * 5 + "," + coef / 6 + "," + 0 + "," + lerp(0.25, 1, coef / 255.0) + ")";
+
+              ctx.fillStyle = color;
+              this.points.map(p => p.color = color);
+
+              ctx.fill();
+              ctx.closePath();
+            }
+          }
+        }
+      }
+
+      let cloth = new Cloth(300, 100, 500, 400, 25, 2, 16, verly);
+      verly.addEntity(cloth);
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        verly.update();
+        verly.render();
+        verly.interact();
+        // verly.renderPointIndex();
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+
+
+    //  END
+
+
+
+  // Another Method For Overriding Render Methods ----------
+  // let cloth = verly.createCloth(300, 100, 500, 500, 25, 2);
+  // cloth.render = () => {
+  //   let colorPos = Math.min(width, height) * 0.5 / 25;
+  //   let x, y;
+  //   for (y = 1; y < 25; ++y) {
+  //     for (x = 1; x < 25; ++x) {
+  //       ctx.beginPath();
+
+  //       let i1 = (y - 1) * 25 + x - 1;
+  //       let i2 = (y) * 25 + x;
+
+  //       ctx.moveTo(cloth.points[i1].pos.x, cloth.points[i1].pos.y);
+  //       ctx.lineTo(cloth.points[i1 + 1].pos.x, cloth.points[i1 + 1].pos.y);
+
+  //       ctx.lineTo(cloth.points[i2].pos.x, cloth.points[i2].pos.y);
+  //       ctx.lineTo(cloth.points[i2 - 1].pos.x, cloth.points[i2 - 1].pos.y);
+
+  //       let off = cloth.points[i2].pos.x - cloth.points[i1].pos.x;
+  //       off += cloth.points[i2].pos.y - cloth.points[i1].pos.y;
+  //       off *= 0.25;
+  //       let coef = Math.round((Math.abs(off) / colorPos) * 255);
+  //       if (coef > 255)
+  //         coef = 255;
+
+  //       let color = "rgba(" + coef * 5 + "," + coef / 6 + "," + 0 + "," + lerp(0.25, 1, coef / 255.0) + ")";
+
+  //       ctx.fillStyle = color;
+  //       cloth.points.map(p => p.color = color);
+
+  //       ctx.fill();
+  //       ctx.closePath();
+  //     }
+  //   }
+  // };
+
+  // verly.createCloth(100, 100, 100, 100, 10);
+  </script>
+</body>
+
+</html>

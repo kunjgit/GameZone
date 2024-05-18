@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ship Text</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      color: #ff6e8b;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0px;
+    }
+
+    canvas {
+      margin: auto;
+      outline: 1px solid black;
+    }
+
+    .info {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 12px;
+    }
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      color: #ce072e;
+    }
+    span {
+      font-size: 12px;
+    }
+
+    hr {
+      border: 0.5px solid #ffb9c7;
+    }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119972196-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-119972196-1');
+  </script>
+</head>
+
+<body>
+
+  <canvas id="c"></canvas>
+
+  <div class="info">
+    <a href="https://github.com/anuraghazra/Verly.js/tree/master/examples/ship" target="__blank">source-code</a>
+    <br>
+    <a href="https://github.com/anuraghazra/Verly.js" target="__blank">give the project a star</a>
+    <br>
+    <a href="https://anuraghazra.github.io" target="__blank">@anuraghazra</a>
+    <br>
+    <hr type="">
+    <span>use W,A,D to control the ship</span>
+    <br>
+    <span>hit SPACE to connect</span>
+    <br>
+    <span>hit Q to disconnect</span>
+  </div>
+
+  <script src="../../dist/verly.bundle.js"></script>
+  <script src="../typography/Text.js"></script>
+  <script src="./Ship.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>

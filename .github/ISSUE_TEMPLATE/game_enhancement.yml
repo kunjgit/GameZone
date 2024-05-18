@@ -1,4 +1,4 @@
-name: 🚀➕Game Enhancement Request
+name: 🚀Game Enhancement Request
 description: Suggest your enhancement for the existing game 
 title: "[Enhancement]: "
 
@@ -10,7 +10,7 @@ body:
   - type: textarea
     id: bug-description
     attributes:
-      label: Is your enhancement request related to a problem? Please describe.➕
+      label: Do you want to have the enhancement of existing game ? 😀 Describe yourself..
       description: Enter a brief description about the enhancement you need
       placeholder: Give all the context of your enhancement as well as the existing game
       value: "Game enhancement"
@@ -31,6 +31,9 @@ body:
       label: Select program in which you are contributing
       multiple: true
       options:
+        - GSSoC24
+        - IWOC2024
+        - hacktoberfest
         - GSSoC23
         - Other
   - type: checkboxes

@@ -33,7 +33,6 @@ function getProjectsInPage() {
   const pageTile = document.querySelectorAll('.page-tile');
   const games = document.querySelectorAll('.project-item');
   const clickSound = document.getElementById("clickSound");
-
   for (let i = 0; i < games.length; i++){
     games[i].addEventListener('click', () => {
       clickSound.play();
@@ -42,6 +41,10 @@ function getProjectsInPage() {
 
   pageTile.forEach((elem, index) => {
     elem.addEventListener('click', () => {
+      window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+      });
       pageTile[pageActive].classList.remove('active');
       pageActive = index;
       elem.classList.add('active');
@@ -306,5 +309,47 @@ function scrollToTop() {
   });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  fetchGamesData();
+});
+
+let gamesData = {};
+
+function fetchGamesData() {
+  fetch('./assets/js/gamesData.json') // Assuming gamesData.json is in the same directory
+    .then(response => response.json())
+    .then(data => {
+      gamesData = data;
+    })
+    .catch(error => console.error('Error fetching games data:', error));
+}
+
+function search_game() {
+  const input = document.getElementById('searchbar').value.toLowerCase();
+  const suggestionList = document.getElementById('suggestion-list');
+  suggestionList.innerHTML = '';
+
+  if (input.length === 0) {
+    suggestionList.style.display = 'none';
+    return;
+  }
+
+  const filteredGames = Object.values(gamesData).filter(game => 
+    game.gameTitle.toLowerCase().includes(input) || game.gameUrl.toLowerCase().includes(input)
+  );
+  
+  filteredGames.forEach(game => {
+    const li = document.createElement('li');
+    const anchor = document.createElement('a');
+    anchor.href = `./Games/${game.gameUrl}`;
+    anchor.target = "_blank";
+    anchor.setAttribute('aria-label', game.gameTitle);
+    anchor.textContent = game.gameTitle;
+    li.appendChild(anchor);
+    suggestionList.appendChild(li);
+  });
+
+  suggestionList.style.display = filteredGames.length ? 'block' : 'none';
+}
 
 

@@ -17,7 +17,7 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install --prefix .github octokit
+        run: npm install @actions/github
 
       - name: Fetch opened issues
         id: fetch_issues
@@ -28,34 +28,16 @@ jobs:
             const oneWeekAgo = new Date();
             oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
-            let allIssues = [];
-            let page = 1;
-            let stopFetching = false;
+            const { data: issues } = await github.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              sort: 'created',
+              direction: 'asc',
+              per_page: 100
+            });
 
-            while (!stopFetching) {
-              const { data: issues } = await github.issues.listForRepo({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                state: 'open',
-                sort: 'created',
-                direction: 'asc',
-                per_page: 100,
-                page
-              });
-
-              for (const issue of issues) {
-                if (issue.pull_request === undefined && new Date(issue.created_at) < oneWeekAgo) {
-                  allIssues.push(issue);
-                } else {
-                  stopFetching = true;
-                  break;
-                }
-              }
-
-              page++;
-            }
-
-            const olderIssues = allIssues.filter(issue => issue.pull_request === undefined);
+            const olderIssues = issues.filter(issue => issue.pull_request === undefined && new Date(issue.created_at) < oneWeekAgo);
             core.setOutput('older_issues', olderIssues.map(issue => issue.number).join(','));
 
       - name: Close older issues and comment
@@ -87,7 +69,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: parseInt(issueNumber),
-                body: `Hello @${issue.user.login}, Time's Uppp!⏰ \n Sorry for closing your issue! \n But it's more than a week since we haven't received anything from your side 😢 . \n Come up with new ideas, create a new issue and make sure you finish it within a week! 🔥 \n All the best! 🚀 \n Happy Hacking! 💗`
+                body: `Hello @${issue.user.login}, Time's up!⏰ \n Sorry for closing your issue! \n But it's more than a week since we haven't received anything from your side 😢 . \n Come up with new ideas, create a new issue and make sure you finish it within a week! 🔥 \n All the best! 🚀 \n Happy Hacking! 💗`
               });
 
               console.log(`Closed and commented on issue #${issueNumber}.`);

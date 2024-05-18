@@ -27,7 +27,7 @@ let cactus2Width = 69;
 let cactus3Width = 102;
 
 let cactusHeight = 70;
-let cactusX = 700;
+let cactusX =  boardWidth;
 let cactusY = boardHeight - cactusHeight;
 
 let cactus1Img;
@@ -35,7 +35,7 @@ let cactus2Img;
 let cactus3Img;
 
 //physics
-let velocityX = -8; //cactus moving left speed
+let velocityX = -5; //cactus moving left speed
 let velocityY = 0;
 let gravity = .4;
 
@@ -71,6 +71,16 @@ window.onload = function () {
     requestAnimationFrame(update);
     setInterval(placeCactus, 1000); //1000 milliseconds = 1 second
     document.addEventListener("keydown", moveDino);
+
+
+}
+
+
+// Add this function to play the score sound
+function playScoreSound() {
+    const scoreAudio = document.getElementById("scoreAudio");
+    scoreAudio.currentTime = 0; // Reset the audio to the beginning to allow rapid replay
+    scoreAudio.play();
 }
 
 function update() {
@@ -82,6 +92,11 @@ function update() {
         return;
     }
     context.clearRect(0, 0, board.width, board.height);
+
+    context.strokeStyle = "#ccc";
+    context.lineWidth = 5;
+    context.strokeRect(0, 0, board.width, board.height);
+
 
     //dino
     velocityY += gravity;
@@ -112,7 +127,22 @@ function update() {
     score++;
     context.fillText("Score:", 450, 40);
     context.fillText(score, 525, 40);
+
+    // Play score sound if the score is a multiple of 1000
+    if (score % 1000 === 0 && score !== 0) {
+        playScoreSound();
+    }
+
 }
+
+// Add this function to play the collision sound
+function playCollisionSound() {
+    const collisionAudio = document.getElementById("collisionAudio");
+    collisionAudio.currentTime = 0; // Reset the audio to the beginning to allow rapid replay
+    collisionAudio.play();
+}
+
+
 
 function moveDino(e) {
     if(gameOver){
@@ -124,7 +154,8 @@ function moveDino(e) {
 
     if ((e.code == "Space" || e.code == "ArrowUp") && dino.y == dinoY) {
         //jump
-        velocityY = -10;
+        velocityY = -12;
+        playKeyPressSound(); // Play key press sound
     }
     else if (e.code == "ArrowDown" && dino.y == dinoY) {
         //duck
@@ -172,12 +203,37 @@ function placeCactus() {
     }
 }
 
-function detectCollision(a, b) {
-    return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
-        a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
-        a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
-        a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+
+// Add this function to play the key press sound
+function playKeyPressSound() {
+    const keypressAudio = document.getElementById("keypressAudio");
+    keypressAudio.currentTime = 0; // Reset the audio to the beginning to allow rapid replay
+    keypressAudio.play();
 }
+
+
+function detectCollision(a, b) {
+    const isCollision =
+        a.x < b.x + b.width &&
+        a.x + a.width > b.x &&
+        a.y < b.y + b.height &&
+        a.y + a.height > b.y;
+
+    if (isCollision) {
+        gameOver = true;
+        dinoImg.src = "./assets/dino-dead.png";
+        context.fillStyle = "#27374D";
+        context.font = "40px 'Play'";
+        context.fillText("Press 'R' to Restart", 340, 210);
+        dinoImg.onload = function () {
+            context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
+        }
+        playCollisionSound(); // Play collision sound
+    }
+
+    return isCollision;
+}
+
 
 function resetGame() {
     gameOver = false

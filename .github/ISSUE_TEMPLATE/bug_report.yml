@@ -40,6 +40,9 @@ body:
       label: Select program in which you are contributing
       multiple: true
       options:
+        - GSSoC24
+        - IWOC2024
+        - hacktoberfest
         - GSSoC23
         - Other
   - type: checkboxes

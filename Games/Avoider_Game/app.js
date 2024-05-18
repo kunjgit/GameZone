@@ -1,16 +1,28 @@
 const cells = Array.from(document.querySelectorAll('.cell'));
 
-// Gives first 30 cells of tha gamw
-const enemyCells = cells.slice(0, 30);
+// Gives first 30 cells of tha game
+const enemyCells = cells.slice(0, 64);
+
 // Three bottom cells of the game
-const playerCells = cells.slice(30);
+const playerCells = cells.slice(64);
+
+// Audio controls
+const bgMusic = new Audio();
+bgMusic.src = './assets/bgMusic.mp3';
+bgMusic.volume = 0.3;
+
+const move = new Audio();
+move.src = './assets/move.mp3';
+
+const gameOver = new Audio();
+gameOver.src = './assets/gameOver.wav';
 
 const scoreDisplay = document.querySelector('.score');
 
 let dropCount, speed, score;
 
 // Minimum speed
-let speedLimit = 150
+let speedLimit = 175;
 reset();
 
 document.addEventListener('keydown', e => {
@@ -24,16 +36,17 @@ document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' && playerCells.includes(player.parentElement.nextElementSibling)) {
         // Starting at player div, get containing cell, from cell give next element sibling
         // and from that cell append the child of the player itself
+        move.play();
         player.parentElement.nextElementSibling.appendChild(player);
     }
 
     if (e.key === 'ArrowLeft' && playerCells.includes(player.parentElement.previousElementSibling)) {
         // Starting at player div, get containing cell, from cell give next element sibling
         // and from that cell append the child of the player itself
+        move.play();
         player.parentElement.previousElementSibling.appendChild(player);
     }
-
-})
+});
 
 function reset() {
     // Reset game to default values
@@ -43,12 +56,13 @@ function reset() {
     scoreDisplay.innerHTML = '0';
 
     // Clear cells
-    cells.forEach(cell => cell.innerHTML = '')
+    cells.forEach(cell => cell.innerHTML = '');
 
-    playerCells[1].innerHTML = '<div class="player"></div>'
+    playerCells[1].innerHTML = '<div class="player"></div>';
 }
 
 function startGame() {
+    bgMusic.play();
     reset();
     loop();
 }
@@ -59,7 +73,7 @@ function loop() {
     for (let i = enemyCells.length - 1; i >= 0; i--) {
         // From 29 till it reaches 0
         const cell = enemyCells[i];
-        const nextCell = cells[i + 3];
+        const nextCell = cells[i + 8];
         const enemy = cell.children[0];
 
         // Continue and move on
@@ -85,17 +99,19 @@ function loop() {
     // Even drop count, add new enemy
     if (dropCount % 2 === 0) {
         // Get random position (array indexes for enemy cells)
-        const position = Math.floor(Math.random() * 3);
+        const position = Math.floor(Math.random() * 8);
 
         enemyCells[position].innerHTML = '<div class="enemy"></div>'
     }
-
     if (stopGame) {
+        bgMusic.pause();
+        gameOver.play();
         alert(`Good job, your score is: ${score}`);
-        reset();
+        gameOver.addEventListener('ended', ()=>{
+            reset();
+        });
     } else {
         dropCount++;
         setTimeout(loop, speed);
     }
-
 }

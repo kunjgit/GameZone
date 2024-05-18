@@ -336,9 +336,9 @@
     "thumbnailUrl": "Breakout.webp"
   },
   "66": {
-    "gameTitle": "Tower Blocks",
-    "gameUrl": "Tower_Blocks",
-    "thumbnailUrl": "Tower_Blocks.webp"
+    "gameTitle": "Maths Sprint Game",
+    "gameUrl": "Maths_Sprint_Game",
+    "thumbnailUrl": "Maths_Sprint_Game.png"
   },
   "67": {
     "gameTitle": "Platform Game",
@@ -346,9 +346,9 @@
     "thumbnailUrl": "Platform_Game.webp"
   },
   "68": {
-    "gameTitle": "Red Light Green Light",
-    "gameUrl": "Red_Light_Green_Light",
-    "thumbnailUrl": "squid_game.webp"
+    "gameTitle": "Keyboard Hero",
+    "gameUrl": "Keyboard_Hero",
+    "thumbnailUrl": "Keyboard_Hero.webp"
   },
   "69": {
     "gameTitle": "Squashing Your Enemy",
@@ -637,7 +637,7 @@
   },
   "126": {
     "gameTitle": "Squared Lines",
-    "gameUrl": "Squared Lines",
+    "gameUrl": "Squared_lines",
     "thumbnailUrl": "Squared Lines.webp"
   },
   "127": {
@@ -1645,6 +1645,303 @@
     "gameTitle": "Snail Game",
     "gameUrl": "Snail_Game",
     "thumbnailUrl": "Snail_Game"
+  },
+  "328": {
+    "gameTitle": "Solitaire",
+    "gameUrl": "Solitaire_up",
+    "thumbnailUrl": ""
+  },
+  "329": {
+    "gameTitle": "Slime Attack ",
+    "gameUrl": "Slime_attack_game",
+    "thumbnailUrl": ""
+  },
+  "330": {
+    "gameTitle": "Star_Trek_Trivia",
+    "gameUrl": "Star_Trek_Trivia",
+    "thumbnailUrl": "star-trek-img.png"
+  },
+  "331": {
+    "gameTitle": "Pokemon_Card_Game",
+    "gameUrl": "Pokemon_Card_Game",
+    "thumbnailUrl": "pokemon.jpeg"
+  },
+  "332": {
+    "gameTitle": "Digit Dilemma",
+    "gameUrl": "Digit_Dilemma",
+    "thumbnailUrl": "Digit_Dilemma.png"
+  },
+  "333": {
+    "gameTitle": "Snail Game",
+    "gameUrl": "Snail_Game",
+    "thumbnailUrl": "Snail_Game"
+  },
+  "334": {
+    "gameTitle": "Tennis",
+    "gameUrl": "Tennis",
+    "thumbnailUrl": "paddle.jpeg"
+  },
+  "335": {
+    "gameTitle": "Illusion",
+    "gameUrl": "Illusion",
+    "thumbnailUrl": "Illusion.png"
+  },
+  "336": {
+    "gameTitle": "Block Buster",
+    "gameUrl": "Block_Buster",
+    "thumbnailUrl": ""
+  },
+  "337": {
+    "gameTitle": "Guess_The_Ball",
+    "gameUrl": "Guess_The_Ball",
+    "thumbnailUrl": ""
+  },
+  "338": {
+    "gameTitle": "Doremon Puzzle",
+    "gameUrl": "Doremon_Puzzle",
+    "thumbnailUrl": "logo.png"
+  },
+  "339": {
+    "gameTitle": "Guess The Celebrity",
+    "gameUrl": "Guess_The_Celebrity",
+    "thumbnailUrl": "favicon-32x32.png"
+  },
+  "340": {
+    "gameTitle": "Rock_Paper_Scissors_Lizard_Spock",
+    "gameUrl": "Rock_Paper_Scissors_Lizard_Spock",
+    "thumbnailUrl": ""
+  },
+  "341": {
+    "gameTitle": "Elemental_Riddles",
+    "gameUrl": "Elemental_Riddles",
+    "thumbnailUrl": ""
+  },
+  "342": {
+    "gameTitle": "Falling_Ball",
+    "gameUrl": "Falling_Ball",
+    "thumbnailUrl": ""
+  },
+  "343": {
+    "gameTitle": "Hit_Target",
+    "gameUrl": "Hit_Target",
+    "thumbnailUrl": "image.png"
+  },
+  "344": {
+    "gameTitle": "Archery",
+    "gameUrl": "Archery",
+    "thumbnailUrl": "target.png"
+  },
+  "345": {
+    "gameTitle": "Click_circle",
+    "gameUrl": "Click_circle",
+    "thumbnailUrl": ""
+  },
+  "346": {
+    "gameTitle": "color_switch_challenger",
+    "gameUrl": "color_switch_challenger",
+    "thumbnailUrl": ""
+  },
+  "347": {
+    "gameTitle": "Puzzle_Game",
+    "gameUrl": "Puzzle_Game",
+    "thumbnailUrl": "marvel.jpg"
+  },
+  "348": {
+    "gameTitle": "Quizify",
+    "gameUrl": "Quizify",
+    "thumbnailUrl": "image.png"
+  },
+  "349": {
+    "gameTitle": "word blitz",
+    "gameUrl": "word_blitz",
+    "thumbnailUrl": ""
+  },
+  "350": {
+    "gameTitle": "Click_circle",
+    "gameUrl": "Click_circle",
+    "thumbnailUrl": ""
+  },
+  "351": {
+    "gameTitle": "color_switch_challenger",
+    "gameUrl": "color_switch_challenger",
+    "thumbnailUrl": ""
+  },
+  "352": {
+    "gameTitle": "Puzzle_Game",
+    "gameUrl": "Puzzle_Game",
+    "thumbnailUrl": "marvel.jpg"
+  },
+  "353": {
+    "gameTitle": "Quizify",
+    "gameUrl": "Quizify",
+    "thumbnailUrl": "image.png"
+  },
+  "354": {
+    "gameTitle": "word blitz",
+    "gameUrl": "word_blitz",
+    "thumbnailUrl": ""
+  },
+  "355": {
+    "gameTitle": "Code Cracker",
+    "gameUrl": "Code_Cracker",
+    "thumbnailUrl": ""
+  },
+  "356": {
+    "gameTitle": "Know Your Country",
+    "gameUrl": "Know_Your_Country",
+    "thumbnailUrl": ""
+  },
+  "357": {
+    "gameTitle": "Musical_Floor",
+    "gameUrl": "Musical_Floor",
+    "thumbnailUrl": ""
+  },
+  "358": {
+    "gameTitle": "Sky_Dodge",
+    "gameUrl": "Sky_Dodge",
+    "thumbnailUrl": ""
+  },
+  "359": {
+    "gameTitle": "Swap Card Game",
+    "gameUrl": "Swap-Card-Game",
+    "thumbnailUrl": "images.png"
+  },
+  "360": {
+    "gameTitle": "Memorization_card",
+    "gameUrl": "Memorization_card",
+    "thumbnailUrl": ""
+  },
+  "361": {
+    "gameTitle": "Smashing_Blocks",
+    "gameUrl": "Smashing_Blocks",
+    "thumbnailUrl": ""
+  },
+  "362": {
+    "gameTitle": "Response_Reaction",
+    "gameUrl": "Response_Reaction",
+    "thumbnailUrl": ""
+  },
+  "363": {
+    "gameTitle": "Truth and Dare",
+    "gameUrl": "Truth_and_Dare",
+    "thumbnailUrl": "image.png"
+  },
+  "364": {
+    "gameTitle": "Rotating_Elements",
+    "gameUrl": "Rotating_Elements",
+    "thumbnailUrl": "Rotating_Elements.png"
+  },
+  "365": {
+    "gameTitle": "Chopsticks",
+    "gameUrl": "Chopsticks",
+    "thumbnailUrl": "image-0.png"
+  },
+  "366": {
+    "gameTitle": "Anime Clicker",
+    "gameUrl": "Anime_Clicker",
+    "thumbnailUrl": "bg.jpg"
+  },
+  "367": {
+    "gameTitle": "3D Snake",
+    "gameUrl": "3D_Snake",
+    "thumbnailUrl": ""
+  },
+  "368": {
+    "gameTitle": "Rocket_Showdown",
+    "gameUrl": "Rocket_Showdown",
+    "thumbnailUrl": "Rocket_Showdown.png"
+  },
+  "369": {
+    "gameTitle": "Find Extra Cube",
+    "gameUrl": "Find_Extra_Cube",
+    "thumbnailUrl": ""
+  },
+  "370": {
+    "gameTitle": "PathPlex",
+    "gameUrl": "PathPlex",
+    "thumbnailUrl": "PathPlex.png"
+  },
+  "371": {
+    "gameTitle": "CSS Select",
+    "gameUrl": "CSS_Select",
+    "thumbnailUrl": "Share.png"
+  },
+  "372": {
+    "gameTitle": "Squid",
+    "gameUrl": "Squid_Game",
+    "thumbnailUrl": "img.png"
+  },
+  "373": {
+    "gameTitle": "CSS Crossword",
+    "gameUrl": "CSS_Crossword",
+    "thumbnailUrl": "Snail_Game"
+  },
+  "374": {
+    "gameTitle": "CSS Select",
+    "gameUrl": "CSS_Select",
+    "thumbnailUrl": "Share.png"
+  },
+  "375": {
+    "gameTitle": "Squid",
+    "gameUrl": "Squid_Game",
+    "thumbnailUrl": "img.png"
+  },
+  "376": {
+    "gameTitle": "Flip Coin",
+    "gameUrl": "Flip_Coin",
+    "thumbnailUrl": "image.png"
+  },
+  "377": {
+    "gameTitle": "Witty Word Quest",
+    "gameUrl": "witty_word_quest",
+    "thumbnailUrl": ""
+  },
+  "378": {
+    "gameTitle": "Typing Game",
+    "gameUrl": "Typing_Game",
+    "thumbnailUrl": ""
+  },
+  "379": {
+    "gameTitle": "numerical_whiz",
+    "gameUrl": "Number guessing Game",
+    "thumbnailUrl": ""
+  },
+  "380": {
+    "gameTitle": "Candy_match",
+    "gameUrl": "Candy_Match_Saga",
+    "thumbnailUrl": "image.png"
+  },
+  "381": {
+    "gameTitle": "Crossy_Road",
+    "gameUrl": "Crossy_Road",
+    "thumbnailUrl": "Crossy_Road.png"
+  },
+  "382": {
+    "gameTitle": "HueHero",
+    "gameUrl": "HueHero",
+    "thumbnailUrl": "HueHero.png"
+  },
+  "383": {
+    "gameTitle": "Puzzel_Winner",
+    "gameUrl": "Puzzel_Winner",
+    "thumbnailUrl": "Puzzel_Winner.png"
+  },
+  "384": {
+    "gameTitle": "Emoji_Intruder",
+    "gameUrl": "Emoji_Intruder",
+    "thumbnailUrl": "Emoji_intruder.png"
+  },
+  "385": {
+    "gameTitle": "Guess_The_Weapon",
+    "gameUrl": "Guess_The_Weapon",
+    "thumbnailUrl": "Guess_The_Weapon.png"
+  },
+  "386": {
+    "gameTitle": "Earth_Guardian",
+    "gameUrl": "Earth_Guardian",
+    "thumbnailUrl": "Earth_Guardian.png"
   }
+  
+  
   
 }

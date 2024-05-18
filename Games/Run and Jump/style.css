@@ -8,6 +8,7 @@ body{
     position: relative;
     overflow: hidden;
 }
+
 #ground{
     width: 100%;
     height: 100px;
@@ -24,6 +25,33 @@ body{
     bottom: 100px;
     right: calc(100%-100px);
 }
+.stopandresume{
+    width: 200px;
+    font-family: "Kode Mono", monospace;
+    font-weight: bold;
+    font-size: x-large;
+    /* font: sans-serif; */
+    margin-top:20px ;
+    margin-left: 20px;
+    background: linear-gradient(to right, #FF416C, #FF4B2B);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+.high{
+    font-family: "Kode Mono", monospace;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-left: 10px;
+
+}
+
+.stopandresume:hover {
+    transform: scale(1.1);
+}
 .obstacle{
     width: 30px;
     height: 100px;
@@ -32,8 +60,18 @@ body{
     bottom: 100px;
     right: 0;
 }
-h2{
-    font-family: sans-serif;
+h1
+{
+    font-family: "Kode Mono", monospace;
+    font-size: xxx-large;
+    text-align: center;
     margin-top:10px ;
+    margin-left: 10px;
+}
+h2{
+    
+    font-family: "Kode Mono", monospace;
+    font-size: xx-large;
+    margin-top:50px ;
     margin-left: 10px;
 }

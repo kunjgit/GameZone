@@ -29,12 +29,14 @@ jobs:
             let tagsToAdd = [];
 
             // Check if issue text contains "Documentation Bug"
-            if (body && body.toLowerCase().includes('documentation bug')) {
+            if (title && title.toLowerCase().includes('documentation bug')) {
+              tagsToAdd.push('Documentation Bug 🐛');
               tagsToAdd.push('level1');
             }
 
             // Check if issue title contains "Enhancement"
             if (title && title.toLowerCase().includes('enhancement')) {
+              tagsToAdd.push('Enhancement ⚡️');
               tagsToAdd.push('level2');
             }
 

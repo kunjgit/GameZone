@@ -5,7 +5,6 @@ var computerScore = 0;
 var resultText = document.getElementById("resultText");
 var scoreText = document.getElementById("scoreText");
 var computerEmoji = document.getElementById("computerEmoji");
-
 function getComputerChoice() {
     var randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
@@ -31,9 +30,12 @@ function updateScore(result) {
     } else if (result === "Computer wins!") {
         computerScore++;
     }
-    scoreText.textContent = "Score: You - " + userScore + " | Computer - " + computerScore;
+    updateResult();
+    
 }
-
+function updateResult(){
+    scoreText.textContent = "Score: You - " + `${userScore}` + " | Computer - " + `${computerScore}`;
+}
 function play(userChoice) {
     var computerChoice = getComputerChoice();
 

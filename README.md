@@ -193,6 +193,7 @@ This repository also provides one such platforms where contributers come over an
 
 
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               |
+| [Technical_Mind_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Technical_Mind_Game)                               |
 
  </center>
 

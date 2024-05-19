@@ -35,7 +35,9 @@ Aim Training
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-    ![Game image](../../assets/images/Aim_Training.png)
+
+![Game image](https://github.com/kunjgit/GameZone/blob/main/assets/images/Aim_Training.png)
+    
 <br>
 
 

@@ -174,7 +174,7 @@ function assessment() {
       micval=wrongKeyTracker[i];
     }
   }
-  //Specify which key need improvement
+  //Specify which key needing  improvement
   if(micval>0){
     wrongKey=document.getElementById(String.fromCharCode(mostIncorrectKey));
     wrongKey.classList.add("wrongSelection");

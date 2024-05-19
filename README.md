@@ -270,6 +270,7 @@ Also join the discord server for GameZone and start collaborating with others ðŸ
 | 165 | [Beyonder](https://github.com/kunjgit/GameZone/tree/main/Games/Beyonder)|
 | 166 | [Shpere](https://github.com/kunjgit/GameZone/tree/main/Games/Shpere)|
 | 167 | [Short Circuit](https://github.com/kunjgit/GameZone/tree/main/Games/Short%20Circuit)|
+| 168 | [Dot Connect](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Connect)|
 </center>
 
 <br>

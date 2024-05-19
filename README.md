@@ -194,9 +194,7 @@ This repository also provides one such platforms where contributers come over an
 
 
 
-| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               | [Whack_a_Mole_Mario_Version] (https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole_Mario_Version) |
-
-| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               | [Dinosaur_Memory_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dinosaur_Memory_Game)
+| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | [Run_Dora_Run](https://github.com/kshitizvardhan/GameZone/tree/game/3395-run-dora-run/Games/Run_Dora_Run)| [Whack_a_Mole_Mario_Version] (https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole_Mario_Version) | [Dinosaur_Memory_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dinosaur_Memory_Game) |
 
 
  </center>

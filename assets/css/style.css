@@ -17,10 +17,10 @@
  * copyright 2022 @codewithsadee
  */
 
- @font-face {
-  font-family: gamezone;
-  src : url("/assets/fonts/MouldyCheeseRegular-WyMWG.ttf")
- }
+@font-face {
+  font-family: 'gamezone';
+  src: url('https://github.com/Winter262005/GameZone/blob/main/assets/fonts/MouldyCheeseRegular-WyMWG.woff2') format('woff2');
+}
 
 /*-----------------------------------*\
   #CUSTOM PROPERTY

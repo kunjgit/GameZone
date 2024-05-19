@@ -2626,7 +2626,7 @@ textarea.form-input::-webkit-resizer {
 .heading {
   margin-top: -2%;
   font: 5.5vw/1 Permanent Marker;
-  font-family: gamezone;
+  font-family: 'gamezone';
   font-size: 5.5vw;
   display: flex;
   align-items: center;

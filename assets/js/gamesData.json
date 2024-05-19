@@ -1937,6 +1937,14 @@
     "thumbnailUrl": "Guess_The_Weapon.png"
   },
   "386": {
+
+    "gameTitle": "Bulls_and_Cows",
+    "gameUrl": "Bulls_and_Cows",
+    "thumbnailUrl": "bulls-and-cows.png"
+
+  },
+  "387":{
+
     "gameTitle": "Earth_Guardian",
     "gameUrl": "Earth_Guardian",
     "thumbnailUrl": "Earth_Guardian.png"
@@ -1944,4 +1952,5 @@
   
   
   
+
 }

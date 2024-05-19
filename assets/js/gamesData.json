@@ -1949,10 +1949,15 @@
     "gameUrl": "Earth_Guardian",
     "thumbnailUrl": "Earth_Guardian.png"
   },
-  "387":{
+  "388":{
     "gameTitle": "Memory Cards Game",
     "gameUrl": "Memory_Cards_Game",
     "thumbnailUrl": "Memory_Cards_Game.png"
+  },
+  "389":{
+    "gameTitle": "Dot Connect",
+    "gameUrl": "Dot_Connect",
+    "thumbnailUrl": "Dot_Connect.png"
   }
   
   

@@ -9,6 +9,7 @@ const playAgainBtn = gameModal.querySelector("button");
 let currentWord, correctLetters, wrongGuessCount;
 const maxGuesses = 6;
 
+
 const resetGame = () => {
     // Ressetting game variables and UI elements
     correctLetters = [];
@@ -46,10 +47,12 @@ const initGame = (button, clickedLetter) => {
                 correctLetters.push(letter);
                 wordDisplay.querySelectorAll("li")[index].innerText = letter;
                 wordDisplay.querySelectorAll("li")[index].classList.add("guessed");
+                playsound("green");
             }
         });
     } else {
         // If clicked letter doesn't exist then update the wrongGuessCount and hangman image
+        playsound("wrong");
         wrongGuessCount++;
         hangmanImage.src = `images/hangman-${wrongGuessCount}.svg`;
     }
@@ -57,7 +60,9 @@ const initGame = (button, clickedLetter) => {
     guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
 
     // Calling gameOver function if any of these condition meets
-    if(wrongGuessCount === maxGuesses) return gameOver(false);
+    if(wrongGuessCount === maxGuesses) {
+        playsound("red");
+        return gameOver(false);}
     if(correctLetters.length === currentWord.length) return gameOver(true);
 }
 
@@ -68,6 +73,18 @@ for (let i = 97; i <= 122; i++) {
     keyboardDiv.appendChild(button);
     button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
 }
+
+function playsound(name) {
+    var audio = new Audio("sounds/" + name + ".mp3");
+    audio.volume = 0.3;
+    audio.play();
+  }
+function animatePress(name) {
+    $("#" + name).addClass("pressed");
+    setTimeout(function () {
+      $("#" + name).removeClass("pressed");
+    }, 100);
+  }
 
 getRandomWord();
 playAgainBtn.addEventListener("click", getRandomWord);

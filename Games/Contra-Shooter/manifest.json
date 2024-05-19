@@ -1,0 +1,27 @@
+{
+  "short_name": "contra2000",
+  "name": "Contra 2000",
+  "orientation": "landscape",
+  "developer": {
+    "name": "chris",
+    "url": "https://github.com/chrisDaniel"
+  },
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "icons": [{
+    "src": "/icons/touch-icon-iphone-60x60.png",
+    "sizes": "60x60"
+  },{
+    "src": "/icons/touch-icon-ipad-76x76.png",
+    "sizes": "76x76"
+  },{
+    "src": "/icons/touch-icon-iphone-retina-120x120",
+    "sizes": "120x120"
+  },{
+    "src": "/icons/touch-icon-marketplace-128x128",
+    "sizes": "128x128"
+  },{
+    "src": "/icons/touch-icon-ipad-retina-152x152",
+    "sizes": "152x152"
+  }]
+}

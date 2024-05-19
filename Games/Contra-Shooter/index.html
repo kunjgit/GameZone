@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Contra 2000</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon" href="icons/touch-icon-iphone-60x60.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="icons/touch-icon-ipad-76x76.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="icons/touch-icon-iphone-retina-120x120.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="icons/touch-icon-ipad-retina-152x152.png">
+        <link rel="manifest" href="manifest.json">
+    </head>
+    <body>
+        <div id="screen"></div>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/3.1.2/rx.lite.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs-dom/7.0.3/rx.dom.min.js"></script>
+        <script type="text/javascript" src="lib/melonJS.js"></script>
+        <script type="text/javascript" src="lib/plugins/debug/debugPanel.js"></script>
+        <script type="text/javascript" src="js/game.js"></script>
+        <script type="text/javascript" src="build/js/resources.js"></script>
+
+        <script type="text/javascript" src="js/commons/commons-utils.js"></script>
+        <script type="text/javascript" src="js/commons/commons-calc.js"></script>
+        <script type="text/javascript" src="js/commons/commons-net.js"></script>
+        <script type="text/javascript" src="js/players/player-utils.js"></script>
+        <script type="text/javascript" src="js/commons/commons-flag-collection.js"></script>
+
+        <script type="text/javascript" src="js/display-effects/html-space.js"></script>
+        <script type="text/javascript" src="js/display-effects/html-textinput.js"></script>
+        <script type="text/javascript" src="js/display-effects/player-highlights.js"></script>
+        <script type="text/javascript" src="js/display-effects/debug-highlights.js"></script>
+        <script type="text/javascript" src="js/display-effects/view-zoom.js"></script>
+
+        <script type="text/javascript" src="js/robot-brains/rb-calc.js"></script>
+        <script type="text/javascript" src="js/robot-brains/rb-pathfinder.js"></script>
+
+        <script type="text/javascript" src="js/entities/HUD.js"></script>
+        <script type="text/javascript" src="js/entities/bullet.js"></script>
+        <script type="text/javascript" src="js/entities/platform.js"></script>
+        <script type="text/javascript" src="js/entities/explosions.js"></script>
+        <script type="text/javascript" src="js/entities/powerups.js"></script>
+
+        <script type="text/javascript" src="js/players/ai-basics.js"></script>
+        <script type="text/javascript" src="js/players/ai-input-user.js"></script>
+        <script type="text/javascript" src="js/players/ai-input-servercommands.js"></script>
+        <script type="text/javascript" src="js/players/badguy-shooter.js"></script>
+        <script type="text/javascript" src="js/players/badguy-runbot.js"></script>
+        <script type="text/javascript" src="js/players/delegate-collision-logics.js"></script>
+        <script type="text/javascript" src="js/players/delegate-display-badguys.js"></script>
+        <script type="text/javascript" src="js/players/delegate-display-goodguys.js"></script>
+        <script type="text/javascript" src="js/players/delegate-gun.js"></script>
+        <script type="text/javascript" src="js/players/delegate-movement-input.js"></script>
+        <script type="text/javascript" src="js/players/goodguy-bill.js"></script>
+        <script type="text/javascript" src="js/players/goodguy-servernpc.js"></script>
+        <script type="text/javascript" src="js/players/player-input.js"></script>
+        <script type="text/javascript" src="js/players/player-state.js"></script>
+
+        <script type="text/javascript" src="js/game-management/game-manager-localtest.js"></script>
+        <script type="text/javascript" src="js/game-management/game-manager-multiplayer.js"></script>
+        <script type="text/javascript" src="js/game-management/spawner.js"></script>
+
+
+        <script type="text/javascript" src="js/screens/splash.js"></script>
+        <script type="text/javascript" src="js/screens/test-play.js"></script>
+        <script type="text/javascript" src="js/screens/multiplayer-join.js"></script>
+        <script type="text/javascript" src="js/screens/multiplayer-play.js"></script>
+
+        <!-- Bootstrap -->
+        <script type="text/javascript">
+            window.onReady(function onReady() {
+                game.onload();
+            });
+        </script>
+    </body>
+</html>

@@ -16,8 +16,3 @@ Welcome to SlideMaster Puzzle! This classic sliding puzzle game challenges you t
 
 ## Screenshots 📸
 ![SlideMaster Puzzle Screenshot](Slide_Master_Puzzle.png)
-
-## Technologies Used
-- **HTML**: Structure of the game.
-- **CSS**: Styling and layout.
-- **JavaScript**: Game logic and interactivity.

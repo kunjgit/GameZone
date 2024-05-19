@@ -117,10 +117,12 @@ function restartTimer() {
   clearInterval(intervalId);
   secondsLeft = 60;
   timerElement.textContent = "00:00";
+  //set all the counter to 0
   totKey.innerText="Total Key Pressed: 0";
   corKey.innerText="Correct: 0";
   wrKey.innerText="Incorrect: 0";
   wrongTeller.innerHTML=" ";
+  //remove the mark from key which was pressed wrong most amount of time
   if(wrongKey!=null&&wrongKey.classList.contains("wrongSelection"))
   wrongKey.classList.remove("wrongSelection");
   totalEntry=0;
@@ -172,6 +174,7 @@ function assessment() {
       micval=wrongKeyTracker[i];
     }
   }
+  //Specify which key need improvement
   if(micval>0){
     wrongKey=document.getElementById(String.fromCharCode(mostIncorrectKey));
     wrongKey.classList.add("wrongSelection");

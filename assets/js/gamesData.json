@@ -1935,7 +1935,27 @@
     "gameTitle": "Guess_The_Weapon",
     "gameUrl": "Guess_The_Weapon",
     "thumbnailUrl": "Guess_The_Weapon.png"
+  },
+  "386": {
+
+    "gameTitle": "Bulls_and_Cows",
+    "gameUrl": "Bulls_and_Cows",
+    "thumbnailUrl": "bulls-and-cows.png"
+
+  },
+  "387":{
+
+    "gameTitle": "Earth_Guardian",
+    "gameUrl": "Earth_Guardian",
+    "thumbnailUrl": "Earth_Guardian.png"
+  },
+  "387":{
+    "gameTitle": "Memory Cards Game",
+    "gameUrl": "Memory_Cards_Game",
+    "thumbnailUrl": "Memory_Cards_Game.png"
   }
   
   
+  
+
 }

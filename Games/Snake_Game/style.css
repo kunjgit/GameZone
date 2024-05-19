@@ -16,21 +16,34 @@
 button{
     color: darkgreen;
     border: 2px solid green;
-
     background: none;
 }
 
 
 button {
-    position: absolute;
-    top: 5rem;
-    left: 42rem;
+    /* position: absolute; */
+    /* top: 5rem; */
+    /* left: 42rem; */
     padding: 0.5rem 1rem;
     font-size: 2rem;
-
     font-family: math;
     border-radius: 0.6rem;
 }
+
+.instructions{
+     border-radius: 1rem;
+    position: absolute;
+    font-size: 30px;
+    left: 10px;
+    top: 75px;
+    width: fit-content;
+    font-family: math;
+    color: darkgreen;
+    border: 2px solid green;
+    background: none;
+    padding: 0.5rem 1rem;
+   }
+
 
 button:hover {
     cursor: pointer;
@@ -44,34 +57,34 @@ button:hover {
 #scoreBox{
     border-radius: 1rem;
     border: 2px solid #9E9E9E;
-    position: absolute;
+    /* position: absolute; */
     font-size: 30px;
-    right: 40px;
-    top: 75px;
+    /* right: 40px; */
+    /* top: 75px; */
     font-family: math;
-    padding: 3px 12px;
+    padding: 8px 12px;
 }
 
 #HiScore{
     border-radius: 1rem;
-    position: absolute;
+    /* position: absolute; */
     font-size: 30px;
-    right: 25px;
+    /* right: 25px; */
     border: 2px solid #9E9E9E;
-    top: 125px;
+    /* top: 125px; */
     font-family: math;
-    padding: 3px 12px;
+    padding: 8px 12px;
 }
 
 #board{
-    margin-top: 4%;
-    border-radius: 1rem;
+    position: absolute;
+    top: 23%;
+    border-radius: 1.5rem;
     background: #0c4522;
     width: 75vmin;
     height: 75vmin;
     border: 2px solid black;
     display: grid;
-    border-radius: 50px;
     grid-template-rows: repeat(18, 1fr);
     grid-template-columns: repeat(18, 1fr);
 }
@@ -113,4 +126,19 @@ a{
     position: relative;
     font-size: 30px;
     
+}
+.scores{
+    display: flex;
+    width: 70vw;
+    position: absolute;
+    top: 4rem;
+    justify-content: space-evenly;
+}
+body{
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.fas{
+    margin-left: 20px;
 }

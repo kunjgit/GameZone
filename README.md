@@ -206,6 +206,7 @@ This repository also provides one such platforms where contributers come over an
 
 
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
+| [Contra-Shooter](https://github.com/VesperAkshay/GameZone/tree/main/Games/Contra-Shooter)       |
 
 
  </center>

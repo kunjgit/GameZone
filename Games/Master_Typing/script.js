@@ -89,6 +89,12 @@ function startTimer() {
   // Update the timer every second
   intervalId = setInterval(function () {
     secondsLeft--;
+
+    // Added code for alert message when 10 seconds are remaining
+    if (secondsLeft === 10) {
+      showCountdownMessage(); // Show custom alert message
+    }
+    
     if (secondsLeft < 0) {
       //call assessment function for review result
       assessment();
@@ -141,6 +147,17 @@ function assessment() {
 
   // Update the timerElement with the result content
   timerElement.innerHTML = "00:00";
+}
+
+// Function to show the countdown message
+function showCountdownMessage() {
+  const countdownMessage = document.getElementById("countdownMessage");
+  countdownMessage.style.display = "block";
+
+  // Hide the message after 3 seconds
+  setTimeout(() => {
+    countdownMessage.style.display = "none";
+  }, 3000);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

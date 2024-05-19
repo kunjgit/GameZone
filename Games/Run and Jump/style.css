@@ -41,6 +41,13 @@ body{
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
 }
+.high{
+    font-family: "Kode Mono", monospace;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-left: 10px;
+
+}
 
 .stopandresume:hover {
     transform: scale(1.1);

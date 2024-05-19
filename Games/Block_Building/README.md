@@ -38,5 +38,3 @@ This is a simple Block Builder game built using HTML, CSS, and JavaScript. The o
 <br>
 
 ![image](../../assets/images/Block_Building.png)
-
-<br>

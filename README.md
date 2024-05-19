@@ -193,7 +193,11 @@ This repository also provides one such platforms where contributers come over an
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)             | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)          |    [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)          |
 
 
+
+| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               | [Whack_a_Mole_Mario_Version] (https://github.com/kunjgit/GameZone/tree/main/Games/Whack_a_Mole_Mario_Version) |
+
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               | [Dinosaur_Memory_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dinosaur_Memory_Game)
+
 
  </center>
 

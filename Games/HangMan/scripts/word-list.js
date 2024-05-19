@@ -259,4 +259,12 @@ const wordList = [
         word: "brilliant",
         hint: "Exceptionally clever, talented, or impressive."
     },
+    {
+        word:"gravity",
+        hint: "A force that attracts objects towards it"
+    },
+    {
+        word:"ocean",
+        hint: "A large body of salt water"
+    },
 ];

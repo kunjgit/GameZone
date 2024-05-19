@@ -55,13 +55,14 @@ nav ul {
 
 .info {
   position: absolute;
-  right: 1260px;
+  /* right: 1260px; */
   font-size: 2.1rem;
   font-weight: 1000;
-  top: 450px;
   padding-left: 50px;
   padding-right: 50px;
   text-align: center;
+  
+  color: #66bfbf;
 }
 
 .gameInfo {
@@ -153,7 +154,17 @@ nav ul {
   }
   .container {
     width: 60%;
-    grid-template-rows: repeat(3, 20vw);
+    grid-template-rows: repeat(3, 18vw);
     grid-template-columns: repeat(3, 20vw);
+    position: relative;
+    bottom: 25px;
+  }
+  .info{
+    top: 226px;
+    right: 1rem;
+  }
+  #reset{
+    position:relative;
+    top: 590px;
   }
 }

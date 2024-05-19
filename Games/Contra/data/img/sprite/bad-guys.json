@@ -1,0 +1,121 @@
+{"frames": [
+	{
+		"filename": "BadGuys_01.png",
+		"frame": {"x":33,"y":0,"w":24,"h":31},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":24,"h":31},
+		"sourceSize": {"w":24,"h":31}
+	},
+	{
+		"filename": "BadGuys_02.png",
+		"frame": {"x":30,"y":68,"w":24,"h":31},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":24,"h":31},
+		"sourceSize": {"w":24,"h":31}
+	},
+	{
+		"filename": "BadGuys_03.png",
+		"frame": {"x":31,"y":34,"w":24,"h":32},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":24,"h":32},
+		"sourceSize": {"w":24,"h":32}
+	},
+	{
+		"filename": "BadGuys_04.png",
+		"frame": {"x":77,"y":0,"w":18,"h":38},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":18,"h":38},
+		"sourceSize": {"w":18,"h":38}
+	},
+	{
+		"filename": "BadGuys_05.png",
+		"frame": {"x":76,"y":68,"w":18,"h":39},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":18,"h":39},
+		"sourceSize": {"w":18,"h":39}
+	},
+	{
+		"filename": "BadGuys_17.png",
+		"frame": {"x":96,"y":40,"w":17,"h":32},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":17,"h":32},
+		"sourceSize": {"w":17,"h":32}
+	},
+	{
+		"filename": "BadGuys_18.png",
+		"frame": {"x":57,"y":33,"w":18,"h":33},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":18,"h":33},
+		"sourceSize": {"w":18,"h":33}
+	},
+	{
+		"filename": "BadGuys_19.png",
+		"frame": {"x":96,"y":74,"w":17,"h":31},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":17,"h":31},
+		"sourceSize": {"w":17,"h":31}
+	},
+	{
+		"filename": "BadGuys_20.png",
+		"frame": {"x":97,"y":0,"w":16,"h":32},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":16,"h":32},
+		"sourceSize": {"w":16,"h":32}
+	},
+	{
+		"filename": "BadGuys_21.png",
+		"frame": {"x":56,"y":68,"w":18,"h":33},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":18,"h":33},
+		"sourceSize": {"w":18,"h":33}
+	},
+	{
+		"filename": "BadGuys_22.png",
+		"frame": {"x":0,"y":96,"w":18,"h":28},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":18,"h":28},
+		"sourceSize": {"w":18,"h":28}
+	},
+	{
+		"filename": "BadGuys_93.png",
+		"frame": {"x":0,"y":34,"w":29,"h":32},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":29,"h":32},
+		"sourceSize": {"w":29,"h":32}
+	},
+	{
+		"filename": "BadGuys_94.png",
+		"frame": {"x":0,"y":0,"w":31,"h":32},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":31,"h":32},
+		"sourceSize": {"w":31,"h":32}
+	},
+	{
+		"filename": "BadGuys_95.png",
+		"frame": {"x":0,"y":68,"w":28,"h":26},
+		"rotated": false,
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":28,"h":26},
+		"sourceSize": {"w":28,"h":26}
+	},
+	{"EOL":"true"}
+],
+"meta": {
+	"app": "ShoeBox",
+	"exporter": "melonJS",
+	"size": {"w":128,"h":128}
+}
+}

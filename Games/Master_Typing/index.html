@@ -6,13 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Master Typing</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="/assets/images/Master_Typing.png" />
-    <div style="text-align: left; margin-left: -1400px;
+    <div
+      style="text-align: left; margin-left: -1400px;
     margin-top: 10px;
     font-size: 30px;
-    padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+    padding: 5px; "
+    >
+      <a href="https://kunjgit.github.io/GameZone/"
+        ><i style="color:white;" class="fas fa-home home-icon"></i
+      ></a>
+    </div>
+    <div class="ChooseTime">
+      <label for="numberInput" class="chooseTimeLabel">Choose Time:</label>
+      <input
+        class="chooseTimeInput"
+        type="number"
+        id="numberInput"
+        name="numberInput"
+        min="10"
+        max="1000"
+        minlength="10"
+        maxlength="1000"
+        value="30"
+      />
+    </div>
     <div class="container">
       <!-- for timer  and assessment section-->
       <h1 class="title">Hands on the keyboard 👀</h1>
@@ -92,20 +115,21 @@
 
     <!-- For audio section  -->
     <audio id="keySound">
-      <source src="assets/Right_Press.mp3" type="audio/mpeg">
+      <source src="assets/Right_Press.mp3" type="audio/mpeg" />
     </audio>
-    
+
     <!-- Rest of your HTML code -->
 
-<div id="popupOverlay" class="popup-overlay hidden">
-  <div id="popupContent" class="popup">
-    <!-- Content will be added dynamically -->
-  </div>
-</div>
+    <div id="popupOverlay" class="popup-overlay ">
+      <div id="popupContent" class="popup">
+        <button onclick="closePopup()" class="close-popup-button">❌</button>
+        <div class="dynamic-content"></div>
+        <!-- Content will be added dynamically -->
+      </div>
+    </div>
 
-<!-- Rest of your HTML code -->
-
-
+    <!-- Rest of your HTML code -->
+    `
     <script src="script.js"></script>
   </head>
 </html>

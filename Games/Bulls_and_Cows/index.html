@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulls and Cows Game</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar">
+            <h1>Bulls and Cows Game</h1>
+            <div style="text-align:center;
+            font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+
+        </div>
+        <div id="console"></div>
+        <input type="text" id="try" placeholder="e.g. 1234" onkeyup="if (event.keyCode == 13) document.getElementById('submit').click()">
+        <button id="submit" onclick="check()">Submit</button>
+        <div id="history"></div>
+        <div id="rules">
+            <strong>Rules:</strong>
+            <ul>
+                <li>Guess a 4-digit code where each digit is unique.</li>
+                <li>You'll receive feedback after each guess:</li>
+                
+                    <li><strong>Bulls:</strong> Correct digit in the correct position.</li>
+                    <li><strong>Cows:</strong> Correct digit in the wrong position.</li>
+                
+                <li>Keep guessing until you get 4 bulls!</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

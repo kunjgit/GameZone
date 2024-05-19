@@ -14,7 +14,9 @@ Frontend game developed using HTML, CSS, JavaScript. Player has to kill all the 
 - Player has to kill all the mosquitoes appearing on the screen consecutive order in specific time.
 
 ## **Screenshots 📸**
-![Anime_Clicker](https://github.com/sujanrupu/GameZone/assets/103595490/685628fc-f3c0-46b2-beaa-8e7bfc18c4da)
+
+![image](https://github.com/Bindusree1515/GameZone/assets/91887086/2bb6594c-d171-4a83-95f2-6e6f749d3aec)
+
 
 
 

@@ -33,14 +33,17 @@ h1 {
     position: relative;
     height: 400px;
     margin-bottom: 20px;
+    margin-right: 180px;
 }
 
 .bottle {
     position: absolute;
     bottom: 0;
     cursor: pointer;
-    width: 100px;
+    height: 40vh;
+    width: 200px;
     transition: transform 0.5s, bottom 0.5s;
+    
 }
 
 #restart {

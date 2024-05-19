@@ -38,6 +38,8 @@ function flipBottle() {
         } else {
             failSound.play();
             alert('Flip failed! Try again.');
+            score = 0;
+            scoreDisplay.textContent = score;
         }
     }, 500);
 }

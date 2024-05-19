@@ -2639,6 +2639,7 @@ textarea.form-input::-webkit-resizer {
 }
 
 span {
+  font-family: 'gamezone';
   animation: glow 2s ease-in-out both infinite;
   margin: 2px;
 }

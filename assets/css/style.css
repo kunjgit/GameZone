@@ -1,3 +1,21 @@
+/* About Paragraph */
+
+#about {
+  color: white;
+  font-size: 1.4rem;
+  font-family: 'Agency FB', Times, serif;
+	text-align: center;
+}
+
+/* Copyright */
+
+#copyright{
+  text-align: center;
+  color: white;
+  font-size: 1.1rem;
+}
+
+
 /*-----------------------------------*\
   #style.css
 \*-----------------------------------*/
@@ -8,10 +26,10 @@
  * copyright 2022 @codewithsadee
  */
 
- @font-face {
-  font-family: gamezone;
-  src : url("/assets/fonts/MouldyCheeseRegular-WyMWG.ttf")
- }
+@font-face {
+  font-family: 'gamezone';
+  src: url('https://github.com/Winter262005/GameZone/blob/main/assets/fonts/MouldyCheeseRegular-WyMWG.woff2') format('woff2');
+}
 
 /*-----------------------------------*\
   #CUSTOM PROPERTY
@@ -2402,8 +2420,10 @@ textarea.form-input::-webkit-resizer {
   cursor: pointer;
   transition: 0.8s;
   --border-width: 4px;
-  border-radius: calc(2 * var(--border-width));
-  
+  border-radius: calc(3 * var(--border-width));
+  min-width: 100px;
+  max-width: 400px;
+  margin: auto;
   
 
   &::after {
@@ -2462,8 +2482,52 @@ textarea.form-input::-webkit-resizer {
   right: 12px; /* Adjusted right positioning for icon */
 }
 .search-btn {
-  padding-right: 10px;
+  padding-right: 5px;
 }
+
+.clear-btn{
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  font-weight: 100;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  display:none;
+  color:rgba(16, 2, 2, 0.731)
+}
+
+.search-input:not(:placeholder-shown) ~ .clear-btn {
+  display: block; /* Show when input is not empty */
+}
+#search-related {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  padding: 30px 0 20px 0;
+} 
+#search-related p{
+  color: #b7b7b7;
+}
+#search-related #search-term{
+  animation: none;
+  display: contents;
+  font-weight: bolder;
+}
+#search-related #clear-search{
+  background: #e1e1e1;
+  color: black;
+  padding: 0px 10px;
+  border-radius: 50px;
+  font-weight: bolder;
+}
+#search-related #clear-search:hover{
+  box-shadow:0 0 10px red;
+  color: red;
+}
+
 
 /*-----------------------------------*\
   #PAGINATION SECTION
@@ -2614,8 +2678,7 @@ textarea.form-input::-webkit-resizer {
 /* GameZone heading **/
 .heading {
   margin-top: -2%;
-  font: 5.5vw/1 Permanent Marker;
-  /* font-family: gamezone; */
+  font: 5.5vw/1 'Agency FB', Times, serif;
   font-size: 5.5vw;
   display: flex;
   align-items: center;
@@ -2623,11 +2686,12 @@ textarea.form-input::-webkit-resizer {
   height: auto;
   text-align: center;
   color: snow;
-  padding-bottom: 27%;
-  padding-top: 10%;
+  padding-bottom: 8%;
+  padding-top: 8%;
 }
 
 span {
+  font-family: 'gamezone';
   animation: glow 2s ease-in-out both infinite;
   margin: 2px;
 }
@@ -2829,7 +2893,9 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1); */
   position: fixed;
   top: 0px; 
   left: -30%;
-  width: 500px;
+  /*width: 500px;*/
+  /*commented beacuse it causes 
+  bu responsiveness for mobile*/
   height: 800px;
   border-radius: 100%;
   background-color: rgb(120, 47, 152);
@@ -2856,21 +2922,27 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1); */
   list-style: none;
   padding: 0;
   margin: 0;
+  color: #000;
   position: relative;
-  background-color: white;
-  border: 1px solid #ccc;
-  width: 100%;
+  background-color: #00000092;
+  border: 1px solid #434343;
   max-height: 200px;
   overflow-y: auto;
   z-index: 1000;
-  top: -37px;
+  top: 4px;
+  min-width: 100px;
+  max-width: 400px;
+  margin: auto;
 }
 
 #suggestion-list li {
   padding: 8px;
   cursor: pointer;
+  color: #f0f0f0;
 }
 
 #suggestion-list li:hover {
   background-color: #f0f0f0;
+  color: #000;
+  transition: 0.2 ease-in-out;
 }

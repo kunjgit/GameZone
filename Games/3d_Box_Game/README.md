@@ -24,8 +24,11 @@ The player can save his box by clicking left, right and can also use up and down
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
+
 ![ss2](https://github.com/AnmolChauhan123/GameZone/assets/77499508/2077315e-cba8-4922-93ca-17ddb1d52600)
+
 ![3d_Box](https://github.com/AnmolChauhan123/GameZone/assets/77499508/909f1f39-19d8-40a5-adc0-1e99460b0118)
+
 ![ss3](https://github.com/AnmolChauhan123/GameZone/assets/77499508/1483befe-f110-4125-a189-dff2e8e75021)
 
 

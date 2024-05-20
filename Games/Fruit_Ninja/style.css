@@ -16,6 +16,7 @@ body {
 	left: 60px;
 	animation-delay: 0.6s;
 }
+
 .wrapper span:nth-child(2) {
 	left: 10%;
 	animation-delay: 3s;
@@ -124,7 +125,7 @@ body {
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+    transition: all 2s ease-in-out;
 }
 
 .btn-hover:focus {

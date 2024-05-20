@@ -2421,9 +2421,9 @@ textarea.form-input::-webkit-resizer {
   transition: 0.8s;
   --border-width: 4px;
   border-radius: calc(3 * var(--border-width));
-  width: 400px;
-  margin-left: 350px;
-  
+  min-width: 100px;
+  max-width: 400px;
+  margin: auto;
   
 
   &::after {
@@ -2502,6 +2502,32 @@ textarea.form-input::-webkit-resizer {
 .search-input:not(:placeholder-shown) ~ .clear-btn {
   display: block; /* Show when input is not empty */
 }
+#search-related {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  padding: 30px 0 20px 0;
+} 
+#search-related p{
+  color: #b7b7b7;
+}
+#search-related #search-term{
+  animation: none;
+  display: contents;
+  font-weight: bolder;
+}
+#search-related #clear-search{
+  background: #e1e1e1;
+  color: black;
+  padding: 0px 10px;
+  border-radius: 50px;
+  font-weight: bolder;
+}
+#search-related #clear-search:hover{
+  box-shadow:0 0 10px red;
+  color: red;
+}
+
 
 /*-----------------------------------*\
   #PAGINATION SECTION
@@ -2867,7 +2893,9 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1); */
   position: fixed;
   top: 0px; 
   left: -30%;
-  width: 500px;
+  /*width: 500px;*/
+  /*commented beacuse it causes 
+  bu responsiveness for mobile*/
   height: 800px;
   border-radius: 100%;
   background-color: rgb(120, 47, 152);
@@ -2901,9 +2929,10 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1); */
   max-height: 200px;
   overflow-y: auto;
   z-index: 1000;
-  top: -37px;
-  width: 400px;
-  margin-left: 350px;
+  top: 4px;
+  min-width: 100px;
+  max-width: 400px;
+  margin: auto;
 }
 
 #suggestion-list li {

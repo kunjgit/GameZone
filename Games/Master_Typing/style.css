@@ -542,3 +542,31 @@ li {
   font-size: 20px;
   z-index: 1000;
 }
+
+.ChooseTime {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+}
+.chooseTimeInput {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  padding: 0 5px;
+  font-size: 18px;
+  margin: 10px 0;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+}
+.chooseTimeLabel {
+  font-weight: bold;
+  background: linear-gradient(90deg, rgb(45, 45, 45), rgb(49, 0, 112));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.chooseTimeInput:focus {
+  outline: none;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  transform: translateY(-3px);
+}

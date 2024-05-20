@@ -23,12 +23,26 @@
    </div>
     <hr>
    
-   
+    <div class="ChooseTime">
+      <label for="numberInput" class="chooseTimeLabel">Choose Time:</label>
+      <input
+        class="chooseTimeInput"
+        type="number"
+        id="numberInput"
+        name="numberInput"
+        min="10"
+        max="1000"
+        minlength="10"
+        maxlength="1000"
+        value="60"
+      />
+    </div>
+
 
     <div class="container">
       <!-- for timer  and assessment section-->
       <h1 class="title">Hands on the keyboard 👀</h1>
-      <div class="timer title" id="timer">00:00</div>
+      <div class="timer title" id="timer">01:00</div>
       <div class="keyContainer">
         <div class="TotScore" id="TotKey">Total Key pressed: 0</h1></div>
         <div class="corScore" id="corKey">Correct: 0</div>

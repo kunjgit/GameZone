@@ -4,6 +4,7 @@ const timestamps = [];
 let wrongKey;
 const wrongTeller = document.querySelector(".wrTeller");
 console.log(wrongTeller.innerText);
+var numberInput = document.getElementById("numberInput");
 //Declear the variables for counting total entry and correct entry
 let totalEntry = 0;
 let correctEntry = 0;
@@ -87,11 +88,12 @@ targetRandomKey();
 
 var timerElement = document.getElementById("timer");
 var intervalId;
-var secondsLeft = 60;
+var secondsLeft = document.querySelector(".chooseTimeInput").value;
 
 function startTimer() {
   // Disable the start button
   document.querySelector("button:nth-of-type(1)").disabled = true;
+  numberInput.disabled = true;
 
   // Reset the counts entries
   totalEntry = 0;
@@ -107,6 +109,8 @@ function startTimer() {
     }
 
     if (secondsLeft < 0) {
+      numberInput.disabled = false;
+
       //call assessment function for review result
       assessment();
       clearInterval(intervalId);
@@ -119,9 +123,13 @@ function startTimer() {
 }
 
 function restartTimer() {
+  numberInput.disabled = false;
+
   clearInterval(intervalId);
-  secondsLeft = 60;
-  timerElement.textContent = "00:00";
+  secondsLeft = document.querySelector(".chooseTimeInput").value;
+  var minutes = Math.floor(secondsLeft / 60);
+  var seconds = secondsLeft % 60;
+  timerElement.textContent = padNumber(minutes) + ":" + padNumber(seconds);
   //set all the counter to 0
   totKey.innerText = "Total Key Pressed: 0";
   corKey.innerText = "Correct: 0";
@@ -275,4 +283,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Set timeout for game completion after 60 seconds
   setTimeout(onGameCompleted, 67000);
+});
+// Listen for changes to the input field
+numberInput.addEventListener("change", function () {
+  secondsLeft = document.querySelector(".chooseTimeInput").value;
+  var minutes = Math.floor(secondsLeft / 60);
+  var seconds = secondsLeft % 60;
+  timerElement.textContent = padNumber(minutes) + ":" + padNumber(seconds);
 });

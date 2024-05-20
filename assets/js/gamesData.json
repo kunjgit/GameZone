@@ -1963,6 +1963,11 @@
     "gameTitle": "escaperoom",
     "gameUrl": "escaperoom",
     "thumbnailUrl": "escaperoom.png"
+  },
+  "389":{
+    "gameTitle": "Dice Roller",
+    "gameUrl": "Dice_Roller",
+    "thumbnailUrl": "Dice_Roller.png"
   }
   
   

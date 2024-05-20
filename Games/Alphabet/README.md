@@ -19,8 +19,8 @@ The purpose of this project is to provide a fun and educational tool for childre
 
 ## **Screenshots 📸**
 
-<br>
 
-[Alphabet](https://github.com/kunjgit/GameZone/blob/main/assets/images/Alphabet.png)
+![image](https://github.com/Bindusree1515/GameZone/assets/91887086/986d713a-b1a0-41f1-9af4-193bca37397e)
+
 
 <br>

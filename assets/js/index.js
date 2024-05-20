@@ -84,10 +84,11 @@ searchContainer.addEventListener("click", function () {
 
 // Improved searching and filtering of the games
 document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('search-input');
+  const searchInput = document.getElementById('searchbar');
   const clearSearchButton = document.getElementById('clear-search');
   const searchTermDisplay = document.getElementById('search-term');
   const searchRelatedDiv = document.getElementById("search-related");
+  const suggestionList = document.getElementById('suggestion-list');
   if (!searchInput) return;
   searchRelatedDiv.style.display = "none";
   const updateSearchRelatedVisibility = (searchText) => {
@@ -97,6 +98,28 @@ document.addEventListener('DOMContentLoaded', () => {
       searchRelatedDiv.style.display = "none";
     }
   };
+  //old code from script.js
+  const searchList=(searchText)=>{
+  suggestionList.innerHTML = '';
+  if (searchText.length === 0) {
+    suggestionList.style.display = 'none';
+    return;
+  }
+  const filteredGames = Object.values(gamesData).filter(game => 
+    game.gameTitle.toLowerCase().includes(searchText) || game.gameUrl.toLowerCase().includes(searchText)
+  ); 
+  filteredGames.forEach(game => {
+    const li = document.createElement('li');
+    const anchor = document.createElement('a');
+    anchor.href = `./Games/${game.gameUrl}`;
+    anchor.target = "_blank";
+    anchor.setAttribute('aria-label', game.gameTitle);
+    anchor.textContent = game.gameTitle;
+    li.appendChild(anchor);
+    suggestionList.appendChild(li);
+  });
+  suggestionList.style.display = filteredGames.length ? 'block' : 'none';
+}
 //for serching 
   searchInput.addEventListener('input', function () {
     const searchText = searchInput.value.trim().toLowerCase(); 
@@ -107,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         projectListContainer.innerHTML = generateLiTags(gamesData, searchText);
         searchTermDisplay.textContent = searchInput.value;
         updateSearchRelatedVisibility(searchText);
+        searchList(searchText);
       })
       .catch((error) => console.error("Error fetching game data:", error));
   });
@@ -120,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         projectListContainer.innerHTML = generateLiTags(gamesData);
         searchTermDisplay.textContent = "";
         updateSearchRelatedVisibility("");
+        searchList("");
       })
       .catch((error) => console.error("Error fetching game data:", error));
   });

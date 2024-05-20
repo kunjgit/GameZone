@@ -2902,9 +2902,10 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1); */
   max-height: 200px;
   overflow-y: auto;
   z-index: 1000;
-  top: -37px;
-  width: 400px;
-  margin-left: 350px;
+  top: 4px;
+  min-width: 100px;
+  max-width: 400px;
+  margin: auto;
 }
 
 #suggestion-list li {

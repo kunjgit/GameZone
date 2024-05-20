@@ -1,3 +1,12 @@
+/* About Paragraph */
+
+#about {
+  color: white;
+  font-size: 1.4rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
 /*-----------------------------------*\
   #style.css
 \*-----------------------------------*/
@@ -194,13 +203,16 @@ footer {
   color: #ffffff;
 }
 
-.fa-twitter:hover {
-  color: rgb(36, 186, 255);
-}
+
+a:hover svg {
+  fill:rgb(0, 119, 181);
+} 
+
 
 .fa-linkedin-square:hover {
   color: rgb(0, 119, 181);
 }
+
 .footer-bottom {
   background: #000;
 
@@ -2399,7 +2411,9 @@ textarea.form-input::-webkit-resizer {
   cursor: pointer;
   transition: 0.8s;
   --border-width: 4px;
-  border-radius: calc(2 * var(--border-width));
+  border-radius: calc(3 * var(--border-width));
+  width: 400px;
+  margin-left: 350px;
   
   
 
@@ -2480,6 +2494,7 @@ textarea.form-input::-webkit-resizer {
 #prev-page-tile,
 #next-page-tile {
   padding: 10px;
+  justify-content: center;
   background-color: rgb(104, 98, 232);
   background: linear-gradient(
     90deg,
@@ -2511,13 +2526,15 @@ textarea.form-input::-webkit-resizer {
   flex-wrap: wrap;
   margin-right: 5px;
   gap: 5px;
-  padding-top: 0%;
+  /* padding-top: 7%; */
+  margin-top: 5%;
 }
 
 /* pagination styling */
 .pagination_section .page-tile {
   /* border: 2px solid rosybrown; */
   font-size: 20px;
+  justify-content: center;
   color: wheat;
   padding: 5px 15px;
   cursor: pointer;
@@ -2617,8 +2634,8 @@ textarea.form-input::-webkit-resizer {
   height: auto;
   text-align: center;
   color: snow;
-  padding-bottom: 40%;
-  padding-top: 10%;
+  padding-bottom: 8%;
+  padding-top: 8%;
 }
 
 span {
@@ -2844,4 +2861,32 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1); */
   background: linear-gradient(343deg, rgba(120, 47, 152, 1) 0%, rgba(5, 50, 129, 1) 82%, rgba(52, 39, 100, 1) 100%);
   filter: blur(600px);
   z-index: -10;
+}
+
+#suggestion-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #000;
+  position: relative;
+  background-color: #00000092;
+  border: 1px solid #434343;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  top: -37px;
+  width: 400px;
+  margin-left: 350px;
+}
+
+#suggestion-list li {
+  padding: 8px;
+  cursor: pointer;
+  color: #f0f0f0;
+}
+
+#suggestion-list li:hover {
+  background-color: #f0f0f0;
+  color: #000;
+  transition: 0.2 ease-in-out;
 }

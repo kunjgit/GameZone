@@ -1,48 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whack a Mole Game</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>Whack a Mole</title>
+    <link rel="stylesheet" href="mole.css">
+    <script src="mole.js"></script>
 </head>
-
 <body>
-    <div style="text-align: left; 
-    font-size: 25px;
-    padding: 5px; background-color: #607D8B; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
-    <div class="container">
-        <div id="profile-container">
-            <h1>Whack a Mole</h1>
-
-            <div id="score-section" class="hide">
-                <h3 class="highScore">High Score: 0</h3>
-                <h3 class="yourScore">Your Score: 0</h3>
-                <h3 class="timeLeft">Time Left: 30</h3>
-            </div>
-
-            <div id="button-section">
-                <button class="start-btn">Start New Game</button>
-                <button class="pause-resume-btn hide">Pause</button>
-            </div>
-        </div>
-
-        <div id="game-container">
-            <div class="square mole" id="0"></div>
-            <div class="square" id="1"></div>
-            <div class="square" id="2"></div>
-            <div class="square" id="3"></div>
-            <div class="square" id="4"></div>
-            <div class="square" id="5"></div>
-            <div class="square" id="6"></div>
-            <div class="square" id="7"></div>
-        </div>
+    <h1>Whack a Mole</h1>
+    <h1>Score:<h2 id="score">0</h2>
+    <div id="speed-section">
+        <label for="speed-slider">Speed:</label>
+        <input type="range" id="speed-slider" min="1" max="5" value="3">
     </div>
-
-    <script src="JS/script.js"></script>
+    &nbsp;
+    <div id="button-section">
+        <button class="start-btn">Start New Game</button>
+    </div>
+    <div id="board">
+    </div>
 </body>
-
 </html>

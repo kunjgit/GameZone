@@ -9,15 +9,20 @@ body {
     background: linear-gradient(to right, #08002eac, #243cb7);
     overflow: hidden;
 }
+.home{
+    text-align:center;
+    margin-top: 10px;
+    font-size: 40px;
+    padding: 5px;
+}
 
 .container {
     position: absolute;
-    width: 50%;
-/*     separate home button from the guessing number container */
+    width:700px;
     margin-top:55px;
-    min-width: 580px;
+    min-width: 500px;
     transform: translate(-50%, -50%);
-    top: 50%;
+    top: 45%;
     left: 50%;
     background: #fff;
     padding: 50px 10px;
@@ -33,14 +38,15 @@ h3 {
 }
 
 input[type="text"] {
-    width: 90px;
-    font-weight: 600;
-    padding: 20px 0;
+    width: 120px;
+    font-weight: 500;
+    padding: 10px 0;
     font-size: 28px;
     text-align: center;
     margin-top: 30px;
-    border-radius: 5px;
-    border: 2px solid #202020;
+    outline:0;
+    border-width: 0 0 2px;
+    border-color: #243cb7;
     color: #53c2e3;
 }
 
@@ -48,7 +54,7 @@ button:not(.reset-btn) {
     width: 160px;
     padding: 15px 0;
     border-radius: 5px;
-    background-color: #000000;
+    background-color:#243cb7;
     color: #fff;
     border: none;
     font-size: 18px;
@@ -67,6 +73,13 @@ button:hover {
 
 p {
     font-weight: 400;
+}
+#message1{
+    font-size: 1.2rem;
+    color:#243cb7
+}
+#lives{
+    font-size: 1.2rem;
 }
 
 .reset-btn {

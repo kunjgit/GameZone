@@ -1,6 +1,7 @@
 var guessInput = document.getElementById("guess");
 var guessBtn = document.getElementById("my_btn");
 const resetBtn = document.querySelector('.reset-btn');
+console.log(guessInput);
 
 var msg1 = document.getElementById("message1");
 var msg2 = document.getElementById("message2");
@@ -17,7 +18,7 @@ var guesses_num = [];
 var lives=10;
 
 resetBtn.addEventListener('click', reset);
-guessBtn.addEventListener('click', play);
+// guessBtn.addEventListener('click', play); this line cause repetition of play() function on click guess button
 guessInput.addEventListener('keypress', function(event) {
   if (event.key === 'Enter') {
     play();
@@ -62,7 +63,7 @@ function play() {
 
     } else if (user_guess == answer) {
       correct.play();
-      msg1.textContent = "Yayy! You guessed it right!";
+      msg1.textContent = "Yayy 🤩🤗! You guessed it right!";
       msg2.textContent = "The number was " + answer;
       msg3.textContent = "You guessed it in " + no_of_guesses + " guesses.";
     }

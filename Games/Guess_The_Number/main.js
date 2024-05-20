@@ -63,7 +63,7 @@ function play() {
 
     } else if (user_guess == answer) {
       correct.play();
-      msg1.textContent = "Yayy! You guessed it right!";
+      msg1.textContent = "Yayy 🤩🤗! You guessed it right!";
       msg2.textContent = "The number was " + answer;
       msg3.textContent = "You guessed it in " + no_of_guesses + " guesses.";
     }

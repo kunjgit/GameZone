@@ -1937,11 +1937,39 @@
     "thumbnailUrl": "Guess_The_Weapon.png"
   },
   "386": {
+    "gameTitle": "Bulls_and_Cows",
+    "gameUrl": "Bulls_and_Cows",
+    "thumbnailUrl": "bulls-and-cows.png"
+
+  },
+  "387":{
+
     "gameTitle": "Earth_Guardian",
     "gameUrl": "Earth_Guardian",
     "thumbnailUrl": "Earth_Guardian.png"
+  },
+  "395":{
+
+    "gameTitle" : "Technical_Mind_Game",
+    "gameUrl" :  "Technical_Mind_Game",
+    "thumbnailUrl" : "Technical_Mind_Game.png"
+},
+  "389":{
+    "gameTitle": "Memory Cards Game",
+    "gameUrl": "Memory_Cards_Game",
+    "thumbnailUrl": "Memory_Cards_Game.png"
+  },
+  "388":{
+    "gameTitle": "escaperoom",
+    "gameUrl": "escaperoom",
+    "thumbnailUrl": "escaperoom.png"
+  },
+  "389":{
+    "gameTitle": "Dice Roller",
+    "gameUrl": "Dice_Roller",
+    "thumbnailUrl": "Dice_Roller.png"
   }
   
   
-  
+
 }

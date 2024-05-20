@@ -53,9 +53,24 @@ window.addEventListener("scroll", function () {
 // Get references to the div and input elements
 const searchContainer = document.getElementById("search-container-id");
 const searchInput = document.getElementById("searchbar");
+const clearButton=document.getElementById("clearButton")
 
 // Add a click event listener to the div
-searchContainer.addEventListener("click", function () {
+  searchContainer.addEventListener("click", function () {
   // Focus on the input field when the div is clicked
   searchInput.focus();
 });
+
+  clearButton.addEventListener('click', function() {
+      searchInput.value = '';
+      clearButton.style.display = 'none';
+      searchInput.focus(); // Optional: focus the input after clearing
+  });
+
+  searchInput.addEventListener('input', function() {
+      if (searchInput.value) {
+          clearButton.style.display = 'block';
+      } else {
+          clearButton.style.display = 'none';
+      }
+  });

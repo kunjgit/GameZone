@@ -29,7 +29,12 @@
       <!-- for timer  and assessment section-->
       <h1 class="title">Hands on the keyboard 👀</h1>
       <div class="timer title" id="timer">00:00</div>
-
+      <div class="keyContainer">
+        <div class="TotScore" id="TotKey">Total Key pressed: 0</h1></div>
+        <div class="corScore" id="corKey">Correct: 0</div>
+        <div class="wrScore" id="uncorKey">Incorrect: 0</div>
+      </div>
+      
       <!-- for keyboard  -->
       <div class="keyboard">
         <ul class="row row-0">
@@ -94,14 +99,15 @@
           <li class="pinky" id="right-shift">SHIFT</li>
         </ul>
       </div>
-
+      
+      <div class="wrTeller"></div>
       <!-- for start and restart button -->
       <div class="btn">
         <button class="button" onclick="startTimer()">Start</button>
         <button class="button" onclick="restartTimer()">Restart</button>
       </div>
     </div>
-
+    
     <!-- For audio section  -->
     <audio id="keySound">
       <source src="assets/Right_Press.mp3" type="audio/mpeg">

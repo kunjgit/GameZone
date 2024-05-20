@@ -3,7 +3,8 @@
 #about {
   color: white;
   font-size: 1.4rem;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Agency FB', Times, serif;
+	text-align: center;
 }
 
 /* Copyright */
@@ -25,10 +26,10 @@
  * copyright 2022 @codewithsadee
  */
 
- @font-face {
-  font-family: gamezone;
-  src : url("/assets/fonts/MouldyCheeseRegular-WyMWG.ttf")
- }
+@font-face {
+  font-family: 'gamezone';
+  src: url('https://github.com/Winter262005/GameZone/blob/main/assets/fonts/MouldyCheeseRegular-WyMWG.woff2') format('woff2');
+}
 
 /*-----------------------------------*\
   #CUSTOM PROPERTY
@@ -2651,8 +2652,7 @@ textarea.form-input::-webkit-resizer {
 /* GameZone heading **/
 .heading {
   margin-top: -2%;
-  font: 5.5vw/1 Permanent Marker;
-  /* font-family: gamezone; */
+  font: 5.5vw/1 'Agency FB', Times, serif;
   font-size: 5.5vw;
   display: flex;
   align-items: center;
@@ -2665,6 +2665,7 @@ textarea.form-input::-webkit-resizer {
 }
 
 span {
+  font-family: 'gamezone';
   animation: glow 2s ease-in-out both infinite;
   margin: 2px;
 }

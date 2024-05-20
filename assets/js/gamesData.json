@@ -1969,7 +1969,11 @@
     "gameUrl": "Dice_Roller",
     "thumbnailUrl": "Dice_Roller.png"
   }
-  
-  
+  ,"400":{
 
+  "gameTitle": "Chrome_Dino_Game",
+    "gameUrl": "Chrome_Dino_Game",
+    "thumbnailUrl": "Chrome_Dino_Game.png"
+
+}
 }

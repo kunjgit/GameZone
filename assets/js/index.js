@@ -4,7 +4,7 @@ const generateLiTags = (gamesData, searchText = "") => {
   const liTags = [];
   searchText = searchText.trim().toLowerCase(); // Trim whitespace and convert to lowercase
 
-  for (let tagNumber = 1; tagNumber <= 385; tagNumber++) {
+  for (let tagNumber = 1; tagNumber <= 386; tagNumber++) {
     const gameData = gamesData[tagNumber.toString()];
 
     if (gameData) {
@@ -75,12 +75,14 @@ window.addEventListener("scroll", function () {
 // Get references to the div and input elements
 const searchContainer = document.getElementById("search-container-id");
 const searchInput = document.getElementById("searchbar");
+const clearButton=document.getElementById("clearButton")
 
 // Add a click event listener to the div
-searchContainer.addEventListener("click", function () {
+  searchContainer.addEventListener("click", function () {
   // Focus on the input field when the div is clicked
   searchInput.focus();
 });
+
 
 // Improved searching and filtering of the games
 document.addEventListener('DOMContentLoaded', () => {

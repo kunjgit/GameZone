@@ -3,7 +3,16 @@
 #about {
   color: white;
   font-size: 1.4rem;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Agency FB', Times, serif;
+	text-align: center;
+}
+
+/* Copyright */
+
+#copyright{
+  text-align: center;
+  color: white;
+  font-size: 1.1rem;
 }
 
 
@@ -17,10 +26,10 @@
  * copyright 2022 @codewithsadee
  */
 
- @font-face {
-  font-family: gamezone;
-  src : url("/assets/fonts/MouldyCheeseRegular-WyMWG.ttf")
- }
+@font-face {
+  font-family: 'gamezone';
+  src: url('https://github.com/Winter262005/GameZone/blob/main/assets/fonts/MouldyCheeseRegular-WyMWG.woff2') format('woff2');
+}
 
 /*-----------------------------------*\
   #CUSTOM PROPERTY
@@ -2473,7 +2482,25 @@ textarea.form-input::-webkit-resizer {
   right: 12px; /* Adjusted right positioning for icon */
 }
 .search-btn {
-  padding-right: 10px;
+  padding-right: 5px;
+}
+
+.clear-btn{
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  font-weight: 100;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  display:none;
+  color:rgba(16, 2, 2, 0.731)
+}
+
+.search-input:not(:placeholder-shown) ~ .clear-btn {
+  display: block; /* Show when input is not empty */
 }
 #search-related {
   display: flex;
@@ -2651,8 +2678,7 @@ textarea.form-input::-webkit-resizer {
 /* GameZone heading **/
 .heading {
   margin-top: -2%;
-  font: 5.5vw/1 Permanent Marker;
-  /* font-family: gamezone; */
+  font: 5.5vw/1 'Agency FB', Times, serif;
   font-size: 5.5vw;
   display: flex;
   align-items: center;
@@ -2665,6 +2691,7 @@ textarea.form-input::-webkit-resizer {
 }
 
 span {
+  font-family: 'gamezone';
   animation: glow 2s ease-in-out both infinite;
   margin: 2px;
 }

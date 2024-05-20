@@ -28,6 +28,7 @@ document.addEventListener("keydown", function (e) {
   if (!gameRunning) {
     return;
   }
+  const gameAreaWidth = 1100;
 
   if (e.keyCode == 38) {
     const dino = document.querySelector(".dino");

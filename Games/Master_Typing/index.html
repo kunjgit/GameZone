@@ -102,6 +102,42 @@
     <!-- Content will be added dynamically -->
   </div>
 </div>
+<div class="score">0</div>
+    <div class="stage"></div>
+
+    <div class="rating-prompt" id="ratingPrompt">
+        <div class="rating-container">
+            <h2>Rate the Game</h2>
+            <div class="stars">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <div class="buttons">
+                <button id="submitRating">Submit</button>
+                <button id="cancelRating">Cancel</button>
+            </div>
+            <div class="feedback-link">
+              <a href="#" id="feedbackLink">Write Detailed Feedback</a>
+          </div>
+      </div>
+  </div>
+
+  <div class="feedback-container" id="feedbackContainer">
+      <div class="feedback-content">
+          <h1>Write Your Feedback</h1>
+          <form id="feedbackForm">
+              <textarea name="feedback" rows="10" cols="50" placeholder="Write your detailed feedback here..."></textarea>
+              <br>
+              <button type="submit">Submit Feedback</button>
+              <button type="button" id="closeFeedback">Close</button>
+          </form>
+      </div>
+        </div>
+    </div>
+
 
 <!--countdown message-->
 <div id="countdownMessage">Only 10 seconds left!</div>

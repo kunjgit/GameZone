@@ -159,3 +159,80 @@ function showCountdownMessage() {
     countdownMessage.style.display = "none";
   }, 3000);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const ratingPrompt = document.getElementById("ratingPrompt");
+  const stars = document.querySelectorAll(".star");
+  let selectedRating = 0;
+
+  // Function to show the rating prompt
+  function showRatingPrompt() {
+    ratingPrompt.style.display = "flex";
+  }
+
+  // Function to hide the rating prompt
+  function hideRatingPrompt() {
+    ratingPrompt.style.display = "none";
+  }
+
+  // Event listeners for stars
+  stars.forEach((star) => {
+    star.addEventListener("click", () => {
+      selectedRating = star.getAttribute("data-value");
+      stars.forEach((s, index) => {
+        if (index < selectedRating) {
+          s.classList.add("selected");
+        } else {
+          s.classList.remove("selected");
+        }
+      });
+    });
+  });
+
+  // Event listener for submit button
+  document.getElementById("submitRating").addEventListener("click", () => {
+    if (selectedRating > 0) {
+      alert(`Thank you for rating the game ${selectedRating} stars!`);
+      hideRatingPrompt();
+    } else {
+      alert("Please select a rating.");
+    }
+  });
+
+  // Event listener for cancel button
+  document
+    .getElementById("cancelRating")
+    .addEventListener("click", hideRatingPrompt);
+
+  // Event listener for feedback link
+  feedbackLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    feedbackContainer.style.display = "flex";
+    hideRatingPrompt();
+  });
+
+  // Event listener for close feedback button
+  closeFeedback.addEventListener("click", () => {
+    feedbackContainer.style.display = "none";
+  });
+
+  // Event listener for feedback form submission
+  feedbackForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const feedback = feedbackForm.feedback.value;
+    if (feedback) {
+      alert("Thank you for your feedback!");
+      feedbackContainer.style.display = "none";
+    } else {
+      alert("Please write your feedback before submitting.");
+    }
+  });
+
+  // Function to call when the game is completed
+  function onGameCompleted() {
+    showRatingPrompt();
+  }
+
+  // Set timeout for game completion after 60 seconds
+  setTimeout(onGameCompleted, 67000);
+});

@@ -2473,7 +2473,25 @@ textarea.form-input::-webkit-resizer {
   right: 12px; /* Adjusted right positioning for icon */
 }
 .search-btn {
-  padding-right: 10px;
+  padding-right: 5px;
+}
+
+.clear-btn{
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  font-weight: 100;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  display:none;
+  color:rgba(16, 2, 2, 0.731)
+}
+
+.search-input:not(:placeholder-shown) ~ .clear-btn {
+  display: block; /* Show when input is not empty */
 }
 
 /*-----------------------------------*\

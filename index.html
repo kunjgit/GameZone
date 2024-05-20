@@ -128,7 +128,10 @@
 
 
         <div class="search-container" id="search-container-id">
-          <input type="text" class="search-input" placeholder="🕹️ Search for Games..." onkeyup="search_game()" id="searchbar">
+          <input type="text" class="search-input" placeholder="🕹️ Search for Games..." onkeyup="search_game()" id="searchbar" tabindex="1">
+          <button id="clearButton" class="clear-btn"  clearSearh()>
+            <i class="fa fa-remove" aria-hidden="true"></i>
+          </button>
           <div class="search-btn">
             <i class="fa fa-search" aria-hidden="true"></i>
           </div>

@@ -374,14 +374,6 @@ This repository also provides one such platforms where contributers come over an
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                                       | [TriHand_Tactics](https://github.com/kunjgit/GameZone/tree/main/Games/TriHand_Tactics)                  | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)                       | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                       |  
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                     | [CatchTheBall](https://github.com/kunjgit/GameZone/tree/main/Games/CatchTheBall) |
 
-| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                     | [DoraemonRun ](https://github.com/kunjgit/GameZone/tree/main/Games/DoraemonRun) |
-| [Memory_Cards_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Cards_Game)                       | 
-| [Technical_Mind_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Technical_Mind_Game) |
-
-| [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  | [Shell_Game](https://github.com/Tamilkumaran17/GameZone/tree/tamil_dev/Games/Shell_Game)
-
-| [Bottle_Flip_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bottle_Flip)                  |
-
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               |
 
 
@@ -396,8 +388,7 @@ This repository also provides one such platforms where contributers come over an
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
 
-|[Bomb THrow Game]()|
-
+|[Bomb_Throw_Game]()|
 
 main
 

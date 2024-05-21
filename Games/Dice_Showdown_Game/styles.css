@@ -15,10 +15,10 @@ body {
 }
 
 h1 {
-  margin: 30px;
+  margin: 8px;
   font-family: 'Lobster', cursive;
   text-shadow: 5px 0 #232931;
-  font-size: 7rem;
+  font-size: 5.5rem;
   color: #4ECCA3;
 }
 
@@ -29,11 +29,11 @@ p {
 }
 
 img {
-  width: 80%;
+  width: 55%;
 }
 
 footer {
-  margin-top: 5%;
+  margin-top: 3%;
   color: #EEEEEE;
   text-align: center;
   font-family: 'Indie Flower', cursive;
@@ -53,10 +53,11 @@ footer {
   border: #232931;
   font-family: cursive;
   color: #ffffff;
-  font-size: 27px;
+  font-size: 24px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
-  margin-top: 5%;
+  margin-top: 3%;
+  cursor: pointer;
 }
 
 .btn:hover {

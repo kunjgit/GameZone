@@ -17,7 +17,7 @@ Frontend game developed using HTML, CSS, JavaScript. Points will be gained by ma
 
 ## **Screenshots 📸**
 
-![3d_Snake](https://github.com/sujanrupu/GameZone/assets/103595490/ec94bc6c-74c7-4745-b787-6abc9a1b17b4)
+![3d_Snake](https://github.com/kunjgit/GameZone/blob/main/assets/images/3d_Snake.png)
 
 
 ## **Working video 📹**

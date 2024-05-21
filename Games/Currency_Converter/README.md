@@ -21,9 +21,7 @@ Challenge yourself with our "Currency Converter Game" where you guess currency c
 
 ## **Screenshots 📸**
 
-![alt text](image.png)
-currency_converter.png
-
+![image](https://github.com/kashisharora9462/GameZone/assets/153215875/1b54db62-c044-4ed9-a88d-0a2de01c16c8)
 
 
 ## **Getting Started 🚀**

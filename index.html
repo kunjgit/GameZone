@@ -128,16 +128,20 @@
 
 
         <div class="search-container" id="search-container-id">
-          <input type="text" class="search-input" placeholder="Search" onkeyup="search_game()" id="searchbar">
+
+          <input type="text" class="search-input" placeholder="🕹️ Search for Games..."  id="searchbar">
+
           <div class="search-btn">
             <i class="fa fa-search" aria-hidden="true"></i>
           </div>
         </div>
         <ul id="suggestion-list" style="display: none;"></ul>
         
-
-
-
+        <div id="search-related">
+          <p>Showing results for <span id="search-term"></span></p>
+          <button id="clear-search">Clear</button>
+        </div>
+        
         <br>
 
         <!-- Games -->
@@ -162,7 +166,7 @@
 
   <!-- Contributors section -->
   <div class="contributors">
-    <h1>Our Valuable Contributors</h1>
+    <h1 style="font-family: 'Agency FB', Times, serif;">Our Valuable Contributors</h1>
     <div id="contributor"></div>
   </div>
 
@@ -203,7 +207,7 @@
             <h7>Developed with 💗 by Kunj</h7>
             <br>
             <br>
-            <p style="font-size: 20px; font-style:cursive;cursor: pointer;color: rgb(215, 213, 85);">Make sure you
+            <p style="font-size: 20px; font-style:cursive;cursor: pointer;color: rgb(215, 213, 85);font-family: 'Agency FB', Times, serif;">Make sure you
               checkout
               my
               socials and also
@@ -225,6 +229,11 @@
                   class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
 
           </ul>
+
+          <!-- Copyright -->
+          
+          <p id="copyright">&copy; 2024 GameZone. All Rights Reserved.</p>
+          
         </div>
       </div>
     </footer>

@@ -20,7 +20,9 @@ Challenge yourself with our "Currency Converter Game" where you guess currency c
 5. Enjoy learning about currency conversions while having fun!
 
 ## **Screenshots 📸**
-image.png
+![alt text](image.png)
+currency_converter.png
+
 
 
 ## **Getting Started 🚀**

@@ -1,5 +1,5 @@
 
-# Currency Converter Game
+# Currency Converter 
 
 
 ## Description 📃
@@ -20,26 +20,9 @@ Challenge yourself with our "Currency Converter Game" where you guess currency c
 5. Enjoy learning about currency conversions while having fun!
 
 ## **Screenshots 📸**
-![alt text](image.png)
-currency_converter.png
+![alt text](currency_converter.png)
 
 
 
-## **Getting Started 🚀**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/currency-converter-game.git
-   ```
-2. Open `index.html` in your web browser to start playing the game.
 
-## **Built With 🛠️**
-- HTML, CSS, JavaScript
-- Font Awesome for icons
-- Frankfurter API for currency conversion rates
-
-## **Contributing 💡**
-Contributions are welcome! Feel free to fork the repository and submit pull requests to enhance the game.
-
-## **License 📜**
-This project is licensed under the [MIT License].
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steampunk Flappy Bird</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="intro">
+      <h4>Desktop Controls</h4>
+      <p>Ctrl for boost</p>
+      <p>Space or Enter for fly</p>
+      <h4>Phone Controls</h4>
+      <p>Tap to fly</p>
+      <p>Swipe right to boost</p>
+      <h3>R for restart, f for fullscreen , d for debug</h3>
+
+      <button id="start">Start</button>
+    </div>
+    <canvas id="canvas1"></canvas>
+    <div class="assets">
+      <img src="assets/images/background_single.png" alt="" id="background" />
+      <img src="assets/images/player_fish.png" alt="" id="fish" />
+      <img src="assets/images/smallGears.png" alt="" id="gears" />
+      <audio src="assets/audio/charge.mp3" id="charge"></audio>
+      <audio src="assets/audio/flap1.mp3" id="flap1"></audio>
+      <audio src="assets/audio/flap2.mp3" id="flap2"></audio>
+      <audio src="assets/audio/flap3.mp3" id="flap3"></audio>
+      <audio src="assets/audio/flap4.mp3" id="flap4"></audio>
+      <audio src="assets/audio/flap5.mp3" id="flap5"></audio>
+      <audio src="assets/audio/win.mp3" id="win"></audio>
+      <audio src="assets/audio/lose.mp3" id="lose"></audio>
+    </div>
+    <div class="controls">
+      <button id="restart">R</button>
+      <button id="fullscreen">F</button>
+      <button id="debug">D</button>
+    </div>
+
+    <script src="assets/scripts/fullscreen.js"></script>
+    <script src="assets/scripts/audio.js"></script>
+    <script src="assets/scripts/obstacles.js"></script>
+    <script src="assets/scripts/background.js"></script>
+    <script src="assets/scripts/player.js"></script>
+    <script src="assets/scripts/main.js"></script>
+  </body>
+</html>

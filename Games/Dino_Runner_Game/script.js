@@ -28,6 +28,7 @@ document.addEventListener("keydown", function (e) {
   if (!gameRunning) {
     return;
   }
+  const gameAreaWidth = 1100;
 
   if (e.keyCode == 38) {
     const dino = document.querySelector(".dino");
@@ -41,14 +42,18 @@ document.addEventListener("keydown", function (e) {
     const dinoX = parseInt(
       window.getComputedStyle(dino, null).getPropertyValue("left")
     );
-    dino.style.left = dinoX + 112 + "px";
+    if (dinoX < gameAreaWidth - dino.offsetWidth) { // Check to ensure dino does not go out of the right screen edge
+      dino.style.left = dinoX + 112 + "px";
+    }
   }
   if (e.keyCode == 37) {
     const dino = document.querySelector(".dino");
     const dinoX = parseInt(
       window.getComputedStyle(dino, null).getPropertyValue("left")
     );
-    dino.style.left = dinoX - 112 + "px";
+    if (dinoX > 0) { // Check to ensure dino does not go out of the left screen edge
+      dino.style.left = dinoX - 112 + "px";
+    }
   }
 });
 

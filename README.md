@@ -378,9 +378,8 @@ This repository also provides one such platforms where contributers come over an
 | [Memory_Cards_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Cards_Game)                       | 
 | [Technical_Mind_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Technical_Mind_Game) |
 
-| [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  | [Shell_Game](https://github.com/Tamilkumaran17/GameZone/tree/tamil_dev/Games/Shell_Game)
 
-| [Bottle_Flip_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bottle_Flip)                  |
+[Slide_Master_Puzzle](https://github.com/kunjgit/GameZone/tree/Main/Games/Slide_Master_Puzz)|                 |
 
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               |
 
@@ -392,9 +391,7 @@ This repository also provides one such platforms where contributers come over an
 
   
 | [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  |   [Chrome_Dino_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dino_Game) | 
-
-
-               |
+|
 
  </center>
 

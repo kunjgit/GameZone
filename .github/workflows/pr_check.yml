@@ -160,7 +160,7 @@ jobs:
                   owner: repoOwner,
                   repo: repoName,
                   issue_number: prNumber,
-                  labels: ['changes requested', 'pending']
+                  labels: ['Changes Requested ⚒️', 'Pending ⏱️']
                 });
 
                 console.log(`Commented on pull request #${prNumber} with required changes.`);

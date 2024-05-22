@@ -1,5 +1,6 @@
 # Anagram_Checker
 
+
 The Anagram Checker Game is an engaging and educational word puzzle designed for players of all ages. The objective of the game is to identify whether two given words or phrases are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
 Game Features:

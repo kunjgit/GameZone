@@ -1,0 +1,9 @@
+/tests
+    /unit_tests
+        test_authentication.py
+        test_game_functionality.py
+    /integration_tests
+        test_api_integration.py
+        test_frontend_integration.py
+    /security_tests
+        test_security_vulnerabilities.py

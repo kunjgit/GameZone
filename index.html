@@ -64,6 +64,31 @@
     - Audio file for click sound
   -->
   <audio id="clickSound" src="./assets/audio/click-sound.wav"></audio>
+  <style>
+    .preloader{
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background: black;
+transition: opacity 5s, visibility 5s;
+z-index: 1000;
+}
+
+.preloader--hidden{
+opacity: 0;
+visibility: hidden;
+}
+.preloader img{
+height: 200px;
+width: 200px;
+border-radius: 1000px;
+}
+  </style>
 </head>
 <!-- Light-Dark theme SWITCH -->
 
@@ -76,6 +101,20 @@
 </label> -->
 
 <body>
+  <div class="preloader">
+    <img src="loader.gif" class="center">
+  </div>
+  <script>
+    window.addEventListener("load", () => {
+const loader = document.querySelector(".preloader");
+
+loader.classList.add("preloader--hidden");
+
+loader.addEventListener("transitionend", () => {
+document.body.removeChild(loader);
+});
+});
+  </script>
   <div class="cursor"></div>
   <!-- BACKGROUND PARTICLES -->
   <!-- <div class="page-bg"></div> -->

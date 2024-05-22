@@ -7,11 +7,22 @@
     <h2>Basketball Game</h2>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+      #instructions {
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 20px;
+      }
+    </style>
   </head>
   <body>
     <div style="text-align: left; margin-left: 40px;
     margin-top: 10px;
     font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+    
+    <div id="instructions">Instructions: Quickly drag the ball to shoot the ball into the hoop!</div>
+    
     <script type="text/javascript">
       // NOTE: Originally 640x1000. Other possible sizes: 512x800, 400x625
       var game = new Phaser.Game(400, 625, Phaser.CANVAS, "", {
@@ -128,11 +139,6 @@
 
         game.input.onDown.add(click, this);
         game.input.onUp.add(release, this);
-
-        var instructions = document.createElement("span");
-        instructions.innerHTML =
-          "Instructions: Quickly drag the ball to shoot the ball into the hoop!";
-        document.body.appendChild(instructions);
       }
 
       function update() {

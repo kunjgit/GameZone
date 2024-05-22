@@ -276,7 +276,8 @@ This repository also provides one such platforms where contributers come over an
 | 166 | [Shpere](https://github.com/kunjgit/GameZone/tree/main/Games/Shpere)|
 | 167 | [Short Circuit](https://github.com/kunjgit/GameZone/tree/main/Games/Short%20Circuit)|
 | 168 | [Dot Connect](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Connect)|
-| 169 | [Word Association](https://github.com/kunjgit/GameZone/tree/main/Games/word_association)|    
+| 169 | [Word Association](https://github.com/kunjgit/GameZone/tree/main/Games/word_association)| 
+| 170 | [Random Advice Generator](https://github.com/kunjgit/GameZone/tree/main/Games/Random_Advice_Generator)|    
 </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |
@@ -397,7 +398,10 @@ This repository also provides one such platforms where contributers come over an
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
 | [Random Advice Generator](https://github.com/kunjgit/GameZone/tree/main/Games/Random_Advice_Generator)                  |
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
+| [Pokemon_Stats_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Stats_Card)                  |
+| [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird)                  |
 
+| [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |
  </center>
 
 

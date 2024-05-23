@@ -24,6 +24,6 @@
 
 ## **Screenshots 📸**
 
-![image](https://github.com/Abhishek-Rajput-81/GameZone/assets/96196696/aae67b43-4efc-4f67-b436-20dfcf5bd394)
+![image](..//..//assets/images/Tic_Tac_Toe.png)
 
 <br>

@@ -9,7 +9,100 @@ body {
   align-items: center;
   height: 100vh;
 }
+.container1{
+  
+  background-color:rgba(75, 26, 26, 0.942);
+  
+  padding:50px 50px 50px 50px;
+  border-radius: 30px;
+}
+.container1 .rules article{
 
+  padding:10px 10px 10px 10px;
+  border-radius: 30px;
+  background-color: burlywood;
+}
+.navbar{
+  margin-left: auto;
+}
+.h2{
+  font-size: 15px;
+  text-align: center;
+  background-color: red;
+  font-family: "cursive";
+}
+html{
+  scroll-behavior: auto;
+}
+.namesa{
+  font-style: italic;
+}
+#maina{
+  display:flex;
+}
+#maina div{
+  display:inline-block;
+}
+.instructions {
+  background-color: black;
+  height:400px;
+  width:500px;
+  margin-right: auto;
+  display:flex;
+  flex-direction: column;
+}
+
+.instructions article{
+  display:flex;
+  width:80%;
+  background-color: blue;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:auto;
+  margin-bottom:auto;
+  border-radius: 60px;
+  flex-direction: column;
+ 
+}
+.instructions article h1{
+  margin-left:auto;
+  margin-right:auto;
+}
+.load{
+ border-radius: 30px;
+  width:400px;
+  height:300px;
+  background-color:rgba(113,77,231,1);
+  opacity: 100%;
+  justify-content: center;
+ 
+  
+}
+.menu{
+  
+}
+.load hr {
+  height: 15px;
+  border-radius: 20px;
+  width:50%;
+  background-color: rgb(30, 9, 97);
+  border-color: rgb(64, 29, 182);
+}
+
+.load h1{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  display: block;
+  padding-left: 82px;
+  padding-top: 25px;
+  font-size: 30px;
+}
+.asdf{
+  display:flex;
+}
+.asdf .load{
+display:inline-block;
+align-items: left;
+}
 .container{
   background-image: linear-gradient(to left, #3f4c77, #3c4871, #39446b, #364165, #333d5f, #303a5a, #2e3654, #2b334f, #283049, #252c44, #23293e, #202639);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -18,13 +111,14 @@ body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:center;
+
 }
 
 .title {
   color: mintcream;
   text-transform: uppercase;
-  margin-top: 3em;
+  margin-top: 10em;
   margin-bottom: 3em;
   font-size: 1em;
   letter-spacing: 0.3em;
@@ -47,6 +141,102 @@ body {
 .row {
   list-style: none;
   display: flex;
+}
+
+.score {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.stage {
+  width: 100%;
+  height: 400px;
+  background-color: #f0f0f0;
+  margin-top: 20px;
+  position: relative;
+}
+
+.rating-prompt {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.rating-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.star {
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.star.selected {
+  color: gold;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+.feedback-link {
+  margin-top: 10px;
+}
+
+.feedback-link a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.feedback-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.feedback-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+textarea {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 li {
@@ -135,6 +325,10 @@ li {
   background-color: transparent;
     -webkit-animation: vibrate-1 0.3s linear infinite both;
           animation: vibrate-1 0.3s linear infinite both;
+}
+.wrongSelection{
+  background-color: red ;
+  border:5px solid black;
 }
 
 /* ----------------------------------------------
@@ -226,8 +420,8 @@ li {
 /* ------------for button----------------------------- */
 
 .btn{
-margin-top: 30px;
-margin-bottom: 50px;
+margin-top: 10px;
+margin-bottom: 30px;
 padding-left: 60px;
 text-align: center;
 display: flex;
@@ -267,6 +461,7 @@ font-size: 18px;
 
 .button:focus {
 box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+
 }
 
 .button:hover {
@@ -278,6 +473,22 @@ transform: translateY(-2px);
 box-shadow: #D6D6E7 0 3px 7px inset;
 transform: translateY(2px);
 }
+.start-button:hover{
+  background-color: #D2FDAE ;
+}
+.start-button:active{
+  background-color: #29BF2E   ;
+  
+}
+
+.reset-button:hover{
+  background-color: #DE5B4E;
+}
+.reset-button:active{
+  background-color: #F0420F ;
+  
+}
+ 
 
  /* CSS for the popup and backdrop */
  .popup-overlay {
@@ -303,4 +514,31 @@ transform: translateY(2px);
 
 .popup-overlay.hidden {
   display: none;
+}
+.keyContainer{
+  display:flex;
+  width:70vw;
+  justify-content: space-around;
+  color:white;
+  font-size: 20px;
+}
+.wrTeller{
+  font-size: 20px;
+  font-weight: 700;
+  color:white;
+}
+
+/* Custom countdown message styles */
+#countdownMessage {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 20px;
+  z-index: 1000;
 }

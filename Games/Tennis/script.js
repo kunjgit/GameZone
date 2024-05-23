@@ -15,14 +15,14 @@ const paddle1 = {
   x: 10,
   y: canvas.height / 2 - 50,
   width: 10,
-  height: 100
+  height: 50
 };
 
 const paddle2 = {
   x: canvas.width - 20,
   y: canvas.height / 2 - 50,
   width: 10,
-  height: 100
+  height: 50
 };
 
 let player1Score = 0;
@@ -45,6 +45,27 @@ function drawPaddles() {
 function update() {
   ball.x += ball.speedX;
   ball.y += ball.speedY;
+
+  if(paddle1.y + paddle1.height > canvas.height )   //If paddle1 goes down the field
+    {
+      paddle1.y=canvas.height-paddle1.height;       //Go to the lower bound of the field
+    }
+  else if (paddle1.y < 0)                           //If the paddle goes up the field
+    {
+      paddle1.y=0;                                  //GO to the upper bound
+    }
+
+    if(paddle2.y + paddle2.height > canvas.height )   //If paddle1 goes down the field
+    {
+      paddle2.y=canvas.height-paddle2.height;       //Go to the lower bound of the field
+    }
+  else if (paddle2.y < 0)                           //If the paddle goes up the field
+    {
+      paddle2.y=0;                                  //GO to the upper bound
+
+
+
+
 
   if (
     ball.x - ball.radius < paddle1.x + paddle1.width &&
@@ -91,10 +112,10 @@ function draw() {
   drawBall();
 
   drawPaddles();
-  context.fillStyle = "#ffffff";
-  context.font = "20px Arial";
-  context.fillText("Player 1: " + player1Score, 10, 20);
-  context.fillText("Player 2: " + player2Score, canvas.width - 120, 20);
+  const p1score=document.getElementById("player1Score")
+  p1score.innerHTML=player1Score
+  const p2score=document.getElementById("player2Score")
+  p2score.innerHTML=player2Score
 }
 
 

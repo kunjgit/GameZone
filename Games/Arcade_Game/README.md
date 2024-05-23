@@ -26,7 +26,6 @@
 
 ## **Screenshots 📸**
 
-<br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
 ![Image](Arcade_Game.png)

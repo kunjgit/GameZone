@@ -27,6 +27,7 @@ Dragon Tower is an engaging and strategic game where players navigate through a 
 6. Continue selecting tiles, aiming to reach the top of the tower with the highest score possible.
 
 ## Screenshots 📸
-![Game Screenshot](../../assets/images/Dragon_Tower.png)
 ![Game Screenshot](../../assets/images/Dragon_Tower2.png)
+![Game Screenshot](../../assets/images/Dragon_Tower.png)
+
 

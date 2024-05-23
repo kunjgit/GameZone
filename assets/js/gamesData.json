@@ -1978,6 +1978,14 @@
 
 
   },
+  "401":{
+
+    "gameTitle": "Chess.com",
+      "gameUrl": "Chess.com",
+      "thumbnailUrl": "Chess.com.jpg"
+  
+  
+    },
 "392":{
     "gameTitle": "Dot Connect",
     "gameUrl": "Dot_Connect",

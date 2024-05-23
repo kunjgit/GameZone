@@ -211,6 +211,8 @@ This repository also provides one such platforms where contributers come over an
   
 | [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  |
 
+| [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                  |
+
  </center>
 
 <br>

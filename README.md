@@ -398,6 +398,8 @@ This repository also provides one such platforms where contributers come over an
 
 |[Bomb THrow Game]()|
 
+|[Dragon Run](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Run)|
+
 
 main
 

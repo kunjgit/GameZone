@@ -228,7 +228,7 @@ function onWindowResize() {
 // Function to execute when the window loads
 window.onload = function() {
     // Update the displayed level information
-    myLevel.innerText = comments[level - 1] +  ": Level " + level + " of " + totalLevels;
+    myLevel.innerText = comments[level - 1] +  ": Level " + level;
     // Set up the initial scene
     myScene();
     // Add the holder containing targets to the scene

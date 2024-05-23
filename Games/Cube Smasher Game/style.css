@@ -1,0 +1,32 @@
+/* Reset default margin and padding for the body */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+  /* Set background color */
+  color: #333;
+  /* Set text color */
+  font-family: Helvetica, Arial, sans-serif;
+  /* Set font family */
+}
+
+/* Position the canvas element absolutely within its container */
+canvas {
+  position: absolute;
+}
+
+/* Style for the heads-up display (HUD) */
+.hud {
+  position: absolute;
+  /* Position the HUD absolutely */
+  margin-left: 1em;
+  /* Add left margin for spacing */
+}
+
+/* Style for highlighting hit messages */
+.hit {
+  font-weight: bold;
+  /* Make the text bold */
+  color: red;
+  /* Set the color to red */
+}

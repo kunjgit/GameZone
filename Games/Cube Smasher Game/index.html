@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Box Game</title>
+  <!-- Linking external stylesheet for styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- HUD (Heads-Up Display) to display level, instructions, and score -->
+  <div class="hud">
+    <h1 id="level"></h1>
+    <p>Click on the boxes to make them go away!</p>
+    <p id="score"></p>
+  </div>
+  <!-- Container for the WebGL canvas where the 3D scene is rendered -->
+  <div id="webgl-container"></div>
+
+  <!-- Including Three.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Including custom JavaScript file for game logic -->
+  <script src="index.js"></script>
+</body>
+
+</html>

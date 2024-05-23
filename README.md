@@ -276,6 +276,7 @@ This repository also provides one such platforms where contributers come over an
 | 166 | [Shpere](https://github.com/kunjgit/GameZone/tree/main/Games/Shpere)|
 | 167 | [Short Circuit](https://github.com/kunjgit/GameZone/tree/main/Games/Short%20Circuit)|
 | 168 | [Dot Connect](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Connect)|
+| 169 | [Word Association](https://github.com/kunjgit/GameZone/tree/main/Games/word_association)|
 </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |
@@ -374,15 +375,7 @@ This repository also provides one such platforms where contributers come over an
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                                       | [TriHand_Tactics](https://github.com/kunjgit/GameZone/tree/main/Games/TriHand_Tactics)                  | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)                       | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                       |  
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                     | [CatchTheBall](https://github.com/kunjgit/GameZone/tree/main/Games/CatchTheBall) |
 
-| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                     | [DoraemonRun ](https://github.com/kunjgit/GameZone/tree/main/Games/DoraemonRun) |
-| [Memory_Cards_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Cards_Game)                       | 
-| [Technical_Mind_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Technical_Mind_Game) |
 
-| [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  | [Shell_Game](https://github.com/Tamilkumaran17/GameZone/tree/tamil_dev/Games/Shell_Game)
-
-| [Bottle_Flip_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bottle_Flip)                  |
-
-| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               |
 
 
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
@@ -391,17 +384,16 @@ This repository also provides one such platforms where contributers come over an
 [Mancala_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Mancala_Game)                                                  |
 
   
-| [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  |
-
+| [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  |   [Chrome_Dino_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dino_Game) | 
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
+| [Pokemon_Stats_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Stats_Card)                  |
+| [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird)                  |
 
-|[Bomb THrow Game]()|
 
 |[Dragon Run](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Run)|
 
 
-main
 
  </center>
 

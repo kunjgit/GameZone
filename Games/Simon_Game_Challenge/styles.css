@@ -54,7 +54,13 @@ h2{
   margin: 0 30px;
   margin-left: 20px;
 }
-
+.asdf{
+  display:flex;
+}
+.asdf .load{
+display:inline-block;
+align-items: left;
+}
 .instructions-section {
   background-color: #fef2bf;
   position: fixed; 

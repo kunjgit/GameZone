@@ -31,9 +31,5 @@ To play the game, simply open the `index.html` file in a web browser that suppor
 ![image](https://github.com/hiteshhhh007/GameZone/assets/115102401/b2da0d0c-a3d3-4031-a208-caa8bcd3c22c)
 
 
-## Working Video
 
-
-
-https://github.com/hiteshhhh007/GameZone/assets/115102401/9d99c2ca-1fe7-4d25-a4b5-745202d41460
 

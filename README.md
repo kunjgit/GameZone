@@ -398,6 +398,7 @@ This repository also provides one such platforms where contributers come over an
 | [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird)                  |
 
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |
+| [Virtual Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Virtual_Pet_Game)                  |
 
 
  </center>

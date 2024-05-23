@@ -1989,5 +1989,15 @@
     "gameUrl": "Dot_Connect",
     "thumbnailUrl": "Dot_Connect.png"
 
+},
+"393":{
+  "gameTitle": "path finder puzzle",
+  "gameUrl": "path_finder",
+  "thumbnailUrl": "pathfinder.png"
 }
+
+
+
 }
+
+

@@ -10,12 +10,19 @@ let upTime;
 let downTime;
 let displayScore = document.getElementById('score');
 let score = 0;
-
+let displayHighScore = document.getElementById('highScore');
+let highScore = localStorage.getItem('highScore') || 0; // Load high score from local storage
+displayHighScore.innerText = highScore;
 let gamePaused = false;
 let obstacleInterval;
 let obstacleTimeout;
 
 function stopGame() {
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem('highScore', highScore); // Save high score to local storage
+        displayHighScore.innerText = highScore;
+    }
     clearInterval(obstacleInterval);
     clearTimeout(obstacleTimeout);
     gamePaused = true;
@@ -23,20 +30,32 @@ function stopGame() {
 
 function resumeGame() {
     if (!gamePaused) return;
-    generateObstacle();
     gamePaused = false;
+    generateObstacle();
 }
 
-function endGame() {
+async function endGame() {
     stopGame();
-    // Additional logic for ending the game, e.g., showing a game over message
-    alert('score is: ' + score + ' do you want to continue?');
-    // Optionally, you can reload the page to restart the game
-    //location.reload();
+    
+    const result = await Swal.fire({
+        title: 'Stop?',
+        html: '<p style="font-size: xx-large;">Your score is:</p><p style="font-size: xx-large;"><b>' + score + '</b></p>',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Restart',
+        cancelButtonText: 'Continue'
+    });
+
+    if (result.isConfirmed) {
+        location.reload(); // Restart the game
+    } else {
+        // Continue the game
+        resumeGame();
+    }
 }
 
 function jump() {
-    if (isJumping) return;
+    if (isJumping || gamePaused) return;
     upTime = setInterval(() => {
         if (characterBottom >= groundHeight + 250) {
             clearInterval(upTime);
@@ -60,6 +79,7 @@ function jump() {
 }
 
 function showScore() {
+    if (gamePaused) return;
     score++;
     displayScore.innerText = score;
 }
@@ -67,6 +87,7 @@ function showScore() {
 setInterval(showScore, 100);
 
 function generateObstacle() {
+    if (gamePaused) return;
     let obstacles = document.querySelector('.obstacles');
     let obstacle = document.createElement('div');
     obstacle.setAttribute('class', 'obstacle');
@@ -76,30 +97,35 @@ function generateObstacle() {
     let obstacleRight = -30;
     let obstacleBottom = 100;
     let obstacleWidth = 30;
-    let obstacleHieght = Math.floor(Math.random() * 50) + 50;
+    let obstacleHeight = Math.floor(Math.random() * 50) + 50;
     obstacle.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`;
 
-    function moveObstacle() {
+    async function moveObstacle() {
+        if (gamePaused) return;
         obstacleRight += 5;
         obstacle.style.right = obstacleRight + 'px';
         obstacle.style.bottom = obstacleBottom + 'px';
         obstacle.style.width = obstacleWidth + 'px';
-        obstacle.style.height = obstacleHieght + 'px';
-        if (characterRight >= obstacleRight - characterWidth && characterRight <= obstacleRight + obstacleWidth && characterBottom <= obstacleBottom + obstacleHieght) {
-            alert('Congrats! Your Score is : ' + score)
-            clearInterval(obstacleInterval);
-            clearTimeout(obstacleTimeout);
-            location.reload();
+        obstacle.style.height = obstacleHeight + 'px';
+        if (characterRight >= obstacleRight - characterWidth && characterRight <= obstacleRight + obstacleWidth && characterBottom <= obstacleBottom + obstacleHeight) {
+            stopGame();
+            await Swal.fire({
+                title: 'Game Over',
+                html: '<p style="font-size: xx-large;">Congrats! Your score is:</p><p style="font-size: xx-large;"><b>' + score + '</b></p>',
+                icon: 'success',
+                confirmButtonText: 'Restart'
+            }).then(() => {
+                location.reload();
+            });
         }
     }
-    let obstacleInterval = setInterval(moveObstacle, 20);
-    let obstacleTimeout = setTimeout(generateObstacle, randomTimeout);
+    obstacleInterval = setInterval(moveObstacle, 20);
+    obstacleTimeout = setTimeout(generateObstacle, randomTimeout);
 }
 generateObstacle();
 
-
 function control(e) {
-    if (e.key == 'ArrowUp' || e.key == ' ') {
+    if (e.key === 'ArrowUp' || e.key === ' ') {
         jump();
     }
 }

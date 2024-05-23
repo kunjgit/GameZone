@@ -33,7 +33,6 @@ function getProjectsInPage() {
   const pageTile = document.querySelectorAll('.page-tile');
   const games = document.querySelectorAll('.project-item');
   const clickSound = document.getElementById("clickSound");
-
   for (let i = 0; i < games.length; i++){
     games[i].addEventListener('click', () => {
       clickSound.play();
@@ -309,6 +308,23 @@ function scrollToTop() {
     behavior: 'smooth'
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetchGamesData();
+});
+
+let gamesData = {};
+
+function fetchGamesData() {
+  fetch('./assets/js/gamesData.json') // Assuming gamesData.json is in the same directory
+    .then(response => response.json())
+    .then(data => {
+      gamesData = data;
+    })
+    .catch(error => console.error('Error fetching games data:', error));
+}
+
+
 
 
 

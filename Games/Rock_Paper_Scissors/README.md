@@ -27,7 +27,8 @@
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![image]("GameZone\Games\Rock_Paper_Scissors\Assets\img.png")
+
+![image](..//..//assets/images/Rock_Paper_Scissors.png)
 <br>
 
 ## **Working video 📹**

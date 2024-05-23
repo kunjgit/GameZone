@@ -6,7 +6,7 @@
 }
 
 .body{
-    background: #e3e8ee;
+    background:whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,81 +14,85 @@
 }
 
 button{
-    color: darkgreen;
-    border: 2px solid green;
+    background-color: #ffcd6e;
+    border: 2px solid white;
 
-    background: none;
 }
 
 
 button {
-    /* position: absolute; */
-    /* top: 5rem; */
-    /* left: 42rem; */
+    position: absolute;
+    top: 6rem;
+    left: 27rem;
     padding: 0.5rem 1rem;
     font-size: 2rem;
 
     font-family: math;
     border-radius: 0.6rem;
+
 }
 
+/*Changed color*/
 button:hover {
     cursor: pointer;
     filter: drop-shadow(2px, 2px, 2px black);
-    background-color: black;
+    background-color: #8b491c;
     color: white;
     transition: .8s ease;
-    box-shadow: 5px 5px 5px rgb(75, 75, 239);
+    box-shadow: 5px 5px 5px #fffbaa;
 }
 
 #scoreBox{
     border-radius: 1rem;
     border: 2px solid #9E9E9E;
-    /* position: absolute; */
+    position: absolute;
     font-size: 30px;
-    /* right: 40px; */
-    /* top: 75px; */
+    right: 40px;
+    top: 75px;
     font-family: math;
-    padding: 8px 12px;
+    padding: 3px 12px;
 }
 
 #HiScore{
     border-radius: 1rem;
-    /* position: absolute; */
-    font-size: 30px;
-    /* right: 25px; */
-    border: 2px solid #9E9E9E;
-    /* top: 125px; */
-    font-family: math;
-    padding: 8px 12px;
-}
-
-#board{
     position: absolute;
-    top: 23%;
-    border-radius: 1.5rem;
-    background: #0c4522;
+    font-size: 30px;
+    right: 25px;
+    border: 2px solid #9E9E9E;
+    top: 125px;
+    font-family: math;
+    padding: 3px 12px;
+}
+/*Changed color*/
+#board{
+    margin-top: 4%;
+    border-radius: 1rem;
+    background: #CD853F;
     width: 75vmin;
     height: 75vmin;
     border: 2px solid black;
     display: grid;
+    border-radius: 50px;
     grid-template-rows: repeat(18, 1fr);
     grid-template-columns: repeat(18, 1fr);
 }
+/*Changed color*/
 .head{
-    background:red;
-    transform: scale(1.02);
-    border: 2px solid purple;
-    border-radius: 4px;
-}
-
-.snake{
-    background: red !important; 
+    background:#ffcd6e;
+    transform: scale(1.5);
+    border: 4px solid white;
     border-radius:45%;
 }
-
+/*Changed color*/
+.snake{
+    background:#fffbaa !important; 
+    border-radius:45%;
+      border: 1px solid white;
+    
+}
+/*Changed color*/
 .food{
-    background: brown;
+    background: #8b491c;
     border: none;
     border-radius:8px;
 }
@@ -113,19 +117,4 @@ a{
     position: relative;
     font-size: 30px;
     
-}
-.scores{
-    display: flex;
-    width: 70vw;
-    position: absolute;
-    top: 4rem;
-    justify-content: space-evenly;
-}
-body{
-    height: 100%;
-    overflow-y: hidden;
-}
-
-.fas{
-    margin-left: 20px;
 }

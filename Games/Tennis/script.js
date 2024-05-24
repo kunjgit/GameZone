@@ -46,6 +46,27 @@ function update() {
   ball.x += ball.speedX;
   ball.y += ball.speedY;
 
+  if(paddle1.y + paddle1.height > canvas.height )   //If paddle1 goes down the field
+    {
+      paddle1.y=canvas.height-paddle1.height;       //Go to the lower bound of the field
+    }
+  else if (paddle1.y < 0)                           //If the paddle goes up the field
+    {
+      paddle1.y=0;                                  //GO to the upper bound
+    }
+
+    if(paddle2.y + paddle2.height > canvas.height )   //If paddle1 goes down the field
+    {
+      paddle2.y=canvas.height-paddle2.height;       //Go to the lower bound of the field
+    }
+  else if (paddle2.y < 0)                           //If the paddle goes up the field
+    {
+      paddle2.y=0;                                  //GO to the upper bound
+
+
+
+
+
   if (
     ball.x - ball.radius < paddle1.x + paddle1.width &&
     ball.y + ball.radius > paddle1.y &&

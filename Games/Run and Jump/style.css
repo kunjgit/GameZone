@@ -52,6 +52,13 @@ body{
 .stopandresume:hover {
     transform: scale(1.1);
 }
+
+/* .footer{
+    margin-top: 500px;
+} */
+.footer-1{
+    margin-top: 600px;
+}
 .obstacle{
     width: 30px;
     height: 100px;

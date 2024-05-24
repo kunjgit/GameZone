@@ -28,7 +28,6 @@ var monsterAcceleration = 0.004;
 var malusClearColor = 0xb44b39;
 var malusClearAlpha = 0;
 var audio = new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/Antonio-Vivaldi-Summer_01.mp3');
-
 var fieldGameOver, fieldDistance;
 
 //SCREEN & MOUSE VARIABLES
@@ -157,9 +156,8 @@ function handleWindowResize() {
 
 function handleMouseDown(event){
   if (gameStatus == "play") hero.jump();
-  else if (gameStatus == "readyToReplay"){
-    replay();
-  }
+
+  
 }
 
 function createLights() {
@@ -218,7 +216,7 @@ Hero = function() {
   var torsoGeom = new THREE.CubeGeometry(7, 7, 10, 1);
   
   this.torso = new THREE.Mesh(torsoGeom, brownMat);
-  this.torso.position.z = 0;
+  this.torso.position.z = 0
   this.torso.position.y = 7;
   this.torso.castShadow = true;
   this.body.add(this.torso);
@@ -1035,13 +1033,12 @@ function gameOver(){
   obstacle.mesh.visible = false;
   clearInterval(levelInterval);
 }
+function replay() {
+  // Set the game status to "preparingToReplay"
+  gameStatus = "preparingToReplay";
+  fieldGameOver.className = "hide";
 
-function replay(){
-  
-  gameStatus = "preparingToReplay"
-  
-  fieldGameOver.className = "";
-  
+  // Kill all ongoing animations
   TweenMax.killTweensOf(monster.pawFL.position);
   TweenMax.killTweensOf(monster.pawFR.position);
   TweenMax.killTweensOf(monster.pawBL.position);
@@ -1056,30 +1053,36 @@ function replay(){
   TweenMax.killTweensOf(monster.head.rotation);
   TweenMax.killTweensOf(monster.eyeL.scale);
   TweenMax.killTweensOf(monster.eyeR.scale);
-  
-  //TweenMax.killTweensOf(hero.head.rotation);
-  
+
+  // Reset monster's tail rotation
   monster.tail.rotation.y = 0;
-    
-  TweenMax.to(camera.position, 3, {z:cameraPosGame, x:0, y:30, ease:Power4.easeInOut});
-  TweenMax.to(monster.torso.rotation,2, {x:0, ease:Power4.easeInOut});
-  TweenMax.to(monster.torso.position,2, {y:0, ease:Power4.easeInOut});
-  TweenMax.to(monster.pawFL.rotation,2, {x:0, ease:Power4.easeInOut});
-  TweenMax.to(monster.pawFR.rotation,2, {x:0, ease:Power4.easeInOut});
-  TweenMax.to(monster.mouth.rotation,2, {x:.5, ease:Power4.easeInOut});
-  
-  
-  TweenMax.to(monster.head.rotation,2, {y:0, x:-.3, ease:Power4.easeInOut});
-  
-  TweenMax.to(hero.mesh.position, 2, { x:20, ease:Power4.easeInOut});
-  TweenMax.to(hero.head.rotation, 2, { x:0, y:0, ease:Power4.easeInOut});
-  TweenMax.to(monster.mouth.rotation, 2, {x:.2, ease:Power4.easeInOut});
-  TweenMax.to(monster.mouth.rotation, 1, {x:.4, ease:Power4.easeIn, delay: 1, onComplete:function(){
-    
+
+  // Move the camera to the game position
+  TweenMax.to(camera.position, 3, { z: cameraPosGame, x: 0, y: 30, ease: Power4.easeInOut });
+
+  // Reset monster's position and rotation
+  TweenMax.to(monster.torso.rotation, 2, { x: 0, ease: Power4.easeInOut });
+  TweenMax.to(monster.torso.position, 2, { y: 0, ease: Power4.easeInOut });
+  TweenMax.to(monster.pawFL.rotation, 2, { x: 0, ease: Power4.easeInOut });
+  TweenMax.to(monster.pawFR.rotation, 2, { x: 0, ease: Power4.easeInOut });
+  TweenMax.to(monster.mouth.rotation, 2, { x: 0.5, ease: Power4.easeInOut });
+  TweenMax.to(monster.head.rotation, 2, { y: 0, x: -0.3, ease: Power4.easeInOut });
+
+  // Reset hero's position and rotation
+  TweenMax.to(hero.mesh.position, 2, { x: 20, ease: Power4.easeInOut });
+  TweenMax.to(hero.head.rotation, 2, { x: 0, y: 0, ease: Power4.easeInOut });
+
+  // Reset monster's mouth rotation
+  TweenMax.to(monster.mouth.rotation, 2, { x: 0.2, ease: Power4.easeInOut });
+  TweenMax.to(monster.mouth.rotation, 1, { x: 0.4, ease: Power4.easeIn, delay: 1, onComplete: function() {
+    // Reset the game
     resetGame();
+    
+    // Ensure the game over screen disappears
+    fieldGameOver.classList.remove("show");
   }});
-  
 }
+
 
 Fir = function() {
   var height = 200;
@@ -1224,9 +1227,8 @@ function updateLevel(){
 
 function loop(){
   delta = clock.getDelta();
-  updateFloorRotation();
-  
   if (gameStatus == "play"){
+      updateFloorRotation();
     
     if (hero.status == "running"){
       hero.run();
@@ -1372,3 +1374,47 @@ Trunc = function(){
   
   this.mesh.castShadow = true;
 }
+// Your existing code...
+
+////////////////////////////////////////////////
+//                BUTTONS
+////////////////////////////////////////////////
+
+// Get references to the buttons
+var replayButton = document.getElementById("replayButton");
+var pauseButton = document.getElementById("pauseButton");
+var resumeButton = document.getElementById("resumeButton");
+
+// Add event listeners
+replayButton.addEventListener("click", replay);
+pauseButton.addEventListener("click", pauseGame);
+resumeButton.addEventListener("click", resumeGame);
+
+// Define variables to control game status
+var isPaused = false;
+var pausedDistance = 0;
+
+function pauseGame() {
+    if(isPaused==true)return;
+    isPaused = true;
+    // Store the current distance
+    pausedDistance = distance;
+    // Pause audio
+    audio.pause()
+    // Stop the game
+    gameStatus = "paused";
+}
+
+function resumeGame() {
+    if(isPaused==false)return;
+    isPaused = false;
+    // Resume the game
+    gameStatus = "play";
+    // Play audio
+    audio.play()
+    // Update the distance to the paused distance
+    distance = pausedDistance;
+}
+
+
+

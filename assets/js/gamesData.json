@@ -1985,15 +1985,15 @@
 
 },
 "393":{
-  "gameTitle": "Shrek Vs Wild",
-  "gameUrl": "Shrek_Vs_Wild",
-  "thumbnailUrl": "Shrek_Vs_Wild.png"
-},
-"394":{
   "gameTitle": "path finder puzzle",
   "gameUrl": "path_finder",
   "thumbnailUrl": "pathfinder.png"
 
+},
+"394":{
+  "gameTitle": "Shrek Vs Wild",
+  "gameUrl": "Shrek_Vs_Wild",
+  "thumbnailUrl": "Shrek_Vs_Wild.png"
 }
 
 

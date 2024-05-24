@@ -397,6 +397,7 @@ This repository also provides one such platforms where contributers come over an
 | [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird)                  |
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |   |
 | [path_finder](https://github.com/kunjgit/GameZone/tree/main/Games/path_finder)                  |
+| [Shrek_Vs_Wild](https://github.com/kunjgit/GameZone/tree/main/Games/Shrek_Vs_Wild)                  |
 
  </center>
 

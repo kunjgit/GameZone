@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f7cac9; /* Lighter pink background */
+    background-color: #f7cac9; 
   }
   
   .container {
@@ -20,22 +20,22 @@ body {
   
   h1 {
     margin-bottom: 20px;
-    font-size: 2.5em; /* Increased size */
-    color: purple; /* Purple color */
-    text-align: center; /* Ensures centering */
+    font-size: 2.5em; 
+    color: purple; 
+    text-align: center; 
   }
   
   input[type="text"] {
-    width: 80%; /* Decreased width */
-    padding: 15px; /* Adjusted padding */
+    width: 80%; 
+    padding: 15px; 
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    font-size: 18px; /* Increased size */
+    font-size: 18px;
   }
   
   button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; 
     border: none;
     color: white;
     padding: 10px 20px;

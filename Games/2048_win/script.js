@@ -57,8 +57,8 @@ function cellCreator(c, timeOut) {
     if (randomValue == 1) {
       randomValue = 2;
     } //1 --> 2
-    if (randomValue == 4){
-        randomValue =2;
+    if (randomValue == 4) {
+      randomValue = 2;
     } //4-->2
     var position = document.getElementById("" + randomX + randomY);
     var tile = document.createElement("DIV"); //create div at x, y
@@ -267,14 +267,14 @@ function score() {
   var value = grid.dataset.value;
   document.getElementById("value").innerHTML = "" + value;
 }
-function displayWinningMessage(){
- const winningMessage = document.createElement('p');
-  winningMessage.textContent = 'Congratulations! You won!';
-  winningMessage.style.textAlign = 'center';
-  winningMessage.style.fontSize = '3em';
-  winningMessage.style.color = 'green';
- const messageContainer = document.getElementById('winning-message-container');
- messageContainer.appendChild(winningMessage);
+function displayWinningMessage() {
+  const winningMessage = document.createElement("p");
+  winningMessage.textContent = "Congratulations! You won!";
+  winningMessage.style.textAlign = "center";
+  winningMessage.style.fontSize = "3em";
+  winningMessage.style.color = "green";
+  const messageContainer = document.getElementById("winning-message-container");
+  messageContainer.appendChild(winningMessage);
 }
 
 /* ----- STYLE ----- */

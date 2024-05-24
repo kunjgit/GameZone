@@ -1924,12 +1924,12 @@
   "383": {
     "gameTitle": "Puzzel_Winner",
     "gameUrl": "Puzzel_Winner",
-    "thumbnailUrl": "Puzzel_Winner.png"
+    "thumbnailUrl": "Puzzel_winner.png"
   },
   "384": {
     "gameTitle": "Emoji_Intruder",
     "gameUrl": "Emoji_Intruder",
-    "thumbnailUrl": "Emoji_intruder.png"
+    "thumbnailUrl": "Emoji_Intruder.png"
   },
   "385": {
     "gameTitle": "Guess_The_Weapon",
@@ -1970,12 +1970,23 @@
     "thumbnailUrl": "Dice_Roller.png"
 
   },
+  "393":{
+    "gameTitle": "Dragon Tower",
+    "gameUrl": "Dragon_Tower",
+    "thumbnailUrl": "Dragon_Tower.png"
+  },
   "400":{
 
   "gameTitle": "Chrome_Dino_Game",
     "gameUrl": "Chrome_Dino_Game",
     "thumbnailUrl": "Chrome_Dino_Game.png"
 
+
+  },
+  "399":{
+    "gameTitle": "Brick_and_Ball",
+    "gameUrl": "Brick_and_Ball",
+    "thumbnailUrl": "Brick_and_Ball.png"
 
   },
 "392":{
@@ -1985,6 +1996,7 @@
 
 },
 "393":{
+
   "gameTitle": "Pop My Balloon",
   "gameUrl": "Pop_My_Balloon",
   "thumbnailUrl": "Pop_My_Balloon.png"
@@ -2000,6 +2012,14 @@
   "gameTitle": "Virtual Pet Game",
   "gameUrl": "Virtual_Pet_Game",
   "thumbnailUrl": "Virtual_Pet_Game.png"
+=======
+  "gameTitle": "path finder puzzle",
+  "gameUrl": "path_finder",
+  "thumbnailUrl": "pathfinder.png"
+}
+
+
 
 }
-}
+
+

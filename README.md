@@ -397,7 +397,7 @@ This repository also provides one such platforms where contributers come over an
 | [Pokemon_Stats_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Stats_Card)                  |
 | [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird)                  |
 
-| [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |
+| [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |[2048_Win](https://github.com/kunjgit/GameZone/tree/main/Games/2048_win) |
 
 
  </center>

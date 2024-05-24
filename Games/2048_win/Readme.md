@@ -10,7 +10,7 @@
 
 ## **functionalities 🎮**
 <!-- add functionalities over here -->
-2048 is a game played on a 4×4 grid. Numbered tiles slide as the player moves them using the arrow keys. Each turn, a new tile with a value of 2 appears in an empty spot on the board. When two tiles with the same number collide, they merge into a single tile with the value as the sum of the two merged tiles.
+2048 Win is a game played on a 4×4 grid. Numbered tiles slide as the player moves them using the arrow keys. Each turn, a new tile with a value of 2 appears in an empty spot on the board. When two tiles with the same number collide, they merge into a single tile with the value as the sum of the two merged tiles.
 <br>
 
 ## **How to play? 🕹️**

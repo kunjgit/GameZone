@@ -370,7 +370,6 @@ This repository also provides one such platforms where contributers come over an
 
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                  |
 
-| [Duck_Hunting](https://github.com/kunjgit/GameZone/tree/main/Games/Duck_Hunting)                  |
 
  </center>
 

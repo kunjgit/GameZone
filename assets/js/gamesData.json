@@ -1988,6 +1988,11 @@
   "gameTitle": "path finder puzzle",
   "gameUrl": "path_finder",
   "thumbnailUrl": "pathfinder.png"
+},
+"394":{
+  "gameTitle":"Duck Hunting",
+  "gameUrl":"Duck_Hunting/dist",
+  "thumbnailUrl":"Duck_Hunting.png"
 }
 
 

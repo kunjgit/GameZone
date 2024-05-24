@@ -1,0 +1,4211 @@
+body {
+  margin: 0;
+  background: black;
+}
+.screen {
+  background: #63adff;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  width: 102.4vmin;
+  height: 89.6vmin;
+}
+.t {
+  background-color: #63adff;
+}
+.b {
+  background-color: black;
+}
+.w {
+  background-color: white;
+}
+.g {
+  background-color: #005000;
+}
+.o {
+  background-color: #ff7763;
+}
+.l {
+  background-color: transparent;
+}
+.r {
+  background-color: #8cd600;
+}
+.e {
+  background-color: #005200;
+}
+.n {
+  background-color: #522100;
+}
+.d {
+  background-color: #6b6b00;
+}
+.f {
+  background-color: #9c4a00;
+}
+.i {
+  z-index: 0;
+}
+.j {
+  z-index: 2;
+}
+.k {
+  z-index: 4;
+}
+.r-1 {
+  width: 0.4vmin;
+}
+.r-2 {
+  width: 0.8vmin;
+}
+.r-3 {
+  width: 1.2vmin;
+}
+.r-4 {
+  width: 1.6vmin;
+}
+.r-5 {
+  width: 2vmin;
+}
+.r-6 {
+  width: 2.4vmin;
+}
+.r-7 {
+  width: 2.8vmin;
+}
+.r-8 {
+  width: 3.2vmin;
+}
+.r-9 {
+  width: 3.6vmin;
+}
+.r-10 {
+  width: 4vmin;
+}
+.r-11 {
+  width: 4.4vmin;
+}
+.r-12 {
+  width: 4.8vmin;
+}
+.r-13 {
+  width: 5.2vmin;
+}
+.r-14 {
+  width: 5.6vmin;
+}
+.r-15 {
+  width: 6vmin;
+}
+.r-16 {
+  width: 6.4vmin;
+}
+.r-17 {
+  width: 6.8vmin;
+}
+.r-18 {
+  width: 7.2vmin;
+}
+.r-19 {
+  width: 7.6vmin;
+}
+.r-20 {
+  width: 8vmin;
+}
+.r-21 {
+  width: 8.4vmin;
+}
+.r-22 {
+  width: 8.8vmin;
+}
+.r-23 {
+  width: 9.2vmin;
+}
+.r-24 {
+  width: 9.6vmin;
+}
+.r-25 {
+  width: 10vmin;
+}
+.r-26 {
+  width: 10.4vmin;
+}
+.r-27 {
+  width: 10.8vmin;
+}
+.r-28 {
+  width: 11.2vmin;
+}
+.r-29 {
+  width: 11.6vmin;
+}
+.r-30 {
+  width: 12vmin;
+}
+.r-31 {
+  width: 12.4vmin;
+}
+.r-32 {
+  width: 12.8vmin;
+}
+.r-33 {
+  width: 13.2vmin;
+}
+.r-34 {
+  width: 13.6vmin;
+}
+.r-35 {
+  width: 14vmin;
+}
+.r-36 {
+  width: 14.4vmin;
+}
+.r-37 {
+  width: 14.8vmin;
+}
+.r-38 {
+  width: 15.2vmin;
+}
+.r-39 {
+  width: 15.6vmin;
+}
+.r-40 {
+  width: 16vmin;
+}
+.r-41 {
+  width: 16.4vmin;
+}
+.r-42 {
+  width: 16.8vmin;
+}
+.r-43 {
+  width: 17.2vmin;
+}
+.r-44 {
+  width: 17.6vmin;
+}
+.r-45 {
+  width: 18vmin;
+}
+.r-46 {
+  width: 18.4vmin;
+}
+.r-47 {
+  width: 18.8vmin;
+}
+.r-48 {
+  width: 19.2vmin;
+}
+.r-49 {
+  width: 19.6vmin;
+}
+.r-50 {
+  width: 20vmin;
+}
+.r-51 {
+  width: 20.4vmin;
+}
+.r-52 {
+  width: 20.8vmin;
+}
+.r-53 {
+  width: 21.2vmin;
+}
+.r-54 {
+  width: 21.6vmin;
+}
+.r-55 {
+  width: 22vmin;
+}
+.r-56 {
+  width: 22.4vmin;
+}
+.r-57 {
+  width: 22.8vmin;
+}
+.r-58 {
+  width: 23.2vmin;
+}
+.r-59 {
+  width: 23.6vmin;
+}
+.r-60 {
+  width: 24vmin;
+}
+.r-61 {
+  width: 24.4vmin;
+}
+.r-62 {
+  width: 24.8vmin;
+}
+.r-63 {
+  width: 25.2vmin;
+}
+.r-64 {
+  width: 25.6vmin;
+}
+.r-65 {
+  width: 26vmin;
+}
+.r-66 {
+  width: 26.4vmin;
+}
+.r-67 {
+  width: 26.8vmin;
+}
+.r-68 {
+  width: 27.2vmin;
+}
+.r-69 {
+  width: 27.6vmin;
+}
+.r-70 {
+  width: 28vmin;
+}
+.r-71 {
+  width: 28.4vmin;
+}
+.r-72 {
+  width: 28.8vmin;
+}
+.r-73 {
+  width: 29.2vmin;
+}
+.r-74 {
+  width: 29.6vmin;
+}
+.r-75 {
+  width: 30vmin;
+}
+.r-76 {
+  width: 30.4vmin;
+}
+.r-77 {
+  width: 30.8vmin;
+}
+.r-78 {
+  width: 31.2vmin;
+}
+.r-79 {
+  width: 31.6vmin;
+}
+.r-80 {
+  width: 32vmin;
+}
+.r-81 {
+  width: 32.4vmin;
+}
+.r-82 {
+  width: 32.8vmin;
+}
+.r-83 {
+  width: 33.2vmin;
+}
+.r-84 {
+  width: 33.6vmin;
+}
+.r-85 {
+  width: 34vmin;
+}
+.r-86 {
+  width: 34.4vmin;
+}
+.r-87 {
+  width: 34.8vmin;
+}
+.r-88 {
+  width: 35.2vmin;
+}
+.r-89 {
+  width: 35.6vmin;
+}
+.r-90 {
+  width: 36vmin;
+}
+.r-91 {
+  width: 36.4vmin;
+}
+.r-92 {
+  width: 36.8vmin;
+}
+.r-93 {
+  width: 37.2vmin;
+}
+.r-94 {
+  width: 37.6vmin;
+}
+.r-95 {
+  width: 38vmin;
+}
+.r-96 {
+  width: 38.4vmin;
+}
+.r-97 {
+  width: 38.8vmin;
+}
+.r-98 {
+  width: 39.2vmin;
+}
+.r-99 {
+  width: 39.6vmin;
+}
+.r-100 {
+  width: 40vmin;
+}
+.r-101 {
+  width: 40.4vmin;
+}
+.r-102 {
+  width: 40.8vmin;
+}
+.r-103 {
+  width: 41.2vmin;
+}
+.r-104 {
+  width: 41.6vmin;
+}
+.r-105 {
+  width: 42vmin;
+}
+.r-106 {
+  width: 42.4vmin;
+}
+.r-107 {
+  width: 42.8vmin;
+}
+.r-108 {
+  width: 43.2vmin;
+}
+.r-109 {
+  width: 43.6vmin;
+}
+.r-110 {
+  width: 44vmin;
+}
+.r-111 {
+  width: 44.4vmin;
+}
+.r-112 {
+  width: 44.8vmin;
+}
+.r-113 {
+  width: 45.2vmin;
+}
+.r-114 {
+  width: 45.6vmin;
+}
+.r-115 {
+  width: 46vmin;
+}
+.r-116 {
+  width: 46.4vmin;
+}
+.r-117 {
+  width: 46.8vmin;
+}
+.r-118 {
+  width: 47.2vmin;
+}
+.r-119 {
+  width: 47.6vmin;
+}
+.r-120 {
+  width: 48vmin;
+}
+.r-121 {
+  width: 48.4vmin;
+}
+.r-122 {
+  width: 48.8vmin;
+}
+.r-123 {
+  width: 49.2vmin;
+}
+.r-124 {
+  width: 49.6vmin;
+}
+.r-125 {
+  width: 50vmin;
+}
+.r-126 {
+  width: 50.4vmin;
+}
+.r-127 {
+  width: 50.8vmin;
+}
+.r-128 {
+  width: 51.2vmin;
+}
+.r-129 {
+  width: 51.6vmin;
+}
+.r-130 {
+  width: 52vmin;
+}
+.r-131 {
+  width: 52.4vmin;
+}
+.r-132 {
+  width: 52.8vmin;
+}
+.r-133 {
+  width: 53.2vmin;
+}
+.r-134 {
+  width: 53.6vmin;
+}
+.r-135 {
+  width: 54vmin;
+}
+.r-136 {
+  width: 54.4vmin;
+}
+.r-137 {
+  width: 54.8vmin;
+}
+.r-138 {
+  width: 55.2vmin;
+}
+.r-139 {
+  width: 55.6vmin;
+}
+.r-140 {
+  width: 56vmin;
+}
+.r-141 {
+  width: 56.4vmin;
+}
+.r-142 {
+  width: 56.8vmin;
+}
+.r-143 {
+  width: 57.2vmin;
+}
+.r-144 {
+  width: 57.6vmin;
+}
+.r-145 {
+  width: 58vmin;
+}
+.r-146 {
+  width: 58.4vmin;
+}
+.r-147 {
+  width: 58.8vmin;
+}
+.r-148 {
+  width: 59.2vmin;
+}
+.r-149 {
+  width: 59.6vmin;
+}
+.r-150 {
+  width: 60vmin;
+}
+.r-151 {
+  width: 60.4vmin;
+}
+.r-152 {
+  width: 60.8vmin;
+}
+.r-153 {
+  width: 61.2vmin;
+}
+.r-154 {
+  width: 61.6vmin;
+}
+.r-155 {
+  width: 62vmin;
+}
+.r-156 {
+  width: 62.4vmin;
+}
+.r-157 {
+  width: 62.8vmin;
+}
+.r-158 {
+  width: 63.2vmin;
+}
+.r-159 {
+  width: 63.6vmin;
+}
+.r-160 {
+  width: 64vmin;
+}
+.r-161 {
+  width: 64.4vmin;
+}
+.r-162 {
+  width: 64.8vmin;
+}
+.r-163 {
+  width: 65.2vmin;
+}
+.r-164 {
+  width: 65.6vmin;
+}
+.r-165 {
+  width: 66vmin;
+}
+.r-166 {
+  width: 66.4vmin;
+}
+.r-167 {
+  width: 66.8vmin;
+}
+.r-168 {
+  width: 67.2vmin;
+}
+.r-169 {
+  width: 67.6vmin;
+}
+.r-170 {
+  width: 68vmin;
+}
+.r-171 {
+  width: 68.4vmin;
+}
+.r-172 {
+  width: 68.8vmin;
+}
+.r-173 {
+  width: 69.2vmin;
+}
+.r-174 {
+  width: 69.6vmin;
+}
+.r-175 {
+  width: 70vmin;
+}
+.r-176 {
+  width: 70.4vmin;
+}
+.r-177 {
+  width: 70.8vmin;
+}
+.r-178 {
+  width: 71.2vmin;
+}
+.r-179 {
+  width: 71.6vmin;
+}
+.r-180 {
+  width: 72vmin;
+}
+.r-181 {
+  width: 72.4vmin;
+}
+.r-182 {
+  width: 72.8vmin;
+}
+.r-183 {
+  width: 73.2vmin;
+}
+.r-184 {
+  width: 73.6vmin;
+}
+.r-185 {
+  width: 74vmin;
+}
+.r-186 {
+  width: 74.4vmin;
+}
+.r-187 {
+  width: 74.8vmin;
+}
+.r-188 {
+  width: 75.2vmin;
+}
+.r-189 {
+  width: 75.6vmin;
+}
+.r-190 {
+  width: 76vmin;
+}
+.r-191 {
+  width: 76.4vmin;
+}
+.r-192 {
+  width: 76.8vmin;
+}
+.r-193 {
+  width: 77.2vmin;
+}
+.r-194 {
+  width: 77.6vmin;
+}
+.r-195 {
+  width: 78vmin;
+}
+.r-196 {
+  width: 78.4vmin;
+}
+.r-197 {
+  width: 78.8vmin;
+}
+.r-198 {
+  width: 79.2vmin;
+}
+.r-199 {
+  width: 79.6vmin;
+}
+.r-200 {
+  width: 80vmin;
+}
+.r-201 {
+  width: 80.4vmin;
+}
+.r-202 {
+  width: 80.8vmin;
+}
+.r-203 {
+  width: 81.2vmin;
+}
+.r-204 {
+  width: 81.6vmin;
+}
+.r-205 {
+  width: 82vmin;
+}
+.r-206 {
+  width: 82.4vmin;
+}
+.r-207 {
+  width: 82.8vmin;
+}
+.r-208 {
+  width: 83.2vmin;
+}
+.r-209 {
+  width: 83.6vmin;
+}
+.r-210 {
+  width: 84vmin;
+}
+.r-211 {
+  width: 84.4vmin;
+}
+.r-212 {
+  width: 84.8vmin;
+}
+.r-213 {
+  width: 85.2vmin;
+}
+.r-214 {
+  width: 85.6vmin;
+}
+.r-215 {
+  width: 86vmin;
+}
+.r-216 {
+  width: 86.4vmin;
+}
+.r-217 {
+  width: 86.8vmin;
+}
+.r-218 {
+  width: 87.2vmin;
+}
+.r-219 {
+  width: 87.6vmin;
+}
+.r-220 {
+  width: 88vmin;
+}
+.r-221 {
+  width: 88.4vmin;
+}
+.r-222 {
+  width: 88.8vmin;
+}
+.r-223 {
+  width: 89.2vmin;
+}
+.r-224 {
+  width: 89.6vmin;
+}
+.r-225 {
+  width: 90vmin;
+}
+.r-226 {
+  width: 90.4vmin;
+}
+.r-227 {
+  width: 90.8vmin;
+}
+.r-228 {
+  width: 91.2vmin;
+}
+.r-229 {
+  width: 91.6vmin;
+}
+.r-230 {
+  width: 92vmin;
+}
+.r-231 {
+  width: 92.4vmin;
+}
+.r-232 {
+  width: 92.8vmin;
+}
+.r-233 {
+  width: 93.2vmin;
+}
+.r-234 {
+  width: 93.6vmin;
+}
+.r-235 {
+  width: 94vmin;
+}
+.r-236 {
+  width: 94.4vmin;
+}
+.r-237 {
+  width: 94.8vmin;
+}
+.r-238 {
+  width: 95.2vmin;
+}
+.r-239 {
+  width: 95.6vmin;
+}
+.r-240 {
+  width: 96vmin;
+}
+.r-241 {
+  width: 96.4vmin;
+}
+.r-242 {
+  width: 96.8vmin;
+}
+.r-243 {
+  width: 97.2vmin;
+}
+.r-244 {
+  width: 97.6vmin;
+}
+.r-245 {
+  width: 98vmin;
+}
+.r-246 {
+  width: 98.4vmin;
+}
+.r-247 {
+  width: 98.8vmin;
+}
+.r-248 {
+  width: 99.2vmin;
+}
+.r-249 {
+  width: 99.6vmin;
+}
+.r-250 {
+  width: 100vmin;
+}
+.r-251 {
+  width: 100.4vmin;
+}
+.r-252 {
+  width: 100.8vmin;
+}
+.r-253 {
+  width: 101.2vmin;
+}
+.r-254 {
+  width: 101.6vmin;
+}
+.r-255 {
+  width: 102vmin;
+}
+.r-256 {
+  width: 102.4vmin;
+}
+.frame {
+  position: absolute;
+}
+.frame > div {
+  display: flex;
+}
+.frame > div > div {
+  height: 0.4vmin;
+}
+@keyframes fly-animation-1 {
+  0% {
+    left: 25.6vmin;
+    top: 45.6vmin;
+    transform: scaleX(-1);
+  }
+  12.383428605531254% {
+    left: 0vmin;
+    top: 20vmin;
+    transform: scaleX(-1);
+  }
+  12.393428605531254% {
+    left: 0vmin;
+    top: 20vmin;
+    transform: none;
+  }
+  23.173793913301736% {
+    left: 20vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  23.183793913301738% {
+    left: 20vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  50.135597159965215% {
+    left: 89.6vmin;
+    top: 12.27235786vmin;
+    transform: none;
+  }
+  50.14559715996521% {
+    left: 89.6vmin;
+    top: 12.27235786vmin;
+    transform: scaleX(-1);
+  }
+  84.84504501773888% {
+    left: 0vmin;
+    top: 28.07125533vmin;
+    transform: scaleX(-1);
+  }
+  84.85504501773889% {
+    left: 0vmin;
+    top: 28.07125533vmin;
+    transform: none;
+  }
+  99.99% {
+    left: 23.55457999vmin;
+    top: -13.6vmin;
+    transform: none;
+  }
+  100% {
+    left: 23.55457999vmin;
+    top: -13.6vmin;
+    transform: none;
+  }
+}
+.anim-1 {
+  animation: fly-animation-1 5s linear forwards;
+}
+@keyframes fly-animation-2 {
+  0% {
+    left: 51.2vmin;
+    top: 45.6vmin;
+    transform: none;
+  }
+  15.180566134961442% {
+    left: 89.6vmin;
+    top: 38.82904394vmin;
+    transform: none;
+  }
+  15.190566134961442% {
+    left: 89.6vmin;
+    top: 38.82904394vmin;
+    transform: scaleX(-1);
+  }
+  50.62522044987148% {
+    left: 0vmin;
+    top: 23.03014647vmin;
+    transform: scaleX(-1);
+  }
+  50.635220449871476% {
+    left: 0vmin;
+    top: 23.03014647vmin;
+    transform: none;
+  }
+  63.059995494920564% {
+    left: 22.56985353vmin;
+    top: 45.6vmin;
+    transform: none;
+  }
+  63.06999549492056% {
+    left: 22.56985353vmin;
+    top: 45.6vmin;
+    transform: none;
+  }
+  88.1831422306037% {
+    left: 68.16985353vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  88.19314223060371% {
+    left: 68.16985353vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  99.99% {
+    left: 103.2vmin;
+    top: 17.982028vmin;
+    transform: none;
+  }
+  100% {
+    left: 103.2vmin;
+    top: 17.982028vmin;
+    transform: scaleX(-1);
+  }
+}
+.anim-2 {
+  animation: fly-animation-2 5s linear forwards;
+}
+@keyframes fly-animation-3 {
+  0% {
+    left: 38.4vmin;
+    top: 45.6vmin;
+    transform: scaleX(-1);
+  }
+  19.758401167232517% {
+    left: 0vmin;
+    top: 36.57205859vmin;
+    transform: scaleX(-1);
+  }
+  19.76840116723252% {
+    left: 0vmin;
+    top: 36.57205859vmin;
+    transform: none;
+  }
+  39.42446517907168% {
+    left: 36.57205859vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  39.43446517907168% {
+    left: 36.57205859vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  59.89863742341392% {
+    left: 89.6vmin;
+    top: 9.3502568vmin;
+    transform: none;
+  }
+  59.90863742341392% {
+    left: 89.6vmin;
+    top: 9.3502568vmin;
+    transform: scaleX(-1);
+  }
+  79.39138127392684% {
+    left: 53.3502568vmin;
+    top: 45.6vmin;
+    transform: scaleX(-1);
+  }
+  79.40138127392684% {
+    left: 53.3502568vmin;
+    top: 45.6vmin;
+    transform: scaleX(-1);
+  }
+  99.99% {
+    left: -13.6vmin;
+    top: 40.93245733vmin;
+    transform: scaleX(-1);
+  }
+  100% {
+    left: -13.6vmin;
+    top: 40.93245733vmin;
+    transform: none;
+  }
+}
+.anim-3 {
+  animation: fly-animation-3 5s linear forwards;
+}
+@keyframes fly-animation-4 {
+  0% {
+    left: 0vmin;
+    top: 45.6vmin;
+    transform: none;
+  }
+  21.265410191268465% {
+    left: 18.4vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  21.275410191268467% {
+    left: 18.4vmin;
+    top: 0vmin;
+    transform: scaleX(-1);
+  }
+  29.85022482985047% {
+    left: 0vmin;
+    top: 18.4vmin;
+    transform: scaleX(-1);
+  }
+  29.860224829850473% {
+    left: 0vmin;
+    top: 18.4vmin;
+    transform: none;
+  }
+  59.86635169370207% {
+    left: 89.6vmin;
+    top: 2.60110253vmin;
+    transform: none;
+  }
+  59.87635169370207% {
+    left: 89.6vmin;
+    top: 2.60110253vmin;
+    transform: scaleX(-1);
+  }
+  79.92817584892137% {
+    left: 42.99889747vmin;
+    top: 45.6vmin;
+    transform: scaleX(-1);
+  }
+  79.93817584892138% {
+    left: 42.99889747vmin;
+    top: 45.6vmin;
+    transform: scaleX(-1);
+  }
+  99.99% {
+    left: -13.6vmin;
+    top: 2.60110253vmin;
+    transform: scaleX(-1);
+  }
+  100% {
+    left: -13.6vmin;
+    top: 2.60110253vmin;
+    transform: none;
+  }
+}
+.anim-4 {
+  animation: fly-animation-4 5s linear forwards;
+}
+@keyframes fly-animation-5 {
+  0% {
+    left: 0vmin;
+    top: 45.6vmin;
+    transform: none;
+  }
+  29.464801939417747% {
+    left: 89.6vmin;
+    top: 29.80110253vmin;
+    transform: none;
+  }
+  29.47480193941775% {
+    left: 89.6vmin;
+    top: 29.80110253vmin;
+    transform: scaleX(-1);
+  }
+  58.9396038788355% {
+    left: 0vmin;
+    top: 14.00220506vmin;
+    transform: scaleX(-1);
+  }
+  58.9496038788355% {
+    left: 0vmin;
+    top: 14.00220506vmin;
+    transform: none;
+  }
+  65.35473852366371% {
+    left: 14.00220506vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  65.36473852366372% {
+    left: 14.00220506vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  86.24645797873806% {
+    left: 59.60220506vmin;
+    top: 45.6vmin;
+    transform: none;
+  }
+  86.25645797873807% {
+    left: 59.60220506vmin;
+    top: 45.6vmin;
+    transform: none;
+  }
+  99.99% {
+    left: 103.2vmin;
+    top: 15.60220506vmin;
+    transform: none;
+  }
+  100% {
+    left: 103.2vmin;
+    top: 15.60220506vmin;
+    transform: scaleX(-1);
+  }
+}
+.anim-5 {
+  animation: fly-animation-5 5s linear forwards;
+}
+@keyframes fly-animation-6 {
+  0% {
+    left: 25.6vmin;
+    top: 45.6vmin;
+    transform: scaleX(-1);
+  }
+  12.383428605531254% {
+    left: 0vmin;
+    top: 20vmin;
+    transform: scaleX(-1);
+  }
+  12.393428605531254% {
+    left: 0vmin;
+    top: 20vmin;
+    transform: none;
+  }
+  23.173793913301736% {
+    left: 20vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  23.183793913301738% {
+    left: 20vmin;
+    top: 0vmin;
+    transform: none;
+  }
+  50.135597159965215% {
+    left: 89.6vmin;
+    top: 12.27235786vmin;
+    transform: none;
+  }
+  50.14559715996521% {
+    left: 89.6vmin;
+    top: 12.27235786vmin;
+    transform: scaleX(-1);
+  }
+  84.84504501773888% {
+    left: 0vmin;
+    top: 28.07125533vmin;
+    transform: scaleX(-1);
+  }
+  84.85504501773889% {
+    left: 0vmin;
+    top: 28.07125533vmin;
+    transform: none;
+  }
+  99.99% {
+    left: 28.07125533vmin;
+    top: -13.6vmin;
+    transform: none;
+  }
+  100% {
+    left: 28.07125533vmin;
+    top: -13.6vmin;
+    transform: none;
+  }
+}
+.anim-6 {
+  animation: fly-animation-6 5s linear forwards;
+}
+.duck {
+  width: 12.8vmin;
+  height: 12.8vmin;
+  position: absolute;
+  transform: translateX(-12.8vmin);
+}
+.duck .sprite {
+  position: absolute;
+}
+.duck .sprite.duck-angle > div:nth-child(2) {
+  animation: frame-2-anim 300ms alternate infinite;
+}
+.duck .sprite.duck-angle > div:nth-child(3) {
+  animation: frame-3-anim 300ms alternate infinite;
+}
+.duck .sprite.duck-straight > div:nth-child(2) {
+  animation: frame-2-anim 300ms alternate infinite;
+}
+.duck .sprite.duck-straight > div:nth-child(3) {
+  animation: frame-3-anim 300ms alternate infinite;
+}
+.duck .sprite.duck-shot,
+.duck .sprite.duck-dead {
+  opacity: 0;
+}
+.dog {
+  position: absolute;
+  top: 63.2vmin !important;
+  z-index: 3;
+  transform: scaleX(1) !important;
+}
+.dog .sprite {
+  position: absolute;
+}
+.laugh {
+  transform: translate(calc(50% - 6vmin), 63.2vmin);
+  animation: laugh-anim 1.5s linear;
+}
+.laugh .sprite.laugh-lose > div:nth-child(2) {
+  animation: laugh-frame-anim 200ms infinite;
+}
+.foreground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.foreground:active {
+  animation: flash 50ms;
+}
+.set-1.anim-1 {
+  animation-delay: 1s;
+}
+.set-1.laugh-1 {
+  animation-delay: 6s;
+}
+.set-1.anim-2 {
+  animation-delay: 8s;
+}
+.set-1.laugh-2 {
+  animation-delay: 13s;
+}
+.set-1.anim-3 {
+  animation-delay: 15s;
+}
+.set-1.laugh-3 {
+  animation-delay: 20s;
+}
+.set-1.anim-4 {
+  animation-delay: 22s;
+}
+.set-1.laugh-4 {
+  animation-delay: 27s;
+}
+.set-1.anim-5 {
+  animation-delay: 29s;
+}
+.set-1.laugh-5 {
+  animation-delay: 34s;
+}
+.set-1.anim-6 {
+  animation-delay: 36s;
+}
+.set-1.laugh-6 {
+  animation-delay: 41s;
+}
+.set-2 {
+  animation-play-state: paused;
+  display: none;
+}
+.set-2.anim-1 {
+  animation-delay: -2s;
+}
+.set-2.laugh-1 {
+  animation-delay: 3s;
+}
+.set-2.anim-2 {
+  animation-delay: 5s;
+}
+.set-2.laugh-2 {
+  animation-delay: 10s;
+}
+.set-2.anim-3 {
+  animation-delay: 12s;
+}
+.set-2.laugh-3 {
+  animation-delay: 17s;
+}
+.set-2.anim-4 {
+  animation-delay: 19s;
+}
+.set-2.laugh-4 {
+  animation-delay: 24s;
+}
+.set-2.anim-5 {
+  animation-delay: 26s;
+}
+.set-2.laugh-5 {
+  animation-delay: 31s;
+}
+.set-2.anim-6 {
+  animation-delay: 33s;
+}
+.set-2.laugh-6 {
+  animation-delay: 38s;
+}
+.set-3 {
+  animation-play-state: paused;
+  display: none;
+}
+.set-3.anim-1 {
+  animation-delay: -9s;
+}
+.set-3.laugh-1 {
+  animation-delay: -4s;
+}
+.set-3.anim-2 {
+  animation-delay: -2s;
+}
+.set-3.laugh-2 {
+  animation-delay: 3s;
+}
+.set-3.anim-3 {
+  animation-delay: 5s;
+}
+.set-3.laugh-3 {
+  animation-delay: 10s;
+}
+.set-3.anim-4 {
+  animation-delay: 12s;
+}
+.set-3.laugh-4 {
+  animation-delay: 17s;
+}
+.set-3.anim-5 {
+  animation-delay: 19s;
+}
+.set-3.laugh-5 {
+  animation-delay: 24s;
+}
+.set-3.anim-6 {
+  animation-delay: 26s;
+}
+.set-3.laugh-6 {
+  animation-delay: 31s;
+}
+.set-4 {
+  animation-play-state: paused;
+  display: none;
+}
+.set-4.anim-1 {
+  animation-delay: -16s;
+}
+.set-4.laugh-1 {
+  animation-delay: -11s;
+}
+.set-4.anim-2 {
+  animation-delay: -9s;
+}
+.set-4.laugh-2 {
+  animation-delay: -4s;
+}
+.set-4.anim-3 {
+  animation-delay: -2s;
+}
+.set-4.laugh-3 {
+  animation-delay: 3s;
+}
+.set-4.anim-4 {
+  animation-delay: 5s;
+}
+.set-4.laugh-4 {
+  animation-delay: 10s;
+}
+.set-4.anim-5 {
+  animation-delay: 12s;
+}
+.set-4.laugh-5 {
+  animation-delay: 17s;
+}
+.set-4.anim-6 {
+  animation-delay: 19s;
+}
+.set-4.laugh-6 {
+  animation-delay: 24s;
+}
+.set-5 {
+  animation-play-state: paused;
+  display: none;
+}
+.set-5.anim-1 {
+  animation-delay: -23s;
+}
+.set-5.laugh-1 {
+  animation-delay: -18s;
+}
+.set-5.anim-2 {
+  animation-delay: -16s;
+}
+.set-5.laugh-2 {
+  animation-delay: -11s;
+}
+.set-5.anim-3 {
+  animation-delay: -9s;
+}
+.set-5.laugh-3 {
+  animation-delay: -4s;
+}
+.set-5.anim-4 {
+  animation-delay: -2s;
+}
+.set-5.laugh-4 {
+  animation-delay: 3s;
+}
+.set-5.anim-5 {
+  animation-delay: 5s;
+}
+.set-5.laugh-5 {
+  animation-delay: 10s;
+}
+.set-5.anim-6 {
+  animation-delay: 12s;
+}
+.set-5.laugh-6 {
+  animation-delay: 17s;
+}
+.set-6 {
+  animation-play-state: paused;
+  display: none;
+}
+.set-6.anim-1 {
+  animation-delay: -30s;
+}
+.set-6.laugh-1 {
+  animation-delay: -25s;
+}
+.set-6.anim-2 {
+  animation-delay: -23s;
+}
+.set-6.laugh-2 {
+  animation-delay: -18s;
+}
+.set-6.anim-3 {
+  animation-delay: -16s;
+}
+.set-6.laugh-3 {
+  animation-delay: -11s;
+}
+.set-6.anim-4 {
+  animation-delay: -9s;
+}
+.set-6.laugh-4 {
+  animation-delay: -4s;
+}
+.set-6.anim-5 {
+  animation-delay: -2s;
+}
+.set-6.laugh-5 {
+  animation-delay: 3s;
+}
+.set-6.anim-6 {
+  animation-delay: 5s;
+}
+.set-6.laugh-6 {
+  animation-delay: 10s;
+}
+.control {
+  position: absolute;
+  width: 12.8vmin;
+  height: 12.8vmin;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  opacity: 0;
+}
+.control:active ~ .foreground {
+  animation: flash 50ms;
+}
+.control.set-1.control-1:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-1.control-1:checked ~ .set-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-1:checked ~ .set-1.duck-1 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-1.control-1:checked ~ .set-1.duck-1 .sprite.duck-angle,
+.control.set-1.control-1:checked ~ .set-1.duck-1 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-1.control-1:checked ~ .set-1.duck-1 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-1.control-1:checked ~ .set-1.duck-1 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-1.control-1:checked ~ .set-1.duck-1 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-1.control-1:checked ~ .set-1.dog-1 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-1.control-1:checked ~ .set-2 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-1.control-1:checked ~ .set-2.control-1,
+.control.set-1.control-1:checked ~ .set-2.duck-1,
+.control.set-1.control-1:checked ~ .set-2.dog-1,
+.control.set-1.control-1:checked ~ .set-2.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-1:checked ~ .set-2.control-2,
+.control.set-1.control-1:checked ~ .set-2.duck-2,
+.control.set-1.control-1:checked ~ .set-2.dog-2 {
+  animation-delay: 5s;
+}
+.control.set-1.control-1:checked ~ .set-2.laugh-2 {
+  animation-delay: 10s;
+}
+.control.set-1.control-1:checked ~ .set-2.control-3,
+.control.set-1.control-1:checked ~ .set-2.duck-3,
+.control.set-1.control-1:checked ~ .set-2.dog-3 {
+  animation-delay: 12s;
+}
+.control.set-1.control-1:checked ~ .set-2.laugh-3 {
+  animation-delay: 17s;
+}
+.control.set-1.control-1:checked ~ .set-2.control-4,
+.control.set-1.control-1:checked ~ .set-2.duck-4,
+.control.set-1.control-1:checked ~ .set-2.dog-4 {
+  animation-delay: 19s;
+}
+.control.set-1.control-1:checked ~ .set-2.laugh-4 {
+  animation-delay: 24s;
+}
+.control.set-1.control-1:checked ~ .set-2.control-5,
+.control.set-1.control-1:checked ~ .set-2.duck-5,
+.control.set-1.control-1:checked ~ .set-2.dog-5 {
+  animation-delay: 26s;
+}
+.control.set-1.control-1:checked ~ .set-2.laugh-5 {
+  animation-delay: 31s;
+}
+.control.set-1.control-1:checked ~ .set-2.control-6,
+.control.set-1.control-1:checked ~ .set-2.duck-6,
+.control.set-1.control-1:checked ~ .set-2.dog-6 {
+  animation-delay: 33s;
+}
+.control.set-1.control-1:checked ~ .set-2.laugh-6 {
+  animation-delay: 38s;
+}
+.control.set-1.control-2:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-1.control-2:checked ~ .set-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-2:checked ~ .set-1.duck-2 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-1.control-2:checked ~ .set-1.duck-2 .sprite.duck-angle,
+.control.set-1.control-2:checked ~ .set-1.duck-2 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-1.control-2:checked ~ .set-1.duck-2 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-1.control-2:checked ~ .set-1.duck-2 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-1.control-2:checked ~ .set-1.duck-2 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-1.control-2:checked ~ .set-1.dog-2 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-1.control-2:checked ~ .set-2 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-1.control-2:checked ~ .set-2.control-1,
+.control.set-1.control-2:checked ~ .set-2.duck-1,
+.control.set-1.control-2:checked ~ .set-2.dog-1,
+.control.set-1.control-2:checked ~ .set-2.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-2:checked ~ .set-2.control-2,
+.control.set-1.control-2:checked ~ .set-2.duck-2,
+.control.set-1.control-2:checked ~ .set-2.dog-2,
+.control.set-1.control-2:checked ~ .set-2.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-1.control-2:checked ~ .set-2.control-3,
+.control.set-1.control-2:checked ~ .set-2.duck-3,
+.control.set-1.control-2:checked ~ .set-2.dog-3 {
+  animation-delay: 5s;
+}
+.control.set-1.control-2:checked ~ .set-2.laugh-3 {
+  animation-delay: 10s;
+}
+.control.set-1.control-2:checked ~ .set-2.control-4,
+.control.set-1.control-2:checked ~ .set-2.duck-4,
+.control.set-1.control-2:checked ~ .set-2.dog-4 {
+  animation-delay: 12s;
+}
+.control.set-1.control-2:checked ~ .set-2.laugh-4 {
+  animation-delay: 17s;
+}
+.control.set-1.control-2:checked ~ .set-2.control-5,
+.control.set-1.control-2:checked ~ .set-2.duck-5,
+.control.set-1.control-2:checked ~ .set-2.dog-5 {
+  animation-delay: 19s;
+}
+.control.set-1.control-2:checked ~ .set-2.laugh-5 {
+  animation-delay: 24s;
+}
+.control.set-1.control-2:checked ~ .set-2.control-6,
+.control.set-1.control-2:checked ~ .set-2.duck-6,
+.control.set-1.control-2:checked ~ .set-2.dog-6 {
+  animation-delay: 26s;
+}
+.control.set-1.control-2:checked ~ .set-2.laugh-6 {
+  animation-delay: 31s;
+}
+.control.set-1.control-3:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-1.control-3:checked ~ .set-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-3:checked ~ .set-1.duck-3 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-1.control-3:checked ~ .set-1.duck-3 .sprite.duck-angle,
+.control.set-1.control-3:checked ~ .set-1.duck-3 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-1.control-3:checked ~ .set-1.duck-3 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-1.control-3:checked ~ .set-1.duck-3 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-1.control-3:checked ~ .set-1.duck-3 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-1.control-3:checked ~ .set-1.dog-3 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-1.control-3:checked ~ .set-2 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-1.control-3:checked ~ .set-2.control-1,
+.control.set-1.control-3:checked ~ .set-2.duck-1,
+.control.set-1.control-3:checked ~ .set-2.dog-1,
+.control.set-1.control-3:checked ~ .set-2.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-3:checked ~ .set-2.control-2,
+.control.set-1.control-3:checked ~ .set-2.duck-2,
+.control.set-1.control-3:checked ~ .set-2.dog-2,
+.control.set-1.control-3:checked ~ .set-2.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-1.control-3:checked ~ .set-2.control-3,
+.control.set-1.control-3:checked ~ .set-2.duck-3,
+.control.set-1.control-3:checked ~ .set-2.dog-3,
+.control.set-1.control-3:checked ~ .set-2.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-1.control-3:checked ~ .set-2.control-4,
+.control.set-1.control-3:checked ~ .set-2.duck-4,
+.control.set-1.control-3:checked ~ .set-2.dog-4 {
+  animation-delay: 5s;
+}
+.control.set-1.control-3:checked ~ .set-2.laugh-4 {
+  animation-delay: 10s;
+}
+.control.set-1.control-3:checked ~ .set-2.control-5,
+.control.set-1.control-3:checked ~ .set-2.duck-5,
+.control.set-1.control-3:checked ~ .set-2.dog-5 {
+  animation-delay: 12s;
+}
+.control.set-1.control-3:checked ~ .set-2.laugh-5 {
+  animation-delay: 17s;
+}
+.control.set-1.control-3:checked ~ .set-2.control-6,
+.control.set-1.control-3:checked ~ .set-2.duck-6,
+.control.set-1.control-3:checked ~ .set-2.dog-6 {
+  animation-delay: 19s;
+}
+.control.set-1.control-3:checked ~ .set-2.laugh-6 {
+  animation-delay: 24s;
+}
+.control.set-1.control-4:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-1.control-4:checked ~ .set-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-4:checked ~ .set-1.duck-4 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-1.control-4:checked ~ .set-1.duck-4 .sprite.duck-angle,
+.control.set-1.control-4:checked ~ .set-1.duck-4 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-1.control-4:checked ~ .set-1.duck-4 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-1.control-4:checked ~ .set-1.duck-4 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-1.control-4:checked ~ .set-1.duck-4 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-1.control-4:checked ~ .set-1.dog-4 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-1.control-4:checked ~ .set-2 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-1.control-4:checked ~ .set-2.control-1,
+.control.set-1.control-4:checked ~ .set-2.duck-1,
+.control.set-1.control-4:checked ~ .set-2.dog-1,
+.control.set-1.control-4:checked ~ .set-2.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-4:checked ~ .set-2.control-2,
+.control.set-1.control-4:checked ~ .set-2.duck-2,
+.control.set-1.control-4:checked ~ .set-2.dog-2,
+.control.set-1.control-4:checked ~ .set-2.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-1.control-4:checked ~ .set-2.control-3,
+.control.set-1.control-4:checked ~ .set-2.duck-3,
+.control.set-1.control-4:checked ~ .set-2.dog-3,
+.control.set-1.control-4:checked ~ .set-2.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-1.control-4:checked ~ .set-2.control-4,
+.control.set-1.control-4:checked ~ .set-2.duck-4,
+.control.set-1.control-4:checked ~ .set-2.dog-4,
+.control.set-1.control-4:checked ~ .set-2.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-1.control-4:checked ~ .set-2.control-5,
+.control.set-1.control-4:checked ~ .set-2.duck-5,
+.control.set-1.control-4:checked ~ .set-2.dog-5 {
+  animation-delay: 5s;
+}
+.control.set-1.control-4:checked ~ .set-2.laugh-5 {
+  animation-delay: 10s;
+}
+.control.set-1.control-4:checked ~ .set-2.control-6,
+.control.set-1.control-4:checked ~ .set-2.duck-6,
+.control.set-1.control-4:checked ~ .set-2.dog-6 {
+  animation-delay: 12s;
+}
+.control.set-1.control-4:checked ~ .set-2.laugh-6 {
+  animation-delay: 17s;
+}
+.control.set-1.control-5:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-1.control-5:checked ~ .set-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-5:checked ~ .set-1.duck-5 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-1.control-5:checked ~ .set-1.duck-5 .sprite.duck-angle,
+.control.set-1.control-5:checked ~ .set-1.duck-5 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-1.control-5:checked ~ .set-1.duck-5 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-1.control-5:checked ~ .set-1.duck-5 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-1.control-5:checked ~ .set-1.duck-5 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-1.control-5:checked ~ .set-1.dog-5 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-1.control-5:checked ~ .set-2 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-1.control-5:checked ~ .set-2.control-1,
+.control.set-1.control-5:checked ~ .set-2.duck-1,
+.control.set-1.control-5:checked ~ .set-2.dog-1,
+.control.set-1.control-5:checked ~ .set-2.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-5:checked ~ .set-2.control-2,
+.control.set-1.control-5:checked ~ .set-2.duck-2,
+.control.set-1.control-5:checked ~ .set-2.dog-2,
+.control.set-1.control-5:checked ~ .set-2.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-1.control-5:checked ~ .set-2.control-3,
+.control.set-1.control-5:checked ~ .set-2.duck-3,
+.control.set-1.control-5:checked ~ .set-2.dog-3,
+.control.set-1.control-5:checked ~ .set-2.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-1.control-5:checked ~ .set-2.control-4,
+.control.set-1.control-5:checked ~ .set-2.duck-4,
+.control.set-1.control-5:checked ~ .set-2.dog-4,
+.control.set-1.control-5:checked ~ .set-2.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-1.control-5:checked ~ .set-2.control-5,
+.control.set-1.control-5:checked ~ .set-2.duck-5,
+.control.set-1.control-5:checked ~ .set-2.dog-5,
+.control.set-1.control-5:checked ~ .set-2.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-1.control-5:checked ~ .set-2.control-6,
+.control.set-1.control-5:checked ~ .set-2.duck-6,
+.control.set-1.control-5:checked ~ .set-2.dog-6 {
+  animation-delay: 5s;
+}
+.control.set-1.control-5:checked ~ .set-2.laugh-6 {
+  animation-delay: 10s;
+}
+.control.set-1.control-6:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-1.control-6:checked ~ .set-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-6:checked ~ .set-1.duck-6 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-1.control-6:checked ~ .set-1.duck-6 .sprite.duck-angle,
+.control.set-1.control-6:checked ~ .set-1.duck-6 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-1.control-6:checked ~ .set-1.duck-6 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-1.control-6:checked ~ .set-1.duck-6 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-1.control-6:checked ~ .set-1.duck-6 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-1.control-6:checked ~ .set-1.dog-6 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-1.control-6:checked ~ .set-2 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-1.control-6:checked ~ .set-2.control-1,
+.control.set-1.control-6:checked ~ .set-2.duck-1,
+.control.set-1.control-6:checked ~ .set-2.dog-1,
+.control.set-1.control-6:checked ~ .set-2.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-1.control-6:checked ~ .set-2.control-2,
+.control.set-1.control-6:checked ~ .set-2.duck-2,
+.control.set-1.control-6:checked ~ .set-2.dog-2,
+.control.set-1.control-6:checked ~ .set-2.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-1.control-6:checked ~ .set-2.control-3,
+.control.set-1.control-6:checked ~ .set-2.duck-3,
+.control.set-1.control-6:checked ~ .set-2.dog-3,
+.control.set-1.control-6:checked ~ .set-2.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-1.control-6:checked ~ .set-2.control-4,
+.control.set-1.control-6:checked ~ .set-2.duck-4,
+.control.set-1.control-6:checked ~ .set-2.dog-4,
+.control.set-1.control-6:checked ~ .set-2.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-1.control-6:checked ~ .set-2.control-5,
+.control.set-1.control-6:checked ~ .set-2.duck-5,
+.control.set-1.control-6:checked ~ .set-2.dog-5,
+.control.set-1.control-6:checked ~ .set-2.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-1.control-6:checked ~ .set-2.control-6,
+.control.set-1.control-6:checked ~ .set-2.duck-6,
+.control.set-1.control-6:checked ~ .set-2.dog-6,
+.control.set-1.control-6:checked ~ .set-2.laugh-6 {
+  animation-play-state: paused;
+}
+.control.set-2.control-1:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-2.control-1:checked ~ .set-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-1:checked ~ .set-2.duck-1 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-2.control-1:checked ~ .set-2.duck-1 .sprite.duck-angle,
+.control.set-2.control-1:checked ~ .set-2.duck-1 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-2.control-1:checked ~ .set-2.duck-1 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-2.control-1:checked ~ .set-2.duck-1 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-2.control-1:checked ~ .set-2.duck-1 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-2.control-1:checked ~ .set-2.dog-1 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-2.control-1:checked ~ .set-3 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-2.control-1:checked ~ .set-3.control-1,
+.control.set-2.control-1:checked ~ .set-3.duck-1,
+.control.set-2.control-1:checked ~ .set-3.dog-1,
+.control.set-2.control-1:checked ~ .set-3.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-2.control-1:checked ~ .set-3.control-2,
+.control.set-2.control-1:checked ~ .set-3.duck-2,
+.control.set-2.control-1:checked ~ .set-3.dog-2 {
+  animation-delay: 5s;
+}
+.control.set-2.control-1:checked ~ .set-3.laugh-2 {
+  animation-delay: 10s;
+}
+.control.set-2.control-1:checked ~ .set-3.control-3,
+.control.set-2.control-1:checked ~ .set-3.duck-3,
+.control.set-2.control-1:checked ~ .set-3.dog-3 {
+  animation-delay: 12s;
+}
+.control.set-2.control-1:checked ~ .set-3.laugh-3 {
+  animation-delay: 17s;
+}
+.control.set-2.control-1:checked ~ .set-3.control-4,
+.control.set-2.control-1:checked ~ .set-3.duck-4,
+.control.set-2.control-1:checked ~ .set-3.dog-4 {
+  animation-delay: 19s;
+}
+.control.set-2.control-1:checked ~ .set-3.laugh-4 {
+  animation-delay: 24s;
+}
+.control.set-2.control-1:checked ~ .set-3.control-5,
+.control.set-2.control-1:checked ~ .set-3.duck-5,
+.control.set-2.control-1:checked ~ .set-3.dog-5 {
+  animation-delay: 26s;
+}
+.control.set-2.control-1:checked ~ .set-3.laugh-5 {
+  animation-delay: 31s;
+}
+.control.set-2.control-1:checked ~ .set-3.control-6,
+.control.set-2.control-1:checked ~ .set-3.duck-6,
+.control.set-2.control-1:checked ~ .set-3.dog-6 {
+  animation-delay: 33s;
+}
+.control.set-2.control-1:checked ~ .set-3.laugh-6 {
+  animation-delay: 38s;
+}
+.control.set-2.control-2:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-2.control-2:checked ~ .set-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-2:checked ~ .set-2.duck-2 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-2.control-2:checked ~ .set-2.duck-2 .sprite.duck-angle,
+.control.set-2.control-2:checked ~ .set-2.duck-2 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-2.control-2:checked ~ .set-2.duck-2 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-2.control-2:checked ~ .set-2.duck-2 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-2.control-2:checked ~ .set-2.duck-2 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-2.control-2:checked ~ .set-2.dog-2 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-2.control-2:checked ~ .set-3 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-2.control-2:checked ~ .set-3.control-1,
+.control.set-2.control-2:checked ~ .set-3.duck-1,
+.control.set-2.control-2:checked ~ .set-3.dog-1,
+.control.set-2.control-2:checked ~ .set-3.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-2.control-2:checked ~ .set-3.control-2,
+.control.set-2.control-2:checked ~ .set-3.duck-2,
+.control.set-2.control-2:checked ~ .set-3.dog-2,
+.control.set-2.control-2:checked ~ .set-3.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-2:checked ~ .set-3.control-3,
+.control.set-2.control-2:checked ~ .set-3.duck-3,
+.control.set-2.control-2:checked ~ .set-3.dog-3 {
+  animation-delay: 5s;
+}
+.control.set-2.control-2:checked ~ .set-3.laugh-3 {
+  animation-delay: 10s;
+}
+.control.set-2.control-2:checked ~ .set-3.control-4,
+.control.set-2.control-2:checked ~ .set-3.duck-4,
+.control.set-2.control-2:checked ~ .set-3.dog-4 {
+  animation-delay: 12s;
+}
+.control.set-2.control-2:checked ~ .set-3.laugh-4 {
+  animation-delay: 17s;
+}
+.control.set-2.control-2:checked ~ .set-3.control-5,
+.control.set-2.control-2:checked ~ .set-3.duck-5,
+.control.set-2.control-2:checked ~ .set-3.dog-5 {
+  animation-delay: 19s;
+}
+.control.set-2.control-2:checked ~ .set-3.laugh-5 {
+  animation-delay: 24s;
+}
+.control.set-2.control-2:checked ~ .set-3.control-6,
+.control.set-2.control-2:checked ~ .set-3.duck-6,
+.control.set-2.control-2:checked ~ .set-3.dog-6 {
+  animation-delay: 26s;
+}
+.control.set-2.control-2:checked ~ .set-3.laugh-6 {
+  animation-delay: 31s;
+}
+.control.set-2.control-3:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-2.control-3:checked ~ .set-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-3:checked ~ .set-2.duck-3 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-2.control-3:checked ~ .set-2.duck-3 .sprite.duck-angle,
+.control.set-2.control-3:checked ~ .set-2.duck-3 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-2.control-3:checked ~ .set-2.duck-3 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-2.control-3:checked ~ .set-2.duck-3 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-2.control-3:checked ~ .set-2.duck-3 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-2.control-3:checked ~ .set-2.dog-3 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-2.control-3:checked ~ .set-3 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-2.control-3:checked ~ .set-3.control-1,
+.control.set-2.control-3:checked ~ .set-3.duck-1,
+.control.set-2.control-3:checked ~ .set-3.dog-1,
+.control.set-2.control-3:checked ~ .set-3.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-2.control-3:checked ~ .set-3.control-2,
+.control.set-2.control-3:checked ~ .set-3.duck-2,
+.control.set-2.control-3:checked ~ .set-3.dog-2,
+.control.set-2.control-3:checked ~ .set-3.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-3:checked ~ .set-3.control-3,
+.control.set-2.control-3:checked ~ .set-3.duck-3,
+.control.set-2.control-3:checked ~ .set-3.dog-3,
+.control.set-2.control-3:checked ~ .set-3.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-2.control-3:checked ~ .set-3.control-4,
+.control.set-2.control-3:checked ~ .set-3.duck-4,
+.control.set-2.control-3:checked ~ .set-3.dog-4 {
+  animation-delay: 5s;
+}
+.control.set-2.control-3:checked ~ .set-3.laugh-4 {
+  animation-delay: 10s;
+}
+.control.set-2.control-3:checked ~ .set-3.control-5,
+.control.set-2.control-3:checked ~ .set-3.duck-5,
+.control.set-2.control-3:checked ~ .set-3.dog-5 {
+  animation-delay: 12s;
+}
+.control.set-2.control-3:checked ~ .set-3.laugh-5 {
+  animation-delay: 17s;
+}
+.control.set-2.control-3:checked ~ .set-3.control-6,
+.control.set-2.control-3:checked ~ .set-3.duck-6,
+.control.set-2.control-3:checked ~ .set-3.dog-6 {
+  animation-delay: 19s;
+}
+.control.set-2.control-3:checked ~ .set-3.laugh-6 {
+  animation-delay: 24s;
+}
+.control.set-2.control-4:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-2.control-4:checked ~ .set-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-4:checked ~ .set-2.duck-4 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-2.control-4:checked ~ .set-2.duck-4 .sprite.duck-angle,
+.control.set-2.control-4:checked ~ .set-2.duck-4 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-2.control-4:checked ~ .set-2.duck-4 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-2.control-4:checked ~ .set-2.duck-4 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-2.control-4:checked ~ .set-2.duck-4 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-2.control-4:checked ~ .set-2.dog-4 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-2.control-4:checked ~ .set-3 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-2.control-4:checked ~ .set-3.control-1,
+.control.set-2.control-4:checked ~ .set-3.duck-1,
+.control.set-2.control-4:checked ~ .set-3.dog-1,
+.control.set-2.control-4:checked ~ .set-3.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-2.control-4:checked ~ .set-3.control-2,
+.control.set-2.control-4:checked ~ .set-3.duck-2,
+.control.set-2.control-4:checked ~ .set-3.dog-2,
+.control.set-2.control-4:checked ~ .set-3.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-4:checked ~ .set-3.control-3,
+.control.set-2.control-4:checked ~ .set-3.duck-3,
+.control.set-2.control-4:checked ~ .set-3.dog-3,
+.control.set-2.control-4:checked ~ .set-3.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-2.control-4:checked ~ .set-3.control-4,
+.control.set-2.control-4:checked ~ .set-3.duck-4,
+.control.set-2.control-4:checked ~ .set-3.dog-4,
+.control.set-2.control-4:checked ~ .set-3.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-2.control-4:checked ~ .set-3.control-5,
+.control.set-2.control-4:checked ~ .set-3.duck-5,
+.control.set-2.control-4:checked ~ .set-3.dog-5 {
+  animation-delay: 5s;
+}
+.control.set-2.control-4:checked ~ .set-3.laugh-5 {
+  animation-delay: 10s;
+}
+.control.set-2.control-4:checked ~ .set-3.control-6,
+.control.set-2.control-4:checked ~ .set-3.duck-6,
+.control.set-2.control-4:checked ~ .set-3.dog-6 {
+  animation-delay: 12s;
+}
+.control.set-2.control-4:checked ~ .set-3.laugh-6 {
+  animation-delay: 17s;
+}
+.control.set-2.control-5:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-2.control-5:checked ~ .set-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-5:checked ~ .set-2.duck-5 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-2.control-5:checked ~ .set-2.duck-5 .sprite.duck-angle,
+.control.set-2.control-5:checked ~ .set-2.duck-5 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-2.control-5:checked ~ .set-2.duck-5 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-2.control-5:checked ~ .set-2.duck-5 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-2.control-5:checked ~ .set-2.duck-5 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-2.control-5:checked ~ .set-2.dog-5 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-2.control-5:checked ~ .set-3 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-2.control-5:checked ~ .set-3.control-1,
+.control.set-2.control-5:checked ~ .set-3.duck-1,
+.control.set-2.control-5:checked ~ .set-3.dog-1,
+.control.set-2.control-5:checked ~ .set-3.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-2.control-5:checked ~ .set-3.control-2,
+.control.set-2.control-5:checked ~ .set-3.duck-2,
+.control.set-2.control-5:checked ~ .set-3.dog-2,
+.control.set-2.control-5:checked ~ .set-3.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-5:checked ~ .set-3.control-3,
+.control.set-2.control-5:checked ~ .set-3.duck-3,
+.control.set-2.control-5:checked ~ .set-3.dog-3,
+.control.set-2.control-5:checked ~ .set-3.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-2.control-5:checked ~ .set-3.control-4,
+.control.set-2.control-5:checked ~ .set-3.duck-4,
+.control.set-2.control-5:checked ~ .set-3.dog-4,
+.control.set-2.control-5:checked ~ .set-3.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-2.control-5:checked ~ .set-3.control-5,
+.control.set-2.control-5:checked ~ .set-3.duck-5,
+.control.set-2.control-5:checked ~ .set-3.dog-5,
+.control.set-2.control-5:checked ~ .set-3.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-2.control-5:checked ~ .set-3.control-6,
+.control.set-2.control-5:checked ~ .set-3.duck-6,
+.control.set-2.control-5:checked ~ .set-3.dog-6 {
+  animation-delay: 5s;
+}
+.control.set-2.control-5:checked ~ .set-3.laugh-6 {
+  animation-delay: 10s;
+}
+.control.set-2.control-6:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-2.control-6:checked ~ .set-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-6:checked ~ .set-2.duck-6 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-2.control-6:checked ~ .set-2.duck-6 .sprite.duck-angle,
+.control.set-2.control-6:checked ~ .set-2.duck-6 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-2.control-6:checked ~ .set-2.duck-6 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-2.control-6:checked ~ .set-2.duck-6 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-2.control-6:checked ~ .set-2.duck-6 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-2.control-6:checked ~ .set-2.dog-6 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-2.control-6:checked ~ .set-3 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-2.control-6:checked ~ .set-3.control-1,
+.control.set-2.control-6:checked ~ .set-3.duck-1,
+.control.set-2.control-6:checked ~ .set-3.dog-1,
+.control.set-2.control-6:checked ~ .set-3.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-2.control-6:checked ~ .set-3.control-2,
+.control.set-2.control-6:checked ~ .set-3.duck-2,
+.control.set-2.control-6:checked ~ .set-3.dog-2,
+.control.set-2.control-6:checked ~ .set-3.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-2.control-6:checked ~ .set-3.control-3,
+.control.set-2.control-6:checked ~ .set-3.duck-3,
+.control.set-2.control-6:checked ~ .set-3.dog-3,
+.control.set-2.control-6:checked ~ .set-3.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-2.control-6:checked ~ .set-3.control-4,
+.control.set-2.control-6:checked ~ .set-3.duck-4,
+.control.set-2.control-6:checked ~ .set-3.dog-4,
+.control.set-2.control-6:checked ~ .set-3.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-2.control-6:checked ~ .set-3.control-5,
+.control.set-2.control-6:checked ~ .set-3.duck-5,
+.control.set-2.control-6:checked ~ .set-3.dog-5,
+.control.set-2.control-6:checked ~ .set-3.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-2.control-6:checked ~ .set-3.control-6,
+.control.set-2.control-6:checked ~ .set-3.duck-6,
+.control.set-2.control-6:checked ~ .set-3.dog-6,
+.control.set-2.control-6:checked ~ .set-3.laugh-6 {
+  animation-play-state: paused;
+}
+.control.set-3.control-1:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-3.control-1:checked ~ .set-3 {
+  animation-play-state: paused;
+}
+.control.set-3.control-1:checked ~ .set-3.duck-1 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-3.control-1:checked ~ .set-3.duck-1 .sprite.duck-angle,
+.control.set-3.control-1:checked ~ .set-3.duck-1 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-3.control-1:checked ~ .set-3.duck-1 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-3.control-1:checked ~ .set-3.duck-1 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-3.control-1:checked ~ .set-3.duck-1 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-3.control-1:checked ~ .set-3.dog-1 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-3.control-1:checked ~ .set-4 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-3.control-1:checked ~ .set-4.control-1,
+.control.set-3.control-1:checked ~ .set-4.duck-1,
+.control.set-3.control-1:checked ~ .set-4.dog-1,
+.control.set-3.control-1:checked ~ .set-4.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-3.control-1:checked ~ .set-4.control-2,
+.control.set-3.control-1:checked ~ .set-4.duck-2,
+.control.set-3.control-1:checked ~ .set-4.dog-2 {
+  animation-delay: 5s;
+}
+.control.set-3.control-1:checked ~ .set-4.laugh-2 {
+  animation-delay: 10s;
+}
+.control.set-3.control-1:checked ~ .set-4.control-3,
+.control.set-3.control-1:checked ~ .set-4.duck-3,
+.control.set-3.control-1:checked ~ .set-4.dog-3 {
+  animation-delay: 12s;
+}
+.control.set-3.control-1:checked ~ .set-4.laugh-3 {
+  animation-delay: 17s;
+}
+.control.set-3.control-1:checked ~ .set-4.control-4,
+.control.set-3.control-1:checked ~ .set-4.duck-4,
+.control.set-3.control-1:checked ~ .set-4.dog-4 {
+  animation-delay: 19s;
+}
+.control.set-3.control-1:checked ~ .set-4.laugh-4 {
+  animation-delay: 24s;
+}
+.control.set-3.control-1:checked ~ .set-4.control-5,
+.control.set-3.control-1:checked ~ .set-4.duck-5,
+.control.set-3.control-1:checked ~ .set-4.dog-5 {
+  animation-delay: 26s;
+}
+.control.set-3.control-1:checked ~ .set-4.laugh-5 {
+  animation-delay: 31s;
+}
+.control.set-3.control-1:checked ~ .set-4.control-6,
+.control.set-3.control-1:checked ~ .set-4.duck-6,
+.control.set-3.control-1:checked ~ .set-4.dog-6 {
+  animation-delay: 33s;
+}
+.control.set-3.control-1:checked ~ .set-4.laugh-6 {
+  animation-delay: 38s;
+}
+.control.set-3.control-2:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-3.control-2:checked ~ .set-3 {
+  animation-play-state: paused;
+}
+.control.set-3.control-2:checked ~ .set-3.duck-2 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-3.control-2:checked ~ .set-3.duck-2 .sprite.duck-angle,
+.control.set-3.control-2:checked ~ .set-3.duck-2 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-3.control-2:checked ~ .set-3.duck-2 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-3.control-2:checked ~ .set-3.duck-2 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-3.control-2:checked ~ .set-3.duck-2 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-3.control-2:checked ~ .set-3.dog-2 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-3.control-2:checked ~ .set-4 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-3.control-2:checked ~ .set-4.control-1,
+.control.set-3.control-2:checked ~ .set-4.duck-1,
+.control.set-3.control-2:checked ~ .set-4.dog-1,
+.control.set-3.control-2:checked ~ .set-4.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-3.control-2:checked ~ .set-4.control-2,
+.control.set-3.control-2:checked ~ .set-4.duck-2,
+.control.set-3.control-2:checked ~ .set-4.dog-2,
+.control.set-3.control-2:checked ~ .set-4.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-3.control-2:checked ~ .set-4.control-3,
+.control.set-3.control-2:checked ~ .set-4.duck-3,
+.control.set-3.control-2:checked ~ .set-4.dog-3 {
+  animation-delay: 5s;
+}
+.control.set-3.control-2:checked ~ .set-4.laugh-3 {
+  animation-delay: 10s;
+}
+.control.set-3.control-2:checked ~ .set-4.control-4,
+.control.set-3.control-2:checked ~ .set-4.duck-4,
+.control.set-3.control-2:checked ~ .set-4.dog-4 {
+  animation-delay: 12s;
+}
+.control.set-3.control-2:checked ~ .set-4.laugh-4 {
+  animation-delay: 17s;
+}
+.control.set-3.control-2:checked ~ .set-4.control-5,
+.control.set-3.control-2:checked ~ .set-4.duck-5,
+.control.set-3.control-2:checked ~ .set-4.dog-5 {
+  animation-delay: 19s;
+}
+.control.set-3.control-2:checked ~ .set-4.laugh-5 {
+  animation-delay: 24s;
+}
+.control.set-3.control-2:checked ~ .set-4.control-6,
+.control.set-3.control-2:checked ~ .set-4.duck-6,
+.control.set-3.control-2:checked ~ .set-4.dog-6 {
+  animation-delay: 26s;
+}
+.control.set-3.control-2:checked ~ .set-4.laugh-6 {
+  animation-delay: 31s;
+}
+.control.set-3.control-3:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-3.control-3:checked ~ .set-3 {
+  animation-play-state: paused;
+}
+.control.set-3.control-3:checked ~ .set-3.duck-3 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-3.control-3:checked ~ .set-3.duck-3 .sprite.duck-angle,
+.control.set-3.control-3:checked ~ .set-3.duck-3 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-3.control-3:checked ~ .set-3.duck-3 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-3.control-3:checked ~ .set-3.duck-3 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-3.control-3:checked ~ .set-3.duck-3 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-3.control-3:checked ~ .set-3.dog-3 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-3.control-3:checked ~ .set-4 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-3.control-3:checked ~ .set-4.control-1,
+.control.set-3.control-3:checked ~ .set-4.duck-1,
+.control.set-3.control-3:checked ~ .set-4.dog-1,
+.control.set-3.control-3:checked ~ .set-4.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-3.control-3:checked ~ .set-4.control-2,
+.control.set-3.control-3:checked ~ .set-4.duck-2,
+.control.set-3.control-3:checked ~ .set-4.dog-2,
+.control.set-3.control-3:checked ~ .set-4.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-3.control-3:checked ~ .set-4.control-3,
+.control.set-3.control-3:checked ~ .set-4.duck-3,
+.control.set-3.control-3:checked ~ .set-4.dog-3,
+.control.set-3.control-3:checked ~ .set-4.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-3.control-3:checked ~ .set-4.control-4,
+.control.set-3.control-3:checked ~ .set-4.duck-4,
+.control.set-3.control-3:checked ~ .set-4.dog-4 {
+  animation-delay: 5s;
+}
+.control.set-3.control-3:checked ~ .set-4.laugh-4 {
+  animation-delay: 10s;
+}
+.control.set-3.control-3:checked ~ .set-4.control-5,
+.control.set-3.control-3:checked ~ .set-4.duck-5,
+.control.set-3.control-3:checked ~ .set-4.dog-5 {
+  animation-delay: 12s;
+}
+.control.set-3.control-3:checked ~ .set-4.laugh-5 {
+  animation-delay: 17s;
+}
+.control.set-3.control-3:checked ~ .set-4.control-6,
+.control.set-3.control-3:checked ~ .set-4.duck-6,
+.control.set-3.control-3:checked ~ .set-4.dog-6 {
+  animation-delay: 19s;
+}
+.control.set-3.control-3:checked ~ .set-4.laugh-6 {
+  animation-delay: 24s;
+}
+.control.set-3.control-4:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-3.control-4:checked ~ .set-3 {
+  animation-play-state: paused;
+}
+.control.set-3.control-4:checked ~ .set-3.duck-4 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-3.control-4:checked ~ .set-3.duck-4 .sprite.duck-angle,
+.control.set-3.control-4:checked ~ .set-3.duck-4 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-3.control-4:checked ~ .set-3.duck-4 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-3.control-4:checked ~ .set-3.duck-4 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-3.control-4:checked ~ .set-3.duck-4 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-3.control-4:checked ~ .set-3.dog-4 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-3.control-4:checked ~ .set-4 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-3.control-4:checked ~ .set-4.control-1,
+.control.set-3.control-4:checked ~ .set-4.duck-1,
+.control.set-3.control-4:checked ~ .set-4.dog-1,
+.control.set-3.control-4:checked ~ .set-4.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-3.control-4:checked ~ .set-4.control-2,
+.control.set-3.control-4:checked ~ .set-4.duck-2,
+.control.set-3.control-4:checked ~ .set-4.dog-2,
+.control.set-3.control-4:checked ~ .set-4.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-3.control-4:checked ~ .set-4.control-3,
+.control.set-3.control-4:checked ~ .set-4.duck-3,
+.control.set-3.control-4:checked ~ .set-4.dog-3,
+.control.set-3.control-4:checked ~ .set-4.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-3.control-4:checked ~ .set-4.control-4,
+.control.set-3.control-4:checked ~ .set-4.duck-4,
+.control.set-3.control-4:checked ~ .set-4.dog-4,
+.control.set-3.control-4:checked ~ .set-4.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-3.control-4:checked ~ .set-4.control-5,
+.control.set-3.control-4:checked ~ .set-4.duck-5,
+.control.set-3.control-4:checked ~ .set-4.dog-5 {
+  animation-delay: 5s;
+}
+.control.set-3.control-4:checked ~ .set-4.laugh-5 {
+  animation-delay: 10s;
+}
+.control.set-3.control-4:checked ~ .set-4.control-6,
+.control.set-3.control-4:checked ~ .set-4.duck-6,
+.control.set-3.control-4:checked ~ .set-4.dog-6 {
+  animation-delay: 12s;
+}
+.control.set-3.control-4:checked ~ .set-4.laugh-6 {
+  animation-delay: 17s;
+}
+.control.set-3.control-5:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-3.control-5:checked ~ .set-3 {
+  animation-play-state: paused;
+}
+.control.set-3.control-5:checked ~ .set-3.duck-5 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-3.control-5:checked ~ .set-3.duck-5 .sprite.duck-angle,
+.control.set-3.control-5:checked ~ .set-3.duck-5 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-3.control-5:checked ~ .set-3.duck-5 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-3.control-5:checked ~ .set-3.duck-5 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-3.control-5:checked ~ .set-3.duck-5 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-3.control-5:checked ~ .set-3.dog-5 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-3.control-5:checked ~ .set-4 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-3.control-5:checked ~ .set-4.control-1,
+.control.set-3.control-5:checked ~ .set-4.duck-1,
+.control.set-3.control-5:checked ~ .set-4.dog-1,
+.control.set-3.control-5:checked ~ .set-4.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-3.control-5:checked ~ .set-4.control-2,
+.control.set-3.control-5:checked ~ .set-4.duck-2,
+.control.set-3.control-5:checked ~ .set-4.dog-2,
+.control.set-3.control-5:checked ~ .set-4.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-3.control-5:checked ~ .set-4.control-3,
+.control.set-3.control-5:checked ~ .set-4.duck-3,
+.control.set-3.control-5:checked ~ .set-4.dog-3,
+.control.set-3.control-5:checked ~ .set-4.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-3.control-5:checked ~ .set-4.control-4,
+.control.set-3.control-5:checked ~ .set-4.duck-4,
+.control.set-3.control-5:checked ~ .set-4.dog-4,
+.control.set-3.control-5:checked ~ .set-4.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-3.control-5:checked ~ .set-4.control-5,
+.control.set-3.control-5:checked ~ .set-4.duck-5,
+.control.set-3.control-5:checked ~ .set-4.dog-5,
+.control.set-3.control-5:checked ~ .set-4.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-3.control-5:checked ~ .set-4.control-6,
+.control.set-3.control-5:checked ~ .set-4.duck-6,
+.control.set-3.control-5:checked ~ .set-4.dog-6 {
+  animation-delay: 5s;
+}
+.control.set-3.control-5:checked ~ .set-4.laugh-6 {
+  animation-delay: 10s;
+}
+.control.set-3.control-6:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-3.control-6:checked ~ .set-3 {
+  animation-play-state: paused;
+}
+.control.set-3.control-6:checked ~ .set-3.duck-6 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-3.control-6:checked ~ .set-3.duck-6 .sprite.duck-angle,
+.control.set-3.control-6:checked ~ .set-3.duck-6 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-3.control-6:checked ~ .set-3.duck-6 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-3.control-6:checked ~ .set-3.duck-6 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-3.control-6:checked ~ .set-3.duck-6 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-3.control-6:checked ~ .set-3.dog-6 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-3.control-6:checked ~ .set-4 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-3.control-6:checked ~ .set-4.control-1,
+.control.set-3.control-6:checked ~ .set-4.duck-1,
+.control.set-3.control-6:checked ~ .set-4.dog-1,
+.control.set-3.control-6:checked ~ .set-4.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-3.control-6:checked ~ .set-4.control-2,
+.control.set-3.control-6:checked ~ .set-4.duck-2,
+.control.set-3.control-6:checked ~ .set-4.dog-2,
+.control.set-3.control-6:checked ~ .set-4.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-3.control-6:checked ~ .set-4.control-3,
+.control.set-3.control-6:checked ~ .set-4.duck-3,
+.control.set-3.control-6:checked ~ .set-4.dog-3,
+.control.set-3.control-6:checked ~ .set-4.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-3.control-6:checked ~ .set-4.control-4,
+.control.set-3.control-6:checked ~ .set-4.duck-4,
+.control.set-3.control-6:checked ~ .set-4.dog-4,
+.control.set-3.control-6:checked ~ .set-4.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-3.control-6:checked ~ .set-4.control-5,
+.control.set-3.control-6:checked ~ .set-4.duck-5,
+.control.set-3.control-6:checked ~ .set-4.dog-5,
+.control.set-3.control-6:checked ~ .set-4.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-3.control-6:checked ~ .set-4.control-6,
+.control.set-3.control-6:checked ~ .set-4.duck-6,
+.control.set-3.control-6:checked ~ .set-4.dog-6,
+.control.set-3.control-6:checked ~ .set-4.laugh-6 {
+  animation-play-state: paused;
+}
+.control.set-4.control-1:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-4.control-1:checked ~ .set-4 {
+  animation-play-state: paused;
+}
+.control.set-4.control-1:checked ~ .set-4.duck-1 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-4.control-1:checked ~ .set-4.duck-1 .sprite.duck-angle,
+.control.set-4.control-1:checked ~ .set-4.duck-1 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-4.control-1:checked ~ .set-4.duck-1 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-4.control-1:checked ~ .set-4.duck-1 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-4.control-1:checked ~ .set-4.duck-1 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-4.control-1:checked ~ .set-4.dog-1 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-4.control-1:checked ~ .set-5 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-4.control-1:checked ~ .set-5.control-1,
+.control.set-4.control-1:checked ~ .set-5.duck-1,
+.control.set-4.control-1:checked ~ .set-5.dog-1,
+.control.set-4.control-1:checked ~ .set-5.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-4.control-1:checked ~ .set-5.control-2,
+.control.set-4.control-1:checked ~ .set-5.duck-2,
+.control.set-4.control-1:checked ~ .set-5.dog-2 {
+  animation-delay: 5s;
+}
+.control.set-4.control-1:checked ~ .set-5.laugh-2 {
+  animation-delay: 10s;
+}
+.control.set-4.control-1:checked ~ .set-5.control-3,
+.control.set-4.control-1:checked ~ .set-5.duck-3,
+.control.set-4.control-1:checked ~ .set-5.dog-3 {
+  animation-delay: 12s;
+}
+.control.set-4.control-1:checked ~ .set-5.laugh-3 {
+  animation-delay: 17s;
+}
+.control.set-4.control-1:checked ~ .set-5.control-4,
+.control.set-4.control-1:checked ~ .set-5.duck-4,
+.control.set-4.control-1:checked ~ .set-5.dog-4 {
+  animation-delay: 19s;
+}
+.control.set-4.control-1:checked ~ .set-5.laugh-4 {
+  animation-delay: 24s;
+}
+.control.set-4.control-1:checked ~ .set-5.control-5,
+.control.set-4.control-1:checked ~ .set-5.duck-5,
+.control.set-4.control-1:checked ~ .set-5.dog-5 {
+  animation-delay: 26s;
+}
+.control.set-4.control-1:checked ~ .set-5.laugh-5 {
+  animation-delay: 31s;
+}
+.control.set-4.control-1:checked ~ .set-5.control-6,
+.control.set-4.control-1:checked ~ .set-5.duck-6,
+.control.set-4.control-1:checked ~ .set-5.dog-6 {
+  animation-delay: 33s;
+}
+.control.set-4.control-1:checked ~ .set-5.laugh-6 {
+  animation-delay: 38s;
+}
+.control.set-4.control-2:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-4.control-2:checked ~ .set-4 {
+  animation-play-state: paused;
+}
+.control.set-4.control-2:checked ~ .set-4.duck-2 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-4.control-2:checked ~ .set-4.duck-2 .sprite.duck-angle,
+.control.set-4.control-2:checked ~ .set-4.duck-2 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-4.control-2:checked ~ .set-4.duck-2 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-4.control-2:checked ~ .set-4.duck-2 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-4.control-2:checked ~ .set-4.duck-2 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-4.control-2:checked ~ .set-4.dog-2 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-4.control-2:checked ~ .set-5 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-4.control-2:checked ~ .set-5.control-1,
+.control.set-4.control-2:checked ~ .set-5.duck-1,
+.control.set-4.control-2:checked ~ .set-5.dog-1,
+.control.set-4.control-2:checked ~ .set-5.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-4.control-2:checked ~ .set-5.control-2,
+.control.set-4.control-2:checked ~ .set-5.duck-2,
+.control.set-4.control-2:checked ~ .set-5.dog-2,
+.control.set-4.control-2:checked ~ .set-5.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-4.control-2:checked ~ .set-5.control-3,
+.control.set-4.control-2:checked ~ .set-5.duck-3,
+.control.set-4.control-2:checked ~ .set-5.dog-3 {
+  animation-delay: 5s;
+}
+.control.set-4.control-2:checked ~ .set-5.laugh-3 {
+  animation-delay: 10s;
+}
+.control.set-4.control-2:checked ~ .set-5.control-4,
+.control.set-4.control-2:checked ~ .set-5.duck-4,
+.control.set-4.control-2:checked ~ .set-5.dog-4 {
+  animation-delay: 12s;
+}
+.control.set-4.control-2:checked ~ .set-5.laugh-4 {
+  animation-delay: 17s;
+}
+.control.set-4.control-2:checked ~ .set-5.control-5,
+.control.set-4.control-2:checked ~ .set-5.duck-5,
+.control.set-4.control-2:checked ~ .set-5.dog-5 {
+  animation-delay: 19s;
+}
+.control.set-4.control-2:checked ~ .set-5.laugh-5 {
+  animation-delay: 24s;
+}
+.control.set-4.control-2:checked ~ .set-5.control-6,
+.control.set-4.control-2:checked ~ .set-5.duck-6,
+.control.set-4.control-2:checked ~ .set-5.dog-6 {
+  animation-delay: 26s;
+}
+.control.set-4.control-2:checked ~ .set-5.laugh-6 {
+  animation-delay: 31s;
+}
+.control.set-4.control-3:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-4.control-3:checked ~ .set-4 {
+  animation-play-state: paused;
+}
+.control.set-4.control-3:checked ~ .set-4.duck-3 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-4.control-3:checked ~ .set-4.duck-3 .sprite.duck-angle,
+.control.set-4.control-3:checked ~ .set-4.duck-3 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-4.control-3:checked ~ .set-4.duck-3 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-4.control-3:checked ~ .set-4.duck-3 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-4.control-3:checked ~ .set-4.duck-3 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-4.control-3:checked ~ .set-4.dog-3 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-4.control-3:checked ~ .set-5 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-4.control-3:checked ~ .set-5.control-1,
+.control.set-4.control-3:checked ~ .set-5.duck-1,
+.control.set-4.control-3:checked ~ .set-5.dog-1,
+.control.set-4.control-3:checked ~ .set-5.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-4.control-3:checked ~ .set-5.control-2,
+.control.set-4.control-3:checked ~ .set-5.duck-2,
+.control.set-4.control-3:checked ~ .set-5.dog-2,
+.control.set-4.control-3:checked ~ .set-5.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-4.control-3:checked ~ .set-5.control-3,
+.control.set-4.control-3:checked ~ .set-5.duck-3,
+.control.set-4.control-3:checked ~ .set-5.dog-3,
+.control.set-4.control-3:checked ~ .set-5.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-4.control-3:checked ~ .set-5.control-4,
+.control.set-4.control-3:checked ~ .set-5.duck-4,
+.control.set-4.control-3:checked ~ .set-5.dog-4 {
+  animation-delay: 5s;
+}
+.control.set-4.control-3:checked ~ .set-5.laugh-4 {
+  animation-delay: 10s;
+}
+.control.set-4.control-3:checked ~ .set-5.control-5,
+.control.set-4.control-3:checked ~ .set-5.duck-5,
+.control.set-4.control-3:checked ~ .set-5.dog-5 {
+  animation-delay: 12s;
+}
+.control.set-4.control-3:checked ~ .set-5.laugh-5 {
+  animation-delay: 17s;
+}
+.control.set-4.control-3:checked ~ .set-5.control-6,
+.control.set-4.control-3:checked ~ .set-5.duck-6,
+.control.set-4.control-3:checked ~ .set-5.dog-6 {
+  animation-delay: 19s;
+}
+.control.set-4.control-3:checked ~ .set-5.laugh-6 {
+  animation-delay: 24s;
+}
+.control.set-4.control-4:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-4.control-4:checked ~ .set-4 {
+  animation-play-state: paused;
+}
+.control.set-4.control-4:checked ~ .set-4.duck-4 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-4.control-4:checked ~ .set-4.duck-4 .sprite.duck-angle,
+.control.set-4.control-4:checked ~ .set-4.duck-4 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-4.control-4:checked ~ .set-4.duck-4 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-4.control-4:checked ~ .set-4.duck-4 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-4.control-4:checked ~ .set-4.duck-4 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-4.control-4:checked ~ .set-4.dog-4 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-4.control-4:checked ~ .set-5 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-4.control-4:checked ~ .set-5.control-1,
+.control.set-4.control-4:checked ~ .set-5.duck-1,
+.control.set-4.control-4:checked ~ .set-5.dog-1,
+.control.set-4.control-4:checked ~ .set-5.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-4.control-4:checked ~ .set-5.control-2,
+.control.set-4.control-4:checked ~ .set-5.duck-2,
+.control.set-4.control-4:checked ~ .set-5.dog-2,
+.control.set-4.control-4:checked ~ .set-5.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-4.control-4:checked ~ .set-5.control-3,
+.control.set-4.control-4:checked ~ .set-5.duck-3,
+.control.set-4.control-4:checked ~ .set-5.dog-3,
+.control.set-4.control-4:checked ~ .set-5.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-4.control-4:checked ~ .set-5.control-4,
+.control.set-4.control-4:checked ~ .set-5.duck-4,
+.control.set-4.control-4:checked ~ .set-5.dog-4,
+.control.set-4.control-4:checked ~ .set-5.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-4.control-4:checked ~ .set-5.control-5,
+.control.set-4.control-4:checked ~ .set-5.duck-5,
+.control.set-4.control-4:checked ~ .set-5.dog-5 {
+  animation-delay: 5s;
+}
+.control.set-4.control-4:checked ~ .set-5.laugh-5 {
+  animation-delay: 10s;
+}
+.control.set-4.control-4:checked ~ .set-5.control-6,
+.control.set-4.control-4:checked ~ .set-5.duck-6,
+.control.set-4.control-4:checked ~ .set-5.dog-6 {
+  animation-delay: 12s;
+}
+.control.set-4.control-4:checked ~ .set-5.laugh-6 {
+  animation-delay: 17s;
+}
+.control.set-4.control-5:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-4.control-5:checked ~ .set-4 {
+  animation-play-state: paused;
+}
+.control.set-4.control-5:checked ~ .set-4.duck-5 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-4.control-5:checked ~ .set-4.duck-5 .sprite.duck-angle,
+.control.set-4.control-5:checked ~ .set-4.duck-5 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-4.control-5:checked ~ .set-4.duck-5 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-4.control-5:checked ~ .set-4.duck-5 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-4.control-5:checked ~ .set-4.duck-5 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-4.control-5:checked ~ .set-4.dog-5 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-4.control-5:checked ~ .set-5 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-4.control-5:checked ~ .set-5.control-1,
+.control.set-4.control-5:checked ~ .set-5.duck-1,
+.control.set-4.control-5:checked ~ .set-5.dog-1,
+.control.set-4.control-5:checked ~ .set-5.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-4.control-5:checked ~ .set-5.control-2,
+.control.set-4.control-5:checked ~ .set-5.duck-2,
+.control.set-4.control-5:checked ~ .set-5.dog-2,
+.control.set-4.control-5:checked ~ .set-5.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-4.control-5:checked ~ .set-5.control-3,
+.control.set-4.control-5:checked ~ .set-5.duck-3,
+.control.set-4.control-5:checked ~ .set-5.dog-3,
+.control.set-4.control-5:checked ~ .set-5.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-4.control-5:checked ~ .set-5.control-4,
+.control.set-4.control-5:checked ~ .set-5.duck-4,
+.control.set-4.control-5:checked ~ .set-5.dog-4,
+.control.set-4.control-5:checked ~ .set-5.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-4.control-5:checked ~ .set-5.control-5,
+.control.set-4.control-5:checked ~ .set-5.duck-5,
+.control.set-4.control-5:checked ~ .set-5.dog-5,
+.control.set-4.control-5:checked ~ .set-5.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-4.control-5:checked ~ .set-5.control-6,
+.control.set-4.control-5:checked ~ .set-5.duck-6,
+.control.set-4.control-5:checked ~ .set-5.dog-6 {
+  animation-delay: 5s;
+}
+.control.set-4.control-5:checked ~ .set-5.laugh-6 {
+  animation-delay: 10s;
+}
+.control.set-4.control-6:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-4.control-6:checked ~ .set-4 {
+  animation-play-state: paused;
+}
+.control.set-4.control-6:checked ~ .set-4.duck-6 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-4.control-6:checked ~ .set-4.duck-6 .sprite.duck-angle,
+.control.set-4.control-6:checked ~ .set-4.duck-6 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-4.control-6:checked ~ .set-4.duck-6 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-4.control-6:checked ~ .set-4.duck-6 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-4.control-6:checked ~ .set-4.duck-6 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-4.control-6:checked ~ .set-4.dog-6 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-4.control-6:checked ~ .set-5 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-4.control-6:checked ~ .set-5.control-1,
+.control.set-4.control-6:checked ~ .set-5.duck-1,
+.control.set-4.control-6:checked ~ .set-5.dog-1,
+.control.set-4.control-6:checked ~ .set-5.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-4.control-6:checked ~ .set-5.control-2,
+.control.set-4.control-6:checked ~ .set-5.duck-2,
+.control.set-4.control-6:checked ~ .set-5.dog-2,
+.control.set-4.control-6:checked ~ .set-5.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-4.control-6:checked ~ .set-5.control-3,
+.control.set-4.control-6:checked ~ .set-5.duck-3,
+.control.set-4.control-6:checked ~ .set-5.dog-3,
+.control.set-4.control-6:checked ~ .set-5.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-4.control-6:checked ~ .set-5.control-4,
+.control.set-4.control-6:checked ~ .set-5.duck-4,
+.control.set-4.control-6:checked ~ .set-5.dog-4,
+.control.set-4.control-6:checked ~ .set-5.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-4.control-6:checked ~ .set-5.control-5,
+.control.set-4.control-6:checked ~ .set-5.duck-5,
+.control.set-4.control-6:checked ~ .set-5.dog-5,
+.control.set-4.control-6:checked ~ .set-5.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-4.control-6:checked ~ .set-5.control-6,
+.control.set-4.control-6:checked ~ .set-5.duck-6,
+.control.set-4.control-6:checked ~ .set-5.dog-6,
+.control.set-4.control-6:checked ~ .set-5.laugh-6 {
+  animation-play-state: paused;
+}
+.control.set-5.control-1:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-5.control-1:checked ~ .set-5 {
+  animation-play-state: paused;
+}
+.control.set-5.control-1:checked ~ .set-5.duck-1 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-5.control-1:checked ~ .set-5.duck-1 .sprite.duck-angle,
+.control.set-5.control-1:checked ~ .set-5.duck-1 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-5.control-1:checked ~ .set-5.duck-1 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-5.control-1:checked ~ .set-5.duck-1 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-5.control-1:checked ~ .set-5.duck-1 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-5.control-1:checked ~ .set-5.dog-1 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-5.control-1:checked ~ .set-6 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-5.control-1:checked ~ .set-6.control-1,
+.control.set-5.control-1:checked ~ .set-6.duck-1,
+.control.set-5.control-1:checked ~ .set-6.dog-1,
+.control.set-5.control-1:checked ~ .set-6.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-5.control-1:checked ~ .set-6.control-2,
+.control.set-5.control-1:checked ~ .set-6.duck-2,
+.control.set-5.control-1:checked ~ .set-6.dog-2 {
+  animation-delay: 5s;
+}
+.control.set-5.control-1:checked ~ .set-6.laugh-2 {
+  animation-delay: 10s;
+}
+.control.set-5.control-1:checked ~ .set-6.control-3,
+.control.set-5.control-1:checked ~ .set-6.duck-3,
+.control.set-5.control-1:checked ~ .set-6.dog-3 {
+  animation-delay: 12s;
+}
+.control.set-5.control-1:checked ~ .set-6.laugh-3 {
+  animation-delay: 17s;
+}
+.control.set-5.control-1:checked ~ .set-6.control-4,
+.control.set-5.control-1:checked ~ .set-6.duck-4,
+.control.set-5.control-1:checked ~ .set-6.dog-4 {
+  animation-delay: 19s;
+}
+.control.set-5.control-1:checked ~ .set-6.laugh-4 {
+  animation-delay: 24s;
+}
+.control.set-5.control-1:checked ~ .set-6.control-5,
+.control.set-5.control-1:checked ~ .set-6.duck-5,
+.control.set-5.control-1:checked ~ .set-6.dog-5 {
+  animation-delay: 26s;
+}
+.control.set-5.control-1:checked ~ .set-6.laugh-5 {
+  animation-delay: 31s;
+}
+.control.set-5.control-1:checked ~ .set-6.control-6,
+.control.set-5.control-1:checked ~ .set-6.duck-6,
+.control.set-5.control-1:checked ~ .set-6.dog-6 {
+  animation-delay: 33s;
+}
+.control.set-5.control-1:checked ~ .set-6.laugh-6 {
+  animation-delay: 38s;
+}
+.control.set-5.control-2:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-5.control-2:checked ~ .set-5 {
+  animation-play-state: paused;
+}
+.control.set-5.control-2:checked ~ .set-5.duck-2 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-5.control-2:checked ~ .set-5.duck-2 .sprite.duck-angle,
+.control.set-5.control-2:checked ~ .set-5.duck-2 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-5.control-2:checked ~ .set-5.duck-2 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-5.control-2:checked ~ .set-5.duck-2 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-5.control-2:checked ~ .set-5.duck-2 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-5.control-2:checked ~ .set-5.dog-2 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-5.control-2:checked ~ .set-6 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-5.control-2:checked ~ .set-6.control-1,
+.control.set-5.control-2:checked ~ .set-6.duck-1,
+.control.set-5.control-2:checked ~ .set-6.dog-1,
+.control.set-5.control-2:checked ~ .set-6.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-5.control-2:checked ~ .set-6.control-2,
+.control.set-5.control-2:checked ~ .set-6.duck-2,
+.control.set-5.control-2:checked ~ .set-6.dog-2,
+.control.set-5.control-2:checked ~ .set-6.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-5.control-2:checked ~ .set-6.control-3,
+.control.set-5.control-2:checked ~ .set-6.duck-3,
+.control.set-5.control-2:checked ~ .set-6.dog-3 {
+  animation-delay: 5s;
+}
+.control.set-5.control-2:checked ~ .set-6.laugh-3 {
+  animation-delay: 10s;
+}
+.control.set-5.control-2:checked ~ .set-6.control-4,
+.control.set-5.control-2:checked ~ .set-6.duck-4,
+.control.set-5.control-2:checked ~ .set-6.dog-4 {
+  animation-delay: 12s;
+}
+.control.set-5.control-2:checked ~ .set-6.laugh-4 {
+  animation-delay: 17s;
+}
+.control.set-5.control-2:checked ~ .set-6.control-5,
+.control.set-5.control-2:checked ~ .set-6.duck-5,
+.control.set-5.control-2:checked ~ .set-6.dog-5 {
+  animation-delay: 19s;
+}
+.control.set-5.control-2:checked ~ .set-6.laugh-5 {
+  animation-delay: 24s;
+}
+.control.set-5.control-2:checked ~ .set-6.control-6,
+.control.set-5.control-2:checked ~ .set-6.duck-6,
+.control.set-5.control-2:checked ~ .set-6.dog-6 {
+  animation-delay: 26s;
+}
+.control.set-5.control-2:checked ~ .set-6.laugh-6 {
+  animation-delay: 31s;
+}
+.control.set-5.control-3:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-5.control-3:checked ~ .set-5 {
+  animation-play-state: paused;
+}
+.control.set-5.control-3:checked ~ .set-5.duck-3 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-5.control-3:checked ~ .set-5.duck-3 .sprite.duck-angle,
+.control.set-5.control-3:checked ~ .set-5.duck-3 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-5.control-3:checked ~ .set-5.duck-3 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-5.control-3:checked ~ .set-5.duck-3 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-5.control-3:checked ~ .set-5.duck-3 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-5.control-3:checked ~ .set-5.dog-3 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-5.control-3:checked ~ .set-6 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-5.control-3:checked ~ .set-6.control-1,
+.control.set-5.control-3:checked ~ .set-6.duck-1,
+.control.set-5.control-3:checked ~ .set-6.dog-1,
+.control.set-5.control-3:checked ~ .set-6.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-5.control-3:checked ~ .set-6.control-2,
+.control.set-5.control-3:checked ~ .set-6.duck-2,
+.control.set-5.control-3:checked ~ .set-6.dog-2,
+.control.set-5.control-3:checked ~ .set-6.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-5.control-3:checked ~ .set-6.control-3,
+.control.set-5.control-3:checked ~ .set-6.duck-3,
+.control.set-5.control-3:checked ~ .set-6.dog-3,
+.control.set-5.control-3:checked ~ .set-6.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-5.control-3:checked ~ .set-6.control-4,
+.control.set-5.control-3:checked ~ .set-6.duck-4,
+.control.set-5.control-3:checked ~ .set-6.dog-4 {
+  animation-delay: 5s;
+}
+.control.set-5.control-3:checked ~ .set-6.laugh-4 {
+  animation-delay: 10s;
+}
+.control.set-5.control-3:checked ~ .set-6.control-5,
+.control.set-5.control-3:checked ~ .set-6.duck-5,
+.control.set-5.control-3:checked ~ .set-6.dog-5 {
+  animation-delay: 12s;
+}
+.control.set-5.control-3:checked ~ .set-6.laugh-5 {
+  animation-delay: 17s;
+}
+.control.set-5.control-3:checked ~ .set-6.control-6,
+.control.set-5.control-3:checked ~ .set-6.duck-6,
+.control.set-5.control-3:checked ~ .set-6.dog-6 {
+  animation-delay: 19s;
+}
+.control.set-5.control-3:checked ~ .set-6.laugh-6 {
+  animation-delay: 24s;
+}
+.control.set-5.control-4:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-5.control-4:checked ~ .set-5 {
+  animation-play-state: paused;
+}
+.control.set-5.control-4:checked ~ .set-5.duck-4 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-5.control-4:checked ~ .set-5.duck-4 .sprite.duck-angle,
+.control.set-5.control-4:checked ~ .set-5.duck-4 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-5.control-4:checked ~ .set-5.duck-4 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-5.control-4:checked ~ .set-5.duck-4 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-5.control-4:checked ~ .set-5.duck-4 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-5.control-4:checked ~ .set-5.dog-4 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-5.control-4:checked ~ .set-6 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-5.control-4:checked ~ .set-6.control-1,
+.control.set-5.control-4:checked ~ .set-6.duck-1,
+.control.set-5.control-4:checked ~ .set-6.dog-1,
+.control.set-5.control-4:checked ~ .set-6.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-5.control-4:checked ~ .set-6.control-2,
+.control.set-5.control-4:checked ~ .set-6.duck-2,
+.control.set-5.control-4:checked ~ .set-6.dog-2,
+.control.set-5.control-4:checked ~ .set-6.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-5.control-4:checked ~ .set-6.control-3,
+.control.set-5.control-4:checked ~ .set-6.duck-3,
+.control.set-5.control-4:checked ~ .set-6.dog-3,
+.control.set-5.control-4:checked ~ .set-6.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-5.control-4:checked ~ .set-6.control-4,
+.control.set-5.control-4:checked ~ .set-6.duck-4,
+.control.set-5.control-4:checked ~ .set-6.dog-4,
+.control.set-5.control-4:checked ~ .set-6.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-5.control-4:checked ~ .set-6.control-5,
+.control.set-5.control-4:checked ~ .set-6.duck-5,
+.control.set-5.control-4:checked ~ .set-6.dog-5 {
+  animation-delay: 5s;
+}
+.control.set-5.control-4:checked ~ .set-6.laugh-5 {
+  animation-delay: 10s;
+}
+.control.set-5.control-4:checked ~ .set-6.control-6,
+.control.set-5.control-4:checked ~ .set-6.duck-6,
+.control.set-5.control-4:checked ~ .set-6.dog-6 {
+  animation-delay: 12s;
+}
+.control.set-5.control-4:checked ~ .set-6.laugh-6 {
+  animation-delay: 17s;
+}
+.control.set-5.control-5:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-5.control-5:checked ~ .set-5 {
+  animation-play-state: paused;
+}
+.control.set-5.control-5:checked ~ .set-5.duck-5 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-5.control-5:checked ~ .set-5.duck-5 .sprite.duck-angle,
+.control.set-5.control-5:checked ~ .set-5.duck-5 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-5.control-5:checked ~ .set-5.duck-5 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-5.control-5:checked ~ .set-5.duck-5 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-5.control-5:checked ~ .set-5.duck-5 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-5.control-5:checked ~ .set-5.dog-5 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-5.control-5:checked ~ .set-6 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-5.control-5:checked ~ .set-6.control-1,
+.control.set-5.control-5:checked ~ .set-6.duck-1,
+.control.set-5.control-5:checked ~ .set-6.dog-1,
+.control.set-5.control-5:checked ~ .set-6.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-5.control-5:checked ~ .set-6.control-2,
+.control.set-5.control-5:checked ~ .set-6.duck-2,
+.control.set-5.control-5:checked ~ .set-6.dog-2,
+.control.set-5.control-5:checked ~ .set-6.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-5.control-5:checked ~ .set-6.control-3,
+.control.set-5.control-5:checked ~ .set-6.duck-3,
+.control.set-5.control-5:checked ~ .set-6.dog-3,
+.control.set-5.control-5:checked ~ .set-6.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-5.control-5:checked ~ .set-6.control-4,
+.control.set-5.control-5:checked ~ .set-6.duck-4,
+.control.set-5.control-5:checked ~ .set-6.dog-4,
+.control.set-5.control-5:checked ~ .set-6.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-5.control-5:checked ~ .set-6.control-5,
+.control.set-5.control-5:checked ~ .set-6.duck-5,
+.control.set-5.control-5:checked ~ .set-6.dog-5,
+.control.set-5.control-5:checked ~ .set-6.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-5.control-5:checked ~ .set-6.control-6,
+.control.set-5.control-5:checked ~ .set-6.duck-6,
+.control.set-5.control-5:checked ~ .set-6.dog-6 {
+  animation-delay: 5s;
+}
+.control.set-5.control-5:checked ~ .set-6.laugh-6 {
+  animation-delay: 10s;
+}
+.control.set-5.control-6:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-5.control-6:checked ~ .set-5 {
+  animation-play-state: paused;
+}
+.control.set-5.control-6:checked ~ .set-5.duck-6 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-5.control-6:checked ~ .set-5.duck-6 .sprite.duck-angle,
+.control.set-5.control-6:checked ~ .set-5.duck-6 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-5.control-6:checked ~ .set-5.duck-6 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-5.control-6:checked ~ .set-5.duck-6 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-5.control-6:checked ~ .set-5.duck-6 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-5.control-6:checked ~ .set-5.dog-6 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-5.control-6:checked ~ .set-6 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-5.control-6:checked ~ .set-6.control-1,
+.control.set-5.control-6:checked ~ .set-6.duck-1,
+.control.set-5.control-6:checked ~ .set-6.dog-1,
+.control.set-5.control-6:checked ~ .set-6.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-5.control-6:checked ~ .set-6.control-2,
+.control.set-5.control-6:checked ~ .set-6.duck-2,
+.control.set-5.control-6:checked ~ .set-6.dog-2,
+.control.set-5.control-6:checked ~ .set-6.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-5.control-6:checked ~ .set-6.control-3,
+.control.set-5.control-6:checked ~ .set-6.duck-3,
+.control.set-5.control-6:checked ~ .set-6.dog-3,
+.control.set-5.control-6:checked ~ .set-6.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-5.control-6:checked ~ .set-6.control-4,
+.control.set-5.control-6:checked ~ .set-6.duck-4,
+.control.set-5.control-6:checked ~ .set-6.dog-4,
+.control.set-5.control-6:checked ~ .set-6.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-5.control-6:checked ~ .set-6.control-5,
+.control.set-5.control-6:checked ~ .set-6.duck-5,
+.control.set-5.control-6:checked ~ .set-6.dog-5,
+.control.set-5.control-6:checked ~ .set-6.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-5.control-6:checked ~ .set-6.control-6,
+.control.set-5.control-6:checked ~ .set-6.duck-6,
+.control.set-5.control-6:checked ~ .set-6.dog-6,
+.control.set-5.control-6:checked ~ .set-6.laugh-6 {
+  animation-play-state: paused;
+}
+.control.set-6.control-1:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-6.control-1:checked ~ .set-6 {
+  animation-play-state: paused;
+}
+.control.set-6.control-1:checked ~ .set-6.duck-1 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-6.control-1:checked ~ .set-6.duck-1 .sprite.duck-angle,
+.control.set-6.control-1:checked ~ .set-6.duck-1 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-6.control-1:checked ~ .set-6.duck-1 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-6.control-1:checked ~ .set-6.duck-1 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-6.control-1:checked ~ .set-6.duck-1 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-6.control-1:checked ~ .set-6.dog-1 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-6.control-1:checked ~ .set-7 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-6.control-1:checked ~ .set-7.control-1,
+.control.set-6.control-1:checked ~ .set-7.duck-1,
+.control.set-6.control-1:checked ~ .set-7.dog-1,
+.control.set-6.control-1:checked ~ .set-7.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-6.control-1:checked ~ .set-7.control-2,
+.control.set-6.control-1:checked ~ .set-7.duck-2,
+.control.set-6.control-1:checked ~ .set-7.dog-2 {
+  animation-delay: 5s;
+}
+.control.set-6.control-1:checked ~ .set-7.laugh-2 {
+  animation-delay: 10s;
+}
+.control.set-6.control-1:checked ~ .set-7.control-3,
+.control.set-6.control-1:checked ~ .set-7.duck-3,
+.control.set-6.control-1:checked ~ .set-7.dog-3 {
+  animation-delay: 12s;
+}
+.control.set-6.control-1:checked ~ .set-7.laugh-3 {
+  animation-delay: 17s;
+}
+.control.set-6.control-1:checked ~ .set-7.control-4,
+.control.set-6.control-1:checked ~ .set-7.duck-4,
+.control.set-6.control-1:checked ~ .set-7.dog-4 {
+  animation-delay: 19s;
+}
+.control.set-6.control-1:checked ~ .set-7.laugh-4 {
+  animation-delay: 24s;
+}
+.control.set-6.control-1:checked ~ .set-7.control-5,
+.control.set-6.control-1:checked ~ .set-7.duck-5,
+.control.set-6.control-1:checked ~ .set-7.dog-5 {
+  animation-delay: 26s;
+}
+.control.set-6.control-1:checked ~ .set-7.laugh-5 {
+  animation-delay: 31s;
+}
+.control.set-6.control-1:checked ~ .set-7.control-6,
+.control.set-6.control-1:checked ~ .set-7.duck-6,
+.control.set-6.control-1:checked ~ .set-7.dog-6 {
+  animation-delay: 33s;
+}
+.control.set-6.control-1:checked ~ .set-7.laugh-6 {
+  animation-delay: 38s;
+}
+.control.set-6.control-2:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-6.control-2:checked ~ .set-6 {
+  animation-play-state: paused;
+}
+.control.set-6.control-2:checked ~ .set-6.duck-2 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-6.control-2:checked ~ .set-6.duck-2 .sprite.duck-angle,
+.control.set-6.control-2:checked ~ .set-6.duck-2 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-6.control-2:checked ~ .set-6.duck-2 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-6.control-2:checked ~ .set-6.duck-2 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-6.control-2:checked ~ .set-6.duck-2 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-6.control-2:checked ~ .set-6.dog-2 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-6.control-2:checked ~ .set-7 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-6.control-2:checked ~ .set-7.control-1,
+.control.set-6.control-2:checked ~ .set-7.duck-1,
+.control.set-6.control-2:checked ~ .set-7.dog-1,
+.control.set-6.control-2:checked ~ .set-7.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-6.control-2:checked ~ .set-7.control-2,
+.control.set-6.control-2:checked ~ .set-7.duck-2,
+.control.set-6.control-2:checked ~ .set-7.dog-2,
+.control.set-6.control-2:checked ~ .set-7.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-6.control-2:checked ~ .set-7.control-3,
+.control.set-6.control-2:checked ~ .set-7.duck-3,
+.control.set-6.control-2:checked ~ .set-7.dog-3 {
+  animation-delay: 5s;
+}
+.control.set-6.control-2:checked ~ .set-7.laugh-3 {
+  animation-delay: 10s;
+}
+.control.set-6.control-2:checked ~ .set-7.control-4,
+.control.set-6.control-2:checked ~ .set-7.duck-4,
+.control.set-6.control-2:checked ~ .set-7.dog-4 {
+  animation-delay: 12s;
+}
+.control.set-6.control-2:checked ~ .set-7.laugh-4 {
+  animation-delay: 17s;
+}
+.control.set-6.control-2:checked ~ .set-7.control-5,
+.control.set-6.control-2:checked ~ .set-7.duck-5,
+.control.set-6.control-2:checked ~ .set-7.dog-5 {
+  animation-delay: 19s;
+}
+.control.set-6.control-2:checked ~ .set-7.laugh-5 {
+  animation-delay: 24s;
+}
+.control.set-6.control-2:checked ~ .set-7.control-6,
+.control.set-6.control-2:checked ~ .set-7.duck-6,
+.control.set-6.control-2:checked ~ .set-7.dog-6 {
+  animation-delay: 26s;
+}
+.control.set-6.control-2:checked ~ .set-7.laugh-6 {
+  animation-delay: 31s;
+}
+.control.set-6.control-3:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-6.control-3:checked ~ .set-6 {
+  animation-play-state: paused;
+}
+.control.set-6.control-3:checked ~ .set-6.duck-3 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-6.control-3:checked ~ .set-6.duck-3 .sprite.duck-angle,
+.control.set-6.control-3:checked ~ .set-6.duck-3 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-6.control-3:checked ~ .set-6.duck-3 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-6.control-3:checked ~ .set-6.duck-3 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-6.control-3:checked ~ .set-6.duck-3 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-6.control-3:checked ~ .set-6.dog-3 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-6.control-3:checked ~ .set-7 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-6.control-3:checked ~ .set-7.control-1,
+.control.set-6.control-3:checked ~ .set-7.duck-1,
+.control.set-6.control-3:checked ~ .set-7.dog-1,
+.control.set-6.control-3:checked ~ .set-7.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-6.control-3:checked ~ .set-7.control-2,
+.control.set-6.control-3:checked ~ .set-7.duck-2,
+.control.set-6.control-3:checked ~ .set-7.dog-2,
+.control.set-6.control-3:checked ~ .set-7.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-6.control-3:checked ~ .set-7.control-3,
+.control.set-6.control-3:checked ~ .set-7.duck-3,
+.control.set-6.control-3:checked ~ .set-7.dog-3,
+.control.set-6.control-3:checked ~ .set-7.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-6.control-3:checked ~ .set-7.control-4,
+.control.set-6.control-3:checked ~ .set-7.duck-4,
+.control.set-6.control-3:checked ~ .set-7.dog-4 {
+  animation-delay: 5s;
+}
+.control.set-6.control-3:checked ~ .set-7.laugh-4 {
+  animation-delay: 10s;
+}
+.control.set-6.control-3:checked ~ .set-7.control-5,
+.control.set-6.control-3:checked ~ .set-7.duck-5,
+.control.set-6.control-3:checked ~ .set-7.dog-5 {
+  animation-delay: 12s;
+}
+.control.set-6.control-3:checked ~ .set-7.laugh-5 {
+  animation-delay: 17s;
+}
+.control.set-6.control-3:checked ~ .set-7.control-6,
+.control.set-6.control-3:checked ~ .set-7.duck-6,
+.control.set-6.control-3:checked ~ .set-7.dog-6 {
+  animation-delay: 19s;
+}
+.control.set-6.control-3:checked ~ .set-7.laugh-6 {
+  animation-delay: 24s;
+}
+.control.set-6.control-4:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-6.control-4:checked ~ .set-6 {
+  animation-play-state: paused;
+}
+.control.set-6.control-4:checked ~ .set-6.duck-4 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-6.control-4:checked ~ .set-6.duck-4 .sprite.duck-angle,
+.control.set-6.control-4:checked ~ .set-6.duck-4 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-6.control-4:checked ~ .set-6.duck-4 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-6.control-4:checked ~ .set-6.duck-4 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-6.control-4:checked ~ .set-6.duck-4 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-6.control-4:checked ~ .set-6.dog-4 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-6.control-4:checked ~ .set-7 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-6.control-4:checked ~ .set-7.control-1,
+.control.set-6.control-4:checked ~ .set-7.duck-1,
+.control.set-6.control-4:checked ~ .set-7.dog-1,
+.control.set-6.control-4:checked ~ .set-7.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-6.control-4:checked ~ .set-7.control-2,
+.control.set-6.control-4:checked ~ .set-7.duck-2,
+.control.set-6.control-4:checked ~ .set-7.dog-2,
+.control.set-6.control-4:checked ~ .set-7.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-6.control-4:checked ~ .set-7.control-3,
+.control.set-6.control-4:checked ~ .set-7.duck-3,
+.control.set-6.control-4:checked ~ .set-7.dog-3,
+.control.set-6.control-4:checked ~ .set-7.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-6.control-4:checked ~ .set-7.control-4,
+.control.set-6.control-4:checked ~ .set-7.duck-4,
+.control.set-6.control-4:checked ~ .set-7.dog-4,
+.control.set-6.control-4:checked ~ .set-7.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-6.control-4:checked ~ .set-7.control-5,
+.control.set-6.control-4:checked ~ .set-7.duck-5,
+.control.set-6.control-4:checked ~ .set-7.dog-5 {
+  animation-delay: 5s;
+}
+.control.set-6.control-4:checked ~ .set-7.laugh-5 {
+  animation-delay: 10s;
+}
+.control.set-6.control-4:checked ~ .set-7.control-6,
+.control.set-6.control-4:checked ~ .set-7.duck-6,
+.control.set-6.control-4:checked ~ .set-7.dog-6 {
+  animation-delay: 12s;
+}
+.control.set-6.control-4:checked ~ .set-7.laugh-6 {
+  animation-delay: 17s;
+}
+.control.set-6.control-5:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-6.control-5:checked ~ .set-6 {
+  animation-play-state: paused;
+}
+.control.set-6.control-5:checked ~ .set-6.duck-5 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-6.control-5:checked ~ .set-6.duck-5 .sprite.duck-angle,
+.control.set-6.control-5:checked ~ .set-6.duck-5 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-6.control-5:checked ~ .set-6.duck-5 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-6.control-5:checked ~ .set-6.duck-5 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-6.control-5:checked ~ .set-6.duck-5 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-6.control-5:checked ~ .set-6.dog-5 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-6.control-5:checked ~ .set-7 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-6.control-5:checked ~ .set-7.control-1,
+.control.set-6.control-5:checked ~ .set-7.duck-1,
+.control.set-6.control-5:checked ~ .set-7.dog-1,
+.control.set-6.control-5:checked ~ .set-7.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-6.control-5:checked ~ .set-7.control-2,
+.control.set-6.control-5:checked ~ .set-7.duck-2,
+.control.set-6.control-5:checked ~ .set-7.dog-2,
+.control.set-6.control-5:checked ~ .set-7.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-6.control-5:checked ~ .set-7.control-3,
+.control.set-6.control-5:checked ~ .set-7.duck-3,
+.control.set-6.control-5:checked ~ .set-7.dog-3,
+.control.set-6.control-5:checked ~ .set-7.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-6.control-5:checked ~ .set-7.control-4,
+.control.set-6.control-5:checked ~ .set-7.duck-4,
+.control.set-6.control-5:checked ~ .set-7.dog-4,
+.control.set-6.control-5:checked ~ .set-7.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-6.control-5:checked ~ .set-7.control-5,
+.control.set-6.control-5:checked ~ .set-7.duck-5,
+.control.set-6.control-5:checked ~ .set-7.dog-5,
+.control.set-6.control-5:checked ~ .set-7.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-6.control-5:checked ~ .set-7.control-6,
+.control.set-6.control-5:checked ~ .set-7.duck-6,
+.control.set-6.control-5:checked ~ .set-7.dog-6 {
+  animation-delay: 5s;
+}
+.control.set-6.control-5:checked ~ .set-7.laugh-6 {
+  animation-delay: 10s;
+}
+.control.set-6.control-6:checked {
+  display: none;
+  animation-play-state: paused;
+}
+.control.set-6.control-6:checked ~ .set-6 {
+  animation-play-state: paused;
+}
+.control.set-6.control-6:checked ~ .set-6.duck-6 .sprite {
+  animation: death-anim 2s 1s linear forwards;
+}
+.control.set-6.control-6:checked ~ .set-6.duck-6 .sprite.duck-angle,
+.control.set-6.control-6:checked ~ .set-6.duck-6 .sprite.duck-straight {
+  opacity: 0;
+}
+.control.set-6.control-6:checked ~ .set-6.duck-6 .sprite.duck-shot {
+  opacity: 1;
+  animation: duck-shot 0s 1s forwards;
+}
+.control.set-6.control-6:checked ~ .set-6.duck-6 .sprite.duck-dead {
+  opacity: 1;
+  transition: opacity 1ms 1s;
+}
+.control.set-6.control-6:checked ~ .set-6.duck-6 .sprite.duck-dead > div:nth-child(1) {
+  animation: duck-dead 300ms infinite linear;
+}
+.control.set-6.control-6:checked ~ .set-6.dog-6 .sprite.dog-win {
+  animation: win-anim 1.5s 3s linear forwards;
+}
+.control.set-6.control-6:checked ~ .set-7 {
+  animation-play-state: running;
+  display: block;
+}
+.control.set-6.control-6:checked ~ .set-7.control-1,
+.control.set-6.control-6:checked ~ .set-7.duck-1,
+.control.set-6.control-6:checked ~ .set-7.dog-1,
+.control.set-6.control-6:checked ~ .set-7.laugh-1 {
+  animation-play-state: paused;
+}
+.control.set-6.control-6:checked ~ .set-7.control-2,
+.control.set-6.control-6:checked ~ .set-7.duck-2,
+.control.set-6.control-6:checked ~ .set-7.dog-2,
+.control.set-6.control-6:checked ~ .set-7.laugh-2 {
+  animation-play-state: paused;
+}
+.control.set-6.control-6:checked ~ .set-7.control-3,
+.control.set-6.control-6:checked ~ .set-7.duck-3,
+.control.set-6.control-6:checked ~ .set-7.dog-3,
+.control.set-6.control-6:checked ~ .set-7.laugh-3 {
+  animation-play-state: paused;
+}
+.control.set-6.control-6:checked ~ .set-7.control-4,
+.control.set-6.control-6:checked ~ .set-7.duck-4,
+.control.set-6.control-6:checked ~ .set-7.dog-4,
+.control.set-6.control-6:checked ~ .set-7.laugh-4 {
+  animation-play-state: paused;
+}
+.control.set-6.control-6:checked ~ .set-7.control-5,
+.control.set-6.control-6:checked ~ .set-7.duck-5,
+.control.set-6.control-6:checked ~ .set-7.dog-5,
+.control.set-6.control-6:checked ~ .set-7.laugh-5 {
+  animation-play-state: paused;
+}
+.control.set-6.control-6:checked ~ .set-7.control-6,
+.control.set-6.control-6:checked ~ .set-7.duck-6,
+.control.set-6.control-6:checked ~ .set-7.dog-6,
+.control.set-6.control-6:checked ~ .set-7.laugh-6 {
+  animation-play-state: paused;
+}
+@keyframes frame-2-anim {
+  75% {
+    opacity: 1;
+  }
+  75.1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes frame-3-anim {
+  25% {
+    opacity: 1;
+  }
+  25.1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes laugh-frame-anim {
+  50% {
+    opacity: 1;
+  }
+  50.1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes laugh-anim {
+  40% {
+    transform: translate(calc(50% - 6vmin), 46.4vmin);
+  }
+  60% {
+    transform: translate(calc(50% - 6vmin), 46.4vmin);
+  }
+}
+@keyframes death-anim {
+  to {
+    transform: translateY(62vh);
+  }
+}
+@keyframes duck-shot {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes duck-dead {
+  50% {
+    transform: scaleX(1);
+  }
+  50.1% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(-1);
+  }
+}
+@keyframes win-anim {
+  20% {
+    transform: translateY(-15.6vmin);
+  }
+  80% {
+    transform: translateY(-15.6vmin);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
+}
+@keyframes flash {
+  0% {
+    background: black;
+    z-index: 100;
+  }
+  50% {
+    background: black;
+    z-index: 100;
+  }
+  50.1% {
+    background: white;
+    z-index: 100;
+  }
+  100% {
+    background: white;
+    z-index: 100;
+  }
+}

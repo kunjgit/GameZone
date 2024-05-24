@@ -1,0 +1,988 @@
+// click on the animation to fire, score by hitting a duck
+// reference sprites from https://www.spriters-resource.com
+
+@pixel-size: 0.4vmin;
+
+@sprite-size: 32;
+
+@max-height: 146 - 32;
+@max-width: 256 - 32;
+
+@flight-speed: 5;
+
+@colors: {
+  @t: #63adff;//transparent;
+  @b: black;
+  @w: white;
+  @g: #005000;
+  @o: #ff7763;
+
+  @l: transparent;
+  @r: #8cd600;
+  @e: #005200;
+  @n: #522100;
+  @d: #6b6b00;
+
+  @f: #9c4a00;
+}
+
+body {
+  margin: 0;
+  background: black;
+}
+
+.screen {
+  background: #63adff;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+
+  width: 256 * @pixel-size;
+  height: 224 * @pixel-size;
+}
+
+
+// add styles for colors
+each(@colors, {
+  @k: replace(@key, '@', '');
+  .@{k} {
+    background-color: @value;
+  }
+});
+
+.i {
+  z-index: 0;
+}
+
+.j {
+  z-index: 2;
+}
+
+.k {
+  z-index: 4;
+}
+
+// add styles for drawing pixels
+.runs(@max, @i:1) when(@i <= @max){
+  .r-@{i} {
+    width: @pixel-size * @i;
+  }
+  .runs(@max, @i+1);
+}
+.runs(256);
+
+.frame {
+  position: absolute;
+  > div {
+    display: flex;
+    > div {
+      height: @pixel-size;
+    }
+  }
+}
+
+.flight-paths {
+  .flight-1 {
+    .p1 {
+      @adj: 0;
+      @opp: 0;
+
+      @len: 0;
+      @proportion: 0;
+
+      @prev: l;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 64;
+      @y: @max-height;
+    }
+    .p2 {
+      @adj: .flight-paths.flight-1.p1[@x];
+      @opp: @max-height - tan(45deg)*.flight-paths.flight-1.p1[@x];
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 655.3131066631616;
+      @proportion: .flight-paths.flight-1.p1[@proportion] + @len;
+
+      @prev: l;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 0;
+      @y: @opp;
+    }
+    .p3 {
+      @adj: @opp / tan(45deg);
+      @opp: .flight-paths.flight-1.p2[@y];
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 655.3131066631616;
+      @proportion: .flight-paths.flight-1.p2[@proportion] + @len;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 0;
+
+      @x: @adj;
+      @y: 0;
+    }
+    .p4 {
+      @adj: @max-width - .flight-paths.flight-1.p3[@adj];
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 655.3131066631616;
+      @proportion: .flight-paths.flight-1.p3[@proportion] + @len;
+
+      @prev: r;
+      @next: l;
+
+      @prev-o: 0;
+      @next-o: 0;
+
+      @x: @max-width;
+      @y: @opp;
+    }
+    .p5 {
+      @adj: @max-width;
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 655.3131066631616;
+      @proportion: .flight-paths.flight-1.p4[@proportion] + @len;
+
+      @prev: l;
+      @next: r;
+
+      @prev-o: 0;
+      @next-o: 1;
+
+      @x: 0;
+      @y: .flight-paths.flight-1.p4[@opp] + @opp;
+    }
+    .p6 {
+      @opp: .flight-paths.flight-1.p5[@y];
+      @adj: @opp / tan(50deg);
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 655.3131066631616;
+      @proportion: 1;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @adj;
+      @y: -34;
+    }
+  }
+  .flight-2 {
+    .p1 {
+      @adj: 0;
+      @opp: 0;
+
+      @len: 0;
+      @proportion: 0;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 0;
+      @next-o: 0;
+
+      @x: 128;
+      @y: @max-height;
+    }
+    .p2 {
+      @adj: @max-width - .flight-paths.flight-2.p1[@x];
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 641.7203537706;
+      @proportion: .flight-paths.flight-2.p1[@proportion] + @len;
+
+      @prev: r;
+      @next: l;
+
+      @prev-o: 0;
+      @next-o: 0;
+
+      @x: @max-width;
+      @y: @max-height - @opp;
+    }
+    .p3 {
+      @adj: @max-width;
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 641.7203537706;
+      @proportion: .flight-paths.flight-2.p2[@proportion] + @len;
+
+      @prev: l;
+      @next: r;
+
+      @prev-o: 0;
+      @next-o: 1;
+
+      @x: 0;
+      @y: .flight-paths.flight-2.p2[@y] - @opp;
+    }
+    .p4 {
+      @adj: @max-height - .flight-paths.flight-2.p3[@y];
+      @opp: tan(45deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 641.7203537706;
+      @proportion: .flight-paths.flight-2.p3[@proportion] + @len;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @opp;
+      @y: @max-height;
+    }
+    .p5 {
+      @adj: @opp / tan(45deg);
+      @opp: @max-height;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 641.7203537706;
+      @proportion: .flight-paths.flight-2.p4[@proportion] + @len;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: .flight-paths.flight-2.p4[@x] + @adj;
+      @y: 0;
+    }
+    .p6 {
+      @adj: @max-width - .flight-paths.flight-2.p5[@x];
+      @opp: tan(40deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 641.7203537706;
+      @proportion: 1;
+
+      @prev: r;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @max-width + 34;
+      @y: @opp;
+    }
+  }
+  .flight-3 {
+    .p1 {
+      @adj: 0;
+      @opp: 0;
+
+      @len: 0;
+      @proportion: 0;
+
+      @prev: l;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 96;
+      @y: @max-height;
+    }
+    .p2 {
+      @adj: @max-width - .flight-paths.flight-3.p1[@x];
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 657.4866890946;
+      @proportion: .flight-paths.flight-3.p1[@proportion] + @len;
+
+      @prev: l;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 0;
+      @y: @max-height - @opp;
+    }
+    .p3 {
+      @adj: @opp / tan(45deg);
+      @opp: .flight-paths.flight-3.p2[@y];
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 657.4866890946;
+      @proportion: .flight-paths.flight-3.p2[@proportion] + @len;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @adj;
+      @y: 0;
+    }
+    .p4 {
+      @adj: @max-width - .flight-paths.flight-3.p3[@x];
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 657.4866890946;
+      @proportion: .flight-paths.flight-3.p3[@proportion] + @len;
+
+      @prev: r;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @max-width;
+      @y: @opp;
+    }
+    .p5 {
+      @adj: @max-height - .flight-paths.flight-3.p4[@y];
+      @opp: tan(45deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 657.4866890946;
+      @proportion: .flight-paths.flight-3.p4[@proportion] + @len;
+
+      @prev: l;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @max-width - @opp;
+      @y: @max-height;
+    }
+    .p6 {
+      @adj: .flight-paths.flight-3.p5[@x];
+      @opp: tan(5deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 657.4866890946;
+      @proportion: 1;
+
+      @prev: l;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: -34;
+      @y: @max-height - @opp;
+    }
+  }
+  .flight-4 {
+    .p1 {
+      @adj: 0;
+      @opp: 0;
+
+      @len: 0;
+      @proportion: 0;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 0;
+      @y: @max-height;
+    }
+    .p2 {
+      @adj: @opp / tan(45deg);
+      @opp: @max-height;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 757.777850867;
+      @proportion: .flight-paths.flight-4.p1[@proportion] + @len;
+
+      @prev: r;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 160 - @adj;
+      @y: 0;
+    }
+    .p3 {
+      @opp: .flight-paths.flight-4.p2[@x];
+      @adj: @opp / tan(45deg);
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 757.777850867;
+      @proportion: .flight-paths.flight-4.p2[@proportion] + @len;
+
+      @prev: l;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 0;
+      @y: @adj;
+    }
+    .p4 {
+      @adj: @max-width;
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 757.777850867;
+      @proportion: .flight-paths.flight-4.p3[@proportion] + @len;
+
+      @prev: r;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @max-width;
+      @y: .flight-paths.flight-4.p3[@y] - @opp;
+    }
+    .p5 {
+      @adj: @max-height - .flight-paths.flight-4.p4[@y];
+      @opp: tan(45deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 757.777850867;
+      @proportion: .flight-paths.flight-4.p4[@proportion] + @len;
+
+      @prev: l;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @opp;
+      @y: @max-height;
+    }
+    .p6 {
+      @adj: .flight-paths.flight-4.p5[@x];
+      @opp: tan(45deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 757.777850867;
+      @proportion: 1;
+
+      @prev: l;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: -34;
+      @y: @max-height - @opp;
+    }
+  }
+  .flight-5 {
+    .p1 {
+      @adj: 0;
+      @opp: 0;
+
+      @len: 0;
+      @proportion: 0;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 0;
+      @y: @max-height;
+    }
+    .p2 {
+      @adj: @max-width;
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 771.694960088;
+      @proportion: .flight-paths.flight-5.p1[@proportion] + @len;
+
+      @prev: r;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @max-width;
+      @y: @max-height - @opp;
+    }
+    .p3 {
+      @adj: @max-width;
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 771.694960088;
+      @proportion: .flight-paths.flight-5.p2[@proportion] + @len;
+
+      @prev: l;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 0;
+      @y: .flight-paths.flight-5.p2[@y] - @opp;
+    }
+    .p4 {
+      @adj: @opp / tan(45deg);
+      @opp: .flight-paths.flight-5.p3[@y];
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 771.694960088;
+      @proportion: .flight-paths.flight-5.p3[@proportion] + @len;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @adj;
+      @y: 0;
+    }
+    .p5 {
+      @adj: @opp / tan(45deg);
+      @opp: @max-height;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 771.694960088;
+      @proportion: .flight-paths.flight-5.p4[@proportion] + @len;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: .flight-paths.flight-5.p4[@x] + @adj;
+      @y: @max-height;
+    }
+    .p6 {
+      @adj: @max-width - .flight-paths.flight-5.p5[@x];
+      @opp: tan(45deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 771.694960088;
+      @proportion: 1;
+
+      @prev: r;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @max-width + 34;
+      @y: @max-height - @opp;
+    }
+  }
+  .flight-6 {
+    .p1 {
+      @adj: 0;
+      @opp: 0;
+
+      @len: 0;
+      @proportion: 0;
+
+      @prev: l;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 64;
+      @y: @max-height;
+    }
+    .p2 {
+      @adj: .flight-paths.flight-6.p1[@x];
+      @opp: @max-height - tan(45deg)*.flight-paths.flight-6.p1[@x];
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 655.3131066631616;
+      @proportion: .flight-paths.flight-6.p1[@proportion] + @len;
+
+      @prev: l;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 0;
+      @y: @opp;
+    }
+    .p3 {
+      @adj: @opp / tan(45deg);
+      @opp: .flight-paths.flight-6.p2[@y];
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 655.3131066631616;
+      @proportion: .flight-paths.flight-6.p2[@proportion] + @len;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @adj;
+      @y: 0;
+    }
+    .p4 {
+      @adj: @max-width - .flight-paths.flight-6.p3[@adj];
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 655.3131066631616;
+      @proportion: .flight-paths.flight-6.p3[@proportion] + @len;
+
+      @prev: r;
+      @next: l;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @max-width;
+      @y: @opp;
+    }
+    .p5 {
+      @adj: @max-width;
+      @opp: tan(10deg) * @adj;
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 655.3131066631616;
+      @proportion: .flight-paths.flight-6.p4[@proportion] + @len;
+
+      @prev: l;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: 0;
+      @y: .flight-paths.flight-6.p4[@opp] + @opp;
+    }
+    .p6 {
+      @opp: .flight-paths.flight-6.p5[@y];
+      @adj: @opp / tan(45deg);
+
+      @len: sqrt(@adj * @adj + @opp * @opp) / 655.3131066631616;
+      @proportion: 1;
+
+      @prev: r;
+      @next: r;
+
+      @prev-o: 1;
+      @next-o: 1;
+
+      @x: @adj;
+      @y: -34;
+    }
+  }
+}
+
+each(.flight-paths(), .(@v, @k, @i){
+  @keyframes ~'fly-animation-@{i}' {
+    each(@v, .(@v1, @k1, @i1){
+      @time: unit(@v1[@proportion] * 100, %);
+      @time-prev: unit(@v1[@proportion] * 100 - 0.01, %);
+      & when (@v1[@proportion] > 0) {
+        @{time-prev} {
+          left: @v1[@x] * @pixel-size;
+          top: @v1[@y] * @pixel-size;
+          transform: if((@v1[@prev] = l), scaleX(-1), none);
+        }
+      }
+
+      @{time} {
+        left: @v1[@x] * @pixel-size;
+        top: @v1[@y] * @pixel-size;
+        transform: if((@v1[@next] = l), scaleX(-1), none);
+      }
+    });
+  }
+
+  .anim-@{i} {
+    animation: ~'fly-animation-@{i} @{flight-speed}s linear forwards';
+  }
+});
+
+.duck {
+  width: 32 * @pixel-size;
+  height: 32 * @pixel-size;
+  position: absolute;
+  transform: translateX(-32 * @pixel-size);
+  .sprite {
+    position: absolute;
+    &.duck-angle {
+      > div {
+        &:nth-child(2) {
+          animation: frame-2-anim 300ms alternate infinite;
+        }
+        &:nth-child(3) {
+          animation: frame-3-anim 300ms alternate infinite;
+        }
+      }
+    }
+    &.duck-straight {
+      > div {
+        &:nth-child(2) {
+          animation: frame-2-anim 300ms alternate infinite;
+        }
+        &:nth-child(3) {
+          animation: frame-3-anim 300ms alternate infinite;
+        }
+      }
+    }
+    &.duck-shot, &.duck-dead {
+      opacity: 0;
+    }
+  }
+}
+
+.dog {
+  position: absolute;
+  top: 158 * @pixel-size!important;
+  z-index: 3;
+  transform: scaleX(1)!important;
+  .sprite {
+    position: absolute;
+  }
+}
+
+.laugh {
+  @offsetX: @pixel-size * 15;
+  @offsetY: @pixel-size * 158;
+  transform: translate(~'calc(50% - @{offsetX})', @offsetY);
+  animation: laugh-anim 1.5s linear;
+
+  .sprite {
+    &.laugh-lose {
+      > div {
+        &:nth-child(2) {
+          animation: laugh-frame-anim 200ms infinite;
+        }
+      }
+    }
+  }
+}
+
+.foreground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  &:active {
+    animation: flash 50ms;
+  }
+}
+
+each(range(6), .(@sv, @sk, @si){
+  & when(@sv > 1) {
+    .set-@{sv} {
+      animation-play-state: paused;
+      display: none;
+    }
+  }
+
+  each(range(6), .(@cv, @ck, @ci){
+    .set-@{sv} {
+      @start-delay: if((@sv = 1), 1, 5);
+      @delay: (@cv - 1) * (@flight-speed + 2) - (@sv - 1) * (@flight-speed + 2) + @start-delay;
+      &.anim-@{cv} {
+        animation-delay: unit(@delay, s);
+      }
+      &.laugh-@{cv} {
+        animation-delay: unit(@delay + @flight-speed, s);
+      }
+    }
+  });
+});
+
+.control {
+  position: absolute;
+  width: 32 * @pixel-size;
+  height: 32 * @pixel-size;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  opacity: 0;
+
+  &:active {
+    ~ .foreground {
+      animation: flash 50ms;
+    }
+  }
+
+  each(range(6), .(@sv, @sk, @si){
+    @nextVal: @sv + 1;
+    &.set-@{sv} {
+      each(range(6), .(@cv, @ck, @ci){
+        &.control-@{cv} {
+          &:checked {
+            display: none;
+            animation-play-state: paused;
+
+            ~ .set-@{sv} {
+              animation-play-state: paused;
+
+              &.duck-@{cv} {
+                .sprite {
+                  animation: death-anim 2s 1s linear forwards;
+
+                  &.duck-angle, &.duck-straight {
+                    opacity: 0;
+                  }
+
+                  &.duck-shot {
+                    opacity: 1;
+                    animation: duck-shot 0s 1s forwards;
+                  }
+
+                  &.duck-dead {
+                    opacity: 1;
+                    transition: opacity 1ms 1s;
+                    > div {
+                      &:nth-child(1) {
+                        animation: duck-dead 300ms infinite linear;
+                      }
+                    }
+                  }
+                }
+              }
+
+              &.dog-@{cv} {
+                .sprite {
+                  &.dog-win {
+                    animation: win-anim 1.5s 3s linear forwards;
+                  }
+                }
+              }
+            }
+
+            ~ .set-@{nextVal} {
+              animation-play-state: running;
+              display: block;
+
+              each(range(@cv), .(@v, @k, @i){
+                &.control-@{v}, &.duck-@{v}, &.dog-@{v}, &.laugh-@{v} {
+                  animation-play-state: paused;
+                }
+              });
+
+              & when(@cv < 6) {
+                @start: @cv + 1;
+                each(range(@start, 6), .(@v, @k, @i){
+                  @start-delay: 5;
+                  @delay: (@i - 1) * (@flight-speed + 2) + @start-delay;
+                  &.control-@{v}, &.duck-@{v}, &.dog-@{v} {
+                    animation-delay: unit(@delay, s);
+                  }
+                  &.laugh-@{v} {
+                    animation-delay: unit(@delay + @flight-speed, s);
+                  }
+                });
+              }
+            }
+          }
+        }
+      });
+    }
+  });
+}
+
+@keyframes frame-2-anim {
+  75% {
+    opacity: 1;
+  }
+  75.1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes frame-3-anim {
+  25% {
+    opacity: 1;
+  }
+  25.1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes laugh-frame-anim {
+  50% {
+    opacity: 1;
+  }
+  50.1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes laugh-anim {
+  @offsetX: @pixel-size * 15;
+  @offsetY: @pixel-size * 116;
+  40% {
+    transform: translate(~'calc(50% - @{offsetX})', @offsetY);
+  }
+  60% {
+    transform: translate(~'calc(50% - @{offsetX})', @offsetY);
+  }
+}
+
+@keyframes death-anim {
+  to {
+    transform: translateY(62vh);
+  }
+}
+
+@keyframes duck-shot {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes duck-dead {
+  50% {
+    transform: scaleX(1);
+  }
+  50.1% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(-1);
+  }
+}
+
+@keyframes win-anim {
+  20% {
+    transform: translateY(-39 * @pixel-size);
+  }
+  80% {
+    transform: translateY(-39 * @pixel-size);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes flash {
+  0% {
+    background: black;
+    z-index: 100;
+  }
+  50% {
+    background: black;
+    z-index: 100;
+  }
+  50.1% {
+    background: white;
+    z-index: 100;
+  }
+  100% {
+    background: white;
+    z-index: 100;
+  }
+}

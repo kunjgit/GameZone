@@ -1924,12 +1924,12 @@
   "383": {
     "gameTitle": "Puzzel_Winner",
     "gameUrl": "Puzzel_Winner",
-    "thumbnailUrl": "Puzzel_Winner.png"
+    "thumbnailUrl": "Puzzel_winner.png"
   },
   "384": {
     "gameTitle": "Emoji_Intruder",
     "gameUrl": "Emoji_Intruder",
-    "thumbnailUrl": "Emoji_intruder.png"
+    "thumbnailUrl": "Emoji_Intruder.png"
   },
   "385": {
     "gameTitle": "Guess_The_Weapon",
@@ -1948,27 +1948,61 @@
     "gameUrl": "Earth_Guardian",
     "thumbnailUrl": "Earth_Guardian.png"
   },
-  "387":{
+  "388":{
+
+    "gameTitle" : "Technical_Mind_Game",
+    "gameUrl" :  "Technical_Mind_Game",
+    "thumbnailUrl" : "Technical_Mind_Game.png"
+},
+  "389":{
     "gameTitle": "Memory Cards Game",
     "gameUrl": "Memory_Cards_Game",
     "thumbnailUrl": "Memory_Cards_Game.png"
   },
-  "388":{
+  "390":{
     "gameTitle": "escaperoom",
     "gameUrl": "escaperoom",
     "thumbnailUrl": "escaperoom.png"
   },
-  "389":{
+  "391":{
     "gameTitle": "Dice Roller",
     "gameUrl": "Dice_Roller",
     "thumbnailUrl": "Dice_Roller.png"
+
   },
   "393":{
     "gameTitle": "Dragon Tower",
     "gameUrl": "Dragon_Tower",
     "thumbnailUrl": "Dragon_Tower.png"
-  }
-  
-  
+  },
+  "400":{
+
+  "gameTitle": "Chrome_Dino_Game",
+    "gameUrl": "Chrome_Dino_Game",
+    "thumbnailUrl": "Chrome_Dino_Game.png"
+
+
+  },
+  "399":{
+    "gameTitle": "Brick_and_Ball",
+    "gameUrl": "Brick_and_Ball",
+    "thumbnailUrl": "Brick_and_Ball.png"
+
+  },
+"392":{
+    "gameTitle": "Dot Connect",
+    "gameUrl": "Dot_Connect",
+    "thumbnailUrl": "Dot_Connect.png"
+
+},
+"393":{
+  "gameTitle": "path finder puzzle",
+  "gameUrl": "path_finder",
+  "thumbnailUrl": "pathfinder.png"
+}
+
+
 
 }
+
+

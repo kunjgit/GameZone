@@ -30,6 +30,7 @@
 <br>
 
 ## **Screenshots 📸**
+![Duck_Hunting](https://github.com/Anshika-17/GameZone/assets/144370954/6e4cbfd0-e13c-432e-9140-74a3054de786)
 
 <br>
 <!-- add your screenshots like this -->

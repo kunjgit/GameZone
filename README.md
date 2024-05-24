@@ -277,7 +277,8 @@ This repository also provides one such platforms where contributers come over an
 | 167 | [Short Circuit](https://github.com/kunjgit/GameZone/tree/main/Games/Short%20Circuit)|
 | 168 | [Dot Connect](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Connect)|
 | 169 | [Word Association](https://github.com/kunjgit/GameZone/tree/main/Games/word_association)|
-| 170 | [Catch the falling stars](https://github.com/kunjgit/GameZone/tree/main/Games/catch_the_falling_stars)|
+| 170 | [Brick And Ball](https://github.com/kunggit/GameZone/tree/main/Games/Brick_and_Ball)|
+| 171 | [Catch the falling stars](https://github.com/kunjgit/GameZone/tree/main/Games/catch_the_falling_stars)|
 </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |

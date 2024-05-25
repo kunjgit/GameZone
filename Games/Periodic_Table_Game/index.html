@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+    <div class="periodic-table">
+        <!-- Period 1 -->
+        <div class="element" onclick="showElementCard('H')" style="grid-column: 1; grid-row: 1;">H</div>
+        <div class="element" onclick="showElementCard('He')" style="grid-column: 18; grid-row: 1;">He</div>
+        <!-- Period 2 -->
+        <div class="element" onclick="showElementCard('Li')" style="grid-column: 1; grid-row: 2;">Li</div>
+        <div class="element" onclick="showElementCard('Be')" style="grid-column: 2; grid-row: 2;">Be</div>
+        <div class="element" onclick="showElementCard('B')" style="grid-column: 13; grid-row: 2;">B</div>
+        <div class="element" onclick="showElementCard('C')" style="grid-column: 14; grid-row: 2;">C</div>
+        <div class="element" onclick="showElementCard('N')" style="grid-column: 15; grid-row: 2;">N</div>
+        <div class="element" onclick="showElementCard('O')" style="grid-column: 16; grid-row: 2;">O</div>
+        <div class="element" onclick="showElementCard('F')" style="grid-column: 17; grid-row: 2;">F</div>
+        <div class="element" onclick="showElementCard('Ne')" style="grid-column: 18; grid-row: 2;">Ne</div>
+        <!-- Period 3 -->
+        <div class="element" onclick="showElementCard('Na')" style="grid-column: 1; grid-row: 3;">Na</div>
+        <div class="element" onclick="showElementCard('Mg')" style="grid-column: 2; grid-row: 3;">Mg</div>
+        <div class="element" onclick="showElementCard('Al')" style="grid-column: 13; grid-row: 3;">Al</div>
+        <div class="element" onclick="showElementCard('Si')" style="grid-column: 14; grid-row: 3;">Si</div>
+        <div class="element" onclick="showElementCard('P')" style="grid-column: 15; grid-row: 3;">P</div>
+        <div class="element" onclick="showElementCard('S')" style="grid-column: 16; grid-row: 3;">S</div>
+        <div class="element" onclick="showElementCard('Cl')" style="grid-column: 17; grid-row: 3;">Cl</div>
+        <div class="element" onclick="showElementCard('Ar')" style="grid-column: 18; grid-row: 3;">Ar</div>
+        <!-- Period 4 -->
+        <div class="element" onclick="showElementCard('K')" style="grid-column: 1; grid-row: 4;">K</div>
+        <div class="element" onclick="showElementCard('Ca')" style="grid-column: 2; grid-row: 4;">Ca</div>
+        <div class="element" onclick="showElementCard('Sc')" style="grid-column: 3; grid-row: 4;">Sc</div>
+        <div class="element" onclick="showElementCard('Ti')" style="grid-column: 4; grid-row: 4;">Ti</div>
+        <div class="element" onclick="showElementCard('V')" style="grid-column: 5; grid-row: 4;">V</div>
+        <div class="element" onclick="showElementCard('Cr')" style="grid-column: 6; grid-row: 4;">Cr</div>
+        <div class="element" onclick="showElementCard('Mn')" style="grid-column: 7; grid-row: 4;">Mn</div>
+        <div class="element" onclick="showElementCard('Fe')" style="grid-column: 8; grid-row: 4;">Fe</div>
+        <div class="element" onclick="showElementCard('Co')" style="grid-column: 9; grid-row: 4;">Co</div>
+        <div class="element" onclick="showElementCard('Ni')" style="grid-column: 10; grid-row: 4;">Ni</div>
+        <div class="element" onclick="showElementCard('Cu')" style="grid-column: 11; grid-row: 4;">Cu</div>
+        <div class="element" onclick="showElementCard('Zn')" style="grid-column: 12; grid-row: 4;">Zn</div>
+        <div class="element" onclick="showElementCard('Ga')" style="grid-column: 13; grid-row: 4;">Ga</div>
+        <div class="element" onclick="showElementCard('Ge')" style="grid-column: 14; grid-row: 4;">Ge</div>
+        <div class="element" onclick="showElementCard('As')" style="grid-column: 15; grid-row: 4;">As</div>
+        <div class="element" onclick="showElementCard('Se')" style="grid-column: 16; grid-row: 4;">Se</div>
+        <div class="element" onclick="showElementCard('Br')" style="grid-column: 17; grid-row: 4;">Br</div>
+        <div class="element" onclick="showElementCard('Kr')" style="grid-column: 18; grid-row: 4;">Kr</div>
+        <!-- Period 5 -->
+        <div class="element" onclick="showElementCard('Rb')" style="grid-column: 1; grid-row: 5;">Rb</div>
+        <div class="element" onclick="showElementCard('Sr')" style="grid-column: 2; grid-row: 5;">Sr</div>
+        <div class="element" onclick="showElementCard('Y')" style="grid-column: 3; grid-row: 5;">Y</div>
+        <div class="element" onclick="showElementCard('Zr')" style="grid-column: 4; grid-row: 5;">Zr</div>
+        <div class="element" onclick="showElementCard('Nb')" style="grid-column: 5; grid-row: 5;">Nb</div>
+        <div class="element" onclick="showElementCard('Mo')" style="grid-column: 6; grid-row: 5;">Mo</div>
+        <div class="element" onclick="showElementCard('Tc')" style="grid-column: 7; grid-row: 5;">Tc</div>
+        <div class="element" onclick="showElementCard('Ru')" style="grid-column: 8; grid-row: 5;">Ru</div>
+        <div class="element" onclick="showElementCard('Rh')" style="grid-column: 9; grid-row: 5;">Rh</div>
+        <div class="element" onclick="showElementCard('Pd')" style="grid-column: 10; grid-row: 5;">Pd</div>
+        <div class="element" onclick="showElementCard('Ag')" style="grid-column: 11; grid-row: 5;">Ag</div>
+        <div class="element" onclick="showElementCard('Cd')" style="grid-column: 12; grid-row: 5;">Cd</div>
+        <div class="element" onclick="showElementCard('In')" style="grid-column: 13; grid-row: 5;">In</div>
+        <div class="element" onclick="showElementCard('Sn')" style="grid-column: 14; grid-row: 5;">Sn</div>
+        <div class="element" onclick="showElementCard('Sb')" style="grid-column: 15; grid-row: 5;">Sb</div>
+        <div class="element" onclick="showElementCard('Te')" style="grid-column: 16; grid-row: 5;">Te</div>
+        <div class="element" onclick="showElementCard('I')" style="grid-column: 17; grid-row: 5;">I</div>
+        <div class="element" onclick="showElementCard('Xe')" style="grid-column: 18; grid-row: 5;">Xe</div>
+        <!-- Period 6 -->
+        <div class="element" onclick="showElementCard('Cs')" style="grid-column: 1; grid-row: 6;">Cs</div>
+        <div class="element" onclick="showElementCard('Ba')" style="grid-column: 2; grid-row: 6;">Ba</div>
+        <div class="element lanthanoid" onclick="showElementCard('La')" style="grid-column: 3; grid-row: 9;">La</div>
+        <div class="element" onclick="showElementCard('Hf')" style="grid-column: 4; grid-row: 6;">Hf</div>
+        <div class="element" onclick="showElementCard('Ta')" style="grid-column: 5; grid-row: 6;">Ta</div>
+        <div class="element" onclick="showElementCard('W')" style="grid-column: 6; grid-row: 6;">W</div>
+        <div class="element" onclick="showElementCard('Re')" style="grid-column: 7; grid-row: 6;">Re</div>
+        <div class="element" onclick="showElementCard('Os')" style="grid-column: 8; grid-row: 6;">Os</div>
+        <div class="element" onclick="showElementCard('Ir')" style="grid-column: 9; grid-row: 6;">Ir</div>
+        <div class="element" onclick="showElementCard('Pt')" style="grid-column: 10; grid-row: 6;">Pt</div>
+        <div class="element" onclick="showElementCard('Au')" style="grid-column: 11; grid-row: 6;">Au</div>
+        <div class="element" onclick="showElementCard('Hg')" style="grid-column: 12; grid-row: 6;">Hg</div>
+        <div class="element" onclick="showElementCard('Tl')" style="grid-column: 13; grid-row: 6;">Tl</div>
+        <div class="element" onclick="showElementCard('Pb')" style="grid-column: 14; grid-row: 6;">Pb</div>
+        <div class="element" onclick="showElementCard('Bi')" style="grid-column: 15; grid-row: 6;">Bi</div>
+        <div class="element" onclick="showElementCard('Po')" style="grid-column: 16; grid-row: 6;">Po</div>
+        <div class="element" onclick="showElementCard('At')" style="grid-column: 17; grid-row: 6;">At</div>
+        <div class="element" onclick="showElementCard('Rn')" style="grid-column: 18; grid-row: 6;">Rn</div>
+        <!-- Period 7 -->
+        <div class="element" onclick="showElementCard('Fr')" style="grid-column: 1; grid-row: 7;">Fr</div>
+        <div class="element" onclick="showElementCard('Ra')" style="grid-column: 2; grid-row: 7;">Ra</div>
+        <div class="element actinoid" onclick="showElementCard('Ac')" style="grid-column: 3; grid-row: 10;">Ac</div>
+        <div class="element" onclick="showElementCard('Rf')" style="grid-column: 4; grid-row: 7;">Rf</div>
+        <div class="element" onclick="showElementCard('Db')" style="grid-column: 5; grid-row: 7;">Db</div>
+        <div class="element" onclick="showElementCard('Sg')" style="grid-column: 6; grid-row: 7;">Sg</div>
+        <div class="element" onclick="showElementCard('Bh')" style="grid-column: 7; grid-row: 7;">Bh</div>
+        <div class="element" onclick="showElementCard('Hs')" style="grid-column: 8; grid-row: 7;">Hs</div>
+        <div class="element" onclick="showElementCard('Mt')" style="grid-column: 9; grid-row: 7;">Mt</div>
+        <div class="element" onclick="showElementCard('Ds')" style="grid-column: 10; grid-row: 7;">Ds</div>
+        <div class="element" onclick="showElementCard('Rg')" style="grid-column: 11; grid-row: 7;">Rg</div>
+        <div class="element" onclick="showElementCard('Cn')" style="grid-column: 12; grid-row: 7;">Cn</div>
+        <div class="element" onclick="showElementCard('Nh')" style="grid-column: 13; grid-row: 7;">Nh</div>
+        <div class="element" onclick="showElementCard('Fl')" style="grid-column: 14; grid-row: 7;">Fl</div>
+        <div class="element" onclick="showElementCard('Mc')" style="grid-column: 15; grid-row: 7;">Mc</div>
+        <div class="element" onclick="showElementCard('Lv')" style="grid-column: 16; grid-row: 7;">Lv</div>
+        <div class="element" onclick="showElementCard('Ts')" style="grid-column: 17; grid-row: 7;">Ts</div>
+        <div class="element" onclick="showElementCard('Og')" style="grid-column: 18; grid-row: 7;">Og</div>
+        <!-- Lanthanoids -->
+        <div class="element lanthanoid" onclick="showElementCard('Ce')" style="grid-column: 4; grid-row: 9;">Ce</div>
+        <div class="element lanthanoid" onclick="showElementCard('Pr')" style="grid-column: 5; grid-row: 9;">Pr</div>
+        <div class="element lanthanoid" onclick="showElementCard('Nd')" style="grid-column: 6; grid-row: 9;">Nd</div>
+        <div class="element lanthanoid" onclick="showElementCard('Pm')" style="grid-column: 7; grid-row: 9;">Pm</div>
+        <div class="element lanthanoid" onclick="showElementCard('Sm')" style="grid-column: 8; grid-row: 9;">Sm</div>
+        <div class="element lanthanoid" onclick="showElementCard('Eu')" style="grid-column: 9; grid-row: 9;">Eu</div>
+        <div class="element lanthanoid" onclick="showElementCard('Gd')" style="grid-column: 10; grid-row: 9;">Gd</div>
+        <div class="element lanthanoid" onclick="showElementCard('Tb')" style="grid-column: 11; grid-row: 9;">Tb</div>
+        <div class="element lanthanoid" onclick="showElementCard('Dy')" style="grid-column: 12; grid-row: 9;">Dy</div>
+        <div class="element lanthanoid" onclick="showElementCard('Ho')" style="grid-column: 13; grid-row: 9;">Ho</div>
+        <div class="element lanthanoid" onclick="showElementCard('Er')" style="grid-column: 14; grid-row: 9;">Er</div>
+        <div class="element lanthanoid" onclick="showElementCard('Tm')" style="grid-column: 15; grid-row: 9;">Tm</div>
+        <div class="element lanthanoid" onclick="showElementCard('Yb')" style="grid-column: 16; grid-row: 9;">Yb</div>
+        <div class="element lanthanoid" onclick="showElementCard('Lu')" style="grid-column: 17; grid-row: 9;">Lu</div>
+        <!-- Actinoids -->
+        <div class="element actinoid" onclick="showElementCard('Th')" style="grid-column: 4; grid-row: 10;">Th</div>
+        <div class="element actinoid" onclick="showElementCard('Pa')" style="grid-column: 5; grid-row: 10;">Pa</div>
+        <div class="element actinoid" onclick="showElementCard('U')" style="grid-column: 6; grid-row: 10;">U</div>
+        <div class="element actinoid" onclick="showElementCard('Np')" style="grid-column: 7; grid-row: 10;">Np</div>
+        <div class="element actinoid" onclick="showElementCard('Pu')" style="grid-column: 8; grid-row: 10;">Pu</div>
+        <div class="element actinoid" onclick="showElementCard('Am')" style="grid-column: 9; grid-row: 10;">Am</div>
+        <div class="element actinoid" onclick="showElementCard('Cm')" style="grid-column: 10; grid-row: 10;">Cm</div>
+        <div class="element actinoid" onclick="showElementCard('Bk')" style="grid-column: 11; grid-row: 10;">Bk</div>
+        <div class="element actinoid" onclick="showElementCard('Cf')" style="grid-column: 12; grid-row: 10;">Cf</div>
+        <div class="element actinoid" onclick="showElementCard('Es')" style="grid-column: 13; grid-row: 10;">Es</div>
+        <div class="element actinoid" onclick="showElementCard('Fm')" style="grid-column: 14; grid-row: 10;">Fm</div>
+        <div class="element actinoid" onclick="showElementCard('Md')" style="grid-column: 15; grid-row: 10;">Md</div>
+        <div class="element actinoid" onclick="showElementCard('No')" style="grid-column: 16; grid-row: 10;">No</div>
+        <div class="element actinoid" onclick="showElementCard('Lr')" style="grid-column: 17; grid-row: 10;">Lr</div>
+    </div>
+
+    <!-- Placeholder for element card -->
+    <div id="element-card" class="element-card hidden">
+        <div class="card-content">
+            <span class="close-btn" onclick="closeElementCard()">&times;</span>
+            <h2 id="element-name"></h2>
+            <p id="element-details"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

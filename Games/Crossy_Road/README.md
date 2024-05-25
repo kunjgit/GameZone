@@ -17,5 +17,7 @@ Obstacle Interaction: If the character collides with a vehicle the game ends. Th
 
 ## Screenshots
 <br>
-![Crossy Road image](../../assets/images/Crossy_Road.png)
+
+![Crossy Road image](https://github.com/manmita/GameZone/blob/Crossy_Road/Games/Crossy_Road/assets/Crossy_Road.png)
+
 <br>

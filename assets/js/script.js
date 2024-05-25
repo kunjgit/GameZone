@@ -196,6 +196,10 @@ for (let i = 0; i < filterBtn.length; i++) {
 }
 
 // Code for enabling Light-Dark THEME
+
+
+
+
 function toggleTheme() {
   var slider = document.getElementById("themeToggle");
   if (slider.checked) {
@@ -241,6 +245,16 @@ function disableDarkTheme() {
   }
 }
 
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  var wrapper = document.getElementById("themeToggleWrapper");
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    wrapper.style.opacity = "0";
+  } else {
+    wrapper.style.opacity = "1";
+  }
+}
 
 
 // contact form variables

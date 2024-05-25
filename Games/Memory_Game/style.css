@@ -12,7 +12,7 @@
 }
 
 body {
-    background-color:#0a3c2f;
+    background-image: url("./mind1.jpg");
 }
 
 .wrapper {
@@ -34,6 +34,7 @@ body {
     width: 100%;
     display: grid;
     gap: 0.6em;
+   
 }
 
 .stats-container {
@@ -95,8 +96,9 @@ body {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    background-image: url("./mind.png");
     /* background-color: var(--color-green--light); */
-    background-image: linear-gradient(135deg, #1e4e07, #009DE0) ;
+  
     top: 0;
 }
 
@@ -118,8 +120,12 @@ button {
 
 .controls-container button {
     font-size: 1.3em;
+    font-family: cursive;
     box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2);
+    background-color: rgb(162, 162, 93);
+    
 }
+
 
 .hide {
     display: none;
@@ -136,4 +142,19 @@ button {
 #result h4 {
     font-size: 1.8em;
     margin: 0.6em 0 1em 0;
+}
+.menu{
+    justify-content: center;
+}
+.instructions{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 10px;
+    background-color: aquamarine;
+    border-radius: 30px;
+    padding:45px;
+   
+}
+.instructions p{
+    padding:25 25 25 25;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

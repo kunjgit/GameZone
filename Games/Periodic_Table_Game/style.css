@@ -1,0 +1,153 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+/* Navigation bar styling */
+nav {
+    background-color: #333; /* Dark background for the navbar */
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* Display list items inline */
+}
+
+nav ul li a {
+    color: white; /* White text color */
+    padding: 14px 20px; /* Padding around links */
+    text-decoration: none; /* Remove underline from links */
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: #ddd; /* Light gray background on hover */
+    color: black; /* Black text color on hover */
+}
+
+/* Styling for buttons */
+button {
+    padding: 1rem 2rem;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #04AA6D; /* Green background color */
+    color: white; /* White text color */
+    border: 2px solid #ffffff; /* White border */
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #04AA6D; /* Green border on hover */
+}
+
+/* Styling for the periodic table */
+.periodic-table {
+    display: grid; /* Use CSS Grid layout */
+    grid-template-columns: repeat(18, 60px); /* 18 columns */
+    grid-template-rows: repeat(7, 60px); /* 7 rows */
+    gap: 5px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+    width: fit-content;
+    margin: 1rem auto; /* Center align */
+}
+
+/* Styling for individual elements in the periodic table */
+.element {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 60px;
+    height: 60px;
+    background-color: #4caf50; /* Green background color */
+    color: white;
+    font-size: 18px;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: transform 0.1s; /* Smooth scale transition on hover */
+}
+
+.element:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+    background-color: #87CEFA; /* Light blue background on hover */
+}
+
+/* Additional styling for lanthanoid and actinoid elements */
+.element.lanthanoid,
+.element.actinoid {
+    background-color: #f39c12; /* Orange background color */
+}
+
+/* Class to hide elements */
+.hidden {
+    display: none;
+}
+
+/* Styling for the element card (popup) */
+.element-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center;
+    z-index: 1000; /* Ensure the card appears on top */
+}
+
+.close-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Styling for the score display */
+#score {
+    display: inline;
+    position: relative;
+    left: 65%; /* Offset from left */
+    color: red;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#score.hidden {
+    display: none;
+}
+
+#prompt {
+    display: inline;
+}
+
+/* Container styling for the game */
+.container {
+    padding: 20px;
+    width: fit-content;
+    margin: 1rem auto; /* Center align */
+}
+
+#game-area {
+    margin-top: 20px;
+}

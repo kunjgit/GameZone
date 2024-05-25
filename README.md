@@ -279,6 +279,7 @@ This repository also provides one such platforms where contributers come over an
 | 169 | [Word Association](https://github.com/kunjgit/GameZone/tree/main/Games/word_association)|
 | 170 | [Brick And Ball](https://github.com/kunggit/GameZone/tree/main/Games/Brick_and_Ball)|
 | 171 | [Catch the falling stars](https://github.com/kunjgit/GameZone/tree/main/Games/catch_the_falling_stars)|
+| 172 | [Space Explorer](https://github.com/kunjgit/GameZone/tree/main/Games/space_explorer)|
 </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |
@@ -401,9 +402,13 @@ This repository also provides one such platforms where contributers come over an
 
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |
 | [Virtual Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Virtual_Pet_Game)                  |
+| [Automated_rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/automated_rock_paper_scissor)                  |
+
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                               | [Astronaut_runner] (https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner)  |
 
+
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                  |
+| [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)                   | 
 
  </center>
 

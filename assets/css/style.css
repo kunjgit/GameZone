@@ -2,8 +2,9 @@
 
 #about {
   color: white;
-  font-size: 1.4rem;
-  font-family: 'Agency FB', Times, serif;
+  font-size: 1.2rem;
+  /* font-family: 'Agency FB', Times, serif; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 	text-align: center;
 }
 
@@ -1338,6 +1339,7 @@ main {
   grid-template-columns: 1fr;
   gap: 30px;
   margin-bottom: 10px;
+  margin-top: 14vh;
 }
 
 .project-item {
@@ -1346,9 +1348,9 @@ main {
 
 .project-item.active {
   display: block;
-  background: rgba(62, 62, 66, 0.43);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border: 2px solid rgba(39, 39, 42, 0.5);
+  /* background: rgba(62, 62, 66, 0.43); */
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  /* border: 2px solid rgba(39, 39, 42, 0.5); */
   backdrop-filter: blur(5.1px);
   -webkit-backdrop-filter: blur(9.1px);
   animation: scaleUp 0.25s ease forwards;
@@ -2200,7 +2202,7 @@ textarea.form-input::-webkit-resizer {
 
   .main-content {
     position: relative;
-    width: fit-content;
+    width: 100vw;
     margin: auto;
   }
 
@@ -2330,7 +2332,7 @@ textarea.form-input::-webkit-resizer {
 
   .main-content {
     min-width: 75%;
-    width: 75%;
+    width: 94%;
     margin: 0;
   }
 
@@ -2419,8 +2421,8 @@ textarea.form-input::-webkit-resizer {
   align-items: center;
   cursor: pointer;
   transition: 0.8s;
-  --border-width: 4px;
-  border-radius: calc(3 * var(--border-width));
+  --border-width: 3px;
+  border-radius: calc(2.25 * var(--border-width));
   min-width: 100px;
   max-width: 400px;
   margin: auto;
@@ -2447,7 +2449,7 @@ textarea.form-input::-webkit-resizer {
     );
     background-size: 300% 300%;
     background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
+    border-radius: calc(3 * var(--border-width));
     animation: moveGradient 4s alternate infinite;
   }
 }
@@ -2542,6 +2544,7 @@ textarea.form-input::-webkit-resizer {
   align-items: center;
   width: 100%;
   gap: 2rem;
+  margin-top: 8vh;
 }
 
 #prev-page-tile,
@@ -2576,11 +2579,12 @@ textarea.form-input::-webkit-resizer {
 .pagination_section {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin-right: 5px;
   gap: 5px;
   /* padding-top: 7%; */
-  margin-top: 5%;
+  /* margin-top: 5%; */
 }
 
 /* pagination styling */
@@ -2589,7 +2593,7 @@ textarea.form-input::-webkit-resizer {
   font-size: 20px;
   justify-content: center;
   color: wheat;
-  padding: 5px 15px;
+  padding: 5px 12px;
   cursor: pointer;
   border-radius: 10%;
   opacity: 0.8;
@@ -2686,12 +2690,13 @@ textarea.form-input::-webkit-resizer {
   height: auto;
   text-align: center;
   color: snow;
-  padding-bottom: 8%;
-  padding-top: 8%;
+  padding-bottom: 4%;
+  padding-top: 4%;
 }
 
 span {
-  font-family: 'gamezone';
+  /* font-family: 'gamezone'; */
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   animation: glow 2s ease-in-out both infinite;
   margin: 2px;
 }

@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+  
+    font-family: monospace;
+    font-size: 14px;
+    color: white;
+    user-select: none;
+    -webkit-user-select: none;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #info-left {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+  }
+  
+  #info-right {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    text-align: right;
+  }
+  
+  #bomb-grab-area {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: grab;
+  }
+  
+  #congratulations {
+    position: absolute;
+    visibility: hidden;
+  }

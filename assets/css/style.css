@@ -36,6 +36,7 @@
 \*-----------------------------------*/
 
 /* CSS for Light-Dark Theme SWITCH */
+
 html,
 body {
   height: 100%;
@@ -120,6 +121,7 @@ input:checked + .slider:before {
 .dark-theme .footer-content .socials li a {
   color: #000000;
 }
+
 
 a {
   text-decoration: none;

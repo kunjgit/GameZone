@@ -150,66 +150,63 @@ function draw() {
 }
 
 function drawBackground() {
-  ctx.fillStyle = "#58A8D8";
-  ctx.fillRect(
-    0,
-    0,
-    window.innerWidth / state.scale,
-    window.innerHeight / state.scale
-  );
-}
+    ctx.fillStyle = "#87CEFA"; //background
+    ctx.fillRect(0, 0, window.innerWidth / state.scale, window.innerHeight / state.scale);
+  }
 
-function drawBuildings() {
-  state.buildings.forEach((building) => {
-    ctx.fillStyle = "#152A47";
-    ctx.fillRect(building.x, 0, building.width, building.height);
-  });
-}
-
-function drawGorilla(player) {
-  ctx.save();
-
-  const building =
-    player === 1
-      ? state.buildings.at(1) // Second building
-      : state.buildings.at(-2); // Second last building
-
-  ctx.translate(building.x + building.width / 2, building.height);
-
-  drawGorillaBody();
-  drawGorillaLeftArm(player);
-  drawGorillaRightArm(player);
-  drawGorillaFace();
-
-  ctx.restore();
-}
-
-function drawGorillaBody() {
-  ctx.fillStyle = "black";
-
-  ctx.beginPath();
-
-  // Starting Position
-  ctx.moveTo(0, 15);
-
-  // Left Leg
-  ctx.lineTo(-7, 0);
-  ctx.lineTo(-20, 0);
-
-  // Main Body
-  ctx.lineTo(-13, 77);
-  ctx.lineTo(0, 84);
-  ctx.lineTo(13, 77);
-
-  // Right Leg
-  ctx.lineTo(20, 0);
-  ctx.lineTo(7, 0);
-
-  ctx.fill();
-}
+  function drawBuildings() {
+    state.buildings.forEach((building) => {
+      const gradient = ctx.createLinearGradient(0, 0, 0, building.height);
+      gradient.addColorStop(0, "#FFD700");
+      gradient.addColorStop(1, "#FFFFE0");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(building.x, 0, building.width, building.height);
+  
+      // Draw black windows
+      const numberOfWindows = 5; // You can adjust this as needed
+      const windowWidth = building.width / numberOfWindows;
+      const windowHeight = building.height / 5; // Assuming 5 floors
+      ctx.fillStyle = "black";
+      for (let i = 0; i < numberOfWindows; i++) {
+        for (let j = 0; j < 5; j++) { // Assuming 5 floors
+          const windowX = building.x + i * windowWidth + 5; // Adding 5 for padding
+          const windowY = j * windowHeight + 5; // Adding 5 for padding
+          ctx.fillRect(windowX, windowY, windowWidth - 10, windowHeight - 10); // Adjust padding as needed
+        }
+      }
+    });
+  }
+  
+  
+  function drawGorilla(player) {
+    ctx.save();
+    const building = player === 1 ? state.buildings[1] : state.buildings[state.buildings.length - 2];
+    ctx.translate(building.x + building.width / 2, building.height);
+  
+    drawGorillaBody();
+    drawGorillaLeftArm(player);
+    drawGorillaRightArm(player);
+    drawGorillaFace();
+  
+    ctx.restore();
+  }
+  
+  function drawGorillaBody() {
+    ctx.fillStyle = "#e74c3c"; // Red color for gorilla
+    ctx.beginPath();
+    ctx.moveTo(0, 15);
+    ctx.lineTo(-7, 0);
+    ctx.lineTo(-20, 0);
+    ctx.lineTo(-13, 77);
+    ctx.lineTo(0, 84);
+    ctx.lineTo(13, 77);
+    ctx.lineTo(20, 0);
+    ctx.lineTo(7, 0);
+    ctx.fill();
+  }
 
 function drawGorillaLeftArm(player) {
-  ctx.strokeStyle = "black";
+  ctx.strokeStyle = "#e74c3c";
   ctx.lineWidth = 18;
 
   ctx.beginPath();
@@ -228,7 +225,7 @@ function drawGorillaLeftArm(player) {
 }
 
 function drawGorillaRightArm(player) {
-  ctx.strokeStyle = "black";
+  ctx.strokeStyle = "#e74c3c";
   ctx.lineWidth = 18;
 
   ctx.beginPath();
@@ -268,27 +265,21 @@ function drawGorillaFace() {
 }
 
 function drawBomb() {
-  // Draw throwing trajectory
-  if (state.phase === "aiming") {
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.7)";
-    ctx.setLineDash([3, 8]);
-    ctx.lineWidth = 3;
-
+    if (state.phase === "aiming") {
+      ctx.strokeStyle = "rgba(240, 240, 240, 0.7)";
+      ctx.setLineDash([3, 8]);
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(state.bomb.x, state.bomb.y);
+      ctx.lineTo(state.bomb.x + state.bomb.velocity.x, state.bomb.y + state.bomb.velocity.y);
+      ctx.stroke();
+    }
+  
+    ctx.fillStyle = "black"; // Yellow color for bomb
     ctx.beginPath();
-    ctx.moveTo(state.bomb.x, state.bomb.y);
-    ctx.lineTo(
-      state.bomb.x + state.bomb.velocity.x,
-      state.bomb.y + state.bomb.velocity.y
-    );
-    ctx.stroke();
+    ctx.arc(state.bomb.x, state.bomb.y, 6, 0, 2 * Math.PI);
+    ctx.fill();
   }
-
-  // Draw circle
-  ctx.fillStyle = "white";
-  ctx.beginPath();
-  ctx.arc(state.bomb.x, state.bomb.y, 6, 0, 2 * Math.PI);
-  ctx.fill();
-}
 
 // Event handlers
 bombGrabAreaDOM.addEventListener("mousedown", function (e) {

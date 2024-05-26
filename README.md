@@ -193,9 +193,8 @@ This repository also provides one such platforms where contributers come over an
 
 
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               |
-
+| [colo_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application)         |
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
-| [colo_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application)               |
 
  </center>
 

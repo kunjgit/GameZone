@@ -31,10 +31,10 @@ const fruitImages = {
     orange : new Image(),
 }
 
-fruitImages.apple.src = 'assests/images/apple.png'
-fruitImages.banana.src = 'assests/images/grapes.png'
-fruitImages.watermelon.src = 'assests/images/watermelon.webp'
-fruitImages.orange.src = 'assests/images/orange.png'
+fruitImages.apple.src = 'images/apple.png'
+fruitImages.banana.src = 'images/grapes.png'
+fruitImages.watermelon.src = 'images/watermelon.webp'
+fruitImages.orange.src = 'images/orange.png'
 
 //When we press the arrow key
 document.addEventListener('keydown', e => {

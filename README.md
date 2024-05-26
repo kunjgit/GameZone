@@ -280,6 +280,7 @@ This repository also provides one such platforms where contributers come over an
 | 170 | [Brick And Ball](https://github.com/kunggit/GameZone/tree/main/Games/Brick_and_Ball)|
 | 171 | [Catch the falling stars](https://github.com/kunjgit/GameZone/tree/main/Games/catch_the_falling_stars)|
 | 172 | [Space Explorer](https://github.com/kunjgit/GameZone/tree/main/Games/space_explorer)|
+| 172 | [General Knowledge Quiz](https://github.com/kunjgit/GameZone/tree/main/Games/General_Knowledge_Quiz)|
 </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |
@@ -393,7 +394,7 @@ This repository also provides one such platforms where contributers come over an
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
 
 [Mancala_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Mancala_Game)                                                  |
-
+| [General Knowledge Quiz](https://github.com/kunjgit/GameZone/tree/main/Games/General_Knowledge_Quiz)                 |
   
 | [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  |   [Chrome_Dino_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dino_Game) | 
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |

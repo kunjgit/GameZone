@@ -1,44 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snake Game</title>
-  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
-  <!-- external css -->
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nokia wala game</title>
 </head>
-
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+        position:absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main{
+        height: 100%;
+        width: 100%;
+        }
+    #board{
+        top: 50px;
+            background: linear-gradient(skyblue,rgb(232, 232, 70),rgba(102, 219, 102, 0.822));
+            width: 600px;
+            height: 600px;
+           box-shadow: 2px 2px 5px gray;
+           position: relative;
+            float: left;
+            display: grid;
+            grid-template-rows: repeat(18,1fr);
+            grid-template-columns: repeat(18,1fr);
+        }
+    .img{
+      display: flex;
+        height: 240px;
+        width: 240px;
+        left: 1100px;
+       }
+       #scorebox{
+            position: relative;
+            height: 200px;
+            width: 300px;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 50px;
+            float: left;
+            margin-top: 200px;
+            }
+       .gap{
+            position: relative;
+            float: left;
+            height: 600px;
+            width: 100px;
+       }
+       .snake{
+        background:linear-gradient(black,gray) ;
+        border-radius: 90px;
+       }
+       .head{
+        /* background-color: red; */
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3I17McUkLs3z083N02GH41yRh5_CCwrE6TxYcsnrgICsegWoh788PMLj1LDgFL6TN3SM&usqp=CAU");
+        background-position:center ;
+        background-size: cover;
+        border-radius: 50%;
+}
+       .food{
+       background-image: url("https://www.thestreet.com/.image/t_share/MTY4NjM0ODQ1NTIxMjU4Mzkx/image-placeholder-title.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+}
+         /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 50px; 
+        }#message{
+         */
+            </style>
 <body>
-  <div style="
-        text-align: left;
-        font-size: 30px;
-        padding: 5px;
-        border: none;
-
-        background: #2d0e00; 
-
-
-      "
-    >
-      <a href="https://kunjgit.github.io/GameZone/"
-        ><i style="color: white" class="fas fa-home home-icon"></i
-      ></a>
-      <h1 class="heading">Snake Game</h1>
+    <div class="main">
+        <div>
+        <div id="scorebox">Score : 0</div>
+        <!-- <div class="message"></div> -->
+        </div> 
+        <div id="board">
+            </div>
+        <div class="gap"></div>
+  <div class="img"><img src="https://img.freepik.com/free-vector/cute-snake-cartoon-animal-sticker_1308-67921.jpg" style="position: relative;"></div>
+  <div class="img"><img src="https://img.freepik.com/free-vector/cute-snake-cartoon-animal-sticker_1308-64288.jpg"></div>
+  <div class="img"><img src="https://img.freepik.com/free-vector/cute-snake-cartoon-animal-sticker_1308-60370.jpg"></div>
+  
     </div>
-    <div class="body">
-      <button onclick="instructions()" class="instructions">Instructions</button>
-      <div id="scoreBox">Score: 0</div>
-      <div id="HiScore">HighScore: 0</div>
-       <div id="board"></div>
-    </div>
-   
-  </div>
 </body>
-<script src="./script.js"></script>
-
+<script src="snake.js"></script>
 </html>

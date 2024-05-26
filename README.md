@@ -367,7 +367,6 @@ This repository also provides one such platforms where contributers come over an
 
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                                                               |                                                                                                                |                                                                                                             |
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                                                               | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon)                                                                                                                   |                                                                                                             |
-
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)             | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)          |    [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)          | [HTML5_Controller_Tester](https://github.com/kunjgit/GameZone/tree/main/Games/HTML5_Controller_Tester)
 
 | [escaperoom](https://github.com/kunjgit/GameZone/tree/main/Games/escaperoom)
@@ -402,6 +401,7 @@ This repository also provides one such platforms where contributers come over an
 | [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird)                  |
 
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |
+| [Virtual Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Virtual_Pet_Game)                  |
 | [Automated_rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/automated_rock_paper_scissor)                  |
 
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                               | [Astronaut_runner] (https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner)  |

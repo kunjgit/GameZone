@@ -1996,6 +1996,23 @@
 
 },
 "393":{
+
+  "gameTitle": "Pop My Balloon",
+  "gameUrl": "Pop_My_Balloon",
+  "thumbnailUrl": "Pop_My_Balloon.png"
+
+},
+"394":{
+  "gameTitle": "Tower Stack",
+  "gameUrl": "Tower_Stack",
+  "thumbnailUrl": "Tower_Stack.png"
+
+},
+"395":{
+  "gameTitle": "Virtual Pet Game",
+  "gameUrl": "Virtual_Pet_Game",
+  "thumbnailUrl": "Virtual_Pet_Game.png"
+=======
   "gameTitle": "path finder puzzle",
   "gameUrl": "path_finder",
   "thumbnailUrl": "pathfinder.png"

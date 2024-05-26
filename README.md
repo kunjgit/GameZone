@@ -279,7 +279,12 @@ This repository also provides one such platforms where contributers come over an
 | 169 | [Word Association](https://github.com/kunjgit/GameZone/tree/main/Games/word_association)|
 | 170 | [Brick And Ball](https://github.com/kunggit/GameZone/tree/main/Games/Brick_and_Ball)|
 | 171 | [Catch the falling stars](https://github.com/kunjgit/GameZone/tree/main/Games/catch_the_falling_stars)|
-| 172 | [Space Explorer](https://github.com/kunjgit/GameZone/tree/main/Games/space_explorer)|
+
+| 172 | [Chess.com](https://github.com/kunjgit/GameZone/tree/main/Games/Chess.com)|
+
+
+| 173 | [Space Explorer](https://github.com/kunjgit/GameZone/tree/main/Games/space_explorer)|
+
 </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |

@@ -6,13 +6,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r80/three.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/OrbitControls.js"></script>
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
+
 </head>
 <body>
     <div id="world" />
     <div style="text-align: left; margin-left: 40px;
-    margin-top: 30px;
-    font-size: 30px;
+    margin-top: 30px;    
+    font-size: 30px;    
     padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
     <div id="gameoverInstructions">
     Game Over
@@ -21,7 +22,15 @@
         <div class="label">distance</div>
         <div id="distValue">000</div>
     </div>
+      
+      
 
     <div id="instructions">Click to jump<span class="lightInstructions"> — Grab the carrots / avoid the hedgehogs</span></div>
+    <div id="controls">
+        <button id="resumeButton">Resume</button>
+        <button id="pauseButton">Pause</button>
+        <button id="replayButton">Replay</button>
+    </div>
+
 </body>
 </html>

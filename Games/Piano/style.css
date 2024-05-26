@@ -23,6 +23,10 @@ body {
     position: relative;
 }
 
+.key.active{
+    background-color: gray;
+}
+
 .whites {
     display: flex;
 

@@ -48,6 +48,7 @@ body {
 body {
   max-width: 100%;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 .theme-toggle {
   display: inline-block;

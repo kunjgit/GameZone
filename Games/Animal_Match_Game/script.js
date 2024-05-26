@@ -13,17 +13,19 @@ const animals = {
 }
 
 // Audion variables
-const bgMusic = new Audio();
-bgMusic.src = 'https://drive.google.com/uc?export=download&id=1Y2NcCVRjdQypNCXcj6t-hu8GdqMxMcPS';
-bgMusic.volume = 0.2;
+const bgMusic = new Audio('Normal.mp3');
+// bgMusic.src = 'https://drive.google.com/uc?export=download&id=1Y2NcCVRjdQypNCXcj6t-hu8GdqMxMcPS';
+bgMusic.volume = 0.4;
 
-const winSound = new Audio();
-winSound.src = 'https://drive.google.com/uc?export=download&id=1_U-FQd0q9ZTfnDQTEBtM8ZB0gf-cEUwL';
 
-const looseSound = new Audio();
-looseSound.src = 'https://drive.google.com/uc?export=download&id=19tUhCzCGyNX9Es2xqiAcJpyklQ7L7I3_';
+const winSound = new Audio('Win.wav');
+// winSound.src = 'https://drive.google.com/uc?export=download&id=1_U-FQd0q9ZTfnDQTEBtM8ZB0gf-cEUwL';
+
+const looseSound = new Audio('Lose.wav');
+// looseSound.src = 'https://drive.google.com/uc?export=download&id=19tUhCzCGyNX9Es2xqiAcJpyklQ7L7I3_';
 
 // number of elements in the animals dictionary
+
 const n = Object.keys(animals).length;
 
 // Initialising body variables
@@ -76,9 +78,8 @@ function winner() {
 		});
 	});
 }
-
 // Initialising game
-function init() {
+const init=()=>{
 	bgMusic.play();
 	fillFaces();
 	winner();
@@ -89,3 +90,5 @@ again.addEventListener('click', init);
 
 // Game started
 init();
+
+

@@ -279,6 +279,7 @@ This repository also provides one such platforms where contributers come over an
 | 169 | [Word Association](https://github.com/kunjgit/GameZone/tree/main/Games/word_association)|
 | 170 | [Brick And Ball](https://github.com/kunggit/GameZone/tree/main/Games/Brick_and_Ball)|
 | 171 | [Catch the falling stars](https://github.com/kunjgit/GameZone/tree/main/Games/catch_the_falling_stars)|
+| 172 | [Space Explorer](https://github.com/kunjgit/GameZone/tree/main/Games/space_explorer)|
 </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |
@@ -366,6 +367,7 @@ This repository also provides one such platforms where contributers come over an
 
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                                                               |                                                                                                                |                                                                                                             |
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                                                               | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon)                                                                                                                   |                                                                                                             |
+
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)             | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)          |    [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)          | [HTML5_Controller_Tester](https://github.com/kunjgit/GameZone/tree/main/Games/HTML5_Controller_Tester)
 
 | [escaperoom](https://github.com/kunjgit/GameZone/tree/main/Games/escaperoom)
@@ -402,9 +404,13 @@ This repository also provides one such platforms where contributers come over an
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                               | [Astronaut_runner] (https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner)  |
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                  |
+| [Automated_rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/automated_rock_paper_scissor)                  |
+| [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                               | [Astronaut_runner] (https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner)  |
+| [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                  |
+| [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)                   | 
 
  </center>
-
+ 
 <br>
 <br>
 

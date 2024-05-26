@@ -17,7 +17,7 @@ body{
     height: 86%;
 }
 #game-board{
-    background: url('./images/scenery.svg');
+    background: url('./assests/images/scenery.svg');
     background-size: cover;
     display: none;
 }

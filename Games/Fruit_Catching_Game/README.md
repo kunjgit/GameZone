@@ -23,11 +23,4 @@ A fun and engaging Fruit Catching Game where you control your basket to catch fa
 - **Left Arrow Key**: Move basket to the left.
 - **Right Arrow Key**: Move basket to the right.
 
-# Screenshots
-**Game Board :**
-![Screenshot (399)](https://github.com/its-kritika/chat-app/assets/144522556/aedecc06-fe7c-48c8-8112-2a30a37003f0)
-
-**Game Over :**
-![Screenshot (402)](https://github.com/its-kritika/chat-app/assets/144522556/e751a8bd-7129-49a2-bf9b-77922b7cbd3f)
-
 # Enjoy Playing!🥳

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nokia wala game</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+        position:absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main{
+        height: 100%;
+        width: 100%;
+        }
+    #board{
+        top: 50px;
+            background: linear-gradient(skyblue,rgb(232, 232, 70),rgba(102, 219, 102, 0.822));
+            width: 600px;
+            height: 600px;
+           box-shadow: 2px 2px 5px gray;
+           position: relative;
+            float: left;
+            display: grid;
+            grid-template-rows: repeat(18,1fr);
+            grid-template-columns: repeat(18,1fr);
+        }
+    .img{
+      display: flex;
+        height: 240px;
+        width: 240px;
+        left: 1100px;
+       }
+       #scorebox{
+            position: relative;
+            height: 200px;
+            width: 300px;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 50px;
+            float: left;
+            margin-top: 200px;
+            }
+       .gap{
+            position: relative;
+            float: left;
+            height: 600px;
+            width: 100px;
+       }
+       .snake{
+        background:linear-gradient(black,gray) ;
+        border-radius: 90px;
+       }
+       .head{
+        /* background-color: red; */
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3I17McUkLs3z083N02GH41yRh5_CCwrE6TxYcsnrgICsegWoh788PMLj1LDgFL6TN3SM&usqp=CAU");
+        background-position:center ;
+        background-size: cover;
+        border-radius: 50%;
+}
+       .food{
+       background-image: url("https://www.thestreet.com/.image/t_share/MTY4NjM0ODQ1NTIxMjU4Mzkx/image-placeholder-title.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+}
+         /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 50px; 
+        }#message{
+         */
+            </style>
+<body>
+    <div class="main">
+        <div>
+        <div id="scorebox">Score : 0</div>
+        <!-- <div class="message"></div> -->
+        </div> 
+        <div id="board">
+            </div>
+        <div class="gap"></div>
+  <div class="img"><img src="https://img.freepik.com/free-vector/cute-snake-cartoon-animal-sticker_1308-67921.jpg" style="position: relative;"></div>
+  <div class="img"><img src="https://img.freepik.com/free-vector/cute-snake-cartoon-animal-sticker_1308-64288.jpg"></div>
+  <div class="img"><img src="https://img.freepik.com/free-vector/cute-snake-cartoon-animal-sticker_1308-60370.jpg"></div>
+
+    </div>
+</body>
+<script src="snake.js"></script>
+</html>
+ 106 changes: 106 additions & 0 deletions106  
+snake.js
+@@ -0,0 +1,106 @@
+let inputDir={x:0,y:0};
+let speed=5;
+let lastPaintTime=0;
+// let board =document.querySelectorAll("#board");
+let snakeArr=[
+    {x:15,y:17}
+]
+let food={x:5,y:6};
+let score=0;
+const scorebox=document.querySelector("#scorebox");
+// const message=document.querySelector("#message");
+
+function main(ctime){
+    window.requestAnimationFrame(main);
+    if((ctime-lastPaintTime)/1000 <1/speed){
+        return;
+    }
+    lastPaintTime=ctime;
+      gameEngine();
+   }
+   function isCollide(snakeArr){
+   for(let i=1;i<snakeArr.length;i++){
+    if(snakeArr[i].x==snakeArr[0].x && snakeArr[i].y==snakeArr[0].y){
+        return true;
+    }
+   }
+   if(snakeArr[0].x>=18||snakeArr[0].x<=0||snakeArr[0].y>=18||snakeArr[0].y<=0){
+    return true;
+   }
+   }
+ function gameEngine(){
+    if(isCollide(snakeArr)){
+        inputDir ={x:0,y:0}
+        alert("Game Over,Press Any Key to play again!");
+    //    document.getElementById("message").innerText="Game Over,Press Any Key to play again!"
+        snakeArr=[{x:12,y:15}];
+        score=0;
+    }
+
+
+   if(snakeArr[0].y===food.y && snakeArr[0].x===food.x){
+    score++;
+    scorebox.innerText="Score:" +  score;
+    snakeArr.unshift({x:snakeArr[0].x+inputDir.x , y:snakeArr[0].y+inputDir.y})
+    let a=2;
+    let b=16;
+    food={x: Math.round(a+(b-a)*Math.random()),y: Math.round(a+(b-a)*Math.random())};
+}
+
+for(let i=snakeArr.length-2;i>=0;i--){
+
+    snakeArr[i+1]= {...snakeArr[i]};
+}
+snakeArr[0].x = snakeArr[0].x+ inputDir.x;
+snakeArr[0].y = snakeArr[0].y+inputDir.y;
+
+ board.innerHTML="";
+
+  snakeArr.forEach((e,index)=>{
+    snakeElement=document.createElement('div');
+    snakeElement.style.gridRowStart=e.y;
+    snakeElement.style.gridColumnStart=e.x;
+
+    if(index==0){
+        snakeElement.classList.add('head');
+    }else{
+       snakeElement.classList.add('snake');
+    }
+    board.appendChild(snakeElement);
+
+});
+
+  const  foodElement=document.createElement("div");
+    foodElement.style.gridRowStart=food.y;
+    foodElement.style.gridColumnStart=food.x;
+    foodElement.classList.add('food');
+    board.appendChild(foodElement);
+ }
+window.requestAnimationFrame(main);
+window.addEventListener("keydown",e=>{
+    inputDir={x:0,y:1}
+    switch(e.key){
+       case "ArrowUp":
+            console.log("ArrowUp");
+            inputDir.x=0;
+            inputDir.y=-1 ;
+            break;
+        case "ArrowDown":
+            console.log("ArrowDown");
+            inputDir.x=0;
+            inputDir.y= 1;
+            break;
+        case "ArrowLeft":
+            console.log("ArrowLeft");
+            inputDir.x=-1 ;
+            inputDir.y= 0;
+            break;
+        case "ArrowRight":
+            console.log("ArrowRight");
+            inputDir.x=1 ;
+            inputDir.y= 0;
+            break;
+        defalt:
+        break;
+    }
+})

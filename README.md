@@ -274,8 +274,8 @@ Guess_the_number
 | [Guess_num](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_num)                  |
 
  main
-| [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)                   | 
-| [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)                   | 
+| [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)       | 
+| [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       | 
 
 
 

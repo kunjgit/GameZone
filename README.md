@@ -267,7 +267,11 @@ This repository also provides one such platforms where contributers come over an
 | [path_finder](https://github.com/kunjgit/GameZone/tree/main/Games/path_finder)                  |
 | [Shrek_Vs_Wild](https://github.com/kunjgit/GameZone/tree/main/Games/Shrek_Vs_Wild)                |
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                  |
+Guess_the_number
+| [Guess_num](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_num)                  |
+
 | [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)                   | 
+
 
  </center>
 

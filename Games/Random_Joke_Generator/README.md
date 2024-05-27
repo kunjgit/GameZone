@@ -29,9 +29,8 @@
 
 ## **Screenshots 📸**
 
-<br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
+
+![Random Joke Generator](https://github.com/manishh12/GameZone/blob/Random_joke_generator/assets/images/Random_Joke_Generator.jpeg)
 
 <br>
 

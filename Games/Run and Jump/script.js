@@ -67,10 +67,14 @@ function generateObstacle(){
     let obstacleTimeout = setTimeout(generateObstacle,randomTimeout);
    }
    generateObstacle();
-
+   function playSound() {
+    var audio = new Audio('./ads.wav');
+    audio.play();
+}
 
 function control(e){
     if(e.key == 'ArrowUp' || e.key == ' '){
+        playSound();
         jump();
     }
 }

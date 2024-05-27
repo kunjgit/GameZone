@@ -99,3 +99,11 @@ body {
 .black:nth-child(10) {
     left: 865px;
 }
+
+#reset{
+    margin: 12px;
+    background-color: aquamarine;
+    border-radius: 20px;
+    padding:20px
+
+}

@@ -1,147 +1,153 @@
-// Get the canvas element
 const canvas = document.getElementById("gameCanvas");
-const context = canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 
 const ball = {
   x: canvas.width / 2,
   y: canvas.height / 2,
   radius: 10,
-  speedX: 2,
-  speedY: 2,
-  color: "#ffffff"
+  speedX: 5,
+  speedY: 5,
 };
 
 const paddle1 = {
   x: 10,
   y: canvas.height / 2 - 50,
   width: 10,
-  height: 50
+  height: 100,
+  speed: 10,
+  movingUp: false,
+  movingDown: false,
 };
 
 const paddle2 = {
   x: canvas.width - 20,
   y: canvas.height / 2 - 50,
   width: 10,
-  height: 50
+  height: 100,
+  speed: 10,
+  movingUp: false,
+  movingDown: false,
 };
 
-let player1Score = 0;
-let player2Score = 0;
+let score1 = 0;
+let score2 = 0;
 
-function drawBall() {
-  context.beginPath();
-  context.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-  context.fillStyle = ball.color;
-  context.fill();
-  context.closePath();
-}
+const player1Score = document.getElementById("player1Score");
+const player2Score = document.getElementById("player2Score");
 
-function drawPaddles() {
-  context.fillStyle = "#ffffff";
-  context.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
-  context.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw paddles
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+  ctx.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+
+  // Draw ball
+  ctx.beginPath();
+  ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+  ctx.fillStyle = "#FF0000";
+  ctx.fill();
+  ctx.closePath();
 }
 
 function update() {
   ball.x += ball.speedX;
   ball.y += ball.speedY;
 
-  if(paddle1.y + paddle1.height > canvas.height )   //If paddle1 goes down the field
-    {
-      paddle1.y=canvas.height-paddle1.height;       //Go to the lower bound of the field
-    }
-  else if (paddle1.y < 0)                           //If the paddle goes up the field
-    {
-      paddle1.y=0;                                  //GO to the upper bound
-    }
+  // Check collision with walls
+  if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+    ball.speedY = -ball.speedY;
+  }
 
-    if(paddle2.y + paddle2.height > canvas.height )   //If paddle1 goes down the field
-    {
-      paddle2.y=canvas.height-paddle2.height;       //Go to the lower bound of the field
-    }
-  else if (paddle2.y < 0)                           //If the paddle goes up the field
-    {
-      paddle2.y=0;                                  //GO to the upper bound
-
-
-
-
-
+  // Check collision with paddles
   if (
     ball.x - ball.radius < paddle1.x + paddle1.width &&
-    ball.y + ball.radius > paddle1.y &&
-    ball.y - ball.radius < paddle1.y + paddle1.height
+    ball.y > paddle1.y &&
+    ball.y < paddle1.y + paddle1.height
   ) {
     ball.speedX = -ball.speedX;
   }
 
   if (
     ball.x + ball.radius > paddle2.x &&
-    ball.y + ball.radius > paddle2.y &&
-    ball.y - ball.radius < paddle2.y + paddle2.height
+    ball.y > paddle2.y &&
+    ball.y < paddle2.y + paddle2.height
   ) {
     ball.speedX = -ball.speedX;
   }
 
-  if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
-    ball.speedY = -ball.speedY;
-  }
-
-  if (ball.x - ball.radius < 0) {
-    player2Score++;
-    reset();
-  }
-
+  // Check if ball goes out of bounds
   if (ball.x + ball.radius > canvas.width) {
-    player1Score++;
-    reset();
+    score1++;
+    player1Score.textContent = score1;
+    resetBall();
+  } else if (ball.x - ball.radius < 0) {
+    score2++;
+    player2Score.textContent = score2;
+    resetBall();
+  }
+
+  // Move paddles
+  if (paddle1.movingUp && paddle1.y > 0) {
+    paddle1.y -= paddle1.speed;
+  }
+  if (paddle1.movingDown && paddle1.y + paddle1.height < canvas.height) {
+    paddle1.y += paddle1.speed;
+  }
+  if (paddle2.movingUp && paddle2.y > 0) {
+    paddle2.y -= paddle2.speed;
+  }
+  if (paddle2.movingDown && paddle2.y + paddle2.height < canvas.height) {
+    paddle2.y += paddle2.speed;
   }
 }
 
-function reset() {
+function resetBall() {
   ball.x = canvas.width / 2;
   ball.y = canvas.height / 2;
   ball.speedX = -ball.speedX;
-  ball.speedY = -ball.speedY;
 }
 
-function draw() {
-
-  context.clearRect(0, 0, canvas.width, canvas.height);
-
-  drawBall();
-
-  drawPaddles();
-  const p1score=document.getElementById("player1Score")
-  p1score.innerHTML=player1Score
-  const p2score=document.getElementById("player2Score")
-  p2score.innerHTML=player2Score
+function gameLoop() {
+  draw();
+  update();
+  requestAnimationFrame(gameLoop);
 }
 
-
-function handleKeyDown(event) {
-  if (event.keyCode === 38) {
-
-    paddle2.y -= 20;
-  } else if (event.keyCode === 40) {
-
-    paddle2.y += 20;
-  } else if (event.keyCode === 87) {
-
-    paddle1.y -= 20;
-  } else if (event.keyCode === 83) {
-
-    paddle1.y += 20;
+// Controls
+window.addEventListener("keydown", function (e) {
+  switch (e.key) {
+    case "w":
+      paddle1.movingUp = true;
+      break;
+    case "s":
+      paddle1.movingDown = true;
+      break;
+    case "ArrowUp":
+      paddle2.movingUp = true;
+      break;
+    case "ArrowDown":
+      paddle2.movingDown = true;
+      break;
   }
-}
+});
 
-function startGame() {
-  window.addEventListener("keydown", handleKeyDown);
+window.addEventListener("keyup", function (e) {
+  switch (e.key) {
+    case "w":
+      paddle1.movingUp = false;
+      break;
+    case "s":
+      paddle1.movingDown = false;
+      break;
+    case "ArrowUp":
+      paddle2.movingUp = false;
+      break;
+    case "ArrowDown":
+      paddle2.movingDown = false;
+      break;
+  }
+});
 
-  setInterval(function() {
-    update();
-    draw();
-  }, 10);
-}
-
-startGame();
+gameLoop();

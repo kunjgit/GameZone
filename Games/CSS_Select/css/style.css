@@ -1404,3 +1404,7 @@ tag:after {
 .reset-progress:hover {
   background: rgba(255, 255, 255, .05);
 }
+.home{
+  background-color:gray;
+  padding:15px;
+}

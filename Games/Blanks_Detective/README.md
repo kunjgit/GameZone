@@ -32,9 +32,9 @@ I hope you enjoy!
 
 ## **Screenshots 📸**
 
-<br>
+
 <!-- add your screenshots like this -->
-![image](screenshort.jpg) -->
+![image](screenshort.jpg) 
 
 
 <br>

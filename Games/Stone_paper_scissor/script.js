@@ -7,7 +7,7 @@ window.onload = function () {
     for (let i = 0; i < 3; i++) {
         let choice = document.createElement("img")
         choice.id = choices[i];
-        choice.src = "./assets/" + choices[i] + ".png"
+        choice.src = "./public/" + choices[i] + ".png"
         document.getElementById("choice").append(choice)
         choice.addEventListener("click", selectchoice)
     }
@@ -15,9 +15,9 @@ window.onload = function () {
 
 function selectchoice() {
     you = this.id
-    document.getElementById("your-choice").src = "./assets/" + you + ".png"
+    document.getElementById("your-choice").src = "./public/" + you + ".png"
     opponent = choices[Math.floor(Math.random() * 3)]
-    document.getElementById("opponent-choice").src = "./assets/" + opponent + ".png"
+    document.getElementById("opponent-choice").src = "./public/" + opponent + ".png"
 
     if (you == opponent) {
         let result = document.getElementById("opponent-score")

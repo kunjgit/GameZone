@@ -160,7 +160,7 @@ jobs:
                   owner: repoOwner,
                   repo: repoName,
                   issue_number: prNumber,
-                  labels: ['changes requested', 'pending']
+                  labels: ['Changes Requested ⚒️', 'Pending ⏱️']
                 });
 
                 console.log(`Commented on pull request #${prNumber} with required changes.`);
@@ -173,13 +173,13 @@ jobs:
                     owner: repoOwner,
                     repo: repoName,
                     issue_number: prNumber,
-                    name: 'changes requested'
+                    name: 'Changes Requested ⚒️'
                   });
                   await github.issues.removeLabel({
                     owner: repoOwner,
                     repo: repoName,
                     issue_number: prNumber,
-                    name: 'pending'
+                    name: 'Pending ⏱️'
                   });
 
                   // Approve the changes
@@ -195,7 +195,7 @@ jobs:
                     owner: repoOwner,
                     repo: repoName,
                     issue_number: prNumber,
-                    labels: ['under review']
+                    labels: ['Pending ⏱️']
                   });
 
                   console.log(`Updated pull request #${prNumber} with approved changes.`);
@@ -205,7 +205,7 @@ jobs:
                     owner: repoOwner,
                     repo: repoName,
                     issue_number: prNumber,
-                    labels: ['under review']
+                    labels: ['Pending ⏱️']
                   });
 
                   console.log(`Pull request #${prNumber} is valid and meets the requirements.`);

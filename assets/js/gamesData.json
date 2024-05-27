@@ -1924,18 +1924,124 @@
   "383": {
     "gameTitle": "Puzzel_Winner",
     "gameUrl": "Puzzel_Winner",
-    "thumbnailUrl": "Puzzel_Winner.png"
+    "thumbnailUrl": "Puzzel_winner.png"
   },
   "384": {
     "gameTitle": "Emoji_Intruder",
     "gameUrl": "Emoji_Intruder",
-    "thumbnailUrl": "Emoji_intruder.png"
+    "thumbnailUrl": "Emoji_Intruder.png"
   },
   "385": {
     "gameTitle": "Guess_The_Weapon",
     "gameUrl": "Guess_The_Weapon",
     "thumbnailUrl": "Guess_The_Weapon.png"
-  }
+  },
+  "386": {
+    "gameTitle": "Bulls_and_Cows",
+    "gameUrl": "Bulls_and_Cows",
+    "thumbnailUrl": "bulls-and-cows.png"
+
+  },
+  "387":{
+
+    "gameTitle": "Earth_Guardian",
+    "gameUrl": "Earth_Guardian",
+    "thumbnailUrl": "Earth_Guardian.png"
+  },
+  "388":{
+
+    "gameTitle" : "Technical_Mind_Game",
+    "gameUrl" :  "Technical_Mind_Game",
+    "thumbnailUrl" : "Technical_Mind_Game.png"
+},
+  "389":{
+    "gameTitle": "Memory Cards Game",
+    "gameUrl": "Memory_Cards_Game",
+    "thumbnailUrl": "Memory_Cards_Game.png"
+  },
+  "390":{
+    "gameTitle": "escaperoom",
+    "gameUrl": "escaperoom",
+    "thumbnailUrl": "escaperoom.png"
+  },
+  "391":{
+    "gameTitle": "Dice Roller",
+    "gameUrl": "Dice_Roller",
+    "thumbnailUrl": "Dice_Roller.png"
+
+  },
+  "392":{
+    "gameTitle": "Dragon Tower",
+    "gameUrl": "Dragon_Tower",
+    "thumbnailUrl": "Dragon_Tower.png"
+  },
+  "400":{
+
+  "gameTitle": "Chrome_Dino_Game",
+    "gameUrl": "Chrome_Dino_Game",
+    "thumbnailUrl": "Chrome_Dino_Game.png"
+
+
+  },
+  "401":{
+
+    "gameTitle": "Chess.com",
+      "gameUrl": "Chess.com",
+      "thumbnailUrl": "Chess.com.jpg"
   
   
+    },
+  "399":{
+    "gameTitle": "Brick_and_Ball",
+    "gameUrl": "Brick_and_Ball",
+    "thumbnailUrl": "Brick_and_Ball.png"
+
+  },
+"396":{
+    "gameTitle": "Dot Connect",
+    "gameUrl": "Dot_Connect",
+    "thumbnailUrl": "Dot_Connect.png"
+
+},
+"393":{
+
+  "gameTitle": "Pop My Balloon",
+  "gameUrl": "Pop_My_Balloon",
+  "thumbnailUrl": "Pop_My_Balloon.png"
+
+},
+"397":{
+  "gameTitle": "Tower Stack",
+  "gameUrl": "Tower_Stack",
+  "thumbnailUrl": "Tower_Stack.png"
+
+},
+"395":{
+  "gameTitle": "path finder puzzle",
+  "gameUrl": "path_finder",
+  "thumbnailUrl": "pathfinder.png"
+ main
+},
+"394":{ "gameTitle": "Tiny Fishing",
+"gameUrl": "Tiny_Fishing",
+"thumbnailUrl": "Tiny_Fishing.png"
 }
+
+ main
+
+},
+"394":{
+  "gameTitle": "Shrek Vs Wild",
+  "gameUrl": "Shrek_Vs_Wild",
+  "thumbnailUrl": "Shrek_Vs_Wild.png"
+},
+"405":{
+  "gameTitle": "Candy_Crush_Saga",
+  "gameUrl": "Candy_Crush_Saga",
+  "thumbnailUrl": "Candy_Crush_Saga.png"
+}
+
+
+}
+
+

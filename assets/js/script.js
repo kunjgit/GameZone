@@ -33,7 +33,6 @@ function getProjectsInPage() {
   const pageTile = document.querySelectorAll('.page-tile');
   const games = document.querySelectorAll('.project-item');
   const clickSound = document.getElementById("clickSound");
-
   for (let i = 0; i < games.length; i++){
     games[i].addEventListener('click', () => {
       clickSound.play();
@@ -197,6 +196,10 @@ for (let i = 0; i < filterBtn.length; i++) {
 }
 
 // Code for enabling Light-Dark THEME
+
+
+
+
 function toggleTheme() {
   var slider = document.getElementById("themeToggle");
   if (slider.checked) {
@@ -242,6 +245,16 @@ function disableDarkTheme() {
   }
 }
 
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  var wrapper = document.getElementById("themeToggleWrapper");
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    wrapper.style.opacity = "0";
+  } else {
+    wrapper.style.opacity = "1";
+  }
+}
 
 
 // contact form variables
@@ -309,6 +322,23 @@ function scrollToTop() {
     behavior: 'smooth'
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetchGamesData();
+});
+
+let gamesData = {};
+
+function fetchGamesData() {
+  fetch('./assets/js/gamesData.json') // Assuming gamesData.json is in the same directory
+    .then(response => response.json())
+    .then(data => {
+      gamesData = data;
+    })
+    .catch(error => console.error('Error fetching games data:', error));
+}
+
+
 
 
 

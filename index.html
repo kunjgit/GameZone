@@ -8,7 +8,6 @@
   <title>GameZone</title>
 
   <!-- Primary Meta Tags -->
-  <title></title>
   <meta name="title" content="GameZone" />
   <meta name="description"
     content="Welcome to GameZone, the ultimate online gaming destination! Enjoy a vast collection of small games across genres like casual, puzzles, etc. Play directly in your browser. GameZone: endless fun at your fingertips!" />
@@ -33,104 +32,76 @@
     content="Welcome to GameZone, the ultimate online gaming destination! Enjoy a vast collection of small games across genres like casual, puzzles, etc. Play directly in your browser. GameZone: endless fun at your fingertips!" />
   <meta property="twitter:image"
     content="https://github.com/kunjgit/GameZone/assets/56786344/080b7034-0e60-4069-b95c-aa0aba147a94" />
-  <!--
-    - favicon
-  -->
+
+  <!-- favicon -->
   <link rel="shortcut icon" href="./assets/images/gamezone.png" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
+  <!-- custom css link -->
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/scroll.css">
   <link rel="stylesheet" href="./assets/css/particles.css">
   <link rel="stylesheet" href="./assets/css/contributors.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="stylesheet" href="./assets/css/gameCard.css">
-  <link rel="stylesheet" href="./assets/css/navbar.css">
-  <link rel="stylesheet" href="./assets/css/gameCard.css">
   <link rel="stylesheet" href="./assets/css/cursor_transition.css">
 
-  <!--
-    - google font link
-  -->
+  <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!--
-    - Audio file for click sound
-  -->
+  <!-- Audio file for click sound -->
   <audio id="clickSound" src="./assets/audio/click-sound.wav"></audio>
 </head>
-<!-- Light-Dark theme SWITCH -->
-
-
-<!-- <p class="invert-color" style="position: sticky; top: 30px; z-index:100; margin-left: 30px;">Theme :</p> -->
-<!-- <label class="theme-toggle" for="themeToggle" style="position: fixed; top: 28px; z-index: 100; margin-left: 30px">
-
-  <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
-  <span class="slider"></span>
-</label> -->
 
 <body>
   <div class="cursor"></div>
-  <!-- BACKGROUND PARTICLES -->
-  <!-- <div class="page-bg"></div> -->
-  <!-- <div class="animation-wrapper"> -->
-  <!-- <div class="particle particle-1"></div> -->
-  <!-- <div class="particle particle-2"></div> -->
-  <!-- <div class="particle particle-3"></div> -->
-  <!-- <div class="particle particle-4"></div> -->
-  <!-- </div> -->
+
   <div class="progress-bar">
     <div class="filled"></div>
   </div>
 
   <div class="abcd">
-
     <main>
-     
-
       <div class="main-content">
-
         <div class="bgContainer"></div>
 
-
-
-        <!--
-        - #NAVBAR
-      -->
+        <!-- NAVBAR -->
         <div class="heading">
           <span>🕹️&nbsp;</span><span>G</span><span>A</span><span>M</span><span>E</span><span>Z</span><span>O</span><span>N</span><span>E</span>
         </div>
 
         <!-- About section -->
-        
         <div id="about">
-        
           Welcome to our website!! Your ultimate destination for a vast collection of free-to-play games. Dive into a world of
           endless entertainment and excitement as you explore our diverse selection of games, ranging from timeless classics to
           modern masterpieces. With something for everyone, our website offers an immersive gaming experience that is accessible
           to all.
-        
           <br><br>
-        
           Whether you're a seasoned gamer or just looking for some casual fun, our platform has you covered. Join our community
           of gamers and embark on an epic journey through the world of online gaming. Get ready to play, explore, and discover
           new adventures—all for free!
-        
         </div>
         
+        <!-- Contribute section -->
+        <div id="contribute" style="margin-top: 50px;">
+          <h2>Contribute to GameZone</h2>
+          <p>We welcome all contributions from anyone willing to improve or add new scripts to this project. Follow the guidelines below to get started:</p>
+          <ul>
+            <li>Fork the repository and clone it locally.</li>
+            <li>Create a new branch for your contribution.</li>
+            <li>Make your changes, commit, and push them to your fork.</li>
+            <li>Submit a pull request with a detailed description of your changes.</li>
+          </ul>
+          <p>For more detailed instructions, refer to our <a href="https://github.com/JasmanD18/GameZone/blob/main/CONTRIBUTING.md">Contributing Guidelines</a>.</p>
+        </div>
+
         <br><br><br>
 
-
         <div class="search-container" id="search-container-id">
-
-          <input type="text" class="search-input" placeholder="🕹️ Search for Games..."  id="searchbar">
-
+          <input type="text" class="search-input" placeholder="🕹️ Search for Games..." id="searchbar">
           <div class="search-btn">
             <i class="fa fa-search" aria-hidden="true"></i>
           </div>
@@ -145,24 +116,17 @@
         <br>
 
         <!-- Games -->
-
-
-        <ul class="project-list">
-        </ul>
-
+        <ul class="project-list"></ul>
         <div class="pagination">
           <button id="prev-page-tile" onclick="goToPreviousPage()">Previous</button>
           <div class="pagination_section"></div>
           <button id="next-page-tile" onclick="goToNextPage()">Next</button>
         </div>
-
-
       </div>
   </div>
   <br>
   <br>
   <br>
-
 
   <!-- Contributors section -->
   <div class="contributors">
@@ -170,9 +134,7 @@
     <div id="contributor"></div>
   </div>
 
-  <!--
-        FOOTER
-  -->
+  <!-- FOOTER -->
   <div class="abcd" id="footer">
     <div>
       <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -189,14 +151,6 @@
       </svg>
     </div>
 
-
-
-
-
-
-
-
-
     <footer class="page-footer font-small unique-color-dark pt-4">
       <div class="container1">
         <div class="list-unstyled list-inline text-center py-2 text-black">
@@ -208,67 +162,39 @@
             <br>
             <br>
             <p style="font-size: 20px; font-style:cursive;cursor: pointer;color: rgb(215, 213, 85);font-family: 'Agency FB', Times, serif;">Make sure you
-              checkout
-              my
-              socials and also
-              ⭐ GameZone on
-              github</p>
-
+              checkout my socials and also ⭐ GameZone on github</p>
           </div>
           <ul class="socials">
-
             <li><a href="https://github.com/kunjgit" aria-label="Follow me on Github" title="Github (External Link)"
                 rel="noopener noreferrer" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-
             <li><a href="https://twitter.com/kunj_199" aria-label="Follow me on Twitter" title="Twitter (External Link)"
-                rel="noopener noreferrer" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" aria-hidden="true" focusable="false" class="icon icon-twitter" viewBox="0 0 512 512">
-                <style>svg{fill:#ffffff}</style><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a></li>
-
+                rel="noopener noreferrer" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" aria-hidden="true" focusable="false" class="icon icon-twitter" viewBox="0 0 512 512">
+                <style>svg{fill:#ffffff}</style><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </a></li>
             <li><a href="https://www.linkedin.com/in/kunj199/" aria-label="Follow me on Linkedin"
                 title="Linkedin (External Link)" rel="noopener noreferrer" target="_blank"><i
                   class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-
           </ul>
-
           <!-- Copyright -->
-          
           <p id="copyright">&copy; 2024 GameZone. All Rights Reserved.</p>
-          
         </div>
       </div>
     </footer>
   </div>
 
-
-
-  </section>
-
-  </article>
-  </div>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
   </main>
 
-
-
-
-  <!--
-    - custom js link
-  -->
+  <!-- custom js link -->
   <script src="./assets/js/index.js"></script>
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/scroll.js"></script>
   <script src="./assets/js/contributors.js"></script>
   <script src="./assets/js/cursor_transition.js"></script>
   
-
-
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <div>
-  </div>
 
   <!-- <button onclick="scrollToTop()" id="scrollToTopButton" title="Scroll to Top">
     <ion-icon name="arrow-up-outline"></ion-icon>

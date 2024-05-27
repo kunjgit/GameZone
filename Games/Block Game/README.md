@@ -17,7 +17,7 @@ every time get 5 chance.
 <br>
 
 ## **Screenshots 📸**
-![Block_Game]
+![image](https://github.com/Bindusree1515/GameZone/assets/91887086/5879d4f1-16e7-48ee-9552-a579d623d37b)
 
 
 

@@ -221,6 +221,7 @@ This repository also provides one such platforms where contributers come over an
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
 
 [Mancala_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Mancala_Game)                                                  |
+[Knife_hit](https://github.com/kunjgit/GameZone/tree/main/Games/Knife_hit)      |
 
   
 | [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  |   [Chrome_Dino_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dino_Game) | 
@@ -232,12 +233,12 @@ This repository also provides one such platforms where contributers come over an
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |
 | [Automated_rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/automated_rock_paper_scissor)                  |
 
-| [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                               | [Astronaut_runner] (https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner)  |
+| [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                               | [Astronaut_runner](https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner)  |
 
 
- main
+
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                   |
-=======
+
 | [escaperoom](https://github.com/kunjgit/GameZone/tree/main/Games/escaperoom)
 
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                     | [HTML5_Controller_Tester](https://github.com/kunjgit/GameZone/tree/main/Games/HTML5_Controller_Tester)
@@ -256,40 +257,29 @@ This repository also provides one such platforms where contributers come over an
 | [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  |   [Chrome_Dino_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dino_Game) | 
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
-
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |
 | [Shrek_Vs_Wild](https://github.com/kunjgit/GameZone/tree/main/Games/Shrek_Vs_Wild)                          |
-
- Balloon_Buster
 | [Balloon_Buster](https://github.com/kunjgit/GameZone/tree/main/Games/Balloon_Buster)                                                  |
- main
-
 | [Pokemon_Stats_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Stats_Card)                  |
 | [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird)                  |
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)                  |   |
 | [path_finder](https://github.com/kunjgit/GameZone/tree/main/Games/path_finder)                  |
 | [Shrek_Vs_Wild](https://github.com/kunjgit/GameZone/tree/main/Games/Shrek_Vs_Wild)                |
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                  |
-Guess_the_number
 | [Guess_num](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_num)                  |
-
- main
 | [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)       | 
 | [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       | 
-
-
-
+| [namefate](https://github.com/kunjgit/GameZone/tree/main/Games/namefate)                   | 
 | [Fruit_Catching_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching_Game)     |
-
-
 | [color_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application)               |
 | [Pictionary_Game](https://github.com/Jagpreet153/GameZone/tree/main/Games/Pictionary_Game)               |
 | [HitYourFriend](https://github.com/kunjgit/GameZone/tree/main/Games/HitYourFriend)               |
-
 | [Random_joke_Generator](https://github.com/Jagpreet153/GameZone/tree/main/Games/Random_joke_Generator)               |
 | [LaserDarts] (https://github.com/Jagpreet153/GameZone/tree/main/Games/LaserDarts)
+| [Block Building](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Building)                                 |
+
  
- 
+
  </center>
 
 <br>

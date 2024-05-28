@@ -140,7 +140,6 @@ function startGame() {
   startTimer();
   replayButton.style.display = 'none'; // Hide the replay button
 }
-
 function endGame() {
   clearInterval(timerInterval);
   document.getElementById('question').innerHTML = '';

@@ -14,7 +14,7 @@ h1 {
     padding-bottom:20px;
     font-size: 50px;
     font-family: 'Lora', serif;
-    background: linear-gradient(90deg, #FFFF00,#270cf5,#f90ee9,#ff0505);
+    background: linear-gradient(90deg, #fafa08,#270cf5,#f90ee9,#ff0505);
     -webkit-background-clip: text;  /* Safari/Chrome */
     -moz-background-clip: text;     /* Firefox (not needed anymore) */
     background-clip: text;          /* Standard */

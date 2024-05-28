@@ -54,6 +54,9 @@ To get a local copy of this project up and running, follow these simple steps:
 - CSS
 - JavaScript
 
+##screenshots
+![image](https://github.com/Saipradyumnagoud/GameZone/assets/143107589/a36fbc47-7c58-48e0-bb3d-e5fb6d02e061)
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.

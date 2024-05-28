@@ -1,4 +1,4 @@
-'''Color Matcher
+Color Matcher
 Color Matcher is a simple game where players need to match the color displayed on the screen with a color selected from a color picker. It's a fun and quick game to test your color perception skills!
 
 How to Play
@@ -28,4 +28,4 @@ JavaScript
 Screenshots
 
 Try It Out
-You can try out the game by opening the index.html file in your web browser.'''
+You can try out the game by opening the index.html file in your web browser.

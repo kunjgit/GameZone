@@ -32,11 +32,8 @@
 <br>
 
 ## **Screenshots 📸**
+![Catch_the_star](https://github.com/kunjgit/GameZone/assets/97523900/352c3cef-8112-4e98-a075-cbecfe8b947a)
 
-<br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
-![Catch_the_star](https://github.com/kunjgit/GameZone/pull/3832/files#diff-f3bcb42a00b278b32fb0178bb1f51f42c3967c14deb3452f2fbcd7129bf91932)
 
 
 <br>

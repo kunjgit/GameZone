@@ -287,7 +287,7 @@ Guess_the_number
 | [HitYourFriend](https://github.com/kunjgit/GameZone/tree/main/Games/HitYourFriend)               |
 
 | [Random_joke_Generator](https://github.com/Jagpreet153/GameZone/tree/main/Games/Random_joke_Generator)               |
-
+| [LaserDarts] (https://github.com/Jagpreet153/GameZone/tree/main/Games/LaserDarts)
  
  
  </center>

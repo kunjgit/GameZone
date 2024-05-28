@@ -15,6 +15,11 @@ let ballSpeedY = 2;
 let rightPressed = false;
 let leftPressed = false;
 
+// New variables for tracking missed balls and game over state
+let missedBalls = 0;
+const maxMissedBalls = 5;
+let gameOver = false;
+
 document.addEventListener('keydown', keyDownHandler);
 document.addEventListener('keyup', keyUpHandler);
 
@@ -58,6 +63,16 @@ function movePaddle() {
     }
 }
 
+// Function to show the alert message
+function showAlert(message) {
+    const alertDiv = document.getElementById('alert');
+    alertDiv.textContent = message;
+    alertDiv.style.display = 'block'; // Show the alert
+    setTimeout(() => {
+        alertDiv.style.display = 'none'; // Hide the alert after 2 seconds
+    }, 2000);
+}
+
 function moveBall() {
     ballY += ballSpeedY;
     if (ballY + ballRadius > canvas.height) {
@@ -66,11 +81,30 @@ function moveBall() {
             ballX = Math.random() * (canvas.width - ballRadius * 2) + ballRadius; // Randomize ball horizontal position
         } else {
             ballY = ballRadius; // Reset ball position to top
+            missedBalls++; // Increment missed balls count
+            if (missedBalls < maxMissedBalls) {
+                showAlert(`${maxMissedBalls - missedBalls} balls left`); // Show alert with remaining balls
+            }
+            if (missedBalls >= maxMissedBalls) {
+                gameOver = true; // Set game over state
+            }
         }
     }
 }
 
+function drawGameOver() {
+    ctx.font = '40px Arial';
+    ctx.fillStyle = 'red';
+    ctx.textAlign = 'center';
+    ctx.fillText('Game Over', canvas.width / 2, canvas.height / 2);
+}
+
 function draw() {
+    if (gameOver) {
+        drawGameOver(); // Draw game over message
+        return; // Exit the draw function to stop the game
+    }
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawPaddle();
     drawBall();

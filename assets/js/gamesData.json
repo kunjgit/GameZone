@@ -1975,7 +1975,7 @@
     "gameUrl": "Dragon_Tower",
     "thumbnailUrl": "Dragon_Tower.png"
   },
-  "400":{
+  "393":{
 
   "gameTitle": "Chrome_Dino_Game",
     "gameUrl": "Chrome_Dino_Game",
@@ -1983,6 +1983,13 @@
 
 
   },
+
+  "394":{ 
+   "gameTitle": "path finder puzzle",
+  "gameUrl": "path_finder",
+  "thumbnailUrl": "pathfinder.png"
+  },
+
   "401":{
 
     "gameTitle": "Chess.com",
@@ -1992,17 +1999,32 @@
   
     },
   "399":{
+
     "gameTitle": "Brick_and_Ball",
     "gameUrl": "Brick_and_Ball",
     "thumbnailUrl": "Brick_and_Ball.png"
 
   },
+
 "396":{
+
     "gameTitle": "Dot Connect",
     "gameUrl": "Dot_Connect",
     "thumbnailUrl": "Dot_Connect.png"
 
 },
+
+"396":{
+  "gameTitle": "path finder puzzle",
+  "gameUrl": "path_finder",
+  "thumbnailUrl": "pathfinder.png"
+},
+"397":{
+  "gameTitle": "NameFate",
+  "gameUrl": "namefate",
+  "thumbnailUrl": "namefate.png"
+}
+
 "393":{
 
   "gameTitle": "Pop My Balloon",
@@ -2017,17 +2039,23 @@
 
 },
 "395":{
+
+  "gameTitle": "Virtual Pet Game",
+  "gameUrl": "Virtual_Pet_Game",
+  "thumbnailUrl": "Virtual_Pet_Game.png"
+
+
   "gameTitle": "path finder puzzle",
   "gameUrl": "path_finder",
   "thumbnailUrl": "pathfinder.png"
- main
+
 },
 "394":{ "gameTitle": "Tiny Fishing",
 "gameUrl": "Tiny_Fishing",
 "thumbnailUrl": "Tiny_Fishing.png"
 }
 
- main
+
 
 },
 "394":{

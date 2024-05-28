@@ -1,6 +1,7 @@
 var choices = ["rock", "paper", "scissors"];
 var userScore = 0;
 var computerScore = 0;
+var tieScore = 0;
 let isAutoPlaying=false;
 let id;
 
@@ -46,12 +47,15 @@ function updateScore(result) {
         userScore++;
     } else if (result === "Computer wins!") {
         computerScore++;
+    }else{
+        tieScore++;
     }
     updateResult();
     
 }
 function updateResult(){
     scoreText.textContent = "Score: You - " + `${userScore}` + " | Computer - " + `${computerScore}`;
+    tieText.textContent = "Ties: "+`${tieScore}`;
 }
 function play(userChoice) {
     var computerChoice = getComputerChoice();

@@ -64,6 +64,9 @@ button{
 #scoreText {
     font-size: 18px;
 }
+#tieText{
+    font-size: 18px;
+}
 .btn{
     color: white;
     background: transparent;

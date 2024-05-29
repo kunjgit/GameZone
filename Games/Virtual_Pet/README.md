@@ -18,7 +18,7 @@ Virtual Pet is a simple and interactive game where players take care of a virtua
 
 ## Screenshots
 
-![Virtual Pet](assets/pet-happy.png)
+![Virtual Pet](../../assets/images/Virtual_Pet.png)
 
 ## Try It Out
 

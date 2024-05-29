@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAMES Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="card-switch">
+            <label class="switch">
+                <div class="flip-card__inner">
+                    <div class="flip-card__front">
+                        <div class="title">FLAMES Game</div>
+                        <form id="flamesForm" class="flip-card__form">
+                            <input class="flip-card__input" id="name1" placeholder="Your Name" type="text" required>
+                            <input class="flip-card__input" id="name2" placeholder="Crush's Name" type="text" required>
+                            <button class="flip-card__btn">Calculate</button>
+                        </form>
+                        <div id="result" class="result"></div>
+                    </div>
+                </div>
+            </label>
+        </div>   
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

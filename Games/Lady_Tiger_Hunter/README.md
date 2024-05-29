@@ -27,8 +27,7 @@
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![image]("GameZone\Games\ladytigerhunter\Assets\img.png")
+
+![image](https://github.com/kunjgit/GameZone/blob/main/assets/images/lady_tiger_hunter.png)
 <br>
 
-## **Working video 📹**
-<!-- add your working video over here -->

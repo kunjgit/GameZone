@@ -254,7 +254,7 @@ This repository also provides one such platforms where contributers come over an
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
 
 [Mancala_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Mancala_Game)                                                  |
-
+|[2048_win](https://github.com/kunjgit/GameZone/tree/main/Games/2048_win)                         |
 | [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  |   [Chrome_Dino_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dino_Game) | 
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
@@ -280,6 +280,7 @@ This repository also provides one such platforms where contributers come over an
 | [Catch_Stars](https://github.com/Kunjgit/GameZone/tree/main/Games/Catch_Stars)               |
 | [LaserDarts] (https://github.com/Jagpreet153/GameZone/tree/main/Games/LaserDarts)
 | [Block Building](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Building)                                 |
+|[Ping_Pong_Singleplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Singleplayer)                  |
 | [MazeRunner](https://github.com/kunjgit/GameZone/tree/main/Games/MazeRunner)                                          |
 
 

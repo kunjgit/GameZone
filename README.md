@@ -278,8 +278,7 @@ This repository also provides one such platforms where contributers come over an
 | [Arkanoid_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Arkanoid_Game)               |
 | [Catch_Stars](https://github.com/Kunjgit/GameZone/tree/main/Games/Catch_Stars)               |
 | [LaserDarts] (https://github.com/Jagpreet153/GameZone/tree/main/Games/LaserDarts)
-| [Block Building](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Building)                                 |
-|[Flames-Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Flames-game) |
+| [Block Building](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Building)                                 ||[Flames-Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Flames-game) |
  
 
  </center>

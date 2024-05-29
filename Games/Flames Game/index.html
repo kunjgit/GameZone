@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <title>Flames Game Using JavaScript</title>
+    <style>
+        body{
+    background-image: url(Banner-image/bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container{
+
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color:#F2ACB9; */
+    background-color: aliceblue;
+    padding: 50px;
+}
+input{
+    border: 5px solid #D2042D;
+    padding: 5px;
+    width: 500px;
+    margin: 5px;
+}
+h3{
+    margin: 10px;
+    font-family: cursive;
+    color: #D2042D;
+    font-size:2.5rem;
+}
+.btn{
+    border: 5px solid  black;
+    background-color: whitesmoke;
+    color: black;
+    font-weight: bold;
+}
+.btn:hover{
+    border: 5px solid  black;
+    background-color: grey;
+    color: black;
+    font-weight: bold;
+}
+    </style>
+  </head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <body>
+
+    <div class="container">
+
+    <div class="sub-container">
+    <h3>FLAMES Game Using JavaScript</h3>
+    <input  type='text' id='name1' placeholder="Enter First Name" required><br><br>
+    <input  type='text' id='name2' placeholder="Enter Second Name" required ><br><br>
+
+    <input class="btn" type='button' value='FLAMES' onclick='flames()'>
+    <h3 id='output'></h3>
+  </div>
+</div>
+  <script>
+    function replaceAt(string, index, replace) {
+    return string.substring(0, index) + replace + string.substring(index + 1);
+  }
+  function flames(){
+    var res=document.getElementById("output");
+    var a=document.getElementById("name1").value.toLowerCase();
+    var b=document.getElementById("name2").value.toLowerCase();
+    if(a!=""&&b!=""){
+      for (i=0;i<a.length;i++){
+        for(j=0;j<b.length;j++){
+          if(a[i]==b[j]){
+            a=replaceAt(a,i,'*');
+            b=replaceAt(b,j,'*');
+          }
+        }
+      }
+      var countLetters=0;
+      for (i=0;i<a.length;i++){
+        if(a[i]!='*'){
+          countLetters++;
+        }
+      }
+      for (i=0;i<b.length;i++){
+        if(b[i]!='*'){
+          countLetters++;
+        }
+      }
+      if(countLetters>1){
+        var flames="FLAMES";
+        c=0;
+        l=1;
+        for(i=0;flames.length!=1;i++){
+          if(l==countLetters)
+          {
+            if(c>=flames.length)
+            {
+              c=0;
+            }
+            flames=replaceAt(flames,c,'');
+            l=1;
+          }  
+          if(c>=flames.length)
+          {
+            c=0;
+          }        
+          l++;
+          c++;
+        }
+
+        switch(flames){
+          case 'F':
+            flames="Friend";
+            break;
+          case 'L':
+            flames="Love";
+            break;
+          case 'A':
+            flames="Affection";
+            break;
+          case 'M':
+            flames="Marriage";
+            break;
+          case 'E':
+            flames="Enemies";
+            break;
+          case 'S':
+            flames="Sibling";
+            break;
+        }
+      }
+      if(countLetters==1){
+        flames="Sibling";
+      }
+      if(countLetters==0){
+        flames="Its Same Name";
+      }
+      res.innerHTML="<b style='color:green;'>"+document.getElementById("name2").value+"</b> is Your <b style='color:blue;'>"+flames+"</b>";
+    }else{
+      res.innerHTML="Please Enter Name";
+    }
+  }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </body>
+</html>

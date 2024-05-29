@@ -278,7 +278,7 @@ Guess_the_number
 
 | [color_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application)               |
 | [Pictionary_Game](https://github.com/Jagpreet153/GameZone/tree/main/Games/Pictionary_Game)               |
-| [Flames Game](https://github.com/kunjgit/GameZone/tree/main/Games/Flames_Game) |
+| [Flames Game](http://127.0.0.1:3002/Games/Flames%20Game/index.html) |
 
 
  

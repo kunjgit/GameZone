@@ -148,5 +148,5 @@ function handleKeyPress(evt) {
         default:
     }
 }
+document.addEventListener('keypress', handleKeyPress)
 
-document.addEventListener('keypress', handleKeyPress);

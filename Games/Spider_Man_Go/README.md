@@ -5,11 +5,11 @@
 <br>
 
 ## **Description 📃**
-It is a adventure and casual game with graphics and sound also include a famous character or=f hollywood 'Spiderman'
+It is an adventurous and casual fun game with graphics and sound. It includes a famous character of hollywood, everyone's favourite- 'Spiderman'!
 - 
 
-## **functionalities 🎮**
-1.Sounds.
+## **Functionalities 🎮**
+1.Sounds
 2.Graphics
 3.JS Key Events
 4.Theme 

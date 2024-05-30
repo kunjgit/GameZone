@@ -22,6 +22,7 @@
         <div id="resultPanel">
             <p id="resultText">Make your move!</p>
             <p id="scoreText">Score: You - 0 | Computer - 0</p>
+            <p id="tieText">Ties: 0</p>
         </div>
         <div id="computerPanel">
             <p>Computer's Choice:</p>
@@ -33,6 +34,10 @@
     computerScore=0;
     updateResult();
     ">Reset Score</button>
+    <button class="but5 btn" onclick="
+    change();
+    autoPlay();
+    ">Auto Play</button>
     <script src="script.js"></script>
 </body>
 </html>

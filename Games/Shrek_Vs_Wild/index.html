@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title Name -->
+    <title>Shrek VS Wild -- PC Shooter Game</title>
+    <!-- link to main css file -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- Font Families link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=VT323&display=swap" rel="stylesheet">
+    <!-- Browser Icon -->
+    <link rel="icon" href="docs/assets/images/chieficon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="page-wide-div">
+        
+    <div>
+        <img src="docs/assets/images/Homebackground.png" id="scrolling-background-image" alt="neon-lines background image">
+    </div>
+        
+
+    <section>
+
+        <div id="title-div">
+            <h1 id="title">Shrek Vs<span>Wild</span></h1>
+        </div>
+
+    </section>
+
+
+    <section id= "middle-section"> <!-- for the middle of the page -->
+
+        <div id="game-controls-info" class="hide-on-click"> <!-- How to play the game -  move and shoot-->
+            <div>
+                <h3>Controls</h3>
+                <ol>
+                    <li>Arrow Up - Move Up</li>
+                    <li>Arrow Down - Move Down</li>
+                    <li>Arrow Left - Move Left</li>
+                    <li>Arrow Right - Move Right</li>
+                    <li>Shoot - spacebar</li>
+                </ol>
+            </div>  
+         </div>   
+                
+         <canvas id="canvas" width="1000px" height="500px" style="border: 5px solid white"></canvas>
+
+
+        <div class="end-screen">
+            <h2 id="end-game-condition">PLACEHOLDER</h2>
+
+            <div class="end-score-div">
+                <p>Score</p>
+                <p id="end-score">300</p>
+            </div>
+            <div class="end-buttons-div">
+                <button id="restart-button" class="end-buttons">Restart</button>
+                <button class="end-buttons"><a href="index.html">Home Page</a></button>
+            </div>
+         </div>
+            
+        <div class="middlepart-middle-section"> <!-- div for the menu -->
+            <ul class="list">
+                <li><button type="button" class="hide-on-click" id="start-game-button">Start Game</button></li>
+                <audio src="docs/assets/sounds/background-song.mp3" id="myAudio"></audio>
+
+                <li><button type="button" class="hide-on-click" id="highscore-button">Highscore</button></li>
+                <li><button type="button" class="hide-on-click" id="credits-button">Credits</button></li>
+                <li><button type="button" class="hide-on-click" id="exit-button"><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">Exit</a></button></li>
+            </ul>
+            
+        </div>
+
+        <div class="form-popup hidden" id="myForm">
+            <form action='' id="form" class="form-container" required>
+                <h2 id="form-title">Hello,boss</h2>
+
+                <label for="text" id="player-label"><b>Gamer Name</b></label>
+                <input type="text" placeholder="Enter your nickname" id="player-name" name="text" required autocomplete="off">
+                
+                <h4>Select your Mode</h4>
+                <div>
+                    <input type="radio" id="easy-mode" name="mode" value="easy peasy lemon squeezy">
+                    <label for="mode" id="easy-mode-label">Easy peasy</label>
+                   
+                </div>
+                <div>
+                    <input type="radio" id="average-mode" name="mode" value="head scratcher">
+                    <label for="mode" id="mid-mode-label">Head Scratcher</label>
+                </div>
+                <div>
+                    <input type="radio" id="hard-mode" name="mode" value="chaos and madness">
+                    <label for="mode" id="hard-mode-label">Chaos&Madness</label>
+                    
+                </div>
+                <div id="begin-game-button-div">
+                    <button type="button" id="begin-game">Let's Start!</button>
+                </div>
+            </form>
+         </div>
+
+            
+        <div id="bonus-story-line-div"> 
+            <button type="button" class="hide-on-click " id="bonus-story-line-style-button">
+                <a href="https://youtu.be/hnql4vU28Ns?si=ia7d3RlsAt7ad6I_" target="_blank">
+                    <span>Bonus </span><span>Story </span><span>Line</span>
+                </a>
+            </button>
+        </div>
+
+    </section>
+
+    </div>
+
+
+
+  
+    <script src="scripts/highscore.js"></script> 
+    <script src="scripts/bindings.js"></script>   
+    <script src="scripts/components.js"></script>
+    <script src="scripts/shooting.js"></script>
+    <script src="scripts/game.js"></script>    
+    <script src="scripts/main.js"></script>  
+</body>
+</html>

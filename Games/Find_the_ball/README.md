@@ -30,9 +30,7 @@
 <br>
 
 ## **Screenshots 📸**
+![Find_the_ball](https://github.com/kunjgit/GameZone/assets/97523900/a5d2ad5f-bc28-4ead-9e4d-15b09e83847c)
 
-<br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
 
 <br>

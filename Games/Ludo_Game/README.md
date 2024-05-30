@@ -5,11 +5,11 @@
 <br>
 
 ## **Description 📃**
-A multiplayer Ludo game, where you can play with your friend and the first to 100 points win
+A two-player Ludo game, where you can play with your friend and the first to reach 100 points wins.
 - 
 
 ## **functionalities 🎮**
-It has a points system that adds your points everytime you `
+It has a points system that adds your points everytime you click on roll the dice.
 <br>
 
 ## **How to play? 🕹️**

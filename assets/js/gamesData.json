@@ -2068,12 +2068,11 @@
   "gameUrl": "Knife_hit",
   "thumbnailUrl": "Knife_hit.png"
 },"415":{
-
-  "gameTitle": "Hover_Board_Effect",
-  "gameUrl": "Hover_Board_Effect",
-  "thumbnailUrl": "Hover_Board_Effect.png"
-
+  "gameTitle": "Anagram_Checker_Game",
+  "gameUrl": "Anagram_Checker_Game",
+  "thumbnailUrl": "Anagram_Checker_Game.png"
 }
+  
 }
 
 

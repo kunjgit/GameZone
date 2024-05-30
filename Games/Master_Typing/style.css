@@ -1,14 +1,64 @@
 body {
-  background: rgb(0,194,32);
   background: linear-gradient(90deg, rgba(0,194,32,1) 0%, rgba(113,77,231,1) 0%, rgba(93,220,255,1) 72%);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
 }
+
+.details_div {
+  display: flex;
+  justify-content: space-around;
+  width: 70vw;
+  margin-bottom: 3%;
+}
+
+.details_div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  border-radius: 15px;
+  padding: 20px;
+  width: 25%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.home_btn i {
+  font-size: 2em;
+  /* color: white; */
+}
+
+.load {
+  background-color: rgba(113, 77, 231, 1);
+}
+
+.load h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.5em;
+  color: white;
+}
+
+.load hr {
+  height: 5px;
+  border-radius: 20px;
+  width: 50%;
+  background-color: rgb(30, 9, 97);
+  border: none;
+}
+
+.menu {
+  /* background-color: white; */
+  color: #202639;
+  padding: 10px;
+  /* border: 2px solid #202639;
+  border-radius: 10px; */
+  font-size: medium;
+}
+
 .container1{
   
   background-color:rgba(75, 26, 26, 0.942);
@@ -68,41 +118,8 @@ html{
   margin-left:auto;
   margin-right:auto;
 }
-.load{
- border-radius: 30px;
-  width:400px;
-  height:300px;
-  background-color:rgba(113,77,231,1);
-  opacity: 100%;
-  justify-content: center;
- 
-  
-}
-.menu{
-  
-}
-.load hr {
-  height: 15px;
-  border-radius: 20px;
-  width:50%;
-  background-color: rgb(30, 9, 97);
-  border-color: rgb(64, 29, 182);
-}
 
-.load h1{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  display: block;
-  padding-left: 82px;
-  padding-top: 25px;
-  font-size: 30px;
-}
-.asdf{
-  display:flex;
-}
-.asdf .load{
-display:inline-block;
-align-items: left;
-}
+
 .container{
   background-image: linear-gradient(to left, #3f4c77, #3c4871, #39446b, #364165, #333d5f, #303a5a, #2e3654, #2b334f, #283049, #252c44, #23293e, #202639);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;

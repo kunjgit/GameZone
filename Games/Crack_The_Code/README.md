@@ -28,10 +28,10 @@
 
 ## **Screenshots 📸**
 
-<br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-@[image](Crack_The_Code.png)
+![image](https://github.com/Bindusree1515/GameZone/assets/91887086/62ab2cc2-8749-47ae-8340-11e75089c0f1)
+
 
 <br>
 

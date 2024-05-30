@@ -1,0 +1,140 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+#container {
+  height: 90%;
+  width: 90%;
+  margin-left: 5%;
+  position: relative;
+  border: 1px solid red;
+  /* overflow: hidden; */ /* Commented out or removed */
+  background-image: url("Background_Night.svg");
+  background-size: 100% 100%;
+}
+
+
+
+#score_help {
+  text-align: center;
+  font-size: 25px;
+  background-color: #eaeaea;
+}
+
+.hen {
+  position: absolute;
+  height: 15%;
+  width: 8%;
+  top: 10%;
+  background: url("hen-right.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 100;
+}
+
+#hen1 {
+  left: 20%;
+}
+
+#hen2 {
+  left: 40%;
+}
+
+#hen3 {
+  left: 60%;
+}
+
+.egg {
+  position: absolute;
+  top: 18%;
+  height: 9.5%;
+  width: 3%;
+  background-image: url("Happy_Egg.svg");
+  background-size: cover;
+  z-index: 99;
+}
+
+#egg1 {
+  left: calc(20% + 8% / 2 - 2% / 2);
+}
+
+#egg2 {
+  left: calc(40% + 8% / 2 - 2% / 2);
+}
+
+#egg3 {
+  left: calc(60% + 8% / 2 - 2% / 2);
+}
+
+.bullseye {
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  height: 7%;
+  width: 7%;
+  background: url("bullseye1.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 11;
+}
+
+#bullseye1 {
+  left: calc(20% + 8% / 2 - 7% / 2);
+}
+
+#bullseye2 {
+  left: calc(40% + 8% / 2 - 7% / 2);
+}
+
+#bullseye3 {
+  left: calc(60% + 8% / 2 - 7% / 2);
+}
+
+#floor {
+  position: absolute;
+  height: 7%;
+  width: 100%;
+  background-color: #292929;
+  bottom: 0;
+  z-index: 10;
+}
+
+#basket {
+  height: 60px;
+  width: 175px;
+  position: absolute;
+  bottom: 5px;
+  background: url("basket.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  z-index: 11;
+}
+
+#score_1 {
+  position: absolute;
+  color: #424242;
+  font-size: 30px;
+  top: 45%;
+  left: 30%;
+  opacity: 0;
+}
+
+#restart {
+  border: solid 4px;
+  position: absolute;
+  height: 10%;
+  border-radius: 15px;
+  width: 12%;
+  background-color: #68dc0f;
+  color: #fff;
+  top: 40%;
+  left: 40%;
+  font-size: 35px;
+  display: none;
+  cursor: pointer;
+}

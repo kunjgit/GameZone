@@ -286,6 +286,7 @@ This repository also provides one such platforms where contributers come over an
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  |
 |[Ping_Pong_Singleplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Singleplayer)                  |
 | [MazeRunner](https://github.com/kunjgit/GameZone/tree/main/Games/MazeRunner)                                          |
+| [Emoji_slot_machine] (https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_slot_machine)
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  
 | [Pixel Painter](https://github.com/kunjgit/GameZone/tree/main/Games/pixel_painter)                                 |
 

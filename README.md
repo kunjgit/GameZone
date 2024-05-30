@@ -274,6 +274,7 @@ This repository also provides one such platforms where contributers come over an
 | [Fruit_Catching_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching_Game)     |
 | [color_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application)               |
 | [Pictionary_Game](https://github.com/Jagpreet153/GameZone/tree/main/Games/Pictionary_Game)               |
+| [Anagram_Checker_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Anagram_Checker_Game)                   | 
 | [HitYourFriend](https://github.com/kunjgit/GameZone/tree/main/Games/HitYourFriend)               |
 | [Random_joke_Generator](https://github.com/Jagpreet153/GameZone/tree/main/Games/Random_joke_Generator)               |
 | [Arkanoid_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Arkanoid_Game)               |

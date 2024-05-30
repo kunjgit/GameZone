@@ -1,5 +1,5 @@
-// Initialising variables
-const cont = document.getElementById('contributor');
+(function() {
+const contributorContainer = document.getElementById('contributor');
 
 // Replace these with the owner and repository name of the repository
 const owner = 'kunjgit';
@@ -49,7 +49,7 @@ async function fetchAllContributors() {
 
             contributorCard.appendChild(loginLink);
 
-            cont.appendChild(contributorCard); // Append the contributor card to the container
+            contributorContainer.appendChild(contributorCard); // Append the contributor card to the  container
         });
     } catch (error) {
         console.error(error);
@@ -58,3 +58,4 @@ async function fetchAllContributors() {
 
 // Call the function to fetch all contributors and display them in the honeycomb-like layout
 fetchAllContributors();
+})();

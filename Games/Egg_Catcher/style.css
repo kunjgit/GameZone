@@ -13,7 +13,7 @@ body {
   position: relative;
   border: 1px solid red;
   /* overflow: hidden; */ /* Commented out or removed */
-  background-image: url("Background_Night.svg");
+  background-image: url("/Games/Egg_Catcher/images/Background_Night.svg");
   background-size: 100% 100%;
 }
 
@@ -30,7 +30,7 @@ body {
   height: 15%;
   width: 8%;
   top: 10%;
-  background: url("hen-right.svg");
+  background: url("/Games/Egg_Catcher/images/hen-right.svg");
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 100;
@@ -53,7 +53,7 @@ body {
   top: 18%;
   height: 9.5%;
   width: 3%;
-  background-image: url("Happy_Egg.svg");
+  background-image: url("/Games/Egg_Catcher/images/Happy_Egg.svg");
   background-size: cover;
   z-index: 99;
 }
@@ -76,7 +76,7 @@ body {
   bottom: 0px;
   height: 7%;
   width: 7%;
-  background: url("bullseye1.svg");
+  background: url("/Games/Egg_Catcher/images/bullseye1.svg");
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 11;
@@ -108,7 +108,7 @@ body {
   width: 175px;
   position: absolute;
   bottom: 5px;
-  background: url("basket.svg");
+  background: url("/Games/Egg_Catcher/images/basket.svg");
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;

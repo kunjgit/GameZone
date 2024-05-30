@@ -276,6 +276,7 @@ This repository also provides one such platforms where contributers come over an
 | 166 | [Shpere](https://github.com/kunjgit/GameZone/tree/main/Games/Shpere)|
 | 167 | [Short Circuit](https://github.com/kunjgit/GameZone/tree/main/Games/Short%20Circuit)|
 | 168 | [Dot Connect](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Connect)|
+| *   | [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk)|
 </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |
@@ -395,7 +396,6 @@ This repository also provides one such platforms where contributers come over an
 
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
-| [BlackJack](https://github.com/kunjgit/GameZone/tree/main/Games/BlackJack)                       |
 
 main
 

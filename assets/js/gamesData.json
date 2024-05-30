@@ -2062,18 +2062,23 @@
   "gameTitle": "Candy_Crush_Saga",
   "gameUrl": "Candy_Crush_Saga",
   "thumbnailUrl": "Candy_Crush_Saga.png"
+},"419":{
+
+  "gameTitle": "16_Puzzle",
+  "gameUrl": "16_Puzzle",
+  "thumbnailUrl": "16_Puzzle.png"
+
 },
 "406":{
   "gameTitle": "Knife_hit",
   "gameUrl": "Knife_hit",
   "thumbnailUrl": "Knife_hit.png"
 },"415":{
-
-  "gameTitle": "Hover_Board_Effect",
-  "gameUrl": "Hover_Board_Effect",
-  "thumbnailUrl": "Hover_Board_Effect.png"
-
+  "gameTitle": "Anagram_Checker_Game",
+  "gameUrl": "Anagram_Checker_Game",
+  "thumbnailUrl": "Anagram_Checker_Game.png"
 }
+  
 }
 
 

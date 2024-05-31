@@ -18,7 +18,7 @@ Game consists of following functionalities :
 <li>If the word entered by the player is incorrect, they lose a life. The game ends if the player loses all their lives.</li>
 <li>The player can use the "Hint" button to reveal a hint for the current word, but this can only be used once per game.</li>
 <li>The game progresses through levels, with each level presenting increasingly difficult words. The time limit for each word decreases as the level increases.</li>
-<li>This is single player game</li>
+<li>This is single player game.</li>
 </ol>
 
 ## **How to Play? 🕹️**

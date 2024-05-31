@@ -298,6 +298,7 @@ This repository also provides one such platforms where contributers come over an
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 
+|[Love Calculator Game](https://github.com/kunjgit/GameZone/tree/main/Games/Love_Calculator_Game)|
 
 
  </center>

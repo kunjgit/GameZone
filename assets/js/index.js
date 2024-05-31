@@ -10,6 +10,7 @@ const generateLiTags = (gamesData, searchText = "") => {
     if (gameData) {
       const { gameTitle, gameUrl, thumbnailUrl } = gameData;
       if (gameTitle.toLowerCase().includes(searchText)) {
+        const liked = localStorage.getItem(`liked-${tagNumber}`) === "true";
         const liTag = `
           <li class="project-item active" data-filter-item data-category="open source">
             <a href="./Games/${gameUrl}" target="_blank" aria-label="${gameTitle}">
@@ -20,12 +21,10 @@ const generateLiTags = (gamesData, searchText = "") => {
                 <img src="./assets/images/${thumbnailUrl}" alt="${gameTitle}" loading="lazy">
               </figure>
               <div class="title-container">
-  <a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label="${gameTitle}">${tagNumber}. ${gameTitle} 🔗</a>
-  <button class="like-button" onclick="like(this)">♡</button>
-</div>
-              
+                <a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label="${gameTitle}">${tagNumber}. ${gameTitle} 🔗</a>
+                <button class="like-button ${liked ? 'liked' : ''}" onclick="like(this, ${tagNumber})">♡</button>
+              </div>
             </a>
-            
           </li>
         `;
         liTags.push(liTag);
@@ -131,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     suggestionList.style.display = filteredGames.length ? "block" : "none";
   };
-  //for serching
+  //for searching
   searchInput.addEventListener("input", function () {
     const searchText = searchInput.value.trim().toLowerCase();
     fetch("./assets/js/gamesData.json")
@@ -160,6 +159,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.error("Error fetching game data:", error));
   });
 });
-function like(button){
+
+function like(button, tagNumber) {
   button.classList.toggle("liked");
+  const isLiked = button.classList.contains("liked");
+  localStorage.setItem(`liked-${tagNumber}`, isLiked);
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorites</title>
+  <link rel="icon" href="../assets/images/FavFolder.png" type="image/png"> 
+  <style>
+    body {
+      background-color: black;
+    }
+    h1 {
+      color: whitesmoke;
+      display: flex;
+      justify-content: center;
+    }
+    .like-button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: #fff !important; 
+      position: absolute;
+      right: 40px; 
+    }
+    .like-button.liked {
+      color: rgb(238, 8, 8) !important; 
+    }
+    .fav-list a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Favorite Games</h1>
+  <ul class="fav-list">
+    <!-- Liked games will be displayed here -->
+  </ul>
+  <script>
+   // Function to display liked games
+function displayLikedGames() {
+  const likedGames = JSON.parse(localStorage.getItem("likedGames")) || [];
+  const favListContainer = document.querySelector(".fav-list");
+  favListContainer.innerHTML = ""; // Clear previous list
+
+  likedGames.forEach(game => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = game.url;
+    a.textContent = game.title;
+    a.target = "_blank";
+    li.appendChild(a);
+    favListContainer.appendChild(li);
+  });
+}
+
+// Ensure displayLikedGames is called when fav.html is loaded
+document.addEventListener("DOMContentLoaded", displayLikedGames);
+
+  </script>
+</body>
+</html>

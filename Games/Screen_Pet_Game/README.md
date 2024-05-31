@@ -20,15 +20,15 @@ The Screen Pet game is an interactive, event-based program where a cute pet on y
 
 
 1. **Happy Face**:
-    ![Happy Face](assets/Screen_Pet_Game_2.png)
+    ![Happy Face](assets/images/Screen_Pet_Game_2.png)
 
 2. **Cheeky Face**:
-    ![Cheeky Face](assets/Screen_Pet_Game_3.png)
+    ![Cheeky Face](assets/images/Screen_Pet_Game_3.png)
 
 3. **Sad Face**:
-    ![Sad Face](assets/Screen_Pet_Game_1.png)
+    ![Sad Face](assets/images/Screen_Pet_Game_1.png)
 
 3. **Tongue Face**:
-    ![Tongue Face](assets/Screen_Pet_Game_4.png)
+    ![Tongue Face](assets/images/Screen_Pet_Game_4.png)
 
 

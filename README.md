@@ -400,7 +400,7 @@ This repository also provides one such platforms where contributers come over an
 | [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  | [Bear Hunter Ninja](https://github.com/Niyatizzz/GameZone/tree/main/Games/Bear_Hunter_Ninja) 
 
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
-| [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  | [Bear Hunter Ninja](https://github.com/Niyatizzz/GameZone/tree/main/Games/Bear_Hunter_Ninja)
+| [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  | 
 
 
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |

@@ -1,0 +1,87 @@
+:root {
+    --main: #6E3B3B;
+    --second: #AC3F21;
+    --third: #BE6A15;
+    --contrast: #F3CF7A;
+}
+
+body {
+    overflow: hidden;
+    min-width: 98vw;
+    max-width: 98vh;
+    background-color: var(--main);
+    display: grid;
+    place-items: center;
+}
+
+header {
+    color: var(--main);
+    background-color: var(--third);
+    border-radius: 1em;
+    padding: 0 1.5em;
+}
+
+main {
+    height: 79vh;
+    margin: 1em 1em 1.5em 1em;
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+}
+
+button {
+    color: var(--main);
+    background-color: var(--contrast);
+    border: none;
+    border-radius: 1em;
+    font-size: 4em;
+    padding: .5em 1em;
+}
+
+button:hover {
+    color: var(--second);
+    border-style: solid;
+    border-color: var(--third);
+    border-width: .075em;
+    transition-duration: 250ms;
+}
+
+article {
+    aspect-ratio: 1/1;
+    width: 20vw;
+    border-style: dotted;
+    border-color: var(--third);
+    border-width: .4em;
+    border-radius: 1em;
+    padding: 1em;
+    margin: .5em;
+}
+
+p {
+    color: var(--main);
+    background-color: var(--contrast);
+    border-radius: 1em;
+    font-size: 4em;
+    padding: .5em 1em;
+}
+
+footer {
+    color: var(--contrast);
+    background-color: var(--second);
+    border-radius: 1em;
+    padding: .5em 1em;
+}
+
+a:link,
+a:visited {
+    color: var(--contrast);
+    text-decoration: none;
+}
+
+.mole {
+    content: url("/imgs/mole.png");
+}
+
+.whack {
+    content: url("/imgs/whack.png");
+}

@@ -1,0 +1,113 @@
+
+ul{
+  display:block;
+  width:500px;
+  height:500px;
+  list-style:none;
+  
+  transform:translateZ(0);
+}
+
+li{
+  position:relative;
+  
+  display:block;
+  float:left;
+  
+  background:rgba(60,60,60,1);
+  
+  width:50px;
+  height:50px;
+  
+  border-radius:100%;
+    
+  overflow:hidden;
+}
+
+li:before{
+  position:absolute;
+  content:'';
+  
+  width:50px;
+  height:50px;
+  
+  top:22px;
+  left:22px;
+  border:5px solid white;
+  width:inherit;
+  height:inherit;
+  border-radius:40%;
+  
+  box-sizing:border-box;
+}
+
+[data-state='1'], [data-state='2'], [data-state='3'], [data-state='4'], li{
+    animation:turn .5s forwards;
+}
+[data-state='2']{
+    animation-name:turn1;
+}
+[data-state='3']{
+    animation-name:turn2;
+}
+[data-state='4']{
+    animation-name:turn3;
+}
+li{
+    animation-name:turn3;
+}
+
+@keyframes turn{
+  0%{
+    transform:rotate(0deg);
+  }
+  100%{
+    transform:rotate(90deg);
+  }
+}
+@keyframes turn1{
+  0%{
+    transform:rotate(90deg);
+  }
+  100%{
+    transform:rotate(180deg);
+  }
+}
+@keyframes turn2{
+  0%{
+    transform:rotate(180deg);
+  }
+  100%{
+    transform:rotate(270deg);
+  }
+}
+@keyframes turn3{
+  0%{
+    transform:rotate(270deg);
+  }
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
+/* Boring */
+body{
+  font-family:"Helvetica Neue", sans-serif;
+}
+h1, p{
+  text-align:center;
+}
+h1{
+  font-size:2em;
+}
+.center{
+  margin:0 auto;
+  width:600px;
+}
+.right{
+  float:right;
+}
+
+footer{
+  font-size:.8em;
+}

@@ -27,6 +27,12 @@
     height: 65px;
     clip-path: polygon(50% 0%, 91% 25%, 91% 75%, 50% 100%, 9% 75%, 9% 25%);
     margin: 5px;
+    transition: transform 0.3s ease-in-out , opacity 0.3s ease-in-out;
+}
+
+.contributor-card:hover{
+    transform: scale(1.35);
+    opacity: 0.85;
 }
 
 .contributor-card img {
@@ -37,5 +43,5 @@
 
 .contributor-card:nth-child(4n+1),
 .contributor-card:nth-child(4n+3) {
-    margin-top: -30px;
+    margin-top: -4px;
 }

@@ -16,6 +16,7 @@
 ## **How to play? 🕹️**
 <!-- add the steps how to play games -->
 - Can play the piano by clicking on the onscreen keys 
+- Can play the piano by Pressing Keys on Keyboard 
 
 <br>
 

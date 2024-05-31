@@ -2,18 +2,12 @@
 
 Alphabet Clicker is a simple web-based game where players click on all instances of the letter "A" to score points. It's built using HTML, CSS, and JavaScript, and it's a fun and educational way to practice letter recognition.
 
-## Table of Contents
 
-- [Demo](#demo)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Demo
 
-Check out the game in action [here](#). (You can upload your game to a platform like GitHub Pages and provide the link here.)
+Check out the game in action 
+ https://github.com/MohanaSrinivas/alphabet-clicker.git
 
 ## Features
 
@@ -29,7 +23,7 @@ To set up the game locally on your machine, follow these steps:
 
 1. **Clone the repository:**
     ```sh
-    git clone https://github.com/your-username/alphabet-clicker.git
+    git clone https://github.com/MohanaSrinivas/alphabet-clicker.git
     ```
 
 2. **Navigate to the project directory:**

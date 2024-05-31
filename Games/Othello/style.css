@@ -1,0 +1,137 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-template-rows: repeat(8, 50px);
+  gap: 2px;
+  background-color: #006400;
+  padding: 2px;
+}
+
+.cell {
+  background-color: #008000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #000;
+  cursor: pointer;
+}
+
+.cell.empty {
+  background-color: #006400;
+  cursor: pointer;
+}
+
+.cell.white {
+  color: #fff;
+}
+
+.score-container {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.message-container {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-template-rows: repeat(8, 50px);
+  gap: 2px;
+  background-color: #006400;
+  padding: 2px;
+}
+
+.cell {
+  background-color: #008000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #000;
+  cursor: pointer;
+  border: 1px solid #000;
+}
+
+.cell.empty {
+  background-color: #006400;
+  cursor: pointer;
+}
+
+.cell.white {
+  color: #fff;
+}
+
+.score-container {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.message-container {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-template-rows: repeat(8, 50px);
+  gap: 2px;
+  background-color: #006400;
+  padding: 2px;
+}
+
+.cell {
+  background-color: #008000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #000;
+  cursor: pointer;
+  border: 1px solid #000;
+}
+
+.cell.empty {
+  background-color: #006400;
+  cursor: pointer;
+}
+
+.cell.white {
+  color: #fff;
+}
+
+.score-card {
+  background-color: #fff;
+  width: 200px;
+  height: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.score-container {
+  font-size: 20px;
+}
+
+.message-container {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+

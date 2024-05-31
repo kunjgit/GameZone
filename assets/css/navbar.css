@@ -1,0 +1,41 @@
+.navbar-new {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    justify-items: center;
+}
+
+.navbar-new .logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+}
+
+.navbar-new .search-box {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+@media screen and (max-width: 920px) {
+    .navbar-new {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    .navbar-new .logo {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+    }
+}

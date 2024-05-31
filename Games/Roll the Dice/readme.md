@@ -22,3 +22,5 @@ A simple web-based dice game where two players roll a dice, and the player with 
 - Ensure you have the dice images in an images folder.
 - Open the index.html file in a web browser.
 - Refresh the page to roll the dice and see the results.
+
+Demo : ![Roll_the_dice](https://github.com/shivan2004/GameZone/assets/112183968/edd7414f-e6b1-47e6-a521-596f3249a7ae)

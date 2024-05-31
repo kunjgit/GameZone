@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hit Count Game</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="caesar-dressing-regular">
+    <img src="assets/images/keyboard.svg" class="myKeyboard" />
+    <img src="assets/images/mouse.svg" class="myMouse" />
+    <h1 class="Heading">Hit Count Game</h1>
+
+    <div class="game-container">
+      <div class="container">
+        <div id="setup">
+          <div>
+            <label class="this_label" for="timeInput">Select Time:</label>
+            <!-- <input type="number" id="timeInput" min="1" required /> -->
+            <select id="timeInput" required>
+              <option value="10">10s</option>
+              <option value="20">20s</option>
+              <option value="30">30s</option>
+              <option value="40">40s</option>
+              <option value="50">50s</option>
+              <option value="60">60s</option>
+            </select>
+          </div>
+          <div>
+            <label class="this_label" for="modeSelect">Select Mode:</label>
+            <select id="modeSelect">
+              <option value="keyboard">Keyboard</option>
+              <option value="click">Click</option>
+            </select>
+          </div>
+          <button id="readyButton">Start Game</button>
+        </div>
+
+        <div id="game" class="hidden">
+          <p>Start hitting the spacebar or clicking!</p>
+
+          <div id="countDisplay">0</div>
+          <span class="clickOrHit">Hits</span>
+          <button id="resetButton" class="hidden">Reset</button>
+        </div>
+        <div id="result" class="hidden"></div>
+      </div>
+    </div>
+    <div id="timeDisplay">Time: 0s</div>
+    <script src="index.js"></script>
+  </body>
+</html>

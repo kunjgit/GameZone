@@ -111,3 +111,10 @@ h1 {
   width: 100px;
   height: 100px;
 }
+
+#reset-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}

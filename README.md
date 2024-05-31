@@ -371,6 +371,8 @@ This repository also provides one such platforms where contributers come over an
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                  |
 
 | [Periodic_Table_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Periodic_Table_Game)                  |
+
+| [Toast_Notification](https://github.com/kunjgit/GameZone/tree/main/Games/Toast_Notification)                  |
  </center>
 
 <br>

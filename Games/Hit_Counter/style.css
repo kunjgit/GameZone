@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Caesar+Dressing&family=Cinzel:wght@400..900&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Mrs+Saint+Delafield&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parisienne&family=Pinyon+Script&display=swap");
+
+.caesar-dressing-regular {
+  font-family: "Caesar Dressing", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  height: 100svh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden;
+
+  /* background-color: #f0f0f0; */
+}
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 100vw;
+}
+
+.container {
+  text-align: center;
+  color: white;
+  background-color: #ffffff22;
+  border-radius: 15px;
+  padding: 30px;
+  width: 60%;
+  min-height: 300px;
+  font-size: 28px;
+}
+#setup {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#timeDisplay {
+  padding: 10px 30px;
+  position: absolute;
+  bottom: 50px;
+  left: 44%;
+  color: white;
+  font-size: 30px;
+  background-color: #1a003a;
+  border: 2px solid #620087;
+  border-radius: 43px;
+}
+#result {
+  font-size: 2em;
+  margin-top: 20px;
+  color: green;
+}
+
+input,
+select {
+  cursor: pointer;
+  width: 200px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 0.8em;
+  border-radius: 20px;
+}
+.Heading {
+  padding-top: 20px;
+  text-align: center;
+  margin: 0 auto 0;
+  color: white;
+  font-size: 60px;
+}
+
+body {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(80, 0, 131, 1) 91%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(80, 0, 131, 1) 91%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(80, 0, 131, 1) 91%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#500083",GradientType=1);
+}
+
+.myKeyboard {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+}
+
+.myMouse {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+#readyButton {
+  cursor: pointer;
+  font-family: "Caesar Dressing", system-ui;
+  font-weight: 400;
+  font-size: 27px;
+  font-style: normal;
+  color: white;
+  background-color: #00629a;
+  border: 2px solid #ffffff28;
+  border-radius: 50px;
+  width: 253px;
+  height: 71px;
+}
+#resetButton {
+  color: white;
+  background-color: #00629a;
+}
+#game {
+  font-size: 40px;
+}
+#countDisplay {
+  font-size: 50px;
+}
+.hidden {
+  display: none;
+}

@@ -79,18 +79,29 @@ const questions = [
 
 let currentQuestion = 0;
 let score = 0;
-let timerSeconds=30;
-var timerInterval;
+let timerSeconds = 30;
+let timerInterval;
+
+const timerElement = document.getElementById('timer');
+const replayButton = document.getElementById('replayButton');
 
 function startTimer() {
+  // Clear any existing timer interval
+  clearInterval(timerInterval);
+
+  // Reset the timer to 30 seconds
+  timerSeconds = 30;
+  timerElement.textContent = "Time-left: " + timerSeconds + " sec";
+
+  // Start a new timer interval
   timerInterval = setInterval(updateTimer, 1000);
 }
 
 function updateTimer() {
   timerSeconds--;
-  document.getElementById("timer").textContent = "Time-left: " + timerSeconds+ " sec";
+  timerElement.textContent = "Time-left: " + timerSeconds + " sec";
 
-  if (timerSeconds === 0) {
+  if (timerSeconds <= 0) {
     endGame();
   }
 }
@@ -98,8 +109,8 @@ function updateTimer() {
 // Display the question and choices
 function displayQuestion() {
   if (currentQuestion >= questions.length) {
-      endGame();
-      return;
+    endGame();
+    return;
   }
 
   const question = questions[currentQuestion];
@@ -114,7 +125,7 @@ function checkAnswer(choice) {
   const question = questions[currentQuestion];
 
   if (selectedAnswer === question.answer) {
-      score++;
+    score++;
   }
 
   currentQuestion++;
@@ -126,16 +137,31 @@ function startGame() {
   currentQuestion = 0;
   score = 0;
   displayQuestion();
-
+  startTimer();
+  replayButton.style.display = 'none'; // Hide the replay button
 }
-
 function endGame() {
   clearInterval(timerInterval);
   document.getElementById('question').innerHTML = '';
   document.getElementById('choices').innerHTML = '';
   document.getElementById('score').innerHTML = `Time's up! Your score: ${score}/${questions.length}`;
+  replayButton.style.display = 'block'; // Show the replay button
+}
+
+function replayGame() {
+  replayButton.style.display = 'none'; // Hide the replay button
+  document.getElementById('score').innerHTML = ''; // Clear the score display
+  document.getElementById('choices').innerHTML = `
+    <button><img onclick="checkAnswer(this)" id="choice1"></button>
+    <button><img onclick="checkAnswer(this)" id="choice2"></button>
+  `; // Reset choices
+  startGame();
 }
 
 // Start the game when the page loads
-window.onload = startGame;
-startTimer();
+window.onload = function() {
+  startGame();
+};
+
+// Add event listener to the replay button
+replayButton.addEventListener('click', replayGame);

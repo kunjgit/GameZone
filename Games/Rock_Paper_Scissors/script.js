@@ -1,7 +1,25 @@
 var choices = ["rock", "paper", "scissors"];
 var userScore = 0;
 var computerScore = 0;
+var tieScore = 0;
+let isAutoPlaying=false;
+let id;
 
+function autoPlay(){
+    if(! isAutoPlaying){
+        id=setInterval(function (){
+        const playerMove=getComputerChoice();
+        play(playerMove);
+        },2000);
+        isAutoPlaying=true;
+    
+    } else{
+        clearInterval(id);
+        isAutoPlaying=false;
+
+    }
+
+}
 var resultText = document.getElementById("resultText");
 var scoreText = document.getElementById("scoreText");
 var computerEmoji = document.getElementById("computerEmoji");
@@ -29,12 +47,15 @@ function updateScore(result) {
         userScore++;
     } else if (result === "Computer wins!") {
         computerScore++;
+    }else{
+        tieScore++;
     }
     updateResult();
     
 }
 function updateResult(){
     scoreText.textContent = "Score: You - " + `${userScore}` + " | Computer - " + `${computerScore}`;
+    tieText.textContent = "Ties: "+`${tieScore}`;
 }
 function play(userChoice) {
     var computerChoice = getComputerChoice();
@@ -57,5 +78,13 @@ function getEmoji(choice) {
             return "✌️";
         default:
             return "";
+    }
+}
+function change(){
+    const name=document.querySelector('.but5');
+    if(name.innerHTML==='Auto Play'){
+        name.innerHTML='Stop Play';
+    }else{
+        name.innerHTML='Auto Play';
     }
 }

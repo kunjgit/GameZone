@@ -119,15 +119,23 @@ function generateObstacle() {
             });
         }
     }
-    obstacleInterval = setInterval(moveObstacle, 20);
-    obstacleTimeout = setTimeout(generateObstacle, randomTimeout);
-}
-generateObstacle();
 
-function control(e) {
-    if (e.key === 'ArrowUp' || e.key === ' ') {
-        jump();
+    obstacleInterval =setInterval(moveObstacle,20);
+    obstacleTimeout = setTimeout(generateObstacle,randomTimeout);
+   }
+   generateObstacle();
+   function playSound() {
+    var audio = new Audio('./ads.wav');
+    audio.play();
+}
+
+function control(e){
+    if(e.key == 'ArrowUp' || e.key == ' '){
+        playSound();
+       jump();
+
     }
-}
+}   
+document.addEventListener('keydown',control);
 
-document.addEventListener('keydown', control);
+

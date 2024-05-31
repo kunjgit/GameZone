@@ -13,7 +13,8 @@ Alphabet Clicker is a simple web-based game where players click on all instances
 
 ## Demo
 
-Check out the game in action [here](#). (You can upload your game to a platform like GitHub Pages and provide the link here.)
+Check out the game in action 
+
 
 ## Features
 

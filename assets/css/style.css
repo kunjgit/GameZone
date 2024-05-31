@@ -1459,6 +1459,26 @@ main {
 .project-category {
   margin-left: 10px;
 }
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #fff !important; 
+  position: absolute;
+  right: 40px; 
+}
+
+.like-button.liked {
+  color: rgb(238, 8, 8) !important; 
+}
 
 .project-title {
   color: var(--white-2);
@@ -2586,6 +2606,16 @@ textarea.form-input::-webkit-resizer {
   color: red;
 }
 
+.like-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff; /* White */
+}
+
+.like-button.liked {
+  color: #f00; /* Red */
+}
 /*-----------------------------------*\
   #PAGINATION SECTION
 \*-----------------------------------*/

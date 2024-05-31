@@ -287,7 +287,7 @@ This repository also provides one such platforms where contributers come over an
  
 
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  |
-
+|[Stone-Paper-Scissors](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Stone-Paper-Scissors)|
 
  </center>
 

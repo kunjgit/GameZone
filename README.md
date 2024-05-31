@@ -368,9 +368,9 @@ This repository also provides one such platforms where contributers come over an
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                               | [Astronaut_runner] (https://github.com/kunjgit/GameZone/tree/main/Games/Astronaunt_runner)  |
 [Elephant_ant_man](https://github.com/tanishkaa08/GameZone/tree/main/Games/Elephant_ant_man)  |
 
- </center>
+ 
 
-<br>
+
 <br>
 
 <div align="center">

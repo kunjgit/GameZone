@@ -13,7 +13,7 @@
     font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
 		<div class="controls">
 		  <div class="new-game">New Game</div>
-		  <div>Moves <span class="moves">0</span> / <span>35</span></div>
+		  <div>Moves <span class="moves">0</span> / <span>20</span></div>
 		</div>
 		<div id="board"></div>
 		<div id="colors"></div>
@@ -36,7 +36,7 @@
   let cell = '-x'
   let skill = 5
   let tally = 0
-  let cap = 35
+  let cap = 20
   let color
 
   //  game play methods
@@ -53,10 +53,11 @@
     return n < 10 ? shuffle(collection).slice(0, n) : collection
   }
 
-  let checkWin = (moves) => {
+  let checkWin = () => {
+    moves.innerText = tally
     let n = 0
     let msg = ''
-    if (moves <= cap) {
+    if (tally <= cap) {
       if (board.childNodes[99].className.indexOf(cell) > -1) {
         for (var i = 0; i < 100; i++) {
           if (board.childNodes[i].className.indexOf(cell) > -1) {
@@ -68,7 +69,7 @@
       if (n === 100) {
         msg = '<span class="new-game">You Win!</span>'
         running = false
-      } else if (n < 100 && moves >= cap) {
+      } else if (n < 100 && tally >= cap) {
         msg = '<span class="new-game">Oops! Try Again...</span>'
         running = false
       }
@@ -132,9 +133,8 @@
         board.className = 'started'
       }
       tally++
-      //?
       checkColor(chip)
-      checkWin(tally)
+      checkWin()
     }
   }
 

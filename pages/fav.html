@@ -8,23 +8,15 @@
   <style>
     body {
       background-color: black;
+      width: 100%;
+      height: 100vh;
     }
     h1 {
       color: whitesmoke;
       display: flex;
       justify-content: center;
     }
-    .like-button {
-      background: none;
-      border: none;
-      font-size: 16px;
-      color: #fff !important; 
-      position: absolute;
-      right: 40px; 
-    }
-    .like-button.liked {
-      color: rgb(238, 8, 8) !important; 
-    }
+    
     .fav-list a {
       color: #fff;
       text-decoration: none;
@@ -38,26 +30,23 @@
     <!-- Liked games will be displayed here -->
   </ul>
   <script>
-   // Function to display liked games
-function displayLikedGames() {
-  const likedGames = JSON.parse(localStorage.getItem("likedGames")) || [];
-  const favListContainer = document.querySelector(".fav-list");
-  favListContainer.innerHTML = ""; // Clear previous list
+    document.addEventListener("DOMContentLoaded", function() {
+      const favList = document.querySelector(".fav-list");
 
-  likedGames.forEach(game => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = game.url;
-    a.textContent = game.title;
-    a.target = "_blank";
-    li.appendChild(a);
-    favListContainer.appendChild(li);
-  });
-}
-
-// Ensure displayLikedGames is called when fav.html is loaded
-document.addEventListener("DOMContentLoaded", displayLikedGames);
-
+      // Loop through local storage and retrieve liked games
+      for (let key in localStorage) {
+        if (key.startsWith("liked-") && localStorage.getItem(key) === "true") {
+          // Extract the game number from the key
+          const gameNumber = key.replace("liked-", "");
+          // Create a list item for the liked game
+          const listItem = document.createElement("li");
+          listItem.textContent = `Game ${gameNumber}`;
+          // Append the list item to the favList
+          favList.appendChild(listItem);
+        }
+      }
+    });
   </script>
+ 
 </body>
 </html>

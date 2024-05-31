@@ -160,8 +160,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function like(button, tagNumber) {
+function like(button, tagNumber, gameData) {
   button.classList.toggle("liked");
   const isLiked = button.classList.contains("liked");
+  
+  // Store both liked state and game data in localStorage
   localStorage.setItem(`liked-${tagNumber}`, isLiked);
+  localStorage.setItem(`game-${tagNumber}`, JSON.stringify(gameData));
 }
+

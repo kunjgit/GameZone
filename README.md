@@ -295,9 +295,6 @@ This repository also provides one such platforms where contributers come over an
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 
 | [Guess_the_friends_name](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_the_friends_name)               |
-| [Guess_the_friends_name](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_the_friends_name)               |
-| [Guess_the_friends_name](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_the_friends_name)               |
-
 
  </center>
 

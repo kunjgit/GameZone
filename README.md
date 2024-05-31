@@ -299,6 +299,7 @@ This repository also provides one such platforms where contributers come over an
 
 
 |[Memory game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/memory-game)|
+|[rapidclicyfenzy](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/rapidclickyfenzy)|
  </center>
 
 <br>

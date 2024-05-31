@@ -297,7 +297,7 @@ This repository also provides one such platforms where contributers come over an
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  |
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  |
 
-
+| [WordScramble](https://github.com/kunjgit/GameZone/tree/main/Games/wordScramble)   
 
  </center>
 

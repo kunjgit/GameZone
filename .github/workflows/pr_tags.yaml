@@ -1,0 +1,78 @@
+name: Pull Request Labels
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  pr-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install --prefix .github octokit
+
+      - name: Fetch related issue and labels
+        id: fetch_issue
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const repoOwner = context.payload.repository.owner.login;
+            const repoName = context.payload.repository.name;
+
+            const { data: pr } = await github.pulls.get({
+              owner: repoOwner,
+              repo: repoName,
+              pull_number: prNumber
+            });
+
+            const issueNumber = pr.body.match(/#([0-9]+)/)[1];
+
+            const { data: issue } = await github.issues.get({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber
+            });
+
+            return {
+              issue: issue,
+              prNumber: prNumber,
+              repoOwner: repoOwner,
+              repoName: repoName
+            };
+
+      - name: Apply labels to PR
+        if: |
+          steps.fetch_issue.outputs.issue.labels.some(function(label) {
+            return label.name.toLowerCase() === 'gssoc';
+          })
+        run: |
+          const issueLabels = steps.fetch_issue.outputs.issue.labels;
+          const prNumber = steps.fetch_issue.outputs.prNumber;
+          const repoOwner = steps.fetch_issue.outputs.repoOwner;
+          const repoName = steps.fetch_issue.outputs.repoName;
+
+          const prLabels = issueLabels.filter(function(label) {
+            return label.name.toLowerCase().startsWith('level');
+          });
+          prLabels.push('gssoc');
+          await github.issues.addLabels({
+            owner: repoOwner,
+            repo: repoName,
+            issue_number: prNumber,
+            labels: prLabels.map(function(label) {
+              return label.name;
+            })
+          });

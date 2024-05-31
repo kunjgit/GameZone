@@ -1,35 +1,53 @@
-// Create the canvas grid
-const canvas = document.getElementById('canvas');
-const palette = document.getElementById('colorPalette');
-const colors = ['red', 'blue', 'green', 'yellow']; // Example palette colors
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('pixelCanvas');
+    const ctx = canvas.getContext('2d');
+    const colorPicker = document.getElementById('colorPicker');
+    const clearButton = document.getElementById('clearButton');
+    const undoButton = document.getElementById('undoButton');
+    let drawing = false;
+    let color = colorPicker.value;
+    let undoStack = [];
 
-for (let i = 0; i < 20 * 20; i++) {
-  const pixel = document.createElement('div');
-  pixel.classList.add('pixel');
-  canvas.appendChild(pixel);
-}
+    // Initialize canvas
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-// Add colors to the palette
-colors.forEach(color => {
-  const colorDiv = document.createElement('div');
-  colorDiv.classList.add('color');
-  colorDiv.style.backgroundColor = color;
-  
-  // Add click event listener to select the color
-  colorDiv.addEventListener('click', function() {
-    currentColor = color;
-  });
-  
-  palette.appendChild(colorDiv);
-});
+    canvas.addEventListener('mousedown', () => drawing = true);
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mousemove', draw);
+    colorPicker.addEventListener('input', (e) => {
+        color = e.target.value;
+        colorPicker.style.borderColor = color;
+    });
+    clearButton.addEventListener('click', clearCanvas);
+    undoButton.addEventListener('click', undo);
 
-// Set default color
-let currentColor = 'black';
+    canvas.addEventListener('mousedown', saveState);
 
-// Add event listener to each pixel on the canvas
-const pixels = document.querySelectorAll('.pixel');
-pixels.forEach(pixel => {
-  pixel.addEventListener('click', function() {
-    this.style.backgroundColor = currentColor;
-  });
+    function draw(event) {
+        if (!drawing) return;
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        ctx.fillStyle = color;
+        ctx.fillRect(Math.floor(x / 10) * 10, Math.floor(y / 10) * 10, 10, 10);
+    }
+
+    function clearCanvas() {
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function saveState() {
+        undoStack.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+        if (undoStack.length > 10) undoStack.shift(); // Limit stack size
+    }
+
+    function undo() {
+        if (undoStack.length > 0) {
+            const imgData = undoStack.pop();
+            ctx.putImageData(imgData, 0, 0);
+        }
+    }
 });

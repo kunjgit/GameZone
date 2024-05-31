@@ -298,7 +298,7 @@ This repository also provides one such platforms where contributers come over an
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  |
 
 
-
+|[Memory game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/memory-game)|
  </center>
 
 <br>

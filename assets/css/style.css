@@ -2480,6 +2480,7 @@ textarea.form-input::-webkit-resizer {
     visibility: visible;
     transition: width 2.5s ease-in-out, font-size 2.5s ease-in-out;
     font-weight: 250;
+    color: #000;
   }
   
 
@@ -2505,18 +2506,19 @@ textarea.form-input::-webkit-resizer {
   background: transparent;
   border: none;
   outline: none;
-  width: 10px;
+  width: 100%;
   font-weight: 500;
-  font-size: 0px;
+  font-size: 16px;
   transition: 0.8s;
+  color: #000;
 }
 .search-container ::placeholder {
   color: #000000;
 }
 
 .search-container .search-btn {
-  position: absolute; /* Added position absolute for icon positioning */
-  right: 12px; /* Adjusted right positioning for icon */
+  position: absolute; 
+  right: 12px; 
 }
 .search-btn {
   width: 30px;
@@ -2538,8 +2540,8 @@ textarea.form-input::-webkit-resizer {
   height: 50px;
 }
 .favorites-link img {
-  width: 40px; /* Adjust this value to change the width of the image */
-  height: 30px; /* Adjust this value to change the height of the image */
+  width: 40px; 
+  height: 30px; 
 }
 .clear-btn {
   position: absolute;
@@ -2556,7 +2558,7 @@ textarea.form-input::-webkit-resizer {
 }
 
 .search-input:not(:placeholder-shown) ~ .clear-btn {
-  display: block; /* Show when input is not empty */
+  display: block; 
 }
 #search-related {
   display: flex;

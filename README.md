@@ -297,6 +297,8 @@ This repository also provides one such platforms where contributers come over an
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  |
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  |
 
+| [Roll _the_ dice](https://github.com/shivan2004/GameZone/tree/main/Games/Roll%20the%20Dice)   |
+
 
 
  </center>

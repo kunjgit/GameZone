@@ -5,8 +5,8 @@ Reflex Game
 ## Description 📃
 Through this game, one can find his/her average optical reflex time .
 
-## **functionalities 🎮**
-Change the color as per your wish and find your 
+## **Functionalities 🎮**
+Change the color as per your wish and find your reflex time !
 <br>
 
 ## **How to play? 🕹️**

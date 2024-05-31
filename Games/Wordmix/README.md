@@ -32,8 +32,7 @@
 
 ## **Screenshots 📸**
 
-<br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
+![image](https://github.com/kunjgit/GameZone/assets/97523900/63b02e06-73b6-493e-a42d-09610b7762d2)
+
 
 <br>

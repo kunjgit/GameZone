@@ -22,7 +22,6 @@ The goal of the game is to look for a match among the candies that have been rev
 
 ## **Screenshots 📸**
 
-<br>
 <!-- add your screenshots like this -->
  ![image](./assets/image.png)
 

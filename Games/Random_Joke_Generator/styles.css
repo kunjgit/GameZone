@@ -1,0 +1,73 @@
+/* common styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #111;
+  text-decoration: none;
+}
+
+.btn {
+  padding: 10px 20px; /* top-bottom left-right */
+  margin: 0 5px; /* top-bottom left-right */
+  font-size: 0.99rem;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  color: #fff;
+  background-color: blue; /* default color */
+}
+
+.btn:hover {
+  cursor: pointer; /* hand symbol */
+}
+
+/* body */
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #282c34;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center; /* vertically center */
+  text-align: center;
+}
+
+/* container */
+.container {
+  width: 450px;
+  padding: 50px 20px; /* top-bottom left-right */
+  background-color: #f4f4f9;
+  border-radius: 5px;
+}
+
+/* h1 */
+h1 {
+  font-size: 1.5rem;
+  color: #61dafb;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+/* .joke-text */
+.joke-text {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 30px;
+  font-family: monospace;
+}
+
+/* .new-joke-btn */
+.new-joke-btn {
+  background-color: #28a745;
+}
+
+/* .copy-btn */
+.copy-btn {
+  background-color: #007bff;
+}

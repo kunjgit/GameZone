@@ -22,10 +22,10 @@
 
 ## **Screenshots 📸**
 
-<br>
 
 
-![Color_Crush_Game](https://github.com/Kalivarapubindusree/GameZone/assets/114821855/cde1b7bd-5b37-40b0-b8a4-f06a0d348ad5)
+![image](https://github.com/Bindusree1515/GameZone/assets/91887086/0d022c68-2853-438f-afdc-8ff13480abf9)
+
 
 
 

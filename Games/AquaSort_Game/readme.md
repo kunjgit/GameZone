@@ -30,7 +30,7 @@
 
 ## **Screenshots 📸**
 
-![Aquasort Game](assets/image.png)
+![Aquasort Game](https://github.com/kunjgit/GameZone/assets/AquaSort.png)
 
 <br>
 

@@ -327,10 +327,6 @@ This repository also provides one such platforms where contributers come over an
 
 
 
-
-
- </center>
-
 <br>
 <br>
 
@@ -391,3 +387,4 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 </a>
 </center>
 <br>
+<p align="right"><a href="#top">Back to top</a></p>

@@ -54,18 +54,25 @@ jobs:
             };
 
       - name: Apply labels to PR
-        if: steps.fetch_issue.outputs.issue.labels.some(label => label.name.toLowerCase() === 'gssoc')
+        if: |
+          steps.fetch_issue.outputs.issue.labels.some(function(label) {
+            return label.name.toLowerCase() === 'gssoc';
+          })
         run: |
           const issueLabels = steps.fetch_issue.outputs.issue.labels;
           const prNumber = steps.fetch_issue.outputs.prNumber;
           const repoOwner = steps.fetch_issue.outputs.repoOwner;
           const repoName = steps.fetch_issue.outputs.repoName;
 
-          const prLabels = issueLabels.filter(label => label.name.toLowerCase().startsWith('level'));
+          const prLabels = issueLabels.filter(function(label) {
+            return label.name.toLowerCase().startsWith('level');
+          });
           prLabels.push('gssoc');
           await github.issues.addLabels({
             owner: repoOwner,
             repo: repoName,
             issue_number: prNumber,
-            labels: prLabels.map(label => label.name)
+            labels: prLabels.map(function(label) {
+              return label.name;
+            })
           });

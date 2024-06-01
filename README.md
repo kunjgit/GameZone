@@ -227,6 +227,23 @@ This repository also provides one such platforms where contributers come over an
 
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
+| [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  | [Bear Hunter Ninja](https://github.com/Niyatizzz/GameZone/tree/main/Games/Bear_Hunter_Ninja) | 
+| [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)   | 
+| [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)     | 
+
+| [Pokemon_Stats_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Stats_Card)   |
+| [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird) |
+
+| [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)       |
+| [Automated_rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/automated_rock_paper_scissor) |
+
+| [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                     | [Astronaut_runner](https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner) |
+| [16_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/16_Puzzle)                     |
+| [Musical_Memory](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Memory)           |
+
+| [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)               |
+| [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect)   |
+
 
 [Mancala_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Mancala_Game)                                                  |
  
@@ -300,13 +317,11 @@ This repository also provides one such platforms where contributers come over an
 | [Emoji_slot_machine] (https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_slot_machine)
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  
 | [Pixel Painter](https://github.com/kunjgit/GameZone/tree/main/Games/pixel_painter)                                 |
-
-
-
- 
-
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  |
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  |
+| [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |
+|[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
+
 
 
 

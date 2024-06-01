@@ -42,3 +42,4 @@
 
 ### Thanks for playing Aquasort!
 
+<br>

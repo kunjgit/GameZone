@@ -218,7 +218,6 @@ This repository also provides one such platforms where contributers come over an
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)  | [Letter_Sleuth](https://github.com/swetha5157/GameZone/tree/main/Games/Letter_Sleuth)  
 
 
-
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  |
 | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)                  |
 
@@ -392,6 +391,4 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 </a>
 </center>
 <br>
-
 <p align="right"><a href="#top">Back to top</a></p>
-

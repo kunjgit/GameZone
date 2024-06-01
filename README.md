@@ -325,10 +325,7 @@ This repository also provides one such platforms where contributers come over an
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 
-| [guess_the_friends_name](https://github.com/kunjgit/GameZone/tree/main/Games/guess_the_friends_name)                  |
-| [guess_the_friends_name](https://github.com/kunjgit/GameZone/tree/main/Games/guess_the_friends_name)                  |
-| [guess_the_friends_name](https://github.com/kunjgit/GameZone/tree/main/Games/guess_the_friends_name)                  |
-| [guess_the_friends_name](https://github.com/kunjgit/GameZone/tree/main/Games/guess_the_friends_name)                  |
+| [Guess the friends name](https://github.com/kunjgit/GameZone/tree/main/Games/guess_the_friends_name)                  |
 
 
 

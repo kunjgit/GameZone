@@ -296,7 +296,7 @@ This repository also provides one such platforms where contributers come over an
 
 
 | [Roll _the_ dice](https://github.com/shivan2004/GameZone/tree/main/Games/Roll%20the%20Dice)   |
-
+| [Dice_Game] (https://github.com/shivan2004/GameZone/tree/main/Games/Dice_Game)    |
 
 
  </center>

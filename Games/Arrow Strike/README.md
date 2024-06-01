@@ -1,6 +1,9 @@
 # Arcane Archer
 ### Welcome to Arcane Archer, a captivating archery game where precision meets magic!
 
+## Screenshots
+![Image Alt game_image](./Images/game_image.png)
+
 ## How to Play:
 Use your mouse or touchscreen to aim.
 Click or tap to shoot arrows.

@@ -11,6 +11,14 @@
     margin-bottom: 4%;
 }
 
+.contributors h2 {
+    font: 5.5vw/1 Permanent Marker;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 4%;
+}
+
 .contributors h1:hover {
     text-decoration: underline;
 }
@@ -20,6 +28,7 @@
     padding: 2%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .contributor-card {
@@ -44,4 +53,35 @@
 .contributor-card:nth-child(4n+1),
 .contributor-card:nth-child(4n+3) {
     margin-top: -4px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+
+.pagination button.active {
+    background-color: #f39c12;
+    transform: scale(1.2);
+}
+
+.pagination button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
 }

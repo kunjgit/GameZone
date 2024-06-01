@@ -33,6 +33,12 @@
     </div>
     
 <div class="board">
+  <button class="reset" onclick="
+    userScore=0;
+    compScore=0;
+    updateScore(userScore,compScore);
+    msg.innerText='Play your move';
+    ">Reset score</button>
     <p class="p"> Wins </p>
     <div class="score-board">
       <div class="score">

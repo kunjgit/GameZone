@@ -259,10 +259,10 @@
   
     // Update player position and handle shooting
     Player.prototype.update = function(){
-      if(this.movingLeft && this.x > 0){
+      if(this.movingLeft && this.x > this.width/2){
         this.x -= this.speed;
       }
-      if(this.movingRight && this.x + this.width < Game.c.width){
+      if(this.movingRight && this.x + this.width < Game.c.width - this.width/2){
         this.x += this.speed;
       }
       if(Game.shooting && Game.currentFrame % 10 === 0){

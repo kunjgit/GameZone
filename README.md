@@ -295,6 +295,8 @@ This repository also provides one such platforms where contributers come over an
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 
 
+| [Roll _the_ dice](https://github.com/shivan2004/GameZone/tree/main/Games/Roll%20the%20Dice)   |
+| [Dice_Game] (https://github.com/shivan2004/GameZone/tree/main/Games/Dice_Game)    |
 
 
  </center>

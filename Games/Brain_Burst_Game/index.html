@@ -1,51 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- Logo of the game -->
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 
     <!-- Title of the game -->
     <title>Brain Burst Game</title>
 
     <!-- Stylesheet of the game -->
-    <link rel="stylesheet" type="text/css" href="./style.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
 
-<body style="background-color:lightgray;">
+  <body style="background-color: lightgray">
+    <div style="text-align: center; margin-top: 10px; font-size: 30px">
+      <a href="https://kunjgit.github.io/GameZone/"
+        ><i style="color: black" class="fas fa-home home-icon"></i
+      ></a>
+    </div>
 
     <!-- Game section -->
     <section class="game__wrapper">
-        <!-- Main heading of the game -->
-        <p class="game__wrapper--title">Brain Burst Game</p>
+      <!-- Main heading of the game -->
+      <p class="game__wrapper--title">Brain Burst Game</p>
 
-        <!-- Full box of the game -->
-        <div class="game__wrapper--pitch">
-        </div>
+      <!-- Full box of the game -->
+      <div class="game__wrapper--pitch"></div>
 
-        <!-- Score board of the game -->
-        <p class="game__wrapper--score"></p>
+      <!-- Score board of the game -->
+      <p class="game__wrapper--score"></p>
 
-        <!-- Difficulties modes of the game -->
-        <div class="game__wrapper--mode">
-            <button class="game__mode--easy">EASY</button>
-            <button class="game__mode--medium">MEDIUM</button>
-            <button class="game__mode--hard">HARD</button>
-        </div>
+      <!-- Difficulties modes of the game -->
+      <div class="game__wrapper--mode">
+        <button class="game__mode--easy">EASY</button>
+        <button class="game__mode--medium">MEDIUM</button>
+        <button class="game__mode--hard">HARD</button>
+      </div>
     </section>
 
     <!-- Footer of the game -->
     <footer class="game__footer">
-        <p class="game__footer--info">Created By <a href="https://github.com/Avdhesh-Varshney">Avdhesh Varshney</a></p>
+      <p class="game__footer--info">
+        Created By
+        <a href="https://github.com/Avdhesh-Varshney">Avdhesh Varshney</a>
+      </p>
     </footer>
 
     <!-- Main javascript file -->
     <script src="main.js"></script>
-
-</body>
-
+  </body>
 </html>

@@ -1924,12 +1924,12 @@
   "383": {
     "gameTitle": "Puzzel_Winner",
     "gameUrl": "Puzzel_Winner",
-    "thumbnailUrl": "Puzzel_Winner.png"
+    "thumbnailUrl": "Puzzel_winner.png"
   },
   "384": {
     "gameTitle": "Emoji_Intruder",
     "gameUrl": "Emoji_Intruder",
-    "thumbnailUrl": "Emoji_intruder.png"
+    "thumbnailUrl": "Emoji_Intruder.png"
   },
   "385": {
     "gameTitle": "Guess_The_Weapon",
@@ -1970,7 +1970,12 @@
     "thumbnailUrl": "Dice_Roller.png"
 
   },
-  "400":{
+  "392":{
+    "gameTitle": "Dragon Tower",
+    "gameUrl": "Dragon_Tower",
+    "thumbnailUrl": "Dragon_Tower.png"
+  },
+  "412":{
 
   "gameTitle": "Chrome_Dino_Game",
     "gameUrl": "Chrome_Dino_Game",
@@ -1978,20 +1983,102 @@
 
 
   },
-"392":{
+
+  "394":{ 
+   "gameTitle": "path finder puzzle",
+  "gameUrl": "path_finder",
+  "thumbnailUrl": "pathfinder.png"
+  },
+
+  "401":{
+
+    "gameTitle": "Chess.com",
+      "gameUrl": "Chess.com",
+      "thumbnailUrl": "Chess.com.jpg"
+  
+  
+    },
+  "399":{
+
+    "gameTitle": "Brick_and_Ball",
+    "gameUrl": "Brick_and_Ball",
+    "thumbnailUrl": "Brick_and_Ball.png"
+
+  },
+
+"413":{
+
     "gameTitle": "Dot Connect",
     "gameUrl": "Dot_Connect",
     "thumbnailUrl": "Dot_Connect.png"
 
 },
-"393":{
+
+"396":{
   "gameTitle": "path finder puzzle",
   "gameUrl": "path_finder",
   "thumbnailUrl": "pathfinder.png"
+},
+"414":{
+  "gameTitle": "NameFate",
+  "gameUrl": "namefate",
+  "thumbnailUrl": "namefate.png"
 }
+,
+"393":{
+
+  "gameTitle": "Pop My Balloon",
+  "gameUrl": "Pop_My_Balloon",
+  "thumbnailUrl": "Pop_My_Balloon.png"
+
+},
+"397":{
+  "gameTitle": "Tower Stack",
+  "gameUrl": "Tower_Stack",
+  "thumbnailUrl": "Tower_Stack.png"
+
+},
+"395":{
+
+  "gameTitle": "Virtual Pet Game",
+  "gameUrl": "Virtual_Pet_Game",
+  "thumbnailUrl": "Virtual_Pet_Game.png"
+
+},
+"411":{ "gameTitle": "Tiny Fishing",
+"gameUrl": "Tiny_Fishing",
+"thumbnailUrl": "Tiny_Fishing.png"
 
 
 
+
+},
+"398":{
+  "gameTitle": "Shrek Vs Wild",
+  "gameUrl": "Shrek_Vs_Wild",
+  "thumbnailUrl": "Shrek_Vs_Wild.png"
+},
+"405":{
+  "gameTitle": "Candy_Crush_Saga",
+  "gameUrl": "Candy_Crush_Saga",
+  "thumbnailUrl": "Candy_Crush_Saga.png"
+},"419":{
+
+  "gameTitle": "16_Puzzle",
+  "gameUrl": "16_Puzzle",
+  "thumbnailUrl": "16_Puzzle.png"
+
+},
+"406":{
+  "gameTitle": "Knife_hit",
+  "gameUrl": "Knife_hit",
+  "thumbnailUrl": "Knife_hit.png"
+},"415":{
+  "gameTitle": "Anagram_Checker_Game",
+  "gameUrl": "Anagram_Checker_Game",
+  "thumbnailUrl": "Anagram_Checker_Game.png"
+}
+  
 }
 
 

@@ -1,0 +1,67 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    height: 97vh;
+}
+.game-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 90%;
+}
+#game-board{
+    background-color: black;
+    background-size: cover;
+    display: none;
+}
+#game-start{
+    height: 500px;
+    width: 800px;
+    backdrop-filter: blur(12px) brightness(78%);
+    text-align: center;
+    font-size: 18px;
+}
+#game-over{
+    width: 802px;
+    height: 560px;
+    display: none;
+    background-color: rgba(208, 207, 207, 0.838);
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+}
+h1{
+    margin-top: 18%;
+    margin-bottom: 3%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+button{
+    width: 140px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#score-card{
+    font-size: 18px;
+    margin-bottom: 3%;
+}
+.flex{
+    display: flex;
+}
+.flex p{
+    margin: 12px;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-right: 2.5%;
+}
+#highest-score{
+    flex-grow: 1;
+}
+.name{
+    font-size: 23px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 15%;
+    color: rgba(7, 79, 174, 0.91);
+    font-weight: 600;
+}

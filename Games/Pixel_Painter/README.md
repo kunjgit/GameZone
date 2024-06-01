@@ -1,27 +1,41 @@
 # Pixel Painter
 
-Pixel Painter is a JavaScript-based game that allows players to create pixel art on a virtual canvas. It provides a simple and intuitive interface for painting pixels with various colors, unleashing your creativity and artistic skills.
+Pixel Painter is an interactive web-based drawing application that allows users to create pixel art. It features a canvas for drawing, a color picker, an undo functionality, and a clear button. The interface includes smooth animations and an intuitive user experience.
 
-## Gameplay
+## How to Play
 
-- Upon starting the game, you will be presented with a blank canvas grid.
-- Select colors from the color palette at the bottom of the screen by clicking on the color squares.
-- Click on any pixel in the canvas grid to paint it with the selected color.
-- Use different colors to create your desired pixel art composition.
-- You can zoom in or out of the canvas for precise pixel placement.
-- Continue painting pixels until you have completed your pixel art creation.
+### Drawing
+
+1. **Select a Color**: Use the color picker in the toolbar to choose your desired drawing color.
+2. **Start Drawing**: Click and hold the left mouse button on the canvas to start drawing. Move the mouse to draw.
+3. **Stop Drawing**: Release the left mouse button to stop drawing.
+
+### Clear the Canvas
+
+- **Clear Button**: Click the "Clear" button in the toolbar to erase the entire canvas and start fresh.
+
+### Undo
+
+- **Undo Button**: Click the "Undo" button to revert to the previous state. The application maintains a stack of up to 10 previous states.
 
 ## Features
 
-- Interactive canvas grid for pixel art creation.
-- Limited color palette to choose from.
-- Zoom functionality for precise pixel placement.
-- Easy-to-use interface with a click-based painting mechanic.
+- **Color Picker**: Allows you to select any color for drawing.
+- **Clear Canvas**: Clears all drawings on the canvas, providing a blank slate.
+- **Undo Functionality**: Reverts the canvas to the previous state, allowing for correction of mistakes.
+- **Grid Overlay**: A grid is displayed over the canvas to help with pixel alignment and precision.
+- **Smooth Animations**: Buttons and color picker have smooth transition animations for an enhanced user experience.
 
-## ScreenShots
-![Pixel Painter Gameplay](Images/ss1.png)
-*Pixel Painter Gameplay*
+## File Structure
 
-![Pixel Painter Color Palette](Images/ss2.png)
-*Pixel Painter Color Palette*
+- `index.html`: The main HTML file containing the structure of the application.
+- `styles.css`: The CSS file for styling the application, including the toolbar, buttons, and canvas.
+- `script.js`: The JavaScript file containing the logic for drawing, color selection, clearing the canvas, and undo functionality.
 
+## Usage
+
+- **Drawing**: Select a color and start drawing on the canvas.
+- **Clearing**: Click the "Clear" button to reset the canvas.
+- **Undoing**: Click the "Undo" button to revert to the previous state.
+
+Enjoy creating your pixel art with Pixel Painter!

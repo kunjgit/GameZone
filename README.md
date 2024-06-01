@@ -318,7 +318,6 @@ This repository also provides one such platforms where contributers come over an
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  
 | [Pixel Painter](https://github.com/kunjgit/GameZone/tree/main/Games/pixel_painter)                                 |
 | [Reflex Game](https://github.com/kunjgit/GameZone/tree/main/Games/Reflex_Game)                                 |
-
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  |
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  |
 

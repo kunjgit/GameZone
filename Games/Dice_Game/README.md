@@ -1,5 +1,5 @@
 # Dice Game
-<hr>
+
 
 ## Description
 
@@ -37,5 +37,10 @@ An engaging two-player dice game where the objective is to be the first to reach
 4. Refresh the page to roll the dice and see the results.
 
 ## Screenshots
+![Screenshot 2024-06-01 at 9 48 58 AM](https://github.com/shivan2004/GameZone/assets/112183968/d9e88a82-bd99-4f51-8a31-41a26d104c3c)
+This is when a players score resets
+![image](https://github.com/shivan2004/GameZone/assets/112183968/57077a6c-790a-4726-ac3b-b484df458960)
+Upon rolling dice, score increases
+
 
 ## Working video

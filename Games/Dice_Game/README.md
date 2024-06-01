@@ -37,5 +37,7 @@ An engaging two-player dice game where the objective is to be the first to reach
 4. Refresh the page to roll the dice and see the results.
 
 ## Screenshots
+![Dice_Game](https://github.com/shivan2004/GameZone/assets/112183968/89db2e39-04f4-4d07-afe8-5dd2b650d73e)
+
 
 ## Working video

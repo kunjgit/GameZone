@@ -29,10 +29,14 @@ Engaging two-player dice game where the objective is to be the first to reach a 
 ## **How to play? 🕹️**
 
 1.Both start with a score of 0.
+
 2.Players alternate turns rolling a single six-sided die.
+
 3.On their turn, a player can:
+
 Roll the Die: Add the rolled value to their temporary score.
 If a 1 is rolled, the temporary score resets to 0, and the turn ends.
+
 Hold: Add the temporary score to their total score and end their turn.
 
 ### Winning
@@ -45,4 +49,4 @@ The first player to reach 100 points wins.-
 
 <br>
 
-![Game Screenshot](assets\images\DiceRoll_Game.png)
+![Game Screenshot](../../assets/images/DiceRoll_Game.png)

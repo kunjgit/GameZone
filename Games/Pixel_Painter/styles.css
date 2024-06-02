@@ -1,27 +1,52 @@
-#canvas {
-  width: 400px;
-  height: 400px;
-  border: 1px solid black;
-  display: grid;
-  grid-template-columns: repeat(20, 1fr);
+/* styles.css */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
 }
 
-.pixel {
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  border: 1px solid #ccc;
+#toolbar {
+    margin: 20px;
 }
 
-#colorPalette {
-  display: flex;
-  margin-top: 10px;
+button {
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.color {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #ccc;
-  margin-right: 5px;
-  cursor: pointer;
+button:hover {
+    background-color: #ddd;
+    transform: scale(1.1);
+}
+
+#colorPicker {
+    transition: box-shadow 0.3s;
+}
+
+#colorPicker:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#canvasContainer {
+    position: relative;
+}
+
+#pixelCanvas {
+    border: 1px solid #000;
+    background-color: #fff;
+    cursor: crosshair;
+    position: relative;
+}
+
+#grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 10px 10px;
 }

@@ -22,4 +22,4 @@ Player need to find the correct answer to the maximum number of questions within
 
 
 ## **Screenshots 📸**
-![image]()
+![image](https://github.com/kunjgit/GameZone/assets/168436423/d76615f7-7a71-4178-b54f-d07dbb47cd42)

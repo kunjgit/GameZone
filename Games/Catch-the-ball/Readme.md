@@ -24,5 +24,7 @@ Score tracking: Players can see their score in real-time and aim to beat their h
 4. If you catch the ball, a new ball will fall from top from a new random position.
 5. If you miss the ball, the game will restart.
 
+## **screenshot 🎮**
+assets\images\catch-the-ball.png
 
 <br>

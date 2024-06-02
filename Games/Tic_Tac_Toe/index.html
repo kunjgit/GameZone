@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+    <div class="card">
+        <h1 class="heading">TIC TAC TOE</h1>
+        <div class="playerInfo">
+            <label for="p1">Player 1 :</label>
+            <input name="p1" class="p1" type="text" placeholder="Enter your name">
+            <label for="p2">Player 2 :</label>
+            <input name="p2" class="p2" type="text" placeholder="Enter your name">
+            <button id="start">Start</button>
+        </div>
+            
+        <div class="gameContainer">
+            <img src="confetti.gif" alt="confetti" class="confetti">  
+            <h2 class="info"></h2>
+            <div class="container">
+                <div class="line"></div>
+                <div class="box bt-0 bl-0"><span class="boxText"></span></div>
+                <div class="box bt-0"><span class="boxText"></span></div>
+                <div class="box bt-0 br-0"><span class="boxText"></span></div>
+                <div class="box bl-0"><span class="boxText"></span></div>
+                <div class="box"><span class="boxText"></span></div>
+                <div class="box br-0"><span class="boxText"></span></div>
+                <div class="box bl-0 bb-0"><span class="boxText"></span></div>
+                <div class="box bb-0"><span class="boxText"></span></div>
+                <div class="box br-0 bb-0"><span class="boxText"></span></div>
+            </div>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

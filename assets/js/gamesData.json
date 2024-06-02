@@ -2069,6 +2069,11 @@
   "thumbnailUrl": "16_Puzzle.png"
 
 },
+"420":{
+  "gameTitle" : "Colour_Generator_Game",
+  "gameUrl": "Colour_Generator_Game",
+  "thumbnailUrl": "Colour_Generator_Game.png"
+  },
 "406":{
   "gameTitle": "Knife_hit",
   "gameUrl": "Knife_hit",
@@ -2077,12 +2082,27 @@
   "gameTitle": "Anagram_Checker_Game",
   "gameUrl": "Anagram_Checker_Game",
   "thumbnailUrl": "Anagram_Checker_Game.png"
+
+},
+"407":{
+  "gameTitle": "Screen_Pet_Game",
+  "gameUrl": "Screen_Pet_Game",
+  "thumbnailUrl": "Screen_Pet_Game.png"
+
 },"416":{
+
+  "gameTitle": "rapid_click_frenzy",
+  "gameUrl": "rapid_click_frenzy",
+  "thumbnailUrl": "rapidgame.png"
+
+ 
+  
+}
   "gameTitle": "Pen_Pointer_Fight",
   "gameUrl": "PenPointerFight",
   "thumbnailUrl": "PenPointerFight.png"
+
 }
   
 }
-
 

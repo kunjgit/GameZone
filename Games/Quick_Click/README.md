@@ -39,5 +39,4 @@ At the end of the game, the active Yellow Square disappears, event listeners are
 Attachments:
 HTML, CSS, and JavaScript code snippets.
 
-**ScreenShot**
-![Game_Image](image.png)
+

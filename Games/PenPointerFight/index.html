@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pen Fight</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://cdn.pixabay.com/photo/2022/03/21/13/44/background-7083244_1280.png'); /* Example background image */
+      background-size: cover;
+      color: black;
+    }
+    canvas {
+      border: 2px solid white;
+      margin-top: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+    #comments {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    #startBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    #startBtn:hover {
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <h2>Pen Pointer Fight Game</h2>
+  <p>Use the arrow keys to move your pen. Touch your opponent's pen to win!</p>
+  <p>You are in blue and the opponent in red.</p>
+  <button id="startBtn">Start</button>
+  <div id="comments"></div>
+  <canvas id="gameCanvas" width="500" height="500"></canvas>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+      const comments = document.getElementById("comments");
+      const startBtn = document.getElementById("startBtn");
+
+      let player = {
+        x: 50,
+        y: 50,
+        width: 20,
+        height: 20,
+        color: "blue",
+        speed: 50
+      };
+
+      let computer = {
+        x: 450,
+        y: 450,
+        width: 20,
+        height: 20,
+        color: "red",
+        speed: 50
+      };
+
+      let gameStarted = false;
+
+      startBtn.addEventListener("click", startGame);
+
+      function startGame() {
+        gameStarted = true;
+        startBtn.style.display = "none";
+        resetPositions();
+        comments.textContent = "";
+
+        document.addEventListener("keydown", movePlayer);
+        draw();
+      }
+
+      function resetPositions() {
+        player.x = 50;
+        player.y = 50;
+        computer.x = 450;
+        computer.y = 450;
+      }
+
+      function movePlayer(event) {
+        if (!gameStarted) return;
+
+        switch(event.key) {
+          case "ArrowUp":
+            player.y -= player.speed;
+            if (player.y < 0) player.y = 0;
+            break;
+          case "ArrowDown":
+            player.y += player.speed;
+            if (player.y > canvas.height - player.height) player.y = canvas.height - player.height;
+            break;
+          case "ArrowLeft":
+            player.x -= player.speed;
+            if (player.x < 0) player.x = 0;
+            break;
+          case "ArrowRight":
+            player.x += player.speed;
+            if (player.x > canvas.width - player.width) player.x = canvas.width - player.width;
+            break;
+        }
+
+        draw();
+        if (checkCollision()) {
+          comments.textContent = "You win!";
+          endGame();
+        } else {
+          setTimeout(moveComputer, 500);
+        }
+      }
+
+      function moveComputer() {
+        const dx = player.x - computer.x;
+        const dy = player.y - computer.y;
+
+        if (Math.abs(dx) > Math.abs(dy)) {
+          computer.x += dx > 0 ? computer.speed : -computer.speed;
+          if (computer.x < 0) computer.x = 0;
+          if (computer.x > canvas.width - computer.width) computer.x = canvas.width - computer.width;
+        } else {
+          computer.y += dy > 0 ? computer.speed : -computer.speed;
+          if (computer.y < 0) computer.y = 0;
+          if (computer.y > canvas.height - computer.height) computer.y = canvas.height - computer.height;
+        }
+
+        draw();
+        if (checkCollision()) {
+          comments.textContent = "Computer wins!";
+          endGame();
+        }
+      }
+
+      function checkCollision() {
+        return player.x < computer.x + computer.width &&
+               player.x + player.width > computer.x &&
+               player.y < computer.y + computer.height &&
+               player.y + player.height > computer.y;
+      }
+
+      function endGame() {
+        document.removeEventListener("keydown", movePlayer);
+        startBtn.textContent = "Play Again";
+        startBtn.style.display = "block";
+        gameStarted = false;
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = player.color;
+        ctx.fillRect(player.x, player.y, player.width, player.height);
+        ctx.fillStyle = computer.color;
+        ctx.fillRect(computer.x, computer.y, computer.width, computer.height);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -4,7 +4,7 @@ const generateLiTags = (gamesData, searchText = "") => {
   const liTags = [];
   searchText = searchText.trim().toLowerCase(); // Trim whitespace and convert to lowercase
 
-  for (let tagNumber = 1; tagNumber <= 393; tagNumber++) {
+  for (let tagNumber = 1; tagNumber <= 416; tagNumber++) {
     const gameData = gamesData[tagNumber.toString()];
 
     if (gameData) {

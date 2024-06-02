@@ -283,7 +283,7 @@ This repository also provides one such platforms where contributers come over an
 | [Block Building](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Building)                                 |
 |[Ping_Pong_Singleplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Singleplayer)                  |
 | [MazeRunner](https://github.com/kunjgit/GameZone/tree/main/Games/MazeRunner)                                          |
-
+| [Catch-the-ball](https://github.com/kunjgit/GameZone/tree/main/Games/Catch-the-ball)                               | 
 
  
 

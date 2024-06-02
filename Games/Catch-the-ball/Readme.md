@@ -6,7 +6,6 @@ Catch the Ball is an engaging and addictive arcade game that challenges players 
 
 ## **features 🎮**
 1)Intuitive Gameplay:
-
 Simple controls: Move the paddle left or right to catch the ball.
 Easy to understand, making it accessible for players of all skill levels.
 

@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #d62828;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #eae2b7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    padding: 2rem;
+    border-radius: 40px;
+    display: flex;
+    background-color: #fcbf49;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    color: #003049;
+}
+
+.heading:hover {
+    color: #d62828;
+}
+
+.info {
+    margin: 1rem;
+}
+
+.gameContainer {
+    display: none;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+
+}
+
+.container {
+    display: grid;
+    grid-template-rows: repeat(3, 7vw);
+    grid-template-columns: repeat(3, 7vw);
+}
+
+.line {
+    background-color: #003049;
+    height: 3px;
+    width: 20vw;
+    position: absolute;
+    visibility: hidden;
+}
+
+.playerInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    font-size: large;
+}
+
+label,
+input {
+    margin: 0.5rem;
+    font-size: large;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+}
+
+input:focus {
+    outline: #d62828da solid;
+
+}
+
+.box {
+    border: 2px solid #f77f00;
+    cursor: pointer;
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:hover {
+    background-color: #ff8400a9;
+}
+
+
+#reset,
+#start {
+    border-color: #f77f00;
+    border-radius: 10px;
+    font-size: large;
+    margin-top: 1.4rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.confetti {
+    position: absolute;
+    visibility: hidden;
+    z-index: 1;
+    width: 400px;
+}
+
+@media screen and (max-width:770px) {
+    .gameContainer {
+        flex-wrap: wrap;
+    }
+
+    .container {
+        grid-template-rows: repeat(3, 17vw);
+        grid-template-columns: repeat(3, 17vw);
+    }
+
+    .box{
+        font-size: 20vw;
+    }
+
+    .line {
+        width: 51vw;
+    }
+
+    .card {
+        height: fit-content;
+        width: 80vw;
+    }
+}
+
+.br-0 {
+    border-right: 0;
+}
+
+.bl-0 {
+    border-left: 0;
+}
+
+.bt-0 {
+    border-top: 0;
+}
+
+.bb-0 {
+    border-bottom: 0;
+}

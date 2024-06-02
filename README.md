@@ -297,6 +297,7 @@ This repository also provides one such platforms where contributers come over an
 | [Shrek_Vs_Wild](https://github.com/kunjgit/GameZone/tree/main/Games/Shrek_Vs_Wild)                |
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                  |
 | [Guess_num](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_num)                  |
+| [Physics_Quiz](https://github.com/kunjgit/GameZone/tree/main/Games/Physics_Quiz)       |
 | [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)       | 
 | [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       | 
 | [namefate](https://github.com/kunjgit/GameZone/tree/main/Games/namefate)                   | 

@@ -139,7 +139,7 @@ function createImageElement(url) {
 function createTimerElement() {
     let timerElement = document.createElement('span');
     timerElement.setAttribute('class', "text-blue-600 bg-white rounded px-2 py-1 font-bold")
-    let timeLeft = 5;
+    let timeLeft = 10;
     timerElement.textContent = `Time Left: ${timeLeft}s`
     timeInterval = setInterval(() => {
         timeLeft-=1

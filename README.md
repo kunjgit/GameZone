@@ -324,6 +324,7 @@ This repository also provides one such platforms where contributers come over an
 
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
+[Fidget Spinner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fidget_Spinner_Game)|
 
 
 

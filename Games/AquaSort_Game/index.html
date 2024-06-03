@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id = "game">
+            <div id = "menu">
+                <div id = "menu-heading">WATER SORT PUZZLE</div>
+                <div class = "lvl" id = "easy" onclick = "OpenLevel(0);">EASY</div>
+                <div class = "lvl" id = "medium" onclick = "OpenLevel(1);">MEDIUM</div>
+                <div class = "lvl" id = "hard" onclick = "OpenLevel(2);">HARD</div>
+                <div class = "lvl" id = "very-hard" onclick = "OpenLevel(3)">VERY HARD</div>
+                <div class = "lvl" id = "impossible" onclick = "OpenLevel(7);">IMPOSSIBLE</div>
+                <br><br><br>
+                <div id = "rules-btn" onclick = "ShowRules();">RULES</div>
+            </div>
+            <div id = "level"></div>
+            <div id = "rules-page">
+                <div id = "rules">
+                    <div id = "rules-heading">RULES</div>
+                    <div id = "rules-text">There will be some glasses (or test tubes to be exact xD), your task is to put the liquids with same color together! You can transfer different colored water from one glass to another only if the other glass is empty or its top most layer of water is of the same color as that of the one from which water is to be taken. The glass you have selected will be highlighted to prevent confusion. Restart button will take you back to the beginning of the level, also every time you open the same level the water will be shuffled. Check out the real game 'Water sort puzzle' on playstore, I have cloned it.</div>
+                    <div id = "back" onclick = "HideRules();">BACK</div>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

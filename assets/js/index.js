@@ -4,12 +4,13 @@ const generateLiTags = (gamesData, searchText = "") => {
   const liTags = [];
   searchText = searchText.trim().toLowerCase(); // Trim whitespace and convert to lowercase
 
-  for (let tagNumber = 1; tagNumber <= 416; tagNumber++) {
+  for (let tagNumber = 1; tagNumber <= 417; tagNumber++) {
     const gameData = gamesData[tagNumber.toString()];
 
     if (gameData) {
       const { gameTitle, gameUrl, thumbnailUrl } = gameData;
       if (gameTitle.toLowerCase().includes(searchText)) {
+        const liked = localStorage.getItem(`liked-${tagNumber}`) === "true";
         const liTag = `
           <li class="project-item active" data-filter-item data-category="open source">
             <a href="./Games/${gameUrl}" target="_blank" aria-label="${gameTitle}">
@@ -19,7 +20,10 @@ const generateLiTags = (gamesData, searchText = "") => {
                 </div>
                 <img src="./assets/images/${thumbnailUrl}" alt="${gameTitle}" loading="lazy">
               </figure>
-              <h3 class="project-title"><a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label="${gameTitle}">${tagNumber}. ${gameTitle} 🔗</a></h3>
+              <div class="title-container">
+                <a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label="${gameTitle}">${tagNumber}. ${gameTitle} 🔗</a>
+                <button class="like-button ${liked ? 'liked' : ''}" onclick="like(this, ${tagNumber})">♡</button>
+              </div>
             </a>
           </li>
         `;
@@ -57,7 +61,10 @@ fetch("./assets/js/gamesData.json")
     // Search functionality
     const searchInput = document.getElementById("searchbar");
     searchInput.addEventListener("input", () => {
-      projectListContainer.innerHTML = generateLiTags(gamesData, searchInput.value);
+      projectListContainer.innerHTML = generateLiTags(
+        gamesData,
+        searchInput.value
+      );
     });
   })
   .catch((error) => console.error("Error fetching game data:", error));
@@ -75,22 +82,21 @@ window.addEventListener("scroll", function () {
 // Get references to the div and input elements
 const searchContainer = document.getElementById("search-container-id");
 const searchInput = document.getElementById("searchbar");
-const clearButton=document.getElementById("clearButton")
+const clearButton = document.getElementById("clearButton");
 
 // Add a click event listener to the div
-  searchContainer.addEventListener("click", function () {
+searchContainer.addEventListener("click", function () {
   // Focus on the input field when the div is clicked
   searchInput.focus();
 });
 
-
 // Improved searching and filtering of the games
-document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('searchbar');
-  const clearSearchButton = document.getElementById('clear-search');
-  const searchTermDisplay = document.getElementById('search-term');
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("searchbar");
+  const clearSearchButton = document.getElementById("clear-search");
+  const searchTermDisplay = document.getElementById("search-term");
   const searchRelatedDiv = document.getElementById("search-related");
-  const suggestionList = document.getElementById('suggestion-list');
+  const suggestionList = document.getElementById("suggestion-list");
   if (!searchInput) return;
   searchRelatedDiv.style.display = "none";
   const updateSearchRelatedVisibility = (searchText) => {
@@ -101,30 +107,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
   //old code from script.js
-  const searchList=(searchText)=>{
-  suggestionList.innerHTML = '';
-  if (searchText.length === 0) {
-    suggestionList.style.display = 'none';
-    return;
-  }
-  const filteredGames = Object.values(gamesData).filter(game => 
-    game.gameTitle.toLowerCase().includes(searchText) || game.gameUrl.toLowerCase().includes(searchText)
-  ); 
-  filteredGames.forEach(game => {
-    const li = document.createElement('li');
-    const anchor = document.createElement('a');
-    anchor.href = `./Games/${game.gameUrl}`;
-    anchor.target = "_blank";
-    anchor.setAttribute('aria-label', game.gameTitle);
-    anchor.textContent = game.gameTitle;
-    li.appendChild(anchor);
-    suggestionList.appendChild(li);
-  });
-  suggestionList.style.display = filteredGames.length ? 'block' : 'none';
-}
-//for serching 
-  searchInput.addEventListener('input', function () {
-    const searchText = searchInput.value.trim().toLowerCase(); 
+  const searchList = (searchText) => {
+    suggestionList.innerHTML = "";
+    if (searchText.length === 0) {
+      suggestionList.style.display = "none";
+      return;
+    }
+    const filteredGames = Object.values(gamesData).filter(
+      (game) =>
+        game.gameTitle.toLowerCase().includes(searchText) ||
+        game.gameUrl.toLowerCase().includes(searchText)
+    );
+    filteredGames.forEach((game) => {
+      const li = document.createElement("li");
+      const anchor = document.createElement("a");
+      anchor.href = `./Games/${game.gameUrl}`;
+      anchor.target = "_blank";
+      anchor.setAttribute("aria-label", game.gameTitle);
+      anchor.textContent = game.gameTitle;
+      li.appendChild(anchor);
+      suggestionList.appendChild(li);
+    });
+    suggestionList.style.display = filteredGames.length ? "block" : "none";
+  };
+  //for searching
+  searchInput.addEventListener("input", function () {
+    const searchText = searchInput.value.trim().toLowerCase();
     fetch("./assets/js/gamesData.json")
       .then((response) => response.json())
       .then((gamesData) => {
@@ -136,8 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch((error) => console.error("Error fetching game data:", error));
   });
-//for search clearing
-  clearSearchButton.addEventListener('click', function () {
+  //for search clearing
+  clearSearchButton.addEventListener("click", function () {
     searchInput.value = "";
     fetch("./assets/js/gamesData.json")
       .then((response) => response.json())
@@ -151,3 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch((error) => console.error("Error fetching game data:", error));
   });
 });
+
+function like(button, tagNumber, gameData) {
+  button.classList.toggle("liked");
+  const isLiked = button.classList.contains("liked");
+  
+  // Store both liked state and game data in localStorage
+  localStorage.setItem(`liked-${tagNumber}`, isLiked);
+  localStorage.setItem(`game-${tagNumber}`, JSON.stringify(gameData));
+}
+

@@ -38,8 +38,8 @@ body {
   position: relative;
   grid-row: 1 / -1;
   grid-column: 1;
-  width: 350px;
-  height: 315px;
+  width: 650px;
+  height: 615px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,10 +139,10 @@ body {
 }
 
 #note {
-  grid-row: 3;
+  grid-row: 0;
   grid-column: 2;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 1em;
   color: var(--text-color);
   transition: opacity 2s;
 }

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorites</title>
+    <link rel="icon" href="../assets/images/FavFolder.png" type="image/png" />
+    <style>
+      html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  overflow: auto; 
+}
+
+
+      h1 {
+        color: whitesmoke;
+        margin-bottom: 20px;
+      }
+
+      .fav-list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .fav-list .project-item {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .fav-list .project-item .project-img {
+        margin-bottom: 10px;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid rgb(113, 113, 113);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .project-item > a {
+        width: 100%;
+      }
+
+      .project-img::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        visibility: visible;
+        background: transparent;
+      }
+
+      .project-item > a:hover .project-img::before {
+        background: hsla(0, 0%, 0%, 0.3);
+      }
+
+      .project-item-icon-box {
+        --scale: 0.8; 
+        background: #333;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(var(--scale));
+        font-size: 15px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+        opacity: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        width: 80px;
+        height: 80px;
+      }
+
+      .project-item > a:hover .project-item-icon-box {
+        --scale: 0.9;
+        opacity: 1;
+      }
+
+      .project-item-icon-box img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
+
+      .project-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+
+      .project-item > a:hover img {
+        transform: scale(1.05);
+      }
+
+      .title-container {
+        text-align: center;
+      }
+
+      .fav-list a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .fav-list .project-item a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        text-align: center;
+      }
+
+      .fav-list .project-item a .project-title {
+        font-size: 16px;
+      }
+
+      .fav-list .project-item a .project-link {
+        font-size: 14px;
+        color: lightblue;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <h1>Your Favorite Games</h1>
+    <ul class="fav-list"></ul>
+</div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const favList = document.querySelector(".fav-list");
+
+        fetch("../assets/js/gamesData.json")
+          .then((response) => response.json())
+          .then((gameData) => {
+            
+            for (let key in localStorage) {
+              if (
+                key.startsWith("liked-") &&
+                localStorage.getItem(key) === "true"
+              ) {
+               
+                const gameNumber = key.replace("liked-", "");
+
+                
+                const game = gameData[gameNumber];
+
+               
+                const listItem = document.createElement("li");
+                listItem.classList.add("project-item");
+                listItem.classList.add("active");
+                listItem.dataset.filterItem = "";
+                listItem.dataset.category = "open source";
+
+              
+                listItem.innerHTML = `
+  <a href="../Games/${game.gameUrl}" target="_blank" aria-label="${game.gameTitle}">
+    <figure class="project-img">
+        <div class="project-item-icon-box">
+                  <img id="joystick" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Eye" width="3" />
+                </div>
+      <img src="${window.location.origin}/assets/images/${game.thumbnailUrl}" alt="${game.gameTitle}" loading="lazy">
+    </figure>
+    <div class="title-container">
+      <a href="https://github.com/kunjgit/GameZone/tree/main/Games/${game.gameUrl}" target="_blank" aria-label="${game.gameTitle}">${gameNumber}. ${game.gameTitle} 🔗</a>
+    </div>
+  </a>
+`;
+
+                
+                favList.appendChild(listItem);
+              }
+            }
+          });
+      });
+    </script>
+  </body>
+</html>

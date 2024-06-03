@@ -285,7 +285,9 @@ This repository also provides one such platforms where contributers come over an
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures) |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball) |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
-|[DiceRoll_Game](https://github.com/Hemav009/GameZone/tree/main/Games/DiceRoll_Game)|
+|[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game) |
+| [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
+| [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy) |[DiceRoll_Game](https://github.com/Hemav009/GameZone/tree/main/Games/DiceRoll_Game)|
 
  </center>
 

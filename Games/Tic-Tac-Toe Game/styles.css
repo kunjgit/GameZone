@@ -1,0 +1,113 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+
+body {
+    background-color: cadetblue;
+    margin-top: 1.6rem;
+    text-align: center;
+}
+
+/* Heading */
+
+.heading{
+    font-size: 6vmin;
+}
+
+/* message container */
+
+#msg{
+    color: white;
+    font-size: 4.5vmin;
+}
+
+.msgContainer{
+    height: 10vmin;
+    margin-top: 1.4rem;
+}
+
+.hide{
+    display: none;
+}
+
+/* Game Container */
+
+.container{
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* box - 9 boxes */
+
+.game{
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2vmin;
+}
+
+/* 9 Boxes */
+
+.box{
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 0.5rem black;
+    font-size: 8vmin;
+    background-color:white;
+    color: rgba(255, 0, 0, 0.8);
+}
+
+.box:hover{
+    transform: scale(1.015);
+    cursor: pointer;
+}
+
+/* Buttons */
+
+.buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* New Game Button */
+
+#newButton {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+
+#newButton:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Reset Button */
+
+#resetButton{
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+
+#resetButton:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}

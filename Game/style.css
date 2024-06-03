@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #020827;
+    font-family: 'Poppins','sans-serif';
+    height: 350vh;
+}
+
+/*  Header Starts here  */
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.1));
+    background-size: cover;
+    background-position: top;
+    /* display: flex; */
+}
+
+.logo img{
+    height: 100px ;
+    width:60%;
+}
+
+header{
+    width: 100%;
+    height: 10vh;
+    background-position: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img{
+    width: 80%;
+}
+
+.popup{
+  width: 400px;
+  background: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;;
+}
+
+.open-popup{
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(1);
+}
+
+.popup i{
+  color: #6fd649;
+}
+
+.popup h2{
+  font-size: 38px;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+
+.popup button{
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background: #6fd649;
+  color: #fff;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo{
+    width: 300px;
+    height: 13vh;
+    background: #031157;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    clip-path: polygon(0 0,100% 0,64% 100%,0 100%);
+    padding: 10px;
+    line-height: 2rem;
+    margin-top: -10px;
+}
+
+#btn{
+    clip-path: polygon(0 0,100% 0,64% 100%,0 100%);
+}
+
+.navbar{
+    display: flex;
+    list-style: none;
+    height: 50px;
+}
+
+ul.navbar li{
+    width: 120px;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+ul.navbar li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 26px;
+}
+
+ul.navbar li i.fa-solid{
+    color: #fff;
+    margin-right: 10px;
+}
+
+ul.navbar li a:hover,ul.navbar li i:hover{
+    color: #fec53a;
+}
+
+#btn{
+    width: 250px;
+    height: 10vh;
+    background: #fec53a;
+    color: #000;
+    outline: none;
+    border: none;
+    clip-path: polygon(40% 0,100% 0,100% 100%,0 100%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 40px;
+    transition: transform 0.2s ease;
+}
+
+#btn:active{
+    transform: scale(0.96);
+}
+
+@keyframes ani{
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+}
+
+@keyframes ani2{
+        0%{
+            transform: rotate(360deg);
+        }
+        100%{
+            transform: rotate(0deg);
+        }
+}
+
+.game-timer{
+    color: white;
+    font-size: 20px;
+}
+
+
+/*  Header ends here  */
+
+#player1,
+#player2 {
+  border: 1px solid #dccbcb;
+  padding: 20px;
+  width: 300px;
+  background-color: #c3e7b1;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+}
+
+.launch-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+.blader1{
+    height: 300px;
+    width: 250px;
+}
+
+.blader2{
+    height: 240px;
+    width: 250px;
+}
+
+.circle1{
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    border: transparent;
+    border-top: 3px solid #fec53a;
+    animation: ani2 2s linear infinite;
+    /* background-image: url("assets/bey2.jpg"); */
+
+}
+
+.circle2{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: transparent;
+    border-top: 3px solid rgb(0, 225, 255);
+    animation: ani 0.7s linear infinite;
+    margin-top: -50px;
+}
+
+.circle1 #blade1{
+    margin-left: 100px;
+}
+
+.circle1 #blade2{
+    width: 70px;
+    height: 80px;
+    margin-left: -20px;
+    margin-top: 0px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.circle2 img{
+    height: 50px;
+    width: 50px;
+}
+
+
+.spin-animation {
+    animation: spin 1s infinite linear;
+  }
+  
+  @keyframes spin{
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+
+.result {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+.score-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  
+.score-value {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .stamina-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  
+  .stamina-value {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .game-over {
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .winner {
+    font-size: 30px;
+    color: #333;
+  }
+  
+  .tie {
+    color: #777;
+  }
+  
+
+
+#game-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    margin-top: 100px;
+    margin: 40px;
+}
+
+#Stadium{
+    width: 100%;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.model{
+    height: 400px;
+    width: 50%;
+    margin-left: 300px;
+}
+
+#Stadium h2{
+    color: white;
+    margin-top: 80px;
+    font-size: 30px;
+    align-items: center;
+}
+
+#container3D{
+    color: white;
+}

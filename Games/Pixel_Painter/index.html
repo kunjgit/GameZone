@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Pixel Painter</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Painter</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div style="text-align:left; margin-left: 20px;
-  margin-top: 10px;
-  font-size: 30px;
-  color:black;
-  padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
-  <h1>Pixel Painter</h1>
-  <div id="canvas"></div>
-  <div id="colorPalette"></div>
-  <script src="script.js"></script>
+    <div id="toolbar">
+        <input type="color" id="colorPicker" value="#000000">
+        <button id="clearButton">Clear</button>
+        <button id="undoButton">Undo</button>
+    </div>
+    <div id="canvasContainer" style="position: relative;">
+        <canvas id="pixelCanvas" width="600" height="600"></canvas>
+        <div id="grid"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

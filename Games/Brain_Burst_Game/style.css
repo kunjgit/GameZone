@@ -15,6 +15,9 @@
     transform: translateX(-50%);
     height: 640px;
     width: 330px;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .game__wrapper--title {
@@ -25,6 +28,7 @@
     padding-bottom: 12px;
     text-align: center;
     font-size: 26px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .game__wrapper--pitch {
@@ -33,6 +37,8 @@
     background-color: rgba(61, 100, 350, 0.48);
     display: flex;
     flex-wrap: wrap;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 /* Pitch Blocks styling */
@@ -40,6 +46,10 @@
     height: 165px;
     width: 165px;
     transition: .1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .pitch__block--medium {
@@ -56,12 +66,28 @@
     background-color: rgba(67, 168, 89, 0.808);
 }
 
+.light:hover {
+    background-color: rgba(67, 168, 89, 1);
+}
+
 .light__medium {
     background-color: rgb(226, 188, 82);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.light__medium:hover {
+    background-color: rgb(226, 188, 82, 1);
 }
 
 .light__hard {
     background-color: rgb(211, 60, 55);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.light__hard:hover {
+    background-color: rgb(211, 60, 55, 1);
 }
 
 /* Game Score Styling */
@@ -69,6 +95,8 @@
     text-align: center;
     font-size: 18px;
     line-height: 60px;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .game__wrapper--mode {
@@ -76,6 +104,7 @@
     justify-content: space-around;
     align-content: center;
     width: 100%;
+    margin-top: 10px;
 }
 
 .game__wrapper--mode button {
@@ -88,6 +117,8 @@
     transition: .2s;
     height: 40px;
     width: 90px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .game__mode--easy {
@@ -102,6 +133,11 @@
     background-color: rgb(209, 53, 53);
 }
 
+.game__wrapper--mode button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
 /* Styling the footer section */
 .game__footer {
     display: flex;
@@ -113,6 +149,7 @@
     height: 60px;
     width: 100%;
     background-color: rgba(190, 190, 190, 0.274);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .game__footer--info {

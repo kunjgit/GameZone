@@ -330,7 +330,6 @@ This repository also provides one such platforms where contributers come over an
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  |
 [Roll_The_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_The_Dice)  |
 
-=======
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  | [Screen Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Screen-Pet-Game) |
 
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme)                  |

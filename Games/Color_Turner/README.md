@@ -10,12 +10,11 @@ Color Matcher
 Just tap on button and match all the colore
 
 
-- 
 
 ## **How to play? 🕹️**
-<!-- add the steps how to play games -->\
+<!-- add the steps how to play games -->
 Just click on button and the line are turned changed 
-- 
+
 
 <br>
 
@@ -24,7 +23,8 @@ Just click on button and the line are turned changed
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![image](https://github.com/kunjgit/GameZone/assets/98798977/3732a0d3-521a-4eb8-af8d-989bbca77a55)
+
+![image](https://github.com/kunjgit/GameZone/assets/98798977/3732a0d3-521a-4eb8-af8d-989bbca77a55) 
 
 
 

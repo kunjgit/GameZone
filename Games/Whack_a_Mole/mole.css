@@ -39,6 +39,14 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+.home{
+    background-color: aqua;
+    padding:25px;
+}
+.home h3{
+    font-size: sans-serif;
+}
+
 
 
 

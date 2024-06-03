@@ -17,19 +17,22 @@ const drawGame = () => {
   msg.innerText = "Game was Draw. Play again.";
   msg.style.backgroundColor = "#081b31";
 };
+const updateScore = (userScore,compScore)=>{
+  userScorePara.innerText = userScore;
+  compScorePara.innerText = compScore;
 
+}
 const showWinner = (userWin, userChoice, compChoice) => {
   if (userWin) {
     userScore++;
-    userScorePara.innerText = userScore;
     msg.innerText = `You win! Your ${userChoice} beats ${compChoice}`;
     msg.style.backgroundColor = "green";
   } else {
     compScore++;
-    compScorePara.innerText = compScore;
     msg.innerText = `You lost. ${compChoice} beats your ${userChoice}`;
     msg.style.backgroundColor = "red";
   }
+  updateScore(userScore,compScore);
 };
 
 const playGame = (userChoice) => {

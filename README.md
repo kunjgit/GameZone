@@ -324,8 +324,8 @@ This repository also provides one such platforms where contributers come over an
 
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
+| [Seahorse_Rash](https://github.com/kunjgit/GameZone/tree/main/Games/Seahorse_Rash)|
 
-| [Seahorse_Rash](https://github.com/kunjgit/GameZone/tree/main/Games/Seahorse_Rash)                |
 
 
 

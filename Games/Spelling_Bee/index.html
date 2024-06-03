@@ -9,6 +9,9 @@
   </head>
 
   <style>
+    br{
+      color:black;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -16,15 +19,20 @@
     }
 
     body {
-      width: 100%;
-      height: 100vh;
-    }
+    width: 100%;
+    height: 100vh;
+    background-color:yellow;
+    position: relative;
+}
 
     .all {
-      display: grid;
-      place-items: center;
-      margin-top: 100px;
-    }
+
+    display: grid;
+    place-items: center;
+    margin-top: 100px;
+    background-color: yellow;
+    margin-bottom: 120px;
+}
 
     img {
       width: 300px;
@@ -51,12 +59,17 @@
       margin: 0 100px 0 100px;
       background-color: rgb(234, 130, 65);
     }
+    hr{
+      height: 8px;
+      background-color: black;
+    }
   </style>
   <body>
     <div style="text-align:center;
     margin-top: 30px;
     font-size: 30px;
     padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+    <hr>
     <div class="all">
       <img src="bee.png" alt="" />
       <input type="text" id="inp" />
@@ -66,7 +79,9 @@
         <button id="speak" class="btn2">Speak</button>
         <button id="sub" class="btn2">Submit</button>
       </div>
+      
     </div>
+    <hr>
   </body>
 
   <script>

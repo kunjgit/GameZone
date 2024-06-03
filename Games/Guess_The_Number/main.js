@@ -26,6 +26,15 @@ guessInput.addEventListener('keypress', function(event) {
 });
 
 function play() {
+
+  //added in #4101 isuue : this below if is to make sure that when you have completed the game and won, the clicking the guess button does not increase your no. of tries used
+  if(msg1.innerText==="Yayy 🤩🤗! You guessed it right!")
+    return;
+  //added in #4101 isuue : this below "if" is to make sure that new no. dont keep adding to the existing array even after the you have exhausted your lives
+  if(no_of_guesses===10)
+    return;
+
+
   var user_guess = guessInput.value;
   if (user_guess < 1 || user_guess > 100) {
     wrong.play()
@@ -83,4 +92,6 @@ function reset () {
   guessInput.value = '';
 
   lives=10;
+  //added in #4101 isuue : lives was getting update but in this commit i am actually manupulating the DOM so that when you hit reset the previous no. of left lives is not shown
+  document.getElementById('lives').innerText="Lives left: 10";
 }

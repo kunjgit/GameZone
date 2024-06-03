@@ -80,7 +80,7 @@
   
   #user-score,
   #comp-score {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   
   .msg-container {
@@ -94,4 +94,20 @@
     display: inline;
     padding: 1rem;
     border-radius: 1rem;
+  }
+  .reset{
+    position: relative;
+    right: 25rem;
+    top: 11.7rem;
+    border: 2px solid black;
+    background: transparent;
+    border-radius: 6px;
+    height: 50px;
+    width: 85px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .reset:hover{
+    background-color: black;
+    color: white;
   }

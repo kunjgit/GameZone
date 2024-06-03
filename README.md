@@ -331,6 +331,7 @@ This repository also provides one such platforms where contributers come over an
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme)                  |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
+| [Number_Recall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Recall_Game)               |
 | [Hit_the_hamster] (https://github.com/kunjgit/GameZone/tree/main/Games/Hit_the_hamster)                |
 | [Forest_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Forst_Guardian)                  |
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme)                  |
@@ -339,7 +340,8 @@ This repository also provides one such platforms where contributers come over an
 |[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game)   |
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)                  |
-|[Love_Calculator_Game]()|
+
+
  </center>
 
 <br>

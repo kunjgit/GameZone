@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.target {
+    font-size: 3rem;
+    margin: 20px;
+}
+
+.water-gun {
+    width: 200px;
+    height: auto;
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#message {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+#shotsLeft {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+#Deaths {
+    font-size: 1rem;
+    margin-top: 10px;
+}

@@ -310,7 +310,6 @@ This repository also provides one such platforms where contributers come over an
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme)                  |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
-|[Elephant_ant_man](https://github.com/tanishkaa08/GameZone/tree/main/Games/Elephant_ant_man)    |
 
 |[Carrom Board Game](https://github.com/kunjgit/GameZone/tree/main/Games/carrom)|
 | [Number_Recall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Recall_Game)               |

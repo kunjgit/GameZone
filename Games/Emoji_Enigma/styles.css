@@ -1,0 +1,102 @@
+/* Define styles for both dark and light themes */
+body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5% 20% 30% 40% ;
+  font-family: "Kode Mono", monospace;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.dark-theme {
+  background-color: #333;
+  color: #fff;
+}
+
+.light-theme {
+  background-color: #fff;
+  color: #333;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 420px;
+  margin-bottom: 20px;
+}
+
+.timer {
+  font-size: 24px;
+}
+#themeToggle {
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#restartButton {
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 48px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.card.flipped {
+  background-color: #fff;
+  transform: rotateY(180deg);
+}
+
+.card .emoji {
+  display: none;
+}
+
+.card.flipped .emoji {
+  display: block;
+}
+
+.leaderboard {
+  /* background-color: #444; */
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.leaderboard h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.leaderboard ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+  text-align: left;
+}

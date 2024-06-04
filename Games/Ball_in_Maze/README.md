@@ -21,7 +21,8 @@
 ## **Screenshots 📸**
 
 <br>
-![Ball_in_Maze](https://github.com/Nayanika1402/GameZone/assets/132455412/8b427fe7-dfc9-4afe-bc04-d3a52cec1e92)
+
+![Ball_in_Maze](https://github.com/Nayanika1402/GameZone/assets/132455412/62518a0e-9dc1-4014-8231-6d118006d27c)
 
 
 <br>

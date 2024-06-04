@@ -28,9 +28,3 @@ You are a mechanical seahorse trapped in a silicon-rich planet with hostile swar
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
 <img src="https://github.com/Winter262005/GameZone/blob/main/Games/Mechanica/Mechanica.png">
-
-
-
-
-<br>
-

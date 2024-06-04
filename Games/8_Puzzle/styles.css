@@ -1,0 +1,73 @@
+ * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    border: rgb(255, 153, 0) solid 4px;
+  }
+
+  body {
+    background-color: lightblue;
+  }
+
+  header {
+    font-family: "Bangers", cursive;
+    font-weight: bolder;
+    text-decoration: underline;
+    color: #a949f7b6;
+    height: 10vh;
+    margin-top: 20vh;
+    margin-bottom: 5vh;
+  }
+
+  center {
+    font-size: 10vh;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 15vh 15vh 15vh;
+    grid-template-rows: 15vh 15vh 15vh;
+    grid-gap: 0.3vw 0.3vw;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-bottom: 20vh;
+  }
+
+  .box {
+    background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+    color: #ff1d58;
+    text-align: center;
+    padding: 50px 0;
+    font-size: xx-large;
+    font-family: "Comic Neue", cursive;
+    border: #8b4afc 2px solid;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .box:hover {
+    background-image: linear-gradient(-20deg, #a0f1e4 0%, #8ddad5 100%);
+    color: #b9082b;
+    border: 4px transparent;
+    border: #8b4afc 2px solid;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .box {
+    border: 2px solid #8b4afc;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .box:hover {
+    transform: scale(1.1);
+  }
+
+  header {
+    text-align: center;
+  }

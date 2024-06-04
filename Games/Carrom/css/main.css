@@ -1,0 +1,26 @@
+body,html{
+	padding: 0px;
+	margin: 0px;
+	
+}
+body{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+div{
+	margin: 0px;
+	padding: 0px;
+}
+#Carrom{
+	background-color: black;
+	position: absolute;
+}
+#Striker{
+	position: relative;
+}
+.jumbotron{
+	padding: 0px;
+	margin: 0px;
+	padding-left: 20px;
+}

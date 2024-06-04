@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Carrom</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/canvasFunc.js"></script>
+	<script type="text/javascript" src="js/canvasCalls.js"></script>
+	<script type="text/javascript" src="js/coinFunc.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+<body style="background-image:url(carrom.jpg)">
+<div class="row" style="margin: 0px;padding: 0px;">
+	<div class="col-md-3">
+        <div class="jumbotron">
+        	<h3><b>Player 1</b></h3>
+        	<p><b>Score : <span id="0">0</span></b></p>
+        </div>
+		<button class="btn btn-primary" type="button" id="Reset">Reset</button>
+  		<div class="range range-primary">
+            <input type="range" name="range" min="10" max="70" value="35" id="Ranger">
+        </div>
+	</div>
+  	<div class="col-md-6">
+  		<canvas id="Carrom" width="720" height="720">Your browser does not support the HTML5 canvas tag.</canvas>
+  		<canvas id="Striker" width="720" height="720">Your browser does not support the HTML5 canvas tag.</canvas>
+	</div>
+  	<div class="col-md-3">
+  		<div class="jumbotron">
+        	<h3><b>Player 2</b></h3>
+        	<p><b>Score : <span id="1">0</span></b></p>
+  		</div>
+  		<p id="mp">Mouse Positions :</p>
+  	</div>
+</div>
+<script type="text/javascript">
+	canvasCalls();
+	initializePlayers(2);
+</script>
+</body>
+</html>

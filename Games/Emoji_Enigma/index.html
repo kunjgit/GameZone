@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Kode+Mono:wght@400..700&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <title>Memory Emoji Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Memory Emoji Game</h1>
+    <div class="info">
+        <!-- Add a button to toggle between dark and light themes -->
+    <button id="themeToggle">Toggle Theme</button>
+
+      <div class="timer" id="timer">Time: 0s</div>
+      <button id="restartButton">Restart</button>
+    </div>
+    <div class="game-board" id="gameBoard"></div>
+    <div class="leaderboard" id="leaderboard">
+      <h2>Leaderboard</h2>
+      <ol id="leaderboardList"></ol>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

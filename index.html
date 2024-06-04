@@ -105,6 +105,20 @@ border-radius: 1000px;
 
 
 <body>
+        <div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+
   <div class="preloader">
     <img src="loader.gif" class="center">
   </div>
@@ -144,6 +158,7 @@ document.body.removeChild(loader);
 
 
 
+
         <!--
         - #NAVBAR
       -->
@@ -177,8 +192,16 @@ document.body.removeChild(loader);
 
           <div class="search-btn">
             <i class="fa fa-search" aria-hidden="true"></i>
+            <div class="favorites-link">
+              <a href="pages/fav.html" target="_self">
+                <img src="assets/images/FavFolder.png" alt="fav" />
+              </a>
+              
+          </div>
+          
           </div>
         </div>
+        <br>
         <ul id="suggestion-list" style="display: none;"></ul>
         
         <div id="search-related">
@@ -367,6 +390,7 @@ document.body.removeChild(loader);
   <script src="./assets/js/contributors.js"></script>
   <script src="./assets/js/cursor_transition.js"></script>
   <script src="./assets/js/contributors.js"></script>
+  
  
   
 
@@ -376,7 +400,6 @@ document.body.removeChild(loader);
   <div>
   </div>
 
-  <button onclick="scrollToTop()" id="scrollToTopButton" title="Scroll to Top">
     <ion-icon name="arrow-up-outline"></ion-icon>
   </button>
 

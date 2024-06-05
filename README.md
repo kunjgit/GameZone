@@ -306,7 +306,7 @@ This repository also provides one such platforms where contributers come over an
 | [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk)                  |
 
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  | [Screen Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Screen-Pet-Game) |
-
+| [Grab_The_Carrot](https://github.com/kunjgit/GameZone/tree/main/Games/Grab_The_Carrot)
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme)                  |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|

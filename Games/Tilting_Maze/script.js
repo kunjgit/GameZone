@@ -680,3 +680,9 @@ Math.minmax = (value, limit) => {
       } else throw error;
     }
   }
+  const restartBtn = document.getElementById("restart-btn");
+
+
+restartBtn.addEventListener("click", function() {
+  resetGame(); 
+});

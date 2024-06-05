@@ -5,7 +5,6 @@
     margin: 0px;
     box-sizing: border-box;
 }
-
 :root {
     --linear-grad: linear-gradient(to right, #141E30, #243B55);
     --grad-clr1: #141E30;

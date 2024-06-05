@@ -34,6 +34,4 @@ This game basically focuses on grabbing the carrot and avoiding the obstacles.
 <br>
 ![Grab](../../assets/images/grab.png)
 
-![grabthecarrot](https://github.com/Aksshay88/GameZone/assets/119944779/df69e1d7-1ee8-4613-887d-c365dec70efe)
-
 </br>

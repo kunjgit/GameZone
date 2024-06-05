@@ -25,6 +25,7 @@
   <meta property="og:image"
     content="https://github.com/kunjgit/GameZone/assets/56786344/080b7034-0e60-4069-b95c-aa0aba147a94" />
 
+
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://kunjgit.github.io/GameZone/" />
@@ -104,6 +105,20 @@ border-radius: 1000px;
 
 
 <body>
+        <div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+
   <div class="preloader">
     <img src="loader.gif" class="center">
   </div>
@@ -131,6 +146,7 @@ document.body.removeChild(loader);
     <div class="filled"></div>
   </div>
 
+
   <div class="abcd">
 
     <main>
@@ -139,6 +155,7 @@ document.body.removeChild(loader);
       <div class="main-content">
 
         <div class="bgContainer"></div>
+
 
 
 
@@ -175,8 +192,16 @@ document.body.removeChild(loader);
 
           <div class="search-btn">
             <i class="fa fa-search" aria-hidden="true"></i>
+            <div class="favorites-link">
+              <a href="pages/fav.html" target="_self">
+                <img src="assets/images/FavFolder.png" alt="fav" />
+              </a>
+              
+          </div>
+          
           </div>
         </div>
+        <br>
         <ul id="suggestion-list" style="display: none;"></ul>
         
         <div id="search-related">
@@ -189,7 +214,7 @@ document.body.removeChild(loader);
         <!-- Games -->
 
 
-        <ul class="project-list">
+        <ul id="games" class="project-list">
         </ul>
 
         <div class="pagination">
@@ -209,7 +234,10 @@ document.body.removeChild(loader);
   <!-- Contributors section -->
   <div class="contributors">
     <h1 style="font-family: 'Agency FB', Times, serif;">Our Valuable Contributors</h1>
+     <!-- display number of contributors-->
+    <h2 id="total-contributors" style="text-align: center; font-family: 'Agency FB', Times, serif;"></h2> 
     <div id="contributor"></div>
+    <div class="pagination" id="pagination"></div>
   </div>
 
   <!--
@@ -362,6 +390,7 @@ document.body.removeChild(loader);
   <script src="./assets/js/contributors.js"></script>
   <script src="./assets/js/cursor_transition.js"></script>
   <script src="./assets/js/contributors.js"></script>
+  
  
   
 
@@ -371,14 +400,13 @@ document.body.removeChild(loader);
   <div>
   </div>
 
-  <!-- <button onclick="scrollToTop()" id="scrollToTopButton" title="Scroll to Top">
     <ion-icon name="arrow-up-outline"></ion-icon>
-  </button> -->
+  </button>
 
   <!-- SCROLL TO TOP BUTTON -->
-  <!-- <div id="progress">
+  <div id="progress">
     <span id="progress-value">&#x1F815;</span>
-  </div> -->
+  </div>
 
 </body>
 

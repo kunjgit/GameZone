@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Quiz Game</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Math Quiz Game</h1>
+        <div id="instructions">
+            <p>Welcome to the Math Quiz Game! You have 30 seconds to answer as many questions as you can. Good luck!</p>
+            <button onclick="startGame()">Start Game</button>
+        </div>
+        <div id="game" style="display: none;">
+            <div id="question"></div>
+            <input type="number" id="answer" />
+            <button onclick="submitAnswer()">Submit Answer</button>
+            <div id="timer"></div>
+            <div id="result"></div>
+            <div id="score"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,43 +1,24 @@
 # Grab The Carrot
 
-This game basically focuses on grabbing the carrot and avoiding the obstacles.
+## Description
+The Grab The Carrot is a simple web-based game designed to test and have fun . The game presents a sequence of obstacle which the players need to overcomes . The Players need to Grab The Carrot to survive the game 
 
-## **Description 📃**
-
-<!-- Add your game description here  -->
-
-- This is a simple 3D game where you control a character to grab carrots while avoiding obstacles.
-- Developed using HTML, CSS, and JavaScript.
-- Players need to strategize and use logic to successfully complete each level.
-
-<br>
-
-## **Functionalities 🎮**
-
-<!-- Add functionalities over here -->
-
-- Players need to go through the fast pace of the game when the high score increases.
-- Multiple difficulty obstacle to challenge players.
-
-<br>
-
+# Functionality
+- Displays a sequence of obstacles
+- Increases the Highscore once the players Grab The Carrot.
+- Simple and intuitive user interface.
+- You can track your current score.
 
 ## Usage
+- Open the game by opening index.html in a web browser.
+- Click the `Start Game` button to begin.
+- A sequence of numbers will be displayed for a short period.
+- Memorize the sequence and enter it into the input field once it disappears.
+- Click the "Submit" button to check your input.
+- If you recall the sequence correctly, a new number will be added to the sequence, and the game continues.
+- If you input the sequence incorrectly, the game will end and display the correct sequence.
 
-1. Open `index.html` in your web browser to start the game.
-2. The game will load and you can start playing by following the instructions on the screen.
-
-## **How to play? 🕹️**
-
-<!-- Add the steps how to play the game -->
-
-- The difficulty level will go through the Easy to Impossible.
-- Use your mouse to click or tap anywhere on the screen to make the character jump.
-- The goal is to grab as many carrots as possible while avoiding obstacles.
-- The game ends if you collide with an obstacle.
-- After the game ends, click or tap to play again.
-
-<br>
-![Grab_The_Carrot](../../assets/images/grabthecarrot.png)
-
-</br>
+## Files
+- `index.html`: The main HTML file that sets up the structure of the game.
+- `styles.css`: The CSS file that styles the game.
+- `script.js`: The JavaScript file that contains the game logic.

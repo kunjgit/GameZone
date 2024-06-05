@@ -7,8 +7,8 @@ body {
   --ball-color: #f06449;
   --end-color: #7d82b8;
   --text-color: #210124;
-
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size:100%;
+  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--background-color);
 }
 
@@ -265,4 +265,26 @@ a:visited {
     width: 300px;
     background-color: white;
   }
+}
+
+#restart-btn {
+  background-color: var(--ball-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  display: block; 
+}
+
+#restart-btn:hover {
+  background-color: var(--end-color);
+  transform: scale(1.05);
+}
+
+#restart-btn:active {
+  background-color: var(--joystick-head-color);
+  transform: scale(1);
 }

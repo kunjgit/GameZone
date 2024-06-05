@@ -1,28 +1,30 @@
-# Grab the Carrot Game
+# Grab The Carrot
 
-This is a simple 3D game where you control a character to grab carrots while avoiding obstacles.
-
-## Introduction
-
-This game is built using Three.js, a popular JavaScript library for creating 3D graphics in web browsers. It demonstrates basic 3D rendering, animation, and user interaction techniques.
-
-## Features
-
-- Simple and intuitive gameplay
-- 3D graphics rendered in the browser
-- Responsive design for different screen sizes
-
-## How to Play
-
-1. Use your mouse to click or tap anywhere on the screen to make the character jump.
-2. The goal is to grab as many carrots as possible while avoiding obstacles.
-3. The game ends if you collide with an obstacle.
-4. After the game ends, click or tap to play again.
-
-## **Screenshots 📸**
+## **Description 📃**
+<!-- Add your game description here  -->
+- This is a simple 3D game where you control a character to grab carrots while avoiding obstacles.
+- Developed using HTML, CSS, and JavaScript.
+- Players need to strategize and use logic to successfully complete each level.
 
 <br>
 
-![image](../../assets/images/grabthecarrot.png)
+## **Functionalities 🎮**
+<!-- Add functionalities over here -->
+- Players need to go through the fast pace of the game when the high score increases.
+- Multiple difficulty obstacle to challenge players.
 
 <br>
+
+## **How to play? 🕹️**
+<!-- Add the steps how to play the game -->
+- The difficulty level will go through the Easy to Impossible.
+- Use your mouse to click or tap anywhere on the screen to make the character jump.
+- The goal is to grab as many carrots as possible while avoiding obstacles.
+- The game ends if you collide with an obstacle.
+- After the game ends, click or tap to play again.
+
+<br>
+
+![grabthecarrot](https://github.com/Aksshay88/GameZone/assets/119944779/df69e1d7-1ee8-4613-887d-c365dec70efe)
+
+</br>

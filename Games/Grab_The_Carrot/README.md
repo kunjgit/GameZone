@@ -38,6 +38,6 @@ This game basically focuses on grabbing the carrot and avoiding the obstacles.
 - After the game ends, click or tap to play again.
 
 <br>
-![Grab] (../../assets/images/grab.png)
+![Grab_The_Carrot](../../assets/images/grabthecarrot.png)
 
 </br>

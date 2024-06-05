@@ -114,7 +114,7 @@ function draw() {
         }
     }
 
-    requestAnimationFrame(draw);
+     requestAnimationFrame(draw);
 }
 
 function endGame() {

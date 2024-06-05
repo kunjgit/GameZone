@@ -24,3 +24,11 @@ Score tracking: Players can see their score in real-time and aim to beat their h
 5. If you miss the ball, the game will restart.
 
 <br>
+
+## **Screenshots 📸**
+
+<br>
+<!-- add your screenshots like this -->
+[image](assets\images\catch-the-ball.png)
+
+<br>

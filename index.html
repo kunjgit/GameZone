@@ -90,11 +90,47 @@ height: 200px;
 width: 200px;
 border-radius: 1000px;
 }
+.login-button {
+  background-color: #ff9800;
+  /* Orange background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-right: 200px; /* Add margin to the right */
+}
+
+.login-button:hover {
+  background-color: #e68a00;
+  transform: scale(1.1);
+  /* Darker orange on hover */
+}
+
+/* Styling for the theme switch and login button container */
+#themeToggleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-toggle-wrapper {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
   </style>
 </head>
 <!-- Light-Dark theme SWITCH -->
 
 <label id="themeToggleWrapper"  class="theme-toggle" for="themeToggle" style="position: fixed; top: 30px; right: 30px; z-index: 100; display: flex; align-items: center; border: none; background-color: transparent;">
+  <button id="loginButton" class="login-button">Login</button>
   <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
   <span class="slider" style="width: 40px; height: 20px;"></span>
 </label>
@@ -150,7 +186,7 @@ document.body.removeChild(loader);
         <div class="heading fromTop">
           <span>🕹️&nbsp;</span><span>G</span><span>A</span><span>M</span><span>E</span><span>Z</span><span>O</span><span>N</span><span>E</span>
         </div>
-
+        
         <!-- About section -->
         
         <div class="zoomIn" id="about">
@@ -384,6 +420,11 @@ document.body.removeChild(loader);
   <!-- <div id="progress">
     <span id="progress-value">&#x1F815;</span>
   </div> -->
+  <script>
+    document.getElementById("loginButton").addEventListener("click", function() {
+      window.location.href = "signup.html";
+    });
+  </script>
 
 </body>
 

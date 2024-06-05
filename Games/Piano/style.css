@@ -10,6 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+  
 }
 
 #piano {
@@ -21,6 +22,10 @@ body {
 
 .keys {
     position: relative;
+}
+
+.key.active{
+    background-color: gray;
 }
 
 .whites {
@@ -97,4 +102,12 @@ body {
 
 .black:nth-child(10) {
     left: 865px;
+}
+
+#reset{
+    margin: 12px;
+    background-color: aquamarine;
+    border-radius: 20px;
+    padding:20px
+
 }

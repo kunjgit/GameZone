@@ -1,14 +1,22 @@
 body {
   text-align: center;
+  background-color: #d3d3d3;
 }
 
 h1 {
   color: #333;
+  font-size: 3em; /* Increase font size */
+  font-weight: bold; /* Make the text bold */
+  text-transform: uppercase; /* Uppercase letters */
+  letter-spacing: 5px; /* Add letter spacing */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow */
+  margin: 20px 0; /* Add some margin */
 }
 
 #gameContainer {
   margin-top: 50px;
   position: relative;
+  border-radius: 20px; /* Add border radius */
 }
 
 #score,
@@ -38,11 +46,15 @@ h1 {
   background-color: #f00;
   cursor: pointer;
   transition: top 0.5s ease-in-out, left 0.5s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add box shadow */
 }
 
 .bubble:hover {
   background-color: #f00;
   transform: scale(1.2);
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition */
 }
 
 #scoreValue,
@@ -63,6 +75,24 @@ h1 {
   border: none;
   cursor: pointer;
   margin-top: 20px;
+  transition: transform 0.2s ease-in-out; /* Add transition */
+}
+.start-button:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+#countdown-alert {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.2em;
+  display: none;
+  z-index: 1000; /* Ensure it's on top */
 }
 
 @keyframes countdown {

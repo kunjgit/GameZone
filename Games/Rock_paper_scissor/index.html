@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
   </head>
   <body>
     <pre class="info">
@@ -13,7 +14,12 @@
         To play your turn click on your 
         choice (eg.Rock,Paper,Scissors)
     </pre>
-    <h1>Rock Paper Scissors</h1>
+    <div class="header">
+      <div style="text-align: left;
+      font-size: 30px;
+      "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+      <h1>Rock Paper Scissors</h1>
+    </div>
     <div class="choices">
       <div class="choice" id="rock">
         <img src="images/rock.png" />
@@ -27,6 +33,12 @@
     </div>
     
 <div class="board">
+  <button class="reset" onclick="
+    userScore=0;
+    compScore=0;
+    updateScore(userScore,compScore);
+    msg.innerText='Play your move';
+    ">Reset score</button>
     <p class="p"> Wins </p>
     <div class="score-board">
       <div class="score">

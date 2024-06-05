@@ -21,6 +21,12 @@ This game basically focuses on grabbing the carrot and avoiding the obstacles.
 
 <br>
 
+
+## Usage
+
+1. Open `index.html` in your web browser to start the game.
+2. The game will load and you can start playing by following the instructions on the screen.
+
 ## **How to play? 🕹️**
 
 <!-- Add the steps how to play the game -->
@@ -32,6 +38,6 @@ This game basically focuses on grabbing the carrot and avoiding the obstacles.
 - After the game ends, click or tap to play again.
 
 <br>
-![Grab](../../assets/images/grab.png)
+![Grab] (../../assets/images/grab.png)
 
 </br>

@@ -16,7 +16,7 @@ We propose the development of an AI-powered chess game that offers an engaging a
 ## **Screenshots 📸**
 
 <br>
-![image](../../assets/images/Chess_Game.jpg)
+![image](../../assets/images/chessComputer.png)
 
 <br>
 

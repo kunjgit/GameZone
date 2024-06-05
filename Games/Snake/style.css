@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    /* background-image: linear-gradient(#f0d7ed, #b8dddd); */
+    background-image: radial-gradient(#afdcd8, #d5e4a7f5);
+}
+
+.game-container {
+    border: 2px solid #fff;
+}
+
+ h1 {
+    color: whitesmoke;
+}
+
+canvas {
+    display: block;
+    background-color: #caff95;
+}
+
+#score {
+    font-size: 25px;
+
+}
+
+.score {
+    font-size: 25px;
+
+}

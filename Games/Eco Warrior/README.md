@@ -29,7 +29,7 @@ If you fail to clean up all the litter within the given time, the game will disp
 
 ## Screenshots
 
-![Treasure Hunt](../../assets/images/Eco_Retreat.png)
+![Treasure Hunt](../../assets/images/Eco_Warrior.png)
 
 ## Try It Out
 

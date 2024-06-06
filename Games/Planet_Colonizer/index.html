@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Colonizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="start-screen">
+        <h1>Planet Colonizer</h1>
+        <button id="start-button">Start Game</button>
+    </div>
+    <div id="game-container" class="hidden">
+        <h1>Planet Colonizer</h1>
+        <p>Click on the planets to colonize them!</p>
+        <div id="planets-container"></div>
+        <div id="scoreboard">
+            Colonized Planets: <span id="score">0</span>
+        </div>
+        <div id="timer">
+            Time Left: <span id="time-left">30</span> seconds
+        </div>
+        <button id="reset-button">Restart Game</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

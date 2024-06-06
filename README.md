@@ -225,7 +225,7 @@ This repository also provides one such platforms where contributers come over an
 | [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird) |
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)       |
 | [Automated_rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/automated_rock_paper_scissor) |
-| [Grab_The_Carrot](https://github.com/kunjgit/GameZone/tree/main/Games/Grab_The_Carrot)
+| [Grab_The_Carrot](https://github.com/kunjgit/GameZone/tree/main/Games/Grab_The_Carrot)         |
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                     | [Astronaut_runner](https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner) |
 | [16_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/16_Puzzle)                     |
 | [Musical_Memory](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Memory)           |

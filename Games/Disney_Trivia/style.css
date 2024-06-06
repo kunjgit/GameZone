@@ -1,7 +1,7 @@
 /* style.css */
 
 body {
-    background-image: url("/home/manmita/Desktop/Disney_Trivia/disney_b.jpg");
+    background-image: url("https://github.com/manmita/GameZone/blob/Disney_Trivia/Games/Disney_Trivia/disney_b.jpg");
     background-repeat: no-repeat;
     background-size: 1920px 1080px;
     display: flex;

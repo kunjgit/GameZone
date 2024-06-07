@@ -12,7 +12,7 @@
 }
 
 body {
-    background-image:url(img1.jpg);
+    background-image:url(img1.jpg); /*changing bg image*/
     background-size: cover;
 }
 
@@ -59,7 +59,7 @@ body {
 .card-before,
 .card-after {
     position: absolute;
-    border-radius: 5px;
+    border-radius: 2px;
     width: 100%;
     height: 100%;
     display: flex;
@@ -71,8 +71,11 @@ body {
 }
 
 .card-before {
-    background-color: var(--color-green--light);
-    
+    background: rgba(203, 250, 255, 0.24);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid rgba(203, 250, 255, 0.26);
     font-size: 2.8em;
     font-weight: 600;
 }
@@ -167,6 +170,8 @@ button {
     font-size: 12px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+/*adding button animation to start game and stop game buttons*/
 button {
     width: 10em;
     position: relative;
@@ -213,7 +218,3 @@ button:hover::before, button:hover::after {
 button:hover {
     box-shadow: inset 0px 0px 25px #ffffff;
 }
-/* #stop {
-    border: 0;
-
-} */

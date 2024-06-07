@@ -25,7 +25,6 @@ The Snake Game is a classic game where the player maneuvers a line (the snake) w
 
 ## **Screenshots 📸**
 <!-- add your screenshots like this -->
-![image](./assets/game_img1.png)
-![image](./assets/game_img2.png)
+![image](./assets/images/Mamba_Mayhem.png)
 
 <br>

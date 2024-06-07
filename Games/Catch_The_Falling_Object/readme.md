@@ -19,12 +19,9 @@ This is a simple browser-based game where you need to catch falling objects usin
 
 ## Screenshots
 
-![Game Screenshot](screenshot.png)
+![Game Screenshot]GameZone\assets\images\Catch_the_falling_object-1.png
 
 ## Credits
 
-This game was created by [Your Name] as a simple project.
+This game was created by Nikita Saini [github - @katarianikita2003] as a simple project.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).

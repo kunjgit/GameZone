@@ -54,15 +54,11 @@ The JavaScript file contains the game logic:
 - `startTimer()`: Starts the timer.
 - `resetTimer()`: Resets the timer.
 
-## Demo
+## Screenshots
 
-You can see a live demo of the game [here](#).
+![Game Screenshot]assets\images\8_Puzzle.png
 
-## Contributing
 
-If you'd like to contribute to this project, please fork the repository and use a feature branch. Pull requests are warmly welcome.
+## Credits
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+This game was created by Nikita Saini [github - @katarianikita2003] as a simple project.

@@ -121,9 +121,12 @@ body {
 input:checked + .slider:before {
   transform: translateX(20px);
 }
+/* UPDATED ABOUT  */
 .dark-theme #about {
   color: black;
 }
+
+/* UPDATE THE TEXT COLOR */
 
 .contributors .dark-theme {
   color: black;

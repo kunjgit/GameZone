@@ -1,5 +1,5 @@
 <div style="display:none;" align="center"><h1>
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Video Game" width="50" height="50" /><font size="10"> GameZone</font></h1>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Video Game" width="50" height="50" /><font size="10">GameZone</font></h1>
 
 <!-- repo intro -->
 
@@ -376,7 +376,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 <br>
 
 - This project thanking all the contributors for having your valuable contribution to our project
-- Make sure you show some love by giving ⭐ to our repository
+- Make sure you show some love by giving ⭐  to our repository
 
 <br>
 
@@ -386,4 +386,4 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 </a>
 </center>
 <br>
-<p align="right"><a href="#top">Back to top</a></p>
+<p align="right"><a href="#top">Back to top </a></p>

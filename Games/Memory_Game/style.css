@@ -1,7 +1,6 @@
 :root {
-    /* --color-green--light: #00c46a; */
-    /* background-image: linear-gradient(135deg, #71FA32, #009DE0) ; */
-   
+    --color-green--light: #00c46a;
+    background-color: linear-gradient(135deg, #71FA32, #009DE0);
 }
 
 * {

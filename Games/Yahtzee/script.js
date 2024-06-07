@@ -1,3 +1,4 @@
+// Initialize player scores and dice arrays
 let player1Score=[];
 let player2Score=[];
 let player1Dice=[];
@@ -7,20 +8,30 @@ let roundCount=0;
 let onlyPossibleRow="blank";
 let jokerCard=false;
 let isPlayerOneTurn=true;
+
+// Transform values for dice animation
 let transformValues=[
 [0,30],[-5,40],[0,35],[5,40],[0,30]
 ];
+
+// DOM element references
 const player1Container=document.getElementById("player1Container");
 const player2Container=document.getElementById("player2Container");
 const diceElements=document.querySelectorAll(".dice");
 const rollButton = document.getElementById("roll");
 const scoreTableCells=document.querySelectorAll(".cell");
+
+// Add event listener to the roll button
 rollButton.addEventListener("click",rollDice);
+
+// Sound effect for rolling dice
 let rollSound=new Audio("/assets/audio/Yahtzee_roll.wav");
 function rollDice() {
   rollCount++;
   let diceArr=[1,2,3,4,5];
   let randomDice=[];
+
+// Generate random values for each die
   for (let i=0;i<diceArr.length;i++) {
     randomDice.push(Math.floor(Math.random()*6)+1);
   }
@@ -88,6 +99,8 @@ function resetDiceFaces() {
     face.src="/assets/images/Yahtzee_dice"+diceNumber+".png";
   }
 }
+
+// Toggle dice active state on click
 diceElements.forEach(function(diceElement,index){
   diceElement.addEventListener("click",function(){
     if(rollCount==0) return;
@@ -123,6 +136,8 @@ function writeTempValuesInScoreTable(dice) {
     yahtzeeScore=parseInt(yahtzeeElement.innerHTML)+100;
     yahtzeeElement.innerHTML=yahtzeeScore;
   }
+  
+// Handle Yahtzee with Joker rule
   if(yahtzeeScore>0 && scoreTable[dice[0]-1]!=undefined && scoreTable[12]!==undefined){
     jokerCard=true;
   }

@@ -1,3 +1,4 @@
+/* Set the background for the entire HTML document to a gradient and set the text color to white */
 html{
     background: linear-gradient(to bottom, #280058, #4d1591, #6834a7,#7d47be );
     color: white;
@@ -12,6 +13,7 @@ h2{
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
+/* Style the main game container */
   #gameContainer{
     display: flex;
     width:100%;
@@ -20,13 +22,12 @@ h2{
     align-content: center;
     justify-content: center;
   }
+  /* Style the score tables */
   .table {
     display: table;
     width:30%;
     background: linear-gradient(to bottom,rgb(2, 81, 155), rgb(25, 114, 197), rgb(52, 158, 239));
     cursor:pointer;
-    /* border-top-right-radius: 10px;
-    border-top-left-radius: 10px; */
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 2rem;
     margin: 30px;
@@ -44,15 +45,11 @@ h2{
     border: 4px outset;
     font-size: 1.1rem;
   }
-  /* .header-cell:first-child {
-    border-top-left-radius: 10px;
-  }
-  .header-cell:last-child {
-    border-top-right-radius: 10px;
-  } */
   .row {
     display: table-row;
   }
+
+  /* Add styles for the last row in the table */
   .row:last-child{
     font-size: 18px;
     font-weight: bold;
@@ -67,6 +64,8 @@ h2{
     border-color: rgb(255, 255, 255);
     font-size: 1.1rem;
   }
+
+  /* Style the first cell in each row */
   .cell:first-child {
     width:60%;
     text-align: left;

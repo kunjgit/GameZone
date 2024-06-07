@@ -176,3 +176,6 @@ let addRow = () => {
     order++;
   }
 };
+function calls(){
+  swal("*INSTRUCTION - HOW TO PLAY*","The objective of this game is to find the password of 4 digits within 4 tries.\n\n\n~HINT-1:Digit in the black box-This digit is not used to form the vault's password.\n\n~HINT-2:Digit in the yellow box-This digit is used to form the vault's password but is not in it's correct position.\n\n~HINT-3:Digit in the blue box-This digit is used to form the vault's password and is in it's correct'position.\n\n\nAlso remember that the vault's password can have repeated digits.")
+};

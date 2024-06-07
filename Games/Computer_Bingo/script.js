@@ -82,7 +82,7 @@ function randomNumberDraw() {
 function checkWinner() {
     if (userAcerts === 15) {
         document.getElementById('numberDraw').style.display = 'none'
-        alert(`Ganaste!, quedaron en el bolillero ${balls.length} bolas`)
+        alert(`You won! They were left in the closet ${balls.length} balls`)
         clearInterval(automaticInterval)
         stopAutomatic.classList.toggle('hidden')
         document.querySelector('.jugada-automatica').style.minHeight = '30px'
@@ -92,7 +92,7 @@ function checkWinner() {
         }
     } else if (cpuAcerts === 15) {
         document.getElementById('numberDraw').style.display = 'none'
-        alert(`Perdiste, la ganadora es la CPU! Quedaron en el bolillero ${balls.length} bolas`)
+        alert(`You lost, the winner is the CPU! They were left in the closet ${balls.length} balls`)
         clearInterval(automaticInterval)
         stopAutomatic.classList.toggle('hidden')
         document.querySelector('.jugada-automatica').style.minHeight = '30px'

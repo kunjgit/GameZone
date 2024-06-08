@@ -39,3 +39,18 @@
         display: flex;
     }
 }
+
+#home{
+    color: rgb(13, 45, 45);
+    background-color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 7px 5px;
+
+}
+#home.hover{
+    cursor: pointer;
+    transform: scale(2);
+}

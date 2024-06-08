@@ -333,6 +333,8 @@ This repository also provides one such platforms where contributers come over an
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy) 
 |[Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly)|
 
+|[Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja)| 
+
 
  </center>
 

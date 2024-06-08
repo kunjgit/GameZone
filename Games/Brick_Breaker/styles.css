@@ -5,7 +5,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background: linear-gradient(#282c34, rgb(4, 4, 17));
   color: white;
   font-family: 'Arial', sans-serif;
 }
@@ -17,7 +18,7 @@ body {
 }
 
 #header-container h1 {
-  font-size: 2.5em;
+  font-size: 2.7em;
   color: #61dafb;
   margin: 0;
 }

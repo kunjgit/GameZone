@@ -84,7 +84,6 @@ let timerInterval;
 
 // Function to start the quiz
 function startQuiz() {
-    // Hide the start button and display the first question
     document.getElementById("start-button").style.display = "none";
     displayQuestion();
     startTimer();
@@ -182,4 +181,6 @@ function endQuiz() {
       <p>Score Percentage: ${scorePercentage}%</p>
     `;
 }
+
+
 document.getElementById("start-button").addEventListener("click", startQuiz);

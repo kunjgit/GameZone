@@ -42,10 +42,12 @@
 ## **Screenshots 📸**
 
 <br>
-<!-- ![image](url) -->
+<img width="1440" alt="Screenshot 2024-06-09 at 12 43 43 AM" src="https://github.com/sidharth2829/GameZone/assets/111569459/b7b8e411-6af0-461a-95f1-a5673ada31bc">
+
 
 <br>
 
 ## **Working video 📹**
 
-<!-- add your working video over here -->
+[screen-capture.webm](https://github.com/sidharth2829/GameZone/assets/111569459/bd452abf-2952-4553-ae90-4e9db322aebe)
+

@@ -7,7 +7,7 @@ const quizQuestions = [
     {
         question: "What happens to a gas when the temperature decreases ",
         options: ["It expands", "It rises.", "It condenses", "It becomes less dense."],
-        correctAnswer: "It condenses."
+        correctAnswer: "It condenses"
     },
     {
         question: "Any material that does not allow heat to pass through it easily is called ",
@@ -73,9 +73,7 @@ const quizQuestions = [
         question: "Water freezes at what temperature?",
         options: ["212 degrees F", "32 degrees C", "32 degrees F", "212 degrees C"],
         correctAnswer: "32 degrees F"
-    },
-
-
+    }
 ];
 
 // Variables to track quiz state
@@ -114,32 +112,47 @@ function displayQuestion() {
 
         // Add click event listener to check the answer
         button.addEventListener("click", function () {
-            checkAnswer(option);
+            checkAnswer(option, button);
         });
     });
 }
 
 // Function to check the selected answer
-function checkAnswer(selectedOption) {
+function checkAnswer(selectedOption, button) {
     const currentQuestion = quizQuestions[currentQuestionIndex];
+    const answerButtons = document.getElementById("answer-buttons");
 
     // Check if the selected answer is correct
     if (selectedOption === currentQuestion.correctAnswer) {
         score++;
-    }
-
-    // Move to the next question or end the quiz if all questions are answered
-    currentQuestionIndex++;
-
-    if (currentQuestionIndex < quizQuestions.length) {
-        displayQuestion();
+        button.style.backgroundColor = "darkgreen";
     } else {
-        endQuiz();
+        // Indicate the selected answer is wrong
+        button.style.backgroundColor = "red";
+
+        // Display the correct answer if the selected answer is incorrect
+        const correctAnswerElement = document.createElement("div");
+        correctAnswerElement.classList.add("correct-answer");
+        correctAnswerElement.innerText = `Correct Answer: ${currentQuestion.correctAnswer}`;
+        answerButtons.appendChild(correctAnswerElement);
     }
+
+    // Move to the next question or end the quiz after a short delay
+    setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizQuestions.length) {
+            displayQuestion();
+        } else {
+            endQuiz();
+        }
+    }, 1000);
 }
 
 // Function to start the timer
 function startTimer() {
+    // Update the timer text immediately
+    document.getElementById("timer").textContent = timeLeft;
+
     timerInterval = setInterval(function () {
         timeLeft--;
 
@@ -169,6 +182,4 @@ function endQuiz() {
       <p>Score Percentage: ${scorePercentage}%</p>
     `;
 }
-
-// Add event listener to start the quiz when the start button is clicked
 document.getElementById("start-button").addEventListener("click", startQuiz);

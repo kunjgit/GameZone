@@ -1,100 +1,96 @@
-let music = new Audio("sounds/music.mp3");
-let audioTurn = new Audio("sounds/ting.mp3");
-let gameover = new Audio("sounds/gameover.mp3");
-let turn = "X";
-let isgameover = false;
+let gameoverAudio = new Audio("gameover.mp3")
+let turnAudio = new Audio("ting.mp3")
+let turn = 'X'
+let gameover = false;
+let music = new Audio("music.mp3")
 
-music.play();
+const info = document.querySelector('.info')
+const reset = document.querySelector('#reset')
+const start = document.querySelector('#start')
+const playerInfo = document.querySelector('.playerInfo')
+const gameContainer = document.querySelector('.gameContainer')
+const p1 = document.querySelector('.p1')
+const p2 = document.querySelector('.p2')
+const line = document.querySelector('.line')
 
-// Function to change the turn
+
+start.addEventListener('click', () => {
+    playerInfo.style.display = 'none';
+    gameContainer.style.display = 'flex';
+    info.innerText = 'Turn for ' + p1.value + ' (' + turn + ')';
+    music.play()
+})
+
+
 const changeTurn = () => {
-  return turn === "X" ? "0" : "X";
-};
+    return turn === 'X' ? 'O' : 'X';
+}
 
-// Function to check for a win
 const checkWin = () => {
-  let boxtext = document.getElementsByClassName("boxtext");
-  let wins = [
-    [0, 1, 2, 5, 5, 0],
-    [3, 4, 5, 5, 15, 0],
-    [6, 7, 8, 5, 25, 0],
-    [0, 3, 6, -5, 15, 90],
-    [1, 4, 7, 5, 15, 90],
-    [2, 5, 8, 15, 15, 90],
-    [0, 4, 8, 5, 15, 45],
-    [2, 4, 6, 5, 15, 135],
-  ];
-  let isDraw = true; // Flag to check if it's a draw
+    let boxText = document.querySelectorAll('.boxText')
+    let wins = [
+        [0, 1, 2, '24%', 0,0],
+        [3, 4, 5, '50%', 0,0],
+        [6, 7, 8, '75%', 0,0],
+        [0, 3, 6, '50%', '-34%','90'],
+        [1, 4, 7, '50%', 0,'90'],
+        [2, 5, 8, '50%', '33%','90'],
+        [0, 4, 8, '50%',0,'45'],
+        [2, 4, 6, '50%', 0,'135']
+    ]
+    wins.forEach(e => {
+        if ((boxText[e[0]].innerText === boxText[e[1]].innerText) && (boxText[e[2]].innerText === boxText[e[1]].innerText) && (boxText[e[0]].innerText !== '')) {
+            if (boxText[e[0]].innerText === 'X') {
+                info.innerText = p1.value + ' Wins !'
+            } else {
+                info.innerText = p2.value + ' Wins !'
+            }
+            document.querySelector('.confetti').style.visibility = 'visible';
+            line.style.visibility = 'visible'
+            line.style.top = e[3];
+            line.style.left = e[4];
+            line.style.transform = `rotate(${e[5]}deg)`;
+            music.pause()
+            music.currentTime = 0;
+            gameoverAudio.play()
+            gameover = true;
+        }
+    })
+}
 
-  wins.forEach((e) => {
-    if (
-      boxtext[e[0]].innerText === boxtext[e[1]].innerText &&
-      boxtext[e[2]].innerText === boxtext[e[1]].innerText &&
-      boxtext[e[0]].innerText !== ""
-    ) {
-      document.querySelector(".info").innerText =
-        boxtext[e[0]].innerText + " Won";
-      music.pause();
-      gameover.play();
-      music.play();
-      isgameover = true;
-      document
-        .querySelector(".imgbox")
-        .getElementsByTagName("img")[0].style.width = "200px";
-      document.querySelector(
-        ".line"
-      ).style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
-      document.querySelector(".line").style.width = "20vw";
-      isDraw = false;
-      document.querySelector(".imgbox").style.display = "block";
-    }
-  });
+let boxes = document.querySelectorAll('.box')
+Array.from(boxes).forEach((e) => {
+    let boxText = e.querySelector('.boxText')
+    e.addEventListener("click", () => {
+        if (boxText.innerText === '') {
+            boxText.innerText = turn
+            turnAudio.play();
+            turn = changeTurn();
+            checkWin();
+            if (!gameover) {
+                if (turn === 'X') {
+                    info.innerText = 'Turn for ' + p1.value + ' (' + turn + ')';
+                } else {
+                    info.innerText = 'Turn for ' + p2.value + ' (' + turn + ')';
 
-  // Check for a draw
-  if (isDraw) {
-    let filledBoxes = Array.from(boxtext).every(
-      (element) => element.innerText !== ""
-    );
-    if (filledBoxes) {
-      document.querySelector(".info").innerText = "It's a Draw!";
-      music.pause();
-      gameover.play();
-      music.play();
-      isgameover = true;
-    }
-  }
-};
+                }
+            }
+        }
+    })
 
-// Game Logic
-music.play();
-let boxes = document.getElementsByClassName("box");
-Array.from(boxes).forEach((element) => {
-  let boxtext = element.querySelector(".boxtext");
-  element.addEventListener("click", () => {
-    if (boxtext.innerText === "") {
-      boxtext.innerText = turn;
-      turn = changeTurn();
-      audioTurn.play();
-      checkWin();
-      if (!isgameover) {
-        document.getElementsByClassName("info")[0].innerText =
-          "Turn for " + turn;
-      }
-    }
-  });
-});
+})
 
-// Add onclick listener to reset button
-reset.addEventListener("click", () => {
+reset.addEventListener('click', () => {
+    let boxText = document.querySelectorAll('.boxText')
+    Array.from(boxText).forEach(e => {
+        e.innerText = ''
+        turn = 'X'
+        info.innerText = 'Turn for ' + p1.value + ' (' + turn + ')';
+        document.querySelector('.confetti').style.visibility = 'hidden';
+        line.style.transform = '';
+        line.style.visibility = 'hidden'
+        gameover = false;
+        music.play()
 
-  document.querySelector(".imgbox").style.display = "none";
-
-  let boxtexts = document.querySelectorAll(".boxtext");
-  Array.from(boxtexts).forEach((element) => {
-    element.innerText = "";
-  });
-  turn = "X";
-  isgameover = false;
-  document.querySelector(".line").style.width = "0vw";
-  document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
-});
+    })
+})

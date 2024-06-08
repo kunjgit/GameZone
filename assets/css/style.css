@@ -80,10 +80,10 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #000000;
-  border-radius: 34px;
+  background-color: #000000db;
+  border-radius: 35px;
   transition: background-color 0.4s;
-  box-shadow: 0 0 20px #fb16e4;
+  box-shadow: 0 0 20px #fb16e4ef;
 }
 
 .slider .dark-theme {

@@ -77,3 +77,17 @@ body {
   color:#AA3939;
   height: 80px;
 }
+ink{
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+a{
+
+ text-decoration: none;
+ color: black;
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif\;
+ 
+}

@@ -6,10 +6,11 @@ body {
     align-items: center;
     justify-content: space-evenly;
     height: 100vh;
-    background-color:#efede9;
-    overflow: hidden;
+    background:url("./dino.jpg");
+    background-size: 100%;;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
-
 h1{
     color: #374259;
     margin-top: -2rem;

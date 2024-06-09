@@ -1101,3 +1101,17 @@ input[type=number] {
     flex-direction: row-reverse;
   }
 }
+.b1{
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 4px;
+  display:flex;
+  font-size: 15px;
+  font-style:oblique;
+  box-shadow: 0 5px #999;
+}
+.b1:active{
+  background-color: grey;
+  box-shadow: 0 3px #666;
+  transform: translateY(1px);
+}

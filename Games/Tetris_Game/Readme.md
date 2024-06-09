@@ -20,9 +20,4 @@ This is a simple Tetris game built with HTML, CSS, and JavaScript.
 1. Download or clone this repository.
 2. Open `index.html` in your web browser.
 
-**Customization:**
-
-* You can modify the game's look and feel by editing the CSS styles (`style.css`).
-* Adjust game logic and behavior within the JavaScript code (`script.js`).
-
 ![Screenshot 2024-06-07 123816](https://github.com/kunjgit/GameZone/assets/141642724/14c48201-d47b-40ac-99ed-45f90bef8b96)

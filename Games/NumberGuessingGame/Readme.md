@@ -1,11 +1,5 @@
 <h1>NUMBERGUESSINGGAME</h1>
-<h2>Tech Stack</h2>
 
-HTML
-
-CSS
-
-JavaScript
 
 <h2>Description</h2>
 Game Overview:

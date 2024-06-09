@@ -280,6 +280,7 @@ This repository also provides one such platforms where contributers come over an
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)                  |
 | [Guess_num](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_num)                  |
 | [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)       | 
+| [Physics_Quizz](https://github.com/kunjgit/GameZone/tree/main/Games/Physics_Quizz)     |
 | [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       | 
 
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect)    |
@@ -306,6 +307,9 @@ This repository also provides one such platforms where contributers come over an
 | [Guess_The_Song](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Song)                   | [Reverse Memory](https://github.com/MuraliDharan7/GameZone/tree/reverse-memory-game/Games/Reverse%20Memory)
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  |
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  |
+
+| [WordScramble](https://github.com/kunjgit/GameZone/tree/main/Games/wordScramble)   
+           
 [Roll_The_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_The_Dice)  |
 | [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk)                  |
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  | [Screen Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Screen-Pet-Game) |
@@ -324,14 +328,15 @@ This repository also provides one such platforms where contributers come over an
 |[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game)   |
 |[Turn_on_the_light](https://github.com/kunjgit/GameZone/tree/main/Games/Turn_on_the_light)   |
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
-| [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)                  
-
-
+| [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)          |        
+|[Dsa_quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/Dsa_quiz_game)   |              
+| [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)   |
+| [Gravity_Simulation_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Simulation_Game)   |
 | [Anagarm-Word-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Anagarm-Word-Game) |
-
 | [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick Buster) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy) 
 |[Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly)|
+| [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game)|
 |[Tower Defence Game](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Tower_Defence_Game)|
 
 

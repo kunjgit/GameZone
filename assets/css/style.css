@@ -103,6 +103,14 @@ input:checked + .slider:before {
   color: #000000;
 }
 
+.dark-theme #about {
+  color: black;
+}
+
+.dark-theme .contributors h1 {
+  color: black;
+}
+
 a {
   text-decoration: none;
   color: #fff;

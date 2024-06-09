@@ -319,7 +319,7 @@ This repository also provides one such platforms where contributers come over an
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 |[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game)   |
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
-| [8 Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/8_Puzzle) |
+| [8_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/8_Puzzle) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)                  
 
 

@@ -68,17 +68,30 @@ function setPlant() {
 }
 
 function selectTile() {
-    if (gameOver) {
-        return;
-    }
-    if (this == currMoleTile) {
-        score += 10;
-        document.getElementById("score").innerText = score.toString(); //update score html
-    }
-    else if (this == currPlantTile) {
-        document.getElementById("score").innerText = "GAME OVER: " + score.toString(); //update score html
-        gameOver = true;
-    }
+  if (gameOver) {
+    return;
+  }
+  if (this == currMoleTile) {
+    score += 10;
+    document.getElementById("score").innerText = score.toString(); //update score html
+  } else if (this == currPlantTile) {
+     let btn = document.getElementById("btn");
+     btn.textContent = "Start New Game";
+    document.getElementById("score").innerText =
+      "GAME OVER: " + score.toString(); //update score html
+    gameOver = true;
+    let backgroundMusic = document.getElementById("background-music");
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0; // Rewind the music to the beginning
+    // Play the game over sound
+    let gameOverSound = document.getElementById("gameOver-music");
+    gameOverSound.play();
+    setTimeout(() => {
+      gameOverSound.pause();
+      gameOverSound.currentTime = 0; // Reset to the beginning if desired
+    }, 3000); // 3000 milliseconds = 3 seconds
+  }
+
 }
 
 
@@ -105,6 +118,18 @@ function startNewGame() {
     resetGame();
     moleIntervalId = setInterval(setMole, speed); // 1000 miliseconds = 1 second, every 1 second call setMole
     plantIntervalId = setInterval(setPlant, 2000); // 2000 miliseconds = 2 seconds, every 2 second call setPlant
+    
+    let gameOverSound = document.getElementById("gameOver-music");
+    if (!gameOverSound.paused) {
+      gameOverSound.pause();
+      gameOverSound.currentTime = 0;
+    }
+
+     let backgroundMusic = document.getElementById("background-music");
+     backgroundMusic.play();
+     let btn = document.getElementById("btn");
+     btn.textContent = "The game has been started!";
+      document.getElementById("speed-section").style.display = "none";
 }
 
 function resetGame() {

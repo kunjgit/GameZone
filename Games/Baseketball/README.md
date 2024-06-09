@@ -20,7 +20,6 @@ Basketball
 
 ## **Screenshots 📸**
 
-<br>
 ![image](../../assets/images/Basketball.png)
 
 <br>

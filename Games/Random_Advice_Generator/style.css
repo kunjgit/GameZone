@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: hsl(218, 23%, 16%);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+  max-width: 540px;
+  height: 298px;
+  border-radius: 24px;
+  background-color: hsl(217, 19%, 24%);
+  text-align: center;
+  font-family: "Manrope", sans-serif;
+  }
+
+  .advice {
+    color: hsl(150, 100%, 66%);
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-top: 33px;
+  }
+
+  .content {
+    color: hsl(193, 38%, 86%);
+    font-size: 28px;
+    font-weight: 800;
+  }
+  .divider{
+    margin-left: 5px;
+    margin-top: 76px;
+  }
+  .badge {
+    background-color: hsl(150, 100%, 66%);
+    width: 51px;
+    height: 37px;
+    border-radius: 29px;
+    padding-top: 11px;
+    position: relative;
+    margin: 0 auto;
+    top: 49px;
+    cursor: pointer;
+  }
+  @media only screen and (max-width:570px){
+    .container{
+      height: 320px;
+      font-size: 34px;
+    }
+    .badge{
+      height: 52px;
+      padding-top: 4px;
+    }
+  }

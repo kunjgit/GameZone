@@ -29,16 +29,16 @@ jobs:
             });
      
       - name: Add label if issue body contains "GSSoC24"
-        id: check_label_gs_soc
+        id: check_label_gs_soc24
         run: |
           if grep -qE "GSSoC24" <<< "${{ github.event.issue.body }}"; then
-            echo "::set-output name=add_label_gs_soc::true"
+            echo "::set-output name=add_label_gs_soc24::true"
           else
-            echo "::set-output name=add_label_gs_soc::false"
+            echo "::set-output name=add_label_gs_soc24::false"
           fi
 
       - name: Add label "GSSoC24"
-        if: ${{ steps.check_label_gs_soc.outputs.add_label_gs_soc == 'true' }}
+        if: ${{ steps.check_label_gs_soc24.outputs.add_label_gs_soc24 == 'true' }}
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -49,21 +49,20 @@ jobs:
               owner: owner,
               repo: repo,
               issue_number: number,
-              labels: ["GSSoC24"]
+              labels: ["gssoc"]
             });
 
-
       - name: Add label if issue body contains "GSSoC23"
-        id: check_label_gs_soc
+        id: check_label_gs_soc23
         run: |
           if grep -qE "GSSoC23" <<< "${{ github.event.issue.body }}"; then
-            echo "::set-output name=add_label_gs_soc::true"
+            echo "::set-output name=add_label_gs_soc23::true"
           else
-            echo "::set-output name=add_label_gs_soc::false"
+            echo "::set-output name=add_label_gs_soc23::false"
           fi
 
       - name: Add label "GSSoC23"
-        if: ${{ steps.check_label_gs_soc.outputs.add_label_gs_soc == 'true' }}
+        if: ${{ steps.check_label_gs_soc23.outputs.add_label_gs_soc23 == 'true' }}
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -76,7 +75,6 @@ jobs:
               issue_number: number,
               labels: ["GSSoC23"]
             });
-
 
       - name: Add label if issue body contains "hacktoberfest"
         id: check_label_hacktoberfest

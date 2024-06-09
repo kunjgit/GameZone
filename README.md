@@ -230,6 +230,7 @@ This repository also provides one such platforms where contributers come over an
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game) | [Astronaut_runner](https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner) |
 | [16_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/16_Puzzle) |
 | [Musical_Memory](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Memory) |
+|[Quick_Click](https://github.com/kunjgit/GameZone/tree/main/Games/Quick_Click) |
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower) |
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect) |
 [Mancala_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Mancala_Game) |
@@ -327,6 +328,7 @@ This repository also provides one such platforms where contributers come over an
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball) |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 |[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game) |
+|[Chess_Game_computer](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game_computer) |
 |[Turn_on_the_light](https://github.com/kunjgit/GameZone/tree/main/Games/Turn_on_the_light) |
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy) |  

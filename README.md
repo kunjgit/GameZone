@@ -301,9 +301,6 @@ This repository also provides one such platforms where contributers come over an
 | [Pixel Painter](https://github.com/kunjgit/GameZone/tree/main/Games/pixel_painter)                                 |
 | [Guess_The_Song](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Song)                   | 
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction)                  |
-
-
-=======
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  |
 [Roll_The_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_The_Dice)  |
 | [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk)                  |
@@ -325,7 +322,7 @@ This repository also provides one such platforms where contributers come over an
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)                  
 
-| [Catch_The_Ball] (Games\Catch_The_Ball)                                 |
+| [Catch_The_Ball] (http://127.0.0.1:5501/Games/Catch_The_Ball/index.html)                              |
 
 
  </center>

@@ -35,5 +35,8 @@
 <br>
 
 ![image](/Games/Whack_a_Mole/whac-a-mole%20.png)
+ <!--after some changes in button functionality-->
+ [Video] (https://imgur.com/a/8onaepi)
+
 
 <br>

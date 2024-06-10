@@ -226,9 +226,11 @@ This repository also provides one such platforms where contributers come over an
 | [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird) |
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)       |
 | [Automated_rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/automated_rock_paper_scissor) |
+| [Grab_The_Carrot](https://github.com/Aksshay88/GameZone/tree/main/Games/Grab_The_Carrot)       |
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                     | [Astronaut_runner](https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner) |
 | [16_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/16_Puzzle)                     |
 | [Musical_Memory](https://github.com/kunjgit/GameZone/tree/main/Games/Musical_Memory)           |
+|[Quick_Click](https://github.com/kunjgit/GameZone/tree/main/Games/Quick_Click)                  |
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)               |
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect)   |
 [Mancala_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Mancala_Game)                                                  |
@@ -251,7 +253,7 @@ This repository also provides one such platforms where contributers come over an
 | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner)             |
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)           | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)    |
 | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                     | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon)        |
-| [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack)                 |
+| [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack)                 | [Soccer](https://github.com/kunjgit/GameZone/tree/main/Games/Soccer)                        |
 | [TriHand_Tactics](https://github.com/kunjgit/GameZone/tree/main/Games/TriHand_Tactics)         |
 | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)           |
 | [CatchTheBall](https://github.com/kunjgit/GameZone/tree/main/Games/CatchTheBall)               |
@@ -320,12 +322,13 @@ This repository also provides one such platforms where contributers come over an
 |[Cartoon character guessing game](https://github.com/kunjgit/GameZone/tree/main/Games/Cartoon_Character_Guessing_Game)|
 |[Carrom Board Game](https://github.com/kunjgit/GameZone/tree/main/Games/carrom)|
 | [Number_Recall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Recall_Game)               |
-| [Hit_the_hamster] (https://github.com/kunjgit/GameZone/tree/main/Games/Hit_the_hamster)                |
+| [Hit_the_hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_the_hamster)               |
 | [Forest_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Forst_Guardian)                  |
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme)                  |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 |[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game)   |
+|[Chess_Game_computer](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game_computer)   |
 |[Turn_on_the_light](https://github.com/kunjgit/GameZone/tree/main/Games/Turn_on_the_light)   |
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy) 
@@ -340,8 +343,9 @@ This repository also provides one such platforms where contributers come over an
 | [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick Buster) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy) 
 |[Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly)|
+| [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest)|
 | [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game)|
-
+| [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Gam)|
  </center>
 
 <br>

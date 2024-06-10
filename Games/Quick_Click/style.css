@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.scoreboard {
+    margin: 20px 0;
+    font-size: 1.5em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+.circle.active {
+    background-image: url('GameZone\Games\Reflex_text\Mole2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: #ffd700;
+    /* Fallback background color */
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}

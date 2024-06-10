@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Puzzle Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Word Puzzle Game</h1>
+        <p>Guess the hidden word by clicking on the letters below.</p>
+        <div class="word-container" id="wordContainer">
+            <!-- Hidden word will be dynamically inserted here -->
+        </div>
+        <p class="clue" id="clue">Clue: <span id="clueText">_ _ _ _ _</span></p>
+        <div class="letters" id="letters">
+            <!-- Letters will be dynamically inserted here -->
+        </div>
+        <p id="resultMessage"></p>
+        <p class="lives" id="lives">Lives: <span id="livesCount">5</span></p>
+        <button id="homeButton" class="home-button" onclick="resetGame()">Home</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

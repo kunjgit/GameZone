@@ -6,7 +6,6 @@ KeySymphony is an interactive and playable virtual piano built using HTML, CSS, 
 
 - **Playable Piano Keys**: Interact with the piano by clicking on the keys or pressing the corresponding keys on your keyboard.
 - **Adjustable Volume**: Control the sound volume using a slider.
-- **Toggle Key Labels**: Show or hide the key labels on the piano keys for a customized experience.
 - **Responsive Design**: Optimized for various screen sizes and devices.
 
 ## How to Use

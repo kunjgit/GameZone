@@ -252,7 +252,7 @@ This repository also provides one such platforms where contributers come over an
 | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner)             |
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)           | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)    |
 | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                     | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon)        |
-| [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack)                 |
+| [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack)                 | [Soccer](https://github.com/kunjgit/GameZone/tree/main/Games/Soccer)                        |
 | [TriHand_Tactics](https://github.com/kunjgit/GameZone/tree/main/Games/TriHand_Tactics)         |
 | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)           |
 | [CatchTheBall](https://github.com/kunjgit/GameZone/tree/main/Games/CatchTheBall)               |

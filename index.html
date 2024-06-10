@@ -25,6 +25,7 @@
   <meta property="og:image"
     content="https://github.com/kunjgit/GameZone/assets/56786344/080b7034-0e60-4069-b95c-aa0aba147a94" />
 
+
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://kunjgit.github.io/GameZone/" />
@@ -50,6 +51,7 @@
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="stylesheet" href="./assets/css/gameCard.css">
   <link rel="stylesheet" href="./assets/css/cursor_transition.css">
+  
 
   <!--
     - google font link
@@ -64,18 +66,73 @@
     - Audio file for click sound
   -->
   <audio id="clickSound" src="./assets/audio/click-sound.wav"></audio>
+  <style>
+    .preloader{
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background: black;
+transition: opacity 5s, visibility 5s;
+z-index: 1000;
+}
+
+.preloader--hidden{
+opacity: 0;
+visibility: hidden;
+}
+.preloader img{
+height: 200px;
+width: 200px;
+border-radius: 1000px;
+}
+  </style>
 </head>
 <!-- Light-Dark theme SWITCH -->
 
-
-<!-- <p class="invert-color" style="position: sticky; top: 30px; z-index:100; margin-left: 30px;">Theme :</p> -->
-<!-- <label class="theme-toggle" for="themeToggle" style="position: fixed; top: 28px; z-index: 100; margin-left: 30px">
-
+<label id="themeToggleWrapper"  class="theme-toggle" for="themeToggle" style="position: fixed; top: 30px; right: 30px; z-index: 100; display: flex; align-items: center; border: none; background-color: transparent;">
   <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
-  <span class="slider"></span>
-</label> -->
+  <span class="slider" style="width: 40px; height: 20px;"></span>
+</label>
+
+
+
+
+
 
 <body>
+        <div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+
+  <div class="preloader">
+    <img src="loader.gif" class="center">
+  </div>
+  <script>
+    window.addEventListener("load", () => {
+const loader = document.querySelector(".preloader");
+
+loader.classList.add("preloader--hidden");
+
+loader.addEventListener("transitionend", () => {
+document.body.removeChild(loader);
+});
+});
+  </script>
   <div class="cursor"></div>
   <!-- BACKGROUND PARTICLES -->
   <!-- <div class="page-bg"></div> -->
@@ -89,6 +146,7 @@
     <div class="filled"></div>
   </div>
 
+
   <div class="abcd">
 
     <main>
@@ -97,6 +155,7 @@
       <div class="main-content">
 
         <div class="bgContainer"></div>
+
 
 
 
@@ -111,7 +170,7 @@
         
         <div class="zoomIn" id="about">
         
-          Welcome to our website!! Your ultimate destination for a vast collection of free-to-play games. Dive into a world of
+          Welcome to our website! Your ultimate destination for a vast collection of free-to-play games. Dive into a world of
           endless entertainment and excitement as you explore our diverse selection of games, ranging from timeless classics to
           modern masterpieces. With something for everyone, our website offers an immersive gaming experience that is accessible
           to all.
@@ -133,8 +192,16 @@
 
           <div class="search-btn">
             <i class="fa fa-search" aria-hidden="true"></i>
+            <div class="favorites-link">
+              <a href="pages/fav.html" target="_self">
+                <img src="assets/images/FavFolder.png" alt="fav" />
+              </a>
+              
+          </div>
+          
           </div>
         </div>
+        <br>
         <ul id="suggestion-list" style="display: none;"></ul>
         
         <div id="search-related">
@@ -147,7 +214,7 @@
         <!-- Games -->
 
 
-        <ul class="project-list">
+        <ul id="games" class="project-list">
         </ul>
 
         <div class="pagination">
@@ -167,7 +234,10 @@
   <!-- Contributors section -->
   <div class="contributors">
     <h1 style="font-family: 'Agency FB', Times, serif;">Our Valuable Contributors</h1>
+     <!-- display number of contributors-->
+    <h2 id="total-contributors" style="text-align: center; font-family: 'Agency FB', Times, serif;"></h2> 
     <div id="contributor"></div>
+    <div class="pagination" id="pagination"></div>
   </div>
 
   <!--
@@ -206,10 +276,10 @@
           <div class="socials-text" classstyle="text-align: center; margin-bottom:50px">
             <h7>Developed with 💗 by Kunj</h7>
             <br>
-            <p style="font-size: 20px; font-style:cursive;cursor: pointer;color: rgb(215, 213, 85);font-family: 'Agency FB', Times, serif;">Make sure you
+            <p style="font-size: 20px; padding: 20px; font-style:cursive;cursor: pointer;color: rgb(254, 253, 186);font-family: 'Agency FB', Times, serif;">Make sure you
               checkout
               my
-              socials and also
+              socials and
               ⭐ GameZone on
               github</p>
 
@@ -287,9 +357,10 @@
   </li>
   </ul>
 </div>
+<hr style="margin: 20px; background-color:yellow; opacity: 0.8;">
           <!-- Copyright -->
           
-          <p id="copyright">&copy; 2024 GameZone. All Rights Reserved.</p>
+          <p id="copyright" style="color:rgb(222, 222, 222)">&copy; 2024 GameZone || All Rights Reserved.</p>
           
         </div>
       </div>
@@ -319,6 +390,9 @@
   <script src="./assets/js/scroll.js"></script>
   <script src="./assets/js/contributors.js"></script>
   <script src="./assets/js/cursor_transition.js"></script>
+  <script src="./assets/js/contributors.js"></script>
+  
+ 
   
 
 
@@ -327,14 +401,13 @@
   <div>
   </div>
 
-  <!-- <button onclick="scrollToTop()" id="scrollToTopButton" title="Scroll to Top">
     <ion-icon name="arrow-up-outline"></ion-icon>
-  </button> -->
+  </button>
 
   <!-- SCROLL TO TOP BUTTON -->
-  <!-- <div id="progress">
+  <div id="progress">
     <span id="progress-value">&#x1F815;</span>
-  </div> -->
+  </div>
 
 </body>
 

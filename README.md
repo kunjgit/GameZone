@@ -345,7 +345,7 @@ This repository also provides one such platforms where contributers come over an
 
 - Read our [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md) to get all details about contributing to **GameZone**
 - Learn all about development process and all information you need to contribute to our project
-- If you are having the basic queries make sure you checkout resources there
+- If you are having the basic queries make sure you checkout resources here..
 
 <br>
 

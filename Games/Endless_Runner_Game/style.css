@@ -1,0 +1,168 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: arial, sans-serif;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid black;
+  z-index: 1;
+  width: 600px;
+  height: 360px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+li {
+  padding: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.wrapper {
+  width: 600px;
+  height: 360px;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+}
+
+#menu {
+  position: absolute;
+  width: 600px;
+  height: 360px;
+  border: 1px solid black;
+  z-index: 2;
+  text-align: center;
+  background-color: grey;
+}
+#menu.main {
+  background-image: url('imgs/menu-bg.jpg');
+}
+#menu.credits {
+  background-image: url('imgs/credits-bg.png');
+}
+
+#progress {
+  height: 12%;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+#percent {
+  color: white;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+#progress-bar {
+  width: 200px;
+}
+
+.sound {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 3;
+}
+.sound-on {
+  background-image: url('imgs/soundOn.png');
+  background-repeat: no-repeat;
+}
+.sound-off {
+  background-image: url('imgs/soundOff.png');
+  background-repeat: no-repeat;
+}
+
+#main {
+  display: none;
+  height: 60%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+#main h1 {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.button {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #AA2666;
+  color: white;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  background-color: #0096FF;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #B30D5D;
+  background-image: -webkit-linear-gradient(bottom, #B30D5D 0%, #FB1886 100%);
+  background-image:         linear-gradient(to bottom, #B30D5D 0%, #FB1886 100%);
+}
+
+#credits {
+  display: none;
+  line-height: 30px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+#credits li {
+  padding: 5px 0;
+}
+
+.artwork, .music, .developer {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.artwork {
+  color: #fa8526;
+}
+.music {
+  color: #e6e71f;
+}
+.developer {
+  color: #13eb8a;
+}
+
+.back, .back:hover {
+  margin-top: 10px;
+}
+
+#game-over {
+  display: none;
+  text-align: center;
+  padding-top: 92px;
+  z-index: 1;
+  width: 600px;
+  height: 360px;
+  position: absolute;
+}

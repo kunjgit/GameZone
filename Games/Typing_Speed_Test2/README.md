@@ -26,5 +26,5 @@ Typing Speed Test
 ## **Screenshots 📸**
 
 <br>
-[image](/Games/Typing_Speed_Test/assets/images/Typing_Speed_Test.png))
+[image](/Games/Typing_Speed_Test2/assets/images/Typing_Speed_Test2.png)
 

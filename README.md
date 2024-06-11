@@ -402,4 +402,3 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 <a href="https://github.com/kunjgit/GameZone/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=kunjgit/GameZone" />
 </a>
-</center>

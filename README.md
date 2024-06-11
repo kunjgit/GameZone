@@ -341,6 +341,7 @@ This repository also provides one such platforms where contributers come over an
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
+| [Noughts_And_Crosses](https://github.com/kunjgit/GameZone/tree/main/Games/Noughts_And_Crosses) |
 
  </center>
 
@@ -402,3 +403,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 <a href="https://github.com/kunjgit/GameZone/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=kunjgit/GameZone" />
 </a>
+</center>
+<br>
+
+<p align="right"><a href="#top">Back to top </a></p>

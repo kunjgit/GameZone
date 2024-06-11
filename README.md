@@ -338,12 +338,13 @@ This repository also provides one such platforms where contributers come over an
 | [Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly) |
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game) |
+| [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
+| [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
+| [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 
- | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Computer_Bingo) |
  </center>
 
-<br>
 <br>
 
 <div align="center">

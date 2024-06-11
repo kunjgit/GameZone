@@ -1,0 +1,113 @@
+name: Restrict Contributor to limited contributions in GameZone
+
+on:
+  pull_request_target:
+    types:
+      - opened
+
+jobs:
+  evaluate_and_close:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check merged pull requests and calculate score
+        id: calculate_score
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const pullRequestOpener = context.payload.pull_request.user.login;
+
+            let mergedPullRequests = [];
+            let page = 1;
+            let perPage = 100;
+            let response;
+
+            do {
+              response = await github.pulls.list({
+                owner,
+                repo,
+                state: 'closed',
+                per_page: perPage,
+                page: page
+              });
+
+              mergedPullRequests = mergedPullRequests.concat(response.data.filter(pr => pr.user.login === pullRequestOpener && pr.merged_at !== null));
+              page++;
+            } while (response.data.length === perPage);
+
+            let score = 0;
+            let prDetails = [];
+            const scoreMap = {
+              'level3': 45,
+              'level2': 25,
+              'level1': 10  
+            };
+
+            for (const pr of mergedPullRequests) {
+              let prScore = 0;
+              let labelsWithScores = [];
+              for (const label of pr.labels) {
+                if (scoreMap[label.name]) {
+                  prScore += scoreMap[label.name];
+                  labelsWithScores.push(`${label.name} score: (${scoreMap[label.name]})`);
+                }
+              }
+              score += prScore;
+              if (labelsWithScores.length > 0) {
+                prDetails.push(`- [#${pr.number}](${pr.html_url}) with labels: ${labelsWithScores.join(', ')}`);
+              }
+            }
+
+            const threshold = 150;
+
+            console.log(`User score: ${score}`);
+            console.log(`Score threshold: ${threshold}`);
+
+            if (score >= threshold) {
+              const comment = `Hey @${pullRequestOpener}, You have reached your limit to contribute in GameZone with a score of ${score}. \n We believe in giving equal opportunity to everyone so you will not be able to contribute to GameZone now onwards. 💗 \n Thank you for your valuable time and contribution in GameZone 🕹️! \n\n Your merged pull requests:\n${prDetails.join('\n')}`;
+              core.exportVariable('comment_body', comment);
+              core.setOutput('close_pull_request', true);
+            } else {
+              core.exportVariable('comment_body', '');
+              core.setOutput('close_pull_request', false);
+            }
+
+      - name: Add spam label and close the pull request
+        if: always() && steps.calculate_score.outputs.close_pull_request == 'true'
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const pullRequestNumber = context.payload.pull_request.number;
+            const comment = process.env.comment_body;
+
+            if (comment.trim() === '') {
+              console.log('Comment body is empty. Skipping comment creation.');
+              return;
+            }
+
+            await github.issues.createComment({
+              owner,
+              repo,
+              issue_number: pullRequestNumber,
+              body: comment
+            });
+
+            await github.issues.addLabels({
+              owner,
+              repo,
+              issue_number: pullRequestNumber,
+              labels: ['spam🚨']
+            });
+
+            await github.pulls.update({
+              owner,
+              repo,
+              pull_number: pullRequestNumber,
+              state: 'closed'
+            });

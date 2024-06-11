@@ -343,7 +343,6 @@ This repository also provides one such platforms where contributers come over an
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 
-|[Guess_the_friends_name](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Guess_the_friends_name)|
 
  </center>
 

@@ -342,6 +342,7 @@ This repository also provides one such platforms where contributers come over an
 | [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Shoot_Duck_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_Duck_Game) |
+| [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
  </center>
 
 <br>

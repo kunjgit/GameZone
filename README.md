@@ -322,7 +322,7 @@ This repository also provides one such platforms where contributers come over an
 |[Cartoon character guessing game](https://github.com/kunjgit/GameZone/tree/main/Games/Cartoon_Character_Guessing_Game)|
 |[Carrom Board Game](https://github.com/kunjgit/GameZone/tree/main/Games/carrom)|
 | [Number_Recall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Recall_Game)               |
-| [Hit_the_hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_the_hamster)               |
+| [Hit_the_hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_the_hamster) |      | [Noughts_And_Crosses](https://github.com/kunjgit/GameZone/tree/main/Games/Noughts_And_Crosses) |
 | [Forest_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Forst_Guardian)                  |
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme)                  |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |

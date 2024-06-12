@@ -7,19 +7,33 @@ const gameOverDisplay = document.getElementById('game-over');
 let score = 0;
 let gameInterval;
 let starFallInterval;
-let starSpeed = 2;
+let starSpeed = 0.1;
+
 
 document.addEventListener('keydown', moveBasket);
 
 function moveBasket(event) {
     const basketRect = basket.getBoundingClientRect();
-    if (event.key === 'ArrowLeft' && basketRect.left > 0) {
-        basket.style.left = basketRect.left - 20 + 'px';
+    const gameRect = game.getBoundingClientRect();
+    const step = 200; // Number of pixels to move per key press
+
+    if (event.key === 'ArrowLeft')
+        {
+            if (basketRect.left - step > gameRect.left) {
+                basket.style.left = basket.offsetLeft - step + 'px';
+            } else{
+                basket.style.left = (gameRect.left + 10) + 'px';
+            }
+        }
+    if (event.key === 'ArrowRight')
+         if (basketRect.right + step < gameRect.right){
+                basket.style.left = basket.offsetLeft + step + 'px';
+         }
+        else{
+            basket.style.left = (gameRect.right - basket.getBoundingClientRect().width - 10) + 'px';
+        }
+            
     }
-    if (event.key === 'ArrowRight' && basketRect.right < game.clientWidth) {
-        basket.style.left = basketRect.left + 20 + 'px';
-    }
-}
 
 function createStar() {
     const star = document.createElement('div');
@@ -39,10 +53,9 @@ function fallStars() {
             score++;
             scoreDisplay.textContent = 'Score: ' + score;
         } else {
-            star.style.top = starRect.top + starSpeed + 'px';
+            star.style.top = starRect.top - 30 + 'px';
         }
     });
-    if (Math.random() < 0.1) createStar();
 }
 
 function checkCollision(basket, star) {
@@ -57,11 +70,13 @@ function checkCollision(basket, star) {
 }
 
 function startGame() {
-    gameInterval = setInterval(fallStars, 20);
-    starFallInterval = setInterval(() => { starSpeed += 0.1; }, 1000);
+    gameInterval = setInterval(fallStars, 10);
+    creation = setInterval(createStar, 1000 - (score * 10)); //More stars as score goes up
+    starFallInterval = setInterval(() => { starSpeed ; }, 10);
 }
 
 function endGame() {
+    clearInterval(creation);
     clearInterval(gameInterval);
     clearInterval(starFallInterval);
     gameOverDisplay.style.display = 'block';

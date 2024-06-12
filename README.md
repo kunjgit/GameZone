@@ -350,10 +350,7 @@ This repository also provides one such platforms where contributers come over an
 | [Tower_Block_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tower_Block_Game) | 
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) | 
-
-
-
-
+| [Shoot_Duck_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_Duck_Game) | 
  </center>
 
 <br>

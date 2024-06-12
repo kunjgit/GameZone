@@ -346,6 +346,8 @@ This repository also provides one such platforms where contributers come over an
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Tower_Block_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tower_Block_Game) | 
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
+| [Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) | 
+
 
 
 

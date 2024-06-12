@@ -23,4 +23,5 @@ An emulator for the card game 'Go Fish'. Choose how many opponents you want to p
 - **Atom Development Environment**
 - **SourceTree Source Control**
 
-## Development
+## Screenshot
+![image](../../assets/images/Go-fish-master.png)

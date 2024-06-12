@@ -201,6 +201,7 @@ This repository also provides one such platforms where contributers come over an
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | [CatchTheBall](https://github.com/kunjgit/GameZone/tree/main/Games/CatchTheBall) |
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | [DoraemonRun ](https://github.com/kunjgit/GameZone/tree/main/Games/DoraemonRun) |
 | [Memory_Cards_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Cards_Game) |
+| [Copy_Cat](https://github.com/kunjgit/GameZone/tree/main/Games/Copy_Cat) | 
 | [Typing_Speed_Test2](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test2) |
 | [Technical_Mind_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Technical_Mind_Game) |
 [Slide_Master_Puzzle](https://github.com/kunjgit/GameZone/tree/Main/Games/Slide_Master_Puzz)| |

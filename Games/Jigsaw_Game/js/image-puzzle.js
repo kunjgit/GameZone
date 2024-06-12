@@ -1,4 +1,4 @@
-var timerFunction;
+﻿var timerFunction;
 
 var imagePuzzle = {
     stepCount: 0,

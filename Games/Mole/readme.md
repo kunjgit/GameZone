@@ -1,4 +1,4 @@
-# **Whack_a_Mole**
+# **mole**
 
 ---
 
@@ -6,7 +6,7 @@
 
 ## **Description 📃**
 
-- The Whack-a-Mole game is a classic arcade game implemented using HTML, CSS, and JavaScript.It has a special mario theme. Players must whack or hit moles that randomly pop up from holes and avoid piranha plants on the screen. The game features a simple and intuitive user interface.
+- The mole game is a classic arcade game implemented using HTML, CSS, and JavaScript.It has a special mario theme. Players must whack or hit moles that randomly pop up from holes and avoid piranha plants on the screen. The game features a simple and intuitive user interface.
 
 ## **functionalities 🎮**
 

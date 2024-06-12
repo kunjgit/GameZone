@@ -341,6 +341,7 @@ This repository also provides one such platforms where contributers come over an
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
+| [Fruit_Slicer_Game] (https://github.com/narayani9120/GameZone_B/tree/main/Games/Fruit_Slicer_Game) |
 
  </center>
 

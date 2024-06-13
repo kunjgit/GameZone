@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
     padding: 0;
     font-family: Arial, sans-serif;
@@ -6,4 +8,31 @@ body {
     align-items: center;
     background-color: black;
 }
+
+#chatBubble {
+    position: absolute;
+    display: none;
+    background: black;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: "Press Start 2P", system-ui;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 200px;
+    word-wrap: break-word;
+  }
+
+  #promptE {
+    position: absolute;
+    display: none;
+    background: black;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: "Press Start 2P", system-ui;
+    color: white;
+    font-size: 14px;
+  }
 

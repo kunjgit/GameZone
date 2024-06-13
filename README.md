@@ -322,7 +322,7 @@ This repository also provides one such platforms where contributers come over an
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)                  
 
-| [Catch_The_Ball] (http://127.0.0.1:5501/Games/Catch_The_Ball/index.html)                              |
+|  [Catch_The_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Ball) |
 
 
  </center>

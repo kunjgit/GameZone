@@ -1,0 +1,241 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'whyte', Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #FFC700;
+    background-color: #C8B8FF;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+/* CURSORS */
+html{
+    cursor: url('/Games/Tic_tac_toe_responsive/assets/images/PointerBody.png'), auto;
+}
+
+ i, .cell, footer a {
+    cursor: url('/Games/Tic_tac_toe_responsive/assets/images/PointerHover.png'), auto;
+}
+
+.notch p, h3, input {
+    cursor: url('/Games/Tic_tac_toe_responsive/assets/images/PointerText.png'), auto;
+
+}
+
+
+
+/* PHONE UI */
+.phoneUi{
+    border: 4px solid black;
+    width: 580px;
+    height: 80%;
+    border-radius: 30px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.notch{
+    width: 100%;
+    height: 10%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    gap: 8px;
+}
+
+.notch p {
+    color: grey;
+    font-size: 12px;
+}
+
+/* SCREEN */
+.screen{
+    width: 90%;
+    height: 80%;
+    padding: 0px 35px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #2DD998;
+    border: 4px solid black;
+    color: black;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+
+.screenHeader {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    height: 20%;
+}
+
+
+.greenBars{
+    width: 40%;
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+}
+   
+.greenBars span {
+    border-radius: 12px;
+    border: 3px solid black;
+    width: 50%; 
+    height: 22px;
+ }
+ 
+.circleDiv {
+    display: flex; 
+    justify-content: space-around; 
+    width: 100px;
+}
+
+.circleDiv span {
+    width: 20px; 
+    height: 20px; 
+    border-radius: 12px;
+    border: 3px solid black;
+}
+
+/* Display FIELD */
+
+.displayDiv{
+    height: 14%;
+    background-color: #699CF8;
+    border-radius: 15px;
+    border: 4px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+
+}
+
+.display{
+    color: black;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.displayDiv i {
+    position: absolute;
+    right: 100px;
+}
+
+
+/* MAIN CONTENT */
+.content{
+    width: 100%;
+    overflow: auto;
+    height: 66%;
+    padding: 0px 10px;    
+}
+
+.gameBox{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+}
+.cell{
+    width: 30%;
+    height: 30%;
+    border: 4px solid black;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive ,'whyte', Arial, Helvetica, sans-serif;
+}
+
+footer{
+    margin-top: 20px;
+}
+
+footer a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* RESPONSIVE  */
+
+
+@media (max-width: 648px)
+{
+    .phoneUi{
+        width: 440px;
+    }
+    .cell{
+        width: 80px;
+        height: 80px;
+        font-size: 70px;
+    }
+   
+    
+}
+
+
+@media (max-width: 475px)
+{   
+    .screen{
+        padding: 0px 10px;
+    }
+    .phoneUi{
+        width: 340px;
+    }
+    .notch{
+        font-size: 18px;
+    }
+    .notch p {
+        color: grey;
+        font-size: 10px;
+    }
+    .cell{
+        width: 70px;
+        height: 70px;
+        font-size: 50px;
+    }
+    .displayDiv i {
+        right: 40px;
+    }
+   
+
+}
+
+@media (max-height: 500px)
+{
+    .notch h3 {
+        font-size: 14px;
+    }
+}
+

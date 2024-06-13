@@ -348,14 +348,6 @@ This repository also provides one such platforms where contributers come over an
 | [Anagarm-Word-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Anagarm-Word-Game) |
 | [Alphabet-and-Vowels](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet-and-Vowels) |
 | [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game)|
-| [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick%20Buster) |
-| [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy) |
-| [Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly) |
-| [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
-| [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game) |
-| [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
-| [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game) |
-| [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Tower_Block_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tower_Block_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) | 

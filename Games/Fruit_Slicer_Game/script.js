@@ -63,7 +63,7 @@ $(function(){
    function addhearts() {
     $('#trialsleft').empty();
     for(i = 0 ; i < trialsleft ; i++){
-        $('#trialsleft').append('<img src="wrong.png" , class="life">');
+        $('#trialsleft').append('<img src="./assets/wrong.png" , class="life">');
     }
 }
 

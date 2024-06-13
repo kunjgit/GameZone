@@ -198,14 +198,27 @@ for (let i = 0; i < filterBtn.length; i++) {
 // Code for enabling Light-Dark THEME
 
 
+function applyTheme() {
+  var slider = document.getElementById("themeToggle");
+  var isDarkTheme = localStorage.getItem("isDarkTheme");
 
+  if (isDarkTheme === "true") {
+    slider.checked = true;
+    enableDarkTheme();
+  } else {
+    slider.checked = false;
+    disableDarkTheme();
+  }
+}
 
 function toggleTheme() {
   var slider = document.getElementById("themeToggle");
   if (slider.checked) {
-    disableDarkTheme();
-  } else {
+    localStorage.setItem("isDarkTheme", "true");
     enableDarkTheme();
+  } else {
+    localStorage.setItem("isDarkTheme", "false");
+    disableDarkTheme();
   }
 }
 
@@ -244,6 +257,8 @@ function disableDarkTheme() {
     }
   }
 }
+
+document.addEventListener("DOMContentLoaded", applyTheme);
 
 window.onscroll = function() {scrollFunction()};
 

@@ -1,4 +1,3 @@
-
 # Virtual Pet
 
 Virtual Pet is a simple and interactive game where players take care of a virtual pet by feeding, playing, and keeping it healthy. It's a fun way to test your virtual pet care skills!

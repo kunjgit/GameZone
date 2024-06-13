@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif, sans-serif;
+}
+
+body {
+    background-color: #2455c0;
+}
+
+.competidores {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3em;
+}
+
+.carton {
+    background-color: #9e1c23;
+    color: #fff;
+    width: calc(65px * 5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.carton h2 {
+    text-align: center;
+    margin: 1em;
+}
+
+.carton__numero-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.numero-contenedor__child {
+    width: 50px;
+    height: 50px;
+    color: #000;
+    background-color: #fff;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.mezclador {
+    border: 3px solid #000;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(rgb(196, 188, 188), #000);
+}
+
+.mezclador p {
+    background-color: #fff;
+    font-size: 50px;
+    padding: 5px;
+    border: 5px solid #555;
+    min-width: 70px;
+    min-height: 70px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.mezclador p:hover{
+    background-color: #000;
+    color: #fff;
+    transition: .5s;
+}
+
+.numeros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 2em .7em 2em;
+    border: 2px solid #fff;
+    padding: 10px;
+    min-height: 250px;
+    border-radius: 5px;
+}
+
+.numero-obtenido {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.jugada-automatica{
+    min-height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aut-btn{
+    padding: 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
+
+.score p {
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1em auto;
+    background-color: rgb(184, 170, 170);
+    display: block;
+    padding: 10px;
+    width: 400px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 970px) {
+    .competidores {
+        flex-direction: column;
+    }
+
+    .mezclador{
+        order: -1;
+    }
+
+    .competidores > *{
+        margin: 1em;
+    }
+
+    .score p{
+        width: 40%;
+    }
+}

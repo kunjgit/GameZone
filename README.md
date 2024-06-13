@@ -311,6 +311,7 @@ This repository also provides one such platforms where contributers come over an
 | [Pixel Painter](https://github.com/kunjgit/GameZone/tree/main/Games/pixel_painter) |
 | [Guess_The_Song](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Song) | [Reverse Memory](https://github.com/MuraliDharan7/GameZone/tree/reverse-memory-game/Games/Reverse%20Memory)
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction) |
+| [Word_Shuffle_Game](https://github.com/kunjgit/GameZone/tree/main/Games/word_shuffle_game) |
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures) |
 | [WordScramble](https://github.com/kunjgit/GameZone/tree/main/Games/wordScramble)  
 [Roll_The_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_The_Dice) |
@@ -322,7 +323,6 @@ This repository also provides one such platforms where contributers come over an
 |[Building Blocks Game](https://github.com/kunjgit/GameZone/tree/main/Games/Building_Block_Game)|
 |[Cartoon character guessing game](https://github.com/kunjgit/GameZone/tree/main/Games/Cartoon_Character_Guessing_Game)|
 |[Carrom Board Game](https://github.com/kunjgit/GameZone/tree/main/Games/carrom)|
-| [Word_Shuffle_Game](https://github.com/example/word_shuffle_game) |
 | [Number_Recall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Recall_Game) |
 | [Hit_the_hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_the_hamster) |
 | [Forest_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Forst_Guardian) |

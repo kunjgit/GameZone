@@ -1,4 +1,4 @@
-# **Etch-a-Sketch 2**
+# **Etch-a-Sketch**
 
 ---
 
@@ -6,7 +6,7 @@
 
 ## **Description 📃**
 
-Etch-a-Sketch 2 is an interactive web-based drawing game inspired by the classic Etch-a-Sketch toy. It allows users to create various patterns and drawings on a grid canvas using different drawing modes.
+Etch-a-Sketch is an interactive web-based drawing game inspired by the classic Etch-a-Sketch toy. It allows users to create various patterns and drawings on a grid canvas using different drawing modes.
 
 ## **Functionalities 🎮**
 
@@ -18,7 +18,7 @@ Etch-a-Sketch 2 is an interactive web-based drawing game inspired by the classic
 
 ## **How to play? 🕹️**
 
-To play Etch-a-Sketch 2:
+To play Etch-a-Sketch:
 
 - Click the "Set Grid Size" button to adjust the grid size.
 - Choose between Monochromatic, Random, or Darken modes by clicking the respective buttons.

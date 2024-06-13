@@ -350,8 +350,10 @@ This repository also provides one such platforms where contributers come over an
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Tower_Block_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tower_Block_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
-| [Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) |
+| [Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) | 
+| [Disney_Trivia](https://github.com/manmita/GameZone/tree/Disney_Trivia/Games/Disney_Trivia)|
 |[Harmony_Mixer](https://github.com/kunjgit/GameZone/tree/main/Games/Harmony_Mixer)|
+
 
  </center>
 

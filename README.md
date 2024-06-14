@@ -413,7 +413,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 <br>
 
 - This project thanking all the contributors for having your valuable contribution to our project
-- Make sure you show some love by giving ⭐ to our repository
+- Make sure you show some love by giving ⭐  to our repository
 
 <br>
 

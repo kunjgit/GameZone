@@ -322,6 +322,7 @@ This repository also provides one such platforms where contributers come over an
 |[Building Blocks Game](https://github.com/kunjgit/GameZone/tree/main/Games/Building_Block_Game)|
 |[Cartoon character guessing game](https://github.com/kunjgit/GameZone/tree/main/Games/Cartoon_Character_Guessing_Game)|
 |[Carrom Board Game](https://github.com/kunjgit/GameZone/tree/main/Games/carrom)|
+| [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
 | [Number_Recall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Recall_Game) |
 | [Hit_the_hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_the_hamster) |
 | [Forest_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Forst_Guardian) |

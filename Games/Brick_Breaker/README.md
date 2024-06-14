@@ -17,6 +17,10 @@
 
 <br>
 
+## **Scores:**
+- +1 for each brick broken till number of bricks is greater than or equal to 60.
+- +2 for each brick broken till number of bricks is less than 60 and greater than or equal to 50.
+- +5 for each brick broken if number of bricks is less than 50;
 ## **Screenshots 📸**
 
 <br>

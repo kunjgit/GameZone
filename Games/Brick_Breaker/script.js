@@ -51,6 +51,8 @@ function ballRest() {
 
 function brickReset() {
   brickCount = 0;
+  initializeBrickColors();
+
   var i;
   for (var i = 0; i < 3 * BRICK_COLS; i++) {
     brickGrid[i] = false;
@@ -138,17 +140,53 @@ function ballBrickColl() {
   }
   if (brickCount === 0) {
     brickReset();
-    updateScore(0); // Reset the score to 0 when all bricks are destroyed
+    updateScore(0); 
+    scoredisplay(false); // Reset the score to zero if no bricks are remaining
   } else {
     updateScore(brickCount); // Update the score with the remaining brick count
+    scoredisplay(true); // Increment the score if a brick is hit
   }
+  
   // colorText(ballBrickCol+","+ballBrickRow+": "+brickIndexUnderBall, mouseX, mouseY, 'white');
+
+  if(brickCount=== 70){
+    scoredisplay(0);
+  }
 }
 
 function updateScore(score) {
   var scoreElement = document.getElementById("score");
   scoreElement.textContent = "Bricks Remaining: " + score;
+  
 }
+
+var s = 0; // Declare the variable outside the function to store the score
+var y=0;
+function scoredisplay(hit) {
+  if (hit) {
+    s=70-brickCount;
+    if(s>20){
+      y=s-20;
+      s=s+y*4;
+    }
+    else if(s>10){
+      y=s-10;
+      s=s+y;
+    }
+  
+    
+  } else if(brickCount==70){
+    s = 0; // Reset the score to zero if no bricks are hit
+  }
+  
+
+  // Update the content of the HTML element with id "s" to display the score
+  var scoredisplayElement = document.getElementById("s");
+  scoredisplayElement.textContent = "Score: " + s;
+}
+
+
+
 
 function paddleMove() {
   // paddle
@@ -199,7 +237,7 @@ function updateMousePos(evt) {
 /**********GamePlay Draw functions***********/
 function playArea() {
   // gameCanvas
-  colorRect(0, 0, canvas.width, canvas.height, "white");
+  colorRect(0, 0, canvas.width, canvas.height, "#222");
   // ball
   colorCircle();
   // paddle
@@ -208,7 +246,7 @@ function playArea() {
     canvas.height - PADDLE_DIST_FROM_EDGE,
     PADDLE_WIDTH,
     PADDLE_THICKNESS,
-    "black"
+    "#61dafb"
   );
 
   drawbricks();
@@ -228,17 +266,39 @@ function rowColToArrayIndex(col, row) {
   return col + BRICK_COLS * row;
 }
 
+var brickColors = [];
+
+// Function to initialize the brick colors
+function initializeBrickColors() {
+  brickColors = [];
+  for (var i = 0; i < BRICK_ROWS * BRICK_COLS; i++) {
+    // Add a random color to the array
+    brickColors.push(getRandomColor());
+  }
+}
+
+// Function to get a random color
+function getRandomColor() {
+  var colors = ["#f86257", "#5bb9a9", "	#7d5ba6", "#0b5394", "#ec9b00"];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// Call the function to initialize brick colors once during initialization
+initializeBrickColors();
+
 function drawbricks() {
   for (var eachRow = 0; eachRow < BRICK_ROWS; eachRow++) {
     for (var eachCol = 0; eachCol < BRICK_COLS; eachCol++) {
       var arrayIndex = rowColToArrayIndex(eachCol, eachRow);
       if (brickGrid[arrayIndex]) {
+        // Choose a random color from an array of colors
+        
         colorRect(
           BRICK_W * eachCol,
           BRICK_H * eachRow,
           BRICK_W - BRICK_GAP,
           BRICK_H - BRICK_GAP,
-          "green"
+          brickColors[arrayIndex]
         );
       } // if brick
     } // each brick
@@ -254,9 +314,9 @@ function colorCircle() {
     ballY,
     10
   );
-  gradient.addColorStop(0, "blue");
-  gradient.addColorStop(0.5, "grey");
-  gradient.addColorStop(1, "black");
+  gradient.addColorStop(0, "#61dafb");
+  gradient.addColorStop(0.5, "#888");
+  gradient.addColorStop(1, "#000");
 
   canvasContext.fillStyle = gradient;
   canvasContext.beginPath();

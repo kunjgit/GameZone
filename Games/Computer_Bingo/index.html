@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./favicon/image.png" type="image/x-icon">
+    <title>Bingo</title>
+</head>
+
+<body>
+    <section class="score">
+        <p title="Mientras más bolas queden en el bolillero cuando ganas, significa que lograste una win en menos intentos, eso determina tu puntaje">maximum score <span id="score">0</span> points</p>
+    </section>
+    <section class="competidores">
+        <div class="carton">
+            <h2>Player</h2>
+            <div class="carton__numero-contenedor" id="playerBoard"></div>
+        </div>
+        <div class="mezclador">
+            <p id="numberDraw">Start</p>
+        </div>
+        <div class="carton">
+            <h2>CPU</h2>
+            <div class="carton__numero-contenedor" id="cpuBoard"></div>
+        </div>
+    </section>
+
+    <section class="jugada-automatica" id="autoPlay">
+        <button class="aut-btn" id="automatica">Automatic Play</button>
+        <button class="aut-btn hidden" id="stopAutomatica">Stop</button>
+    </section>
+
+    <section class="numeros" id="totalNumbers"></section>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

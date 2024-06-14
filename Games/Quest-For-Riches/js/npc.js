@@ -9,8 +9,13 @@ class NPC {
     this.direction = "left"; // Initial direction the NPC is facing
     this.isChatting = false; // Flag to indicate if the NPC is chatting
     this.dialogueState = 0; // Track the dialogue state
-    this.chatBubble = document.getElementById("chatBubble");
-    this.promptE = document.getElementById("promptE");
+    this.chatBubble = document.createElement("div");
+    this.chatBubble.classList.add("chatBubble");
+    document.body.appendChild(this.chatBubble);
+    this.promptE = document.createElement("div");
+    this.promptE.classList.add("promptE");
+    this.promptE.innerText = "E";
+    document.body.appendChild(this.promptE);
 
     // Load the sprite sheet
     this.sprites = {
@@ -141,32 +146,35 @@ class NPC {
       }
     } else {
       this.hidePromptE();
-    }
-
-    // Hide the chat bubble if the player moves out of proximity while chatting
-    if (!inProximity && this.isChatting) {
-      this.isChatting = false;
-      this.hideChatBubble();
+      if (!inProximity) {
+        this.isChatting = false;
+        this.dialogueState = 0; // Reset dialogue state when out of proximity
+      }
     }
 
     // Draw chat bubble if chatting
     if (this.isChatting) {
       let chatText = "";
-      switch (this.dialogueState) {
-        case 0:
-          chatText = "Greetings, adventurer!";
-          break;
-        case 1:
-          chatText =
-            "Dark times have befallen our forest.\nEvil creatures roam freely.";
-          break;
-        case 2:
-          chatText =
-            "Please, we need your strength.\nDefeat the bad guys and reclaim the treasure!";
-          break;
-        default:
-          chatText = "Good luck, brave soul!";
-          break;
+      if (player.hasCollectedTreasure) {
+        chatText =
+          "Well done, adventurer!\nThanks for dealing with those bad guys. You saved us!";
+      } else {
+        switch (this.dialogueState) {
+          case 0:
+            chatText = "Greetings, adventurer!";
+            break;
+          case 1:
+            chatText =
+              "Dark times have befallen our forest.\nEvil creatures roam freely.";
+            break;
+          case 2:
+            chatText =
+              "Please, we need your strength.\nDefeat the bad guys and reclaim the treasure!";
+            break;
+          default:
+            chatText = "Good luck, brave soul!";
+            break;
+        }
       }
       this.showChatBubble(cameraOffsetX, chatText);
     } else {
@@ -174,9 +182,13 @@ class NPC {
     }
   }
 
-  interact() {
+  interact(player) {
     if (this.isChatting) {
-      this.dialogueState = (this.dialogueState + 1) % 4; // Cycle through dialogue states
+      if (player.hasCollectedTreasure) {
+        this.dialogueState = 0; // Reset dialogue state after completion
+      } else {
+        this.dialogueState = (this.dialogueState + 1) % 4; // Cycle through dialogue states
+      }
       console.log("Interacting, new dialogue state: " + this.dialogueState);
     }
   }

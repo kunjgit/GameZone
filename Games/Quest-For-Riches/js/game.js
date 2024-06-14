@@ -13,6 +13,41 @@ const enemies = [
   new Enemy(1800, 300),
 ];
 
+// Add coins to the game world
+const coins = [
+  new Coin(950, 300, player),
+  new Coin(1300, 400, player),
+  new Coin(1500, 300, player),
+  new Coin(1600, 300, player),
+  new Coin(1900, 400, player),
+  new Coin(2200, 400, player),
+  new Coin(2600, 400, player),
+];
+
+// Add a key to the game world
+const key = new Key(1800, 100); // Position the key somewhere on the map
+
+// Add a chest to the end of the game world
+const chest = new Chest(GAME_WORLD_WIDTH - 200, canvas.height - 80);
+
+const missionTracker = document.getElementById("missionTracker");
+
+const missions = [
+  "Talk to The Archer",
+  "Defeat all Wizards",
+  "Collect the Key",
+  "Open the Chest",
+  "Return to The Archer",
+];
+
+let currentMissionIndex = 0;
+
+function updateMissionTracker() {
+  missionTracker.innerHTML = missions[currentMissionIndex];
+}
+
+updateMissionTracker();
+
 // Adjust the background layers to span the entire game world
 const backgroundLayers = [
   { src: "assets/images/background/background_layer_1.png", zIndex: 1, x: 0 },
@@ -74,7 +109,7 @@ window.addEventListener("keydown", (event) => {
     case "e":
       keys.e.pressed = true;
       player.isInteracting = true;
-      npc.interact(); // Trigger interaction
+      npc.interact(player); // Trigger interaction with player state
       break;
   }
 });
@@ -116,8 +151,42 @@ function drawBackgrounds() {
   });
 }
 
+function checkMissionProgress() {
+  switch (currentMissionIndex) {
+    case 0:
+      if (npc.isChatting && npc.dialogueState > 2) {
+        currentMissionIndex++;
+      }
+      break;
+    case 1:
+      if (enemies.length === 0) {
+        currentMissionIndex++;
+      }
+      break;
+    case 2:
+      if (player.hasKey) {
+        currentMissionIndex++;
+      }
+      break;
+    case 3:
+      if (chest.isOpen) {
+        currentMissionIndex++;
+      }
+      break;
+    case 4:
+      if (
+        npc.isChatting &&
+        npc.dialogueState === 0 &&
+        player.hasCollectedTreasure
+      ) {
+        missionTracker.innerHTML = "Quest Complete!";
+      }
+      break;
+  }
+  updateMissionTracker();
+}
+
 function handleCombat(player, enemy) {
-  // Simple collision detection
   if (
     player.position.x < enemy.position.x + enemy.scaledWidth &&
     player.position.x + player.width > enemy.position.x &&
@@ -126,12 +195,19 @@ function handleCombat(player, enemy) {
   ) {
     console.log("Player and enemy colliding"); // Debug line
 
-    // Check if the player is attacking and handle combat logic
     if (player.isAttacking && player.attackCooldown <= 0) {
       console.log("Attack registered"); // Debug line
       enemy.takeDamage();
       player.attackCooldown = 60; // Reset player attack cooldown
       player.isAttacking = false; // Reset attack flag
+
+      if (enemy.health <= 0) {
+        const index = enemies.indexOf(enemy);
+        if (index > -1) {
+          enemies.splice(index, 1); // Remove defeated enemy
+          console.log("Enemy defeated. Remaining enemies: ", enemies.length);
+        }
+      }
     } else if (player.attackCooldown > 0) {
       console.log("Attack on cooldown"); // Debug line
     }
@@ -168,4 +244,24 @@ function animate() {
     enemy.update(cameraOffsetX, player);
     handleCombat(player, enemy);
   });
+
+  // Update and draw coins
+  coins.forEach((coin) => {
+    coin.update(cameraOffsetX, player);
+  });
+
+  // Update and draw the key
+  key.update(cameraOffsetX, player);
+
+  // Update and draw the chest
+  chest.update(cameraOffsetX, player, enemies);
+
+  // Update the mission tracker position to stay at the top right of the canvas
+  const canvasRect = canvas.getBoundingClientRect();
+  missionTracker.style.left = `${
+    canvasRect.right - missionTracker.offsetWidth - 20
+  }px`;
+  missionTracker.style.top = `${canvasRect.top + 20}px`;
+
+  checkMissionProgress();
 }

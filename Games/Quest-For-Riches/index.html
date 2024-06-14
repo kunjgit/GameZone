@@ -8,11 +8,24 @@
   </head>
   <body>
     <canvas></canvas>
-    <div id="chatBubble"></div>
-    <div id="promptE">E</div>
+    <div class="chatBubble"></div>
+    <div class="promptE">E</div>
+    <div id="missionTracker">Mission: Talk to The Archer</div>
+    <div id="puzzleModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="puzzleInstructions"></p>
+        <input type="text" id="puzzleInput" />
+        <button id="submitPuzzle">Submit</button>
+      </div>
+    </div>
     <script src="js/player.js"></script>
     <script src="js/npc.js"></script>
     <script src="js/enemy.js"></script>
+    <script src="js/coin.js"></script>
+    <script src="js/coinPile.js"></script>
+    <script src="js/key.js"></script>
+    <script src="js/chest.js"></script>
     <script src="js/eventListeners.js"></script>
     <script src="js/game.js"></script>
   </body>

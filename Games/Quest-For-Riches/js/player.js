@@ -20,10 +20,12 @@ class Player {
     };
     this.gravity = 0.3;
     this.direction = "right"; // Initial direction
-    this.health = 20; // Increased player health
-    this.maxHealth = this.health; // Store the maximum health value
+    this.health = 20; // Player health
     this.attackCooldown = 0; // Cooldown for attacking
     this.isAttacking = false; // Flag to indicate if the player is attacking
+    this.coins = 0; // Player coin count
+    this.hasKey = false; // Flag to indicate if the player has the key
+    this.hasCollectedTreasure = false; // Flag to indicate if the player has collected the treasure
 
     // Load sprite sheets
     this.sprites = {
@@ -32,7 +34,11 @@ class Player {
         frames: 8,
         speed: 5,
       },
-      run: { src: "assets/images/sprites/player/Run.png", frames: 8, speed: 5 },
+      run: {
+        src: "assets/images/sprites/player/Run.png",
+        frames: 8,
+        speed: 5,
+      },
       jump: {
         src: "assets/images/sprites/player/Jump.png",
         frames: 8,
@@ -125,24 +131,31 @@ class Player {
   }
 
   drawHealthBar() {
-    const healthBarWidth = 200;
-    const healthBarHeight = 20;
-    const healthBarX = 10;
-    const healthBarY = 10;
-
     c.fillStyle = "red";
-    c.fillRect(healthBarX, healthBarY, healthBarWidth, healthBarHeight);
-
-    c.fillStyle = "green";
-    c.fillRect(
-      healthBarX,
-      healthBarY,
-      (healthBarWidth * this.health) / this.maxHealth,
-      healthBarHeight
-    );
-
+    c.fillRect(10, 10, this.health * 10, 20);
     c.strokeStyle = "black";
-    c.strokeRect(healthBarX, healthBarY, healthBarWidth, healthBarHeight);
+    c.strokeRect(10, 10, 200, 20);
+  }
+
+  drawCoinCount() {
+    // Draw coin icon
+    const coinImg = new Image();
+    coinImg.src = "assets/images/sprites/gold_coin.png";
+    c.drawImage(coinImg, 220, 10, 30, 30);
+
+    // Draw coin count
+    c.fillStyle = "white";
+    c.font = "24px Arial";
+    c.fillText(`x ${this.coins}`, 250, 30);
+  }
+
+  drawKeyIndicator() {
+    if (this.hasKey) {
+      // Draw key icon
+      const keyImg = new Image();
+      keyImg.src = "assets/images/sprites/gold_key.png";
+      c.drawImage(keyImg, 320, 10, 20, 20);
+    }
   }
 
   takeDamage() {
@@ -204,6 +217,16 @@ class Player {
       this.frameTick = 0;
       const sprite = this.sprites[this.currentSprite];
       this.frameIndex = (this.frameIndex + 1) % sprite.frames;
+
+      // If the current animation is attack and it reaches the last frame, revert to idle or run
+      if (this.currentSprite === "attack" && this.frameIndex === 0) {
+        this.isAttacking = false; // Reset attacking flag
+        if (keys.a.pressed || keys.d.pressed) {
+          this.setAnimation("run");
+        } else {
+          this.setAnimation("idle");
+        }
+      }
     }
 
     // Handle attack cooldown
@@ -213,5 +236,7 @@ class Player {
 
     this.draw(cameraOffsetX);
     this.drawHealthBar();
+    this.drawCoinCount(); // Draw the coin count on the screen
+    this.drawKeyIndicator(); // Draw the key indicator on the screen
   }
 }

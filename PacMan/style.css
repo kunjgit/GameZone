@@ -90,7 +90,7 @@ body {
     --ghost-color: green;
 }
 
-/* CSS voor het weergeven van levens */
+/*Lives*/
 #livesContainer {
     margin-top: 20px;
     font-size: 20px;

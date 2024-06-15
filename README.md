@@ -351,6 +351,7 @@ This repository also provides one such platforms where contributers come over an
 | [Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly) |
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
+| [Fruit_Slicer_Game] (https://github.com/narayani9120/GameZone_B/tree/main/Games/Fruit_Slicer_Game) | 
 | [Tower_Block_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tower_Block_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Memory_Matching_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Memory_Matching_Game) |
@@ -364,6 +365,7 @@ This repository also provides one such platforms where contributers come over an
 | [Disney_Trivia](https://github.com/manmita/GameZone/tree/Disney_Trivia/Games/Disney_Trivia)|
 |[Harmony_Mixer](https://github.com/kunjgit/GameZone/tree/main/Games/Harmony_Mixer)|
 |[Tower Defence Game](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Tower_Defence_Game)|
+
 
  </center>
 

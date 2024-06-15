@@ -286,6 +286,7 @@ This repository also provides one such platforms where contributers come over an
 | [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers) |
 | [Physics_Quizz](https://github.com/kunjgit/GameZone/tree/main/Games/Physics_Quizz) |
 | [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing) |
+| [Etch_a_Sketch_2](https://github.com/kunjgit/GameZone/tree/main/Games/Etch_a_Sketch_2) |
 
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect) |
 
@@ -432,6 +433,3 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 <br>
 
 <p align="right"><a href="#top">Back to top</a></p>
-
-
-

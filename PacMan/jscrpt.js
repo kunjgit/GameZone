@@ -154,10 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Stop ghost movements
         ghost1.stop();
         ghost2.stop();
-
-        // Display game over message
-        // Display win message after a short delay
-        setTimeout(() => {
+    
+         // Display win message after a short delay
+         setTimeout(() => {
             alert("Game over! You lost!");
         }, 500);
 

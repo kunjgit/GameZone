@@ -19,8 +19,20 @@ class Level {
     });
 
     // Initialize enemies
-    this.enemies = this.enemiesData.map((enemy) => {
-      const newEnemy = new Enemy(enemy.x, enemy.y);
+    this.enemies = this.enemiesData.map((enemyData) => {
+      if (!enemyData.spriteData) {
+        console.error("Missing spriteData for enemy:", enemyData);
+      }
+      const enemyType = enemyData.spriteData.sprites.attack1
+        ? "monster"
+        : "wizard";
+      const newEnemy = new Enemy(
+        enemyData.x,
+        enemyData.y,
+        enemyData.spriteData,
+        100, // patrolDistance
+        enemyType // type
+      );
       console.log("Enemy instantiated:", newEnemy);
       return newEnemy;
     });
@@ -62,9 +74,126 @@ const levelData = [
       { x: 2600, y: 400 },
     ],
     enemies: [
-      { x: 1000, y: 300 },
-      { x: 1400, y: 300 },
-      { x: 1800, y: 300 },
+      {
+        x: 1000,
+        y: 300,
+        spriteData: {
+          width: 128,
+          height: 128,
+          sprites: {
+            idle: {
+              src: "assets/images/sprites/enemies/wizard/Idle.png",
+              frames: 6,
+              speed: 5,
+            },
+            run: {
+              src: "assets/images/sprites/enemies/wizard/Run.png",
+              frames: 8,
+              speed: 3,
+            },
+            attack1: {
+              src: "assets/images/sprites/enemies/wizard/Attack_1.png",
+              frames: 10,
+              speed: 10,
+            },
+            dead: {
+              src: "assets/images/sprites/enemies/wizard/Dead.png",
+              frames: 4,
+              speed: 10,
+            },
+            hurt: {
+              src: "assets/images/sprites/enemies/wizard/Hurt.png",
+              frames: 4,
+              speed: 10,
+            },
+            walk: {
+              src: "assets/images/sprites/enemies/wizard/Walk.png",
+              frames: 7,
+              speed: 5,
+            },
+          },
+        },
+      },
+      {
+        x: 1400,
+        y: 300,
+        spriteData: {
+          width: 128,
+          height: 128,
+          sprites: {
+            idle: {
+              src: "assets/images/sprites/enemies/wizard/Idle.png",
+              frames: 6,
+              speed: 5,
+            },
+            run: {
+              src: "assets/images/sprites/enemies/wizard/Run.png",
+              frames: 8,
+              speed: 3,
+            },
+            attack1: {
+              src: "assets/images/sprites/enemies/wizard/Attack_1.png",
+              frames: 10,
+              speed: 10,
+            },
+            dead: {
+              src: "assets/images/sprites/enemies/wizard/Dead.png",
+              frames: 4,
+              speed: 10,
+            },
+            hurt: {
+              src: "assets/images/sprites/enemies/wizard/Hurt.png",
+              frames: 4,
+              speed: 10,
+            },
+            walk: {
+              src: "assets/images/sprites/enemies/wizard/Walk.png",
+              frames: 7,
+              speed: 5,
+            },
+          },
+        },
+      },
+      {
+        x: 1800,
+        y: 300,
+        spriteData: {
+          width: 128,
+          height: 128,
+          sprites: {
+            idle: {
+              src: "assets/images/sprites/enemies/wizard/Idle.png",
+              frames: 6,
+              speed: 5,
+            },
+            run: {
+              src: "assets/images/sprites/enemies/wizard/Run.png",
+              frames: 8,
+              speed: 3,
+            },
+            attack1: {
+              src: "assets/images/sprites/enemies/wizard/Attack_1.png",
+              frames: 10,
+              speed: 10,
+            },
+            dead: {
+              src: "assets/images/sprites/enemies/wizard/Dead.png",
+              frames: 4,
+              speed: 10,
+            },
+            hurt: {
+              src: "assets/images/sprites/enemies/wizard/Hurt.png",
+              frames: 4,
+              speed: 10,
+            },
+            walk: {
+              src: "assets/images/sprites/enemies/wizard/Walk.png",
+              frames: 7,
+              speed: 5,
+            },
+          },
+        },
+      },
     ],
     npcDialogues: {
       0: "Greetings, adventurer!",
@@ -95,10 +224,226 @@ const levelData = [
       { x: 2300, y: 400 },
     ],
     enemies: [
-      { x: 1300, y: 300 },
-      { x: 1800, y: 300 },
-      { x: 1900, y: 300 },
-      { x: 2000, y: 300 },
+      {
+        x: 1300,
+        y: 300,
+        spriteData: {
+          width: 96,
+          height: 96,
+          sprites: {
+            idle: {
+              src: "assets/images/sprites/enemies/monster/Idle.png",
+              frames: 2,
+              speed: 5,
+            },
+            run: {
+              src: "assets/images/sprites/enemies/monster/Run.png",
+              frames: 6,
+              speed: 2,
+            },
+            attack1: {
+              src: "assets/images/sprites/enemies/monster/Attack_1.png",
+              frames: 4,
+              speed: 5,
+            },
+            attack2: {
+              src: "assets/images/sprites/enemies/monster/Attack_2.png",
+              frames: 5,
+              speed: 10,
+            },
+            attack3: {
+              src: "assets/images/sprites/enemies/monster/Attack_3.png",
+              frames: 5,
+              speed: 10,
+            },
+            runAttack: {
+              src: "assets/images/sprites/enemies/monster/Run+Attack.png",
+              frames: 6,
+              speed: 10,
+            },
+            dead: {
+              src: "assets/images/sprites/enemies/monster/Dead.png",
+              frames: 4,
+              speed: 10,
+            },
+            hurt: {
+              src: "assets/images/sprites/enemies/monster/Hurt.png",
+              frames: 4,
+              speed: 10,
+            },
+            walk: {
+              src: "assets/images/sprites/enemies/monster/Walk.png",
+              frames: 7,
+              speed: 5,
+            },
+          },
+        },
+      },
+      {
+        x: 1600,
+        y: 300,
+        spriteData: {
+          width: 96,
+          height: 96,
+          sprites: {
+            idle: {
+              src: "assets/images/sprites/enemies/monster/Idle.png",
+              frames: 2,
+              speed: 5,
+            },
+            run: {
+              src: "assets/images/sprites/enemies/monster/Run.png",
+              frames: 6,
+              speed: 2,
+            },
+            attack1: {
+              src: "assets/images/sprites/enemies/monster/Attack_1.png",
+              frames: 4,
+              speed: 5,
+            },
+            attack2: {
+              src: "assets/images/sprites/enemies/monster/Attack_2.png",
+              frames: 5,
+              speed: 10,
+            },
+            attack3: {
+              src: "assets/images/sprites/enemies/monster/Attack_3.png",
+              frames: 5,
+              speed: 10,
+            },
+            runAttack: {
+              src: "assets/images/sprites/enemies/monster/Run+Attack.png",
+              frames: 6,
+              speed: 10,
+            },
+            dead: {
+              src: "assets/images/sprites/enemies/monster/Dead.png",
+              frames: 4,
+              speed: 10,
+            },
+            hurt: {
+              src: "assets/images/sprites/enemies/monster/Hurt.png",
+              frames: 4,
+              speed: 10,
+            },
+            walk: {
+              src: "assets/images/sprites/enemies/monster/Walk.png",
+              frames: 7,
+              speed: 5,
+            },
+          },
+        },
+      },
+      {
+        x: 1900,
+        y: 300,
+        spriteData: {
+          width: 96,
+          height: 96,
+          sprites: {
+            idle: {
+              src: "assets/images/sprites/enemies/monster/Idle.png",
+              frames: 2,
+              speed: 5,
+            },
+            run: {
+              src: "assets/images/sprites/enemies/monster/Run.png",
+              frames: 6,
+              speed: 2,
+            },
+            attack1: {
+              src: "assets/images/sprites/enemies/monster/Attack_1.png",
+              frames: 4,
+              speed: 5,
+            },
+            attack2: {
+              src: "assets/images/sprites/enemies/monster/Attack_2.png",
+              frames: 5,
+              speed: 10,
+            },
+            attack3: {
+              src: "assets/images/sprites/enemies/monster/Attack_3.png",
+              frames: 5,
+              speed: 10,
+            },
+            runAttack: {
+              src: "assets/images/sprites/enemies/monster/Run+Attack.png",
+              frames: 6,
+              speed: 10,
+            },
+            dead: {
+              src: "assets/images/sprites/enemies/monster/Dead.png",
+              frames: 4,
+              speed: 10,
+            },
+            hurt: {
+              src: "assets/images/sprites/enemies/monster/Hurt.png",
+              frames: 4,
+              speed: 10,
+            },
+            walk: {
+              src: "assets/images/sprites/enemies/monster/Walk.png",
+              frames: 7,
+              speed: 5,
+            },
+          },
+        },
+      },
+      {
+        x: 2200,
+        y: 300,
+        spriteData: {
+          width: 96,
+          height: 96,
+          sprites: {
+            idle: {
+              src: "assets/images/sprites/enemies/monster/Idle.png",
+              frames: 2,
+              speed: 5,
+            },
+            run: {
+              src: "assets/images/sprites/enemies/monster/Run.png",
+              frames: 6,
+              speed: 2,
+            },
+            attack1: {
+              src: "assets/images/sprites/enemies/monster/Attack_1.png",
+              frames: 4,
+              speed: 5,
+            },
+            attack2: {
+              src: "assets/images/sprites/enemies/monster/Attack_2.png",
+              frames: 5,
+              speed: 10,
+            },
+            attack3: {
+              src: "assets/images/sprites/enemies/monster/Attack_3.png",
+              frames: 5,
+              speed: 10,
+            },
+            runAttack: {
+              src: "assets/images/sprites/enemies/monster/Run+Attack.png",
+              frames: 6,
+              speed: 10,
+            },
+            dead: {
+              src: "assets/images/sprites/enemies/monster/Dead.png",
+              frames: 4,
+              speed: 10,
+            },
+            hurt: {
+              src: "assets/images/sprites/enemies/monster/Hurt.png",
+              frames: 4,
+              speed: 10,
+            },
+            walk: {
+              src: "assets/images/sprites/enemies/monster/Walk.png",
+              frames: 7,
+              speed: 5,
+            },
+          },
+        },
+      },
     ],
     npcDialogues: {
       0: "Welcome, hero!",

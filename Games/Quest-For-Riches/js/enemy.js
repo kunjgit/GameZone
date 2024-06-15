@@ -1,11 +1,14 @@
 class Enemy {
-  constructor(x, y, patrolDistance = 100) {
+  constructor(x, y, spriteData, patrolDistance = 100, type = "wizard") {
+    if (!spriteData) {
+      throw new Error("spriteData is required");
+    }
     this.position = { x, y };
     this.initialPosition = { x, y };
     this.patrolDistance = patrolDistance;
     this.velocity = { x: 1, y: 0 };
-    this.width = 128; // Original frame width
-    this.height = 128; // Original frame height
+    this.width = spriteData.width; // Use sprite width from data
+    this.height = spriteData.height; // Use sprite height from data
     this.scale = 2; // Scale factor to make the enemy larger
     this.scaledWidth = this.width * this.scale; // Scaled width
     this.scaledHeight = this.height * this.scale; // Scaled height
@@ -16,40 +19,11 @@ class Enemy {
     this.attackCooldown = 0; // Cooldown for attacking
     this.patrolDirection = Math.random() > 0.5 ? 1 : -1; // Random initial direction
     this.isDead = false; // Flag to indicate if enemy is dead
+    this.state = "idle"; // Initial state
+    this.type = type; // Type of enemy (wizard or monster)
 
-    // Load sprite sheets
-    this.sprites = {
-      idle: {
-        src: "assets/images/sprites/enemies/wizard/Idle.png",
-        frames: 6,
-        speed: 5,
-      },
-      run: {
-        src: "assets/images/sprites/enemies/wizard/Run.png",
-        frames: 8,
-        speed: 5,
-      },
-      attack1: {
-        src: "assets/images/sprites/enemies/wizard/Attack_1.png",
-        frames: 10,
-        speed: 10,
-      },
-      dead: {
-        src: "assets/images/sprites/enemies/wizard/Dead.png",
-        frames: 4,
-        speed: 10,
-      },
-      hurt: {
-        src: "assets/images/sprites/enemies/wizard/Hurt.png",
-        frames: 4,
-        speed: 10,
-      },
-      walk: {
-        src: "assets/images/sprites/enemies/wizard/Walk.png",
-        frames: 7,
-        speed: 5,
-      },
-    };
+    // Load sprite sheets from the provided data
+    this.sprites = spriteData.sprites;
 
     this.loaded = false; // Flag to check if images are loaded
 
@@ -63,6 +37,7 @@ class Enemy {
         loadedImagesCount++;
         if (loadedImagesCount === totalImages) {
           this.loaded = true;
+          console.log(`${key} image loaded successfully`);
         }
       };
       this.sprites[key].img = img;
@@ -77,9 +52,83 @@ class Enemy {
 
   setAnimation(animation) {
     if (this.currentSprite !== animation) {
+      console.log(`Changing animation to: ${animation}`);
       this.currentSprite = animation;
       this.frameIndex = 0; // Reset frame index
       this.frameSpeed = this.sprites[animation].speed; // Update frame speed
+    }
+  }
+
+  updateState(player) {
+    if (this.isDead) {
+      this.setAnimation("dead");
+      return;
+    }
+
+    const distanceToPlayer = Math.abs(this.position.x - player.position.x);
+    const yDistanceToPlayer = Math.abs(this.position.y - player.position.y);
+
+    console.log(
+      `Distance to player: ${distanceToPlayer}, Y Distance: ${yDistanceToPlayer}`
+    );
+
+    if (distanceToPlayer < 50 && yDistanceToPlayer < 80) {
+      console.log("Switching to attack state");
+      this.state = "attack";
+    } else if (distanceToPlayer < 300) {
+      console.log("Switching to run state");
+      this.state = "run";
+    } else {
+      console.log("Switching to walk state");
+      this.state = "walk";
+    }
+
+    console.log(`Current state: ${this.state}`);
+
+    if (this.state === "attack") {
+      this.isAttacking = true;
+      this.velocity.x = 0;
+      this.setAnimation("attack1");
+      console.log(
+        `Attack frame index: ${this.frameIndex}, attackCooldown: ${this.attackCooldown}`
+      );
+      if (
+        this.frameIndex === this.sprites.attack1.frames - 1 &&
+        this.attackCooldown <= 0
+      ) {
+        console.log("Attacking player");
+        player.takeDamage();
+        this.attackCooldown = 60;
+      }
+    } else {
+      this.isAttacking = false;
+      if (this.state === "run") {
+        if (this.position.x < player.position.x) {
+          this.direction = "right";
+          this.velocity.x = 1.5;
+        } else {
+          this.direction = "left";
+          this.velocity.x = -1.5;
+        }
+        this.setAnimation("run");
+      } else if (this.state === "walk") {
+        if (this.position.x <= this.initialPosition.x - this.patrolDistance) {
+          this.patrolDirection = 1;
+          this.direction = "right";
+        } else if (
+          this.position.x >=
+          this.initialPosition.x + this.patrolDistance
+        ) {
+          this.patrolDirection = -1;
+          this.direction = "left";
+        }
+        this.velocity.x = this.patrolDirection;
+        this.setAnimation("walk");
+      }
+    }
+
+    if (this.attackCooldown > 0) {
+      this.attackCooldown--;
     }
   }
 
@@ -87,7 +136,9 @@ class Enemy {
     if (!this.loaded) return; // Only draw if images are loaded
 
     const sprite = this.sprites[this.currentSprite];
-    const sx = this.frameIndex * this.width;
+    const frameWidth = this.width; // Use the frame width defined in spriteData
+    const frameHeight = this.height;
+    const sx = this.frameIndex * frameWidth;
     const sy = 0;
 
     // Save the current context state
@@ -101,8 +152,8 @@ class Enemy {
         sprite.img,
         sx,
         sy,
-        this.width,
-        this.height,
+        frameWidth,
+        frameHeight,
         -(this.position.x - cameraOffsetX + this.scaledWidth),
         this.position.y,
         this.scaledWidth,
@@ -114,8 +165,8 @@ class Enemy {
         sprite.img,
         sx,
         sy,
-        this.width,
-        this.height,
+        frameWidth,
+        frameHeight,
         this.position.x - cameraOffsetX,
         this.position.y,
         this.scaledWidth,
@@ -153,71 +204,7 @@ class Enemy {
   }
 
   update(cameraOffsetX, player) {
-    if (this.isDead) {
-      this.setAnimation("dead");
-      if (this.frameIndex === this.sprites.dead.frames - 1) {
-        setTimeout(() => {
-          const index = enemies.indexOf(this);
-          if (index > -1) {
-            enemies.splice(index, 1);
-          }
-        }, (this.sprites.dead.frames * this.frameSpeed * 1000) / 60);
-      }
-      return;
-    }
-
-    // Patrol logic
-    if (!this.isAttacking && this.attackCooldown <= 0) {
-      if (this.position.x <= this.initialPosition.x - this.patrolDistance) {
-        this.patrolDirection = 1;
-        this.direction = "right";
-      } else if (
-        this.position.x >=
-        this.initialPosition.x + this.patrolDistance
-      ) {
-        this.patrolDirection = -1;
-        this.direction = "left";
-      }
-      this.velocity.x = this.patrolDirection;
-      this.setAnimation("walk");
-    }
-
-    // Attack logic
-    if (
-      Math.abs(this.position.x - player.position.x) < 150 &&
-      Math.abs(this.position.y - player.position.y) < 50
-    ) {
-      this.isAttacking = true;
-      this.velocity.x = 0;
-      this.setAnimation("attack1"); // Example attack animation
-      // Implement attack mechanics here
-      if (this.frameIndex === 5 && this.attackCooldown <= 0) {
-        // Last frame of attack
-        player.takeDamage(); // Decrease player's health
-        this.attackCooldown = 60; // Cooldown for 1 second assuming 60 FPS
-      }
-    } else {
-      this.isAttacking = false;
-    }
-
-    if (this.attackCooldown > 0) {
-      this.attackCooldown--;
-    }
-
-    if (
-      !this.isAttacking &&
-      Math.abs(this.position.x - player.position.x) < 300 &&
-      this.attackCooldown <= 0
-    ) {
-      if (this.position.x < player.position.x) {
-        this.direction = "right";
-        this.velocity.x = 1;
-      } else {
-        this.direction = "left";
-        this.velocity.x = -1;
-      }
-      this.setAnimation("run");
-    }
+    this.updateState(player);
 
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
@@ -242,6 +229,9 @@ class Enemy {
       this.frameTick = 0;
       const sprite = this.sprites[this.currentSprite];
       this.frameIndex = (this.frameIndex + 1) % sprite.frames;
+      console.log(
+        `Current frame index for ${this.currentSprite}: ${this.frameIndex}`
+      );
     }
 
     this.draw(cameraOffsetX);

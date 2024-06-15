@@ -257,8 +257,27 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
     transitionScreen.style.display = "none";
   } else {
     console.log("No more levels available");
-    // Handle end of game or loop back to the first level
+    const endGameScreen = document.getElementById("endGameScreen");
+    endGameScreen.classList.remove("hidden");
+    endGameScreen.style.display = "flex";
   }
+});
+
+document.getElementById("closeEndGameScreen").addEventListener("click", () => {
+  const endGameScreen = document.getElementById("endGameScreen");
+  endGameScreen.classList.add("hidden");
+  endGameScreen.style.display = "none";
+});
+
+document.getElementById("replayGameButton").addEventListener("click", () => {
+  levelIndex = 0;
+  initializeLevel(levelIndex);
+  resetGameState();
+  startLevel();
+  updateMissionTracker();
+  const endGameScreen = document.getElementById("endGameScreen");
+  endGameScreen.classList.add("hidden");
+  endGameScreen.style.display = "none";
 });
 
 document
@@ -309,7 +328,7 @@ function resetGameState() {
   // Re-initialize enemies
   if (level && level.enemiesData) {
     level.enemies = level.enemiesData.map(
-      (enemy) => new Enemy(enemy.x, enemy.y)
+      (enemy) => new Enemy(enemy.x, enemy.y, enemy.spriteData)
     );
   }
 

@@ -1,5 +1,12 @@
-canvas = document.querySelector("canvas");
+// Select the HTML elements
+const mainScreen = document.getElementById("mainScreen");
+const controlsScreen = document.getElementById("controlsScreen");
+const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
+const missionTracker = document.getElementById("missionTracker");
+const startButton = document.getElementById("startButton");
+const controlsButton = document.getElementById("controlsButton");
+const backButton = document.getElementById("backButton");
 
 // Set the canvas size to a reasonable size
 canvas.width = 960;
@@ -10,10 +17,20 @@ const player = new Player();
 const npc = new NPC(300, 300); // Add NPC near the start of the game world
 
 let levelIndex = 0; // Current level index
-let level = new Level(levelData[levelIndex]);
-level.initializeGameWorld(player);
+let level = null;
 
-const missionTracker = document.getElementById("missionTracker");
+function initializeLevel(index) {
+  if (index >= 0 && index < levelData.length) {
+    level = new Level(levelData[index]);
+    level.initializeGameWorld(player);
+    console.log("Level initialized:", level);
+  } else {
+    console.error("Invalid level index:", index);
+  }
+}
+
+initializeLevel(levelIndex);
+
 let currentMissionIndex = 0;
 
 function updateMissionTracker() {
@@ -50,18 +67,10 @@ backgroundLayers.forEach((layer) => {
 });
 
 const keys = {
-  " ": {
-    pressed: false,
-  },
-  a: {
-    pressed: false,
-  },
-  d: {
-    pressed: false,
-  },
-  e: {
-    pressed: false,
-  },
+  " ": { pressed: false },
+  a: { pressed: false },
+  d: { pressed: false },
+  e: { pressed: false },
 };
 
 let cameraOffsetX = 0;
@@ -239,9 +248,8 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
   // Logic for moving to the next level
   levelIndex++;
   if (levelIndex < levelData.length) {
-    level = new Level(levelData[levelIndex]);
+    initializeLevel(levelIndex);
     resetGameState();
-    level.initializeGameWorld(player);
     startLevel();
     updateMissionTracker();
     const transitionScreen = document.getElementById("transitionScreen");
@@ -281,8 +289,8 @@ function resetGameState() {
   document.getElementById("puzzleInput").value = "";
   document.getElementById("puzzleModal").style.display = "none";
 
-  // Ensure the chest is reset properly
-  if (level.chest) {
+  if (level && level.chest) {
+    // Ensure the chest is reset properly
     level.chest.isOpen = false;
     level.chest.frameY = 4; // Reset to initial frame
     level.chest.frameX = 0;
@@ -292,28 +300,50 @@ function resetGameState() {
   }
 
   // Re-initialize coins
-  level.coins = levelData[levelIndex].coins.map(
-    (coin) => new Coin(coin.x, coin.y, player)
-  );
+  if (level && level.coinsData) {
+    level.coins = level.coinsData.map(
+      (coin) => new Coin(coin.x, coin.y, player)
+    );
+  }
 
   // Re-initialize enemies
-  level.enemies = levelData[levelIndex].enemies.map(
-    (enemy) => new Enemy(enemy.x, enemy.y)
-  );
-
-  // Re-initialize key
-  level.key = new Key(
-    levelData[levelIndex].keyPosition.x,
-    levelData[levelIndex].keyPosition.y
-  );
+  if (level && level.enemiesData) {
+    level.enemies = level.enemiesData.map(
+      (enemy) => new Enemy(enemy.x, enemy.y)
+    );
+  }
 
   console.log("Game state reset. Current level:", levelIndex);
   console.log("Enemies:", level.enemies);
   console.log("Coins:", level.coins);
+  console.log("Chest:", level.chest);
   console.log("Key:", level.key);
 }
 
-startLevel();
+mainScreen.classList.remove("hidden");
+mainScreen.style.display = "flex";
+
+startButton.addEventListener("click", () => {
+  mainScreen.classList.add("hidden");
+  mainScreen.style.display = "none";
+  canvas.classList.remove("hidden");
+  missionTracker.classList.remove("hidden");
+  startLevel();
+});
+
+controlsButton.addEventListener("click", () => {
+  mainScreen.classList.add("hidden");
+  mainScreen.style.display = "none";
+  controlsScreen.classList.remove("hidden");
+  controlsScreen.style.display = "flex";
+});
+
+backButton.addEventListener("click", () => {
+  controlsScreen.classList.add("hidden");
+  controlsScreen.style.display = "none";
+  mainScreen.classList.remove("hidden");
+  mainScreen.style.display = "flex";
+});
 
 function animate() {
   window.requestAnimationFrame(animate);
@@ -341,41 +371,29 @@ function animate() {
     )
   );
 
-  if (Array.isArray(level.enemies)) {
-    level.enemies.forEach((enemy) => {
-      if (typeof enemy.update === "function") {
-        enemy.update(cameraOffsetX, player);
-        handleCombat(player, enemy);
-      } else {
-        console.error("Enemy is not properly instantiated:", enemy);
-      }
-    });
-  } else {
-    console.error("Enemies array is not defined:", level.enemies);
-  }
+  level.enemies.forEach((enemy) => {
+    if (typeof enemy.update === "function") {
+      enemy.update(cameraOffsetX, player);
+      handleCombat(player, enemy);
+    } else {
+      console.error("Enemy is not properly instantiated:", enemy);
+    }
+  });
 
   // Update and draw coins
-  if (Array.isArray(level.coins)) {
-    level.coins.forEach((coin) => {
-      if (typeof coin.update === "function") {
-        coin.update(cameraOffsetX, player);
-      } else {
-        console.error("Coin is not properly instantiated:", coin);
-      }
-    });
-  } else {
-    console.error("Coins array is not defined:", level.coins);
-  }
+  level.coins.forEach((coin) => {
+    coin.update(cameraOffsetX, player);
+  });
 
   // Update and draw the key
-  if (level.key && typeof level.key.update === "function") {
+  if (level && level.key && typeof level.key.update === "function") {
     level.key.update(cameraOffsetX, player);
   } else {
     console.error("Key is not properly instantiated:", level.key);
   }
 
   // Update and draw the chest
-  if (level.chest && typeof level.chest.update === "function") {
+  if (level && level.chest && typeof level.chest.update === "function") {
     level.chest.update(cameraOffsetX, player, level.enemies);
   } else {
     console.error("Chest is not properly instantiated:", level.chest);

@@ -9,6 +9,47 @@ body {
   background-color: black;
 }
 
+#mainScreen, #controlsScreen {
+  text-align: center;
+  color: white;
+  font-family: "Press Start 2P", system-ui;
+}
+
+#mainScreen {
+  display: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#controlsScreen {
+  display: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  background: yellow;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: orange;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Existing styles */
 .chatBubble {
   position: absolute;
   display: none;

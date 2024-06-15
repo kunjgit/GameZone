@@ -7,10 +7,23 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <canvas></canvas>
+    <div id="mainScreen">
+      <h1>Quest for Riches</h1>
+      <button id="startButton">Start Game</button>
+      <button id="controlsButton">Controls</button>
+    </div>
+    <div id="controlsScreen" class="hidden">
+      <h2>Controls</h2>
+      <p>Click Left Mouse Button to Attack</p>
+      <p>Use A and D to move</p>
+      <p>Press E to interact</p>
+      <p>Press Space to jump</p>
+      <button id="backButton">Back</button>
+    </div>
+    <canvas class="hidden"></canvas>
     <div class="chatBubble"></div>
     <div class="promptE">E</div>
-    <div id="missionTracker">Mission: Talk to The Archer</div>
+    <div id="missionTracker" class="hidden">Mission: Talk to The Archer</div>
     <div id="puzzleModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>

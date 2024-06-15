@@ -1,0 +1,71 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+li{
+    text-align: left;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.instructions {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#status {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: lime;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+    gap: 2px;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    border: 1px solid #555;
+    cursor: pointer;
+}
+
+.cell.revealed {
+    background-color: #444;
+    cursor: default;
+}
+
+.cell.mine {
+    background-color: red;
+}
+
+.cell.flag {
+    background-color: yellow;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: #444;
+    color: #f0f0f0;
+    border-radius: 5px;
+}

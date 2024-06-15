@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(rgb(92, 23, 181) 80%, rgb(0, 0, 0));
+}
+
+#name {
+    text-align: center;
+    color: rgb(255, 247, 0);
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+.main {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container {
+    width: 1000px;
+    height: 500px;
+    background: black;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bubble {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 50%;
+    animation: bubble 1.5s ease-in-out;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(500px);
+    }
+}
+
+.utils {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.start {
+    width: 70px;
+    height: 30px;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.dis:hover {
+    background: yellow;
+    cursor: pointer;
+}
+
+#score,
+#high-score,
+#missed {
+    color: white;
+    font-size: 25px;
+}
+
+.game-over {
+    height: 100px;
+    color: white;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 700;
+    position: absolute;
+}
+
+.try-again {
+    border: none;
+    width: 90px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.try-again:hover {
+    background: yellow;
+    cursor: pointer;
+}

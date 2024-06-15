@@ -137,22 +137,61 @@ const movePacman = () => {
 
         moveGhost() {
             const directions = [-1, +1, -cols, +cols]; // Possible directions for the ghost
-            let direction = directions[Math.floor(Math.random() * directions.length)]; // Initial direction
-            
+        
+            // Function to calculate distance between two indices on the grid
+            const distanceToPacman = (ghostIndex, pacmanIndex) => {
+                const ghostRow = Math.floor(ghostIndex / cols);
+                const ghostCol = ghostIndex % cols;
+                const pacmanRow = Math.floor(pacmanIndex / cols);
+                const pacmanCol = pacmanIndex % cols;
+                return Math.abs(ghostRow - pacmanRow) + Math.abs(ghostCol - pacmanCol);
+            };
+        
+            // Function to choose the best direction towards Pac-Man
+            const chooseDirection = () => {
+                // Get Pac-Man's current index
+                const pacmanIndex = grid.findIndex(cell => cell.classList.contains('pacman'));
+        
+                // Calculate distances for each direction and filter out invalid moves
+                const validDirections = directions.filter(direction => {
+                    const nextMove = this.currentIndex + direction;
+                    return !grid[nextMove].classList.contains('wall') && !grid[nextMove].classList.contains('ghost');
+                });
+        
+                // Sort directions by distance to Pac-Man
+                validDirections.sort((dir1, dir2) => {
+                    const nextMove1 = this.currentIndex + dir1;
+                    const nextMove2 = this.currentIndex + dir2;
+                    return distanceToPacman(nextMove1, pacmanIndex) - distanceToPacman(nextMove2, pacmanIndex);
+                });
+        
+                // Return the closest direction if available
+                return validDirections.length > 0 ? validDirections[0] : null;
+            };
+        
+            let direction = chooseDirection(); // Initial direction
+        
             // Move the ghost at regular intervals
             this.timerId = setInterval(() => {
                 // Logic for ghost movement
-                const nextMove = this.currentIndex + direction; // Calculate the next potential position for the ghost
-                if (!grid[nextMove].classList.contains('wall') && !grid[nextMove].classList.contains('ghost')) { // Check if next move isn't a wall
-                    // Remove ghost from the current position
-                    grid[this.currentIndex].classList.remove('ghost', this.color);
-                    // Move the ghost to the next position
-                    this.currentIndex = nextMove;
-                    // Place the ghost on the new position
-                    grid[this.currentIndex].classList.add('ghost', this.color);
+                if (direction !== null) {
+                    const nextMove = this.currentIndex + direction; // Calculate the next potential position for the ghost
+        
+                    // Check if next move isn't a wall or another ghost
+                    if (!grid[nextMove].classList.contains('wall') && !grid[nextMove].classList.contains('ghost')) {
+                        // Remove ghost from the current position
+                        grid[this.currentIndex].classList.remove('ghost', this.color);
+                        // Move the ghost to the next position
+                        this.currentIndex = nextMove;
+                        // Place the ghost on the new position
+                        grid[this.currentIndex].classList.add('ghost', this.color);
+                    } else {
+                        // Choose a new direction if the ghost can't move
+                        direction = chooseDirection();
+                    }
                 } else {
-                    // Choose a new random direction if the ghost can't move
-                    direction = directions[Math.floor(Math.random() * directions.length)];
+                    // Choose a new direction if no valid direction is found
+                    direction = chooseDirection();
                 }
             }, 200); // Move Ghost every 200ms
         }

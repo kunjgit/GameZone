@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const rows = 20; // Number of rows in the grid
     const cols = 20; // Number of columns in the grid
     let score = 0; // Player's score
-    const totalPacDots = document.querySelectorAll('.pac-dot').length; // Total number of pac-dots in the game
+    let totalPacDots = 0; // Total number of pac-dots in the game
+    let gameOver = false; // Flag to track game over state
 
     // Level layout (0 = empty, 1 = wall, 2 = pac-dot)
     const layout = [
@@ -33,21 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
         1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
     ];
 
-// Create the gameboard
-layout.forEach((cell, index) => {
-    const div = document.createElement('div'); // Create a new div element for each cell
-    div.classList.add('cell'); // Add the 'cell' class to the div
+    // Create the gameboard
+    layout.forEach((cell, index) => {
+        const div = document.createElement('div'); // Create a new div element for each cell
+        div.classList.add('cell'); // Add the 'cell' class to the div
 
-    // Add wall class if the cell is a wall, pac-dot class if the cell contains a pac-dot
-    if (cell === 1) {
-        div.classList.add('wall'); // Add the 'wall' class to the div if the cell represents a wall
-    } else if (cell === 2) {
-        div.classList.add('pac-dot'); // Add the 'pac-dot' class to the div if the cell contains a pac-dot
-    }
+        // Add wall class if the cell is a wall, pac-dot class if the cell contains a pac-dot
+        if (cell === 1) {
+            div.classList.add('wall'); // Add the 'wall' class to the div if the cell represents a wall
+        } else if (cell === 2) {
+            div.classList.add('pac-dot'); // Add the 'pac-dot' class to the div if the cell contains a pac-dot
+            totalPacDots++; // Increment totalPacDots for each pac-dot found
+        }
 
-    gameBoard.appendChild(div); // Add the div to the game board element in the HTML
-    grid.push(div); // Add the div element to the grid array for tracking
-});
+        gameBoard.appendChild(div); // Add the div to the game board element in the HTML
+        grid.push(div); // Add the div element to the grid array for tracking
+    });
 
     // Place Pac-Man
     let pacmanCurrentIndex = 21; // Set Pac-Man's initial position to index 21
@@ -55,68 +57,91 @@ layout.forEach((cell, index) => {
 
     // Remove pac-dot at initial position if present
     if (grid[pacmanCurrentIndex].classList.contains('pac-dot')) {
-    grid[pacmanCurrentIndex].classList.remove('pac-dot'); // Remove 'pac-dot' class if present at Pac-Man's initial position
-    score += 10; // Increase the score by 10 points
-    console.log('Score:', score); // Output the current score to the console
-}
+        grid[pacmanCurrentIndex].classList.remove('pac-dot'); // Remove 'pac-dot' class if present at Pac-Man's initial position
+        score += 10; // Increase the score by 10 points
+        document.getElementById('scoreValue').textContent = score; // Update the score display
+        console.log('Score:', score); // Output the current score to the console
+    }
 
-// Function to move Pac-Man
-const movePacman = () => {
-    if (direction !== null) {
-        let newIndex = pacmanCurrentIndex; // Initialize newIndex with the current Pac-Man index
+    // Function to move Pac-Man
+    const movePacman = () => {
+        if (!gameOver && direction !== null) {
+            let newIndex = pacmanCurrentIndex; // Initialize newIndex with the current Pac-Man index
 
-        // Move Pac-Man based on the current direction
-        switch (direction) {
-            case 'ArrowUp': // Move Pac-Man up if the direction is 'ArrowUp'
-                // Check if moving up is possible and there is no wall in the way
-                if (pacmanCurrentIndex - cols >= 0 && !grid[pacmanCurrentIndex - cols].classList.contains('wall')) {
-                    newIndex -= cols; // Move Pac-Man up by one row
-                }
-                break;
-            case 'ArrowDown': // Move Pac-Man down if the direction is 'ArrowDown'
-                // Check if moving down is possible and there is no wall in the way
-                if (pacmanCurrentIndex + cols < cols * rows && !grid[pacmanCurrentIndex + cols].classList.contains('wall')) {
-                    newIndex += cols; // Move Pac-Man down by one row
-                }
-                break;
-            case 'ArrowLeft': // Move Pac-Man left if the direction is 'ArrowLeft'
-                // Check if moving left is possible and there is no wall in the way
-                if (pacmanCurrentIndex % cols !== 0 && !grid[pacmanCurrentIndex - 1].classList.contains('wall')) {
-                    newIndex -= 1; // Move Pac-Man left by one column
-                }
-                break;
-            case 'ArrowRight': // Move Pac-Man right if the direction is 'ArrowRight'
-                // Check if moving right is possible and there is no wall in the way
-                if (pacmanCurrentIndex % cols < cols - 1 && !grid[pacmanCurrentIndex + 1].classList.contains('wall')) {
-                    newIndex += 1; // Move Pac-Man right by one column
-                }
-                break;
-        }
+            // Move Pac-Man based on the current direction
+            switch (direction) {
+                case 'ArrowUp': // Move Pac-Man up if the direction is 'ArrowUp'
+                    // Check if moving up is possible and there is no wall in the way
+                    if (pacmanCurrentIndex - cols >= 0 && !grid[pacmanCurrentIndex - cols].classList.contains('wall')) {
+                        newIndex -= cols; // Move Pac-Man up by one row
+                    }
+                    break;
+                case 'ArrowDown': // Move Pac-Man down if the direction is 'ArrowDown'
+                    // Check if moving down is possible and there is no wall in the way
+                    if (pacmanCurrentIndex + cols < cols * rows && !grid[pacmanCurrentIndex + cols].classList.contains('wall')) {
+                        newIndex += cols; // Move Pac-Man down by one row
+                    }
+                    break;
+                case 'ArrowLeft': // Move Pac-Man left if the direction is 'ArrowLeft'
+                    // Check if moving left is possible and there is no wall in the way
+                    if (pacmanCurrentIndex % cols !== 0 && !grid[pacmanCurrentIndex - 1].classList.contains('wall')) {
+                        newIndex -= 1; // Move Pac-Man left by one column
+                    }
+                    break;
+                case 'ArrowRight': // Move Pac-Man right if the direction is 'ArrowRight'
+                    // Check if moving right is possible and there is no wall in the way
+                    if (pacmanCurrentIndex % cols < cols - 1 && !grid[pacmanCurrentIndex + 1].classList.contains('wall')) {
+                        newIndex += 1; // Move Pac-Man right by one column
+                    }
+                    break;
+            }
 
-          // Check if Pac-Man's position has changed
-          if (newIndex !== pacmanCurrentIndex) {
-            // Remove Pac-Man from the current position
-            grid[pacmanCurrentIndex].classList.remove('pacman');
-            pacmanCurrentIndex = newIndex; // Update Pac-Man's current index
-            grid[pacmanCurrentIndex].classList.add('pacman'); // Add Pac-Man to the new position
-            
-            // Check if Pac-Man has eaten a pac-dot
-            if (grid[pacmanCurrentIndex].classList.contains('pac-dot')) {
-                grid[pacmanCurrentIndex].classList.remove('pac-dot'); // Remove the pac-dot
-                score += 10; // Increase the score
-                document.getElementById('scoreValue').textContent = score; // Update the score display
-                console.log('Score:', score);
-                
-                // Check if all pac-dots are collected
-                if (score === totalPacDots * 10) {
-                    console.log('Congratulations! You won!');
-                }
+            // Check if Pac-Man's position has changed
+            if (newIndex !== pacmanCurrentIndex) {
+                // Remove Pac-Man from the current position
+                grid[pacmanCurrentIndex].classList.remove('pacman');
+                pacmanCurrentIndex = newIndex; // Update Pac-Man's current index
+                grid[pacmanCurrentIndex].classList.add('pacman'); // Add Pac-Man to the new position
+
+                // Check if Pac-Man has eaten a pac-dot
+                if (grid[pacmanCurrentIndex].classList.contains('pac-dot')) {
+                    grid[pacmanCurrentIndex].classList.remove('pac-dot'); // Remove the pac-dot
+                    score += 10; // Increase the score
+                    document.getElementById('scoreValue').textContent = score; // Update the score display
+                    console.log('Score:', score);
+
+                    // Call checkForWin function after updating score
+                    checkForWin();
                 }
             }
         }
     };
 
+    // Function to check for win condition
+    const checkForWin = () => {
+        if (score === 200) { // Aanpassen naar de gewenste winvoorwaarde
+        clearInterval(gameLoop); // Stop the game loop
+
+        // Stop ghost movements
+        ghost1.stop();
+        ghost2.stop();
+
+        // Display win message after a short delay
+        setTimeout(() => {
+            alert("Congratulations! You won!");
+        }, 500);
+
+        gameOver = true; // Set game over flag
+        clearInterval(gameLoop); // Stop the game loop
+
+        // Optionally, reset the game here if needed
+        resetGame();
+    }
+};
+
+
     // Check for keydown events to set Pac-Man's direction
+    let direction = null; // Initialize direction as null
     document.addEventListener('keydown', (event) => {
         const key = event.key;
         if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(key)) {
@@ -124,20 +149,38 @@ const movePacman = () => {
         }
     });
 
-    // Game loop
-    setInterval(movePacman, 200); // Move Pac-Man every 200ms
+    // Function to end the game
+    const endGame = (isWin) => {
+        gameOver = true; // Set game over flag
+        clearInterval(gameLoop); // Stop the game loop
 
-    //Ghost
+        // Stop ghost movements
+        ghost1.stop();
+        ghost2.stop();
+
+        // Display game over message
+        const message = isWin ? 'Congratulations! You won!' : 'Game over! You lost!';
+        alert(message); // Display a simple alert message
+
+        // Optionally, you could reset the game here if needed
+        resetGame();
+    };
+
+    // Game loop
+    const gameLoop = setInterval(movePacman, 200); // Move Pac-Man every 200ms
+
+    // Ghost
     class Ghost {
         constructor(startIndex, color) {
             // Initialize Ghost
             this.currentIndex = startIndex; // Set the current index of the ghost
             this.color = color; // Set the color of the ghost
-        }    
+            this.timerId = null; // Timer ID for ghost movement interval
+        }
 
         moveGhost() {
             const directions = [-1, +1, -cols, +cols]; // Possible directions for the ghost
-        
+
             // Function to calculate distance between two indices on the grid
             const distanceToPacman = (ghostIndex, pacmanIndex) => {
                 const ghostRow = Math.floor(ghostIndex / cols);
@@ -146,37 +189,37 @@ const movePacman = () => {
                 const pacmanCol = pacmanIndex % cols;
                 return Math.abs(ghostRow - pacmanRow) + Math.abs(ghostCol - pacmanCol);
             };
-        
+
             // Function to choose the best direction towards Pac-Man
             const chooseDirection = () => {
                 // Get Pac-Man's current index
                 const pacmanIndex = grid.findIndex(cell => cell.classList.contains('pacman'));
-        
+
                 // Calculate distances for each direction and filter out invalid moves
                 const validDirections = directions.filter(direction => {
                     const nextMove = this.currentIndex + direction;
                     return !grid[nextMove].classList.contains('wall') && !grid[nextMove].classList.contains('ghost');
                 });
-        
+
                 // Sort directions by distance to Pac-Man
                 validDirections.sort((dir1, dir2) => {
                     const nextMove1 = this.currentIndex + dir1;
                     const nextMove2 = this.currentIndex + dir2;
                     return distanceToPacman(nextMove1, pacmanIndex) - distanceToPacman(nextMove2, pacmanIndex);
                 });
-        
+
                 // Return the closest direction if available
                 return validDirections.length > 0 ? validDirections[0] : null;
             };
-        
+
             let direction = chooseDirection(); // Initial direction
-        
+
             // Move the ghost at regular intervals
             this.timerId = setInterval(() => {
                 // Logic for ghost movement
-                if (direction !== null) {
+                if (!gameOver && direction !== null) {
                     const nextMove = this.currentIndex + direction; // Calculate the next potential position for the ghost
-        
+
                     // Check if next move isn't a wall or another ghost
                     if (!grid[nextMove].classList.contains('wall') && !grid[nextMove].classList.contains('ghost')) {
                         // Remove ghost from the current position
@@ -189,14 +232,21 @@ const movePacman = () => {
                         // Choose a new direction if the ghost can't move
                         direction = chooseDirection();
                     }
-                } else {
-                    // Choose a new direction if no valid direction is found
-                    direction = chooseDirection();
+
+                    // Check if the ghost touched Pac-Man
+                    if (this.currentIndex === pacmanCurrentIndex) {
+                        gameOver = true;
+                        endGame(false); // Pac-Man loses
+                    }
                 }
             }, 200); // Move Ghost every 200ms
         }
+
+        stop() {
+            clearInterval(this.timerId); // Stop the ghost movement
+        }
     }
-    
+
     // Create ghosts
     const ghost1 = new Ghost(209, 'red'); // Place the first ghost
     const ghost2 = new Ghost(229, 'blue'); // Place the second ghost
@@ -205,3 +255,4 @@ const movePacman = () => {
     ghost1.moveGhost();
     ghost2.moveGhost();
 });
+

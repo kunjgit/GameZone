@@ -198,7 +198,9 @@ This repository also provides one such platforms where contributers come over an
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder) | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon) | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who) | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon) | [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack) |
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game) | [TriHand_Tactics](https://github.com/kunjgit/GameZone/tree/main/Games/TriHand_Tactics) | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian) | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) |  
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | [CatchTheBall](https://github.com/kunjgit/GameZone/tree/main/Games/CatchTheBall) |
-| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | [DoraemonRun ](https://github.com/kunjgit/GameZone/tree/main/Games/DoraemonRun) |
+| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | 
+| [CopyCat](https://github.com/kunjgit/GameZone/tree/main/Games/CopyCat) | 
+[DoraemonRun ](https://github.com/kunjgit/GameZone/tree/main/Games/DoraemonRun) |
 | [Memory_Cards_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Cards_Game) |
 | [Typing_Speed_Test2](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test2) | [Tic Tac Toe Responsive ](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_tac_toe_responsive) |
 | [Technical_Mind_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Technical_Mind_Game) |

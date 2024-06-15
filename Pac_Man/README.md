@@ -1,7 +1,3 @@
-Sure, here's a README for your Pac-Man game using the provided template:
-
----
-
 # Pac-Man
 
 ## Description 📃
@@ -28,7 +24,7 @@ This is a classic Pac-Man game built using HTML, CSS, and JavaScript. The object
 6. **Win the Game**: Collect all pac-dots to win the game. A message will display "Congratulations! You won!".
 
 ## Screenshots 📸
-![Pac-Man Game Screenshot](path-to-screenshot.png)
+![Img/Screenshot.png](img/screenshot.png)
 
 ## Working Video 📹
 [Link to video demonstration](path-to-video.mp4)

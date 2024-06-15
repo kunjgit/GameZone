@@ -27,6 +27,7 @@ Players can easily continue playing by refreshing the page to generate new rando
 
 <br>
 
-![image](../../assets/images/Dice_Game.png)
+![image](https://github.com/Roshr2211/GameZone/assets/136987759/61e7a67c-037e-4503-85ca-f1ab7810f6ee)
+
 
 <br>

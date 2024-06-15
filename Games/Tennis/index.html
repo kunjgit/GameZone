@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tennis Showdown</title>
+  <title>🎾Tennis Showdown</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>🎾 Tennis Showdown 🎾 </h1>
-  <canvas id="gameCanvas"></canvas>
-  <div class="score-card">
-    <div class="player-score">
-      <span class="player-name">Player 1:</span>
-      <span id="player1Score">0</span>
-    </div>
-    <div class="player-score">
-      <span class="player-name">Player 2:</span>
-      <span id="player2Score">0</span>
-    </div>
-  </div>
+<h1 style="position:absolute; margin-top:-40%; color: #fff;">🎾Tennis Showdown🎾</h1>
+<div class="net"></div>
+<canvas id="gameCanvas" width="800" height="400"></canvas>
+<div id="score">
+  <ul>
+  <li><div class="player">Player 1: <div id="player1Score" style="color:green;">0</div></div></li>
+	<br /><br />
+  <li>  <div class="player">Player 2: <div id="player2Score" style="color:green;">0</div></div></li>
+</div>
+
   <script src="script.js"></script>
-  <script src="score.js"></script>
+
 </body>
 </html>

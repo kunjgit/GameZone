@@ -311,6 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         // Check for collision on Pac-Man movement
-        setInterval(checkCollision, 200); // Check collision every 200ms
+        setInterval(checkCollision, 100); // Check collision every 100ms
     });
 

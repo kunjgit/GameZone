@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to check for win condition
     const checkForWin = () => {
-        if (score === 200) { // Aanpassen naar de gewenste winvoorwaarde
+        if (score === 300) { // Total score won
         gameOver = true; // Set game over flag
         clearInterval(gameLoop); // Stop the game loop
 
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Congratulations! You won!");
         }, 500);
 
-        // Optionally, reset the game here if needed
+        // Reset the game
         resetGame();
     }
 };
@@ -156,10 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
         ghost2.stop();
 
         // Display game over message
-        const message = isWin ? 'Congratulations! You won!' : 'Game over! You lost!';
-        alert(message); // Display a simple alert message
+        // Display win message after a short delay
+        setTimeout(() => {
+            alert("Game over! You lost!");
+        }, 500);
 
-        // Optionally, you could reset the game here if needed
+        // Reset the game
         resetGame();
     };
 
@@ -252,4 +254,3 @@ document.addEventListener('DOMContentLoaded', () => {
     ghost1.moveGhost();
     ghost2.moveGhost();
 });
-

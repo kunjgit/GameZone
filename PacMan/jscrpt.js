@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Updating lives display. Current lives:', lives);
             for (let i = 0; i < lifeIcons.length; i++) {
                 if (i < lives) {
-                    lifeIcons[i].style.display = 'inline'; // Display the life icon
+                    lifeIcons[i].style.display = 'inline-block'; // Display the life icon
                 } else {
                     lifeIcons[i].style.display = 'none'; // Hide the life icon
                 }

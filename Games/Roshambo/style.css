@@ -1,0 +1,91 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(45deg,rgb(158, 44, 171),rgb(41, 102, 177));
+    display: flex;
+    /* background-color: black; */
+    /* justify-content: center;  */
+    /* border: 2px solid red; */
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+}
+.but3{
+    background: url('scissors-emoji.png') center center/cover;
+    width: 125px;
+    height: 127px;
+    border-radius: 70px;
+    position: relative;
+    top:-40px;
+    left:5px;
+    border: 12px solid white;
+}
+.but1{
+    background: url('stone-emoji.png') center center/cover;
+    width: 125px;
+    height: 127px;
+    border-radius: 70px;
+    border: 12px solid white;
+    position: relative;
+    top:46px;
+    left: -138px;
+
+}
+.but2{
+    background: url('paper-emoji.png') center center/cover;
+    width: 125px;
+    height: 127px;
+    border-radius: 70px;
+    border: 12px solid white;
+    position: relative;
+    top: -74px;
+    left: 130px;
+
+}
+.but4{
+    width: 100px;
+    height: 50px;
+    margin-top: 45px;
+    /* margin-left: 1px; */
+    cursor: pointer;
+    position: relative;
+    right: 60px;
+    display: inline;
+}
+button:hover{
+    cursor: pointer;
+}
+.but5{
+    width: 100px;
+    height: 50px;
+    position: relative;
+    left: 90px;
+    bottom: 48px;
+    cursor: pointer; 
+}
+h2{
+    font-size: 35px;
+    color: white;
+    font-family:'Courier New', Courier, monospace
+}
+.result{
+    color: white;
+    font-size: 24px;
+}
+.scores{
+    color: white;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.img{
+    width:35px;
+    height: 28px;
+}
+.moves{
+    color: white;
+    font-size: 19px;
+}

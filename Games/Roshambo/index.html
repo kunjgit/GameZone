@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roshambo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2> Roshambo </h2><br>
+        <button onclick="
+        play('stone');
+        " class="but1"></button>
+        <button onclick="
+        play('paper');
+        " class="but2"></button>
+        <button onclick="
+        play('scissors');
+        " class="but3"></button>
+        <p class="moves">
+
+        </p>
+        <p class="result"></p>
+        <p class="scores"></p>
+        <button onclick="
+        score.wins=0;
+        score.loses=0;
+        score.tie=0;
+        updateScores();
+        " class="but4">Reset Score</button>
+        <button onclick="
+        change();
+        autoPlay();
+        " class="but5">Auto Play</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

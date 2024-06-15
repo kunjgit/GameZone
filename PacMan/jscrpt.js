@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rows = 20; // Number of rows in the grid
     const cols = 20; // Number of columns in the grid
     let score = 0; // Player's score
-    let lives = 3; // Player's lives
+    let lives = 2; // Player's lives
     let totalPacDots = 0; // Total number of pac-dots in the game
     let gameOver = false; // Flag to track game over state
     let gameLoop; // Variable to hold game loop interval
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Initialize lives using a for loop
-        for (let lives = 3; lives > 0; lives--) {
+        for (let lives = 2; lives > 0; lives--) {
             }
     
         // Function to end the game

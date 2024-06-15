@@ -42,7 +42,6 @@ class Chest {
       if (this.puzzleInput.value === this.puzzleSolution) {
         this.solvePuzzle(player);
       } else {
-        this.showChatBubble(cameraOffsetX, "Wrong solution, try again.");
         this.shakePuzzleModal(); // Trigger shake animation
       }
     });
@@ -118,6 +117,7 @@ class Chest {
       )
       .join("");
     this.puzzleInstructions.innerText = this.puzzleSolution;
+    console.log("Generated puzzle solution:", this.puzzleSolution); // Add debugging output
   }
 
   solvePuzzle(player) {

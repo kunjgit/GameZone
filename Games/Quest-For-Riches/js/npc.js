@@ -156,29 +156,10 @@ class NPC {
 
     // Draw chat bubble if chatting
     if (this.isChatting) {
-      let chatText = "";
-      if (player.hasCollectedTreasure) {
-        chatText =
-          "Well done, adventurer!\nThanks for dealing with those bad guys. You saved us!";
-        this.finalDialogueDone = true; // Set flag when final dialogue is shown
-      } else {
-        switch (this.dialogueState) {
-          case 0:
-            chatText = "Greetings, adventurer!";
-            break;
-          case 1:
-            chatText =
-              "Dark times have befallen our forest.\nEvil creatures roam freely.";
-            break;
-          case 2:
-            chatText =
-              "Please, we need your strength.\nDefeat the bad guys and reclaim the treasure!";
-            break;
-          default:
-            chatText = "Good luck, brave soul!";
-            break;
-        }
-      }
+      let chatText = level.getNPCDialogue(
+        this.dialogueState,
+        player.hasCollectedTreasure
+      );
       this.showChatBubble(cameraOffsetX, chatText);
     } else {
       this.hideChatBubble();
@@ -191,6 +172,7 @@ class NPC {
         endLevel(); // Show the transition screen after final dialogue
       } else if (player.hasCollectedTreasure) {
         this.dialogueState = 0; // Reset dialogue state after completion
+        this.finalDialogueDone = true; // Set flag for final dialogue
       } else {
         this.dialogueState = (this.dialogueState + 1) % 4; // Cycle through dialogue states
       }

@@ -1,4 +1,4 @@
-const canvas = document.querySelector("canvas");
+canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
 // Set the canvas size to a reasonable size
@@ -8,44 +8,17 @@ canvas.height = 540;
 const GAME_WORLD_WIDTH = canvas.width * 3; // Example game world size, 3 times the canvas width
 const player = new Player();
 const npc = new NPC(300, 300); // Add NPC near the start of the game world
-const enemies = [
-  new Enemy(1000, 300),
-  new Enemy(1400, 300),
-  new Enemy(1800, 300),
-];
 
-// Add coins to the game world
-const coins = [
-  new Coin(950, 300, player),
-  new Coin(1300, 400, player),
-  new Coin(1500, 300, player),
-  new Coin(1600, 300, player),
-  new Coin(1900, 400, player),
-  new Coin(2200, 400, player),
-  new Coin(2600, 400, player),
-];
-
-// Add a key to the game world
-const key = new Key(1800, 100); // Position the key somewhere on the map
-
-// Add a chest to the end of the game world
-const chest = new Chest(GAME_WORLD_WIDTH - 200, canvas.height - 80);
+let levelIndex = 0; // Current level index
+let level = new Level(levelData[levelIndex]);
+level.initializeGameWorld(player);
 
 const missionTracker = document.getElementById("missionTracker");
-
-const missions = [
-  "Talk to The Archer",
-  "Defeat all Wizards",
-  "Collect the Key",
-  "Open the Chest",
-  "Return to The Archer",
-];
-
 let currentMissionIndex = 0;
 
 function updateMissionTracker() {
-  if (currentMissionIndex < missions.length) {
-    missionTracker.innerHTML = `Mission: ${missions[currentMissionIndex]}`;
+  if (currentMissionIndex < level.missions.length) {
+    missionTracker.innerHTML = `Mission: ${level.missions[currentMissionIndex]}`;
   } else {
     missionTracker.innerHTML = "Mission Complete!";
   }
@@ -144,6 +117,13 @@ window.addEventListener("keyup", (event) => {
   }
 });
 
+canvas.addEventListener("mousedown", (event) => {
+  if (player.attackCooldown <= 0) {
+    player.isAttacking = true; // Set a flag to indicate an attack is initiated
+    player.attack();
+  }
+});
+
 function drawBackgrounds() {
   loadedBackgrounds.sort((a, b) => a.zIndex - b.zIndex);
   loadedBackgrounds.forEach((layer) => {
@@ -168,7 +148,7 @@ function checkMissionProgress() {
       }
       break;
     case 1:
-      if (enemies.length === 0) {
+      if (level.enemies.length === 0) {
         currentMissionIndex++;
       }
       break;
@@ -178,7 +158,7 @@ function checkMissionProgress() {
       }
       break;
     case 3:
-      if (chest.isOpen) {
+      if (level.chest.isOpen) {
         currentMissionIndex++;
       }
       break;
@@ -211,10 +191,13 @@ function handleCombat(player, enemy) {
       player.isAttacking = false; // Reset attack flag
 
       if (enemy.health <= 0) {
-        const index = enemies.indexOf(enemy);
+        const index = level.enemies.indexOf(enemy);
         if (index > -1) {
-          enemies.splice(index, 1); // Remove defeated enemy
-          console.log("Enemy defeated. Remaining enemies: ", enemies.length);
+          level.enemies.splice(index, 1); // Remove defeated enemy
+          console.log(
+            "Enemy defeated. Remaining enemies: ",
+            level.enemies.length
+          );
         }
       }
     } else if (player.attackCooldown > 0) {
@@ -254,7 +237,20 @@ document.getElementById("replayButton").addEventListener("click", () => {
 
 document.getElementById("nextLevelButton").addEventListener("click", () => {
   // Logic for moving to the next level
-  console.log("Next level");
+  levelIndex++;
+  if (levelIndex < levelData.length) {
+    level = new Level(levelData[levelIndex]);
+    resetGameState();
+    level.initializeGameWorld(player);
+    startLevel();
+    updateMissionTracker();
+    const transitionScreen = document.getElementById("transitionScreen");
+    transitionScreen.classList.add("hidden");
+    transitionScreen.style.display = "none";
+  } else {
+    console.log("No more levels available");
+    // Handle end of game or loop back to the first level
+  }
 });
 
 document
@@ -264,6 +260,58 @@ document
     transitionScreen.classList.add("hidden");
     transitionScreen.style.display = "none";
   });
+
+function resetGameState() {
+  player.position = { x: 50, y: 50 };
+  player.velocity = { x: 0, y: 0 };
+  player.health = 20;
+  player.coins = 0;
+  player.hasKey = false;
+  player.hasCollectedTreasure = false;
+  player.setAnimation("idle");
+
+  npc.isChatting = false;
+  npc.dialogueState = 0;
+  npc.finalDialogueDone = false;
+
+  currentMissionIndex = 0;
+  cameraOffsetX = 0;
+
+  // Clear puzzle input and modal state
+  document.getElementById("puzzleInput").value = "";
+  document.getElementById("puzzleModal").style.display = "none";
+
+  // Ensure the chest is reset properly
+  if (level.chest) {
+    level.chest.isOpen = false;
+    level.chest.frameY = 4; // Reset to initial frame
+    level.chest.frameX = 0;
+    level.chest.frameTick = 0;
+    level.chest.animationComplete = false;
+    level.chest.puzzleSolution = "";
+  }
+
+  // Re-initialize coins
+  level.coins = levelData[levelIndex].coins.map(
+    (coin) => new Coin(coin.x, coin.y, player)
+  );
+
+  // Re-initialize enemies
+  level.enemies = levelData[levelIndex].enemies.map(
+    (enemy) => new Enemy(enemy.x, enemy.y)
+  );
+
+  // Re-initialize key
+  level.key = new Key(
+    levelData[levelIndex].keyPosition.x,
+    levelData[levelIndex].keyPosition.y
+  );
+
+  console.log("Game state reset. Current level:", levelIndex);
+  console.log("Enemies:", level.enemies);
+  console.log("Coins:", level.coins);
+  console.log("Key:", level.key);
+}
 
 startLevel();
 
@@ -293,21 +341,45 @@ function animate() {
     )
   );
 
-  enemies.forEach((enemy) => {
-    enemy.update(cameraOffsetX, player);
-    handleCombat(player, enemy);
-  });
+  if (Array.isArray(level.enemies)) {
+    level.enemies.forEach((enemy) => {
+      if (typeof enemy.update === "function") {
+        enemy.update(cameraOffsetX, player);
+        handleCombat(player, enemy);
+      } else {
+        console.error("Enemy is not properly instantiated:", enemy);
+      }
+    });
+  } else {
+    console.error("Enemies array is not defined:", level.enemies);
+  }
 
   // Update and draw coins
-  coins.forEach((coin) => {
-    coin.update(cameraOffsetX, player);
-  });
+  if (Array.isArray(level.coins)) {
+    level.coins.forEach((coin) => {
+      if (typeof coin.update === "function") {
+        coin.update(cameraOffsetX, player);
+      } else {
+        console.error("Coin is not properly instantiated:", coin);
+      }
+    });
+  } else {
+    console.error("Coins array is not defined:", level.coins);
+  }
 
   // Update and draw the key
-  key.update(cameraOffsetX, player);
+  if (level.key && typeof level.key.update === "function") {
+    level.key.update(cameraOffsetX, player);
+  } else {
+    console.error("Key is not properly instantiated:", level.key);
+  }
 
   // Update and draw the chest
-  chest.update(cameraOffsetX, player, enemies);
+  if (level.chest && typeof level.chest.update === "function") {
+    level.chest.update(cameraOffsetX, player, level.enemies);
+  } else {
+    console.error("Chest is not properly instantiated:", level.chest);
+  }
 
   // Update the mission tracker position to stay at the top right of the canvas
   const canvasRect = canvas.getBoundingClientRect();

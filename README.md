@@ -359,7 +359,7 @@ This repository also provides one such platforms where contributers come over an
 | [Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) | 
 | [Disney_Trivia](https://github.com/manmita/GameZone/tree/Disney_Trivia/Games/Disney_Trivia)|
 |[Harmony_Mixer](https://github.com/kunjgit/GameZone/tree/main/Games/Harmony_Mixer)|
-
+|[Maze_Runner](https://github.com/sanayamahajan-23/GameZone/tree/Maze_runner/Games/Maze_Runner)|
 
 
  </center>

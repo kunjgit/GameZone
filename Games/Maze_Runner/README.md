@@ -37,7 +37,7 @@ Restart: Click Restart to play again from the beginning.
 
 <br>
 
- ![image]((https://github.com/sanayamahajan-23/GameZone/blob/Maze_runner/Games/Maze_Runner/assets/images/Maze_Runner.png))
+ ![image](https://github.com/sanayamahajan-23/GameZone/blob/Maze_runner/Games/Maze_Runner/assets/images/Maze_Runner.png)
 
 <br>
 

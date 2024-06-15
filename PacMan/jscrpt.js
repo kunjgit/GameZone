@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to check for win condition
     const checkForWin = () => {
         if (score === 200) { // Aanpassen naar de gewenste winvoorwaarde
+        gameOver = true; // Set game over flag
         clearInterval(gameLoop); // Stop the game loop
 
         // Stop ghost movements
@@ -131,14 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Congratulations! You won!");
         }, 500);
 
-        gameOver = true; // Set game over flag
-        clearInterval(gameLoop); // Stop the game loop
-
         // Optionally, reset the game here if needed
         resetGame();
     }
 };
-
 
     // Check for keydown events to set Pac-Man's direction
     let direction = null; // Initialize direction as null

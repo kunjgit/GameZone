@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to check for win condition
     const checkForWin = () => {
-        if (score === 300) { // Total score won
+        if (score === 2030) { // Total score won
             gameOver = true; // Set game over flag
             clearInterval(gameLoop); // Stop the game loop
     

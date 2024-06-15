@@ -19,6 +19,17 @@
         <button id="submitPuzzle">Submit</button>
       </div>
     </div>
+    <div id="transitionScreen" class="hidden">
+      <div class="transitionContent">
+        <span class="close" id="closeTransitionScreen">&times;</span>
+        <h1>Mission passed!</h1>
+        <p>Coins: <span id="coinsCollected"></span>x</p>
+        <p>Time: <span id="timeTaken"></span></p>
+        <p>Score: <span id="finalScore"></span></p>
+        <button id="replayButton">Replay level</button>
+        <button id="nextLevelButton">Next level</button>
+      </div>
+    </div>
     <script src="js/player.js"></script>
     <script src="js/npc.js"></script>
     <script src="js/enemy.js"></script>

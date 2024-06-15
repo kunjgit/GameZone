@@ -43,7 +43,11 @@ const missions = [
 let currentMissionIndex = 0;
 
 function updateMissionTracker() {
-  missionTracker.innerHTML = missions[currentMissionIndex];
+  if (currentMissionIndex < missions.length) {
+    missionTracker.innerHTML = `Mission: ${missions[currentMissionIndex]}`;
+  } else {
+    missionTracker.innerHTML = "Mission Complete!";
+  }
 }
 
 updateMissionTracker();
@@ -89,28 +93,32 @@ const keys = {
 let cameraOffsetX = 0;
 
 window.addEventListener("keydown", (event) => {
-  switch (event.key) {
-    case " ":
-      if (player.velocity.y === 0) {
-        player.velocity.y = -10;
-        player.setAnimation("jump");
-      }
-      break;
-    case "a":
-      keys.a.pressed = true;
-      player.setAnimation("run");
-      player.direction = "left";
-      break;
-    case "d":
-      keys.d.pressed = true;
-      player.setAnimation("run");
-      player.direction = "right";
-      break;
-    case "e":
-      keys.e.pressed = true;
-      player.isInteracting = true;
-      npc.interact(player); // Trigger interaction with player state
-      break;
+  if (
+    document.getElementById("transitionScreen").classList.contains("hidden")
+  ) {
+    switch (event.key) {
+      case " ":
+        if (player.velocity.y === 0) {
+          player.velocity.y = -10;
+          player.setAnimation("jump");
+        }
+        break;
+      case "a":
+        keys.a.pressed = true;
+        player.setAnimation("run");
+        player.direction = "left";
+        break;
+      case "d":
+        keys.d.pressed = true;
+        player.setAnimation("run");
+        player.direction = "right";
+        break;
+      case "e":
+        keys.e.pressed = true;
+        player.isInteracting = true;
+        npc.interact(player); // Trigger interaction with player state
+        break;
+    }
   }
 });
 
@@ -179,7 +187,7 @@ function checkMissionProgress() {
         npc.dialogueState === 0 &&
         player.hasCollectedTreasure
       ) {
-        missionTracker.innerHTML = "Quest Complete!";
+        currentMissionIndex++;
       }
       break;
   }
@@ -213,6 +221,50 @@ function handleCombat(player, enemy) {
     }
   }
 }
+
+let startTime;
+
+function startLevel() {
+  startTime = new Date();
+}
+
+function endLevel() {
+  const endTime = new Date();
+  const timeTaken = Math.floor((endTime - startTime) / 1000);
+  const coinsCollected = player.coins;
+  const score = calculateScore(coinsCollected, timeTaken);
+
+  document.getElementById("coinsCollected").innerText = coinsCollected;
+  document.getElementById("timeTaken").innerText = `${timeTaken}s`;
+  document.getElementById("finalScore").innerText = score;
+
+  const transitionScreen = document.getElementById("transitionScreen");
+  transitionScreen.classList.remove("hidden");
+  transitionScreen.style.display = "flex";
+}
+
+function calculateScore(coins, time) {
+  return coins * 10 - time * 5;
+}
+
+document.getElementById("replayButton").addEventListener("click", () => {
+  location.reload(); // Reload the game for now, you can customize this
+});
+
+document.getElementById("nextLevelButton").addEventListener("click", () => {
+  // Logic for moving to the next level
+  console.log("Next level");
+});
+
+document
+  .getElementById("closeTransitionScreen")
+  .addEventListener("click", () => {
+    const transitionScreen = document.getElementById("transitionScreen");
+    transitionScreen.classList.add("hidden");
+    transitionScreen.style.display = "none";
+  });
+
+startLevel();
 
 function animate() {
   window.requestAnimationFrame(animate);

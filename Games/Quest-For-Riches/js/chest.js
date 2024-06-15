@@ -147,7 +147,6 @@ class Chest {
     const modalVisible = this.puzzleModal.style.display === "block";
 
     // Debug: log enemies array length
-    console.log("Enemies remaining: ", enemies.length);
 
     if (
       !modalVisible && // Only interact if the modal is not visible

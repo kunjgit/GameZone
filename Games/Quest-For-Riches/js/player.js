@@ -154,7 +154,7 @@ class Player {
       // Draw key icon
       const keyImg = new Image();
       keyImg.src = "assets/images/sprites/gold_key.png";
-      c.drawImage(keyImg, 320, 10, 20, 20);
+      c.drawImage(keyImg, 320, 10, 30, 30);
     }
   }
 

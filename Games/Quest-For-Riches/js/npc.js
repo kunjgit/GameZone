@@ -9,6 +9,8 @@ class NPC {
     this.direction = "left"; // Initial direction the NPC is facing
     this.isChatting = false; // Flag to indicate if the NPC is chatting
     this.dialogueState = 0; // Track the dialogue state
+    this.finalDialogueDone = false; // Flag to check if the final dialogue is done
+
     this.chatBubble = document.createElement("div");
     this.chatBubble.classList.add("chatBubble");
     document.body.appendChild(this.chatBubble);
@@ -158,6 +160,7 @@ class NPC {
       if (player.hasCollectedTreasure) {
         chatText =
           "Well done, adventurer!\nThanks for dealing with those bad guys. You saved us!";
+        this.finalDialogueDone = true; // Set flag when final dialogue is shown
       } else {
         switch (this.dialogueState) {
           case 0:
@@ -184,7 +187,9 @@ class NPC {
 
   interact(player) {
     if (this.isChatting) {
-      if (player.hasCollectedTreasure) {
+      if (this.finalDialogueDone) {
+        endLevel(); // Show the transition screen after final dialogue
+      } else if (player.hasCollectedTreasure) {
         this.dialogueState = 0; // Reset dialogue state after completion
       } else {
         this.dialogueState = (this.dialogueState + 1) % 4; // Cycle through dialogue states

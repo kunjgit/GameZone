@@ -25,6 +25,7 @@ class Enemy {
     this.sprites = spriteData.sprites;
     this.loaded = false;
 
+    // Load all sprite images
     let loadedImagesCount = 0;
     const totalImages = Object.keys(this.sprites).length;
     for (let key in this.sprites) {
@@ -45,6 +46,7 @@ class Enemy {
     this.frameTick = 0;
   }
 
+  // Set the current animation
   setAnimation(animation) {
     if (this.currentSprite !== animation) {
       this.currentSprite = animation;
@@ -53,6 +55,7 @@ class Enemy {
     }
   }
 
+  // Update the state of the enemy based on player position
   updateState(player) {
     if (this.isDead) {
       this.setAnimation("dead");
@@ -113,6 +116,7 @@ class Enemy {
     }
   }
 
+  // Draw the enemy on the canvas
   draw(cameraOffsetX) {
     if (!this.loaded) return;
 
@@ -156,6 +160,7 @@ class Enemy {
     this.drawHealthBar(cameraOffsetX);
   }
 
+  // Draw the health bar above the enemy
   drawHealthBar(cameraOffsetX) {
     const healthBarWidth = this.scaledWidth * 0.6;
     const healthBarHeight = 10;
@@ -178,24 +183,28 @@ class Enemy {
     c.strokeRect(healthBarX, healthBarY, healthBarWidth, healthBarHeight);
   }
 
+  // Update the enemy's position and state
   update(cameraOffsetX, player) {
     this.updateState(player);
 
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
+    // Apply gravity
     if (this.position.y + this.scaledHeight + this.velocity.y < canvas.height) {
       this.velocity.y += this.gravity;
     } else {
       this.velocity.y = 0;
     }
 
+    // Ensure the enemy stays within the game world bounds
     if (this.position.x < 0) {
       this.position.x = 0;
     } else if (this.position.x + this.scaledWidth > GAME_WORLD_WIDTH) {
       this.position.x = GAME_WORLD_WIDTH - this.scaledWidth;
     }
 
+    // Update the frame index for animation
     this.frameTick++;
     if (this.frameTick >= this.frameSpeed) {
       this.frameTick = 0;
@@ -206,6 +215,7 @@ class Enemy {
     this.draw(cameraOffsetX);
   }
 
+  // Handle taking damage
   takeDamage() {
     if (this.isDead) return;
     this.health -= 1;

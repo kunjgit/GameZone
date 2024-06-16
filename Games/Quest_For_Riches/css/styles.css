@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* Basic styles for the body */
 body {
   padding: 0;
   font-family: Arial, sans-serif;
@@ -10,6 +11,7 @@ body {
   background-color: black;
 }
 
+/* Styles for main and controls screen */
 #mainScreen, #controlsScreen {
   text-align: center;
   color: white;
@@ -32,6 +34,7 @@ body {
   height: 100vh;
 }
 
+/* Button styles */
 button {
   background: yellow;
   border: none;
@@ -46,11 +49,12 @@ button:hover {
   background: orange;
 }
 
+/* Class to hide elements */
 .hidden {
   display: none;
 }
 
-/* Existing styles */
+/* Chat bubble styles */
 .chatBubble {
   position: absolute;
   display: none;
@@ -66,6 +70,7 @@ button:hover {
   word-wrap: break-word;
 }
 
+/* Prompt E styles */
 .promptE {
   position: absolute;
   display: none;
@@ -78,6 +83,7 @@ button:hover {
   font-size: 14px;
 }
 
+/* Shake animation for modal */
 @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-10px); }
@@ -90,21 +96,22 @@ button:hover {
   animation: shake 0.5s;
 }
 
+/* Modal styles */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.9); 
 }
 
 .modal-content {
-  background-color: #000000; /* Black background */
+  background-color: #000000; 
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -115,6 +122,7 @@ button:hover {
   text-align: center;
 }
 
+/* Close button styles for modal */
 .close {
   color: white;
   float: right;
@@ -129,12 +137,14 @@ button:hover {
   cursor: pointer;
 }
 
+/* Puzzle instructions styles */
 #puzzleInstructions {
   font-size: 24px;
   color: #ffcc00; 
   margin-bottom: 20px;
 }
 
+/* Puzzle input styles */
 #puzzleInput {
   width: 100%;
   padding: 10px;
@@ -148,6 +158,7 @@ button:hover {
   text-align: center;
 }
 
+/* Submit puzzle button styles */
 #submitPuzzle {
   background-color: #ffcc00; 
   color: black;
@@ -162,6 +173,7 @@ button:hover {
   background-color: #ff9900; 
 }
 
+/* Mission tracker styles */
 #missionTracker {
   position: absolute;
   top: 10px;
@@ -177,6 +189,7 @@ button:hover {
   text-align: center;
 }
 
+/* Transition screen styles */
 #transitionScreen {
   position: fixed;
   top: 0;
@@ -188,10 +201,6 @@ button:hover {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-}
-
-.hidden {
-  display: none;
 }
 
 .transitionContent {
@@ -230,7 +239,7 @@ button:hover {
   background: orange;
 }
 
-/* New styles for the end game screen */
+/* End game screen styles */
 #endGameScreen {
   position: fixed;
   top: 0;
@@ -280,6 +289,7 @@ button:hover {
   background: orange;
 }
 
+/* Back to GameZone button styles */
 .backToGameZone {
   display: block;
   width: 100%;

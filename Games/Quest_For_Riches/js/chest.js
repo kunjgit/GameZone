@@ -38,6 +38,7 @@ class Chest {
     this.submitPuzzleButton = document.getElementById("submitPuzzle");
     this.puzzleSolution = "";
 
+    // Add event listeners for puzzle interactions
     this.submitPuzzleButton.addEventListener("click", () => {
       if (this.puzzleInput.value === this.puzzleSolution) {
         this.solvePuzzle(player);
@@ -59,6 +60,7 @@ class Chest {
     });
   }
 
+  // Draw the chest on the canvas
   draw(cameraOffsetX) {
     c.drawImage(
       this.image,
@@ -73,41 +75,40 @@ class Chest {
     );
   }
 
+  // Show the 'E' prompt above the chest
   showPromptE(cameraOffsetX) {
     const promptX = this.position.x - cameraOffsetX + this.scaledWidth / 2;
     const promptY = this.position.y - 30; // Above the chest
 
-    // Get canvas position
     const canvasRect = document.querySelector("canvas").getBoundingClientRect();
-
-    // Adjust prompt position based on canvas position
     this.promptE.style.left = `${canvasRect.left + promptX - 10}px`;
     this.promptE.style.top = `${canvasRect.top + promptY - 20}px`;
     this.promptE.style.display = "block";
   }
 
+  // Hide the 'E' prompt
   hidePromptE() {
     this.promptE.style.display = "none";
   }
 
+  // Show a chat bubble above the chest
   showChatBubble(cameraOffsetX, text) {
     const bubbleX = this.position.x - cameraOffsetX + this.scaledWidth / 2;
     const bubbleY = this.position.y - 100; // Above the chest
 
-    // Get canvas position
     const canvasRect = document.querySelector("canvas").getBoundingClientRect();
-
-    // Adjust bubble position based on canvas position
     this.chatBubble.style.left = `${canvasRect.left + bubbleX}px`;
     this.chatBubble.style.top = `${canvasRect.top + bubbleY}px`;
     this.chatBubble.innerHTML = text.replace(/\n/g, "<br>");
     this.chatBubble.style.display = "block";
   }
 
+  // Hide the chat bubble
   hideChatBubble() {
     this.chatBubble.style.display = "none";
   }
 
+  // Generate a random puzzle solution
   generatePuzzle() {
     const patternLength = 5;
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -117,13 +118,12 @@ class Chest {
       )
       .join("");
     this.puzzleInstructions.innerText = this.puzzleSolution;
-    console.log("Generated puzzle solution:", this.puzzleSolution); // Add debugging output
   }
 
+  // Solve the puzzle and open the chest
   solvePuzzle(player) {
     this.isOpen = true;
     this.frameY = 5; // Change to row 6 for the open chest
-    console.log("Chest opened!");
     // Create coin pile animation
     this.coinPile = new CoinPile(
       this.position.x,
@@ -136,6 +136,7 @@ class Chest {
     this.puzzleModal.style.display = "none"; // Close the modal
   }
 
+  // Shake the puzzle modal to indicate incorrect solution
   shakePuzzleModal() {
     const modalContent = this.puzzleModal.querySelector(".modal-content");
     modalContent.classList.add("shake");
@@ -144,11 +145,11 @@ class Chest {
     }, 500); // Duration of the shake animation
   }
 
+  // Update the chest state and animations
   update(cameraOffsetX, player, enemies) {
     const modalVisible = this.puzzleModal.style.display === "block";
 
-    // Debug: log enemies array length
-
+    // Interaction logic when the player is near the chest
     if (
       !modalVisible && // Only interact if the modal is not visible
       !this.isOpen &&

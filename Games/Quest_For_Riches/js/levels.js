@@ -1,21 +1,38 @@
+/**
+ * Represents a game level with various entities like coins, enemies, NPCs, key, and chest.
+ */
 class Level {
+  /**
+   * Creates a new level instance.
+   * @param {Object} data - The level data containing missions, coins, enemies, NPC, dialogues, key, and chest positions.
+   * @param {Array} data.missions - List of mission descriptions for the level.
+   * @param {Array} data.coins - List of coin objects containing x and y positions.
+   * @param {Array} data.enemies - List of enemy objects containing x, y, and sprite data.
+   * @param {Object} data.npc - NPC data including position and sprite data.
+   * @param {Object} data.npcDialogues - Dialogues for the NPC with different states.
+   * @param {Object} data.keyPosition - Position object containing x and y for the key.
+   * @param {Object} data.chestPosition - Position object containing x and y for the chest.
+   */
   constructor(data) {
     this.missions = data.missions;
     this.coinsData = data.coins;
     this.enemiesData = data.enemies;
-    this.npcData = data.npc; // Add NPC data
+    this.npcData = data.npc;
     this.npcDialogues = data.npcDialogues;
     this.keyPosition = data.keyPosition;
     this.chestPosition = data.chestPosition;
-    this.coins = []; // Ensure these are initialized
+    this.coins = [];
     this.enemies = [];
   }
 
+  /**
+   * Initializes the game world by creating instances of coins, enemies, NPC, key, and chest.
+   * @param {Player} player - The player instance to associate with the NPC.
+   */
   initializeGameWorld(player) {
     // Initialize coins
     this.coins = this.coinsData.map((coin) => {
       const newCoin = new Coin(coin.x, coin.y, player);
-      console.log("Coin instantiated:", newCoin);
       return newCoin;
     });
 
@@ -31,10 +48,9 @@ class Level {
         enemyData.x,
         enemyData.y,
         enemyData.spriteData,
-        100, // patrolDistance
-        enemyType // type
+        100,
+        enemyType
       );
-      console.log("Enemy instantiated:", newEnemy);
       return newEnemy;
     });
 
@@ -45,18 +61,21 @@ class Level {
         this.npcData.y,
         this.npcData.spriteData
       );
-      console.log("NPC instantiated:", player.npc);
     }
 
     // Initialize key
     this.key = new Key(this.keyPosition.x, this.keyPosition.y);
-    console.log("Key instantiated:", this.key);
 
     // Initialize chest
     this.chest = new Chest(this.chestPosition.x, this.chestPosition.y);
-    console.log("Chest instantiated:", this.chest);
   }
 
+  /**
+   * Retrieves the appropriate dialogue for the NPC based on the current state and whether the treasure is collected.
+   * @param {number} dialogueState - The current dialogue state of the NPC.
+   * @param {boolean} hasCollectedTreasure - Indicates if the player has collected the treasure.
+   * @returns {string} The dialogue text for the NPC.
+   */
   getNPCDialogue(dialogueState, hasCollectedTreasure) {
     if (hasCollectedTreasure) {
       return this.npcDialogues.final;
@@ -65,24 +84,24 @@ class Level {
   }
 }
 
-// Example level data
+// Example level data for creating instances of Level class
 const levelData = [
   {
     missions: [
-      "Talk to The Archer",
-      "Defeat all Wizards",
-      "Collect the Key",
-      "Open the Chest",
-      "Return to The Archer",
+      "Talk to The Archer", // Mission 1
+      "Defeat all Wizards", // Mission 2
+      "Collect the Key", // Mission 3
+      "Open the Chest", // Mission 4
+      "Return to The Archer", // Mission 5
     ],
     coins: [
-      { x: 950, y: 300 },
-      { x: 1300, y: 400 },
-      { x: 1500, y: 300 },
-      { x: 1600, y: 300 },
-      { x: 1900, y: 400 },
-      { x: 2200, y: 400 },
-      { x: 2600, y: 400 },
+      { x: 950, y: 300 }, // Coin 1 position
+      { x: 1300, y: 400 }, // Coin 2 position
+      { x: 1500, y: 300 }, // Coin 3 position
+      { x: 1600, y: 300 }, // Coin 4 position
+      { x: 1900, y: 400 }, // Coin 5 position
+      { x: 2200, y: 400 }, // Coin 6 position
+      { x: 2600, y: 400 }, // Coin 7 position
     ],
     enemies: [
       {
@@ -234,20 +253,20 @@ const levelData = [
   },
   {
     missions: [
-      "Find the Healer",
-      "Defeat the Monsters",
-      "Collect the Sacred Stone",
-      "Open the Sacred Chest",
-      "Return to the Healer",
+      "Find the Healer", // Mission 1
+      "Defeat the Monsters", // Mission 2
+      "Collect the Sacred Stone", // Mission 3
+      "Open the Sacred Chest", // Mission 4
+      "Return to the Healer", // Mission 5
     ],
     coins: [
-      { x: 500, y: 200 },
-      { x: 800, y: 300 },
-      { x: 1100, y: 200 },
-      { x: 1400, y: 300 },
-      { x: 1700, y: 200 },
-      { x: 2000, y: 300 },
-      { x: 2300, y: 400 },
+      { x: 500, y: 200 }, // Coin 1 position
+      { x: 800, y: 300 }, // Coin 2 position
+      { x: 1100, y: 200 }, // Coin 3 position
+      { x: 1400, y: 300 }, // Coin 4 position
+      { x: 1700, y: 200 }, // Coin 5 position
+      { x: 2000, y: 300 }, // Coin 6 position
+      { x: 2300, y: 400 }, // Coin 7 position
     ],
     enemies: [
       {
@@ -496,5 +515,5 @@ const levelData = [
     keyPosition: { x: 2000, y: 150 },
     chestPosition: { x: 2800, y: 460 },
   },
-  // Add more levels as needed
+  // Add more levels here...
 ];

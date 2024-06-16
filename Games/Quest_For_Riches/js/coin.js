@@ -14,6 +14,7 @@ class Coin {
     this.image.src = "assets/images/sprites/gold_coin.png";
   }
 
+  // Draw the coin on the canvas if it has not been collected
   draw(cameraOffsetX) {
     if (this.collected) return;
 
@@ -26,8 +27,8 @@ class Coin {
     );
   }
 
+  // Update the coin state and check for collision with the player
   update(cameraOffsetX, player) {
-    // Check for collision with the player
     if (
       !this.collected &&
       player.position.x < this.position.x + this.scaledWidth &&
@@ -35,12 +36,11 @@ class Coin {
       player.position.y < this.position.y + this.scaledHeight &&
       player.height + player.position.y > this.position.y
     ) {
-      this.collected = true;
-      console.log("Coin collected!");
-      audioManager.playSound("coin");
+      this.collected = true; // Mark the coin as collected
+      audioManager.playSound("coin"); // Play coin collection sound
       player.coins += 1; // Increase player's coin count
     }
 
-    this.draw(cameraOffsetX);
+    this.draw(cameraOffsetX); // Draw the coin
   }
 }

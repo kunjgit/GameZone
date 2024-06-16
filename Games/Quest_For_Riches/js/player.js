@@ -1,23 +1,20 @@
+/**
+ * Represents the player in the game.
+ */
 class Player {
+  /**
+   * Creates a new player instance.
+   */
   constructor() {
-    this.position = {
-      x: 50,
-      y: 50,
-    };
-
-    this.velocity = {
-      x: 0,
-      y: 0,
-    };
+    this.position = { x: 50, y: 50 }; // Initial position of the player
+    this.velocity = { x: 0, y: 0 }; // Initial velocity of the player
 
     this.originalWidth = 128; // Original frame width
     this.originalHeight = 128; // Original frame height
     this.scale = 2; // Scale factor to make the character larger
     this.width = this.originalWidth * this.scale; // Scaled width
     this.height = this.originalHeight * this.scale; // Scaled height
-    this.sides = {
-      bottom: this.position.y + this.height,
-    };
+    this.sides = { bottom: this.position.y + this.height };
     this.gravity = 0.3;
     this.direction = "right"; // Initial direction
     this.health = 20; // Player health
@@ -34,11 +31,7 @@ class Player {
         frames: 8,
         speed: 5,
       },
-      run: {
-        src: "assets/images/sprites/player/Run.png",
-        frames: 8,
-        speed: 5,
-      },
+      run: { src: "assets/images/sprites/player/Run.png", frames: 8, speed: 5 },
       jump: {
         src: "assets/images/sprites/player/Jump.png",
         frames: 8,
@@ -80,6 +73,10 @@ class Player {
     }
   }
 
+  /**
+   * Sets the player's current animation.
+   * @param {string} animation - The name of the animation to set.
+   */
   setAnimation(animation) {
     if (this.currentSprite !== animation) {
       this.currentSprite = animation;
@@ -88,6 +85,10 @@ class Player {
     }
   }
 
+  /**
+   * Draws the player on the canvas.
+   * @param {number} cameraOffsetX - The offset of the camera on the x-axis.
+   */
   draw(cameraOffsetX) {
     const sprite = this.sprites[this.currentSprite];
     const sx = this.frameIndex * this.originalWidth;
@@ -130,6 +131,9 @@ class Player {
     c.restore();
   }
 
+  /**
+   * Draws the player's health bar on the screen.
+   */
   drawHealthBar() {
     c.fillStyle = "red";
     c.fillRect(10, 10, this.health * 10, 20);
@@ -137,6 +141,9 @@ class Player {
     c.strokeRect(10, 10, 200, 20);
   }
 
+  /**
+   * Draws the player's coin count on the screen.
+   */
   drawCoinCount() {
     // Draw coin icon
     const coinImg = new Image();
@@ -149,6 +156,9 @@ class Player {
     c.fillText(`x ${this.coins}`, 250, 30);
   }
 
+  /**
+   * Draws the key indicator on the screen if the player has the key.
+   */
   drawKeyIndicator() {
     if (this.hasKey) {
       // Draw key icon
@@ -158,6 +168,9 @@ class Player {
     }
   }
 
+  /**
+   * Handles the player taking damage.
+   */
   takeDamage() {
     if (this.currentSprite !== "dead") {
       this.health -= 1;
@@ -176,6 +189,9 @@ class Player {
     }
   }
 
+  /**
+   * Handles the player attacking.
+   */
   attack() {
     if (this.attackCooldown <= 0) {
       this.setAnimation("attack");
@@ -184,12 +200,16 @@ class Player {
     }
   }
 
+  /**
+   * Updates the player's state and position.
+   * @param {number} cameraOffsetX - The offset of the camera on the x-axis.
+   */
   update(cameraOffsetX) {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
     this.sides.bottom = this.position.y + this.height;
 
-    // Gravity
+    // Apply gravity
     if (this.sides.bottom + this.velocity.y < canvas.height) {
       this.velocity.y += this.gravity;
     } else {

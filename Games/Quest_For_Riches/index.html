@@ -7,16 +7,21 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <!-- Back to GameZone Link -->
     <div class="backToGameZone">
       <a href="https://kunjgit.github.io/GameZone/" class="backToGameZoneLink"
         >Back to GameZone</a
       >
     </div>
+
+    <!-- Main Screen -->
     <div id="mainScreen">
       <h1>Quest for Riches</h1>
       <button id="startButton">Start Game</button>
       <button id="controlsButton">Controls</button>
     </div>
+
+    <!-- Controls Screen -->
     <div id="controlsScreen" class="hidden">
       <h2>Controls</h2>
       <p>Click Left Mouse Button to Attack</p>
@@ -25,10 +30,18 @@
       <p>Press Space to jump</p>
       <button id="backButton">Back</button>
     </div>
+
+    <!-- Game Canvas -->
     <canvas class="hidden"></canvas>
+
+    <!-- NPC Chat Bubble and Prompt -->
     <div class="chatBubble"></div>
     <div class="promptE">E</div>
+
+    <!-- Mission Tracker -->
     <div id="missionTracker" class="hidden">Mission: Talk to The Archer</div>
+
+    <!-- Puzzle Modal -->
     <div id="puzzleModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -37,6 +50,8 @@
         <button id="submitPuzzle">Submit</button>
       </div>
     </div>
+
+    <!-- Transition Screen -->
     <div id="transitionScreen" class="hidden">
       <div class="transitionContent">
         <span class="close" id="closeTransitionScreen">&times;</span>
@@ -48,6 +63,8 @@
         <button id="nextLevelButton">Next level</button>
       </div>
     </div>
+
+    <!-- End Game Screen -->
     <div id="endGameScreen" class="hidden">
       <div class="transitionContent">
         <span class="close" id="closeEndGameScreen">&times;</span>
@@ -56,6 +73,8 @@
         <button id="replayGameButton">Play Again</button>
       </div>
     </div>
+
+    <!-- Scripts -->
     <script src="js/levels.js"></script>
     <script src="js/audioManager.js"></script>
     <script src="js/player.js"></script>

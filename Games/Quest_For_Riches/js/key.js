@@ -11,6 +11,7 @@ class Key {
     this.collected = false;
   }
 
+  // Draw the key on the canvas
   draw(cameraOffsetX) {
     if (!this.collected) {
       c.drawImage(
@@ -23,6 +24,7 @@ class Key {
     }
   }
 
+  // Update the key state and check for collision with the player
   update(cameraOffsetX, player) {
     if (
       !this.collected &&
@@ -33,7 +35,6 @@ class Key {
     ) {
       this.collected = true;
       player.hasKey = true;
-      console.log("Key collected!");
     }
 
     this.draw(cameraOffsetX);

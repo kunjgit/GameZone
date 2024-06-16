@@ -1,4 +1,16 @@
+/**
+ * Represents a Non-Player Character (NPC) in the game.
+ */
 class NPC {
+  /**
+   * Creates a new NPC instance.
+   * @param {number} x - The x-coordinate of the NPC.
+   * @param {number} y - The y-coordinate of the NPC.
+   * @param {Object} spriteData - The data for the NPC's sprite.
+   * @param {number} spriteData.width - The width of a single frame in the sprite.
+   * @param {number} spriteData.height - The height of a single frame in the sprite.
+   * @param {Object} spriteData.sprites - An object containing sprite animations and their details.
+   */
   constructor(x, y, spriteData) {
     this.position = { x, y };
     this.width = spriteData.width; // Width of a single frame
@@ -21,7 +33,6 @@ class NPC {
 
     // Load the sprite sheet
     this.sprites = spriteData.sprites;
-
     this.loaded = false; // Flag to check if images are loaded
     this.currentSprite = "idle";
     this.frameIndex = 0;
@@ -37,6 +48,9 @@ class NPC {
     this.sprites[this.currentSprite].img = img;
   }
 
+  /**
+   * Resets the NPC's state to its initial values.
+   */
   resetState() {
     this.isChatting = false;
     this.dialogueState = 0;
@@ -45,6 +59,10 @@ class NPC {
     this.hidePromptE();
   }
 
+  /**
+   * Draws the NPC on the canvas.
+   * @param {number} cameraOffsetX - The offset of the camera on the x-axis.
+   */
   draw(cameraOffsetX) {
     if (!this.loaded) return; // Only draw if images are loaded
 
@@ -89,6 +107,10 @@ class NPC {
     c.restore();
   }
 
+  /**
+   * Displays the prompt 'E' above the NPC when the player is in proximity.
+   * @param {number} cameraOffsetX - The offset of the camera on the x-axis.
+   */
   showPromptE(cameraOffsetX) {
     const promptX = this.position.x - cameraOffsetX + this.scaledWidth / 2;
     const promptY = this.position.y - 30; // Above the NPC
@@ -102,10 +124,18 @@ class NPC {
     this.promptE.style.display = "block";
   }
 
+  /**
+   * Hides the prompt 'E'.
+   */
   hidePromptE() {
     this.promptE.style.display = "none";
   }
 
+  /**
+   * Displays a chat bubble above the NPC with the given text.
+   * @param {number} cameraOffsetX - The offset of the camera on the x-axis.
+   * @param {string} text - The text to display in the chat bubble.
+   */
   showChatBubble(cameraOffsetX, text) {
     const bubbleX = this.position.x - cameraOffsetX + this.scaledWidth / 2;
     const bubbleY = this.position.y - 100; // Above the NPC
@@ -120,10 +150,18 @@ class NPC {
     this.chatBubble.style.display = "block";
   }
 
+  /**
+   * Hides the chat bubble.
+   */
   hideChatBubble() {
     this.chatBubble.style.display = "none";
   }
 
+  /**
+   * Updates the NPC's state and handles interactions with the player.
+   * @param {number} cameraOffsetX - The offset of the camera on the x-axis.
+   * @param {Player} player - The player instance.
+   */
   update(cameraOffsetX, player) {
     // Update the frame index for animation
     this.frameTick++;
@@ -136,8 +174,8 @@ class NPC {
     this.draw(cameraOffsetX);
 
     // Check if player is in proximity
-    const proximityRangeX = 150; // Increased range for X-axis proximity
-    const proximityRangeY = 100; // Increased range for Y-axis proximity
+    const proximityRangeX = 150; // Range for X-axis proximity
+    const proximityRangeY = 100; // Range for Y-axis proximity
     const inProximity =
       Math.abs(this.position.x - player.position.x) < proximityRangeX &&
       Math.abs(this.position.y - player.position.y) < proximityRangeY;
@@ -146,7 +184,6 @@ class NPC {
       this.showPromptE(cameraOffsetX);
       if (player.isInteracting) {
         this.isChatting = true;
-        console.log("Starting chat, dialogue state: " + this.dialogueState);
         audioManager.playSound("chat"); // Play chat sound
       }
     } else {
@@ -169,6 +206,10 @@ class NPC {
     }
   }
 
+  /**
+   * Handles player interactions with the NPC, such as progressing dialogue.
+   * @param {Player} player - The player instance.
+   */
   interact(player) {
     if (this.isChatting) {
       if (this.finalDialogueDone) {
@@ -180,7 +221,6 @@ class NPC {
         this.dialogueState = (this.dialogueState + 1) % 4; // Cycle through dialogue states
         audioManager.playSound("chat"); // Play chat sound when interaction changes the dialogue state
       }
-      console.log("Interacting, new dialogue state: " + this.dialogueState);
     }
   }
 }

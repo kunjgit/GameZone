@@ -8,11 +8,11 @@ const startButton = document.getElementById("startButton");
 const controlsButton = document.getElementById("controlsButton");
 const backButton = document.getElementById("backButton");
 
-// Set the canvas size to a reasonable size
+// Set the canvas size
 canvas.width = 960;
 canvas.height = 540;
 
-const GAME_WORLD_WIDTH = canvas.width * 3; // Example game world size, 3 times the canvas width
+const GAME_WORLD_WIDTH = canvas.width * 3; // Game world size
 const player = new Player();
 
 let levelIndex = 0; // Current level index
@@ -25,12 +25,12 @@ function hideNPCUIElements() {
   }
 }
 
+// Initialize the level
 function initializeLevel(index) {
   if (index >= 0 && index < levelData.length) {
     level = new Level(levelData[index]);
     level.initializeGameWorld(player);
     player.npc.resetState(); // Reset NPC state
-    console.log("Level initialized:", level);
   } else {
     console.error("Invalid level index:", index);
   }
@@ -40,6 +40,7 @@ initializeLevel(levelIndex);
 
 let currentMissionIndex = 0;
 
+// Update the mission tracker
 function updateMissionTracker() {
   if (currentMissionIndex < level.missions.length) {
     missionTracker.innerHTML = `Mission: ${level.missions[currentMissionIndex]}`;
@@ -50,7 +51,7 @@ function updateMissionTracker() {
 
 updateMissionTracker();
 
-// Adjust the background layers to span the entire game world
+// Load background layers
 const backgroundLayers = [
   { src: "assets/images/background/background_layer_1.png", zIndex: 1, x: 0 },
   { src: "assets/images/background/background_layer_2.png", zIndex: 2, x: 0 },
@@ -82,6 +83,7 @@ const keys = {
 
 let cameraOffsetX = 0;
 
+// Handle keydown events
 window.addEventListener("keydown", (event) => {
   if (
     document.getElementById("transitionScreen").classList.contains("hidden")
@@ -112,6 +114,7 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
+// Handle keyup events
 window.addEventListener("keyup", (event) => {
   switch (event.key) {
     case "a":
@@ -133,6 +136,7 @@ window.addEventListener("keyup", (event) => {
   }
 });
 
+// Handle mouse click events
 canvas.addEventListener("mousedown", (event) => {
   if (player.attackCooldown <= 0) {
     player.isAttacking = true; // Set a flag to indicate an attack is initiated
@@ -140,6 +144,7 @@ canvas.addEventListener("mousedown", (event) => {
   }
 });
 
+// Draw background layers
 function drawBackgrounds() {
   loadedBackgrounds.sort((a, b) => a.zIndex - b.zIndex);
   loadedBackgrounds.forEach((layer) => {
@@ -156,6 +161,7 @@ function drawBackgrounds() {
   });
 }
 
+// Check mission progress
 function checkMissionProgress() {
   switch (currentMissionIndex) {
     case 0:
@@ -191,6 +197,7 @@ function checkMissionProgress() {
   updateMissionTracker();
 }
 
+// Handle combat
 function handleCombat(player, enemy) {
   if (
     player.position.x < enemy.position.x + enemy.scaledWidth &&
@@ -198,10 +205,7 @@ function handleCombat(player, enemy) {
     player.position.y < enemy.position.y + enemy.scaledHeight &&
     player.height + player.position.y > enemy.position.y
   ) {
-    console.log("Player and enemy colliding"); // Debug line
-
     if (player.isAttacking && player.attackCooldown <= 0) {
-      console.log("Attack registered"); // Debug line
       enemy.takeDamage();
       player.attackCooldown = 60; // Reset player attack cooldown
       player.isAttacking = false; // Reset attack flag
@@ -210,27 +214,22 @@ function handleCombat(player, enemy) {
         const index = level.enemies.indexOf(enemy);
         if (index > -1) {
           level.enemies.splice(index, 1); // Remove defeated enemy
-          console.log(
-            "Enemy defeated. Remaining enemies: ",
-            level.enemies.length
-          );
         }
       }
-    } else if (player.attackCooldown > 0) {
-      console.log("Attack on cooldown"); // Debug line
     }
   }
 }
 
 let startTime;
 
+// Start the level
 function startLevel() {
   startTime = new Date();
-  // Ensure background music is playing
   audioManager.playSound("background");
   audioManager.sounds["background"].loop = true;
 }
 
+// End the level
 function endLevel() {
   const endTime = new Date();
   const timeTaken = Math.floor((endTime - startTime) / 1000);
@@ -247,10 +246,12 @@ function endLevel() {
   audioManager.playSound("levelComplete");
 }
 
+// Calculate score
 function calculateScore(coins, time) {
   return coins * 10 - time * 5;
 }
 
+// Event listeners for buttons
 document.getElementById("replayButton").addEventListener("click", () => {
   hideNPCUIElements();
   audioManager.playSound("menu");
@@ -265,7 +266,6 @@ document.getElementById("replayButton").addEventListener("click", () => {
 document.getElementById("nextLevelButton").addEventListener("click", () => {
   hideNPCUIElements();
   audioManager.playSound("menu");
-  // Logic for moving to the next level
   levelIndex++;
   if (levelIndex < levelData.length) {
     initializeLevel(levelIndex);
@@ -276,7 +276,6 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
     transitionScreen.classList.add("hidden");
     transitionScreen.style.display = "none";
   } else {
-    console.log("No more levels available");
     const endGameScreen = document.getElementById("endGameScreen");
     endGameScreen.classList.remove("hidden");
     endGameScreen.style.display = "flex";
@@ -312,6 +311,7 @@ document
     transitionScreen.style.display = "none";
   });
 
+// Reset game state
 function resetGameState() {
   player.position = { x: 50, y: 50 };
   player.velocity = { x: 0, y: 0 };
@@ -325,12 +325,6 @@ function resetGameState() {
     player.npc.resetState(); // Reset NPC state
   }
 
-  player.npc.isChatting = false;
-  player.npc.dialogueState = 0;
-  player.npc.finalDialogueDone = false;
-  player.npc.hideChatBubble(); // Hide chat bubble
-  player.npc.hidePromptE(); // Hide prompt
-
   currentMissionIndex = 0;
   cameraOffsetX = 0;
 
@@ -338,10 +332,10 @@ function resetGameState() {
   document.getElementById("puzzleInput").value = "";
   document.getElementById("puzzleModal").style.display = "none";
 
+  // Reset the chest state
   if (level && level.chest) {
-    // Ensure the chest is reset properly
     level.chest.isOpen = false;
-    level.chest.frameY = 4; // Reset to initial frame
+    level.chest.frameY = 4;
     level.chest.frameX = 0;
     level.chest.frameTick = 0;
     level.chest.animationComplete = false;
@@ -362,18 +356,14 @@ function resetGameState() {
     );
   }
 
-  player.npc.resetState(); // Reset NPC state
-
   console.log("Game state reset. Current level:", levelIndex);
-  console.log("Enemies:", level.enemies);
-  console.log("Coins:", level.coins);
-  console.log("Chest:", level.chest);
-  console.log("Key:", level.key);
 }
 
+// Initialize the main screen
 mainScreen.classList.remove("hidden");
 mainScreen.style.display = "flex";
 
+// Event listener for start button
 startButton.addEventListener("click", () => {
   mainScreen.classList.add("hidden");
   mainScreen.style.display = "none";
@@ -383,6 +373,7 @@ startButton.addEventListener("click", () => {
   startLevel();
 });
 
+// Event listener for controls button
 controlsButton.addEventListener("click", () => {
   mainScreen.classList.add("hidden");
   mainScreen.style.display = "none";
@@ -391,6 +382,7 @@ controlsButton.addEventListener("click", () => {
   audioManager.playSound("menu");
 });
 
+// Event listener for back button
 backButton.addEventListener("click", () => {
   controlsScreen.classList.add("hidden");
   controlsScreen.style.display = "none";
@@ -399,6 +391,7 @@ backButton.addEventListener("click", () => {
   audioManager.playSound("menu");
 });
 
+// Main animation loop
 function animate() {
   window.requestAnimationFrame(animate);
 
@@ -425,32 +418,27 @@ function animate() {
     )
   );
 
+  // Update enemies
   level.enemies.forEach((enemy) => {
     if (typeof enemy.update === "function") {
       enemy.update(cameraOffsetX, player);
       handleCombat(player, enemy);
-    } else {
-      console.error("Enemy is not properly instantiated:", enemy);
     }
   });
 
-  // Update and draw coins
+  // Update coins
   level.coins.forEach((coin) => {
     coin.update(cameraOffsetX, player);
   });
 
-  // Update and draw the key
+  // Update the key
   if (level && level.key && typeof level.key.update === "function") {
     level.key.update(cameraOffsetX, player);
-  } else {
-    console.error("Key is not properly instantiated:", level.key);
   }
 
-  // Update and draw the chest
+  // Update the chest
   if (level && level.chest && typeof level.chest.update === "function") {
     level.chest.update(cameraOffsetX, player, level.enemies);
-  } else {
-    console.error("Chest is not properly instantiated:", level.chest);
   }
 
   // Update the mission tracker position to stay at the top right of the canvas

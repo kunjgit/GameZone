@@ -8,11 +8,12 @@ class CoinPile {
     this.scale = 3; // Increase the scale factor to fit the game
     this.scaledWidth = this.width * this.scale;
     this.scaledHeight = this.height * this.scale;
-    this.velocityY = -1; // Slower velocity for moving upwards
+    this.velocityY = -1; // Velocity for moving upwards
     this.alpha = 1; // Transparency for fade out
-    this.fadeSpeed = 0.01; // Slower speed of fading out
+    this.fadeSpeed = 0.01; // Speed of fading out
   }
 
+  // Draw the coin pile on the canvas with transparency
   draw(cameraOffsetX) {
     c.save();
     c.globalAlpha = this.alpha; // Set the transparency
@@ -26,12 +27,13 @@ class CoinPile {
     c.restore();
   }
 
+  // Update the position and transparency of the coin pile
   update(cameraOffsetX) {
-    this.position.y += this.velocityY;
-    this.alpha -= this.fadeSpeed;
+    this.position.y += this.velocityY; // Move the coin pile upwards
+    this.alpha -= this.fadeSpeed; // Reduce the transparency
     if (this.alpha <= 0) {
-      this.alpha = 0;
+      this.alpha = 0; // Ensure alpha does not go below 0
     }
-    this.draw(cameraOffsetX);
+    this.draw(cameraOffsetX); // Draw the coin pile
   }
 }

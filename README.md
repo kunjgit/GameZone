@@ -282,7 +282,8 @@ This repository also provides one such platforms where contributers come over an
 | [Guess_num](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_num)                  |
 | [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)       | 
 | [Physics_Quizz](https://github.com/kunjgit/GameZone/tree/main/Games/Physics_Quizz)     |
-| [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       | 
+| [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       |  
+| [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect)    |
 
@@ -344,6 +345,7 @@ This repository also provides one such platforms where contributers come over an
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
+| [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 
  </center>
 
@@ -786,6 +788,7 @@ This repository also provides one such platforms where contributers come over an
 |[Tower Defence Game](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Tower_Defence_Game)|
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
+| [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 
 
  </center>

@@ -3,6 +3,7 @@ class Level {
     this.missions = data.missions;
     this.coinsData = data.coins;
     this.enemiesData = data.enemies;
+    this.npcData = data.npc; // Add NPC data
     this.npcDialogues = data.npcDialogues;
     this.keyPosition = data.keyPosition;
     this.chestPosition = data.chestPosition;
@@ -36,6 +37,16 @@ class Level {
       console.log("Enemy instantiated:", newEnemy);
       return newEnemy;
     });
+
+    // Initialize NPC
+    if (this.npcData) {
+      player.npc = new NPC(
+        this.npcData.x,
+        this.npcData.y,
+        this.npcData.spriteData
+      );
+      console.log("NPC instantiated:", player.npc);
+    }
 
     // Initialize key
     this.key = new Key(this.keyPosition.x, this.keyPosition.y);
@@ -195,13 +206,28 @@ const levelData = [
         },
       },
     ],
+    npc: {
+      x: 300,
+      y: 300,
+      spriteData: {
+        width: 128,
+        height: 128,
+        sprites: {
+          idle: {
+            src: "assets/images/sprites/npc/archer/Idle.png",
+            frames: 6,
+            speed: 5,
+          },
+        },
+      },
+    },
     npcDialogues: {
       0: "Greetings, adventurer!",
-      1: "Dark times have befallen our forest.\nEvil creatures roam freely.",
-      2: "Please, we need your strength.\nDefeat the bad guys and reclaim the treasure!",
+      1: "Dark times have befallen our forest.\nEvil wizards roam freely.",
+      2: "Please, we need your strength.\nDefeat those wizards and reclaim the treasure they're guarding!",
       default: "Good luck, brave soul!",
       final:
-        "Well done, adventurer!\nThanks for dealing with those bad guys. You saved us!",
+        "Well done, adventurer!\nThanks for dealing with those wizards. You saved us!",
     },
     keyPosition: { x: 1800, y: 100 },
     chestPosition: { x: 2800, y: 460 },
@@ -445,11 +471,26 @@ const levelData = [
         },
       },
     ],
+    npc: {
+      x: 300,
+      y: 300,
+      spriteData: {
+        width: 128,
+        height: 128,
+        sprites: {
+          idle: {
+            src: "assets/images/sprites/npc/healer/Idle.png",
+            frames: 5,
+            speed: 5,
+          },
+        },
+      },
+    },
     npcDialogues: {
-      0: "Welcome, hero!",
-      1: "We are in desperate need of your help.\nMonsters have invaded our land.",
-      2: "Retrieve the Sacred Stone to save us!",
-      default: "Best of luck, brave soul!",
+      0: "Welcome back, hero!",
+      1: "We are in desperate need of your help again.\nMonsters have invaded our land.\n They will hurt our people if we don't stop them!",
+      2: "Please defeat those monsters.\nThere will be a treasure waiting for you as a reward!",
+      default: "Best of luck, brave soul. Please be careful!",
       final: "You've done it!\nOur land is safe once again. Thank you!",
     },
     keyPosition: { x: 2000, y: 150 },

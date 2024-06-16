@@ -7,27 +7,24 @@ class Enemy {
     this.initialPosition = { x, y };
     this.patrolDistance = patrolDistance;
     this.velocity = { x: 1, y: 0 };
-    this.width = spriteData.width; // Use sprite width from data
-    this.height = spriteData.height; // Use sprite height from data
-    this.scale = 2; // Scale factor to make the enemy larger
-    this.scaledWidth = this.width * this.scale; // Scaled width
-    this.scaledHeight = this.height * this.scale; // Scaled height
-    this.health = 3; // Health
+    this.width = spriteData.width;
+    this.height = spriteData.height;
+    this.scale = 2;
+    this.scaledWidth = this.width * this.scale;
+    this.scaledHeight = this.height * this.scale;
+    this.health = 3;
     this.gravity = 0.3;
-    this.direction = "left"; // Initial direction
+    this.direction = "left";
     this.isAttacking = false;
-    this.attackCooldown = 0; // Cooldown for attacking
-    this.patrolDirection = Math.random() > 0.5 ? 1 : -1; // Random initial direction
-    this.isDead = false; // Flag to indicate if enemy is dead
-    this.state = "idle"; // Initial state
-    this.type = type; // Type of enemy (wizard or monster)
+    this.attackCooldown = 0;
+    this.patrolDirection = Math.random() > 0.5 ? 1 : -1;
+    this.isDead = false;
+    this.state = "idle";
+    this.type = type;
 
-    // Load sprite sheets from the provided data
     this.sprites = spriteData.sprites;
+    this.loaded = false;
 
-    this.loaded = false; // Flag to check if images are loaded
-
-    // Load images
     let loadedImagesCount = 0;
     const totalImages = Object.keys(this.sprites).length;
     for (let key in this.sprites) {
@@ -37,13 +34,11 @@ class Enemy {
         loadedImagesCount++;
         if (loadedImagesCount === totalImages) {
           this.loaded = true;
-          console.log(`${key} image loaded successfully`);
         }
       };
       this.sprites[key].img = img;
     }
 
-    // Initialize current animation
     this.currentSprite = "idle";
     this.frameIndex = 0;
     this.frameSpeed = this.sprites[this.currentSprite].speed;
@@ -52,10 +47,9 @@ class Enemy {
 
   setAnimation(animation) {
     if (this.currentSprite !== animation) {
-      console.log(`Changing animation to: ${animation}`);
       this.currentSprite = animation;
-      this.frameIndex = 0; // Reset frame index
-      this.frameSpeed = this.sprites[animation].speed; // Update frame speed
+      this.frameIndex = 0;
+      this.frameSpeed = this.sprites[animation].speed;
     }
   }
 
@@ -68,35 +62,22 @@ class Enemy {
     const distanceToPlayer = Math.abs(this.position.x - player.position.x);
     const yDistanceToPlayer = Math.abs(this.position.y - player.position.y);
 
-    console.log(
-      `Distance to player: ${distanceToPlayer}, Y Distance: ${yDistanceToPlayer}`
-    );
-
     if (distanceToPlayer < 50 && yDistanceToPlayer < 80) {
-      console.log("Switching to attack state");
       this.state = "attack";
     } else if (distanceToPlayer < 300) {
-      console.log("Switching to run state");
       this.state = "run";
     } else {
-      console.log("Switching to walk state");
       this.state = "walk";
     }
-
-    console.log(`Current state: ${this.state}`);
 
     if (this.state === "attack") {
       this.isAttacking = true;
       this.velocity.x = 0;
       this.setAnimation("attack1");
-      console.log(
-        `Attack frame index: ${this.frameIndex}, attackCooldown: ${this.attackCooldown}`
-      );
       if (
         this.frameIndex === this.sprites.attack1.frames - 1 &&
         this.attackCooldown <= 0
       ) {
-        console.log("Attacking player");
         player.takeDamage();
         this.attackCooldown = 60;
       }
@@ -133,21 +114,18 @@ class Enemy {
   }
 
   draw(cameraOffsetX) {
-    if (!this.loaded) return; // Only draw if images are loaded
+    if (!this.loaded) return;
 
     const sprite = this.sprites[this.currentSprite];
-    const frameWidth = this.width; // Use the frame width defined in spriteData
+    const frameWidth = this.width;
     const frameHeight = this.height;
     const sx = this.frameIndex * frameWidth;
     const sy = 0;
 
-    // Save the current context state
     c.save();
 
     if (this.direction === "left") {
-      // Flip the context horizontally
       c.scale(-1, 1);
-      // Draw the image flipped
       c.drawImage(
         sprite.img,
         sx,
@@ -160,7 +138,6 @@ class Enemy {
         this.scaledHeight
       );
     } else {
-      // Draw the image normally
       c.drawImage(
         sprite.img,
         sx,
@@ -174,19 +151,17 @@ class Enemy {
       );
     }
 
-    // Restore the context state
     c.restore();
 
-    // Draw the health bar
     this.drawHealthBar(cameraOffsetX);
   }
 
   drawHealthBar(cameraOffsetX) {
-    const healthBarWidth = this.scaledWidth * 0.6; // 60% of the scaled width
+    const healthBarWidth = this.scaledWidth * 0.6;
     const healthBarHeight = 10;
     const healthBarX =
-      this.position.x - cameraOffsetX + (this.scaledWidth - healthBarWidth) / 2; // Centered above the enemy
-    const healthBarY = this.position.y - 20; // Position above the enemy
+      this.position.x - cameraOffsetX + (this.scaledWidth - healthBarWidth) / 2;
+    const healthBarY = this.position.y - 20;
 
     c.fillStyle = "red";
     c.fillRect(healthBarX, healthBarY, healthBarWidth, healthBarHeight);
@@ -209,29 +184,23 @@ class Enemy {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
-    // Gravity
     if (this.position.y + this.scaledHeight + this.velocity.y < canvas.height) {
       this.velocity.y += this.gravity;
     } else {
       this.velocity.y = 0;
     }
 
-    // Ensure the enemy stays within the game world bounds
     if (this.position.x < 0) {
       this.position.x = 0;
     } else if (this.position.x + this.scaledWidth > GAME_WORLD_WIDTH) {
       this.position.x = GAME_WORLD_WIDTH - this.scaledWidth;
     }
 
-    // Update the frame index for animation
     this.frameTick++;
     if (this.frameTick >= this.frameSpeed) {
       this.frameTick = 0;
       const sprite = this.sprites[this.currentSprite];
       this.frameIndex = (this.frameIndex + 1) % sprite.frames;
-      console.log(
-        `Current frame index for ${this.currentSprite}: ${this.frameIndex}`
-      );
     }
 
     this.draw(cameraOffsetX);
@@ -247,7 +216,7 @@ class Enemy {
       this.setAnimation("hurt");
       setTimeout(() => {
         this.setAnimation("idle");
-      }, (this.sprites.hurt.frames * this.frameSpeed * 1000) / 60); // Duration of the hurt animation
+      }, (this.sprites.hurt.frames * this.frameSpeed * 1000) / 60);
     }
   }
 }

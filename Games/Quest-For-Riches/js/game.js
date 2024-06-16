@@ -14,15 +14,22 @@ canvas.height = 540;
 
 const GAME_WORLD_WIDTH = canvas.width * 3; // Example game world size, 3 times the canvas width
 const player = new Player();
-const npc = new NPC(300, 300); // Add NPC near the start of the game world
 
 let levelIndex = 0; // Current level index
 let level = null;
+
+function hideNPCUIElements() {
+  if (player.npc) {
+    player.npc.hideChatBubble();
+    player.npc.hidePromptE();
+  }
+}
 
 function initializeLevel(index) {
   if (index >= 0 && index < levelData.length) {
     level = new Level(levelData[index]);
     level.initializeGameWorld(player);
+    player.npc.resetState(); // Reset NPC state
     console.log("Level initialized:", level);
   } else {
     console.error("Invalid level index:", index);
@@ -99,7 +106,7 @@ window.addEventListener("keydown", (event) => {
       case "e":
         keys.e.pressed = true;
         player.isInteracting = true;
-        npc.interact(player); // Trigger interaction with player state
+        player.npc.interact(player); // Trigger interaction with player state
         break;
     }
   }
@@ -152,7 +159,7 @@ function drawBackgrounds() {
 function checkMissionProgress() {
   switch (currentMissionIndex) {
     case 0:
-      if (npc.isChatting && npc.dialogueState > 2) {
+      if (player.npc.isChatting && player.npc.dialogueState > 2) {
         currentMissionIndex++;
       }
       break;
@@ -173,8 +180,8 @@ function checkMissionProgress() {
       break;
     case 4:
       if (
-        npc.isChatting &&
-        npc.dialogueState === 0 &&
+        player.npc.isChatting &&
+        player.npc.dialogueState === 0 &&
         player.hasCollectedTreasure
       ) {
         currentMissionIndex++;
@@ -241,10 +248,17 @@ function calculateScore(coins, time) {
 }
 
 document.getElementById("replayButton").addEventListener("click", () => {
-  location.reload(); // Reload the game for now, you can customize this
+  hideNPCUIElements();
+  initializeLevel(levelIndex);
+  resetGameState();
+  startLevel();
+  updateMissionTracker();
+  transitionScreen.classList.add("hidden");
+  transitionScreen.style.display = "none";
 });
 
 document.getElementById("nextLevelButton").addEventListener("click", () => {
+  hideNPCUIElements();
   // Logic for moving to the next level
   levelIndex++;
   if (levelIndex < levelData.length) {
@@ -270,9 +284,12 @@ document.getElementById("closeEndGameScreen").addEventListener("click", () => {
 });
 
 document.getElementById("replayGameButton").addEventListener("click", () => {
+  hideNPCUIElements();
   levelIndex = 0;
   initializeLevel(levelIndex);
   resetGameState();
+  transitionScreen.classList.add("hidden");
+  transitionScreen.style.display = "none";
   startLevel();
   updateMissionTracker();
   const endGameScreen = document.getElementById("endGameScreen");
@@ -297,9 +314,15 @@ function resetGameState() {
   player.hasCollectedTreasure = false;
   player.setAnimation("idle");
 
-  npc.isChatting = false;
-  npc.dialogueState = 0;
-  npc.finalDialogueDone = false;
+  if (player.npc) {
+    player.npc.resetState(); // Reset NPC state
+  }
+
+  player.npc.isChatting = false;
+  player.npc.dialogueState = 0;
+  player.npc.finalDialogueDone = false;
+  player.npc.hideChatBubble(); // Hide chat bubble
+  player.npc.hidePromptE(); // Hide prompt
 
   currentMissionIndex = 0;
   cameraOffsetX = 0;
@@ -331,6 +354,8 @@ function resetGameState() {
       (enemy) => new Enemy(enemy.x, enemy.y, enemy.spriteData)
     );
   }
+
+  player.npc.resetState(); // Reset NPC state
 
   console.log("Game state reset. Current level:", levelIndex);
   console.log("Enemies:", level.enemies);
@@ -380,7 +405,7 @@ function animate() {
   }
 
   player.update(cameraOffsetX);
-  npc.update(cameraOffsetX, player); // Update the NPC
+  player.npc.update(cameraOffsetX, player); // Update the NPC
 
   cameraOffsetX = Math.max(
     0,

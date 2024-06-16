@@ -4,6 +4,7 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: black;
@@ -20,7 +21,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 #controlsScreen {
@@ -277,4 +278,22 @@ button:hover {
 
 .endGameContent button:hover {
   background: orange;
+}
+
+.backToGameZone {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  font-size: 18px;
+  background: yellow;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Press Start 2P", system-ui;
+}
+
+.backToGameZone a {
+  color: black;
+  text-decoration: none;
 }

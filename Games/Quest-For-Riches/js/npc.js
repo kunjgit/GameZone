@@ -1,8 +1,8 @@
 class NPC {
-  constructor(x, y) {
+  constructor(x, y, spriteData) {
     this.position = { x, y };
-    this.width = 128; // Width of a single frame
-    this.height = 128; // Height of a single frame
+    this.width = spriteData.width; // Width of a single frame
+    this.height = spriteData.height; // Height of a single frame
     this.scale = 2; // Scale factor
     this.scaledWidth = this.width * this.scale;
     this.scaledHeight = this.height * this.scale;
@@ -20,13 +20,7 @@ class NPC {
     document.body.appendChild(this.promptE);
 
     // Load the sprite sheet
-    this.sprites = {
-      idle: {
-        src: "assets/images/sprites/npc/Idle.png",
-        frames: 6,
-        speed: 5,
-      },
-    };
+    this.sprites = spriteData.sprites;
 
     this.loaded = false; // Flag to check if images are loaded
     this.currentSprite = "idle";
@@ -41,6 +35,14 @@ class NPC {
       this.loaded = true;
     };
     this.sprites[this.currentSprite].img = img;
+  }
+
+  resetState() {
+    this.isChatting = false;
+    this.dialogueState = 0;
+    this.finalDialogueDone = false;
+    this.hideChatBubble();
+    this.hidePromptE();
   }
 
   draw(cameraOffsetX) {

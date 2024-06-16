@@ -3,16 +3,12 @@ body {
   overflow: hidden;
   color: #f5f5f5;
 }
-
 body .mainMenu-fade {
   opacity: 0;
 }
-
 body .main-menu_buttons:hover {
-  -webkit-animation: buttonsAnimation 0.5s ease forwards infinite;
-          animation: buttonsAnimation 0.5s ease forwards infinite;
+  animation: buttonsAnimation 0.5s ease forwards infinite;
 }
-
 body button {
   outline: none;
 }
@@ -21,43 +17,24 @@ body button {
   width: 100%;
   height: 100vh;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: 2.5s ease;
+  justify-content: center;
+  align-items: center;
   transition: 2.5s ease;
   z-index: 3;
   opacity: 1;
   overflow: hidden;
 }
-
 .main-menu .title {
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 .main-menu .title * {
   margin: 15px 0;
 }
-
 .main-menu .title h1 {
   text-align: center;
   font-family: "Press Start 2P";
@@ -67,13 +44,11 @@ body button {
   margin: 0 auto;
   margin-bottom: 40px;
 }
-
 @media (min-width: 1920px) {
   .main-menu .title h1 {
     font-size: 70px;
   }
 }
-
 .main-menu .title .mainButtons {
   font-size: 14px;
   font-family: "Press Start 2P";
@@ -84,20 +59,16 @@ body button {
   cursor: pointer;
   z-index: 3;
   outline: none;
-  -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
-
 @media (min-width: 1920px) {
   .main-menu .title .mainButtons {
     font-size: 18px;
   }
 }
-
 .main-menu .title .mainButtons:hover {
   color: gold;
 }
-
 .main-menu .title #copyright {
   margin-top: 80px;
   font-family: "Press Start 2P";
@@ -105,13 +76,11 @@ body button {
   color: #f5f5f5;
   justify-self: flex-end;
 }
-
 @media (min-width: 1920px) {
   .main-menu .title #copyright {
     font-size: 14px;
   }
 }
-
 .main-menu .title .soundControl {
   cursor: pointer;
 }
@@ -124,41 +93,35 @@ body button {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   color: #f5f5f5;
   background-color: #000016;
   z-index: 3;
-  border: 1px solid #dddddd30;
+  border: 1px solid rgba(221, 221, 221, 0.1882352941);
   text-align: center;
   font-family: "Press Start 2P";
   font-size: 12px;
   letter-spacing: 2px;
   line-height: 15px;
 }
-
 @media (min-width: 1920px) {
   .aboutMenu {
     width: 600px;
     line-height: 20px;
   }
 }
-
 .aboutMenu h3 {
   color: gold;
   font-size: 20px;
 }
-
 .aboutMenu p {
   padding: 25px;
 }
-
 @media (min-width: 1920px) {
   .aboutMenu p {
     font-size: 18px;
   }
 }
-
 .aboutMenu a {
   color: gold;
   text-decoration: none;
@@ -169,58 +132,44 @@ body button {
   width: 400px;
   height: auto;
   padding: 20px;
-  border: 1px solid #f5f5f535;
+  border: 1px solid rgba(245, 245, 245, 0.2078431373);
   font-family: "Press Start 2P";
   color: #f5f5f5;
   background-color: #000016;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   z-index: 3;
 }
-
 .highscoresList-menu h3 {
   font-size: 20px;
   letter-spacing: 2px;
   color: gold;
   margin-bottom: 20px;
 }
-
 .highscoresList-menu #theName {
   color: gold;
 }
-
 .highscoresList-menu p {
   font-size: 12px;
   margin: 10px 0;
 }
-
 .highscoresList-menu .highscoreList-items {
   width: 100%;
   padding: 0 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   font-size: 12px;
   list-style-type: none;
 }
-
 .highscoresList-menu .highscoreList-items * {
   margin: 3px 0;
 }
-
 .highscoresList-menu #clearList {
   display: none;
 }
-
 .highscoresList-menu #clearList:hover {
   color: #bd0e08;
 }
@@ -229,51 +178,37 @@ body button {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   display: none;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   z-index: 3;
   font-family: "Press Start 2P";
 }
-
 .loading .loading-text {
   font-size: 12px;
   color: #f5f5f5;
   margin-bottom: 10px;
 }
-
 @media (min-width: 1920px) {
   .loading .loading-text {
     font-size: 18px;
   }
 }
-
 .loading .loading-bar {
   width: 200px;
   height: 20px;
   border: 1px solid grey;
 }
-
 .loading .loading-bar .loading-bar_fill {
   width: 0%;
   height: 100%;
   background-color: #f5f5f5;
 }
-
 .loading .info {
   margin: 30px 0px;
 }
-
 .loading .info h2 {
   margin: 10px 0;
   font-size: 16px;
@@ -281,20 +216,17 @@ body button {
   color: gold;
   letter-spacing: 2px;
 }
-
 @media (min-width: 1920px) {
   .loading .info h2 {
     font-size: 22px;
     letter-spacing: 3px;
   }
 }
-
 .loading .info p {
   color: #f5f5f5;
   font-size: 10px;
   margin: 5px 0;
 }
-
 @media (min-width: 1920px) {
   .loading .info p {
     font-size: 18px;
@@ -305,37 +237,24 @@ body button {
   width: 1280px;
   height: 500px;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   overflow: hidden;
 }
-
 .container canvas {
   display: none;
-  border: 2px solid #dddddd10;
+  border: 2px solid rgba(221, 221, 221, 0.062745098);
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-
 .container .containerText {
   width: 60px;
   height: 12px;
@@ -344,15 +263,9 @@ body button {
   border-radius: 25px;
   background-color: PeachPuff;
   color: #111;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-end;
+  align-items: center;
   position: absolute;
   bottom: 7px;
   left: 15px;
@@ -360,7 +273,6 @@ body button {
   font-size: 12px;
   font-family: "Press Start 2P";
 }
-
 .container .health-container {
   display: none;
   position: absolute;
@@ -368,11 +280,9 @@ body button {
   left: 5px;
   z-index: 3;
 }
-
 .container .health-container img {
   z-index: 2;
 }
-
 .container .shield-container {
   display: none;
   position: absolute;
@@ -380,25 +290,21 @@ body button {
   left: 90px;
   z-index: 3;
 }
-
 .container .shield-container img {
   z-index: 2;
 }
-
 .container .countdown {
   display: none;
   font-family: "Press Start 2P";
   font-size: 30px;
   color: #f5f5f5;
-  text-shadow: 3px 3px #a82121;
+  text-shadow: 3px 3px rgb(168, 33, 33);
   z-index: 3;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-
 .container .emptyWarning-text {
   display: none;
   font-family: "Press Start 2P";
@@ -409,208 +315,136 @@ body button {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   z-index: 3;
 }
-
 .container .emptyWarning-textActive {
   display: block;
-  -webkit-animation: overheatAnimation 0.6s ease forwards infinite;
-          animation: overheatAnimation 0.6s ease forwards infinite;
+  animation: overheatAnimation 0.6s ease forwards infinite;
 }
-
 .container .emptyWarning-highscore {
   display: block;
-  -webkit-animation: highscoreAnimation 1.25s ease forwards infinite;
-          animation: highscoreAnimation 1.25s ease forwards infinite;
+  animation: highscoreAnimation 1.25s ease forwards infinite;
 }
-
 .container .notificationsContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   left: 50%;
   bottom: 5px;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-
 .container .notificationsContainer .notification {
   padding: 5px;
   width: 300px;
   height: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
+  justify-content: center;
+  align-items: center;
+  transform: translateY(100px);
   font-size: 12px;
   font-family: "Press Start 2P";
 }
-
 .container .notificationsContainer .notification i {
   color: #e1302a;
 }
-
 .container .notificationsContainer .notification p {
   margin-left: 5px;
   color: #f5f5f5;
 }
-
 .container .notificationsContainer .notification .health {
   color: #f5f5f5;
 }
-
 .container .notificationsContainer .notification .shield {
   color: #1aeb71;
 }
-
 .container .notificationsContainer .notification .timer {
   color: gold;
 }
-
 .container .notificationsContainer .activeNotification {
-  -webkit-animation: notification 3s ease forwards;
-          animation: notification 3s ease forwards;
+  animation: notification 3s ease forwards;
 }
 
 .menu {
   display: none;
   width: 1250px;
   opacity: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
   top: 20px;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   z-index: 3;
-  -webkit-transition: 0.75s ease;
   transition: 0.75s ease;
   color: #f5f5f5;
   font-family: "Press Start 2P";
 }
-
 .menu #pauseGame {
   cursor: pointer;
 }
-
 .menu .time {
   width: 150px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .menu .time * {
   margin: 0 3px;
 }
-
 .menu .time i {
   font-size: 30px;
 }
-
 .menu .time #timerDisplay {
   font-size: 17px;
   letter-spacing: 2px;
   color: gold;
   font-family: "Press Start 2P";
 }
-
 .menu .time #timerDisplay.timeLow {
   color: #b30d07;
   font-size: 22px;
 }
-
 .menu .timeShake {
-  -webkit-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-          animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
-
 .menu .level-container {
   width: 350px;
   padding: 3px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   font-size: 14px;
 }
-
 .menu .level-container .levelTextActive {
-  -webkit-animation: notifyLevelUp 0.5s ease forwards infinite;
-          animation: notifyLevelUp 0.5s ease forwards infinite;
+  animation: notifyLevelUp 0.5s ease forwards infinite;
 }
-
 .menu .level-container .level-bar {
   width: 200px;
   height: 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 2px solid #f5f5f520;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(245, 245, 245, 0.1254901961);
   border-radius: 3px;
   position: relative;
   overflow: hidden;
 }
-
 .menu .level-container .level-bar p {
   color: #f5f5f5;
   z-index: 9999;
 }
-
 .menu .level-container .level-bar .level-bar_fill {
   position: absolute;
   top: 0;
   left: 0;
   width: 0%;
   height: 100%;
-  -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -627,24 +461,14 @@ body button {
   position: absolute;
   left: 16%;
   bottom: 3px;
-  -webkit-transform: translate(-16%);
-          transform: translate(-16%);
+  transform: translate(-16%);
   background-color: rgba(0, 0, 0, 0.95);
   z-index: 3;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: 0.5s ease;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   transition: 0.5s ease;
 }
-
 .overheat-container p {
   text-align: center;
   font-family: "Press Start 2P";
@@ -652,47 +476,34 @@ body button {
   letter-spacing: 2px;
   color: goldenrod;
 }
-
 .overheat-container .overheat-bar {
   width: 140px;
   height: 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .overheat-container .overheat-bar * {
   margin: 0px 2px;
 }
-
 .overheat-container .overheat-bar .overheat-bar_block:nth-child(1) {
   margin-left: -5px;
 }
-
 .overheat-container .overheat-bar .overheat-bar_block {
   width: 10px;
   height: 20px;
   background-color: #fff;
 }
-
 .overheat-container .overheat-bar .greenPhase {
   width: 10px;
   height: 20px;
   background-color: #2ECC40;
 }
-
 .overheat-container .overheat-bar .yellowPhase {
   width: 10px;
   height: 20px;
   background-color: #FFDC00;
 }
-
 .overheat-container .overheat-bar .redPhase {
   width: 10px;
   height: 20px;
@@ -709,83 +520,63 @@ body button {
   color: #f5f5f5;
   font-family: "Press Start 2P";
   font-size: 12px;
-  border: 1px solid #f5f5f535;
+  border: 1px solid rgba(245, 245, 245, 0.2078431373);
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   z-index: 3;
 }
-
 .game--over #message {
   margin: 10px 0;
   font-family: "Press Start 2P";
   font-size: 12px;
 }
-
 .game--over .newHighscore-input {
   width: 340px;
   height: auto;
   padding: 15px;
   margin: 0 auto;
   display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   z-index: 3;
 }
-
 .game--over .newHighscore-input * {
   margin: 5px 0;
 }
-
 .game--over .newHighscore-input input {
   background-color: #010120;
-  border: 1px solid #f5f5f535;
+  border: 1px solid rgba(245, 245, 245, 0.2078431373);
   padding: 5px;
   color: #f5f5f5;
   font-family: "Press Start 2P";
   font-size: 10px;
   outline: none;
 }
-
 .game--over .newHighscore-input #scoreText {
   font-size: 12px;
 }
-
 .game--over .newHighscore-notification {
   color: #f5f5f5;
   text-shadow: 4px 4px #860905;
-  -webkit-animation: highscoreAnimation 1.25s ease forwards infinite;
-          animation: highscoreAnimation 1.25s ease forwards infinite;
+  animation: highscoreAnimation 1.25s ease forwards infinite;
 }
-
 .game--over .scores {
   margin-top: 5px;
   text-align: left;
 }
-
 .game--over .scores span {
   color: gold;
   font-size: 15px;
 }
-
 .game--over .scores * {
   margin: 10px 0;
 }
-
 .game--over .scores #finalScore, .game--over .scores #highscore {
   color: gold;
 }
-
 .game--over .gameOverBtn {
   display: inline-block;
   margin-top: 10px;
@@ -798,9 +589,8 @@ body button {
   cursor: pointer;
   border-radius: 1px;
 }
-
 .game--over .gameOverBtn:hover {
-  text-shadow: 3px 3px #a10909;
+  text-shadow: 3px 3px rgb(161, 9, 9);
 }
 
 .pause--menu {
@@ -812,58 +602,39 @@ body button {
   color: #f5f5f5;
   text-align: center;
   font-family: "Press Start 2P";
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 2px solid #dddddd30;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(221, 221, 221, 0.1882352941);
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   z-index: 9;
 }
-
 .pause--menu h3 {
   font-size: 19px;
   margin: 20px 0;
-  -webkit-animation: pauseTitle 0.8s ease infinite forwards;
-          animation: pauseTitle 0.8s ease infinite forwards;
+  animation: pauseTitle 0.8s ease infinite forwards;
 }
-
 .pause--menu p {
   margin: 10px 0;
   cursor: pointer;
 }
-
 .pause--menu p:hover {
   color: gold;
-  text-shadow: 2px 2px #a10909;
+  text-shadow: 2px 2px rgb(161, 9, 9);
 }
 
 .settings-menu {
   display: none;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 350px;
   height: 400px;
   background-color: #000016;
-  border: 1px solid #f5f5f535;
+  border: 1px solid rgba(245, 245, 245, 0.2078431373);
   padding: 15px;
   z-index: 10;
   font-family: "Press Start 2P";
@@ -871,23 +642,18 @@ body button {
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-
 .settings-menu h2 {
   font-size: 22px;
   margin-bottom: 10px;
   color: gold;
   letter-spacing: 3px;
-  -webkit-animation: settingsText 1s ease forwards infinite;
-          animation: settingsText 1s ease forwards infinite;
+  animation: settingsText 1s ease forwards infinite;
 }
-
 .settings-menu h3 {
   color: #f5f5f5;
 }
-
 .settings-menu button {
   background: none;
   border: none;
@@ -896,56 +662,36 @@ body button {
   color: #f5f5f5;
   cursor: pointer;
   margin-top: 10px;
-  -webkit-transition: 0.35s ease;
   transition: 0.35s ease;
 }
-
 .settings-menu button:hover {
   color: gold;
   text-shadow: 2px 2px #860905;
 }
-
 .settings-menu .settings-music, .settings-menu .settings-sfx {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   width: 320px;
 }
-
 .settings-menu * {
   margin: 5px 0;
 }
-
 .settings-menu .directionControl {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   width: 320px;
 }
-
 .settings-menu .directionControl * {
   margin: 5px 0;
 }
-
 .settings-menu input {
   width: 100px;
   cursor: pointer;
   margin: 2px 0;
 }
-
-.settings-menu input[type="text"] {
+.settings-menu input[type=text] {
   width: 100px;
   cursor: text;
   background: none;
@@ -956,35 +702,24 @@ body button {
   text-align: right;
   font-size: 10px;
   outline: none;
-  -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   opacity: 0.2;
 }
-
-.settings-menu input[type="text"]:focus {
+.settings-menu input[type=text]:focus {
   opacity: 1;
   border-bottom: 2px solid gold;
   padding: 5px;
 }
-
 .settings-menu .muteContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   height: 20px;
   margin-left: 5px;
   font-size: 14px;
   color: gold;
 }
-
 .settings-menu .muteContainer img {
   cursor: pointer;
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

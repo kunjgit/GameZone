@@ -1,0 +1,76 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #0f9997, #e9ecef);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #343a40;
+}
+
+#game-container {
+  margin-top: 20px;
+}
+
+#scrambled-word {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  width: calc(100% - 22px);
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 16px;
+  border: 1px solid #007BFF;
+  border-radius: 4px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  width: calc(100% - 22px);
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#result-message {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+#next-word {
+  display: none;
+  margin-top: 20px;
+}
+
+#score-container {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #495057;
+}

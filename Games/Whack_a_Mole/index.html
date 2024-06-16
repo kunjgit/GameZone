@@ -8,7 +8,10 @@
     <script src="mole.js"></script>
 </head>
 <body>
-    <h1>Whack a Mole</h1>
+    <div class="home">
+        <h3><a href="https://kunjgit.github.io/GameZone/">HOME</a></h3>
+ </div>
+ <h1>Whack a Mole</h1>
     <h1>Score:<h2 id="score">0</h2>
     <div id="speed-section">
         <label for="speed-slider">Speed:</label>
@@ -16,9 +19,16 @@
     </div>
     &nbsp;
     <div id="button-section">
-        <button class="start-btn">Start New Game</button>
+        <button class="start-btn" id="btn">Start New Game</button>
     </div>
     <div id="board">
     </div>
+
+      <!-- Audio element for background music -->
+    <audio id="background-music" src="./audio/game-music.mp3" loop></audio>
+     <audio id="gameOver-music" src="./audio/game-over.mp3" loop></audio>
+    
+   
+
 </body>
 </html>

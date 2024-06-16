@@ -1,0 +1,50 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(185, 219, 234);
+}
+
+.heading{
+    margin: 20px 0 20px 0;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 36px;
+    color: rgb(225, 108, 108);
+}
+
+.buttons{
+    display: flex;
+    gap: 30px;
+    margin: 10px 0 30px 0;
+    
+}
+button{
+    box-shadow: 0 0 10px crimson;
+}
+
+.buttons > button:hover {
+    transform: scale(1.05);
+}
+
+.buttons > button{
+    height: 40px;
+    width: 150px;
+    border: 0;
+    border-radius: 12px;
+    background-color: rgba(1, 1, 1, 0.152);
+    font-family:'Courier New', Courier, monospace;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+#container{
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid rgb(249, 129, 129);
+    box-shadow: 0 0 20px red;
+}

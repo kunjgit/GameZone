@@ -24,4 +24,4 @@ This is a classic Pac-Man game built using HTML, CSS, and JavaScript. The object
 6. **Win the Game**: Collect all pac-dots to win the game. A message will display "Congratulations! You won!".
 
 ## Screenshots 📸
-![assets/images/Screenshot.png](assets/images/Screenshot.png)
+![Img/Screenshot.png](Img/Screenshot.png)

@@ -290,10 +290,6 @@ This repository also provides one such platforms where contributers come over an
 
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect) |
 
-
-| [Guess_the_friends_name](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_the_friends_name) |
-
-
 | [namefate](https://github.com/kunjgit/GameZone/tree/main/Games/namefate) |
 | [Fruit_Catching_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching_Game) |
 | [color_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application) |
@@ -375,7 +371,9 @@ This repository also provides one such platforms where contributers come over an
 |[Harmony_Mixer](https://github.com/kunjgit/GameZone/tree/main/Games/Harmony_Mixer)|
 |[Steam_Punk](https://github.com/kunjgit/GameZone/tree/main/Games/Steam_Punk)|
 |[Tower Defence Game](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Tower_Defence_Game)|
+  
 
+| [Guess_the_friends_name](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_the_friends_name) |
 
  </center>
 

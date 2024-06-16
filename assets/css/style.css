@@ -4,6 +4,7 @@ width: 100%;
 height: 100%;
 margin: 0px;
 padding: 0px;
+transition: background-color 4s ease;
 overflow-x: hidden;}
 #about {
   color: white;
@@ -150,6 +151,7 @@ footer {
   width: 100%;
 
   /* width: 100vw; */
+ 
 
   padding-top: 40px;
   margin-top: auto;
@@ -2876,7 +2878,8 @@ span:nth-child(7) {
 }
 
 .unique-color-dark {
-  background-color: #b616c7 !important;
+  /* background-color: #b616c7 !important; */
+  background:linear-gradient(#FA8DF3,#e100ff);
 }
 
 .bg-light {
@@ -2917,11 +2920,15 @@ ul {
 .example-2 {
   display: flex;
   justify-content: center;
+  flex-direction: row;
   align-items: center;
+  width:100%;
+  padding: 0 20px;
 }
 .example-2 .icon-content {
   margin: 0 10px;
   position: relative;
+  padding: 0 20px;
 }
 .example-2 .icon-content .tooltip {
   position: absolute;

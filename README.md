@@ -343,6 +343,7 @@ This repository also provides one such platforms where contributers come over an
 | [Dsa_quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/Dsa_quiz_game) |
 | [Gravity_Simulation_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Simulation_Game) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)                  
+|  [Catch_The_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Ball) |
 | [Ball_in_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_in_Maze) |    
 |[Dsa_quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/Dsa_quiz_game)   |              
 | [Gravity_Simulation_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Simulation_Game)   

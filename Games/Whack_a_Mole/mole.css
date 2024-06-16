@@ -1,44 +1,87 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    background: url("./mario-bg.jpg");
-    background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background: url("./mario-bg.jpg");
+  background-size: cover;
 }
 
 #board {
-    width: 540px;
-    height: 540px;
-    /* background-color: green; */
+  width: 540px;
+  height: 540px;
+  /* background-color: green; */
 
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 
-    background: url("./soil.png");
-    background-size: cover;
-    border: 3px solid white;
-    border-radius: 25px;
+  background: url("./soil.png");
+  background-size: cover;
+  border: 3px solid white;
+  border-radius: 25px;
 }
 
 #board div {
-    /* board = 540 x 540, divide into 3x3 tiles --> 180 x 180 per div */
-    width: 180px; 
-    height: 180px;
-    background-image: url("./pipe.png");
-    background-size: cover;
+  /* board = 540 x 540, divide into 3x3 tiles --> 180 x 180 per div */
+  width: 180px;
+  height: 180px;
+  background-image: url("./pipe.png");
+  background-size: cover;
 }
 
 #board div img {
-    /* all img tags inside tiles */
-    width: 100px;
-    height: 100px;
+  /* all img tags inside tiles */
+  width: 100px;
+  height: 100px;
 
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.home{
+    background-color: aqua;
+    padding:25px;
+}
+.home h3{
+    font-size: sans-serif;
 }
 
 
+.start-btn {
+  background-color:  #0d625e;
+  margin-bottom: 10px;
+  font-size: large;
+  padding: 5px;
+  border-radius: 5px;
+    transition: background-color 0.3s;
+     color: white;
+     border: none;
+}
+.start-btn:hover {
+            background-color: #66d37e;
+            animation: move-down 0.3s;
+            color: black;
 
+        }
+#speed-slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  background:  #45b7b8;
+  outline: none;
+  border-radius: 5px;
+  height: 10px;
+}
+#speed-slider:hover {
+  opacity: 10; /* Fully shown on mouse-over */
+}
+#speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance:circle;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 10px;
+}
+  

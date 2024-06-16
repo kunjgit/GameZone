@@ -26,6 +26,6 @@ In "IKnowYou", players are invited to choose a number, which serves as their ini
 
 <br>
 <!-- Add your screenshots like this -->
-![IKnowYou-Mind-Reading-Game](https://github.com/vansh-codes/GameZone/blob/main/Games/IKnowYou-Mind-Reading-Game/assets/preview.png)
+![IKnowYou-Mind-Reading-Game](https://github.com/vansh-codes/GameZone/tree/Games/IKnowYou-Mind-Reading-Game/assets/preview.png)
 <br>
 ---

@@ -27,7 +27,8 @@ Wheel of Fortune is a simple web-based game where players spin a wheel to win va
 ## **Screenshots 📸**
 
 <br>
-![Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/assets/143107589/d8f094bc-483c-4006-be23-3fb4b36f7349)
+
+![Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/assets/143107589/a6a0dff6-0acd-48e4-baa9-0d46c611951e)
 
 
 

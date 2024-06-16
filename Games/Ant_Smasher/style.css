@@ -46,7 +46,8 @@ h1 {
 
 .hole:after {
   display: block;
-  background: url(./img/dirt.svg) bottom center no-repeat;
+  background: url(../../assets/images/Ant_Smasher_dirt.svg) bottom center
+    no-repeat;
   background-size: contain;
   content: "";
   width: 100%;
@@ -57,7 +58,7 @@ h1 {
 }
 
 .mole {
-  background: url("./img/ant.png") bottom center no-repeat;
+  background: url("../../assets/images/Ant_Smasher.png") bottom center no-repeat;
   background-size: 60%;
   position: absolute;
   top: 100%;

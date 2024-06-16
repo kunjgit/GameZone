@@ -2099,5 +2099,17 @@
     "gameTitle": "MathQuiz",
     "gameUrl": "MathQuiz",
     "thumbnailUrl": "MathQuiz.png"
-  }
+  },
+"418":{
+"gameTitle": "MathQuiz",
+"gameUrl": "MathQuiz",
+"thumbnailUrl": "MathQuiz.png"
+},
+"420":{
+  "gameTitle":"Puzzle-Game",
+  "gameUrl":"puzzle-game",
+  "thumbnailUrl":"puzzle-game.png"
+}
+  
+
 }

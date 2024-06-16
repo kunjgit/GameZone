@@ -17,7 +17,7 @@ Welcome to Tic Tac Toe Game!, a classic game of Tic Tac Toe brought to life with
 ## How to Play:
 
 1. Clone the repository to your local machine.
-2. Open the [Tic-Tac-Toe](https://oxoxgame.netlify.app/) in your preferred web browser.
+2. Open the Tic-Tac-Toe in your preferred web browser.
 3. Start a new game and take turns with your opponent to place your X or O on the grid.
 4. The first player to get three in a row (horizontally, vertically, or diagonally) wins the game.
 
@@ -29,4 +29,12 @@ Welcome to Tic Tac Toe Game!, a classic game of Tic Tac Toe brought to life with
 
 Feel free to report issues, or suggest improvements. Let the Tic Tac Toe battles begin!
 
+
+### Preview
+
+<img src="./assets/prview.png" alt="preview" />
+
+### Board
+
+<img src="./assets/Desktop.png" alt="Desktop" />
 ---

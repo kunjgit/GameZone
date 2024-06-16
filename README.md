@@ -330,6 +330,7 @@ This repository also provides one such platforms where contributers come over an
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball) |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 | [Dice_Game] (https://github.com/shivan2004/GameZone/tree/main/Games/Dice_Game)|
+|[HitOrMiss](https://github.com/kunjgit/GameZone/tree/main/Games/HitOrMiss)|
 |[Lunar Lander](https://github.com/kunjgit/GameZone/tree/main/Games/Lunar_Lander)|
 |[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game) |
 | [Snake](https://github.com/kunjgit/GameZone/tree/main/Games/snake)                |

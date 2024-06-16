@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+#mainScreen, #controlsScreen {
+  text-align: center;
+  color: white;
+  font-family: "Press Start 2P", system-ui;
+}
+
+#mainScreen {
+  display: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+#controlsScreen {
+  display: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  background: yellow;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: orange;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Existing styles */
+.chatBubble {
+  position: absolute;
+  display: none;
+  background: black;
+  border: 1px solid white;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: "Press Start 2P", system-ui;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 200px;
+  word-wrap: break-word;
+}
+
+.promptE {
+  position: absolute;
+  display: none;
+  background: black;
+  border: 1px solid white;
+  padding: 20px;
+  border-radius: 5px;
+  font-family: "Press Start 2P", system-ui;
+  color: white;
+  font-size: 14px;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #000000; /* Black background */
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  color: white;
+  text-align: center;
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #ffcc00;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#puzzleInstructions {
+  font-size: 24px;
+  color: #ffcc00; 
+  margin-bottom: 20px;
+}
+
+#puzzleInput {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  background-color: white; 
+  color: black;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#submitPuzzle {
+  background-color: #ffcc00; 
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#submitPuzzle:hover {
+  background-color: #ff9900; 
+}
+
+#missionTracker {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: black;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: "Press Start 2P", system-ui;
+  color: white;
+  font-size: 14px;
+  width: 200px;
+  text-align: center;
+}
+
+#transitionScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+.transitionContent {
+  background: black;
+  border: 1px solid white;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-family: "Press Start 2P", system-ui;
+  position: relative;
+}
+
+.transitionContent .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.transitionContent button {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  font-size: 18px;
+  background: yellow;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Press Start 2P", system-ui;
+}
+
+.transitionContent button:hover {
+  background: orange;
+}
+
+/* New styles for the end game screen */
+#endGameScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.endGameContent {
+  background: black;
+  border: 1px solid white;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-family: "Press Start 2P", system-ui;
+  position: relative;
+}
+
+.endGameContent .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.endGameContent button {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  font-size: 18px;
+  background: yellow;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Press Start 2P", system-ui;
+}
+
+.endGameContent button:hover {
+  background: orange;
+}
+
+.backToGameZone {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  font-size: 18px;
+  background: yellow;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Press Start 2P", system-ui;
+}
+
+.backToGameZone a {
+  color: black;
+  text-decoration: none;
+}

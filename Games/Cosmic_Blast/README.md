@@ -30,7 +30,11 @@ Cosmic Blast is an exciting and fast-paced arcade game where the fate of Earth l
 ## **Screenshots 📸**
 
 <br>
-![Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast/assets/Cosmic_Blast.png)
+
+![Cosmic Blast](https://github.com/kunjgit/GameZone/blob/main/Games/Cosmic_Blast/assets/Cosmic_Blast.png)
+
+
+## Contributed by: [vansh-codes](https://github.com/vansh-codes)
 <!-- Add your screenshots like this -->
 <!-- ![image](url) -->
 

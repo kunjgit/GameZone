@@ -357,7 +357,6 @@
         };
 
         const speakSentence = () => {
-            console.log(sentences[level-1]);
             const sentence = sentences[level-1];
             const utterance = new SpeechSynthesisUtterance(sentence);
             speechSynthesis.speak(utterance);

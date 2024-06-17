@@ -345,7 +345,7 @@ This repository also provides one such platforms where contributers come over an
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
-
+| [Airhockey_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_Game) |
  </center>
 
 <br>
@@ -796,6 +796,7 @@ This repository also provides one such platforms where contributers come over an
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
 >>>>>>> c24ab932e1702441882a65b80d713ea232e18c46
 
+| [Airhockey_game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_game)|
 
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
  </center>

@@ -785,9 +785,11 @@ This repository also provides one such platforms where contributers come over an
 | [Bunny is Lost](https://github.com/kunjgit/GameZone/tree/main/Games/Bunny_is_Lost)|
 |[Steam_Punk](https://github.com/kunjgit/GameZone/tree/main/Games/Steam_Punk)|
 |[Tower Defence Game](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Tower_Defence_Game)|
+|[Wheel_of_fortune](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Wheel_of_fortune)|
 |[Dot_Box_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Box_Game)|
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
+
 
 
  </center>

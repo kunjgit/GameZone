@@ -792,7 +792,7 @@ This repository also provides one such platforms where contributers come over an
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
 
 
-
+|[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
  </center>
 
 <br>

@@ -24,7 +24,6 @@
 
 ## **Screenshots 📸**
 
-<br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
 ![Image](CareTaker.png)

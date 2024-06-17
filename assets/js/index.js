@@ -4,7 +4,7 @@ const generateLiTags = (gamesData, searchText = "") => {
   const liTags = [];
   searchText = searchText.trim().toLowerCase(); // Trim whitespace and convert to lowercase
 
-  for (let tagNumber = 1; tagNumber <= 418; tagNumber++) {
+  for (let tagNumber = 1; tagNumber <= 417; tagNumber++) {
     const gameData = gamesData[tagNumber.toString()];
 
     if (gameData) {
@@ -22,7 +22,9 @@ const generateLiTags = (gamesData, searchText = "") => {
               </figure>
               <div class="title-container">
                 <a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label="${gameTitle}">${tagNumber}. ${gameTitle} 🔗</a>
-                <button class="like-button ${liked ? 'liked' : ''}" onclick="like(this, ${tagNumber})">♡</button>
+                <button class="like-button ${
+                  liked ? "liked" : ""
+                }" onclick="like(this, ${tagNumber})">♡</button>
               </div>
             </a>
           </li>
@@ -163,9 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function like(button, tagNumber, gameData) {
   button.classList.toggle("liked");
   const isLiked = button.classList.contains("liked");
-  
+
   // Store both liked state and game data in localStorage
   localStorage.setItem(`liked-${tagNumber}`, isLiked);
   localStorage.setItem(`game-${tagNumber}`, JSON.stringify(gameData));
 }
-

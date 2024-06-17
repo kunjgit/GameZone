@@ -44,6 +44,7 @@ body {
   text-align: center;
   cursor: pointer;
   margin-bottom: 20px;
+  color: white;
 }
 .Back-button:hover {
   transform: scale(1.05);
@@ -81,7 +82,7 @@ body {
 
 .menu {
   /* background-color: white; */
-  color: #4c4c4c;
+  color: #181818;
   padding: 10px;
   cursor: pointer;
   /* border: 2px solid #202639;

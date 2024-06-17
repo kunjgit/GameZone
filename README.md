@@ -367,9 +367,9 @@ This repository also provides one such platforms where contributers come over an
 | [Bouncing Ball Game](https://github.com/kunjgit/GameZone/tree/main/Games/Bouncing_Ball_Game) |
 | [Disney_Trivia](https://github.com/manmita/GameZone/tree/Disney_Trivia/Games/Disney_Trivia)|
 |[Harmony_Mixer](https://github.com/kunjgit/GameZone/tree/main/Games/Harmony_Mixer)|
-|[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
 |[Steam_Punk](https://github.com/kunjgit/GameZone/tree/main/Games/Steam_Punk)|
 |[Tower Defence Game](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Tower_Defence_Game)|
+|[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
 
 
  </center>

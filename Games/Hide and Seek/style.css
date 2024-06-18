@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #7d0d56, #37128c, #861169, #3b128e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    background: linear-gradient(to right, rgba(46, 0, 59, 0.603), rgba(46, 0, 59, 0.603), rgba(46, 0, 59, 0.603));
+    padding: 40px 60px;
+}
+
+h2 {
+    font-size: 2em;
+    color: rgba(255, 255, 255, 0.74);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.reset {
+    padding: 15px 20px;
+    background-color: rgba(255, 20, 251, 0.379);
+    color: aliceblue;
+    border: none;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.reset:focus {
+    color: #fff;
+    background: #3700ff69;
+}
+
+.game {
+    width: 430px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background: #ffffff2f;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+}
+
+.item.boxOpen {
+    transform: rotateY(0deg);
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #7a00b3;
+    transition: 0.25s;
+    transform: rotate(0.25deg);
+    backface-visibility: hidden;
+}
+
+.boxOpen:after, .boxMatch:after
+{
+    transform: rotateY(180deg);
+}

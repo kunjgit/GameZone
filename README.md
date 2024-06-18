@@ -791,6 +791,8 @@ This repository also provides one such platforms where contributers come over an
 |[Dot_Box_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Box_Game)|
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
+|[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
+
 
 
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|

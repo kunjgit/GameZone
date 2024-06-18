@@ -1,0 +1,136 @@
+/* Basic styling, layout, and animations go here */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.game-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+}
+
+.duck {
+    z-index: 0;
+    display: block;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    top: 30%;
+    left: 20%;
+    animation-name: horizontal-move;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    background-size: cover;
+    position: absolute;
+    cursor: pointer;
+}
+.box-duck {
+    position: relative;
+    display: block;
+    width: 500px;
+    height: 500px;
+    background: #f5f5f5;
+    margin: 0 auto;
+  }
+  .beak {
+    position: absolute;
+    top: 44%;
+    left: 47%;
+    background: #FFA500;
+    border-radius: 50%;
+    width: 37px;
+    height: 20%;
+  }
+  .body-duck {
+    position: absolute;
+    top: 45%;
+    left: 15%;
+    background: #caa444;
+    border-radius: 50%;
+    width: 150px;
+    height: 39%;
+  }
+  .greetings {
+    position: absolute;
+    display: block;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+  }
+  .head {
+    position: absolute;
+    top: 29%;
+    left: 36%;
+    background: #af8c32;
+    border-radius: 50%;
+    width: 90px;
+    height: 30%;
+  }
+  .left-cheek {
+    position: absolute;
+    top: 41%;
+    left: 19%;
+    background: #FFA07A;
+    border-radius: 50%;
+    width: 16px;
+    height: 10px;
+  }
+  .left-eye {
+    position: absolute;
+    top: 27%;
+    left: 35%;
+    background: #000;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+  }
+  .pond {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    background: #9ff6ff;
+    border-radius: 50%;
+    width: 325px;
+    height: 20%;
+    animation-name: rgb(5, 5, 170);
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+  .right-cheek {
+    position: absolute;
+    top: 41%;
+    left: 90%;
+    background: #FFA07A;
+    border-radius: 50%;
+    width: 13px;
+    height: 10px;
+  }
+  .right-eye {
+    position: absolute;
+    top: 27%;
+    left: 80%;
+    background: #000;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+  }
+  
+#score {
+    z-index: 1;
+    font-size: 24px;
+    margin-top: 20px;
+}

@@ -284,6 +284,7 @@ This repository also provides one such platforms where contributers come over an
 | [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)       | 
 | [Physics_Quizz](https://github.com/kunjgit/GameZone/tree/main/Games/Physics_Quizz)     |
 | [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       | 
+| [Hide and Seek](https://github.com/PilotAxis/GameZone/tree/main/Games/Hide%20and%20Seek)    |
 
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect)    |
 
@@ -345,6 +346,7 @@ This repository also provides one such platforms where contributers come over an
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
+| [Hide and Seek](https://github.com/PilotAxis/GameZone/tree/main/Games/Hide%20and%20Seek) |
 
  </center>
 
@@ -794,6 +796,7 @@ This repository also provides one such platforms where contributers come over an
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
+|[Hide and Seek](https://github.com/PilotAxis/GameZone/tree/main/Games/Hide%20and%20Seek)|
 >>>>>>> c24ab932e1702441882a65b80d713ea232e18c46
 
 

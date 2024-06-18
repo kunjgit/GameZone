@@ -1,0 +1,298 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: antiquewhite;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
+footer p {
+  font-weight: 600;
+}
+footer p a:hover {
+  color: #a892e4;
+}
+
+.game-container {
+  position: absolute;
+  background-color: rgb(195, 170, 140);
+  width: 700px;
+  height: 500px;
+  display: grid;
+  box-shadow: 0px 0px 10px rgba(55, 55, 55, 0.7);
+}
+
+#game-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../img/test/test-layout-bg.png");
+}
+
+/* Button Styles */
+#next-base,
+#next-hair,
+#next-top,
+#next-bottom,
+#next-shoe {
+  position: relative;
+  left: 7em;
+  width: 6em;
+  height: 25px;
+  padding: 0 2em 0 0.7em;
+  text-align: left;
+  color: white;
+  background: url("../img/test/next-btn.png");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: 0;
+  border-radius: 25%;
+  border: 1px solid rgb(14, 46, 115);
+  box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
+}
+
+#prev-base,
+#prev-hair,
+#prev-top,
+#prev-bottom,
+#prev-shoe {
+  position: relative;
+  width: 6em;
+  height: 25px;
+  padding: 0 0.7em 0 2em;
+  text-align: right;
+  color: white;
+  background: url("../img/test/prev-btn.png");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: 0;
+  border-radius: 25%;
+  border: 1px solid rgb(14, 46, 115);
+  box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
+}
+
+/* When hovering over the buttons! */
+#next-base:hover,
+#prev-base:hover,
+#next-hair:hover,
+#prev-hair:hover,
+#next-top:hover,
+#prev-top:hover,
+#next-bottom:hover,
+#prev-bottom:hover,
+#next-shoe:hover,
+#prev-shoe:hover {
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
+}
+
+/* The clothes to overite the character */
+#game-bg {
+  background: url("../img/bg.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#base {
+  background: url("../img/base/base_1.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#hair {
+  background: url("../img/hair/hair_1.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#top {
+  background: url("../img/top/top_1.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#bottom {
+  background: url("../img/bottom/bottom_1.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#shoes {
+  background: url("../img/shoes/shoes_1.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+/* Button Position Set Up */
+form {
+  position: absolute;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-areas: "logo-left logo base-right" "base-left base base-right" "head-left head head-right" "top-left top top-right" "blank-left blank blank-right" "bottom-left bottom bottom-right" "feet-left feet feet-right";
+}
+
+/* Positions of the buttons on the grid */
+.color-section {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  grid-area: base-right;
+  align-self: center;
+  width: full;
+  color: white;
+  text-align: center;
+  margin: 0 2em;
+}
+
+input[type=range] {
+  margin: 0.5em;
+}
+
+#warning {
+  grid-area: head-right;
+}
+#warning .text {
+  margin-top: 0;
+  font-size: 12px;
+  text-align: center;
+  color: red;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+#warning .warn {
+  opacity: 100%;
+  transition: opacity 0.5s;
+}
+
+#next-base {
+  grid-area: blank-right;
+  align-self: center;
+  margin-left: 3em;
+}
+
+#next-hair {
+  grid-area: head-right;
+  align-self: end;
+  margin-left: 3em;
+}
+
+#next-top {
+  grid-area: top-right;
+  align-self: end;
+  margin-left: 3em;
+}
+
+#next-bottom {
+  grid-area: bottom-right;
+  margin-left: 3em;
+}
+
+#next-shoe {
+  grid-area: feet-right;
+  margin-left: 3em;
+}
+
+#prev-base {
+  grid-area: blank-right;
+  align-self: center;
+  margin-left: 2em;
+}
+
+#prev-hair {
+  grid-area: head-right;
+  align-self: end;
+  margin-left: 2em;
+}
+
+#prev-top {
+  grid-area: top-right;
+  align-self: end;
+  margin-left: 2em;
+}
+
+#prev-bottom {
+  grid-area: bottom-right;
+  margin-left: 2em;
+}
+
+#prev-shoe {
+  grid-area: feet-right;
+  margin-left: 2em;
+}
+
+/* RADIO BUTTONS TO SELECT WHICH ITEM TO COLOR */
+#base-color {
+  grid-area: blank-right;
+  align-self: center;
+  margin: 0.35em 0 0 0.5em;
+}
+
+#hair-color {
+  grid-area: head-right;
+  align-self: flex-end;
+  margin: 0 0 0.35em 0.5em;
+}
+
+#top-color {
+  grid-area: top-right;
+  align-self: flex-end;
+  margin: 0 0 0.35em 0.5em;
+}
+
+#bottom-color {
+  grid-area: bottom-right;
+  align-self: flex-start;
+  margin: 0.35em 0 0 0.5em;
+}
+
+#shoes-color {
+  grid-area: feet-right;
+  align-self: flex-start;
+  margin: 0.35em 0 0 0.5em;
+}
+
+#capture-btn {
+	position: absolute;
+  padding-bottom: -80px;
+	top: 0px;
+	left: 0px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+  z-index: 2;
+}
+
+#capture-btn img {
+	width: 80px;
+	height: 80px;
+}
+
+.warn {
+	color: red;
+}

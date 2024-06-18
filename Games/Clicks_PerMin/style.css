@@ -1,0 +1,20 @@
+body {
+    background-color: #f8f9fa;
+  }
+  .container {
+    text-align: center;
+    margin-top: 100px;
+  }
+  .score-board, .timer-board {
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+  .click-button {
+    font-size: 1.25rem;
+    padding: 15px 30px;
+  }
+  .game-over {
+    font-size: 1.75rem;
+    color: #dc3545;
+    margin-top: 20px;
+  }

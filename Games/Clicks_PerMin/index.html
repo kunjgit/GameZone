@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Per Minute Game</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="display-4">Click Per Minute Game</h1>
+    <p class="lead">Click the button as many times as you can in 1 minute!</p>
+    <button id="clickButton" class="btn btn-primary btn-lg click-button">Click Me!</button>
+    <p id="score" class="score-board">Score: 0</p>
+    <p id="timer" class="timer-board">Time left: 1:00</p>
+    <p id="gameOver" class="game-over d-none">Game over! Your score is <span id="finalScore"></span> clicks per minute.</p>
+  </div>
+
+  <!-- Bootstrap JS and necessary scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

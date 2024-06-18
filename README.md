@@ -345,11 +345,11 @@ This repository also provides one such platforms where contributers come over an
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
-
+| [Maze_Runner] (https://github.com/sanayamahajan-23/GameZone/tree/Maze_runner/Games/Maze_Runner)|
  </center>
 
 <br>
-<br>
+<br>https://github.com/sanayamahajan-23/GameZone/tree/Maze_runner/Games/Maze_Runner
 
 <div align="center">
 <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="Page with Curl" width="40" height="40" /> Contributing Guideline </font></h2>

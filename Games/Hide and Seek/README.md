@@ -27,12 +27,12 @@ Here are some screenshots of the game:
 
 **At the Starting of Game:**
 
-![Starting](https://github.com/PilotAxis/GameZone/blob/main/Games/Hide%20and%20Seek/assets/beginning.png)
+![Starting](./assets/image1.png)
 
 **During Playing:**
 
-![Playing](https://github.com/PilotAxis/GameZone/blob/main/Games/Hide%20and%20Seek/assets/process.png)
+![Playing](./assets/image2.png)
 
 **At the End of Game:**
 
-![End](https://github.com/PilotAxis/GameZone/blob/main/Games/Hide%20and%20Seek/assets/end.png)
+![End](./assets/image3.png)

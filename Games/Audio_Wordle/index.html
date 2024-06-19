@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auddle - Audio Wordle!</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel = "icon" href = "images/d.svg" type = "image/x-icon">
+</head>
+<body>
+     
+    <div class="title-box">
+        au<span id="dd"><img src=images/d.svg id="title-symbol"><img src=images/d.svg id="title-symbol"></span>le<sup class="era-text"></sup>
+    </div>
+
+    <p id="counter"></p>
+
+    <div class="container">
+        <div class="audio-clip">
+            <div class="text-instructions">
+                Play the audio clip
+            </div>
+            <audio class="clue1" controls controlsList="nodownload" src="">Your browser does not support the <code>audio</code> element.
+            </audio>
+        </div>
+        <div class="word-box">
+            <div class="text-instructions" id="guess-instructions">Guess the <b>SINGER</b> in 6 attempts!<br></div>
+            <div class="container-box">
+                <div class="row-1">
+                    <span id="box-1"></span>
+                    <span id="box-2"></span>
+                    <span id="box-3"></span>
+                    <span id="box-4"></span>
+                    <span id="box-5"></span>
+                    <span id="box-6"></span>
+                    <span id="box-7"></span>
+                    <span id="box-8"></span>
+                </div>
+                <div class="row-2">
+                    <span id="box-1"></span>
+                    <span id="box-2"></span>
+                    <span id="box-3"></span>
+                    <span id="box-4"></span>
+                    <span id="box-5"></span>
+                    <span id="box-6"></span>
+                    <span id="box-7"></span>
+                    <span id="box-8"></span>
+                </div>
+                <div class="row-3">
+                    <span id="box-1"></span>
+                    <span id="box-2"></span>
+                    <span id="box-3"></span>
+                    <span id="box-4"></span>
+                    <span id="box-5"></span>
+                    <span id="box-6"></span>
+                    <span id="box-7"></span>
+                    <span id="box-8"></span>
+                </div>
+                <div class="row-4">
+                    <span id="box-1"></span>
+                    <span id="box-2"></span>
+                    <span id="box-3"></span>
+                    <span id="box-4"></span>
+                    <span id="box-5"></span>
+                    <span id="box-6"></span>
+                    <span id="box-7"></span>
+                    <span id="box-8"></span>
+                </div>
+                <div class="row-5">
+                    <span id="box-1"></span>
+                    <span id="box-2"></span>
+                    <span id="box-3"></span>
+                    <span id="box-4"></span>
+                    <span id="box-5"></span>
+                    <span id="box-6"></span>
+                    <span id="box-7"></span>
+                    <span id="box-8"></span>
+                </div>
+                <div class="row-6">
+                    <span id="box-1"></span>
+                    <span id="box-2"></span>
+                    <span id="box-3"></span>
+                    <span id="box-4"></span>
+                    <span id="box-5"></span>
+                    <span id="box-6"></span>
+                    <span id="box-7"></span>
+                    <span id="box-8"></span>
+                </div>
+            </div>
+        </div>
+        <div class="message-box"><div class="message">too short!</div></div>
+        <div class="finish"><span class="finish_"></span><a target = "_blank" href="" id="link"></a></div>
+        <div class="keyboard">
+            <div class="row1">
+                <div class="q">Q</div>
+                <div class="w">W</div>
+                <div class="e">E</div>
+                <div class="r">R</div>
+                <div class="t">T</div>
+                <div class="y">Y</div>
+                <div class="u">U</div>
+                <div class="i">I</div>
+                <div class="o">O</div>
+                <div class="p">P</div>
+            </div>
+            <div class="row2">
+                <div class="a">A</div>
+                <div class="s">S</div>
+                <div class="d">D</div>
+                <div class="f">F</div>
+                <div class="g">G</div>
+                <div class="h">H</div>
+                <div class="j">J</div>
+                <div class="k">K</div>
+                <div class="l">L</div>
+            </div>
+            <div class="row3">
+                <div class="Backspace"><img id="bksp" src="images/backspace-outline.svg" alt="backspace"></div>
+                <div class="z">Z</div>
+                <div class="x">X</div>
+                <div class="c">C</div>
+                <div class="v">V</div>
+                <div class="b">B</div>
+                <div class="n">N</div>
+                <div class="m">M</div>
+                <div class="Enter"><img id="enter" src="images/return.svg" alt="enter"></div>
+            </div>
+        </div>
+        <div class="credits">
+            Made by&#160<a id="github" href="https://sawmill811.github.io/">Khushi Kalra
+            </a>
+            <a id="github-logo" href="https://github.com/abckhush"><img src="images/github.svg" style="width:100%" alt="github">
+            </a>
+            
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="script.js"></script>
+</html>

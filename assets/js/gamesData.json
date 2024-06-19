@@ -2109,16 +2109,16 @@
   "gameTitle":"Puzzle-Game",
   "gameUrl":"puzzle-game",
   "thumbnailUrl":"puzzle-game.png"
-}
-<<<<<<< HEAD
+},
+
 "419":{
 "gameTitle": "Pottery",
 "gameUrl": "Pottery-Game",
 "thumbnailUrl": "Pottery.png"
-=======
-
->>>>>>> c24ab932e1702441882a65b80d713ea232e18c46
-  
-
+},
+"421":{
+"gameTitle": "ShroomKnight",
+"gameUrl": "ShroomKnight",
+"thumbnailUrl": "ShroomKnight.png"
 }
 }

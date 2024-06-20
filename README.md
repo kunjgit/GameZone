@@ -804,6 +804,7 @@ This repository also provides one such platforms where contributers come over an
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
 |[Tic-tac-toe](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tic-tac-toe)|
 |[Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)|
+| [Wall_Breaker_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Wall_Breaker_Game) |
  </center>
 
 <br>

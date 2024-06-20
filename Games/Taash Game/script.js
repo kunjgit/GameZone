@@ -1,3 +1,4 @@
+let count=0
 let blackjackGame = {
   you: {
     scoreSpan: "#your-blackjack-result",
@@ -65,24 +66,28 @@ document
   .addEventListener("click", blackjackRestart);
 
 function blackjackHit() {
+  count+=1
   if (blackjackGame["isStand"] === false) {
     let card = randomCard();
-    showCard(card, YOU);
+    showCard('your-box',card, YOU,count);
     updateScore(card, YOU);
     showScore(YOU);
   }
 }
-
 function randomCard() {
   let randomIndex = Math.floor(Math.random() * 13);
   return blackjackGame["cards"][randomIndex];
 }
 
-function showCard(card, activePlayer) {
+function showCard(player,card, activePlayer,counting) {
   if (activePlayer["score"] <= 21) {
     let cardImage = document.createElement("img");
     cardImage.src = `images/${card}.png`;
-    cardImage.style = `width:${widthSize()}; height:${heightSize()};`;
+    if(counting>1){
+    let your_BOX=document.getElementById(player).children[counting-1]
+      your_BOX.id=counting===2?'right':counting===3?"center":"left"
+    }
+    cardImage.style = `height:${heightSize()};object-fit: contain;`;
     document.querySelector(activePlayer["div"]).appendChild(cardImage);
     hitSound.play();
   }
@@ -98,12 +103,7 @@ function widthSize() {
 }
 
 function heightSize() {
-  if (windowHeight > 700) {
-    let newHeightSize = window.screen.height * 0.18;
-    return newHeightSize;
-  } else {
-    return window.screen.height * 0.15;
-  }
+  return 150+'px'
 }
 
 function updateScore(card, activePlayer) {
@@ -117,12 +117,13 @@ function updateScore(card, activePlayer) {
     activePlayer["score"] += blackjackGame["cardsMap"][card];
   }
 
-  console.log(activePlayer["score"]);
 }
 
 function showScore(activePlayer) {
   //Bust logic if score is over 21
   if (activePlayer["score"] > 21) {
+    let Bust=document.querySelector(activePlayer.div).lastElementChild
+    Bust.id="Bust"
     document.querySelector(activePlayer["scoreSpan"]).textContent = "BUST!";
     document.querySelector(activePlayer["scoreSpan"]).style.color = "red";
   } else {
@@ -132,6 +133,7 @@ function showScore(activePlayer) {
 }
 
 function blackjackStand() {
+  count=0
   if (blackjackGame.pressOnce === false) {
     blackjackGame["isStand"] = true;
     let yourImages = document
@@ -140,7 +142,7 @@ function blackjackStand() {
 
     for (let i = 0; i < yourImages.length; i++) {
       let card = randomCard();
-      showCard(card, DEALER);
+      showCard("dealer-box",card, DEALER,i+1);
       updateScore(card, DEALER);
       showScore(DEALER);
     }
@@ -203,6 +205,7 @@ function showWinner(winner) {
 }
 
 function blackjackDeal() {
+  count=0
   if (blackjackGame["isTurnsOver"] === true) {
     // Select all the images in both the user and dealer box
     let yourImages = document
@@ -239,6 +242,7 @@ function blackjackDeal() {
 }
 
 function blackjackRestart() {
+  count=0
   blackjackDeal();
   document.querySelector("#wins").textContent = 0;
   document.querySelector("#losses").textContent = 0;

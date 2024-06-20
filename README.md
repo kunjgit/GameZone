@@ -792,7 +792,7 @@ This repository also provides one such platforms where contributers come over an
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
- | [Ganesh QR Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker) |
+|[Ganesh QR Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker)|
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
 |[Tic-tac-toe](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tic-tac-toe)|
  </center>

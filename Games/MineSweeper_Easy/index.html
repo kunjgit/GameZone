@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Minesweeper</h1>
+    <div class="instructions">
+        <p>Rules:</p>
+        <ul>
+            <li>Click on a cell to reveal it.</li>
+            <li>Right-click on a cell to flag it as a mine.</li>
+            <li>Reveal all non-mine cells to win.</li>
+        </ul>
+        <p>Total mines: <span id="mineCount"></span></p>
+    </div>
+    <div id="status"></div>
+    <div id="gameBoard"></div>
+    <button id="restartButton">Restart</button>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -786,6 +786,8 @@ This repository also provides one such platforms where contributers come over an
 |[Tower Defence Game](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Tower_Defence_Game)|
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
+|[Spell Bee](https://github.com/kunjgit/GameZone/tree/main/Games/Spell_Bee)|
+|
 
 
  </center>

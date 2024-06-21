@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #83a4d4, #b6fbff);
+}
+
+.game-wrapper {
+    width: 85vw;
+    display: flex;
+    align-items: center;
+    /* border: 2px solid black; */
+}
+
+#slide-image {
+    justify-content: flex-start;
+    width: 400px;
+    height: 300px;
+    margin-right: 60px;
+    
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#start-btn{
+    border-radius: 25px;
+    outline: none;
+    background-color:rgb(174, 238, 238);
+    cursor: pointer;
+}
+
+#start-btn:hover{
+    background-color: rgb(128, 235, 235);
+    border: 4px solid rgb(55, 55, 229);
+}
+
+h1 {
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.slide {
+    margin: 20px 20px;
+}
+
+#questions {
+    margin-top: 20px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(73, 182, 255);
+    height: 30px;
+    padding-top: 8px;
+    width: 100vw;
+    text-align: center;
+}
+
+.footer>a:hover{
+    color: rgb(21, 8, 209);
+}

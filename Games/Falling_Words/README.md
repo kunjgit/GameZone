@@ -1,36 +1,34 @@
-# Falling Words
+# **Falling Words** 
 
-<br/>
+---
 
-<p align="center">
-<b>Type the word, as fast as you can !!</b>, before it reaches the bottom of the blurred square.
-If it touches the <b>cyan line</b>, <b style="color: red">you lose</b>.
+<br>
+
+## **Description 📃**
+<!-- add your game description here  -->
+- Falling words is game where you have to type the word, as fast as you can !!, before it reaches the bottom of the blurred square. If it touches the bottom line you lose.
 </p>
 
-## Game difficulties
-
-It has 3 difficulties:
-
+## **functionalities 🎮**
+<!-- add functionalities over here -->
+- Score based game, score increase as more words you tyoe correctly before reching the bottom
+- Gameover with music
+- Music playing while you play
+- It has 3 difficulties:
 * Easy = 1 word per 3 seconds
 * Medium = 1 word per 2 seconds
 * Hard = 1 word per 1 second
+<br>
 
-## Tech used
+## **How to play? 🕹️**
+- Open the index.html file
+- Select difficulty
+- Start typing the words and press enter if completed
+-It is a game where you must type the wordas fast as you can !!falling from the top of the blurred square. if it reaches the bottomcyan line . you lose.
 
-* HTML
-* CSS
-* Javascript
-* [Bootstrap](https://getbootstrap.com/)
-* [Textcraft generator (logo)](https://textcraft.net/style/ninjagofans/k-arcade)
-* [Favicon generator](https://www.favicon-generator.org/)
+<br>
 
-## Music
-
-* Start Game - [Demon Slayer: Kimetsu no Yaiba OP - Gurenge [8-bit; VRC6]](https://www.youtube.com/watch?v=Y67vJWYvLBg&t=5s)
-* Home - [Homura/Demon Slayer: Kimetsu no Yaiba 8-bit](https://www.youtube.com/watch?v=LRrGjhpNWoo)
-* Gameover - [Kamado Tanjiro no Uta/Demon Slayer: Kimetsu no Yaiba 8-bit](https://www.youtube.com/watch?v=y6ZT7SrmfUs&t=38s)
-
-## Screenshots
+## **Screenshots 📸**
 
 ### Home
 

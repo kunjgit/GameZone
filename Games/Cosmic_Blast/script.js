@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const finalScore = document.getElementById("final-score");
 
     var explosionSound = new Audio();
-    explosionSound.src = "./assets/explode.mp3";
+    explosionSound.src = "assets/explode.mp3";
     explosionSound.preload = "auto";
 
     let health = 100;
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const asteroid = document.createElement("div");
         asteroid.className = "asteroid";
         const size = Math.floor(Math.random() * 3) + 1; // Random size between 1 and 3
-        asteroid.style.backgroundImage = `url('/assets/asteroid-${size}.png')`; // Use different asteroid images
+        asteroid.style.backgroundImage = `url('assets/asteroid-${size}.png')`; // Use different asteroid images
         asteroid.setAttribute("size", size); // Store size as an attribute
         
         // Set initial position and angle
@@ -169,6 +169,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (health <= 0) {
             endGame();
         }
-        earth.style.backgroundImage = "url('/assets/earth.png')";
+        earth.style.backgroundImage = "url('assets/earth.png')";
     }
 });

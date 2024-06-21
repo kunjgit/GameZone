@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pathways</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm d-flex justify-content-center align-items-center">
+          <span class="gameTitleDiv">
+            Player - Get the best finish time!
+          </span>
+        </div>
+      </div>
+      <div class="row" id="gameInfo">
+        <div
+          class="col-sm text-center"
+          style="font-size: 1.5rem; padding-bottom: 3%"
+        >
+         Pathways is simply a Maze game where you have to start from one
+          point and go to the finish point as fast as you can!
+          <br /><br />
+          <b>LEVEL & DIFFICULTIES</b><br />
+          There are 5 levels in total & each new level increases the difficulty!
+          <br /><br />
+          <b>INSTRUCTION</b><br />
+          You have to use your W,S,A,D keys (W - UP, S - DOWN, A - LEFT, D -
+          RIGHT) to navigate throught the maze!
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm d-flex justify-content-around align-items-center">
+          <button
+            type="button"
+            style="font-size: 2rem"
+            class="btn btn-success"
+            id="btnStart"
+            onclick="startTheGame()"
+          >
+            Start
+          </button>
+        </div>
+      </div>
+      <div class="row" id="timerDivHide">
+        <div
+          class="col-sm d-flex justify-content-around align-items-center"
+          id="timerDiv"
+        >
+          <div>
+            <span id="timeTitle">Player Name: </span>
+            <label id="name">'PRESS START'</label>
+          </div>
+          <div>
+            <span id="timeTitle">Time: </span> <label id="seconds">0s</label>
+          </div>
+          <div>
+            <span id="timeTitle">Level: </span> <label id="level">1</label>
+          </div>
+        </div>
+      </div>
+      <div class="row hide" id="canvasRow">
+        <div
+          class="cardStyle col-sm d-flex justify-content-center align-items-center mt-5 pt-5 pb-5"
+          id="cardStyle"
+        >
+          <canvas id="canvas" width="1000" height="1000">
+            This text is displayed if your browser does not support HTML5
+            Canvas.
+          </canvas>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="totalStyle col-sm d-flex flex-column justify-content-center align-items-center"
+        >
+          <div class="totalTile">Final Result</div>
+          <div class="text-center" id="totalDisplay"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var totalSeconds = 0;
+      function startTimer() {
+        var secondsLabel = document.getElementById("seconds");
+
+        setInterval(setTime, 1000);
+        function setTime() {
+          ++totalSeconds;
+          secondsLabel.innerHTML = totalSeconds + "s";
+        }
+      }
+    </script>
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>
+
+<!-- https://html5.litten.com/make-a-maze-game-on-an-html5-canvas/ -->

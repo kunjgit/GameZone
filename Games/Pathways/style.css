@@ -1,0 +1,88 @@
+.cardStyle {
+  background-color: #15405e;
+  -webkit-box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  border-radius: 6px;
+}
+canvas {
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+}
+
+:root {
+  --bg-color: #080808;
+  --second-bg-color: #001005;
+  --text-color: white;
+  --main-color: #00ff51;
+}
+
+#timeTitle {
+  font-size: 2.5rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+}
+
+.totalStyle {
+  background-color: var(--main-color);
+  -webkit-box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  border-radius: 6px;
+  margin-top: 5%;
+  padding: 2%;
+  margin-bottom: 5%;
+}
+
+#name,
+#level,
+#seconds {
+  color: #15405e;
+  font-size: 2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.totalTile {
+  color: var(--main-color);
+  font-size: 2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+}
+
+#totalDisplay {
+  font-size: 1.5rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+#timerDiv {
+  background-color: var(--main-color);
+  -webkit-box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 3px 18px -1px rgba(0, 0, 0, 0.75);
+  border-radius: 6px;
+  margin-top: 4%;
+  padding: 1%;
+}
+
+.gameTitleDiv {
+  font-size: 3rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+#timeTook {
+  color: var(--main-color) ;
+}
+
+.hide {
+  height: 0;
+  padding: 0;
+  margin: 0;
+  visibility: hidden;
+}

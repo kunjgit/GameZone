@@ -285,7 +285,8 @@ This repository also provides one such platforms where contributers come over an
 | [Guess_num](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_num)                  |
 | [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)       | 
 | [Physics_Quizz](https://github.com/kunjgit/GameZone/tree/main/Games/Physics_Quizz)     |
-| [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       | 
+| [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       |  
+| [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect)    |
 
@@ -348,9 +349,12 @@ This repository also provides one such platforms where contributers come over an
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
+
+=======
 | [Drawing_App](https://github.com/kunjgit/GameZone/tree/main/Games/Drawing_app) |
 
 |[Town-Rise](https://github.com/kunjgit/GameZone/tree/main/Games/Town_Rise_Game)|
+| [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 
   </center>
 
@@ -805,6 +809,8 @@ This repository also provides one such platforms where contributers come over an
 |[Dot_Box_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Box_Game)|
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
+=======
+=======
 | [Go-fish-master](https://github.com/kunjgit/GameZone/tree/main/Games/Go-fish-master) |
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
  | [Ganesh QR Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker) |
@@ -813,7 +819,11 @@ This repository also provides one such platforms where contributers come over an
 
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
 |[Tic-tac-toe](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tic-tac-toe)|
+
+=======
 |[Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)|
+
+| [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
  </center>
 
 <br>

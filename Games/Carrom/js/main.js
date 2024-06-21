@@ -14,7 +14,7 @@ $(document).ready(function(){
             yCo = event.pageY;
             if(xCo <   players[currPlayer].rb && xCo >  players[currPlayer].lb)
                 coins[0].x = xCo; 
-            $("#mp").html("x-coor : " + xCo +"  y-coor : " + yCo);
+            $("#mp").html("X-coordinate : " + xCo +"  Y-coordinate : " + yCo);
             ctx.clearRect(0,0,720,720);
             drawCoins();
             drawCircle(coins[0].x-390,coins[0].y,12.5,'white',ctx);       

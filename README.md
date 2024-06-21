@@ -799,6 +799,7 @@ This repository also provides one such platforms where contributers come over an
 
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
 |[Tic-tac-toe](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tic-tac-toe)|
+|[15_Puzzle_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/15_Puzzle_Game)|
  </center>
 
 <br>

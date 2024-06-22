@@ -1,120 +1,92 @@
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
-
-* {
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
 body {
-  background-color: #282c34;
-  color: #fff;
-  font-family: 'Press Start 2P', sans-serif;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  text-align: center;
-}
+    margin: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to bottom, #180338, #83789b);
+  }
+  
+  #game-container {
+    width: 600px;
+    margin: 30px auto;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3em;
+    font-family: 'Dancing Script';
+    color: aliceblue;
+    margin-bottom: 10px;
+  }
+  
+  #scoreboard {
+    margin-bottom: 10px;
+    color: azure;
+  }
+  
+  #game-area {
+    background-color: #0a0729;
+    height: 350px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0 auto;
+    position: relative;
+    /*background-image: url("path/to/your/starry-background.png"); Add a starry background image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .star {
+    position: absolute;
+    top: 0;
+    left: random(100%);
+    font-size: 2em;
+    color: gold;
+    animation: fall 3s linear infinite;
+    cursor: pointer;
+  }
+  
+  @keyframes fall {
+    0% { top: 0px; }
+    100% { top: 300px; }
+    100% { right: 80%;}
+  }
+  
+  #button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  #start-button {
+    padding: 10px 20px;
+    background-color: #14ee18;
+    color: #100f0f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #start-button:active {
+    background-color: #107711;
+  }
 
-a {
-  color: #fff;
-}
+  #reset-button {
+    padding: 10px 20px;
+    background-color: #ef0c0c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
-h1 {
-  line-height: 1.4;
-}
-
-.btn {
-  border: 0;
-  background-color: #fff;
-  color: #282c34;
-  padding: 15px 20px;
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.btn:hover {
-  opacity: 0.9;
-}
-
-.btn:focus {
-  outline: 0;
-}
-
-.screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  transition: margin 0.5s ease-out;
-}
-
-.screen.up {
-  margin-top: -100vh;
-}
-
-.game-container {
-  position: relative;
-}
-
-.time,
-.score {
-  position: absolute;
-  top: 20px;
-}
-
-.time {
-  left: 20px;
-}
-
-.score {
-  right: 20px;
-}
-
-.message {
-  line-height: 1.7;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  padding: 20px;
-  z-index: 100;
-  text-align: center;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -150%);
-  transition: transform 0.4s ease-in;
-}
-
-.message.visible {
-  transform: translate(-50%, 150%);
-  opacity: 1;
-}
-
-.star {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 0.3s ease-in-out;
-}
-
-.star.caught {
-  transform: translate(-50%, -50%) scale(0);
-}
-
-.star img {
-  width: 100px;
-  height: 100px;
-}
-
-#reset-btn {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+  #reset-button:active{
+    background-color: #710707;
+  }
+  
+  #instructions {
+    margin-top: 10px;
+    font-style: italic;
+    color: aliceblue;
+  }

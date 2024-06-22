@@ -1,0 +1,78 @@
+/* style.css */
+
+body {
+    background-image: url("https://github.com/manmita/GameZone/blob/Disney_Trivia/Games/Disney_Trivia/disney_b.jpg");
+    background-repeat: no-repeat;
+    background-size: 1920px 1080px;
+    display: flex;
+    font-family: 'Arial', sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.container {
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(25, 89, 172, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #dcdcdc;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.next-btn {
+    margin-top: 20px;
+}
+
+.btn.answer {
+    background-color: #e0e0e0;
+}
+
+.btn.correct {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn.wrong {
+    background-color: #f44336;
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+#timer {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+

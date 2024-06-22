@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/images/football.ico">
+    <title>Ultimate Football Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><h1>Ultimate Football Manager</h1></a>
+    </header>
+
+    <main>
+        <section id="landing-page" class="section-box">
+            <div id="buttonBox">
+                <button type="button" id="start-game">Start New Game</button>
+                <!-- <button type="button">Load Saved Game</button> -->
+            </div>
+        </section>
+
+        <section id="team-selection" class="section-box hide">
+            <div id="teamSel_container">
+                <h2>Select a team:</h2>
+                <select name="leagues" id="league-dropdown">
+                    <option value="">--Leagues--</option>
+                    <option value="epl">Premier League</option>
+                    <option value="champ">Championship</option>
+                    <option value="efl1">League 1</option>
+                    <option value="efl2">League 2</option>
+                </select>
+                <select name="teams" id="team-dropdown">
+                    <option value="">--Teams--</option>
+                </select>
+                <button type="button" id="teamBtn">Finish</button>
+            </div>
+        </section>
+
+        <section id="main-menu" class="section-box hide">
+            <div id="mainMenu_btns">
+                <h2>Team: <span id="team-name"></span></h2>
+                <button type="button" id="teamPageBtn">Team</button>
+                <button type="button" id="leaguePageBtn">League Table</button>
+                <button type="button" id="schedulePageBtn">Schedule</button>
+                <button type="button" id="nextGameBtn">Next Game</button>
+            </div>
+        </section>
+
+        <section id="team-page" class="hide">
+            <div class="tableButtonContainer">
+                <table id="teamTable">
+                    <thead id="tableHeader">
+                        <tr>
+                            <th>Name</th>
+                            <th>Selection</th>
+                            <th>Pos</th>
+                            <th>Rating</th>
+                            <th>Value</th>
+                            <th>Wage</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div id="formationButtons">
+                    <button id="442">4-4-2</button>
+                    <button id="352">3-5-2</button>
+                    <button id="532">5-3-2</button>
+                    <button id="451">4-5-1</button>
+                    <button id="541">5-4-1</button>
+                </div>
+            </div>
+            <button type="button" id="teamMainBtn">Main Menu</button>
+        </section>
+
+        <section id="league-page" class="hide">
+            <table id="leagueTable">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Team</th>
+                        <th>P</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GF</th>
+                        <th>GA</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                    </tr>
+                </thead>
+            </table>
+            <button type="button" id="leagueMainBtn">Main Menu</button>
+        </section>
+
+        </section>
+        <section id="schedule-page" class="hide">
+            <div id="fixture_page">
+                <div id="schedule_container">                   
+                </div>
+                <button type="button" id="scheduleMainBtn">Main Menu</button>
+            </div>
+        </section>
+        <section id="history-page" class="hide">
+            <div>
+                <div>
+
+                </div>
+                <button type="button" id="historyMainBtn">Main Menu</button>
+            </div>
+        </section>
+
+        <section id="game-screen" class="hide">
+            <h2 id="time">0</h2>
+            <div id="teamLayer">
+                <h2 id="homeTeam">Home Team</h2>
+                <div id="scoreDiv">
+                    <h2 id="homeScore">0</h2>
+                    <h2>:</h2>
+                    <h2 id="awayScore">0</h2>
+                </div>
+                <h2 id="awayTeam">Away Team</h2>
+            </div>
+            <div id="eventLayer">   
+                <p id="homeScorer"></p>
+                <p id="awayScorer"></p>
+            </div>
+            <div id="buttonBox">
+                <button type="button" id="startGame">Start Game</button>
+                <!-- <button type="button" id="nextMainBtn" class="hide">Main Menu</button> -->
+                <button type="button" id="nextResultsBtn" class="hide">Results</button>
+            </div>
+        </section>
+        <section id="results-screen" class="hide">
+            <div id="results_container">
+                <table id="resultsTable">
+                    <thead id="resultsHeader">
+                    </thead>
+                </table>
+                <button type="button" id="resultsMainBtn">Main Menu</button>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2024 Ultimate Football Manager. All rights reserved.</p>
+    </footer>
+</body>
+
+<script src="/js/playerClass.js"></script>
+<script src="/js/teamClass.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/fixture.js"></script>
+<script src="/js/results.js"></script>
+<script src="/js/leagues.js"></script>
+
+<script src="/js/engine.js"></script>
+<script src="/js/game.js"></script>
+<script src="/js/teamTable.js"></script>
+
+</html>

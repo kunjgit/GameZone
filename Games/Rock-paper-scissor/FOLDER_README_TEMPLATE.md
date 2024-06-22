@@ -1,4 +1,4 @@
-# **ROCK_PAPER_SCISSORS** 
+# **RRock-paper-scissor** 
 
 ---
 

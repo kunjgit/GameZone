@@ -286,7 +286,6 @@ This repository also provides one such platforms where contributers come over an
 | [QuickFingers](https://github.com/kunjgit/GameZone/tree/main/Games/QuickFingers)       | 
 | [Physics_Quizz](https://github.com/kunjgit/GameZone/tree/main/Games/Physics_Quizz)     |
 | [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       | 
-| [Hide and Seek](https://github.com/PilotAxis/GameZone/tree/main/Games/Hide%20and%20Seek)    |
 
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect)    |
 
@@ -350,7 +349,6 @@ This repository also provides one such platforms where contributers come over an
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 
-| [Hide_and_Seek](https://github.com/PilotAxis/GameZone/tree/main/Games/Hide_And_Seek) |
 
 | [Drawing_App](https://github.com/kunjgit/GameZone/tree/main/Games/Drawing_app) |
 
@@ -813,8 +811,6 @@ This repository also provides one such platforms where contributers come over an
 | [Go-fish-master](https://github.com/kunjgit/GameZone/tree/main/Games/Go-fish-master) |
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
 
-|[Hide_and_Seek](https://github.com/PilotAxis/GameZone/tree/main/Games/Hide_And_Seek)|
-
 
  | [Ganesh QR Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker) |
 
@@ -824,6 +820,7 @@ This repository also provides one such platforms where contributers come over an
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
 |[Tic-tac-toe](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tic-tac-toe)|
 |[Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)|
+|[Hide_and_Seek](https://github.com/PilotAxis/GameZone/tree/main/Games/Hide_And_Seek)|
  </center>
 
 <br>

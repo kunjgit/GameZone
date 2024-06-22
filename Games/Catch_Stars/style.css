@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to bottom, #180338, #83789b);
+  }
+  
+  #game-container {
+    width: 600px;
+    margin: 30px auto;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3em;
+    font-family: 'Dancing Script';
+    color: aliceblue;
+    margin-bottom: 10px;
+  }
+  
+  #scoreboard {
+    margin-bottom: 10px;
+    color: azure;
+  }
+  
+  #game-area {
+    background-color: #0a0729;
+    height: 350px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0 auto;
+    position: relative;
+    /*background-image: url("path/to/your/starry-background.png"); Add a starry background image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .star {
+    position: absolute;
+    top: 0;
+    left: random(100%);
+    font-size: 2em;
+    color: gold;
+    animation: fall 3s linear infinite;
+    cursor: pointer;
+  }
+  
+  @keyframes fall {
+    0% { top: 0px; }
+    100% { top: 300px; }
+    100% { right: 80%;}
+  }
+  
+  #button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  #start-button {
+    padding: 10px 20px;
+    background-color: #14ee18;
+    color: #100f0f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #start-button:active {
+    background-color: #107711;
+  }
+
+  #reset-button {
+    padding: 10px 20px;
+    background-color: #ef0c0c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #reset-button:active{
+    background-color: #710707;
+  }
+  
+  #instructions {
+    margin-top: 10px;
+    font-style: italic;
+    color: aliceblue;
+  }

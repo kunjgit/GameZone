@@ -33,3 +33,7 @@ Block Dodger is a simple and addictive browser-based game where players control 
 ![image](https://github.com/AshishPandey04/GameZone/blob/newBranch/assets/images/Block_Dodger.png) 
 ![image](https://github.com/AshishPandey04/GameZone/blob/newBranch/assets/images/Block_Dodger2.png) 
 
+<br>
+
+ ## **Working video 📹**
+ ![vedio](https://github.com/AshishPandey04/GameZone/blob/newBranch/assets/animations/Block_Dodger.mp4)

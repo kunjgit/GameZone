@@ -23,9 +23,13 @@ Block Dodger is a simple and addictive browser-based game where players control 
 ## **How to play? 🕹️**
 
 • Open index.html in a web browser to start the game.
+
 • Use the left (←) and right (→) arrow keys to move the character.
+
 • Avoid falling blocks and try to stay on screen as long as possible.
+
 • The game ends if the character goes off the top of the screen.
+
 • Your score is displayed when the game ends.
 <br>
 

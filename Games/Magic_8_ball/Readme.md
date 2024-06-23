@@ -20,8 +20,6 @@ Ask the Magical 8 Ball fortune teller yes or no questions for accurate predictio
 <!-- ## **Screenshots 📸** -->
 <!-- ![image](url) -->
 
-## **Working video 📹**
-
-![video](./asset/Magic_8_ball.mp4)
-
+<!-- ## **Working video 📹** -->
+<!--![video](./asset/Magic_8_ball.mp4) -->
 <!-- add your working video over here -->

@@ -341,11 +341,11 @@ This repository also provides one such platforms where contributers come over an
 |[Penguins Cant Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Cant_Fly)|
 |[GoFish](https://github.com/kunjgit/GameZone/tree/main/Games/GoFish)|
 | [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game)|
-
+| [Falling_Words](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Words) |
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
-| [Falling_Words](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Words) |
+
  </center>
 
 <br>
@@ -790,7 +790,7 @@ This repository also provides one such platforms where contributers come over an
 |[Dot_Box_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Box_Game)|
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
-
+| [Falling_Words](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Words) |
 
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
  </center>

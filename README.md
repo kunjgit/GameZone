@@ -358,8 +358,16 @@ This repository also provides one such platforms where contributers come over an
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
-| [Alien_Invasion](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Invasion) |
+
+
+
 | [Drawing_App](https://github.com/kunjgit/GameZone/tree/main/Games/Drawing_app) |
+
+
+
+| [Alien_Invasion](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Invasion) |
+
+
 |[Town-Rise](https://github.com/kunjgit/GameZone/tree/main/Games/Town_Rise_Game)|
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 
@@ -821,12 +829,23 @@ This repository also provides one such platforms where contributers come over an
 |[Spell Bee](https://github.com/kunjgit/GameZone/tree/main/Games/Spell_Bee)|
 | [Go-fish-master](https://github.com/kunjgit/GameZone/tree/main/Games/Go-fish-master) |
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
+
+
+
+ | [Ganesh QR Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker) |
+
+
+
  | [Ganesh_QR_Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker) |
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
 |[Tic-tac-toe](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tic-tac-toe)|
 |[Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)|
 
+|[Hide_and_Seek](https://github.com/PilotAxis/GameZone/tree/main/Games/Hide_And_Seek)|
+
+
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
+
  </center>
 
 <br>

@@ -1,0 +1,190 @@
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("assets/background.jpg");
+    color: #ffffff;
+}
+
+#interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#interface h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#interface p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#interface ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+#interface ul li:before {
+    content: "✦";
+    margin-right: 10px;
+}
+
+.start-btn {
+    padding: 15px 30px; 
+    background-color: transparent; /* Remove background color */
+    color: white;
+    border: 2px solid white; /* Add border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transitions */
+    font-size: 1.2rem; 
+    margin-bottom: 20px;
+}
+
+.start-btn:hover {
+    background-color: #ffffff26; /* Semi-transparent white background on hover */
+}
+
+.start-btn a{
+    color: white;
+    text-decoration: none;
+}
+
+
+#quit-btn {
+    padding: 3px;
+    background-color: transparent; /* Red color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 2rem; /* Increase font size */
+    position: absolute;
+    top: -1px;
+    right: 5px;
+    transition: font-size 0.3s; /* Add font-size transition */
+}
+
+ #quit-btn:hover {
+    background-color: red;
+    padding: 0 2px;
+    border-radius: 5px;
+ }
+
+#game-container {
+    display: none;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("assets/background.jpg");
+    cursor: url('https://raw.githubusercontent.com/coob113/fancy-cursors/master/target1.png') 64 64, auto !important;
+}
+
+#earth {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    background-size: cover;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.5s ease;
+}
+
+#health-bar {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    top: 10px;
+    z-index: 5;     /* Ensure the health bar is above the earth */
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.4rem;
+    font-size: 20px;
+    z-index: 10; /* Ensure the score is above other elements */
+}
+
+.asteroid {
+    position: absolute;
+    width: 50px; 
+    height: 50px; 
+    mix-blend-mode : difference;
+    aspect-ratio: 3/2;
+    object-fit: contain;    
+    background-size: cover;
+    cursor: url('https://raw.githubusercontent.com/coob113/fancy-cursors/master/target2.png') 64 64, auto !important;
+}
+
+#health-text{
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    z-index: 10;    /* Ensure the health text is above other elements */
+}
+
+#end-screen {
+    display: none;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/background.jpg");
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("assets/background.jpg");
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.popup h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.popup p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.popup button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.popup button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}

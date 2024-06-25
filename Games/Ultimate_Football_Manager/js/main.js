@@ -10,8 +10,8 @@ const formationsArray = [
     {"G":1,"D":4,"M":5,"F":1},
     {"G":1,"D":5,"M":4,"F":1}
 ];
-const playerFile = "playerList.json";
-const teamFile = "teams.json";
+const playerFile = "js/playerList.json";
+const teamFile = "js/teams.json";
 
 async function getData(pFile, tFile) {
 

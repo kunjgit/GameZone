@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #28a745;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px; /* Set a fixed width */
+    height: 600px; /* Set a fixed height */
+    padding: 10px;
+    box-sizing: border-box;
+    margin: auto; /* Center horizontally and vertically */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for better visibility */
+}
+#title {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px; /* Space between title and game container */
+}
+h1 {
+    margin: 0;
+    padding: 20px;
+    font-size: 24px;
+    color: #000; /* Color for the title */
+    text-align: center; /* Center the text */
+}
+
+#deck-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#deck, #discard-pile {
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    font-size: 20px;
+    color: white;
+}
+
+#deck {
+    background-color: #333;
+}
+
+#discard-pile {
+    background-color: #e0e0e0;
+}
+
+.hand {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 60px;
+    height: 90px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#draw-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+#current-turn {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000; /* Changed to black for better visibility on white background */
+}

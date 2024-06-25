@@ -295,7 +295,6 @@ This repository also provides one such platforms where contributers come over an
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)
 |[Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly)|
-
 | [DiceRoll_Game](https://github.com/Hemav009/GameZone/tree/main/Games/DiceRoll_Game)|
 
  </center>

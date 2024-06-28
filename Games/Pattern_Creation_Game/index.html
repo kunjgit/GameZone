@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Creation Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="color-palette">
+            <input type="color" id="color-picker" onchange="selectColor(this.value)">
+            <div class="color eraser" onclick="selectColor('white')">Eraser</div>
+        </div>
+        <div id="controls">
+            <button onclick="savePattern()">Save Pattern</button>
+            <button onclick="loadPattern()">Load Pattern</button>
+            <button onclick="undo()">Undo</button>
+            <button onclick="redo()">Redo</button>
+            <button onclick="clearGrid()">Clear Grid</button>
+            <button onclick="fillGrid()">Fill Grid</button>
+            <label for="brush-size">Brush Size: </label>
+            <select id="brush-size" onchange="changeBrushSize(this.value)">
+                <option value="1">1x1</option>
+                <option value="2">2x2</option>
+                <option value="3">3x3</option>
+            </select>
+        </div>
+        <div id="grid-container"></div>
+        <textarea id="pattern-code" placeholder="Pattern code for save/load"></textarea>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

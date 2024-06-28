@@ -1,0 +1,78 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#color-palette {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#color-picker {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.color {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.eraser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 0 10px;
+    background-color: white;
+    border: 1px solid #000;
+    font-size: 14px;
+}
+
+#controls {
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 0 5px;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(10, 30px);
+    gap: 2px;
+}
+
+.grid-cell {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#pattern-code {
+    margin-top: 20px;
+    width: 300px;
+    height: 100px;
+    resize: none;
+}

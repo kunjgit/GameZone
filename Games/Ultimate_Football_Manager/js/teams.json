@@ -1,0 +1,370 @@
+[
+ {
+   "league": "epl",
+   "team": "Arsenal"
+ },
+ {
+   "league": "epl",
+   "team": "Manchester City"
+ },
+ {
+   "league": "epl",
+   "team": "Manchester United"
+ },
+ {
+   "league": "epl",
+   "team": "Newcastle United"
+ },
+ {
+   "league": "epl",
+   "team": "Tottenham Hotspur"
+ },
+ {
+   "league": "epl",
+   "team": "Aston Villa"
+ },
+ {
+   "league": "epl",
+   "team": "Brighton & Hove Albion"
+ },
+ {
+   "league": "epl",
+   "team": "Liverpool"
+ },
+ {
+   "league": "epl",
+   "team": "Brentford"
+ },
+ {
+   "league": "epl",
+   "team": "Fulham"
+ },
+ {
+   "league": "epl",
+   "team": "Chelsea"
+ },
+ {
+   "league": "epl",
+   "team": "Crystal Palace"
+ },
+ {
+   "league": "epl",
+   "team": "Wolverhampton Wanderers"
+ },
+ {
+   "league": "epl",
+   "team": "AFC Bournemouth"
+ },
+ {
+   "league": "epl",
+   "team": "West Ham United"
+ },
+ {
+   "league": "epl",
+   "team": "Leeds United"
+ },
+ {
+   "league": "epl",
+   "team": "Everton"
+ },
+ {
+   "league": "epl",
+   "team": "Nottingham Forest"
+ },
+ {
+   "league": "epl",
+   "team": "Leicester City"
+ },
+ {
+   "league": "epl",
+   "team": "Southampton"
+ },
+ {
+   "league": "champ",
+   "team": "Burnley"
+ },
+ {
+   "league": "champ",
+   "team": "Sheffield United"
+ },
+ {
+   "league": "champ",
+   "team": "Luton Town"
+ },
+ {
+   "league": "champ",
+   "team": "Middlesbrough"
+ },
+ {
+   "league": "champ",
+   "team": "Millwall"
+ },
+ {
+   "league": "champ",
+   "team": "Blackburn Rovers"
+ },
+ {
+   "league": "champ",
+   "team": "Coventry City"
+ },
+ {
+   "league": "champ",
+   "team": "Preston North End"
+ },
+ {
+   "league": "champ",
+   "team": "Sunderland"
+ },
+ {
+   "league": "champ",
+   "team": "Norwich City"
+ },
+ {
+   "league": "champ",
+   "team": "West Bromwich Albion"
+ },
+ {
+   "league": "champ",
+   "team": "Watford"
+ },
+ {
+   "league": "champ",
+   "team": "Swansea City"
+ },
+ {
+   "league": "champ",
+   "team": "Bristol City"
+ },
+ {
+   "league": "champ",
+   "team": "Hull City"
+ },
+ {
+   "league": "champ",
+   "team": "Stoke City"
+ },
+ {
+   "league": "champ",
+   "team": "Birmingham City"
+ },
+ {
+   "league": "champ",
+   "team": "Rotherham United"
+ },
+ {
+   "league": "champ",
+   "team": "Huddersfield Town"
+ },
+ {
+   "league": "champ",
+   "team": "Queens Park Rangers"
+ },
+ {
+   "league": "champ",
+   "team": "Cardiff City"
+ },
+ {
+   "league": "champ",
+   "team": "Reading"
+ },
+ {
+   "league": "champ",
+   "team": "Blackpool"
+ },
+ {
+   "league": "champ",
+   "team": "Wigan Athletic"
+ },
+ {
+   "league": "efl1",
+   "team": "Plymouth Argyle"
+ },
+ {
+   "league": "efl1",
+   "team": "Ipswich Town"
+ },
+ {
+   "league": "efl1",
+   "team": "Sheffield Wednesday"
+ },
+ {
+   "league": "efl1",
+   "team": "Barnsley"
+ },
+ {
+   "league": "efl1",
+   "team": "Bolton Wanderers"
+ },
+ {
+   "league": "efl1",
+   "team": "Peterborough United"
+ },
+ {
+   "league": "efl1",
+   "team": "Derby County"
+ },
+ {
+   "league": "efl1",
+   "team": "Wycombe Wanderers"
+ },
+ {
+   "league": "efl1",
+   "team": "Portsmouth"
+ },
+ {
+   "league": "efl1",
+   "team": "Shrewsbury Town"
+ },
+ {
+   "league": "efl1",
+   "team": "Charlton Athletic"
+ },
+ {
+   "league": "efl1",
+   "team": "Lincoln City"
+ },
+ {
+   "league": "efl1",
+   "team": "Exeter City"
+ },
+ {
+   "league": "efl1",
+   "team": "Fleetwood Town"
+ },
+ {
+   "league": "efl1",
+   "team": "Bristol Rovers"
+ },
+ {
+   "league": "efl1",
+   "team": "Burton Albion"
+ },
+ {
+   "league": "efl1",
+   "team": "Cheltenham Town"
+ },
+ {
+   "league": "efl1",
+   "team": "Port Vale"
+ },
+ {
+   "league": "efl1",
+   "team": "Milton Keynes Dons"
+ },
+ {
+   "league": "efl1",
+   "team": "Oxford United"
+ },
+ {
+   "league": "efl1",
+   "team": "Cambridge United"
+ },
+ {
+   "league": "efl1",
+   "team": "Morecambe"
+ },
+ {
+   "league": "efl1",
+   "team": "Accrington Stanley"
+ },
+ {
+   "league": "efl1",
+   "team": "Forest Green Rovers"
+ },
+ {
+   "league": "efl2",
+   "team": "Leyton Orient"
+ },
+ {
+   "league": "efl2",
+   "team": "Northampton Town"
+ },
+ {
+   "league": "efl2",
+   "team": "Stevenage"
+ },
+ {
+   "league": "efl2",
+   "team": "Wrexham AFC"
+ },
+ {
+   "league": "efl2",
+   "team": "Carlisle United"
+ },
+ {
+   "league": "efl2",
+   "team": "Bradford City"
+ },
+ {
+   "league": "efl2",
+   "team": "Mansfield Town"
+ },
+ {
+   "league": "efl2",
+   "team": "Salford City"
+ },
+ {
+   "league": "efl2",
+   "team": "Barrow"
+ },
+ {
+   "league": "efl2",
+   "team": "Sutton United"
+ },
+ {
+   "league": "efl2",
+   "team": "Tranmere Rovers"
+ },
+ {
+   "league": "efl2",
+   "team": "Swindon Town"
+ },
+ {
+   "league": "efl2",
+   "team": "Grimsby Town"
+ },
+ {
+   "league": "efl2",
+   "team": "Doncaster Rovers"
+ },
+ {
+   "league": "efl2",
+   "team": "Walsall"
+ },
+ {
+   "league": "efl2",
+   "team": "Crewe Alexandra"
+ },
+ {
+   "league": "efl2",
+   "team": "Newport County"
+ },
+ {
+   "league": "efl2",
+   "team": "Gillingham"
+ },
+ {
+   "league": "efl2",
+   "team": "AFC Wimbledon"
+ },
+ {
+   "league": "efl2",
+   "team": "Colchester United"
+ },
+ {
+   "league": "efl2",
+   "team": "Harrogate Town"
+ },
+ {
+   "league": "efl2",
+   "team": "Crawley Town"
+ },
+ {
+   "league": "efl2",
+   "team": "Hartlepool United"
+ },
+ {
+   "league": "efl2",
+   "team": "Rochdale"
+ }
+]

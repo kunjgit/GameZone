@@ -70,6 +70,10 @@ function startGame() {
     timeLeft--;
     timerElement.textContent = timeLeft;
 
+    if (timeLeft === 10) {
+      showAlert(timeLeft);
+    }
+
     if (timeLeft === 0) {
       clearInterval(timerId);
       endGame();
@@ -133,6 +137,23 @@ function playEndSound() {
   const endSound = document.getElementById("endSound");
   endSound.currentTime = 0;
   endSound.play();
+}
+
+// Function to show alert message
+function showAlert(secondsLeft) {
+  const alertMessage = document.getElementById("countdown-alert");
+  alertMessage.textContent = `${secondsLeft} seconds left!`;
+  alertMessage.style.display = 'block';
+
+// Update the countdown every second until the game ends
+const updateInterval = setInterval(() => {
+  secondsLeft--;
+  alertMessage.textContent = `${secondsLeft} seconds left!`;
+  if (secondsLeft <= 0) {
+      clearInterval(updateInterval);
+      alertMessage.style.display = 'none';
+    }
+}, 1000);
 }
 
 // Event listener for start button

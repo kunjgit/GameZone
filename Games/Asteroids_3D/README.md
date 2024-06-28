@@ -26,10 +26,10 @@
 
 ## **Screenshots 📸**
 
-<br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![Image](Games\Asteroids_3D\Asteroids_3D.png)
+![image](https://github.com/Bindusree1515/GameZone/assets/91887086/d0237495-78c1-494f-806c-0546d0fa6460)
+
 
 <br>
 

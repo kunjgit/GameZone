@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -9,15 +11,29 @@
     top: 20%;
     left: 0;
   }
-  
-  h1 {
-    background-color: #081b31;
+  .header{
     background: linear-gradient( 80deg,red,blue);
+    width: 100vw;
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    
+  }
+  .home-icon{
+    position: relative;
+    top: 2.27rem;
+  }
+  h1 {
+    
+    background-color: #081b31;
     color: #fff;
     align-content: center;
     height: 7rem;
     line-height: 5rem;
+    margin: 0 auto;
   }
+
   
   .choice {
     height: 155px;
@@ -64,7 +80,7 @@
   
   #user-score,
   #comp-score {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   
   .msg-container {
@@ -78,4 +94,20 @@
     display: inline;
     padding: 1rem;
     border-radius: 1rem;
+  }
+  .reset{
+    position: relative;
+    right: 25rem;
+    top: 11.7rem;
+    border: 2px solid black;
+    background: transparent;
+    border-radius: 6px;
+    height: 50px;
+    width: 85px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .reset:hover{
+    background-color: black;
+    color: white;
   }

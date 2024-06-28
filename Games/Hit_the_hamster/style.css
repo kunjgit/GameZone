@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+
+#game {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border: 2px solid #000;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    text-align: center;
+}
+#start-button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url(https://imgs.search.brave.com/Olfjz7my7Tl7hvVpjejD28AJOxuPDwRJ3oMVZ84Svr0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbnNw/aXJpbmdzdG9yeXMu/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIxLzA1L3RoZS1i/bGFjay1kb3Qtc3Rv/cnktNzUweDQ2MC5q/cGc);
+    background-size:100px 92px;
+}
+
+#hamster {
+    width: 80px;
+    height: 80px;
+    background-image: url(https://imgs.search.brave.com/EOauzPsAeNtSn9zznwYBgfRiUU7tNPkZuHVtQnxf8gA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9jbG9zZS11cC1o/YW1zdGVyLXdpdGgt/YnJvd24tZmFjZS1i/cm93bi1leWVzLWdl/bmVyYXRpdmUtYWlf/OTU4MTY1LTkwODA4/LmpwZz9zaXplPTYy/NiZleHQ9anBn);
+    background-size:cover;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#hamster:active {
+    transform: scale(0.8);
+}
+
+#score-board {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+p{
+    font-size: 25px;
+    text-align: center;
+    margin-top: 20px;
+    color: rgb(238, 88, 88);
+    font-weight: bold;
+    
+}

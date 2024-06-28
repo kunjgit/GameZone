@@ -15,6 +15,11 @@ const btnHold = document.querySelector('.btn--hold');
 
 let scores, currentScore, activePlayer, playing;
 
+// Modal elements
+const modal = document.getElementById("instruction-modal");
+const closeButton = document.querySelector(".close-button");
+const startGameButton = document.getElementById("start-game-button");
+
 // Starting conditions
 const init = function () {
     scores = [0, 0];
@@ -33,7 +38,30 @@ const init = function () {
     player0El.classList.add('player--active');
     player1El.classList.remove('player--active');
 };
-init();
+
+// Show the modal on page load
+window.onload = function() {
+    modal.style.display = "block";
+};
+
+// Close modal when the user clicks the close button or the start game button
+closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+    init();
+});
+
+startGameButton.addEventListener("click", () => {
+    modal.style.display = "none";
+    init();
+});
+
+// Close modal when the user clicks outside of the modal content
+window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.style.display = "none";
+        init();
+    }
+});
 
 const switchPlayer = function () {
     document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -57,9 +85,7 @@ btnRoll.addEventListener('click', function () {
         if (dice !== 1) {
             // Add dice to current score
             currentScore += dice;
-            document.getElementById(
-                `current--${activePlayer}`
-            ).textContent = currentScore;
+            document.getElementById(`current--${activePlayer}`).textContent = currentScore;
         } else {
             // Switch to next player
             switchPlayer();
@@ -73,8 +99,7 @@ btnHold.addEventListener('click', function () {
         scores[activePlayer] += currentScore;
         // scores[1] = scores[1] + currentScore
 
-        document.getElementById(`score--${activePlayer}`).textContent =
-            scores[activePlayer];
+        document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
 
         // 2. Check if player's score is >= 100
         if (scores[activePlayer] >= 100) {
@@ -82,12 +107,8 @@ btnHold.addEventListener('click', function () {
             playing = false;
             diceEl.classList.add('hidden');
 
-            document
-                .querySelector(`.player--${activePlayer}`)
-                .classList.add('player--winner');
-            document
-                .querySelector(`.player--${activePlayer}`)
-                .classList.remove('player--active');
+            document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
+            document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
         } else {
             // Switch to the next player
             switchPlayer();

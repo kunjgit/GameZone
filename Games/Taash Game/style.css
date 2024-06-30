@@ -1,5 +1,5 @@
 body {
-  background: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background: url("https://cdn.vectorstock.com/i/500p/34/82/green-casino-poker-table-texture-game-background-vector-47533482.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -12,9 +12,15 @@ body {
   text-align: center;
   color: white;
     width:75%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
 }
-
+#board{background-color: purple;border-radius: 247px;padding: 2rem;box-shadow: 1px 2px 2px 12px rgb(211 164 18 / 70%);}
+#your-box,#dealer-box{min-height: 200px;}
+#your-box{border-top-right-radius: 247px;border-top-left-radius: 247px;box-shadow: inset 0 10px 12px rgb(253 253 253 / 48%);position: relative;min-width: 600px;}
+#dealer-box{border-bottom-left-radius: 247px;border-bottom-right-radius: 247px;box-shadow: inset 0 -10px 12px rgb(253 253 253 / 48%);position: relative;min-width: 600px;}
 .flex-blackjack-row-1,
 .flex-blackjack-row-2,
 .flex-blackjack-row-3 {
@@ -37,7 +43,28 @@ body {
 .flex-blackjack-row-2 div img {
   padding: 10px;
 }
-
+img{position: relative;z-index: 2;}
+#right{
+  height: 150px;
+  object-fit: contain;
+  position: relative;
+  right: -61px;
+  box-sizing: border-box;
+  rotate: 166deg;
+  top: 3px;
+  z-index: 1;
+}
+#left{
+  height: 150px;
+  object-fit: contain;
+  position: relative;
+  left: -61px;
+  box-sizing: border-box;
+  rotate: -166deg;
+  top: 3px;
+  z-index: 1;
+}
+#center{position: relative;z-index: 2;}
 table {
     border: 3px solid black;
     border-collapse: collapse;
@@ -62,4 +89,23 @@ table td {
 .flex-blackjack-row-2, .flex-blackjack-row-3{
   background-image: url(https://i.stack.imgur.com/q02th.jpg);
   border: 3px solid black;
+}
+@media (max-width:950px) {
+  #board{min-width: 80%;}
+  #your-box,#dealer-box{
+    min-width: 90%;
+    min-height: 300px;
+  }
+}
+@media (max-width:650px) {
+  .container{width: 100%;}
+}
+@media (max-width:470px) {
+  #center,#left,#right{
+  left: 0px;
+  box-sizing: border-box;
+  rotate:0deg;
+  top: 0px;
+  z-index: 1;
+  }
 }

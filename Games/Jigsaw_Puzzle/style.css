@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    cursor: pointer;
+  }
+
+  #menu {
+    position: relative;
+    list-style-type: none;
+    padding-left: 5px;
+    z-index: 1000;
+    /* 1 */
+    display: inline-block;
+    text-align: center;
+  }
+
+  #menu li {
+    margin: 2px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    background-color: #ffd580;
+  }
+
+  #menu li:hover {
+    background-color: #ffDD60;
+  }
+
+  #forPuzzle {
+    position: absolute;
+    width: 95vw;
+    height: 95vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffdd;
+    overflow: hidden;
+  }
+
+  .polypiece {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  .moving {
+    transition-property: top, left;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+  }
+
+  .gameCanvas {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+  }

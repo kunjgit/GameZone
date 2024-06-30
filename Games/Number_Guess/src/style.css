@@ -1,0 +1,68 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(Number_Guess.jpg);
+}
+.wrapper {
+  padding: 30px 40px;
+  border-radius: 12px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.wrapper header {
+  font-size: 18px;
+  font-weight: 400;
+  color: #333;
+}
+.wrapper p {
+  color: #333;
+}
+.wrapper .input-field {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 25px 0;
+}
+.input-field input,
+.input-field button {
+  height: 50px;
+  width: calc(100% / 2 - 20px);
+  outline: none;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+.input-field input {
+  text-align: center;
+  color: #707070;
+  width: 110px;
+  border: 1px solid #aaa;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  display: none;
+}
+.input-field input:disabled {
+  cursor: not-allowed;
+}
+.input-field button {
+  border: none;
+  background: #1940a5;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.input-field button:active {
+  transform: scale(0.97);
+}

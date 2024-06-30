@@ -1,2 +1,0 @@
-# mario-game
-infinite game

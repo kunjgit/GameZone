@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="115" height="116" stroke-width="7" stroke="#666" stroke-linecap="round">
-<path fill="#666" stroke-linejoin="round" d="M111,57c0,0-19-29-36,0c-7-19-31-17-36,0c0,0-17-30-36-0c0-30,24-54,54-54S111,28,111,57z"/>
-<line x1="3" y1="57" x2="57" y2="111"/>
-<line x1="39" y1="58" x2="58" y2="111"/>
-<line x1="57" y1="111" x2="75" y2="58"/>
-<line x1="57" y1="111" x2="111" y2="57"/>
-</svg>

@@ -1,2 +1,0 @@
-# RunDoraRun
-Doraemon game

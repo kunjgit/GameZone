@@ -1,8 +1,0 @@
-*** CREDITS ***
-
-
- - Confetti in Celebrate.html is via Confetti.js, a discontinued JavaScript library.
-     Please note that the GitHub link was unavailable when I tried to access it, resulting in a 404 error.
- - Thanks to youmightnotneedjquery.com
- - StackOverflow Credit: https://stackoverflow.com/a/51193424, https://stackoverflow.com/a/29959520, http://stackoverflow.com/questions/5419134/how-to-detect-if-two-divs-touch-with-jquery
- - GitHub Gists: https://gist.github.com/jtsternberg/c272d7de5b967cec2d3d

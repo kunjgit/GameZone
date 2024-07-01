@@ -1,0 +1,163 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+body {
+    background: linear-gradient(rgb(115, 182, 254), rgb(198, 255, 198));
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a {
+    text-decoration: none;
+    color: blueviolet;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    column-gap: 5%;
+    padding: 30px 0;
+    align-items: center;
+}
+
+.magic-ball {
+    width: 200px;
+    height: 200px;
+    font-size: 21px;
+    font-weight: 700;
+    color: rgb(56, 25, 56);
+    background-color: rgb(255, 247, 190);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 70px solid rgb(56, 25, 56);
+    border-radius: 50%;
+}
+
+.animate_ball {
+    background: conic-gradient(from var(--a),
+            rgb(121, 83, 130) 20%,
+            rgb(3, 69, 66) 70%,
+            rgb(118, 55, 150) 100%);
+
+    animation: animate 1s linear infinite;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+button,
+textarea {
+    transition: transform 1s ease, opacity 1s ease !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: whitesmoke;
+    color: turquoise;
+    font-weight: 700;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+button:hover {
+    color: rgb(162, 232, 0);
+    font-weight: 700;
+}
+
+textarea {
+    border: 4px solid rgb(3, 206, 148);
+    width: 300px;
+    height: 100px;
+}
+
+textarea:focus {
+    outline: none;
+    border: 4px solid rgb(172, 70, 255);
+}
+
+.question {
+    width: fit-content;
+    box-shadow: 0 0 3px rgb(132, 132, 132);
+    border-radius: 8px;
+    padding: 3%;
+}
+
+.multi-color-border {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 3px;
+    border-radius: 8px;
+    background: conic-gradient(from var(--a),
+            rgb(219, 208, 2) 20%,
+            rgb(0, 178, 249) 70%,
+            rgb(219, 208, 2) 100%);
+    animation: animate 5s linear infinite;
+}
+
+.multi-color-border:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 5px rgb(234, 231, 255);
+
+}
+
+footer {
+    margin: 20px auto;
+    border-radius: 8px;
+    padding: 5px 10px;
+    max-width: fit-content;
+    box-shadow: 0 0 3px rgb(132, 132, 132);
+}
+
+@media (max-width:780px) {
+    .container {
+        width: 100%;
+        display: flex;
+        row-gap: 30px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .magic-ball {
+        width: 200px;
+        height: 200px;
+        border: 40px solid rgb(56, 25, 56);
+    }
+
+    textarea {
+        border: 4px solid rgb(3, 206, 148);
+        width: 250px;
+        height: 50px;
+    }
+}
+
+@property --a {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes animate {
+    0% {
+        --a: 0deg;
+    }
+
+    100% {
+        --a: 360deg;
+    }
+}

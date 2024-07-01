@@ -1,0 +1,50 @@
+<head>
+	<title>Shpere</title>
+	<style type="text/css">
+		html,body {
+			background-color: #000;
+		}
+		div#large_container {
+			position: relative;
+			margin: auto;
+			display: inline-block;
+		}
+		canvas#canvas13k {
+			position: relative;
+			left: 0;
+			top: 0;
+			border: 1px solid #555;
+		}
+		div#menu {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			z-index: 10;
+			background-color: rgba(0,0,0,0.7);
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;	
+		}
+		img#menuGraphic {
+			width: 100%;
+		}
+	
+	</style>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<script src="shpere.js"></script>
+<head>
+<body onLoad="shpereMain();">
+	<div style="text-align: left; margin-left: 40px;
+	margin-top: 30px;
+	font-size: 30px;
+	padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+		<div id='large_container'>
+			<div id='menu'>
+				<img src='instructions.svg' id='menuGraphic'>
+			</div>
+			<canvas id='canvas13k' width=800 height=600></canvas>
+		</div>
+</body>

@@ -1,0 +1,149 @@
+/*
+Copyright 2014, Daniel Beck and Karin Beck
+
+This file is part of Green Mahjong.
+
+Green Mahjong is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Green Mahjong is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Green Mahjong.  If not, see <http://www.gnu.org/licenses/>.
+*/
+    
+/*
+Groß: 
+===
+Aussen: 100x80
+Innen: 95x75
+
+Klein: 
+=====
+Aussen:60x48
+Innen:57x45*/
+
+/*#game {
+  width: 680px;
+  height: 460px;
+}
+*/
+
+#cards {
+  width: 680px;
+  height: 460px;
+}
+
+#cards[data-layout=flower] {
+  width: 480px;
+  height: 460px;
+}
+
+#cards[data-layout=spider] {
+  width: 640px;
+  height: 460px;
+}
+
+#cards[data-layout=cloud] {
+  width: 600px;
+  height: 380px;
+}
+
+
+#cards[data-layout=fourHills] {
+  height: 530px;
+  width: 570px;
+}
+
+
+.card {
+    border-radius: 7px;
+    height: 59px;
+    width: 46px;
+    background: transparent url('../images/mahjong_smallscreen_fruits.png');
+}
+
+.shadow {
+    height: 65px;
+    width: 53px;
+    background: transparent url('../images/shadow_smallscreen.png');
+}
+
+#gameScene{
+  /*position: absolute;*/
+  top:0;
+  /*left:102px;*/
+  left:62px;
+  top:30px;
+}
+.cardZahl1 {background-position: 0 0}
+.cardZahl2 {background-position: -48px 0; }
+.cardZahl3 {background-position: -96px 0;}
+.cardZahl4 {background-position: -144px 0;}
+.cardZahl5 {background-position: -192px 0;}
+.cardZahl6 {background-position: -240px 0;}
+.cardZahl7 {background-position: -288px 0;}
+.cardZahl8 {background-position: -336px 0;}
+.cardZahl9 {background-position: -384px 0;}
+
+.cardBambus1 {background-position: -0 -60px;}
+.cardBambus2 {background-position: -48px -60px;}
+.cardBambus3 {background-position: -96px -60px;}
+.cardBambus4 {background-position: -144px  -60px;}
+.cardBambus5 {background-position: -192px -60px;}
+.cardBambus6 {background-position: -240px -60px;}
+.cardBambus7 {background-position: -288px -60px;}
+.cardBambus8 {background-position: -336px -60px;}
+.cardBambus9 {background-position: -384px -60px;}
+
+.cardMuenze1 {background-position: -0 -120px;}
+.cardMuenze2 {background-position: -48px -120px;}
+.cardMuenze3 {background-position: -96px -120px;}
+.cardMuenze4 {background-position: -144px -120px;}
+.cardMuenze5 {background-position: -192px -120px;}
+.cardMuenze6 {background-position: -240px -120px;}
+.cardMuenze7 {background-position: -288px -120px;}
+.cardMuenze8 {background-position: -336px -120px;}
+.cardMuenze9 {background-position: -384px -120px;}
+
+.cardNordwind {background-position: -432px 0;}
+.cardSuedwind {background-position: -480px  0;}
+.cardOstwind {background-position: -528px 0;}
+.cardWestwind {background-position: -576px 0;}
+
+.cardFruehling {background-position: -432px -60px;}
+.cardSommer {background-position: -480px -60px;}
+.cardHerbst {background-position: -528px -60px;}
+.cardWinter {background-position: -576px -60px;}
+
+.cardBambus {background-position: -432px -120px;}
+.cardPflaume {background-position: -480px -120px;}
+.cardOrchidee {background-position: -528px -120px;}
+.cardChrysantheme {background-position: -576px -120px;}
+
+.cardDracheGruen {background-position: -624px 0;}
+.cardDracheRot {background-position: -624px -60px;}
+.cardDracheWeiss {background-position: -624px -120px;}
+
+
+.image {
+  /*border-radius: 15px;*/
+  height: 38px;
+  width: 40px;
+  border: none;
+  /*background: transparent url('../images/mahjong_bigscreen.png');*/
+  background-color: transparent;
+  background-image:  url('../images/application_icons_small.png');
+}
+
+
+.menu {background-position: 0 0}
+.undo {background-position: -120px 0}
+.new {background-position: -160px 0}
+.hint {background-position: -200px 0}
+.theme {background-position: -240px 0}

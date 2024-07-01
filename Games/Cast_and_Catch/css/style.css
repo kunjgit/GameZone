@@ -1,0 +1,467 @@
+body {
+	background-image: -webkit-linear-gradient(top, #9400d9, #9b0630);
+	background-image: -moz-linear-gradient(top, #00C5D9, #066A9B);
+	background-image: -ms-linear-gradient(top, #00C5D9, #066A9B);
+	background-image: -o-linear-gradient(top, #00C5D9, #066A9B);
+	background-image: linear-gradient(top, #00C5D9, #066A9B);
+	font-family: 'Patrick Hand', cursive;
+  letter-spacing: 0.25px;
+	font-size: 21px;
+	margin: 0;
+	padding: 0;
+  height: 100vh;
+	color: white;
+	overflow: hidden;
+}
+h1#start-title {
+	font-family: 'Black Ops One', cursive;
+	font-weight: 300;
+	color: #080508;
+}
+h2 {
+	margin-top: 0;
+}
+#info-wrapper {
+	background-color: rgba(0,0,0,0.25);
+	padding: 20px;
+	border-radius: 20px;
+	border: 4px solid white;
+	position: relative;
+}
+
+#game-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  align-items: center;
+	position: absolute;
+	text-align: center;
+	height: 100vh;
+	width: 100vw;
+}
+#game-stats {
+	font-size: 24px;
+	position: absolute;
+	left: 28px;
+	top: 28px;
+	color: #FFF;
+	min-width: 100px;
+	min-height: 180px;
+	background-color: rgba(0,0,0,0.25);
+	padding: 20px;
+	border-radius: 20px;
+	border: 4px solid white;
+	display: none;
+	text-align: left;
+	flex-direction: column;
+	align-items: center;
+}
+#game-day {
+	font-family: 'Black Ops One', cursive;
+}
+#game-score {
+	margin-top: 8px;
+	font-size: 21px;
+	display:block;
+}
+#game-goal {
+	display: none;
+	font-size: 32px;
+	position: absolute;
+	top: 28px;
+	background-color: rgba(0,0,0,0.25);
+	padding: 10px 20px;
+	border-radius: 20px;
+	border: 4px solid white;
+	margin: 0;
+}
+#click-container{
+	display: none;
+	position: relative;
+	height: 100vh;
+	width: 75vw;
+	margin: 0 auto;
+	cursor: none;
+}
+#line{
+	display: block;
+	position:absolute;
+	height: 100vh;
+	width: 1px;
+	background-color: white;
+	transform: translate(-12.5vw,-100%);
+	margin-left: 8px;
+	margin-top: -12px;
+}
+#line:after {
+	content:"";
+	display:block;
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	bottom: -30px;
+	left:-21px;
+	background-image: url("../images/hook.svg");
+}
+#line.zapped {
+	border: 1.5px #ffff33 solid;
+}
+h1 {
+	margin: 0;
+	padding: 20px;
+}
+button#start-btn {
+  margin: 20px 0;
+	padding: 50px;
+	font-size: 18px;
+	background: transparent;
+	border: 4px solid white;
+	border-radius: 50%;
+	cursor:pointer;
+}
+button#start-btn .arrow {
+	display: block;
+	border-color: transparent white;
+  border-style: solid;
+  border-width: 30px 0px 30px 60px;
+}
+
+.fish {
+	width: 50px;
+	height: 50px;
+	background-color: #7fb8ea;
+	transform:rotate(45deg);
+  border-radius: 50%;
+	position: absolute;
+	transition: left 0.1s linear, top 0.1s linear, opacity 1s linear;
+	animation-name: appear;
+  animation-duration: 0.5s;
+}
+.fish:after {
+	content:"";
+	border-color: transparent #3100f7;
+  border-style: solid;
+  border-width: 20px 20px 20px 0px;
+  transform-origin: center left;
+  transform: rotate(-45deg);
+  position: absolute;
+  right: -15%;
+  top: -15%;
+}
+.fish:before,
+.rare-fish:before {
+  content: "";
+  background-color: #FFF;
+  height: 8px;
+  width: 8px;
+  display: block;
+  border-radius: 50%;
+  top: 50%;
+  position: absolute;
+  left: 10%;
+}
+.rare-fish {
+	width: 50px;
+	height: 50px;
+	background-color: #B02C90;
+	transform:rotate(45deg);
+  border-radius: 25%;
+	position: absolute;
+	transition: left 0.1s linear, top 0.1s linear, opacity 1s linear;
+	animation-name: appear;
+  animation-duration: 0.5s;
+}
+.rare-fish:after {
+	content:"";
+	border-color: transparent #B02C90;
+  border-style: solid;
+  border-width: 20px 20px 20px 0px;
+  transform-origin: center left;
+  transform: rotate(-45deg);
+  position: absolute;
+  right: -15%;
+  top: -15%;
+}
+.rare-fish:after {
+	border-color: transparent #B02C90;
+}
+.fish.left,
+.rare-fish.left{
+	transform: scaleX(-1) rotate(45deg);
+	animation-name: appear;
+  animation-duration: 0.5s;
+}
+.shark.left {
+	transform: scaleX(-1);
+	animation-name: appear;
+  animation-duration: 0.5s;
+}
+
+.fish.caught,
+.rare-fish.caught,
+.trash.caught {
+	animation: pull-up 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.fish.disappear,
+.rare-fish.disappear,
+.trash.disappear,
+.jellyfish.disappear,
+.shark.disappear{
+	animation: disappear 0.35s;
+  animation-fill-mode: forwards;
+}
+.trash {
+  width: 30px;
+  border-radius:50% 50% 25% 25%;
+  height:40px;
+  background-color: rgba(255,255,255,0.3333);
+  position: absolute;
+  transition: all 1s;
+  transform: rotate(-90deg);
+	animation-name: float;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+}
+.trash:before {
+  content: "";
+  width: 15px;
+  height: 8px;
+  border-radius: 10%;
+  background-color: #C70437;
+  position:absolute;
+  left: 50%;
+  top: -8px;
+  transform: translateX(-50%);
+
+}
+.trash:after {
+  content: "";
+  width: 30px;
+  height: 50px;
+  border-radius: 25% 25% 30% 30%;
+  background-color: rgba(255,255,255,0.3333);
+  position: absolute;
+  top: 40px;
+}
+
+.jellyfish {
+	width: 80px;
+	height: 100px;
+	background-image:url(../images/jellyfish.svg);
+	background-size: contain;
+	position: absolute;
+	transition: left 0.1s linear, top 0.1s linear, opacity 1s linear;
+	animation-name: floatUp;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+}
+.shark {
+	width: 240px;
+	height: 128px;
+	background-image:url(../images/shark.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	transition: left 0.1s linear, top 0.1s linear, opacity 1s linear;
+	animation-name: floatUp;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+}
+.hit-text {
+	font-size: 28px;
+	position: absolute;
+	z-index: 2;
+	top: -20px;
+	animation-name: point;
+	animation-duration: 0.75s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+  from {
+  	opacity: 0;
+  }
+  to {
+  	opacity: 1;
+  }
+}
+@keyframes disappear {
+  from {
+  	opacity: 1;
+  }
+  to {
+  	opacity: 0;
+  }
+}
+@keyframes float {
+  0% {
+  	opacity: 0;
+  	margin-left: 0px;
+  	margin-top: -20px
+  }
+  25% {
+  	opacity: 0.25;
+  	margin-left: -10px;
+  	margin-top: -15px
+  }
+  50% {
+  	opacity: 0.5;
+  	margin-left: 0px;
+  	margin-top: -10px
+  }
+  75% {
+  	opacity: 0.75;
+  	margin-left: 10px;
+  	margin-top: -5px
+  }
+  100% {
+  	opacity: 1;
+  	margin-left: 0px;
+  	margin-top: 0px;
+  }
+}
+@keyframes floatUp {
+  0% {
+  	opacity: 0;
+  	margin-left: 0px;
+  	margin-top: 20px
+  }
+  25% {
+  	opacity: 0.25;
+  	margin-left: -10px;
+  	margin-top: 15px
+  }
+  50% {
+  	opacity: 0.5;
+  	margin-left: 0px;
+  	margin-top: 10px
+  }
+  75% {
+  	opacity: 0.75;
+  	margin-left: 10px;
+  	margin-top: 5px
+  }
+  100% {
+  	opacity: 1;
+  	margin-left: 0px;
+  	margin-top: 0px;
+  }
+}
+
+@keyframes pull-up {
+	from {
+		margin-top: 0;
+		opacity: 1;
+	}
+	to {
+		margin-top: -50px;
+		opacity:0;
+	}
+}
+
+@keyframes point {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+#bubbles {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#bubbles div {
+  border: solid 2px rgba(255,255,255,0.125);
+  border-radius: 100%;
+  position: absolute;
+  visibility: hidden;
+  animation: fade 10s infinite;
+}
+
+@keyframes fade {
+  from {
+    bottom: -24px;
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    bottom: 120%;
+  }
+}
+
+#clock {
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	top: 80px;
+}
+/* timer */
+svg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.chart-gauge {
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  text-anchor: middle;
+  dominant-baseline: central;
+	alignment-baseline: middle;
+  stroke-linecap: round;
+}
+.timer-time {
+	fill: #FFFFFF;
+	transition: 3s;
+}
+.timer-time.warning {
+	fill: #ff5252;
+	animation: shake 0.2s infinite;
+}
+.timer-backdrop {
+	transform: rotate(-90deg);
+	transform-origin: center;
+  fill: none;
+  stroke: rgba(255,255,255,.2);
+  stroke-width: 5;
+}
+.timer-gauge {
+	transform: rotate(-90deg);
+	transform-origin: center;
+  fill: none;
+  stroke: #FFF;
+  stroke-width: 5;
+  animation-iteration-count: infinite;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 250;
+	transition: 14s linear;
+}
+.timer-gauge.ticking {
+	stroke-dashoffset: 250;
+}
+
+@keyframes fill {
+  0%   { stroke-dashoffset: 360; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes shake {
+	0% { letter-spacing:4px; }
+	50% { letter-spacing:0px; }
+	100% { letter-spacing:4px; }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Guessing Game</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="./style.css">
+  <link>
+</head>
+<body>
+  <div style="text-align: left; margin-left: 40px;
+        margin-top: 30px;
+        font-size: 30px;
+        padding: 5px; "><a href="/index.html"><i style="color:rgba(255, 255, 255, 0.976);" class="fas fa-home home-icon"></i></a></div>
+    <h1>Logo Guessing Game</h1>
+    <div id="timer">Time-left: 30 sec</div>
+    <div id="question"></div>
+    <div id="choices">
+       <button> <img onclick="checkAnswer(this)" id="choice1"></button>
+       <button><img onclick="checkAnswer(this)" id="choice2"></button>
+    </div>
+    <div id="score" class="score"></div>
+    <button id="replayButton" onclick="replayGame()" ">Replay</button> <!-- Replay Button -->
+
+  <script src="./script.js"></script>
+</body>
+</html>
+

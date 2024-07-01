@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8HZ96T7NQD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-8HZ96T7NQD');
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Rubik Vinyl' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/rpg-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" type="image/png" href="./assets/icon/favicon.ico">
+    <script src="./assets/js/howler.min.js"></script>
+    <title>Dungeon Crawler!</title>
+</head>
+
+<body>
+    <div style="text-align:left;margin-top:2px;margin-left:20px;
+        font-size: 20px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+    <main>
+        <!-- ===== Rooms ===== -->
+        <!-- Title Screen -->
+        <section id="title-screen" class="game-container">
+            <div>
+                <i class="fa-solid fa-dungeon fa-5x"></i>
+                <h1>Dungeon Crawler!</h1>
+            </div>
+            <p>Tap to explore the dungeon</p>
+        </section>
+
+        <!-- Character Creation -->
+        <section id="character-creation" class="game-container">
+            <form id="name-submit">
+                <h1>What is your name?</h1>
+                <input type="text" id="name-input" autocomplete="off">
+                <p id="alert"></p>
+                <button type="submit">Confirm</button>
+            </form>
+        </section>
+
+        <!-- Hub -->
+        <section id="dungeon-main" class="game-container scrollable">
+            <header>
+                <p id="player-name"></p>
+                <p id="player-exp"></p>
+                <p id="player-gold"></p>
+                <button onclick="openInventory()"><i class="fas fa-bars" style="font-size: 1.3rem;"></i></button>
+            </header>
+            <div class="stat-panel">
+                <div class="box">
+                    <h4>Stats</h4>
+                    <p><i class="fas fa-heart"></i>HP: <span id="player-hp"></span></p>
+                    <p><i class="ra ra-sword"></i>ATK: <span id="player-atk"></span></p>
+                    <p><i class="ra ra-round-shield"></i>DEF: <span id="player-def"></span></p>
+                    <p><i class="ra ra-plain-dagger"></i>ATK.SPD: <span id="player-atkspd"></span></p>
+                    <p><i class="ra ra-dripping-blade"></i>VAMP: <span id="player-vamp"></span></p>
+                    <p><i class="ra ra-lightning-bolt"></i>C.RATE: <span id="player-crate"></span></p>
+                    <p><i class="ra ra-focused-lightning"></i>C.DMG: <span id="player-cdmg"></span></p>
+                </div>
+                <div class="box" id="bonus-stats"></div>
+            </div>
+            <div class="dungeon-head">
+                <p id="dungeonTime"></p>
+                <p id="floorCount"></p>
+                <p id="roomCount"></p>
+                <button id="dungeonActivity"></button>
+            </div>
+            <div class="logBox primary-panel">
+                <p id="dungeonAction"></p>
+                <div id="dungeonLog"></div>
+            </div>
+        </section>
+
+        <!-- ===== Utility ===== -->
+        <div id="loading" class="game-container">
+            <div class="loader"></div>
+        </div>
+
+        <!-- ===== Modals ===== -->
+        <div class="modal-container" id="inventory">
+            <div class="content">
+                <div class="content-head">
+                    <h3>Inventory</h3>
+                    <p onclick="closeInventory()"><i class="fa fa-xmark"></i></p>
+                </div>
+                <div class="content-head">
+                    <button id="sell-all">Sell</button>
+                    <select id="sell-rarity">
+                        <option class="Common" value="Common">Common</option>
+                        <option class="Uncommon" value="Uncommon">Uncommon</option>
+                        <option class="Rare" value="Rare">Rare</option>
+                        <option class="Epic" value="Epic">Epic</option>
+                        <option class="Legendary" value="Legendary">Legendary</option>
+                        <option class="Heirloom" value="Heirloom">Heirloom</option>
+                        <option class="Common" value="All">All</option>
+                    </select>
+                </div>
+                <div class="inventorySlots" id="playerInventory"></div>
+                <div class="stat-panel">
+                    <div class="box">
+                        <div class="box-head">
+                            <h4>Equipment</h4>
+                            <p id="unequip-all"><i class="fa fa-circle-xmark"></i></p>
+                        </div>
+                        <div id="playerEquipment"></div>
+                    </div>
+                </div>
+                <button id="menu-btn">Menu</button>
+            </div>
+        </div>
+        <div class="modal-container" id="equipmentInfo"></div>
+        <div class="modal-container" id="combatPanel"></div>
+        <div class="modal-container" id="lvlupPanel">
+            <div class="content" id="lvlupSelect"></div>
+        </div>
+        <div class="modal-container" id="defaultModal"></div>
+        <div class="modal-container" id="menuModal"></div>
+        <div class="modal-container" id="confirmationModal"></div>
+    </main>
+
+    <script src="./assets/js/utility.js"></script>
+    <script src="./assets/js/elements.js"></script>
+    <script src="./assets/js/music.js"></script>
+    <script src="./assets/js/player.js"></script>
+    <script src="./assets/js/equipment.js"></script>
+    <script src="./assets/js/combat.js"></script>
+    <script src="./assets/js/dungeon.js"></script>
+    <script src="./assets/js/enemy.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

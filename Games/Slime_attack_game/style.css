@@ -1,0 +1,2565 @@
+@import url(https://fonts.googleapis.com/css?family=VT323);
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  color: #29FF6A;
+  font-family: "VT323";
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/pointer.svg), auto;
+  background-color: #071321;
+  background-image: radial-gradient(transparent, #071321), url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJFYmVuZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0aD0iOXB4IiBoZWlnaHQ9IjlweCIgdmlld0JveD0iMCAwIDkgOSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgOSA5IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBvbHlnb24gZmlsbD0iIzJFM0I0MSIgcG9pbnRzPSIwLDIuMTIxIDYuODc5LDkgOSw5IDksNi44NzkgMi4xMjEsMCAwLDAgIi8+Cjxwb2x5Z29uIGZpbGw9IiMyRTNCNDEiIHBvaW50cz0iOSwwIDYuODc5LDAgOSwyLjEyMSAiLz4KPHBvbHlnb24gZmlsbD0iIzJFM0I0MSIgcG9pbnRzPSIyLjE1Miw5IDAsNi44NDggMCw5ICIvPgo8L3N2Zz4K");
+  background-size: cover, 3px 3px;
+  transform: translateZ(0);
+}
+
+input[class^=fly],
+input[class^=fly] + label {
+  position: absolute;
+  top: -20rem;
+  left: -20rem;
+  width: 10rem;
+  height: 10rem;
+  transition: opacity 0.5s;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+input[class^=fly] {
+  opacity: 0;
+}
+
+input[class$="-1"],
+input[class$="-1"] + label {
+  -webkit-animation: fly1 400s infinite linear;
+          animation: fly1 400s infinite linear;
+}
+
+input[class$="1"]:checked ~ input[class$="2"],
+input[class$="1"]:checked ~ input[class$="2"] + label {
+  width: 5rem;
+  height: 5rem;
+  -webkit-animation: fly2 133.3333333333s infinite linear;
+          animation: fly2 133.3333333333s infinite linear;
+}
+
+input[class$="2"]:checked ~ input[class$="3"],
+input[class$="2"]:checked ~ input[class$="3"] + label {
+  width: 3.3333333333rem;
+  height: 3.3333333333rem;
+  -webkit-animation: fly3 100s infinite linear;
+          animation: fly3 100s infinite linear;
+}
+
+input[class^=fly]:checked,
+input[class^=fly]:checked + label {
+  opacity: 0;
+  background-size: 150%, 0%;
+  box-shadow: 0 0 10rem #29ff6a;
+  pointer-events: none;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+input[class^=fly] + label {
+  width: 10rem;
+  height: 10rem;
+  background-image: radial-gradient(#29FF6A, #29FF6A 50%, transparent 60%), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/Slime.svg);
+  background-size: 0%, 80%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  opacity: 1;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/46992/pointer.svg), auto;
+  box-shadow: 0 0 10rem rgba(41, 255, 106, 0);
+  transition: background-size 0.15s, box-shadow 0.2s, opacity 0.1s 0.1s;
+}
+
+@-webkit-keyframes fly1 {
+  0% {
+    top: 43%;
+    left: 59%;
+  }
+  1% {
+    top: 33%;
+    left: 68%;
+  }
+  2% {
+    top: 9%;
+    left: 63%;
+  }
+  3% {
+    top: 42%;
+    left: 28%;
+  }
+  4% {
+    top: 65%;
+    left: 24%;
+  }
+  5% {
+    top: 33%;
+    left: 33%;
+  }
+  6% {
+    top: 42%;
+    left: 22%;
+  }
+  7% {
+    top: 35%;
+    left: 30%;
+  }
+  8% {
+    top: 49%;
+    left: 55%;
+  }
+  9% {
+    top: 64%;
+    left: 90%;
+  }
+  10% {
+    top: 8%;
+    left: 40%;
+  }
+  11% {
+    top: 14%;
+    left: 15%;
+  }
+  12% {
+    top: 22%;
+    left: 23%;
+  }
+  13% {
+    top: 100%;
+    left: 34%;
+  }
+  14% {
+    top: 53%;
+    left: 69%;
+  }
+  15% {
+    top: 23%;
+    left: 71%;
+  }
+  16% {
+    top: 68%;
+    left: 77%;
+  }
+  17% {
+    top: 35%;
+    left: 82%;
+  }
+  18% {
+    top: 62%;
+    left: 24%;
+  }
+  19% {
+    top: 49%;
+    left: 40%;
+  }
+  20% {
+    top: 47%;
+    left: 71%;
+  }
+  21% {
+    top: 72%;
+    left: 33%;
+  }
+  22% {
+    top: 87%;
+    left: 11%;
+  }
+  23% {
+    top: 2%;
+    left: 64%;
+  }
+  24% {
+    top: 21%;
+    left: 65%;
+  }
+  25% {
+    top: 84%;
+    left: 73%;
+  }
+  26% {
+    top: 15%;
+    left: 89%;
+  }
+  27% {
+    top: 28%;
+    left: 74%;
+  }
+  28% {
+    top: 50%;
+    left: 14%;
+  }
+  29% {
+    top: 6%;
+    left: 16%;
+  }
+  30% {
+    top: 79%;
+    left: 97%;
+  }
+  31% {
+    top: 15%;
+    left: 75%;
+  }
+  32% {
+    top: 77%;
+    left: 26%;
+  }
+  33% {
+    top: 77%;
+    left: 68%;
+  }
+  34% {
+    top: 40%;
+    left: 63%;
+  }
+  35% {
+    top: 59%;
+    left: 4%;
+  }
+  36% {
+    top: 61%;
+    left: 98%;
+  }
+  37% {
+    top: 41%;
+    left: 73%;
+  }
+  38% {
+    top: 72%;
+    left: 64%;
+  }
+  39% {
+    top: 87%;
+    left: 74%;
+  }
+  40% {
+    top: 11%;
+    left: 75%;
+  }
+  41% {
+    top: 44%;
+    left: 80%;
+  }
+  42% {
+    top: 61%;
+    left: 14%;
+  }
+  43% {
+    top: 30%;
+    left: 65%;
+  }
+  44% {
+    top: 57%;
+    left: 36%;
+  }
+  45% {
+    top: 64%;
+    left: 2%;
+  }
+  46% {
+    top: 68%;
+    left: 81%;
+  }
+  47% {
+    top: 32%;
+    left: 65%;
+  }
+  48% {
+    top: 63%;
+    left: 86%;
+  }
+  49% {
+    top: 4%;
+    left: 39%;
+  }
+  50% {
+    top: 26%;
+    left: 22%;
+  }
+  51% {
+    top: 76%;
+    left: 72%;
+  }
+  52% {
+    top: 48%;
+    left: 60%;
+  }
+  53% {
+    top: 52%;
+    left: 40%;
+  }
+  54% {
+    top: 36%;
+    left: 36%;
+  }
+  55% {
+    top: 11%;
+    left: 1%;
+  }
+  56% {
+    top: 47%;
+    left: 82%;
+  }
+  57% {
+    top: 2%;
+    left: 80%;
+  }
+  58% {
+    top: 45%;
+    left: 50%;
+  }
+  59% {
+    top: 85%;
+    left: 4%;
+  }
+  60% {
+    top: 60%;
+    left: 76%;
+  }
+  61% {
+    top: 49%;
+    left: 22%;
+  }
+  62% {
+    top: 58%;
+    left: 4%;
+  }
+  63% {
+    top: 52%;
+    left: 83%;
+  }
+  64% {
+    top: 9%;
+    left: 76%;
+  }
+  65% {
+    top: 29%;
+    left: 77%;
+  }
+  66% {
+    top: 23%;
+    left: 29%;
+  }
+  67% {
+    top: 41%;
+    left: 58%;
+  }
+  68% {
+    top: 91%;
+    left: 6%;
+  }
+  69% {
+    top: 66%;
+    left: 23%;
+  }
+  70% {
+    top: 35%;
+    left: 51%;
+  }
+  71% {
+    top: 43%;
+    left: 38%;
+  }
+  72% {
+    top: 98%;
+    left: 93%;
+  }
+  73% {
+    top: 73%;
+    left: 51%;
+  }
+  74% {
+    top: 1%;
+    left: 34%;
+  }
+  75% {
+    top: 94%;
+    left: 81%;
+  }
+  76% {
+    top: 56%;
+    left: 8%;
+  }
+  77% {
+    top: 32%;
+    left: 20%;
+  }
+  78% {
+    top: 62%;
+    left: 31%;
+  }
+  79% {
+    top: 5%;
+    left: 59%;
+  }
+  80% {
+    top: 10%;
+    left: 96%;
+  }
+  81% {
+    top: 92%;
+    left: 7%;
+  }
+  82% {
+    top: 12%;
+    left: 16%;
+  }
+  83% {
+    top: 74%;
+    left: 66%;
+  }
+  84% {
+    top: 23%;
+    left: 87%;
+  }
+  85% {
+    top: 82%;
+    left: 10%;
+  }
+  86% {
+    top: 29%;
+    left: 65%;
+  }
+  87% {
+    top: 15%;
+    left: 7%;
+  }
+  88% {
+    top: 63%;
+    left: 29%;
+  }
+  89% {
+    top: 62%;
+    left: 57%;
+  }
+  90% {
+    top: 47%;
+    left: 97%;
+  }
+  91% {
+    top: 61%;
+    left: 34%;
+  }
+  92% {
+    top: 61%;
+    left: 70%;
+  }
+  93% {
+    top: 82%;
+    left: 44%;
+  }
+  94% {
+    top: 20%;
+    left: 27%;
+  }
+  95% {
+    top: 18%;
+    left: 67%;
+  }
+  96% {
+    top: 11%;
+    left: 97%;
+  }
+  97% {
+    top: 33%;
+    left: 41%;
+  }
+  98% {
+    top: 43%;
+    left: 75%;
+  }
+  99% {
+    top: 37%;
+    left: 41%;
+  }
+}
+
+@keyframes fly1 {
+  0% {
+    top: 43%;
+    left: 59%;
+  }
+  1% {
+    top: 33%;
+    left: 68%;
+  }
+  2% {
+    top: 9%;
+    left: 63%;
+  }
+  3% {
+    top: 42%;
+    left: 28%;
+  }
+  4% {
+    top: 65%;
+    left: 24%;
+  }
+  5% {
+    top: 33%;
+    left: 33%;
+  }
+  6% {
+    top: 42%;
+    left: 22%;
+  }
+  7% {
+    top: 35%;
+    left: 30%;
+  }
+  8% {
+    top: 49%;
+    left: 55%;
+  }
+  9% {
+    top: 64%;
+    left: 90%;
+  }
+  10% {
+    top: 8%;
+    left: 40%;
+  }
+  11% {
+    top: 14%;
+    left: 15%;
+  }
+  12% {
+    top: 22%;
+    left: 23%;
+  }
+  13% {
+    top: 100%;
+    left: 34%;
+  }
+  14% {
+    top: 53%;
+    left: 69%;
+  }
+  15% {
+    top: 23%;
+    left: 71%;
+  }
+  16% {
+    top: 68%;
+    left: 77%;
+  }
+  17% {
+    top: 35%;
+    left: 82%;
+  }
+  18% {
+    top: 62%;
+    left: 24%;
+  }
+  19% {
+    top: 49%;
+    left: 40%;
+  }
+  20% {
+    top: 47%;
+    left: 71%;
+  }
+  21% {
+    top: 72%;
+    left: 33%;
+  }
+  22% {
+    top: 87%;
+    left: 11%;
+  }
+  23% {
+    top: 2%;
+    left: 64%;
+  }
+  24% {
+    top: 21%;
+    left: 65%;
+  }
+  25% {
+    top: 84%;
+    left: 73%;
+  }
+  26% {
+    top: 15%;
+    left: 89%;
+  }
+  27% {
+    top: 28%;
+    left: 74%;
+  }
+  28% {
+    top: 50%;
+    left: 14%;
+  }
+  29% {
+    top: 6%;
+    left: 16%;
+  }
+  30% {
+    top: 79%;
+    left: 97%;
+  }
+  31% {
+    top: 15%;
+    left: 75%;
+  }
+  32% {
+    top: 77%;
+    left: 26%;
+  }
+  33% {
+    top: 77%;
+    left: 68%;
+  }
+  34% {
+    top: 40%;
+    left: 63%;
+  }
+  35% {
+    top: 59%;
+    left: 4%;
+  }
+  36% {
+    top: 61%;
+    left: 98%;
+  }
+  37% {
+    top: 41%;
+    left: 73%;
+  }
+  38% {
+    top: 72%;
+    left: 64%;
+  }
+  39% {
+    top: 87%;
+    left: 74%;
+  }
+  40% {
+    top: 11%;
+    left: 75%;
+  }
+  41% {
+    top: 44%;
+    left: 80%;
+  }
+  42% {
+    top: 61%;
+    left: 14%;
+  }
+  43% {
+    top: 30%;
+    left: 65%;
+  }
+  44% {
+    top: 57%;
+    left: 36%;
+  }
+  45% {
+    top: 64%;
+    left: 2%;
+  }
+  46% {
+    top: 68%;
+    left: 81%;
+  }
+  47% {
+    top: 32%;
+    left: 65%;
+  }
+  48% {
+    top: 63%;
+    left: 86%;
+  }
+  49% {
+    top: 4%;
+    left: 39%;
+  }
+  50% {
+    top: 26%;
+    left: 22%;
+  }
+  51% {
+    top: 76%;
+    left: 72%;
+  }
+  52% {
+    top: 48%;
+    left: 60%;
+  }
+  53% {
+    top: 52%;
+    left: 40%;
+  }
+  54% {
+    top: 36%;
+    left: 36%;
+  }
+  55% {
+    top: 11%;
+    left: 1%;
+  }
+  56% {
+    top: 47%;
+    left: 82%;
+  }
+  57% {
+    top: 2%;
+    left: 80%;
+  }
+  58% {
+    top: 45%;
+    left: 50%;
+  }
+  59% {
+    top: 85%;
+    left: 4%;
+  }
+  60% {
+    top: 60%;
+    left: 76%;
+  }
+  61% {
+    top: 49%;
+    left: 22%;
+  }
+  62% {
+    top: 58%;
+    left: 4%;
+  }
+  63% {
+    top: 52%;
+    left: 83%;
+  }
+  64% {
+    top: 9%;
+    left: 76%;
+  }
+  65% {
+    top: 29%;
+    left: 77%;
+  }
+  66% {
+    top: 23%;
+    left: 29%;
+  }
+  67% {
+    top: 41%;
+    left: 58%;
+  }
+  68% {
+    top: 91%;
+    left: 6%;
+  }
+  69% {
+    top: 66%;
+    left: 23%;
+  }
+  70% {
+    top: 35%;
+    left: 51%;
+  }
+  71% {
+    top: 43%;
+    left: 38%;
+  }
+  72% {
+    top: 98%;
+    left: 93%;
+  }
+  73% {
+    top: 73%;
+    left: 51%;
+  }
+  74% {
+    top: 1%;
+    left: 34%;
+  }
+  75% {
+    top: 94%;
+    left: 81%;
+  }
+  76% {
+    top: 56%;
+    left: 8%;
+  }
+  77% {
+    top: 32%;
+    left: 20%;
+  }
+  78% {
+    top: 62%;
+    left: 31%;
+  }
+  79% {
+    top: 5%;
+    left: 59%;
+  }
+  80% {
+    top: 10%;
+    left: 96%;
+  }
+  81% {
+    top: 92%;
+    left: 7%;
+  }
+  82% {
+    top: 12%;
+    left: 16%;
+  }
+  83% {
+    top: 74%;
+    left: 66%;
+  }
+  84% {
+    top: 23%;
+    left: 87%;
+  }
+  85% {
+    top: 82%;
+    left: 10%;
+  }
+  86% {
+    top: 29%;
+    left: 65%;
+  }
+  87% {
+    top: 15%;
+    left: 7%;
+  }
+  88% {
+    top: 63%;
+    left: 29%;
+  }
+  89% {
+    top: 62%;
+    left: 57%;
+  }
+  90% {
+    top: 47%;
+    left: 97%;
+  }
+  91% {
+    top: 61%;
+    left: 34%;
+  }
+  92% {
+    top: 61%;
+    left: 70%;
+  }
+  93% {
+    top: 82%;
+    left: 44%;
+  }
+  94% {
+    top: 20%;
+    left: 27%;
+  }
+  95% {
+    top: 18%;
+    left: 67%;
+  }
+  96% {
+    top: 11%;
+    left: 97%;
+  }
+  97% {
+    top: 33%;
+    left: 41%;
+  }
+  98% {
+    top: 43%;
+    left: 75%;
+  }
+  99% {
+    top: 37%;
+    left: 41%;
+  }
+}
+@-webkit-keyframes fly2 {
+  0% {
+    top: 89%;
+    left: 82%;
+  }
+  1% {
+    top: 99%;
+    left: 55%;
+  }
+  2% {
+    top: 30%;
+    left: 33%;
+  }
+  3% {
+    top: 60%;
+    left: 11%;
+  }
+  4% {
+    top: 85%;
+    left: 98%;
+  }
+  5% {
+    top: 56%;
+    left: 77%;
+  }
+  6% {
+    top: 70%;
+    left: 59%;
+  }
+  7% {
+    top: 56%;
+    left: 17%;
+  }
+  8% {
+    top: 51%;
+    left: 46%;
+  }
+  9% {
+    top: 38%;
+    left: 18%;
+  }
+  10% {
+    top: 27%;
+    left: 12%;
+  }
+  11% {
+    top: 28%;
+    left: 55%;
+  }
+  12% {
+    top: 63%;
+    left: 18%;
+  }
+  13% {
+    top: 24%;
+    left: 53%;
+  }
+  14% {
+    top: 50%;
+    left: 97%;
+  }
+  15% {
+    top: 57%;
+    left: 33%;
+  }
+  16% {
+    top: 19%;
+    left: 100%;
+  }
+  17% {
+    top: 63%;
+    left: 14%;
+  }
+  18% {
+    top: 1%;
+    left: 64%;
+  }
+  19% {
+    top: 81%;
+    left: 12%;
+  }
+  20% {
+    top: 34%;
+    left: 90%;
+  }
+  21% {
+    top: 45%;
+    left: 98%;
+  }
+  22% {
+    top: 80%;
+    left: 52%;
+  }
+  23% {
+    top: 56%;
+    left: 73%;
+  }
+  24% {
+    top: 25%;
+    left: 10%;
+  }
+  25% {
+    top: 89%;
+    left: 39%;
+  }
+  26% {
+    top: 55%;
+    left: 23%;
+  }
+  27% {
+    top: 83%;
+    left: 71%;
+  }
+  28% {
+    top: 82%;
+    left: 50%;
+  }
+  29% {
+    top: 37%;
+    left: 70%;
+  }
+  30% {
+    top: 59%;
+    left: 84%;
+  }
+  31% {
+    top: 27%;
+    left: 11%;
+  }
+  32% {
+    top: 26%;
+    left: 19%;
+  }
+  33% {
+    top: 41%;
+    left: 95%;
+  }
+  34% {
+    top: 10%;
+    left: 17%;
+  }
+  35% {
+    top: 80%;
+    left: 80%;
+  }
+  36% {
+    top: 19%;
+    left: 59%;
+  }
+  37% {
+    top: 57%;
+    left: 64%;
+  }
+  38% {
+    top: 83%;
+    left: 43%;
+  }
+  39% {
+    top: 87%;
+    left: 7%;
+  }
+  40% {
+    top: 14%;
+    left: 32%;
+  }
+  41% {
+    top: 41%;
+    left: 88%;
+  }
+  42% {
+    top: 89%;
+    left: 2%;
+  }
+  43% {
+    top: 37%;
+    left: 79%;
+  }
+  44% {
+    top: 38%;
+    left: 25%;
+  }
+  45% {
+    top: 44%;
+    left: 22%;
+  }
+  46% {
+    top: 36%;
+    left: 29%;
+  }
+  47% {
+    top: 31%;
+    left: 66%;
+  }
+  48% {
+    top: 22%;
+    left: 43%;
+  }
+  49% {
+    top: 34%;
+    left: 68%;
+  }
+  50% {
+    top: 17%;
+    left: 62%;
+  }
+  51% {
+    top: 94%;
+    left: 53%;
+  }
+  52% {
+    top: 72%;
+    left: 82%;
+  }
+  53% {
+    top: 49%;
+    left: 14%;
+  }
+  54% {
+    top: 38%;
+    left: 28%;
+  }
+  55% {
+    top: 40%;
+    left: 97%;
+  }
+  56% {
+    top: 30%;
+    left: 100%;
+  }
+  57% {
+    top: 1%;
+    left: 50%;
+  }
+  58% {
+    top: 96%;
+    left: 8%;
+  }
+  59% {
+    top: 69%;
+    left: 39%;
+  }
+  60% {
+    top: 67%;
+    left: 57%;
+  }
+  61% {
+    top: 89%;
+    left: 57%;
+  }
+  62% {
+    top: 52%;
+    left: 13%;
+  }
+  63% {
+    top: 88%;
+    left: 47%;
+  }
+  64% {
+    top: 95%;
+    left: 36%;
+  }
+  65% {
+    top: 72%;
+    left: 75%;
+  }
+  66% {
+    top: 67%;
+    left: 55%;
+  }
+  67% {
+    top: 12%;
+    left: 54%;
+  }
+  68% {
+    top: 92%;
+    left: 59%;
+  }
+  69% {
+    top: 22%;
+    left: 33%;
+  }
+  70% {
+    top: 3%;
+    left: 11%;
+  }
+  71% {
+    top: 84%;
+    left: 23%;
+  }
+  72% {
+    top: 15%;
+    left: 80%;
+  }
+  73% {
+    top: 82%;
+    left: 66%;
+  }
+  74% {
+    top: 27%;
+    left: 45%;
+  }
+  75% {
+    top: 77%;
+    left: 71%;
+  }
+  76% {
+    top: 91%;
+    left: 8%;
+  }
+  77% {
+    top: 50%;
+    left: 48%;
+  }
+  78% {
+    top: 45%;
+    left: 81%;
+  }
+  79% {
+    top: 29%;
+    left: 99%;
+  }
+  80% {
+    top: 87%;
+    left: 27%;
+  }
+  81% {
+    top: 85%;
+    left: 54%;
+  }
+  82% {
+    top: 14%;
+    left: 19%;
+  }
+  83% {
+    top: 67%;
+    left: 93%;
+  }
+  84% {
+    top: 75%;
+    left: 24%;
+  }
+  85% {
+    top: 66%;
+    left: 77%;
+  }
+  86% {
+    top: 75%;
+    left: 64%;
+  }
+  87% {
+    top: 28%;
+    left: 1%;
+  }
+  88% {
+    top: 32%;
+    left: 37%;
+  }
+  89% {
+    top: 8%;
+    left: 87%;
+  }
+  90% {
+    top: 51%;
+    left: 60%;
+  }
+  91% {
+    top: 46%;
+    left: 95%;
+  }
+  92% {
+    top: 45%;
+    left: 83%;
+  }
+  93% {
+    top: 6%;
+    left: 58%;
+  }
+  94% {
+    top: 4%;
+    left: 53%;
+  }
+  95% {
+    top: 53%;
+    left: 6%;
+  }
+  96% {
+    top: 54%;
+    left: 58%;
+  }
+  97% {
+    top: 64%;
+    left: 3%;
+  }
+  98% {
+    top: 11%;
+    left: 71%;
+  }
+  99% {
+    top: 40%;
+    left: 48%;
+  }
+}
+@keyframes fly2 {
+  0% {
+    top: 89%;
+    left: 82%;
+  }
+  1% {
+    top: 99%;
+    left: 55%;
+  }
+  2% {
+    top: 30%;
+    left: 33%;
+  }
+  3% {
+    top: 60%;
+    left: 11%;
+  }
+  4% {
+    top: 85%;
+    left: 98%;
+  }
+  5% {
+    top: 56%;
+    left: 77%;
+  }
+  6% {
+    top: 70%;
+    left: 59%;
+  }
+  7% {
+    top: 56%;
+    left: 17%;
+  }
+  8% {
+    top: 51%;
+    left: 46%;
+  }
+  9% {
+    top: 38%;
+    left: 18%;
+  }
+  10% {
+    top: 27%;
+    left: 12%;
+  }
+  11% {
+    top: 28%;
+    left: 55%;
+  }
+  12% {
+    top: 63%;
+    left: 18%;
+  }
+  13% {
+    top: 24%;
+    left: 53%;
+  }
+  14% {
+    top: 50%;
+    left: 97%;
+  }
+  15% {
+    top: 57%;
+    left: 33%;
+  }
+  16% {
+    top: 19%;
+    left: 100%;
+  }
+  17% {
+    top: 63%;
+    left: 14%;
+  }
+  18% {
+    top: 1%;
+    left: 64%;
+  }
+  19% {
+    top: 81%;
+    left: 12%;
+  }
+  20% {
+    top: 34%;
+    left: 90%;
+  }
+  21% {
+    top: 45%;
+    left: 98%;
+  }
+  22% {
+    top: 80%;
+    left: 52%;
+  }
+  23% {
+    top: 56%;
+    left: 73%;
+  }
+  24% {
+    top: 25%;
+    left: 10%;
+  }
+  25% {
+    top: 89%;
+    left: 39%;
+  }
+  26% {
+    top: 55%;
+    left: 23%;
+  }
+  27% {
+    top: 83%;
+    left: 71%;
+  }
+  28% {
+    top: 82%;
+    left: 50%;
+  }
+  29% {
+    top: 37%;
+    left: 70%;
+  }
+  30% {
+    top: 59%;
+    left: 84%;
+  }
+  31% {
+    top: 27%;
+    left: 11%;
+  }
+  32% {
+    top: 26%;
+    left: 19%;
+  }
+  33% {
+    top: 41%;
+    left: 95%;
+  }
+  34% {
+    top: 10%;
+    left: 17%;
+  }
+  35% {
+    top: 80%;
+    left: 80%;
+  }
+  36% {
+    top: 19%;
+    left: 59%;
+  }
+  37% {
+    top: 57%;
+    left: 64%;
+  }
+  38% {
+    top: 83%;
+    left: 43%;
+  }
+  39% {
+    top: 87%;
+    left: 7%;
+  }
+  40% {
+    top: 14%;
+    left: 32%;
+  }
+  41% {
+    top: 41%;
+    left: 88%;
+  }
+  42% {
+    top: 89%;
+    left: 2%;
+  }
+  43% {
+    top: 37%;
+    left: 79%;
+  }
+  44% {
+    top: 38%;
+    left: 25%;
+  }
+  45% {
+    top: 44%;
+    left: 22%;
+  }
+  46% {
+    top: 36%;
+    left: 29%;
+  }
+  47% {
+    top: 31%;
+    left: 66%;
+  }
+  48% {
+    top: 22%;
+    left: 43%;
+  }
+  49% {
+    top: 34%;
+    left: 68%;
+  }
+  50% {
+    top: 17%;
+    left: 62%;
+  }
+  51% {
+    top: 94%;
+    left: 53%;
+  }
+  52% {
+    top: 72%;
+    left: 82%;
+  }
+  53% {
+    top: 49%;
+    left: 14%;
+  }
+  54% {
+    top: 38%;
+    left: 28%;
+  }
+  55% {
+    top: 40%;
+    left: 97%;
+  }
+  56% {
+    top: 30%;
+    left: 100%;
+  }
+  57% {
+    top: 1%;
+    left: 50%;
+  }
+  58% {
+    top: 96%;
+    left: 8%;
+  }
+  59% {
+    top: 69%;
+    left: 39%;
+  }
+  60% {
+    top: 67%;
+    left: 57%;
+  }
+  61% {
+    top: 89%;
+    left: 57%;
+  }
+  62% {
+    top: 52%;
+    left: 13%;
+  }
+  63% {
+    top: 88%;
+    left: 47%;
+  }
+  64% {
+    top: 95%;
+    left: 36%;
+  }
+  65% {
+    top: 72%;
+    left: 75%;
+  }
+  66% {
+    top: 67%;
+    left: 55%;
+  }
+  67% {
+    top: 12%;
+    left: 54%;
+  }
+  68% {
+    top: 92%;
+    left: 59%;
+  }
+  69% {
+    top: 22%;
+    left: 33%;
+  }
+  70% {
+    top: 3%;
+    left: 11%;
+  }
+  71% {
+    top: 84%;
+    left: 23%;
+  }
+  72% {
+    top: 15%;
+    left: 80%;
+  }
+  73% {
+    top: 82%;
+    left: 66%;
+  }
+  74% {
+    top: 27%;
+    left: 45%;
+  }
+  75% {
+    top: 77%;
+    left: 71%;
+  }
+  76% {
+    top: 91%;
+    left: 8%;
+  }
+  77% {
+    top: 50%;
+    left: 48%;
+  }
+  78% {
+    top: 45%;
+    left: 81%;
+  }
+  79% {
+    top: 29%;
+    left: 99%;
+  }
+  80% {
+    top: 87%;
+    left: 27%;
+  }
+  81% {
+    top: 85%;
+    left: 54%;
+  }
+  82% {
+    top: 14%;
+    left: 19%;
+  }
+  83% {
+    top: 67%;
+    left: 93%;
+  }
+  84% {
+    top: 75%;
+    left: 24%;
+  }
+  85% {
+    top: 66%;
+    left: 77%;
+  }
+  86% {
+    top: 75%;
+    left: 64%;
+  }
+  87% {
+    top: 28%;
+    left: 1%;
+  }
+  88% {
+    top: 32%;
+    left: 37%;
+  }
+  89% {
+    top: 8%;
+    left: 87%;
+  }
+  90% {
+    top: 51%;
+    left: 60%;
+  }
+  91% {
+    top: 46%;
+    left: 95%;
+  }
+  92% {
+    top: 45%;
+    left: 83%;
+  }
+  93% {
+    top: 6%;
+    left: 58%;
+  }
+  94% {
+    top: 4%;
+    left: 53%;
+  }
+  95% {
+    top: 53%;
+    left: 6%;
+  }
+  96% {
+    top: 54%;
+    left: 58%;
+  }
+  97% {
+    top: 64%;
+    left: 3%;
+  }
+  98% {
+    top: 11%;
+    left: 71%;
+  }
+  99% {
+    top: 40%;
+    left: 48%;
+  }
+}
+@-webkit-keyframes fly3 {
+  0% {
+    top: 64%;
+    left: 27%;
+  }
+  1% {
+    top: 77%;
+    left: 12%;
+  }
+  2% {
+    top: 75%;
+    left: 95%;
+  }
+  3% {
+    top: 19%;
+    left: 22%;
+  }
+  4% {
+    top: 95%;
+    left: 92%;
+  }
+  5% {
+    top: 42%;
+    left: 75%;
+  }
+  6% {
+    top: 51%;
+    left: 61%;
+  }
+  7% {
+    top: 41%;
+    left: 88%;
+  }
+  8% {
+    top: 19%;
+    left: 89%;
+  }
+  9% {
+    top: 48%;
+    left: 61%;
+  }
+  10% {
+    top: 24%;
+    left: 36%;
+  }
+  11% {
+    top: 43%;
+    left: 5%;
+  }
+  12% {
+    top: 62%;
+    left: 41%;
+  }
+  13% {
+    top: 90%;
+    left: 93%;
+  }
+  14% {
+    top: 64%;
+    left: 5%;
+  }
+  15% {
+    top: 57%;
+    left: 46%;
+  }
+  16% {
+    top: 60%;
+    left: 100%;
+  }
+  17% {
+    top: 28%;
+    left: 2%;
+  }
+  18% {
+    top: 66%;
+    left: 99%;
+  }
+  19% {
+    top: 21%;
+    left: 67%;
+  }
+  20% {
+    top: 57%;
+    left: 91%;
+  }
+  21% {
+    top: 9%;
+    left: 86%;
+  }
+  22% {
+    top: 12%;
+    left: 47%;
+  }
+  23% {
+    top: 67%;
+    left: 86%;
+  }
+  24% {
+    top: 17%;
+    left: 16%;
+  }
+  25% {
+    top: 88%;
+    left: 33%;
+  }
+  26% {
+    top: 61%;
+    left: 43%;
+  }
+  27% {
+    top: 76%;
+    left: 95%;
+  }
+  28% {
+    top: 4%;
+    left: 88%;
+  }
+  29% {
+    top: 3%;
+    left: 82%;
+  }
+  30% {
+    top: 65%;
+    left: 23%;
+  }
+  31% {
+    top: 64%;
+    left: 2%;
+  }
+  32% {
+    top: 65%;
+    left: 57%;
+  }
+  33% {
+    top: 54%;
+    left: 26%;
+  }
+  34% {
+    top: 73%;
+    left: 36%;
+  }
+  35% {
+    top: 45%;
+    left: 83%;
+  }
+  36% {
+    top: 15%;
+    left: 34%;
+  }
+  37% {
+    top: 31%;
+    left: 54%;
+  }
+  38% {
+    top: 96%;
+    left: 72%;
+  }
+  39% {
+    top: 94%;
+    left: 57%;
+  }
+  40% {
+    top: 83%;
+    left: 82%;
+  }
+  41% {
+    top: 61%;
+    left: 44%;
+  }
+  42% {
+    top: 13%;
+    left: 98%;
+  }
+  43% {
+    top: 36%;
+    left: 16%;
+  }
+  44% {
+    top: 21%;
+    left: 97%;
+  }
+  45% {
+    top: 7%;
+    left: 1%;
+  }
+  46% {
+    top: 63%;
+    left: 58%;
+  }
+  47% {
+    top: 7%;
+    left: 75%;
+  }
+  48% {
+    top: 71%;
+    left: 43%;
+  }
+  49% {
+    top: 35%;
+    left: 31%;
+  }
+  50% {
+    top: 49%;
+    left: 51%;
+  }
+  51% {
+    top: 8%;
+    left: 41%;
+  }
+  52% {
+    top: 22%;
+    left: 29%;
+  }
+  53% {
+    top: 12%;
+    left: 76%;
+  }
+  54% {
+    top: 91%;
+    left: 34%;
+  }
+  55% {
+    top: 39%;
+    left: 28%;
+  }
+  56% {
+    top: 2%;
+    left: 81%;
+  }
+  57% {
+    top: 22%;
+    left: 96%;
+  }
+  58% {
+    top: 44%;
+    left: 11%;
+  }
+  59% {
+    top: 95%;
+    left: 86%;
+  }
+  60% {
+    top: 62%;
+    left: 89%;
+  }
+  61% {
+    top: 85%;
+    left: 22%;
+  }
+  62% {
+    top: 31%;
+    left: 44%;
+  }
+  63% {
+    top: 1%;
+    left: 51%;
+  }
+  64% {
+    top: 25%;
+    left: 5%;
+  }
+  65% {
+    top: 27%;
+    left: 70%;
+  }
+  66% {
+    top: 69%;
+    left: 8%;
+  }
+  67% {
+    top: 8%;
+    left: 15%;
+  }
+  68% {
+    top: 47%;
+    left: 75%;
+  }
+  69% {
+    top: 26%;
+    left: 63%;
+  }
+  70% {
+    top: 33%;
+    left: 97%;
+  }
+  71% {
+    top: 5%;
+    left: 40%;
+  }
+  72% {
+    top: 23%;
+    left: 13%;
+  }
+  73% {
+    top: 99%;
+    left: 91%;
+  }
+  74% {
+    top: 20%;
+    left: 43%;
+  }
+  75% {
+    top: 41%;
+    left: 32%;
+  }
+  76% {
+    top: 31%;
+    left: 48%;
+  }
+  77% {
+    top: 63%;
+    left: 97%;
+  }
+  78% {
+    top: 92%;
+    left: 83%;
+  }
+  79% {
+    top: 63%;
+    left: 75%;
+  }
+  80% {
+    top: 20%;
+    left: 51%;
+  }
+  81% {
+    top: 34%;
+    left: 24%;
+  }
+  82% {
+    top: 59%;
+    left: 83%;
+  }
+  83% {
+    top: 49%;
+    left: 29%;
+  }
+  84% {
+    top: 71%;
+    left: 1%;
+  }
+  85% {
+    top: 46%;
+    left: 49%;
+  }
+  86% {
+    top: 87%;
+    left: 86%;
+  }
+  87% {
+    top: 23%;
+    left: 16%;
+  }
+  88% {
+    top: 39%;
+    left: 81%;
+  }
+  89% {
+    top: 20%;
+    left: 60%;
+  }
+  90% {
+    top: 60%;
+    left: 64%;
+  }
+  91% {
+    top: 12%;
+    left: 19%;
+  }
+  92% {
+    top: 48%;
+    left: 32%;
+  }
+  93% {
+    top: 9%;
+    left: 56%;
+  }
+  94% {
+    top: 78%;
+    left: 23%;
+  }
+  95% {
+    top: 56%;
+    left: 90%;
+  }
+  96% {
+    top: 33%;
+    left: 37%;
+  }
+  97% {
+    top: 50%;
+    left: 55%;
+  }
+  98% {
+    top: 45%;
+    left: 20%;
+  }
+  99% {
+    top: 94%;
+    left: 97%;
+  }
+}
+@keyframes fly3 {
+  0% {
+    top: 64%;
+    left: 27%;
+  }
+  1% {
+    top: 77%;
+    left: 12%;
+  }
+  2% {
+    top: 75%;
+    left: 95%;
+  }
+  3% {
+    top: 19%;
+    left: 22%;
+  }
+  4% {
+    top: 95%;
+    left: 92%;
+  }
+  5% {
+    top: 42%;
+    left: 75%;
+  }
+  6% {
+    top: 51%;
+    left: 61%;
+  }
+  7% {
+    top: 41%;
+    left: 88%;
+  }
+  8% {
+    top: 19%;
+    left: 89%;
+  }
+  9% {
+    top: 48%;
+    left: 61%;
+  }
+  10% {
+    top: 24%;
+    left: 36%;
+  }
+  11% {
+    top: 43%;
+    left: 5%;
+  }
+  12% {
+    top: 62%;
+    left: 41%;
+  }
+  13% {
+    top: 90%;
+    left: 93%;
+  }
+  14% {
+    top: 64%;
+    left: 5%;
+  }
+  15% {
+    top: 57%;
+    left: 46%;
+  }
+  16% {
+    top: 60%;
+    left: 100%;
+  }
+  17% {
+    top: 28%;
+    left: 2%;
+  }
+  18% {
+    top: 66%;
+    left: 99%;
+  }
+  19% {
+    top: 21%;
+    left: 67%;
+  }
+  20% {
+    top: 57%;
+    left: 91%;
+  }
+  21% {
+    top: 9%;
+    left: 86%;
+  }
+  22% {
+    top: 12%;
+    left: 47%;
+  }
+  23% {
+    top: 67%;
+    left: 86%;
+  }
+  24% {
+    top: 17%;
+    left: 16%;
+  }
+  25% {
+    top: 88%;
+    left: 33%;
+  }
+  26% {
+    top: 61%;
+    left: 43%;
+  }
+  27% {
+    top: 76%;
+    left: 95%;
+  }
+  28% {
+    top: 4%;
+    left: 88%;
+  }
+  29% {
+    top: 3%;
+    left: 82%;
+  }
+  30% {
+    top: 65%;
+    left: 23%;
+  }
+  31% {
+    top: 64%;
+    left: 2%;
+  }
+  32% {
+    top: 65%;
+    left: 57%;
+  }
+  33% {
+    top: 54%;
+    left: 26%;
+  }
+  34% {
+    top: 73%;
+    left: 36%;
+  }
+  35% {
+    top: 45%;
+    left: 83%;
+  }
+  36% {
+    top: 15%;
+    left: 34%;
+  }
+  37% {
+    top: 31%;
+    left: 54%;
+  }
+  38% {
+    top: 96%;
+    left: 72%;
+  }
+  39% {
+    top: 94%;
+    left: 57%;
+  }
+  40% {
+    top: 83%;
+    left: 82%;
+  }
+  41% {
+    top: 61%;
+    left: 44%;
+  }
+  42% {
+    top: 13%;
+    left: 98%;
+  }
+  43% {
+    top: 36%;
+    left: 16%;
+  }
+  44% {
+    top: 21%;
+    left: 97%;
+  }
+  45% {
+    top: 7%;
+    left: 1%;
+  }
+  46% {
+    top: 63%;
+    left: 58%;
+  }
+  47% {
+    top: 7%;
+    left: 75%;
+  }
+  48% {
+    top: 71%;
+    left: 43%;
+  }
+  49% {
+    top: 35%;
+    left: 31%;
+  }
+  50% {
+    top: 49%;
+    left: 51%;
+  }
+  51% {
+    top: 8%;
+    left: 41%;
+  }
+  52% {
+    top: 22%;
+    left: 29%;
+  }
+  53% {
+    top: 12%;
+    left: 76%;
+  }
+  54% {
+    top: 91%;
+    left: 34%;
+  }
+  55% {
+    top: 39%;
+    left: 28%;
+  }
+  56% {
+    top: 2%;
+    left: 81%;
+  }
+  57% {
+    top: 22%;
+    left: 96%;
+  }
+  58% {
+    top: 44%;
+    left: 11%;
+  }
+  59% {
+    top: 95%;
+    left: 86%;
+  }
+  60% {
+    top: 62%;
+    left: 89%;
+  }
+  61% {
+    top: 85%;
+    left: 22%;
+  }
+  62% {
+    top: 31%;
+    left: 44%;
+  }
+  63% {
+    top: 1%;
+    left: 51%;
+  }
+  64% {
+    top: 25%;
+    left: 5%;
+  }
+  65% {
+    top: 27%;
+    left: 70%;
+  }
+  66% {
+    top: 69%;
+    left: 8%;
+  }
+  67% {
+    top: 8%;
+    left: 15%;
+  }
+  68% {
+    top: 47%;
+    left: 75%;
+  }
+  69% {
+    top: 26%;
+    left: 63%;
+  }
+  70% {
+    top: 33%;
+    left: 97%;
+  }
+  71% {
+    top: 5%;
+    left: 40%;
+  }
+  72% {
+    top: 23%;
+    left: 13%;
+  }
+  73% {
+    top: 99%;
+    left: 91%;
+  }
+  74% {
+    top: 20%;
+    left: 43%;
+  }
+  75% {
+    top: 41%;
+    left: 32%;
+  }
+  76% {
+    top: 31%;
+    left: 48%;
+  }
+  77% {
+    top: 63%;
+    left: 97%;
+  }
+  78% {
+    top: 92%;
+    left: 83%;
+  }
+  79% {
+    top: 63%;
+    left: 75%;
+  }
+  80% {
+    top: 20%;
+    left: 51%;
+  }
+  81% {
+    top: 34%;
+    left: 24%;
+  }
+  82% {
+    top: 59%;
+    left: 83%;
+  }
+  83% {
+    top: 49%;
+    left: 29%;
+  }
+  84% {
+    top: 71%;
+    left: 1%;
+  }
+  85% {
+    top: 46%;
+    left: 49%;
+  }
+  86% {
+    top: 87%;
+    left: 86%;
+  }
+  87% {
+    top: 23%;
+    left: 16%;
+  }
+  88% {
+    top: 39%;
+    left: 81%;
+  }
+  89% {
+    top: 20%;
+    left: 60%;
+  }
+  90% {
+    top: 60%;
+    left: 64%;
+  }
+  91% {
+    top: 12%;
+    left: 19%;
+  }
+  92% {
+    top: 48%;
+    left: 32%;
+  }
+  93% {
+    top: 9%;
+    left: 56%;
+  }
+  94% {
+    top: 78%;
+    left: 23%;
+  }
+  95% {
+    top: 56%;
+    left: 90%;
+  }
+  96% {
+    top: 33%;
+    left: 37%;
+  }
+  97% {
+    top: 50%;
+    left: 55%;
+  }
+  98% {
+    top: 45%;
+    left: 20%;
+  }
+  99% {
+    top: 94%;
+    left: 97%;
+  }
+}
+.description,
+.congrats {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  z-index: 9;
+  padding: 0 2rem;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 3rem;
+  text-shadow: 0 0 3rem rgba(41, 255, 106, 0.6);
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.congrats {
+  opacity: 0;
+}
+
+.description {
+  -webkit-animation: fade-out 1s 3s forwards;
+          animation: fade-out 1s 3s forwards;
+}
+
+input[class=fly-3]:checked ~ .congrats {
+  -webkit-animation: fade-in 1s 0.5s forwards;
+          animation: fade-in 1s 0.5s forwards;
+}
+
+@-webkit-keyframes fade-out {
+  60% {
+    top: 55%;
+  }
+  100% {
+    top: -10%;
+  }
+}
+
+@keyframes fade-out {
+  60% {
+    top: 55%;
+  }
+  100% {
+    top: -10%;
+  }
+}
+@-webkit-keyframes fade-in {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+  }
+}

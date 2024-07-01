@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+
+<body>
+    <div style="text-align: left;
+    margin-top: 10px;
+    font-size: 30px;
+    padding: 2px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+    <div class="head">
+        <div class="timer">
+            <div class="circle">1:00</div>
+        </div>
+        <h2 class="title">Wordle</h2>
+        
+        
+        <div class="setting-btn">
+            <img src="./images/setting.png" alt="">
+        </div>
+
+    </div>
+    
+    <main>
+        <div class="box-container">
+            
+        </div>
+        <div class="key-container">
+            <div class="key">A</div>
+            <div class="key">B</div>
+            <div class="key">C</div>
+            <div class="key">D</div>
+            <div class="key">E</div>
+            <div class="key">F</div>
+            <div class="key">G</div>
+            <div class="key">H</div>
+            <div class="key">I</div>
+            <div class="key">J</div>
+            <div class="key">K</div>
+            <div class="key">L</div>
+            <div class="key">M</div>
+            <div class="key">N</div>
+            <div class="key">O</div>
+            <div class="key">P</div>
+            <div class="key">Q</div>
+            <div class="key">R</div>
+            <div class="key">S</div>
+            <div class="key">T</div>
+            <div class="key">U</div>
+            <div class="key">V</div>
+            <div class="key">W</div>
+            <div class="key">X</div>
+            <div class="key">Y</div>
+            <div class="key">Z</div>
+            <div class="key">Enter</div>
+            <div class="key">&larr;</div>
+        </div>
+    </main>
+
+    <div class="popup">
+        <div class="container">
+            <h2>You Won !!!</h2>
+            <p>Score : 18</p>
+            <button class="play">Play Again</button>
+        </div>
+    </div>
+
+    <div class="setting">
+        <div class="container">
+            
+            <button class="close-popup"></button>
+            <div class="cont">
+                <p>Word size </p>
+                <div>
+                    <img src="./images/decrease.png" class="size-icon size-dec" alt="">                    
+                    <span class="word-length">4</span>
+                    <img src="./images/increase.png" class="size-icon size-inc" alt="">
+                </div>
+            </div>
+            <div class="cont">
+                <p>High Score</p>
+                <span class="high-score"></span>
+            </div>
+            <button class="reset-score">Reset score</button>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>Score : <span class="score">0</span></p>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>

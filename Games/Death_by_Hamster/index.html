@@ -1,0 +1,42 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Death by Hamster</title>
+<style>
+    body {
+        background:rgb(22, 22, 22);
+    }
+#gameCanvas {
+display: block;
+margin: auto;
+width: 1200px;
+height: 800px;
+image-rendering: -moz-crisp-edges;
+image-rendering: -webkit-crisp-edges;
+image-rendering: pixelated;
+cursor: none;
+}
+/* if the canvas can't fit the screen, shrink it, maintaining the aspect ratio */
+
+    aside {
+        float:left;
+    }
+    aside pre {
+        color: white;
+    }
+
+@media screen and (max-height: 800px) {
+    #gameCanvas {
+        width: auto;
+        height: 100%;
+    }
+}
+
+</style>
+<aside >
+<pre id="leveltext"></pre>
+    <p id="levelLink"></p>
+</aside>
+<canvas width="600" height="400" id="gameCanvas">
+</canvas>
+<script id="fontScript" src="./letters.js"></script>
+<script src="./lzs.js"></script>
+<script src="./game.js"></script>

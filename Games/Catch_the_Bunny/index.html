@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Catch the Bunny!</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Fira+Sans:ital,wght@1,500&display=swap" rel="stylesheet"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	</head>
+	<body>
+		<div style="text-align:center;margin-top: 10px;
+        font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+		<div class="wrapper">
+			<div class="phone">
+				<div class="title-container">
+					<h1 class="title">Catch the Bunny!</h1>
+					<h3 class="game-description" id="game-description">
+						Catch as many bunnies as you can in 10 secs
+					</h3>
+					<h3 class="total-count" id="score">Score: <span>0</span></h3>
+					<button class="start-btn" id="start-btn" style="margin-top: -6%;">Start</button>
+				</div>
+				<!--First Bunny-->
+				<div class="layer layer-1">
+					<div class="left-ear--outer"></div>
+					<div class="left-ear--inner"></div>
+					<div class="right-ear--outer"></div>
+					<div class="right-ear--inner"></div>
+					<div class="head">
+						<div class="head__eye head__eye--left"></div>
+						<div class="head__eye head__eye--right"></div>
+					</div>
+				</div>
+				<!--Second Bunny-->
+				<div class="layer layer-2">
+					<div class="left-ear--outer"></div>
+					<div class="left-ear--inner"></div>
+					<div class="right-ear--outer"></div>
+					<div class="right-ear--inner"></div>
+					<div class="head">
+						<div class="head__eye head__eye--left"></div>
+						<div class="head__eye head__eye--right"></div>
+					</div>
+				</div>
+				<!--Wall support-->
+				<div class="layer layer-3">
+					<div class="grass"></div>
+					<div class="grass-layer"></div>
+					<div class="inner-layer"></div>
+				</div>
+				<!--Bunny 3-->
+				<div class="layer layer-4">
+					<div class="left-ear--outer"></div>
+					<div class="left-ear--inner"></div>
+					<div class="right-ear--outer"></div>
+					<div class="right-ear--inner"></div>
+					<div class="head">
+						<div class="head__eye head__eye--left"></div>
+						<div class="head__eye head__eye--right"></div>
+					</div>
+				</div>
+				<!--Wall below bunny 3-->
+				<div class="layer layer-5">
+					<div class="grass"></div>
+					<div class="grass-layer"></div>
+					<div class="inner-layer"></div>
+				</div>
+				<!--Fourth Bunny-->
+				<div class="layer layer-6">
+					<div class="left-ear--outer"></div>
+					<div class="left-ear--inner"></div>
+					<div class="right-ear--outer"></div>
+					<div class="right-ear--inner"></div>
+					<div class="head">
+						<div class="head__eye head__eye--left"></div>
+						<div class="head__eye head__eye--right"></div>
+					</div>
+				</div>
+				<!--Wall below fourth bunny-->
+				<div class="layer layer-7">
+					<div class="grass"></div>
+					<div class="grass-layer"></div>
+					<div class="inner-layer"></div>
+				</div>
+				<!--bush-->
+				<div class="layer layer-8">
+					<div class="bush bush-1"></div>
+					<div class="bush bush-2"></div>
+					<div class="bush bush-3"></div>
+				</div>
+				<!--lawn-->
+				<div class="layer layer-9">
+					<div class="cloud cloud--left-1"></div>
+					<div class="cloud cloud--left-2"></div>
+				</div>
+				<!--lawn-->
+				<div class="layer layer-10">
+					<div class="cloud cloud--right-1"></div>
+					<div class="cloud cloud--right-2"></div>
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+name: ❓ Question or Support Request
+description: Questions and requests for support.
+title: "[Question]: "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this and letting us know your question
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe your question or ask for support.❓
+      description: Enter a brief description about your question or support needed
+      placeholder: Please include a summary, also include relevant motivation and context. 
+      value: "Description"
+    validations:
+      required: true
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Select program in which you are contributing
+      multiple: true
+      options:
+        - GSSoC24
+        - IWOC2024
+        - hacktobefest
+        - GSSoC23
+        - Other
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [CODE OF CONDUCT](https://github.com/kunjgit/GameZone/blob/main/.github/CODE_OF_CONDUCT.md)
+      options:
+        - label: I follow [CONTRIBUTING GUIDELINE](https://github.com/kunjgit/GameZone/blob/main/.github/CONTRIBUTING_GUIDELINE.md) of this project.
+          required: true

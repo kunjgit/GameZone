@@ -1,0 +1,49 @@
+name: Issue Announcement
+on:
+  workflow_dispatch:
+
+jobs:
+  issue-announcement:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Comment on opened issues
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const hackwithus = `\n @${context.payload.sender.login} here, \n Hope you are enjoying this hacktober 😀 \n We are excited to share that we are opening issue from our side where you will be going to add games on our website 🚀 \n Work on this [issue](https://github.com/kunjgit/GameZone/issues/2944) 🔥 \n and help us building GameZone 💗 \n if you still haven't joined us join us on ⁠[Discord](https://discord.gg/fgwk4XZfxG) \n See you soon 😊`;
+            const commentBody = `\n  @${context.payload.sender.login} here, \n We have this annoucement to make 📢!! \n 💥 Special Announcement: \nIt's the **Call to all the designers** 🔥 🎨 \nAs you all know that GameZone has crossed 100 games 💗 , it's time that we all come up together and make the UI even better!!\nWe are redesigning the thumbnails, make sure you come up with the aesthetic and cool ideas 🚀 !\nYou are supposed to share the 4 different templates that can be used. Make sure that the size is: **1280 px X 720 px.** \nThe frame should be such that there is only a single image of the game that's taking up the major portion of the frame. Any kind of text should not be there. \n **The design should be catchy and aesthetic!** 🔥 \n\n **Note:** You are not supposed to create any issue right now for the same. \nYou have to share different designs right now in ⁠[Discord](https://discord.gg/fgwk4XZfxG)  and Project Admin would be selecting one design and would be assigning the issue. After that only, you have to start working on it.`;
+            const hacktoberfest = `\n @${context.payload.sender.login} here, \n Hope you are doing extremely well 😇 \n It's confirmed 🥳, GameZone is taking part in hacktoberfest and ready to have another 💥 \n Ready to have some amazing contributions once again also thank you for you support in GSSoC23 you have took us on top 5 ❤️‍🔥 \n if you still haven't joined us join us on ⁠[Discord](https://discord.gg/fgwk4XZfxG) \n See you soon 😊`;
+
+            // Get the list of opened issues excluding pull requests
+            const { data: issues } = await github.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100, // Adjust the per_page value as per your requirements
+              issue_type: 'issue'
+            });
+
+            // Comment on each opened issue (excluding pull requests)
+            for (const issue of issues) {
+              if (!issue.pull_request) {
+                const opener = issue.user.login;
+                await github.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  body: `Hey @${opener} 👋!\n ${hackwithus}\n\n`
+                });
+
+                console.log(`Commented on issue #${issue.number}.`);
+              }
+            }

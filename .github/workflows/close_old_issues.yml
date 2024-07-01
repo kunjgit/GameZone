@@ -1,0 +1,80 @@
+name: Close Older Issues
+
+on:
+  workflow_dispatch:
+
+jobs:
+  close-older-issues:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install @actions/github
+
+      - name: Fetch opened issues
+        id: fetch_issues
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const oneWeekAgo = new Date();
+            oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+            const { data: issues } = await github.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              sort: 'created',
+              direction: 'asc',
+              per_page: 100
+            });
+
+            const olderIssues = issues.filter(issue => issue.pull_request === undefined && new Date(issue.created_at) < oneWeekAgo);
+            core.setOutput('older_issues', olderIssues.map(issue => issue.number).join(','));
+
+      - name: Close older issues and comment
+        if: steps.fetch_issues.outputs.older_issues != ''
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const olderIssueNumbers = '${{ steps.fetch_issues.outputs.older_issues }}'.split(',');
+
+            for (const issueNumber of olderIssueNumbers) {
+              // Get the issue details
+              const { data: issue } = await github.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: parseInt(issueNumber)
+              });
+
+              // Close the older issue
+              await github.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: parseInt(issueNumber),
+                state: 'closed'
+              });
+
+              // Comment on the closed issue
+              await github.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: parseInt(issueNumber),
+                body: `Hello @${issue.user.login}, Time's up!⏰ \n Sorry for closing your issue! \n But it's more than a week since we haven't received anything from your side 😢 . \n Come up with new ideas, create a new issue and make sure you finish it within a week! 🔥 \n All the best! 🚀 \n Happy Hacking! 💗`
+              });
+
+              console.log(`Closed and commented on issue #${issueNumber}.`);
+            }
+
+      - name: Skip if no older issues
+        if: steps.fetch_issues.outputs.older_issues == ''
+        run: echo "No older issues found. Skipping..."

@@ -1,0 +1,1543 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+      body {
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      canvas {
+        max-width: 95%;
+        max-height: 95%;
+      }
+    </style>
+    <script type="module" crossorigin>
+      const A = console.error,
+        t = Math.sin,
+        B = Math.cos,
+        a = {},
+        e = (A, t, B) => {
+          const e = JSON.stringify(B);
+          if (a[A] && a[A][0] === e) return a[A][1];
+          const o = t();
+          return (a[t.name] = [e, o]), o;
+        },
+        o = String.fromCharCode,
+        n = (A) => {
+          if (!/^([A-Z][a-z]*\d*){1,}$/.test(A)) return;
+          const t = /([A-Z])([a-z]*)(\d*)/g,
+            B = [];
+          for (const a of A.matchAll(t)) {
+            const A = a[1].charCodeAt(0) - 65,
+              t = (a[2] || "a").split("").map((A) => A.charCodeAt(0) - 97);
+            let e = a[3] - 0 || 1;
+            for (; e--; ) B.push([A, ...t]);
+          }
+          return B;
+        },
+        c = (A) => A - 0,
+        r = document.querySelector("canvas"),
+        s = r.getContext("webgl");
+      s || alert("Failed to create GL context");
+      const i = (A, t, B) => {
+          const a = A.createShader(B);
+          A.shaderSource(a, t), A.compileShader(a);
+          return (
+            A.getShaderParameter(a, A.COMPILE_STATUS) ||
+              (alert("Failed to compile shader"), A.deleteShader(a)),
+            a
+          );
+        },
+        u = (t, B) => {
+          const a = t.createProgram();
+          B.forEach((A) => {
+            t.attachShader(a, A);
+          }),
+            t.linkProgram(a);
+          if (!t.getProgramParameter(a, t.LINK_STATUS)) {
+            const B = t.getProgramInfoLog(a);
+            return A(B), void t.deleteProgram(a);
+          }
+          return l(t, a), a;
+        },
+        l = (A, t) => {
+          const B = A.createBuffer(),
+            a = A.getAttribLocation(t, "a_pos"),
+            e = new Float32Array([0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0]);
+          A.enableVertexAttribArray(a),
+            A.bindBuffer(A.ARRAY_BUFFER, B),
+            A.bufferData(A.ARRAY_BUFFER, e, A.STATIC_DRAW),
+            A.vertexAttribPointer(a, 2, A.FLOAT, !1, 0, 0);
+        },
+        v = (A) => {
+          A.texParameteri(A.TEXTURE_2D, A.TEXTURE_MAG_FILTER, A.NEAREST),
+            A.texParameteri(A.TEXTURE_2D, A.TEXTURE_MIN_FILTER, A.NEAREST),
+            A.texParameteri(A.TEXTURE_2D, A.TEXTURE_WRAP_S, A.CLAMP_TO_EDGE),
+            A.texParameteri(A.TEXTURE_2D, A.TEXTURE_WRAP_T, A.CLAMP_TO_EDGE);
+        },
+        f = 0,
+        g = 4,
+        m = { A: 1, t: 3, B: 1, o: 3, i: 1, u: 2, l: 5 },
+        b = (A) => ({ ...m, ...A }),
+        D = {
+          0: b(),
+          1: b({ t: 4, B: 120, l: 3 }),
+          2: b({ A: 2, B: 0, l: 1 }),
+          3: b({ B: 0, A: 16, o: 0.75, u: 2, l: 1 }),
+          4: b({ B: 0, A: 0 }),
+          5: b({ l: 0, B: 0 }),
+          6: b({ l: 1e9, A: 0, u: 0, B: 0 }),
+        },
+        w = {};
+      let d = {};
+      const C = (A, t = !0) => (t && w[A]) || 0,
+        h = (A, t = !0) => (t && d[A]) || 0,
+        x = (A) => A.toLowerCase(),
+        p = new AudioContext(),
+        y = [
+          1.25,
+          ,
+          145,
+          0.03,
+          0.04,
+          0.14,
+          ,
+          2.32,
+          -1.2,
+          0.5,
+          ,
+          ,
+          ,
+          0.6,
+          ,
+          0.4,
+          ,
+          0.5,
+        ],
+        E = [
+          1.01,
+          ,
+          319,
+          0.04,
+          0.02,
+          0.06,
+          ,
+          1.51,
+          18,
+          ,
+          100,
+          20,
+          ,
+          ,
+          ,
+          ,
+          ,
+          0.73,
+          0.01,
+        ],
+        M = [
+          2.07,
+          ,
+          285,
+          0.02,
+          0.01,
+          0.09,
+          4,
+          0.2,
+          ,
+          ,
+          ,
+          ,
+          ,
+          1,
+          ,
+          0.1,
+          ,
+          0.59,
+          0.01,
+          0.22,
+        ],
+        k = [
+          1.99,
+          ,
+          1290,
+          ,
+          0.01,
+          0.14,
+          ,
+          1.26,
+          ,
+          0.3,
+          -54,
+          0.09,
+          ,
+          ,
+          ,
+          0.1,
+          0.08,
+          0.42,
+          0.02,
+        ],
+        G = [
+          2.16,
+          ,
+          238,
+          0.01,
+          0.08,
+          0.19,
+          1,
+          1.66,
+          ,
+          ,
+          200,
+          0.02,
+          0.11,
+          ,
+          ,
+          0.1,
+          0.09,
+          0.47,
+          0.04,
+        ],
+        F = [
+          ,
+          ,
+          800,
+          0.02,
+          0.01,
+          0.01,
+          1,
+          0.34,
+          ,
+          -1.1,
+          68,
+          0.1,
+          ,
+          ,
+          -14,
+          ,
+          ,
+          ,
+          0.01,
+        ],
+        J = [
+          ,
+          ,
+          1394,
+          0.01,
+          ,
+          0.02,
+          ,
+          1.47,
+          ,
+          ,
+          983,
+          0.07,
+          ,
+          ,
+          18,
+          ,
+          ,
+          0.29,
+          0.02,
+        ],
+        I = [
+          4.64,
+          ,
+          900,
+          ,
+          ,
+          0.5,
+          2,
+          0.1,
+          0.2,
+          ,
+          ,
+          ,
+          0.08,
+          10,
+          ,
+          0.34,
+          0.05,
+          0.32,
+          0.1,
+          0.5,
+        ],
+        Q = [
+          1.87,
+          ,
+          1,
+          0.02,
+          0.04,
+          0.12,
+          ,
+          0.21,
+          -5.9,
+          ,
+          ,
+          ,
+          ,
+          0.8,
+          ,
+          0.1,
+          0.01,
+          0.62,
+          0.01,
+        ],
+        H = [
+          1.03,
+          ,
+          1446,
+          0.01,
+          0.05,
+          0.13,
+          2,
+          0.11,
+          ,
+          ,
+          -276,
+          0.03,
+          ,
+          ,
+          ,
+          0.1,
+          ,
+          0.67,
+          0.03,
+          0.11,
+        ],
+        S = [
+          1.09,
+          ,
+          150,
+          0.02,
+          0.06,
+          0.04,
+          ,
+          2.41,
+          -5.8,
+          ,
+          ,
+          ,
+          ,
+          1,
+          ,
+          0.1,
+          ,
+          0.47,
+          0.02,
+        ],
+        O = [
+          ,
+          ,
+          200,
+          ,
+          0.08,
+          0.18,
+          ,
+          0.31,
+          -7.7,
+          ,
+          150,
+          0.01,
+          ,
+          ,
+          ,
+          ,
+          ,
+          0.96,
+          0.01,
+        ],
+        z = [
+          ,
+          ,
+          338,
+          0.01,
+          0.07,
+          0.05,
+          1,
+          0.48,
+          -9.5,
+          -5.5,
+          ,
+          ,
+          ,
+          2.2,
+          ,
+          ,
+          ,
+          0.46,
+          0.01,
+        ],
+        K = [
+          ,
+          ,
+          162,
+          0.01,
+          0.05,
+          0.09,
+          ,
+          1.9,
+          -6.6,
+          ,
+          ,
+          ,
+          ,
+          0.8,
+          ,
+          ,
+          ,
+          0.43,
+          0.05,
+        ],
+        P = [
+          ,
+          ,
+          3e3,
+          0.01,
+          ,
+          0.02,
+          ,
+          1.47,
+          ,
+          ,
+          983,
+          0.07,
+          ,
+          ,
+          18,
+          ,
+          ,
+          0.29,
+          0.02,
+        ],
+        U = [
+          2.01,
+          ,
+          1152,
+          0.02,
+          0.01,
+          0.01,
+          4,
+          2.37,
+          ,
+          -2.3,
+          ,
+          ,
+          0.11,
+          ,
+          -9.2,
+          ,
+          0.32,
+          0.6,
+        ],
+        R = [
+          ,
+          ,
+          179,
+          0.02,
+          0.04,
+          0.09,
+          1,
+          1.03,
+          4.5,
+          4.2,
+          ,
+          ,
+          ,
+          ,
+          8,
+          ,
+          ,
+          0.82,
+          0.06,
+        ],
+        q = [
+          1.02,
+          ,
+          419,
+          0.04,
+          0.03,
+          0.45,
+          4,
+          0.67,
+          ,
+          0.4,
+          ,
+          ,
+          ,
+          1.7,
+          ,
+          0.7,
+          ,
+          0.48,
+          0.02,
+          0.03,
+        ],
+        N = {},
+        j = (A) => {
+          const a = Date.now(),
+            e = A[2] || 0;
+          (!N[e] || a > N[e] + 10) &&
+            ((N[e] = a),
+            ((
+              A = 1,
+              a = 0.05,
+              e = 220,
+              o = 0,
+              n = 0,
+              c = 0.1,
+              r = 0,
+              s = 1,
+              i = 0,
+              u = 0,
+              l = 0,
+              v = 0,
+              f = 0,
+              g = 0,
+              m = 0,
+              b = 0,
+              D = 0,
+              w = 1,
+              d = 0,
+              C = 0
+            ) => {
+              let h,
+                x,
+                y = Math,
+                E = 44100,
+                M = 2 * y.PI,
+                k = (i *= (500 * M) / E / E),
+                G = (e *= ((1 - a + 2 * a * y.random((a = []))) * M) / E),
+                F = 0,
+                J = 0,
+                I = 0,
+                Q = 1,
+                H = 0,
+                S = 0,
+                O = 0;
+              for (
+                u *= (500 * M) / E ** 3,
+                  m *= M / E,
+                  l *= M / E,
+                  v *= E,
+                  f = (E * f) | 0,
+                  x =
+                    ((o = E * o + 9) +
+                      (d *= E) +
+                      (n *= E) +
+                      (c *= E) +
+                      (D *= E)) |
+                    0;
+                I < x;
+                a[I++] = O
+              )
+                ++S % ((100 * b) | 0) ||
+                  ((O = r
+                    ? 1 < r
+                      ? 2 < r
+                        ? 3 < r
+                          ? t((F % M) ** 3)
+                          : y.max(y.min(y.tan(F), 1), -1)
+                        : 1 - (((((2 * F) / M) % 2) + 2) % 2)
+                      : 1 - 4 * y.abs(y.round(F / M) - F / M)
+                    : t(F)),
+                  (O =
+                    (f ? 1 - C + C * t((M * I) / f) : 1) *
+                    (0 < O ? 1 : -1) *
+                    y.abs(O) ** s *
+                    A *
+                    0.25 *
+                    (I < o
+                      ? I / o
+                      : I < o + d
+                      ? 1 - ((I - o) / d) * (1 - w)
+                      : I < o + d + n
+                      ? w
+                      : I < x - D
+                      ? ((x - I - D) / c) * w
+                      : 0)),
+                  (O = D
+                    ? O / 2 +
+                      (D > I
+                        ? 0
+                        : ((I < x - D ? 1 : (x - I) / D) * a[(I - D) | 0]) / 2)
+                    : O)),
+                  (h = (e += i += u) * B(m * J++)),
+                  (F += h - h * g * (1 - ((1e9 * (t(I) + 1)) % 2))),
+                  Q && ++Q > v && ((e += l), (G += l), (Q = 0)),
+                  !f || ++H % f || ((e = G), (i = k), (Q = Q || 1));
+              (A = p.createBuffer(1, x, E)).getChannelData(0).set(a),
+                ((e = p.createBufferSource()).buffer = A),
+                e.connect(p.destination),
+                e.start();
+            })(...A));
+        };
+      const T = (A, t) => {
+          const B = A[0],
+            a = A[1],
+            e = A[2],
+            o = A[3],
+            n = A[4],
+            c = A[5],
+            r = A[6],
+            s = A[7],
+            i = A[8],
+            u = t[0],
+            l = t[1],
+            v = t[2],
+            f = t[3],
+            g = t[4],
+            m = t[5],
+            b = t[6],
+            D = t[7],
+            w = t[8];
+          return [
+            B * u + a * f + e * b,
+            B * l + a * g + e * D,
+            B * v + a * m + e * w,
+            o * u + n * f + c * b,
+            o * l + n * g + c * D,
+            o * v + n * m + c * w,
+            r * u + s * f + i * b,
+            r * l + s * g + i * D,
+            r * v + s * m + i * w,
+          ];
+        },
+        X = (A, t) => (B) => T(B, [1, 0, 0, 0, 1, 0, A, t, 1]),
+        L = [
+          [
+            "attribute vec2 a_pos;varying vec2 v_uv;uniform vec2 u_res;uniform mat3 u_mat;uniform vec2 u_cam;void main(){vec3 p=u_mat*vec3(a_pos,1);vec4 pos=vec4((p.xy-u_cam)/u_res*2.-1.,0,1);gl_Position=pos*vec4(1,-1,1,1);v_uv=vec2(a_pos.x,a_pos.y);}",
+            "precision mediump float;varying vec2 v_uv;uniform vec4 u_tile;uniform sampler2D tex;void main(){vec2 uv=(v_uv.xy*u_tile.zw+u_tile.xy)/vec2(16);vec4 col=texture2D(tex,uv);if(col.a<1.){discard;}gl_FragColor=vec4(vec3(col.rgb),1.);}",
+          ],
+          [
+            "attribute vec2 a_pos;varying vec2 v_uv;uniform vec3 pos;uniform mat3 u_mat;void main(){gl_Position=vec4(a_pos*2.-1.,0,1);v_uv=a_pos;}",
+            "precision mediump float;varying vec2 v_uv;uniform sampler2D u_map;uniform sampler2D u_map2;uniform float u_t;uniform vec2 u_res;vec2 curve(vec2 uv,float c){uv=uv*2.-1.;vec2 o=abs(uv.yx)/c;uv=uv+uv*o*o;uv=uv*.5+.5;return uv;}vec4 sl(float uv,float res,float o){float i=(.5*sin(uv*res*6.28)+.5)*.9+.1;return vec4(vec3(pow(i,o)),1.);}vec4 col(sampler2D image){vec2 uv=curve(vec2(v_uv.x,v_uv.y),3.5);vec2 uv2=curve(vec2(v_uv.x,v_uv.y),3.7);vec4 bc=texture2D(image,uv);for(int i=-4;i<4;i++){float ii=float(i);vec4 col2=texture2D(image,uv2+vec2(0,ii)/u_res);float ss=pow((col2.r+col2.g+col2.b)/3.,.8)*.9+.1;float intensity=(1.-abs(ii)/4.)*ss;bc+=col2*vec4(.2,.1,.7,1.)*intensity;}bc*=sl(uv.x,u_res.y,.15);bc*=sl(uv.y,u_res.x,.15);if(uv.x<.0||uv.y<.0||uv.x>1.||uv.y>1.){bc*=0.;}return bc;}void main(){gl_FragColor=col(u_map);}",
+          ],
+        ],
+        Z = [0, 0],
+        V = [0, 1],
+        _ = [1, 0],
+        Y = [3, 0],
+        W = [8, 0, 1, 1, 0, 0],
+        $ = [4, 0, 1, 1, 0.5, 0.5],
+        AA = [5, 0],
+        tA = [5, 0, 1, 1, 0.5, 0.5],
+        BA = [7, 0],
+        aA = [0, 2, 2, 2],
+        eA = [12, 8, 2, 2, 0.5, 0.5],
+        oA = [14, 8, 2, 2, 0.5, 0.5],
+        nA = [14, 0, 2, 2],
+        cA = [11, 0, 1, 1, 1, 0.5],
+        rA = [4, 6, 2, 2, 0.5, 0.5],
+        sA = [8, 8, 2, 2, 0.5, 0.5],
+        iA = [0, 8, 1, 2],
+        uA = [0, 7],
+        lA = [4, 8, 2, 2, 0.5, 0.5],
+        vA = [0, 10, 2, 2],
+        fA = [6, 6, 2, 2],
+        gA = [14, 6, 1, 2],
+        mA = [8, 10, 2, 2, 0.5, 0.5],
+        bA = [4, 10, 2, 2, 0.5, 0.5],
+        DA = [6, 10, 2, 2],
+        wA = [0, 12, 12, 3, 0.5, 0.5],
+        dA = [12, 12, 4, 1, 0.5, 0.5],
+        CA = [12, 13, 4, 1, 0.5, 1],
+        hA = [12, 14, 4, 1, 0.5, 1],
+        xA = [0, 15, 4, 1, 0.5, 1],
+        pA = [10, 10, 6, 2, 0, 1],
+        yA = [];
+      let EA;
+      const MA = (A) => {
+          EA = ((A) => {
+            const t = s.createTexture();
+            return (
+              s.bindTexture(s.TEXTURE_2D, t),
+              s.texImage2D(s.TEXTURE_2D, 0, s.RGBA, s.RGBA, s.UNSIGNED_BYTE, A),
+              v(s),
+              t
+            );
+          })(A);
+        },
+        [kA, GA] = ((A, t, B) => {
+          const a = A.createTexture();
+          A.bindTexture(A.TEXTURE_2D, a),
+            A.texImage2D(
+              A.TEXTURE_2D,
+              0,
+              A.RGBA,
+              t,
+              B,
+              0,
+              A.RGBA,
+              A.UNSIGNED_BYTE,
+              null
+            ),
+            v(A);
+          const e = A.createFramebuffer();
+          return (
+            A.bindFramebuffer(A.FRAMEBUFFER, e),
+            A.framebufferTexture2D(
+              A.FRAMEBUFFER,
+              A.COLOR_ATTACHMENT0,
+              A.TEXTURE_2D,
+              a,
+              0
+            ),
+            [e, a]
+          );
+        })(s, r.width, r.height),
+        FA = (A, t) => s.getUniformLocation(yA[A], t);
+      for (let st = 2; st--; ) {
+        const [A, t] = L[st],
+          B = i(s, A, s.VERTEX_SHADER),
+          a = i(s, t, s.FRAGMENT_SHADER);
+        (yA[st] = u(s, [B, a])),
+          s.useProgram(yA[st]),
+          s.uniform2f(FA(st, "u_res"), 272, 272);
+      }
+      let JA = 0;
+      const IA = (A, a, e, o, n = []) => {
+          const [c, r, i = 1, u = 1, l = 0.5, v = 1] = A,
+            [f = 1, g = 1, m = 0] = n,
+            b = 8 * i,
+            D = 8 * u,
+            w = ((...A) => {
+              let t = [1, 0, 0, 0, 1, 0, 0, 0, 1];
+              for (const B of A) t = B(t);
+              return t;
+            })(
+              X(-l, -v),
+              ((d = m),
+              (A) => {
+                const a = B(d),
+                  e = t(d);
+                return T(A, [a, -e, 0, e, a, 0, 0, 0, 1]);
+              }),
+              (
+                (A, t) => (B) =>
+                  T(B, [A, 0, 0, 0, t, 0, 0, 0, 1])
+              )(b * f, D * g),
+              X(b * l, D * v),
+              X(e, o)
+            );
+          var d;
+          const C = (c + a * i) % 16,
+            h = r + (((a * i - c) / 16) | 0) * u;
+          s.uniform4f(FA(0, "u_tile"), C, h, i, u),
+            s.uniformMatrix3fv(FA(0, "u_mat"), !1, w),
+            s.bindTexture(s.TEXTURE_2D, EA),
+            s.drawArrays(s.TRIANGLE_STRIP, 0, 6);
+        },
+        QA = (A, t, B) => {
+          ("" + A).split("").forEach((A, a) => {
+            IA(V, A.charCodeAt(0) - 48, t + 4 * a, B);
+          });
+        },
+        HA = 17,
+        SA = 15 * HA,
+        OA = (A) => Math.round(A / 16),
+        zA = (A, t) => A + t * HA,
+        KA = (A, t) => {
+          const B = t[0],
+            a = t[1],
+            e = A.some(([A, t, a]) => 8 == A && t == B && a);
+          return c(a ? !e : e);
+        },
+        PA = (A, t, B) => {
+          const a = OA(t),
+            e = OA(B);
+          if (a < 0 || a >= HA) return [f, 0];
+          return A[zA(a, e)] || [f, 0];
+        },
+        UA = (A, t) => {
+          for (const [B, a] of t) {
+            const t = PA(A, B, a),
+              [e, ...o] = t;
+            if (1 == e || 6 == e || (7 == e && KA(A, o))) return t;
+          }
+        },
+        RA = (A, t, [B, a], e) => {
+          const o = PA(A, B, a);
+          o[0] === t && e(o);
+        },
+        qA = (A) => !A.some(([A]) => A === g),
+        NA = (A) =>
+          e(
+            "lasers",
+            () => {
+              const t = new Array(SA).fill(0),
+                B = [
+                  [0, 1],
+                  [1, 0],
+                  [0, -1],
+                  [-1, 0],
+                ];
+              return (
+                A.forEach(([a, ...e], o) => {
+                  6 == a &&
+                    KA(A, e) &&
+                    B.forEach(([B, a], e) => {
+                      let n = o % HA,
+                        c = (o / HA) | 0,
+                        r = !1;
+                      for (; !r; ) {
+                        (n += B), (c += a);
+                        const o = zA(n, c),
+                          s = n < 0 || n >= HA || c < 0 || c >= 15,
+                          i = UA(A, [[16 * n, 16 * c]]);
+                        if (s || i) r = !0;
+                        else {
+                          const A = e % 2 == 1,
+                            B = A ? 2 : 1;
+                          t[o] = t[o] && t[o] != B ? 3 : A ? 2 : 1;
+                        }
+                      }
+                    });
+                }),
+                t
+              );
+            },
+            A
+          ),
+        jA = (A, a, o, n, r, s = !1) => {
+          const [i, ...u] = a,
+            [l, v, m, b] = [-1, 1, -HA, HA].map((t) => {
+              const B = o + t;
+              return A[B] && 1 == A[B][0] ? 1 + A[B][1] : 0;
+            });
+          if ([f, g].includes(i)) {
+            const B =
+                ((D = o),
+                () => {
+                  const A = 1e4 * t(D++);
+                  return A - Math.floor(A);
+                }),
+              a = B() > 0.25,
+              s = (4 * B()) | 0,
+              i = B() > 0.5 ? 1 : -1;
+            if (a && (1 === b && IA(fA, s, n, r, [i]), m))
+              for (let t = 2; t--; ) {
+                let a = 0;
+                for (let o = 6; o--; ) {
+                  const o = e("vine", () => !!UA(A, [[n, r + a]]), [n, r + a]),
+                    s = B() < 0.6 || o;
+                  if ((IA(gA, c(s), n + 8 * t, r + a, [i]), (a += 16), s))
+                    break;
+                }
+              }
+          }
+          var D;
+          switch (i) {
+            case 1: {
+              const A = v ? 1 : b ? 2 : 0;
+              if (
+                (IA(iA, l ? 1 : b ? 2 : 0, n, r, []),
+                IA(iA, A, n + 8, r, [-1]),
+                !m)
+              ) {
+                const A = u[0];
+                IA(uA, c(l > 0) + 2 * A, n, r, []),
+                  IA(uA, c(v > 0) + 2 * A, n + 8, r, [-1]);
+              }
+              break;
+            }
+            case 2:
+              s && IA(Z, 0, n + 4, r + 4, []);
+              break;
+            case 3:
+              if (s) {
+                const A = u[0],
+                  t = u[1],
+                  B = 2 * A + c(!t);
+                IA(aA, B, n, r, []);
+              }
+              break;
+            case g: {
+              const A = u[0],
+                t = o + 0.05 * JA,
+                a = 1 + Math.max(0, 0.1 * B(2 * t)),
+                e = 0.2 * B(t);
+              IA(Y, A, n + 4, r + 4 + 2 * B(2 * t), [, a, e]);
+              break;
+            }
+            case 6:
+              IA(eA, 0, n, r);
+              break;
+            case 9:
+              IA(rA, 0, n, r);
+              break;
+            case 5: {
+              const t = qA(A);
+              IA(vA, c(t), n, r),
+                t && IA(cA, 0, n, r - 8 + 2 * B(JA / 10), [, , -Math.PI / 2]);
+              break;
+            }
+            case 7: {
+              const t = KA(A, u);
+              IA(sA, t, n, r);
+              break;
+            }
+            case 8: {
+              const A = u[1] || 0,
+                t = c(A > 0);
+              IA(lA, t, n, r, [
+                ,
+                ,
+                ((b ? 0 : m ? -2 : l ? 1 : v ? -1 : 0) * Math.PI) / 2,
+              ]);
+            }
+          }
+        },
+        TA = (A, t = !1) => {
+          const B = NA(A);
+          A.forEach((a, e) => {
+            if ((jA(A, a, e, 16 * (e % HA), 16 * ((e / HA) | 0), t), B[e])) {
+              const A = (e % HA) * 16,
+                t = 16 * ((e / HA) | 0),
+                a = 3 == B[e],
+                o = a || 2 === B[e];
+              (a || 1 === B[e]) && IA(oA, 0, A, t, [, , Math.PI / 2]),
+                o && IA(oA, 0, A, t);
+            }
+          });
+        },
+        XA = (A, t, B, a, e, o) => {
+          const n = o > 60 ? ((B / 33) | 0) / 3 : 0,
+            c = (a < 0 ? Math.PI : 0) - n * a,
+            r = Math.cos(c),
+            s = Math.sin(c);
+          return {
+            x: A + 16 * r,
+            y: t + 16 * s,
+            v: r * e,
+            g: s * e,
+            rotation: c,
+            range: o,
+            m: 0,
+          };
+        },
+        LA = (A, t, B = 1, a = !0) => {
+          const e = t.D || 0;
+          (t.x += t.v * B),
+            (t.y += t.g * B),
+            (t.D = e + B),
+            t.range > 60 && (t.g += 0.1 * B),
+            (e > t.range || UA(A.map, [[t.x, t.y]])) &&
+              (A.C.splice(A.C.indexOf(t), 1), (t.m = 1)),
+            (t.rotation = Math.atan2(-t.g, t.v)),
+            a && !t.m && t.range > 60 && IA($, 0, t.x, t.y, [, , t.rotation]);
+        },
+        ZA = (A, t, B, a = 0) => ({
+          v: 0,
+          g: 0,
+          host: -1,
+          rotation: 0,
+          h: -1,
+          p: -1,
+          M: 0,
+          k: -15,
+          G: 0,
+          F: 0,
+          type: A,
+          x: t,
+          y: B,
+          dir: t > 136 ? -1 : 1,
+          J: 1,
+          A: D[A].A,
+          m: !a,
+        }),
+        VA = (A, B) => {
+          const a = D[B.type],
+            e = B.host > -1,
+            o = e && 0 != A.I,
+            [n, r, s, i, u] = [
+              "arrowleft",
+              "arrowright",
+              "arrowup",
+              "arrowdown",
+              "x",
+            ],
+            l = h(i, o),
+            v = A.I ? h(s, o) : B.m || 240 !== A.D ? 0 : 1,
+            f =
+              A.I || B.m || !((A.D > 120 && A.D < 140) || A.D > 200)
+                ? C(r, o) - C(n, o)
+                : 1,
+            m = B.F > a.l ? f : 0,
+            b = B.h > -1,
+            w = B.y < -32 || B.y > 240;
+          v && (B.k = A.D);
+          const d = A.D - B.k,
+            x = () => {
+              const t = B.host;
+              if (
+                ((!B.m || t > -1) &&
+                  ((A.H = 3), (B.m = !0), (B.g = -1 * B.J), j(y)),
+                t > -1)
+              ) {
+                const a = A.S[t];
+                (a.O = 0),
+                  (a.x = B.x),
+                  (a.y = B.y + 8),
+                  (a.v = B.v),
+                  (a.g = B.g - 0.5),
+                  (B.host = -1);
+              }
+            },
+            p = () => {
+              a.u &&
+                (4 === B.type
+                  ? b || ((B.J = -B.J), B.A--, (B.k = 0), j(R))
+                  : ((B.g = -a.u * B.J),
+                    B.A--,
+                    b || (B.h = 0),
+                    (B.k = 0),
+                    j(E)));
+            };
+          (B.m && !e) ||
+            A.C.forEach((t) => {
+              const a = t.x - B.x,
+                e = t.y - (B.y + 8);
+              Math.abs(e) < 16 &&
+                Math.abs(a) < 12 &&
+                (A.C.splice(A.C.indexOf(t), 1), j(I), x());
+            });
+          const H = B.x + B.v,
+            S = B.y - 4 * B.J,
+            O = B.y + 9 * B.J,
+            P = UA(A.map, [[B.x + 9 * m, B.y]]),
+            q = UA(A.map, [
+              [H, S],
+              [H + 4, S],
+              [H - 4, S],
+            ]),
+            N = UA(A.map, [
+              [H, O],
+              [H + 4, O],
+              [H - 4, O],
+            ]),
+            T = N && 1 === N[0] && 1 === N[1];
+          if (
+            (f && 6 != B.type
+              ? (B.p < 0 && (B.dir = f), B.F++ % 10 || b || j(J))
+              : (B.F = 0),
+            RA(A.map, 8, [B.x, B.y], (A) => {
+              if (l && (j(U), (A[2] = c(!A[2])), A[3] > 0)) {
+                const t = setInterval(() => {
+                  j(U);
+                }, 1e3);
+                tt.push(t),
+                  tt.push(
+                    setTimeout(() => {
+                      clearTimeout(t), (A[2] = c(!A[2]));
+                    }, 1e3 * A[3])
+                  );
+              }
+            }),
+            RA(A.map, 5, [B.x, B.y], () => {
+              qA(A.map) && l && (j(G), A.I < 0 ? et(A) : rt(A, A.I + 1));
+            }),
+            RA(A.map, g, [B.x, B.y], (A) => {
+              A && ((A[0] = 0), j(k));
+            }),
+            ((A, [t, B], a) => {
+              const e = NA(A),
+                o = OA(t),
+                n = OA(B),
+                c = zA(o, Math.min(14, Math.max(0, n)));
+              e[c] && a(e[c]);
+            })(A.map, [B.x, B.y], (A) => {
+              1 === A && (B.x = 16 * OA(B.x - 8 * B.dir)), x();
+            }),
+            RA(A.map, 9, [B.x, B.y], () => {
+              x();
+            }),
+            w && x(),
+            UA(A.map, [[B.x, B.y]]))
+          ) {
+            const A = B.x > 136 ? -1 : 1,
+              t = B.y > 136 ? -1 : 1;
+            (B.x += 16 * A), (B.y += t);
+          }
+          B.p < 0
+            ? !B.M && a.B && h(u, e) && ((B.p = 0), j(Q))
+            : (B.p < 100 && (B.p += a.i),
+              C(u, e) ||
+                (() => {
+                  j(M), (A.H = 2);
+                  const t = XA(B.x, B.y, B.p, B.dir, a.t, a.B);
+                  A.C.push({ ...t, range: a.B }), (B.p = -1), (B.M = 1);
+                })()),
+            B.M > 0 ? (B.M -= 0.05) : (B.M = 0),
+            P && ((B.v = 0), (B.x = 16 * OA(B.x))),
+            B.h < 0
+              ? (d < 15 && p(),
+                N
+                  ? 1 == B.J && T && B.y >= 0 && ((B.g = -3), (A.H = 1), j(K))
+                  : ((B.h = 0), (B.G = 15)))
+              : (B.h++,
+                --B.G || B.A != a.A || B.A--,
+                B.g < a.o && (B.g += 0.1 * B.J),
+                d < 15 && B.A > 0 && p(),
+                q && B.g < 0 && ((B.g = 0), j(z)),
+                N &&
+                  ((B.y = 16 * OA(B.y)),
+                  (B.g = 0),
+                  (B.h = -1),
+                  (B.A = a.A),
+                  B.J > 0 && !T && j(F)));
+          const X = A.I ? 1 : 0.75;
+          (B.v += 0.25 * (m * X - B.v)),
+            (B.x += B.v),
+            (B.y += B.g),
+            B.h > -1
+              ? (B.rotation += 0.3 * ((B.g > 0 ? -0.25 : 0.25) - B.rotation))
+              : (B.rotation += 0.5 * (0.3 * t(B.F / 2) - B.rotation));
+          const L = B.m && B.host < 0,
+            Z = 2 * B.type + c(L),
+            V = B.J < 0 ? 16 : 0;
+          if ((IA(aA, Z, B.x, B.y - V, [B.dir, B.J, B.rotation]), !e && A.I)) {
+            const A = L ? 4 : 8;
+            IA(_, c(!B.m), B.x + 4, B.y - A);
+          }
+          if (
+            (0 === B.type &&
+              IA(AA, B.type, B.x + 4 + 5 * B.dir, B.y + 4, [
+                B.dir,
+                ,
+                B.rotation - B.M,
+              ]),
+            1 === B.type)
+          ) {
+            const t = XA(B.x, B.y, B.p, B.dir, a.t, a.B);
+            if (B.p > 0) {
+              const B = { ...t };
+              for (let t = 0; t < a.B; t++) LA(A, B, 1, t % 10 == 0);
+            }
+            IA(tA, B.type, B.x + 4 + 5 * B.dir, B.y + 6, [
+              ,
+              ,
+              B.rotation - t.rotation,
+            ]);
+          }
+        },
+        _A = [[], [2], [], [5, 2], [], [], [5, 2], [5, 2], [5, 2, 6], []];
+      let YA = [1, 0],
+        WA = 0;
+      function $A(A) {
+        const t = _A[YA[0]] || [],
+          B = h("l") - h("j"),
+          a = h("i") - h("k");
+        if (B) {
+          const A = WA + B;
+          A >= 0 && A <= t.length && (j(P), (WA = A));
+        }
+        if (a) {
+          const A = (YA[WA] || 0) + a,
+            B = WA ? t[WA - 1] - 1 || 0 : _A.length - 1;
+          A >= (WA ? 0 : 1) &&
+            A <= B &&
+            (j(P), 0 === WA ? (YA = [A, 0]) : (YA[WA] = A));
+        }
+        if ((h("enter") && ((A.K = !1), ct(A, A.P)), h("1"))) {
+          const t = (
+            A.P.map((A) => A.map((A) => A || 0)).join(",-") + ",-"
+          ).replaceAll(/((\d+,)+-)\1*/g, (A, t) => {
+            const B = A.split("-").length - 1,
+              a = t.split(",").slice(0, -1);
+            return (
+              a
+                .map((A, t) =>
+                  "0" === A && t && 2 === a.length
+                    ? ""
+                    : o(A - 0 + (t ? 97 : 65))
+                )
+                .join("") + (B > 1 ? B : "")
+            );
+          });
+          navigator.clipboard.writeText(t).then(() => {
+            j(H);
+          });
+        }
+        h("2") &&
+          new Promise((A) => {
+            navigator.clipboard
+              .readText()
+              .then(A)
+              .catch(() => {
+                A(prompt("", "") || "");
+              });
+          }).then((t) => {
+            const B = n(t);
+            B && ((A.P = B), j(H));
+          });
+        const [e] = A.S,
+          c = (t = !1) => {
+            const B = t ? [0, 0] : [...YA],
+              a = ((A, t) => {
+                const B = OA(A),
+                  a = OA(t);
+                return zA(B, a);
+              })(e.x, e.y);
+            A.P[a][0] != B[0] && ((A.H = 1), j(S)), (A.P[a] = B);
+          };
+        A.D > 30 && (C("x") && c(), C("c") && c(!0)),
+          jA(A.P, YA, 1e9, 8, 248, !0),
+          IA(nA, 0, 8 + 24 * WA, 248),
+          IA(nA, 0, 16 * OA(A.S[0].x), 16 * OA(A.S[0].y));
+        for (let o = 0; o < 1 + t.length; o++) QA(YA[o] || 0, 8 + 24 * o, 248);
+      }
+      const At = [
+        "A51BA15B2A15B2A15B2A15BA19BA11BA36B3A11B7A9B38",
+        "A118BA16B2A15B2A3EA11B2A15B2ACABA3DA5FAB2A6B3A2B6A5B4AB23",
+        "A47CA6FA4EA5DA3B4A7B5A7B3A4B3A33BA14EABA16BA15B2A4DA7B5A2B4A2B2A5B2A2B4A9B2A2B4A9B2",
+        "A48DA7FA6B4A5B4A12BA23BA3EA3BA28B3A20BCA6B2A14BA12DcbA5DaaA8B11A8B7A5",
+        "BA16BA12BA14BABA7FA3CA2BA9B3A13BABA2DA6EA7B4A8BA12B4A2BA13BA3B2A5B2A4BA5B3A8BA13B2AB2DcbA14B5A4BA7B4GabA5B7",
+        "A48EA5EA26B9A3CA8BA10BA12BA17BA10DcbA10DbbA3B3A5DFA2B6A6B3A4B3A7B3A5B2A7B3A6BA7B3A6B",
+        "B2AB15A3B2AB4AB2GabB2A9BA3BA2B2A10EA4B2A16BACA3BA4BA4B2A16BA8BA6B2DcAIaadA12B5GabBGabBGabBGabBGabB2ABABA2B9AIaacABA2FA13B4A13BGabA15B17A",
+        "A17BA25CA8BA14BABAB4A4BA4BA11BIaadADAGaaA12B6A3BA12BA5B3A14BGabBA25BA8EA7BDcaA13FAB3J3B2A6B11A4GabB4",
+        "A32BA17BAFA15B3A20HA9IaadA14EABA9HA2HA23CA11HA21DcAIaadAHA2HA2HA4B5A13BABA11BA16BA",
+        "ABA8JA7BA8BA7BAEA2JAEABFA6BA4BA3B3A5BA4BA11BA2EABA8JA2BA4BA8BA2BA4BA2EA4EBAJBAEA2BJA7BAB2A4B2JA8GabA6B2A3EA4BACADdIaafA2BA11B3A2BA16BA25",
+        "B6A11BA4HabA11BA2CAHabA11BIDdFAHabA11B7A9JB5A11B4A12DBA15IbafBJAEA11B4A15B2A15B2JA14B3A3Hb11B3J2AJ7AJ3B5GbbB7GbbB4",
+        "A2H3A4H5A21FA15B3A20B4A77B4A25IaafA14B5A14EA5DeA14B6A2H4A4",
+        "B4A6B2A5BA16BAEA14BA16BA12DebA3BA10B7A5B2A3BIbabA2FBGabA10BA3B2A23DbbA11HbbBA3B3A10BA10DbaA5BA9B2GcbA3IcafBA9B3A2B2A2B2A6B5",
+        "A3H4A3H4A26CA5EA6DeFIaafA9IdafA3B5A5B5A26HdA15HGebHcA15HbA54IcafA8IbafA6B5A3B4A28",
+        "A17BA15BA2BA11BA5BA9BA5BA11BA36BA15B3A13B2A2BA11BA5BA9BA4CA40DgA8B17",
+      ];
+      let tt = [],
+        Bt = Number(localStorage.getItem("soulboy-pb")) || 0;
+      const at = [
+          { x: 104, y: 128 },
+          { x: 168, y: 128 },
+        ],
+        et = (A) => {
+          nt(A),
+            rt(A, -1),
+            (A.K = !0),
+            (A.S[0].x = 136),
+            (A.S[0].y = 136),
+            (A.S[0].v = 0),
+            (A.S[0].g = 0);
+        },
+        ot = (A) => {
+          if (!A.I) {
+            const t = A.U[0],
+              B = A.S[0];
+            t.m ||
+              (t.x > 128 &&
+                ((t.x = 127),
+                (t.m = !0),
+                (t.host = -1),
+                (t.g = -1),
+                (B.O = 0),
+                (B.x = t.x),
+                (B.y = t.y - 16),
+                (B.g = -2),
+                (A.R = 1),
+                (A.H = 10),
+                j(y),
+                j(q)));
+          }
+          const t = at.findIndex((t, B) => {
+            const a = A.S[0];
+            if (a) {
+              const A = t.x - a.x,
+                B = t.y - a.y;
+              if (Math.sqrt(A * A + B * B) < 32) return !0;
+            }
+          });
+          h("x") &&
+            (!A.I && t > -1 && (0 === t && rt(A, 1), 1 === t && et(A)),
+            A.I === At.length - 1 && A.q > 1200 && rt(A, 0)),
+            h("enter") &&
+              (A.N || (A.N = !0),
+              !A.I &&
+                A.D > 120 &&
+                !A.U[0].m &&
+                ((A.U[0].x = 128), (A.U[0].y = 208))),
+            h("escape") &&
+              (A.K || (A.I > 0 && A.I < At.length - 1)
+                ? rt(A, 0)
+                : A.I < 0 && et(A)),
+            h("r") &&
+              (!A.K && A.I < 0
+                ? ((A.K = !1), ct(A, A.P))
+                : A.I > 0 && A.I < At.length - 1 && rt(A, A.I));
+          const a = () => {
+            if (A.K) return $A(A);
+            A.S.forEach((t, B) => {
+              const a = A.U.find((A) => A.host == t.id);
+              a ? IA(aA, 2 * a.type, 12, 246) : IA(Z, 0, 16, 252);
+            });
+            const t = A.q > 0 ? A.q : 0;
+            if (
+              (QA(";==" + A.I + "==:==" + ((t / 120) | 0), 40, 252), 1 === A.I)
+            ) {
+              let t = 0,
+                e = 0;
+              const o = A.U.find((A) => A.m && A.host < 0),
+                n = A.map.findIndex(([A]) => A === g);
+              if (o) (t = A.U[0].x), (e = A.U[0].y);
+              else if (n > -1) {
+                const A = [(a = n) % HA, (a / HA) | 0];
+                (t = 16 * A[0]), (e = 16 * A[1]);
+              }
+              t &&
+                e &&
+                IA(cA, 0, t, e - 8 + 2 * B(A.D / 10), [, , -Math.PI / 2]);
+            }
+            var a;
+            if ((IA(pA, 0, 216, 248), A.I === At.length - 1)) {
+              const t = Math.max(0, A.q - 360),
+                B = A.j.slice(1, At.length - 2).reduce((A, t) => A + t, 0);
+              if ((A.q > 240 && IA(dA, 0, 120, 32), t > 0)) {
+                const a = (t / 60) | 0;
+                t % 60 == 0 && a <= At.length - 2 && j(I),
+                  t === 60 * At.length &&
+                    (j(G),
+                    (!Bt || B < Bt) &&
+                      (localStorage.setItem("soulboy-pb", String(B)),
+                      (Bt = B)));
+                for (let t = 0; t < Math.min(At.length - 2, a); t++) {
+                  const B = A.j[t + 1];
+                  QA(
+                    ":==" + ((B / 120) | 0),
+                    96 + 32 * (t % 3),
+                    56 + 16 * ((t / 3) | 0)
+                  );
+                }
+                if (
+                  (t > 60 * At.length &&
+                    (IA(CA, 0, 96, 144, []),
+                    QA(":==" + ((B / 120) | 0), 128, 144)),
+                  t > 60 * At.length)
+                ) {
+                  IA(xA, 2 + c(Bt === B), 96, 160, []);
+                }
+              }
+            }
+          };
+          A.I ||
+            (A.U[0].m &&
+              (IA(wA, 0, 88, 48),
+              at.forEach((a, e) => {
+                for (let t = 3; t--; )
+                  IA(bA, 0, a.x - 8, a.y - 8, [, , (A.D * (1 + t)) / 40]);
+                t === e &&
+                  (IA(xA, e, a.x - 16, a.y - 20, [, , 0.1 * B(e + 0.01 * A.D)]),
+                  0 === t &&
+                    Bt &&
+                    QA(":==" + ((Bt / 120) | 0), a.x - 16, a.y - 32));
+              })),
+            A.R > 0 &&
+              (IA(
+                DA,
+                0,
+                A.U[0].x + 4 * Math.random() - 2,
+                A.U[0].y + 4 * Math.random() - 2,
+                [10, 13]
+              ),
+              (A.R -= 0.1))),
+            A.N
+              ? (A.K ? TA(A.P, !0) : TA(A.map),
+                A.U.map((t) => VA(A, t)),
+                A.S.map((t) =>
+                  ((A, t) => {
+                    const [B, a, e, o, n] = [
+                        "arrowleft",
+                        "arrowright",
+                        "arrowup",
+                        "arrowdown",
+                        "x",
+                      ],
+                      c = C(a) - C(B),
+                      r = C(o) - C(e);
+                    if (t.transition && t.O) {
+                      const B = t.O.x - t.x,
+                        a = t.O.y - t.y,
+                        e = 1 - t.transition / 30;
+                      (t.v += 0.1 * B * e),
+                        (t.g += 0.1 * a * e),
+                        --t.transition ||
+                          ((A.H = 2),
+                          A.q < 0 && (A.q = 0),
+                          j(O),
+                          (t.O.host = t.id),
+                          (t.O.g = -1 * t.O.J));
+                    }
+                    const [s] = A.U.reduce(
+                      (A, B) => {
+                        const a = Math.abs(OA(B.x) - OA(t.x)),
+                          e = Math.abs(OA(B.y) - OA(t.y)),
+                          o = a <= 1 && e <= 1;
+                        return !B.m || B.host > -1 || !o ? A : [B, 0];
+                      },
+                      [, 32]
+                    );
+                    if (
+                      (t.O ||
+                        ((t.v += 0.1 * (c - t.v)),
+                        (t.g += 0.1 * (r - t.g)),
+                        (t.dir = Math.sign(t.v) || t.dir),
+                        A.K ||
+                          (UA(A.map, [[t.x, t.y]]) && t.y--,
+                          UA(A.map, [[t.x + t.v, t.y]]) && (t.x -= t.v),
+                          UA(A.map, [[t.x, t.y + t.g]]) && (t.y -= t.g),
+                          s &&
+                            A.I &&
+                            h(n) &&
+                            ((t.O = s), (t.transition = 30), (t.g = 1)))),
+                      t.D > 60 && ((t.x += t.v), (t.y += t.g)),
+                      (t.x = Math.max(0, Math.min(16 * HA - 16, t.x))),
+                      (t.y = Math.max(0, Math.min(224, t.y))),
+                      t.D++,
+                      !t.O || t.transition)
+                    )
+                      if (t.D < 60)
+                        for (let i = 3; i--; ) {
+                          const B = 1;
+                          IA(bA, 0, t.x, t.y, [B, B, (A.D * (1 + i)) / 40]);
+                        }
+                      else
+                        IA(Z, 0, t.x + 4, t.y + 4, [t.dir]),
+                          A.K && IA(BA, 0, t.x + 4 + t.dir, t.y - 1, [t.dir]);
+                  })(A, t)
+                ),
+                A.C.map((t) => LA(A, t)),
+                (() => {
+                  IA(W, 0, 0, 240, [99, 9]);
+                  for (let A = 0; A < 272; A += 16)
+                    IA(mA, 0, 0, A, [, ,]),
+                      IA(mA, 0, 256, A, [, , Math.PI]),
+                      IA(mA, 0, A, 0, [, , -Math.PI / 2]),
+                      IA(mA, 0, A, 256, [, , Math.PI / 2]),
+                      IA(mA, 0, A, 240, [, , -Math.PI / 2]);
+                })(),
+                a())
+              : IA(hA, 0, 120, 136),
+            A.N && A.D++,
+            (A.H -= 0.1 * A.H),
+            A.q > -1 && A.q++;
+        },
+        nt = (A) => {
+          tt.forEach(clearTimeout),
+            (tt = []),
+            (A.D = 0),
+            (A.U = []),
+            (A.C = []),
+            (A.K = !1),
+            (A.map = new Array(SA).fill([0, 0])),
+            (A.S[0].O = 0);
+        },
+        ct = (A, t) => {
+          A.map = t;
+          let B = 136,
+            a = 136;
+          A.map.forEach(([t, ...e], o) => {
+            const n = 16 * (o % HA),
+              c = 16 * ((o / HA) | 0);
+            if ((2 === t && ((B = n), (a = c)), 3 === t)) {
+              const t = e[0],
+                B = e[1];
+              A.U.push(ZA(t, n, c, B));
+            }
+          }),
+            (A.S[0].x = B),
+            (A.S[0].y = a),
+            (A.S[0].v = 0),
+            (A.S[0].g = 0),
+            (A.S[0].O = 0);
+        },
+        rt = (A, t) => {
+          nt(A), (A.j[A.I] = A.q), (A.q = -1), (A.I = t);
+          const B = n(At[t]);
+          if ((B && ct(A, B), !t)) {
+            const t = ZA(5, -8, 160, 0);
+            (t.host = 0), (t.m = !1), A.U.push(t), (A.S[0].O = t);
+          }
+        };
+      (async (A) => {
+        const t = new Image();
+        return (
+          (t.src = A),
+          new Promise((A) => {
+            t.onload = () => A(t);
+          })
+        );
+      })(
+        "data:image/png;base64,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"
+      ).then(async (A) => {
+        const a = {
+          N: !1,
+          D: 0,
+          q: -1,
+          j: [],
+          I: 0,
+          H: 0,
+          map: new Array(SA).fill([0, 0]),
+          C: [],
+          U: [],
+          S: [
+            ((e = 0),
+            (o = 0),
+            (n = 0),
+            {
+              O: 0,
+              transition: 0,
+              v: 0,
+              g: 0,
+              dir: 1,
+              id: e,
+              x: o,
+              y: n,
+              D: 0,
+            }),
+          ],
+          K: !1,
+          P: new Array(SA).fill([0, 0]),
+          R: 0,
+          transition: 0,
+        };
+        var e, o, n;
+        addEventListener("keydown", (A) => {
+          A.repeat || ((w[x(A.key)] = 1), (d[x(A.key)] = 1));
+        }),
+          addEventListener("keyup", (A) => {
+            w[x(A.key)] = 0;
+          }),
+          MA(A),
+          rt(a, 0);
+        setInterval(() => {
+          ((A) => {
+            (JA = (Date.now() / 1e3) * 120),
+              s.useProgram(yA[0]),
+              s.bindFramebuffer(s.FRAMEBUFFER, kA),
+              s.clearColor(0.027, 0.031, 0.08, 1),
+              s.clear(s.COLOR_BUFFER_BIT),
+              s.uniform2f(
+                FA(0, "u_cam"),
+                ((B(JA / 2) - 0.5) * A.H) | 0,
+                ((t(JA / 2) - 0.5) * A.H) | 0
+              );
+          })(a),
+            ot(a),
+            (d = {}),
+            s.useProgram(yA[1]),
+            s.uniform1f(FA(1, "u_t"), JA),
+            s.bindFramebuffer(s.FRAMEBUFFER, null),
+            s.bindTexture(s.TEXTURE_2D, GA),
+            s.drawArrays(s.TRIANGLE_STRIP, 0, 6);
+        }, 1e3 / 120);
+      });
+    </script>
+  </head>
+  <body>
+    <canvas width="960" height="960"></canvas>
+    <div style="text-align: center;
+    font-size: 30px;
+    padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+  </body>
+</html>

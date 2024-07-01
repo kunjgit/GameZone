@@ -1,0 +1,137 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+    background-image: linear-gradient(to bottom, #f2f2f2, #e0e0e0);
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    color: #333333;
+    margin-bottom: 30px;
+  }
+  
+  .field {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    background-image: url('field.png');
+    background-size: cover;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pitcher,
+  .batter {
+    position: absolute;
+    bottom: 0;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .pitcher {
+    left: 50px;
+    transform-origin: bottom;
+  }
+  
+  .batter {
+    right: 50px;
+    transform-origin: bottom;
+  }
+  
+  button {
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    display: block;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .result {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333333;
+    text-align: center;
+  }
+  
+  .message {
+    font-size: 20px;
+    color: #333333;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .scoreboard {
+    margin-top: 30px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .scoreboard-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  
+  .scoreboard-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    color: #333333;
+  }
+  
+  .scoreboard-row .label {
+    flex: 1;
+  }
+  
+  .scoreboard-row .score {
+    flex: 0 0 50px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #777777;
+  }
+  
+  .footer a {
+    color: #777777;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+  }
+  
+  h1 {
+    color: #007BFF;
+  }
+  
+  .game-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .color {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  #green {
+    background-color: #4CAF50;
+  }
+  
+  #red {
+    background-color: #F44336;
+  }
+  
+  #yellow {
+    background-color: #FFC107;
+  }
+  
+  #blue {
+    background-color: #2196F3;
+  }
+  
+  #message {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,220 @@
+:root {
+    --color-green--light: #00c46a;
+    background-color: linear-gradient(135deg, #71FA32, #009DE0);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+body {
+    background-image:url(img1.jpg); /*changing bg image*/
+    background-size: cover;
+}
+
+.wrapper {
+    box-sizing: content-box;
+    width: 26.87em;
+    padding: 2.5em 3em;
+    /* margin: 0; */
+    height: 90vh;
+    background-color: transparent;
+    /* background- */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 0.6em;
+    box-shadow: 0 0.9em 2.8em rgba(86, 66, 0, 0.2);
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    display: grid;
+    gap: 0.6em;
+
+}
+
+.stats-container {
+    text-align: center;
+    margin-bottom: 1.2em;
+}
+
+.stats-container span {
+    font-weight: 600;
+}
+
+.card-container {
+    position: relative;
+    width: 6.25em;
+    height: 6.25em;
+    cursor: pointer;
+}
+
+.card-before,
+.card-after {
+    position: absolute;
+    border-radius: 2px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000000;
+    transition: transform 0.7s ease-out;
+    backface-visibility: hidden;
+}
+
+.card-before {
+    background: rgba(203, 250, 255, 0.24);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid rgba(203, 250, 255, 0.26);
+    font-size: 2.8em;
+    font-weight: 600;
+}
+
+.card-after {
+    background-color: #ffffff;
+    opacity:0.8;
+    transform: rotateY(180deg);
+}
+
+.card-container.flipped .card-before {
+    transform: rotateY(180deg);
+}
+
+.card-container.flipped .card-after {
+    transform: rotateY(0deg);
+} 
+
+.controls-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-image: url("./mind.jpeg");
+    background-size: cover;
+    /* background-color: var(--color-green--light); */
+  
+    top: 0;
+}
+
+button {
+    border: none;
+    border-radius: 0.3em;
+    padding: 1em 1.5em;
+    cursor: pointer;
+}
+
+#stop {
+    font-size: 1.1em;
+    display: block;
+    margin: 1.1em auto 0 auto;
+    background-color: white;
+    opacity: 0.75;
+    color: black;
+}
+
+.controls-container button {
+    font-size: 1.3em;
+    font-family: cursive;
+    box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2);
+    background-color: transparent;
+    
+}
+
+
+.hide {
+    display: none;
+}
+
+#result {
+    text-align: center;
+}
+
+#result h2 {
+    font-size: 2.5em;
+}
+
+#result h4 {
+    font-size: 1.8em;
+    margin: 0.6em 0 1em 0;
+}
+.menu {
+    justify-content: center;
+}
+.instructions{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12px;
+    /* background-color: #ffffff; */
+    box-shadow: 0 0.9em 2.8em rgba(86, 66, 0, 0.2);
+    /* color:#1479EA; */
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+   
+}
+.instructions p{
+    /* padding: 10px; */
+    font-size: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/*adding button animation to start game and stop game buttons*/
+button {
+    width: 10em;
+    position: relative;
+    height: 3.5em;
+    border: 4px ridge #ffffff;
+    outline: none;
+    background-color: transparent;
+    color: rgb(190, 238, 255);
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+  
+button::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    /* background-color: #212121; */
+    transition: tranform ease-in .5s;
+    transform-origin: center;
+}
+  
+button::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    /* background-color: #212121; */
+    transition: transform ease-in 0.5s;
+}
+  
+button:hover::before, button:hover::after {
+    transform: scale(1.1);
+}
+  
+button:hover {
+    box-shadow: inset 0px 0px 25px #ffffff;
+}

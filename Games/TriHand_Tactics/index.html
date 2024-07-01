@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <p class="title">Rock Paper Scissor</p>
+    <p>
+      <img
+        src="https://readme-typing-svg.demolab.com?font=Arial&weight=600&size=35&pause=1000&color=F2F2F7&center=true&random=false&width=435&lines=Choose+Your+Move..."
+        alt="Typing SVG"
+      />
+    </p>
+    <button
+      onclick="
+      playGame('Rock');
+    "
+      class="move-btn"
+    >
+      <img src="images/rock-emoji.png" class="move-icon" />
+    </button>
+    <button
+      onclick="
+        playGame('Paper');
+    "
+      class="move-btn"
+    >
+      <img src="images/paper-emoji.png" class="move-icon" />
+    </button>
+    <button
+      onclick="
+      playGame('Scissors');
+    "
+      class="move-btn"
+    >
+      <img src="images/scissors-emoji.png" class="move-icon" />
+    </button>
+
+    <p class="js-result result"></p>
+    <p class="js-moves"></p>
+
+    <p class="js-score score"></p>
+
+    <button
+      onclick="
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score');//It's needed bcoz when we click on reset button, score values should be set to 0.
+      updateScoreElement();
+    "
+      class="reset-score-btn"
+    >
+      Reset Score
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

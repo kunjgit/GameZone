@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    /* background: radial-gradient(circle, #2b1818, #c36767); */
+    background-color: black;
+    overflow: hidden;
+    
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Play', sans-serif;
+    position: relative;
+    top: 40px;
+    color: #8de010;
+}
+
+#container {
+    height: 440px;
+    width: 560px;
+    background-color: #db80ea;
+    margin: 0 auto;
+    top: 80px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 0px 0px #ea73c0;
+    /*  box-shadow: [horizontal offset] [vertical offset] 
+    [blur radius] [spread radius] [color]; */
+    position: relative;
+}
+
+#score {
+    background-color: #b8ed08;
+    color: #252a07;
+    padding: 11px;
+    position: absolute;
+    right: 11px;
+    box-shadow: 0px 4px #3f4804;
+}
+
+#correct {
+    position: absolute;
+    left: 45%;
+    background-color: #42e252;
+    color: white;
+    padding: 11px;
+    display: none;
+}
+
+#wrong {
+    position: absolute;
+    left: 42%;
+    background-color: #de401a;
+    color: white;
+    padding: 11px;
+    display: none;
+}
+
+#question {
+    width: 450px;
+    height: 150px;
+    margin: 50px auto 10px auto;
+    background-color: #2cb3d8;
+    box-shadow: 0px 4px #535aa8;
+    text-align: center;
+    /* for horizontal center */
+    font-size: 100px;
+    font-family: 'Play', sans-serif;
+    color: black;
+}
+
+#instruction {
+    width: 450px;
+    height: 50px;
+    background-color: #d93bd6;
+    margin: 10px auto;
+    text-align: center;
+    line-height: 50px;
+    box-shadow: 0px 4px #8243b9;
+}
+
+#choices {
+    width: 450px;
+    height: 100px;
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box {
+    width: 85px;
+    height: 85px;
+    background-color: white;
+    flex-direction: column;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    line-height: 80px;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.box:hover,
+#startreset:hover {
+    background-color: #9c89F6;
+    color: white;
+    box-shadow: 0px 4px #6b54d3;
+}
+
+.box:active,
+#startreset:active {
+    box-shadow: 0px 0px #6b54d3;
+    top: 4px;
+}
+
+#startreset {
+    width: 100px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0px auto;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    transition: all 0.2s;
+}
+
+#timeremaining {
+    width: 180px;
+    padding: 10px;
+    position: absolute;
+    top: 385px;
+    left: 370px;
+    background-color: rgba(16, 204, 179, 0.7);
+    border-radius: 3px;
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#gameOver {
+    width: 500px;
+    height: 200px;
+    background: linear-gradient(#F3CA6B, #F3706C);
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    padding: 50px;
+    z-index: 2;
+    display: none;
+}
+
+@media (max-width: 570px) {
+    #container {
+        width: 440px;
+        top: 60px;
+    }
+
+    #correct {
+        left: 40%;
+    }
+
+    #wrong {
+        left: 38%;
+    }
+
+    #question,
+    #instruction,
+    #choices {
+        width: 420px;
+    }
+
+    #startreset {
+        width: 205px;
+        margin-left: 0;
+    }
+
+    #timeremaining {
+        width: 205px;
+        left: 225px;
+        text-align: center;
+        display: block;
+    }
+
+    #gameOver {
+        width: 400px;
+        height: 250px;
+        background: linear-gradient(#F3CA6B, #F3706C);
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        padding-top: 90px;
+        z-index: 2;
+        display: none;
+    }
+}

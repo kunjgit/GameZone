@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>70 seconds of terror</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+		<link rel="stylesheet" href="src/70sec.min.css"/>
+		<script src="src/prefixfree.min.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<div style="text-align: center; 
+			margin-top: 10px;
+			font-size: 25px;
+			padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+			<div class="stars"></div>
+			<h1 id="reason">70 seconds of terror</h1>
+			<h2>Landing a spacecraft on the surface of Mars</h2>
+			<button id="play" class="h">Play</button>
+			<p><img src="svg/keys.svg"/>Use the arrows keys to final landing</p>
+		</div>
+		<div id="DOMgame" class="h">
+			<div class="stars"></div>
+			<div id="spacecraft">
+				<div id="curiosity"></div>
+				<div id="parachute"></div>
+				<div id="capsule"></div>
+				<div id="shield"></div>
+				<div id="friction"></div>
+			</div>
+		</div>
+		<div id="canvasGame" class="h">
+			<div class="stars"></div>
+			<canvas id="canvas" width="900" height="400"></canvas>
+			<div id="landing"></div>
+		</div>
+		<div id="panel" class="h">
+			<time id="time"></time>
+			<p id="message"></p>
+			<button id="action" class="h"></button>
+		</div>
+
+		<script src="src/70sec.min.js"></script>
+	</body>
+</html>

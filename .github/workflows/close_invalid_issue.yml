@@ -1,0 +1,59 @@
+name: Close Issues Without Keywords
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  close-issue:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Close issue without keywords
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const keywords = ['Documentation Bug', 'New game', 'Enhancement', 'Bug', 'Question'];
+            const issueTitle = context.payload.issue.title ? context.payload.issue.title.toLowerCase() : '';
+            const openerUsername = context.payload.issue.user.login;
+
+            let containsKeyword = false;
+            for (const keyword of keywords) {
+              if (issueTitle.includes(keyword.toLowerCase())) {
+                containsKeyword = true;
+                break;
+              }
+            }
+
+            if (!containsKeyword) {
+              const commentBody = `Hey @${openerUsername}! 🙂 \n It seems like you are not following proper guidelines !! 👀 \n Read documentation properly !!🙏 \n If you have any queries reach out to us on [Discord🕹️](https://discord.gg/fgwk4XZfxG) .`;
+              
+              // Close the issue
+              await github.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                state: 'closed'
+              });
+              
+              // Add comment to the issue
+              await github.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: commentBody
+              });
+              
+              console.log('Closed the issue and added a comment.');
+            } else {
+              console.log('Issue contains one of the keywords. Skipping...');
+            }

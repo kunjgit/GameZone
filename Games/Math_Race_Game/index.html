@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Race Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <h1>Math Race Game</h1>
+        <div class="info">
+            <div class="row"><img src="./images/player.png" alt="" height="25px" width="35px"> - You</div>
+            <div class="row"><img src="./images/computer.png" alt="" height="25px" width="35px"> - Computer</div>
+        </div>
+        <div class="race-track">
+            <div id="player" class="character"><img src="./images/player.png" alt="" height="35px" width="45px"></div>
+            <div id="computer" class="character"><img src="./images/computer.png" alt="" height="35px" width="45px">
+            </div>
+        </div>
+
+        <div id="question"></div>
+        <input type="number" id="answer" placeholder="Your answer">
+        <button onclick="checkAnswer()" id="submit">Submit</button>
+        <div id="result"></div>
+        <div id="final-result" style="display: none;"></div>
+        <button id="replay-button" onclick="resetGame()" style="display: none;">Replay</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

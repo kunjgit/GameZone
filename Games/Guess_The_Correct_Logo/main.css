@@ -1,0 +1,64 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap');
+
+
+body {
+    background-color: #89ABE3;
+    overflow: hidden;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom:20px;
+    font-size: 50px;
+    font-family: 'Lora', serif;
+    background: linear-gradient(90deg, #fafa08,#270cf5,#f90ee9,#ff0505);
+    -webkit-background-clip: text;  /* Safari/Chrome */
+    -moz-background-clip: text;     /* Firefox (not needed anymore) */
+    background-clip: text;          /* Standard */
+    -webkit-text-fill-color: transparent;  /* Safari/Chrome */
+    -moz-text-fill-color: transparent;     /* Firefox */
+
+}
+#game {
+    background-color: #d85c77;
+    padding: 20px;
+    width: 40%;
+    margin: 110px auto;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+#game h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+#game p {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.btn {
+    display: inline-block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #98fb98; /* Lighter green background */
+    border: 2px solid #3aab3a; /* Dark green border */
+    color: black; /* Dark green text */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0c880c; /* Dark green background on hover */
+    color: #ffffff; /* White text on hover */
+}

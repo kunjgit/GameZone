@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>UNO Card Game</title>
+</head>
+<body>
+    <div style="text-align: left; margin-top: -20px;
+	font-size: 30px;
+	padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+    <div class='cpu-box'>
+        <div class='cpu-hand'>
+            <img src="images/back.png" alt="">
+            <img src="images/back.png" alt="">
+            <img src="images/back.png" alt="">
+            <img src="images/back.png" alt="">
+            <img src="images/back.png" alt="">
+            <img src="images/back.png" alt="">
+            <img src="images/back.png" alt="">
+        </div>
+        <div class='cpu-animation hidden'>
+            <img id='cpu-uno' src="images/uno!.png" alt="">
+        </div>
+    </div>
+    <div class='play-area'>
+        <div class='score'>
+            <p class='cpu-score-title'>ROBO: <span id='cpu-score'>249</span></p>
+            <div id='seperator'></div>
+            <p class='player-score-title'>PLAYER: <span id='player-score'>67</span></p>
+            <p class='rules'>The first player to reach 100 points, will lose the game</p>
+        </div>
+        <div class='play-pile'>
+            <img src="images/blue2.png" alt="">
+        </div>
+        <div class='draw-pile'>
+            <img src="images/back.png" alt="">
+        </div>
+        <img id="draw-card" class='hidden' src="images/back.png" alt="">
+    </div>
+    <div class='end-of-round hidden'>
+        <p class='round'>X won the round!</p>
+    </div>
+    <div class='end-of-game hidden'>
+        <p class='game'>X won the game!</p>
+        <button class='play-again'>Again!</button>
+    </div>
+    <div class='player-box'>
+        <div class='player-hand'>
+            <img src="images/blue9.png" alt="">
+            <!-- <img src="images/wild14.png" alt="">
+            <img src="images/red1.png" alt="">
+            <img src="images/green3.png" alt="">
+            <img src="images/blue0.png" alt="">
+            <img src="images/red10.png" alt="">
+            <img src="images/yellow11.png" alt=""> -->
+        </div>
+        <div class='player-animation hidden'>
+            <img id='player-uno' src="images/uno!.png" alt="">
+        </div>
+    </div>
+    <div class='color-picker'>
+        <p>Select a color:</p>
+        <div>
+            <button class='red'>Red</button>
+            <button class='green'>Green</button>
+            <button class='blue'>Blue</button>
+            <button class='yellow'>Yellow</button>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html> 

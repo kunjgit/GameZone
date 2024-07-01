@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Chain Game</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1><img src="heading.png"></img></h1>
+  <div id="word-chain">
+    <p id="message"></p>
+    <div class="take-input">
+      <input type="text" id="input-word" placeholder="Enter a word" align="center">
+      <button onclick="playTurn()">Play</button>
+      <b><p id="countdown"></p></b>
+      <button type="button" onclick="restart()" id="restart-btn">Restart</button>
+      <ul id="word-list"></ul>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

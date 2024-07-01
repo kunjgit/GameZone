@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.enclosing {
+  text-align: center;
+}
+
+h1 {
+  text-decoration: underline;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#game-board {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 5px double black;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#target {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#score,
+#timer {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+#score {
+  color: green;
+}
+
+#timer {
+  color: blue;
+}
+
+#score::before,
+#timer::before {
+  content: attr(data-icon);
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Additional style for better visual feedback when clicking the target */
+#target:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+/* Add a class to disable pointer events when the game ends */
+.disabled {
+  pointer-events: none;
+}
+
+/* Redesign and reposition the restart button */
+#restart-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#restart-button:hover {
+  background-color: #45a049;
+}
+
+#restart-button:active {
+  background-color: #3e8e41;
+}

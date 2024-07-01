@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tower of Hanoi</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <!-- adding fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="https://kunjgit.github.io/GameZone/"><i class="fas fa-home home-icon"></i></a>
+        <h1 class="poetsen-one-regular">Welcome To Tower Of Hanoi</h1>
+        <div class="navbar-icons">
+          <a href="https://github.com/kunjgit" class="icon-link"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/kunj199/" class="icon-link"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+ 
+  <div id="canvas">
+    <div id="title">
+        <!-- Added class to the required files -->
+	  <h5 class="poetsen-one-regular">Enhance your logical thinking and problem-solving skills<h5>
+	  <h2 class="poetsen-one-regular">Enjoy!</h2></div>
+      
+      <!-- change -->
+      <div id="diskno">
+        <span class="poetsen-one-regular">Number of disks:</span> 
+        <div class="number-input">
+          <button class="arrow decrease">-</button>
+          <input class="no_disc" type="number" id="number" max="7" min="1" value="7">
+          <button class="arrow increase">+</button>
+        </div>
+        <br> 
+        <span class="poetsen-one-regular">Minimum number of moves:</span> 
+        <output id="minmoves"></output>
+      </div>
+     
+	</br>
+    <div class="moves-container">
+        <div class="moves"></div>
+      </div>
+    </br>
+    <div id="towers">
+      <div class="tower" value="0">
+        <ul id="t1" value="0" class="base">
+          <ul class="tower1">
+          </ul>
+        </ul>
+      </div>
+      <div class="tower" value="1">
+        <ul id="t2" value="1" class="base">
+          <ul class="tower2"></ul>
+        </ul>
+      </div>
+      <div class="tower" value="2">
+        <ul id="t3" value="2" class="base">
+          <ul class="tower3"></ul>
+        </ul>
+      </div>
+    </div>
+    </br>
+    </br>
+    <div id="again">
+      <button type="button" class="buttons" >Play Again</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
+  </div>
+</body>
+
+</html>

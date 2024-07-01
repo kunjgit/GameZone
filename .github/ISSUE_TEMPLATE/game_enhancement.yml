@@ -1,0 +1,46 @@
+name: 🚀Game Enhancement Request
+description: Suggest your enhancement for the existing game 
+title: "[Enhancement]: "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this enhancement request form
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Do you want to have the enhancement of existing game ? 😀 Describe yourself..
+      description: Enter a brief description about the enhancement you need
+      placeholder: Give all the context of your enhancement as well as the existing game
+      value: "Game enhancement"
+    validations:
+      required: true
+  - type: textarea
+    id: behaviour
+    attributes:
+      label: Describe the solution you'd like
+      description: Give steps in which you will solve it
+      placeholder: Please include a summary, also include relevant motivation and context. 
+      value: "Solution steps"
+    validations:
+      required: true
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Select program in which you are contributing
+      multiple: true
+      options:
+        - GSSoC24
+        - IWOC2024
+        - hacktoberfest
+        - GSSoC23
+        - Other
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [CODE OF CONDUCT](https://github.com/kunjgit/GameZone/blob/main/.github/CODE_OF_CONDUCT.md)
+      options:
+        - label: I follow [CONTRIBUTING GUIDELINE](https://github.com/kunjgit/GameZone/blob/main/.github/CONTRIBUTING_GUIDELINE.md) of this project.
+          required: true

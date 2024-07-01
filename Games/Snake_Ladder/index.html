@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snakes & Ladders</title>
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+
+    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="scss/style.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div style="text-align: left; margin-left: 40px;
+    margin-top: 10px;
+    font-size: 30px;"><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+    <div class="modal effect">
+        <div class="content">
+            <div class="selection">
+                <p class="welcome">Welcome</p>
+                <p class="instructions">Select your avatar</p>
+                <div class="choose-avatar">
+                    <label>
+                        <input type="radio" name="choose-avatar" class="choose-avatar" value="one"/>
+                        <img src="imgs/avatar1.png">
+                    </label>
+                    <label>
+                        <input type="radio" name="choose-avatar" class="choose-avatar" value="two"/>
+                        <img src="imgs/avatar2.png">
+                    </label>
+                </div>
+                <p class="instructions">Who rolls first?</p>
+                <div class="choose-who-play-first">
+                    <label>
+                        <input type="radio" name="who-first" class="who-first" value="me"/>
+                        <i></i> <span>Me</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="who-first" class="who-first" value="computer"/>
+                        <i></i> <span>Computer</span>
+                    </label>
+                </div>
+                <div class="go"><button class="lets-roll">Let's Roll</button></div>
+            </div>
+            <div class="who-won" style="display:none;">
+                <p class="greetings">Congratulations!</p>
+                <img src="imgs/avatar1.png" class="which-avatar-won">
+                <p class="won-or-lose">You won!</p>
+                <div class="go"><button class="play-again">Play Again?</button></div>
+            </div>
+        </div>
+    </div><!--Modal Box Ends-->
+
+
+    <div class="overlay loading"></div><!-- the overlay element -->
+
+
+    <div class="container">
+
+        <div class="main-container">
+            <img src="imgs/ladder1.png" alt="ladder1" id="ladder1">
+            <img src="imgs/ladder2.png" alt="ladder2" id="ladder2">
+            <img src="imgs/snake1.png" alt="snake1" id="snake1">
+            <img src="imgs/snake2.png" alt="snake2" id="snake2">
+            <img src="imgs/snake3.png" alt="snake3" id="snake3">
+            <img src="imgs/flag.png" alt="flag" id="flag">
+            <ul>
+
+                <li class="box row5 col1"><span>21</span></li>
+                <li class="box row5 col2"><span>22</span></li>
+                <li class="box row5 col3"><span>23</span></li>
+                <li class="box row5 col4"><span>24</span></li>
+                <li class="box row5 col5"><span>25</span></li>
+
+                <li class="box row4 col1"><span>20</span></li>
+                <li class="box row4 col2"><span>19</span></li>
+                <li class="box row4 col3"><span>18</span></li>
+                <li class="box row4 col4"><span>17</span></li>
+                <li class="box row4 col5"><span>16</span></li>
+
+                <li class="box row3 col1"><span>11</span></li>
+                <li class="box row3 col2"><span>12</span></li>
+                <li class="box row3 col3"><span>13</span></li>
+                <li class="box row3 col4"><span>14</span></li>
+                <li class="box row3 col5"><span>15</span></li>
+
+                <li class="box row2 col1"><span>10</span></li>
+                <li class="box row2 col2"><span>9</span></li>
+                <li class="box row2 col3"><span>8</span></li>
+                <li class="box row2 col4"><span>7</span></li>
+                <li class="box row2 col5"><span>6</span></li>
+
+                <li class="box row1 col1"><span>1</span></li>
+                <li class="box row1 col2"><span>2</span></li>
+                <li class="box row1 col3"><span>3</span></li>
+                <li class="box row1 col4"><span>4</span></li>
+                <li class="box row1 col5"><span>5</span></li>
+
+            </ul>
+        </div><!--side-container ends-->
+        <div class="side-container">
+            <div class="players">
+
+                <img src="imgs/avatar1.png" alt="player1" id="player1">
+                <img src="imgs/avatar2.png" alt="player2" id="player2">
+
+            </div>
+            <div class="whose-turn">
+                <img src="imgs/caret8.png" class="caret">
+                <button class="turn"> Computer's turn</button>
+            </div>
+            <div class="dice-and-roll">
+                <img src="imgs/dice6.png" alt="dice6" id="dice_img">
+                <a id="roll-dice">Roll Dice</a>
+            </div>
+            <a style="display: none" class="dice_value"></a>
+        </div><!--side-container ends-->
+    </div><!--container ends-->
+
+<!--Scripts-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="./js/main.js"></script>
+
+</body>
+</html>

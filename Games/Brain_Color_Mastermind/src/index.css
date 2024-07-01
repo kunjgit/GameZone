@@ -1,0 +1,194 @@
+/* Variables */
+/* Mixins */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Mono", monospace;
+  }
+  
+  .game {
+    height: 100%;
+    background-color: #000;
+    display: grid;
+    place-items: center;
+  }
+  
+  .header {
+    color: white;
+    margin-top: 30px;
+    font-size: 40px;
+  }
+  
+  /* Board Styles */
+  .top, .middle, .bottom {
+    margin: 0;
+    background: linear-gradient(to right, #9E9E9E 1%, #CECECE 3%, #CECECE 97%, #9E9E9E 99%);
+  }
+  
+  .top, .bottom {
+    width: 350px;
+    height: 75px;
+    border-radius: 10px;
+  }
+  
+  /* Top of Board */
+  .top {
+    margin-top: 30px;
+    border-bottom: 2px solid #9E9E9E;
+    display: grid;
+    place-items: center;
+  }
+  
+  .code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    background-color: #424242;
+    border-radius: 10px;
+  }
+  .code > span {
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+    border-radius: 20px;
+    border: 1px solid #CECECE;
+    display: none;
+  }
+  
+  .color-one {
+    display: block;
+  }
+  
+  .middle {
+    width: 300px;
+    height: 375px;
+  }
+  
+  .grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+  }
+  .grid > * {
+    border: 1px solid #9E9E9E;
+    display: grid;
+    place-items: center;
+  }
+  
+  /* forgive the redudant code! */
+  .dots1, .dots2, .dots3, .dots4, .dots5, .dots6, .dots7, .dots8 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 5px 10px;
+  }
+  
+  .dots1 > div, .dots2 > div, .dots3 > div, .dots4 > div, .dots5 > div, .dots6 > div, .dots7 > div, .dots8 > div {
+    width: 10px;
+    box-shadow: inset 0 0.5px 0.5px 0.5px #424242;
+    height: 10px;
+    border: 2px solid #9E9E9E;
+    border-radius: 20px;
+  }
+  
+  #space {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #9E9E9E;
+    border-radius: 20px;
+    box-shadow: inset 0 1px 1px 0.5px #424242;
+  }
+  
+  /* Bottom of Board */
+  .bottom {
+    margin-bottom: 50px;
+    border-bottom: 5px solid #9E9E9E;
+    border-top: 2px solid #9E9E9E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .red {
+    background-color: red;
+  }
+  
+  .bottom > span {
+    width: 27px;
+    height: 27px;
+    margin: 0 7px;
+    border: 2px solid #9E9E9E;
+    border-radius: 20px;
+  }
+  .bottom > span:hover {
+    cursor: pointer;
+  }
+  .bottom > span:active {
+    transform: scale(0.95);
+  }
+  
+  /* button colors */
+  .yellow {
+    background-color: yellow;
+  }
+  
+  .green {
+    background-color: green;
+  }
+  
+  .blue {
+    background-color: blue;
+  }
+  
+  .black {
+    background-color: black;
+  }
+  
+  .delete {
+    display: grid;
+    place-items: center;
+    color: black;
+    font-weight: bolder;
+  }
+  
+  .submit {
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    color: white;
+    background-color: green;
+  }
+  
+  .rules {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    background-color: black;
+    color: white;
+    padding-bottom: 50px;
+  }
+  
+  .rules-header {
+    border-bottom: 2px solid white;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+  }
+  .content > p {
+    padding: 10px;
+    line-height: 25px;
+  }
+  
+  .how, .obj {
+    background-color: #9E9E9E;
+    color: white;
+    padding: 1px;
+  }

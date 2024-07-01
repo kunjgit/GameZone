@@ -1,0 +1,46 @@
+name: 🆕🎮 new game request
+description: Suggest an idea and show your creativity to add new game
+title: "[New game]: "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out your new game issue
+  - type: textarea
+    id: new-game
+    attributes:
+      label: 🎮 Game Request
+      description: Describe the game logic and also give a brief about the features of the game
+      placeholder: add all necessary details required for your new game
+      value: "Game logic and basic description"
+    validations:
+      required: true
+  - type: textarea
+    id: features
+    attributes:
+      label: Point down the features
+      description: think about your the feature your game will have
+      placeholder: Please include a summary, also include relevant motivation and context. 
+      value: "Game points"
+    validations:
+      required: true
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Select program in which you are contributing
+      multiple: true
+      options:
+        - IWOC2024
+        - GSSoC24
+        - hacktoberfest
+        - GSSoC23
+        - Other
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [CODE OF CONDUCT](https://github.com/kunjgit/GameZone/blob/main/.github/CODE_OF_CONDUCT.md)
+      options:
+        - label: I follow [CONTRIBUTING GUIDELINE](https://github.com/kunjgit/GameZone/blob/main/.github/CONTRIBUTING_GUIDELINE.md) of this project.
+          required: true

@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+
+}
+
+body {
+  background-color: #7c07db9f;
+}
+
+/* container styling */
+
+.container {
+  background-color: #e2f8ffbc;
+  width: 90%;
+  max-width: 30.25em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 6em 3em;
+  border-radius: 1em;
+}
+
+.container h3 {
+  font-size: 1.1em;
+  color: #23234c;
+  text-align: center;
+  font-weight: 550;
+  line-height: 1.6em;
+}
+
+.container #submitBtn {
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: 550;
+  display: block;
+  margin: 0 auto;
+  background-color: rgb(68, 186, 49);
+  border-radius: 1em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #23234c;
+  padding: 0.8em 1em;
+}
+
+.container #submitBtn:hover {
+  letter-spacing: .1em;
+  color: #ffff
+}
+
+#errorMsg {
+  text-align: center;
+  margin-top: 1em;
+  background-color: #ffdde0;
+  color: #d62f2f;
+  padding: 0.2em 0;
+}
+
+.container #question {
+  background-color: #ffff;
+  font-size: 2.2em;
+  font-weight: 600;
+  color: #23234c;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.2em 0 1.2em 0;
+  padding: 1.2em 0;
+  border-radius: 1em;
+}
+
+.container input {
+  font-size: 1em;
+  font-weight: 600;
+  width: 2.35em;
+  color: #23234c;
+  text-align: center;
+  padding: 0 0.2em;
+  border: none;
+  background-color: transparent;
+  border-bottom: 0.12em solid #23234c;
+  margin: 0 0.25em;
+}
+
+.container input:focus {
+  border-color: #7c07db9f;
+  outline: none;
+}
+
+/* Hide Number Arrows */
+
+
+.container input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.container input[type="number"]::-webkit-outer-spin-button,
+.container input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.controlsContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(68, 186, 49);
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+
+/* Start button styling */
+
+#startBtn {
+  font-size: 2em;
+  font-weight: 550;
+  background-color: #ffffff;
+  color: #23234c;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 1em 1.8em;
+  border-radius: 2.5em;
+}
+
+/* Hover effect on start button   */
+
+#startBtn:hover {
+
+  background-color: #7c07db9f;
+  color: rgb(255, 255, 255);
+
+}
+
+#result {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  color: #23234c;
+}
+
+#result span {
+  font-weight: 600;
+}
+
+.hide {
+  display: none;
+}

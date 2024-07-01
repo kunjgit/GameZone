@@ -1,0 +1,37 @@
+{
+    "name": "Green Mahjong",
+    "description": "Green Mahjong is a solitaire Mahjong game. The goal is to match open pairs of identical tiles and remove them from the board, exposing the tiles under them for play. The game is finished when all pairs of tiles have been removed from the board or when there are no exposed pairs remaining.",
+    "launch_path": "/index.html",
+    "icons": {
+        "256": "/firefox/icon-256.png",
+        "128": "/firefox/icon-128.png",
+        "64": "/firefox/icon-64.png",
+        "60": "/firefox/icon-60.png",
+        "32": "/firefox/icon-32.png",
+        "16": "/firefox/icon-16.png"
+    },
+    "fullscreen": "true",
+    "developer":{
+        "name": "Daniel Beck",
+        "url": "http://daniel-beck.org"
+    },
+    "default_locale": "en",
+    "locales": {
+      "pl": {
+        "name": "Green Mahjong",
+        "description" : "Znajdź pasujące pary w grze mahjong! Celem gry jest dopasowanie par identycznych kart, i usunąć je z planszy. Koniec gry następuje gdy zostaną usunięte wszystkie pary kart z planszy."
+      },
+      "pt": {
+        "name": "Green Mahjong",
+        "description" : "Encontre os pares combinantes neste jogo solitário de mahjong! O objetivo é combinar pares abertos de peças idênticas e removê-las do tabuleiro, expondo as espaços sob eles para jogar. O jogo termina quando todos os pares de peças forem removidas do tabuleiro ou quando não existem combinações possíveis restantes."
+      },
+      "de": {
+        "name": "Green Mahjong",
+        "description" : "Green Mahjong ist ein solitaire Mahjong Spiel. Entfernen Sie paarweise alle 144 Steine bis keine mehr übrig sind."
+      },
+      "fr": {
+        "name": "Green Mahjong",
+        "description" : "Green Mahjong est un jeu de mahjong solitaire. Éliminez les tuiles par paires identiques jusqu'à ce qu'il ne reste plus de tuiles sur le plateau."
+      }
+    }
+}

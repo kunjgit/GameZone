@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>Circus HTML5</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1, IE=9">
+
+  <!-- build:css main.min.css -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <!-- /build -->
+</head>
+<body>
+  <div style="text-align:center;
+        font-size: 30px; "><a href="/index.html"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+  <div id="game"></div>
+  
+  <!-- build:remove -->
+  <script src="http://localhost:35729/livereload.js"></script>  
+  <!-- /build -->
+
+  <!-- build:js main.min.js -->
+  <script src="js/lib/phaser.js"></script>
+  <script src="js/states/Boot.js"></script>
+  <script src="js/states/Preloader.js"></script>
+  <script src="js/states/MainMenu.js"></script>
+  <script src="js/states/Prestage.js"></script>
+  <script src="js/states/Stage01.js"></script>
+  <script src="js/states/Stage02.js"></script>
+  <script src="js/main.js"></script>
+  <!-- /build -->
+</body>
+</html>

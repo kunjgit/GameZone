@@ -1,0 +1,2219 @@
+#animations:not(:checked) ~ *,
+#animations:not(:checked) ~ * * {
+  animation: none !important;
+  transition: none !important;
+}
+
+input:not([type="reset"]) {
+  position: absolute;
+  left: -10000px;
+}
+
+html,
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #beeeff;
+  background: linear-gradient(#9df, #beeeff 80%, #9df);
+  overflow: hidden;
+}
+
+/* Settings */
+[for="animations"] {
+  position: absolute;
+  bottom: 1vmin;
+  left: 1vmin;
+  color: white;
+  z-index: 4;
+  font-size: 3.5vmin;
+  font-family: "Pirata One", serif;
+  letter-spacing: 1px;
+  line-height: 3.5vmin;
+}
+
+#animations ~ [for="animations"]::before {
+  content: "";
+  display: inline-block;
+  vertical-align: baseline;
+  width: 0.7em;
+  height: 0.7em;
+  border: 0.1em solid white;
+  margin-right: 0.35em;
+  box-sizing: border-box;
+}
+
+#animations:checked ~ [for="animations"]::before {
+  box-shadow: inset 0 0 0 3em rgba(255, 255, 255, 0.8);
+}
+
+/* waves */
+#waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5vmin;
+  box-shadow: inset 0 -3vmin #088;
+}
+
+@keyframes waving {
+  0%,
+  100% {
+    transform: translate3d(-10%, -10%, 0);
+  }
+  50% {
+    transform: translate3d(10%, 0%, 0);
+  }
+}
+
+.wave {
+  position: absolute;
+  left: -50%;
+  bottom: -20%;
+  background: #088;
+  height: 150%;
+  width: 200%;
+  animation: waving 2s infinite;
+}
+
+.wave-1 {
+  z-index: 1;
+  abottom: 10%;
+  background: #077;
+  clip-path: polygon(0% 10%, 50% 0%, 100% 10%, 100% 100%, 0% 100%);
+}
+
+.wave-2 {
+  z-index: 3;
+  clip-path: polygon(0% 0%, 50% 10%, 100% 0%, 100% 100%, 0% 100%);
+  animation-delay: -0.5s;
+  abackground: linear-gradient(#099, #077 40%, #088 80%);
+}
+
+/* Pirate ship */
+@keyframes rocking {
+  0%,
+  100% {
+    bottom: 0vmin;
+  }
+  50% {
+    bottom: 0.5vmin;
+  }
+}
+
+#ship {
+  position: absolute;
+  z-index: 2;
+  width: 50vmin;
+  height: 100vmin;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-145%, 0); /* 80 */
+  animation: rocking 4s infinite;
+}
+
+.ship-body {
+  position: absolute;
+  left: 0;
+  bottom: -10vmin;
+  width: 50vmin;
+  height: 32vmin;
+  border-radius: 2vmin 2vmin 70vmin 70vmin;
+  box-shadow: inset -2vmin 1vmin 3vmin rgba(255, 255, 255, 0.25),
+    inset 2vmin -1vmin 3vmin rgba(80, 0, 0, 0.4);
+  background: peru;
+  background: linear-gradient(chocolate, peru, sandybrown);
+  background: radial-gradient(transparent, chocolate 40%, transparent),
+    linear-gradient(to top, #c2590e, #d2691e);
+  background-size: 100% 100%, 100% 4vmin;
+}
+
+.ship-body::after {
+  content: "";
+  position: absolute;
+  width: 110%;
+  height: 50%;
+  display: block;
+  left: -5%;
+  top: -45%;
+  background: chocolate;
+  background: radial-gradient(chocolate 40%, transparent),
+    linear-gradient(to top, #c2590e, #d2691e);
+  background-size: 100% 100%, 100% 4vmin;
+  box-shadow: inset -4vmin 0 5vmin -2vmin rgba(255, 255, 255, 0.2),
+    inset 2vmin 0 3vmin rgba(0, 0, 0, 0.2),
+    0px 5.25vmin 3.7vmin -3.25vmin rgba(80, 0, 0, 0.4),
+    inset 0 0 0 100vmin rgba(0, 0, 0, 0.4);
+  border-radius: 0.5vmin;
+  clip-path: polygon(0% 0%, 100% 0%, 97% 140%, 3% 140%);
+}
+
+.mast {
+  width: 5vmin;
+  height: 130vmin;
+  position: absolute;
+  transform: translate(-50%, -0%);
+  left: 50%;
+  bottom: 0;
+  background: chocolate;
+  box-shadow: inset -2vmin 0 3vmin rgba(255, 255, 255, 0.2),
+    inset 2vmin 0 3vmin rgba(0, 0, 0, 0.2),
+    inset 2vmin 0 1vmin rgba(0, 0, 0, 0.15);
+  clip-path: polygon(
+    25% 15%,
+    40% 0.5%,
+    50% 0%,
+    60% 0.5%,
+    75% 15%,
+    100% 100%,
+    0% 100%
+  );
+}
+
+.sail {
+  position: absolute;
+  left: -15%;
+  top: 10%;
+  width: 130%;
+  height: 50vmin;
+  background: white;
+  background-image: radial-gradient(#eed, transparent);
+  abackground: linear-gradient(#ffe, #fff, #ffe);
+  border-radius: 0 0 0.25vmin 0.25vmin;
+  clip-path: polygon(0% 0%, 100% 0%, 99% 50%, 100% 100%, 0% 100%, 1% 50%);
+  aborder-top: 1vmin solid chocolate;
+  box-sizing: border-box;
+  box-shadow: inset 0 0.5vmin 0.5vmin -0.2vmin chocolate,
+    inset 0 1vmin rgba(0, 0, 0, 0.25), inset 0 1vmin chocolate,
+    inset 0 -0.5vmin chocolate;
+}
+
+.nest {
+  width: 14vmin;
+  height: 16vmin;
+  position: absolute;
+  background: chocolate;
+  background: radial-gradient(#c2590e 10%, transparent),
+    linear-gradient(to right, #c2590e, #d2691e);
+  background-size: 100%, 4vmin;
+  background-repeat: repeat;
+  background-position: center center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  clip-path: polygon(0% 0%, 100% 0%, 95% 110%, 5% 110%);
+  box-shadow: inset -2vmin 0 3vmin rgba(255, 255, 255, 0.2),
+    inset 2vmin 0 3vmin rgba(0, 0, 0, 0.2), inset 0 -1vmin rgba(0, 0, 0, 0.4),
+    0 6.5vmin 1.5vmin -6vmin rgba(80, 0, 0, 0.7);
+}
+
+.net {
+  position: absolute;
+  width: 106%;
+  height: 56vmin;
+  top: 8vmin;
+  left: -3%;
+}
+
+.net::before,
+.net::after {
+  content: "";
+  display: block;
+  height: 110%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-left: 0.33vmin dashed #333;
+  background: #555;
+  transform-origin: bottom left;
+  transform: rotate(24deg);
+}
+
+.net::after {
+  left: auto;
+  right: 0;
+  transform: rotate(-24deg);
+}
+
+.plank {
+  position: absolute;
+  width: 30vmin;
+  height: 1vmin;
+  background: chocolate;
+  top: 75%;
+  right: -30vmin;
+  box-shadow: inset 5vmin -0.3vmin 0.5vmin rgba(0, 0, 0, 0.25);
+  border-radius: 0.25vmin;
+}
+
+.rudder {
+  position: absolute;
+  width: 2.5vmin;
+  height: 12vmin;
+  background: chocolate;
+  background: radial-gradient(chocolate 40%, transparent),
+    linear-gradient(to top, #c2590e, #d2691e);
+  background-size: 100% 100%, 100% 4vmin;
+  bottom: -3vmin;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1.4vmin 1.5vmin 0;
+  box-shadow: inset -2vmin 0 5vmin -2vmin rgba(255, 255, 255, 0.2),
+    inset 2vmin 0 3vmin rgba(0, 0, 0, 0.2),
+    0px 3vmin 3vmin -2.5vmin rgba(80, 0, 0, 0.4),
+    inset 0 0 0 100vmin rgba(0, 0, 0, 0.4),
+    -1vmin 1vmin 1vmin -0.5vmin rgba(0, 0, 0, 0.4);
+}
+
+.flag {
+  position: absolute;
+  z-index: 1;
+  width: 2vmin;
+  height: 10vmin;
+  background: black;
+  border-radius: 5vmin 0 5vmin 50%;
+  top: -25vmin;
+  left: 50%;
+  transform: translate(-100%, -50%);
+  box-shadow: -10vmin 1vmin;
+}
+
+.flag::before,
+.flag::after {
+  content: "";
+  position: absolute;
+  width: 9vmin;
+  height: 9vmin;
+  top: 1vmin;
+  left: -8.5vmin;
+  background: black;
+}
+
+.flag::after {
+  color: #eee;
+  width: 1vmin;
+  height: 1vmin;
+  top: 4vmin;
+  left: -5.5vmin;
+  border-radius: 50%;
+  background: black;
+  box-shadow: 2vmin 0 black, 0.7vmin 1.5vmin 0 -0.33vmin black,
+    1.3vmin 1.5vmin 0 -0.33vmin black, 1vmin 0.5vmin 0 2vmin, 0vmin 2.75vmin,
+    1vmin 3vmin, 2vmin 2.75vmin;
+}
+
+/* person */
+@keyframes jumping {
+  0% {
+    transform: rotate(0deg);
+    bottom: 25vmin;
+    left: 50%;
+  }
+  30% {
+    bottom: 20vmin;
+    transform: rotate(90deg);
+    left: 60%;
+  }
+  100% {
+    transform: rotate(120deg);
+    left: 70%;
+    bottom: -11vmin;
+  }
+}
+
+#person {
+  position: absolute;
+  width: 8vmin;
+  height: 18vmin;
+  position: absolute;
+  z-index: 2;
+  bottom: 25vmin;
+  left: 30%;
+  transition: left 0.5s;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  aanimation-delay: 0.5s;
+  /*
+  0 errors = 30%
+  1 error  = 34%
+  2 errors = 38%
+  3 errors = 42%
+  4 errors = 46%
+  5 errors = 50%
+  6 errors = shark!
+  */
+}
+
+#person div {
+  position: absolute;
+  transform: translate(-50%, 0);
+  box-sizing: border-box;
+}
+
+.legs {
+  bottom: 1vmin;
+  left: 50%;
+  width: 3.5vmin;
+  height: 7.5vmin;
+  border: 1.5vmin solid black;
+  border-bottom: 0;
+}
+
+.person-body {
+  width: 3.5vmin;
+  height: 6vmin;
+  bottom: 8.5vmin;
+  left: 50%;
+  background: white;
+  background: linear-gradient(#d50000 50%, #fff 0);
+  background-size: 100% 2vmin;
+  border-radius: 0.25vmin 0.25vmin 0 0;
+}
+
+.arms {
+  bottom: 8vmin;
+  left: 50%;
+  width: 6vmin;
+  height: 6.5vmin;
+  border: 1vmin solid #fa6;
+  border-bottom: 0;
+  border-radius: 1vmin 1vmin 0 0;
+  transform-origin: top center;
+  transition: transform 0.25s;
+}
+
+.arms::before,
+.arms::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 1.5vmin;
+  height: 1.5vmin;
+  background: #fa6;
+  bottom: -1.5vmin;
+  left: -1.5vmin;
+  border-radius: 50% 0 1vmin 50%;
+}
+
+.arms::after {
+  left: auto;
+  right: -1.5vmin;
+  border-radius: 0 50% 50% 1vmin;
+}
+
+.head {
+  width: 3vmin;
+  height: 3vmin;
+  border-radius: 50%;
+  background: #fa6;
+  left: 50%;
+  top: 0.25vmin;
+  box-shadow: inset 0 0.5vmin rgba(0, 0, 0, 0.2);
+}
+
+.head::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 1vmin;
+  height: 1vmin;
+  bottom: -0.75vmin;
+  left: 1vmin;
+  background: #fa6;
+  border-radius: 0 0 1vmin 1vmin;
+}
+
+.eyes {
+  width: 0.5vmin;
+  height: 0.5vmin;
+  background: rgba(0, 80, 0, 0.5);
+  border-radius: 50%;
+  top: 1.25vmin;
+  left: 1vmin;
+  box-shadow: 1vmin 0 rgba(0, 80, 0, 0.5);
+}
+
+.feet {
+  bottom: 0;
+  width: 2.5vmin;
+  height: 1vmin;
+  border-radius: 100% 0 0.25vmin 0.5vmin;
+  background: #fa6;
+  left: 2.5vmin;
+}
+
+.feet::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -3vmin;
+  width: 2.5vmin;
+  height: 1vmin;
+  border-radius: 0 100% 0.5vmin 0.25vmin;
+  background: #fa6;
+}
+
+/* Shark */
+@keyframes sharkEating {
+  0% {
+    transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%);
+  }
+  50% {
+    transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+      translate(20%, -80%);
+  }
+  100% {
+    transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+      translate(20%, -80%) translate(-80%, 250%);
+  }
+}
+
+#shark {
+  width: 30vmin;
+  height: 10vmin;
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 50%;
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%);
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+#shark div {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.shark-body {
+  left: 0vmin;
+  width: 30vmin;
+  height: 20vmin;
+  border-radius: 50%;
+  transform: translate(0, -50%);
+  clip-path: polygon(0% 50%, 100% 50%, 100% 90%, 70% 70%, 90% 100%, 0% 100%);
+  background: #aaa;
+}
+
+.shark-eye {
+  width: 1.5vmin;
+  height: 1.5vmin;
+  border-radius: 50%;
+  background: white;
+  box-shadow: inset -0.2vmin -0.45vmin 0 0.6vmin;
+  top: 1.5vmin;
+  right: 4vmin;
+}
+
+.aleta,
+.tail,
+.fin {
+  width: 10vmin;
+  height: 8vmin;
+  box-shadow: 4vmin -0.5vmin #aaa;
+  border-radius: 50%;
+  top: -1vmin;
+  transform: translate(-130%, -3vmin) rotate(10deg);
+}
+
+.aleta {
+  box-shadow: 5vmin 0vmin #999;
+  top: 5vmin;
+  left: 3vmin;
+  transform: none;
+  clip-path: polygon(0% 50%, 200% 40%, 200% 100%, 0% 100%);
+}
+
+.fin {
+  box-shadow: 5vmin 0vmin #aaa;
+  left: 15vmin;
+}
+
+.gill {
+  width: 6vmin;
+  height: 9vmin;
+  border-radius: 100%;
+  box-shadow: -2vmin 0 0 -1.7vmin rgba(0, 0, 0, 0.25);
+  left: 18.5vmin;
+}
+
+.gill-2 {
+  transform: translate(-1vmin, 0) scale(0.9);
+}
+
+.gill-3 {
+  transform: translate(-2vmin, 0) scale(0.8);
+}
+
+/* general */
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  aborder: 1px solid #f00;
+  height: 100vh;
+  width: 100vmin;
+  z-index: 2;
+}
+
+#labels {
+  position: absolute;
+  top: 3vmin;
+  left: 50%;
+  width: 90%;
+  text-align: center;
+  transform: translate(-50%, 0);
+  font-family: "Pirata One", Franklin, Serif;
+  font-size: 8vmin;
+  line-height: 9vmin;
+  color: #fff;
+  text-shadow: 0 -1px #000, 1px -1px #000, 1px 0 #000, 1px 1px #000, 0 1px #000,
+    -1px 1px #000, -1px 0 #000, -1px -1px #000;
+}
+
+#puzzle {
+  position: absolute;
+  display: none;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  padding: 2vmin;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 5vmin;
+  border-radius: 1vmin;
+}
+
+#intro {
+  display: flex;
+}
+
+[name="sentence"]:checked ~ #intro {
+  display: none;
+}
+
+[name="sentence"]:checked ~ #puzzle {
+  display: flex;
+}
+
+#puzzle span {
+  margin: 0.05em;
+}
+
+@media all and (orientation: portrait) and (max-width: 700px) {
+  #labels {
+    top: 6vmin;
+    font-size: 10vmin;
+    line-height: 11vmin;
+  }
+
+  #puzzle {
+    top: 50%;
+    font-size: 6vmin;
+  }
+}
+
+@keyframes slowPopup {
+  0%,
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.popup {
+  position: fixed;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 5;
+  align-items: center;
+  justify-content: center;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.map {
+  font-family: "Pirata One", serif;
+  min-width: 50vmin;
+  max-width: 60vmin;
+  position: relative;
+}
+
+.map::before,
+.map::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 4vmin;
+  width: 104%;
+  background: #ffd;
+  top: -2vmin;
+  left: -2%;
+  clip-path: polygon(0% 0%, 30% 10%, 100% 0%, 100% 200%, 0% 200%);
+  box-shadow: 0 0.25vmin 1vmin -0.25vmin rgba(0, 0, 0, 0.5),
+    0 3vmin 2vmin -1.7vmin orange, inset -1px 1px #ffd, inset -2px 0 orange,
+    inset -2vmin 0 2vmin -1.5vmin orange, inset 1px -1px #ffd,
+    inset 2px 0 orange, inset 2vmin 0 2vmin -1.5vmin orange;
+  z-index: 2;
+}
+
+.map::after {
+  top: auto;
+  bottom: -2vmin;
+  clip-path: polygon(
+    0% -100%,
+    100% -100%,
+    100% 100%,
+    70% 92%,
+    40% 85%,
+    0% 100%
+  );
+  box-shadow: 0 -0.25vmin 1vmin -0.25vmin rgba(0, 0, 0, 0.5),
+    0 -3vmin 2vmin -1.7vmin orange, inset -1px 1px #ffd, inset -2px 0 orange,
+    inset -2vmin 0 2vmin -1.5vmin orange, inset 1px -1px #ffd,
+    inset 2px 0 orange, inset 2vmin 0 2vmin -1.5vmin orange;
+}
+
+.map-body {
+  background: #ffd;
+  padding: 5vmin;
+  box-shadow: inset 0 0 1vmin brown, inset 0 0 4vmin -1.5vmin orange;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 10%,
+    98% 10.5%,
+    100% 11%,
+    100% 40%,
+    98% 41%,
+    100% 42%,
+    100% 64%,
+    96% 66%,
+    99% 68%,
+    98% 69%,
+    100% 71%,
+    100% 100%,
+    0% 100%,
+    0% 80%,
+    1% 75%,
+    0% 73%,
+    1.5% 72%,
+    0.25% 71%,
+    0% 70%,
+    0% 50%,
+    2% 49%,
+    0% 48%,
+    0% 25%,
+    2% 24%,
+    1% 23%,
+    2.5% 22%,
+    0% 21%
+  );
+}
+
+.map-body h1,
+.map-body h2,
+.map-body p {
+  font-size: 6vmin;
+  margin: 0;
+  margin-bottom: 1vmin;
+}
+
+.map-body p {
+  font-size: 3.5vmin;
+  line-height: 5vmin;
+}
+
+.popup #randomize,
+.popup .button {
+  background: black;
+  color: #ffd;
+  display: block;
+  height: 6vmin;
+  line-height: 6vmin;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-family: "Pirata One", serif;
+  font-size: 3.5vmin;
+}
+
+.popup #randomize:hover,
+.popup input.button:hover {
+  background: #222;
+  cursor: pointer;
+}
+
+#won {
+  animation-duration: 0.5s;
+}
+
+/* Randomization */
+@keyframes changeOrder {
+  from {
+    z-index: 10;
+  }
+  to {
+    z-index: 1;
+  }
+}
+
+#randomize {
+  position: relative;
+  width: 100%;
+  height: 6vmin;
+  overflow: hidden;
+  z-index: 1;
+  background: black;
+}
+
+#randomize label.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: changeOrder 1s infinite linear !important;
+  user-select: none;
+}
+
+#randomize label:active {
+  position: static;
+  margin-left: 100%;
+}
+
+#randomize label:active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  height: 6vmin;
+}
+
+#randomize label:nth-of-type(1) {
+  animation-delay: -0s !important;
+}
+#randomize label:nth-of-type(2) {
+  animation-delay: -0.1s !important;
+}
+#randomize label:nth-of-type(3) {
+  animation-delay: -0.2s !important;
+}
+#randomize label:nth-of-type(4) {
+  animation-delay: -0.3s !important;
+}
+#randomize label:nth-of-type(5) {
+  animation-delay: -0.4s !important;
+}
+#randomize label:nth-of-type(6) {
+  animation-delay: -0.5s !important;
+}
+#randomize label:nth-of-type(7) {
+  animation-delay: -0.6s !important;
+}
+#randomize label:nth-of-type(8) {
+  animation-delay: -0.7s !important;
+}
+#randomize label:nth-of-type(9) {
+  animation-delay: -0.8s !important;
+}
+#randomize label:nth-of-type(10) {
+  animation-delay: -0.9s !important;
+}
+
+/**
+Logic
+**/
+form {
+  counter-reset: wrong -6;
+}
+
+label {
+  display: inline-block;
+  margin: 0 0.5vmin;
+  text-transform: uppercase;
+}
+
+#letter-a:checked ~ #labels [for="letter-a"],
+#letter-b:checked ~ #labels [for="letter-b"],
+#letter-c:checked ~ #labels [for="letter-c"],
+#letter-d:checked ~ #labels [for="letter-d"],
+#letter-e:checked ~ #labels [for="letter-e"],
+#letter-f:checked ~ #labels [for="letter-f"],
+#letter-g:checked ~ #labels [for="letter-g"],
+#letter-h:checked ~ #labels [for="letter-h"],
+#letter-i:checked ~ #labels [for="letter-i"],
+#letter-j:checked ~ #labels [for="letter-j"],
+#letter-k:checked ~ #labels [for="letter-k"],
+#letter-l:checked ~ #labels [for="letter-l"],
+#letter-m:checked ~ #labels [for="letter-m"],
+#letter-n:checked ~ #labels [for="letter-n"],
+#letter-o:checked ~ #labels [for="letter-o"],
+#letter-p:checked ~ #labels [for="letter-p"],
+#letter-q:checked ~ #labels [for="letter-q"],
+#letter-r:checked ~ #labels [for="letter-r"],
+#letter-s:checked ~ #labels [for="letter-s"],
+#letter-t:checked ~ #labels [for="letter-t"],
+#letter-u:checked ~ #labels [for="letter-u"],
+#letter-v:checked ~ #labels [for="letter-v"],
+#letter-w:checked ~ #labels [for="letter-w"],
+#letter-x:checked ~ #labels [for="letter-x"],
+#letter-y:checked ~ #labels [for="letter-y"],
+#letter-z:checked ~ #labels [for="letter-z"] {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+#puzzle span {
+  font-family: "Nova Mono", monospace, monospace;
+}
+
+#puzzle span::before {
+  content: "\A0";
+  text-decoration: underline;
+}
+
+.result {
+  display: none;
+}
+
+/* 0 - Avatar */
+#sentence-0:checked ~ #puzzle span:nth-child(n + 7) {
+  display: none;
+}
+
+#sentence-0:checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ #person {
+  left: 34%;
+}
+#sentence-0:checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ #person {
+  left: 38%;
+}
+
+#sentence-0:checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ #person {
+  left: 42%;
+}
+#sentence-0:checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ #person {
+  left: 46%;
+}
+#sentence-0:checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ #person {
+  left: 50%;
+}
+#sentence-0:checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ #person {
+  left: 54%;
+  bottom: -18vmin;
+  animation-name: jumping;
+}
+
+#sentence-0:checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ #person
+  .arms {
+  transform: translate(-50%, 1vmin) rotateX(180deg);
+}
+
+#sentence-0:checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ #shark {
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+    translate(20%, -80%) translate(-80%, 250%);
+  animation-name: sharkEating;
+}
+
+#sentence-0:checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ .letter:not(#letter-a):not(#letter-v):not(#letter-t):not(#letter-r):checked
+  ~ #lost,
+#sentence-0:checked
+  ~ #letter-a:checked
+  ~ #letter-r:checked
+  ~ #letter-t:checked
+  ~ #letter-v:checked
+  ~ #won {
+  display: flex;
+  animation-name: slowPopup;
+}
+
+#sentence-0:checked ~ #letter-a:checked ~ #puzzle span:nth-child(1)::before,
+#sentence-0:checked ~ #letter-a:checked ~ #puzzle span:nth-child(3)::before,
+#sentence-0:checked ~ #letter-a:checked ~ #puzzle span:nth-child(5)::before {
+  content: "A";
+}
+
+#sentence-0:checked ~ #letter-v:checked ~ #puzzle span:nth-child(2)::before {
+  content: "V";
+}
+
+#sentence-0:checked ~ #letter-t:checked ~ #puzzle span:nth-child(4)::before {
+  content: "T";
+}
+
+#sentence-0:checked ~ #letter-r:checked ~ #puzzle span:nth-child(6)::before {
+  content: "R";
+}
+
+/* 1 - The Lord of the rings */
+#sentence-1:checked ~ #puzzle span:nth-child(n + 22) {
+  display: none;
+}
+
+#sentence-1:checked ~ #puzzle span:nth-child(4)::before,
+#sentence-1:checked ~ #puzzle span:nth-child(9)::before,
+#sentence-1:checked ~ #puzzle span:nth-child(12)::before,
+#sentence-1:checked ~ #puzzle span:nth-child(16)::before {
+  content: "/";
+  text-decoration: none;
+}
+
+#sentence-1:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 34%;
+}
+
+#sentence-1:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 38%;
+}
+#sentence-1:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 42%;
+}
+
+#sentence-1:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 46%;
+}
+
+#sentence-1:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 50%;
+}
+
+#sentence-1:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 54%;
+  bottom: -18vmin;
+  animation-name: jumping;
+}
+
+#sentence-1:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ #shark {
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+    translate(20%, -80%) translate(-80%, 250%);
+  animation-name: sharkEating;
+}
+
+#sentence-1:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ #person
+  .arms {
+  transform: translate(-50%, 1vmin) rotateX(180deg);
+}
+
+#sentence-1:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-l):not(#letter-o):not(#letter-r):not(#letter-d):not(#letter-f):not(#letter-i):not(#letter-n):not(#letter-g):not(#letter-s):checked
+  ~ #lost,
+#sentence-1:checked
+  ~ #letter-d:checked
+  ~ #letter-e:checked
+  ~ #letter-f:checked
+  ~ #letter-g:checked
+  ~ #letter-h:checked
+  ~ #letter-i:checked
+  ~ #letter-l:checked
+  ~ #letter-n:checked
+  ~ #letter-o:checked
+  ~ #letter-r:checked
+  ~ #letter-s:checked
+  ~ #letter-t:checked
+  ~ #won {
+  display: flex;
+  animation-name: slowPopup;
+}
+
+#sentence-1:checked ~ #letter-d:checked ~ #puzzle span:nth-child(8)::before {
+  content: "D";
+}
+
+#sentence-1:checked ~ #letter-e:checked ~ #puzzle span:nth-child(3)::before,
+#sentence-1:checked ~ #letter-e:checked ~ #puzzle span:nth-child(15)::before {
+  content: "E";
+}
+
+#sentence-1:checked ~ #letter-f:checked ~ #puzzle span:nth-child(11)::before {
+  content: "F";
+}
+
+#sentence-1:checked ~ #letter-g:checked ~ #puzzle span:nth-child(20)::before {
+  content: "G";
+}
+
+#sentence-1:checked ~ #letter-h:checked ~ #puzzle span:nth-child(2)::before,
+#sentence-1:checked ~ #letter-h:checked ~ #puzzle span:nth-child(14)::before {
+  content: "H";
+}
+
+#sentence-1:checked ~ #letter-i:checked ~ #puzzle span:nth-child(18)::before {
+  content: "I";
+}
+
+#sentence-1:checked ~ #letter-l:checked ~ #puzzle span:nth-child(5)::before {
+  content: "L";
+}
+
+#sentence-1:checked ~ #letter-n:checked ~ #puzzle span:nth-child(19)::before {
+  content: "N";
+}
+
+#sentence-1:checked ~ #letter-o:checked ~ #puzzle span:nth-child(6)::before,
+#sentence-1:checked ~ #letter-o:checked ~ #puzzle span:nth-child(10)::before {
+  content: "O";
+}
+
+#sentence-1:checked ~ #letter-r:checked ~ #puzzle span:nth-child(7)::before,
+#sentence-1:checked ~ #letter-r:checked ~ #puzzle span:nth-child(17)::before {
+  content: "R";
+}
+
+#sentence-1:checked ~ #letter-s:checked ~ #puzzle span:nth-child(21)::before {
+  content: "S";
+}
+
+#sentence-1:checked ~ #letter-t:checked ~ #puzzle span:nth-child(1)::before,
+#sentence-1:checked ~ #letter-t:checked ~ #puzzle span:nth-child(13)::before {
+  content: "T";
+}
+
+/* 2 - The Sea Hawk */
+#sentence-2:checked ~ #puzzle span:nth-child(n + 13) {
+  display: none;
+}
+
+#sentence-2:checked ~ #puzzle span:nth-child(4)::before,
+#sentence-2:checked ~ #puzzle span:nth-child(8)::before {
+  content: "/";
+  text-decoration: none;
+}
+
+#sentence-2:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ #person {
+  left: 34%;
+}
+#sentence-2:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ #person {
+  left: 38%;
+}
+
+#sentence-2:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ #person {
+  left: 42%;
+}
+#sentence-2:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ #person {
+  left: 46%;
+}
+#sentence-2:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ #person {
+  left: 50%;
+}
+#sentence-2:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ #person {
+  left: 54%;
+  bottom: -18vmin;
+  animation-name: jumping;
+}
+
+#sentence-2:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ #person
+  .arms {
+  transform: translate(-50%, 1vmin) rotateX(180deg);
+}
+
+#sentence-2:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ #shark {
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+    translate(20%, -80%) translate(-80%, 250%);
+  animation-name: sharkEating;
+}
+
+#sentence-2:checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ .letter:not(#letter-t):not(#letter-h):not(#letter-e):not(#letter-s):not(#letter-a):not(#letter-h):not(#letter-w):not(#letter-k):checked
+  ~ #lost,
+#sentence-2:checked
+  ~ #letter-a:checked
+  ~ #letter-e:checked
+  ~ #letter-h:checked
+  ~ #letter-k:checked
+  ~ #letter-s:checked
+  ~ #letter-t:checked
+  ~ #letter-w:checked
+  ~ #won {
+  display: flex;
+  animation-name: slowPopup;
+}
+
+#sentence-2:checked ~ #letter-t:checked ~ #puzzle span:nth-child(1)::before {
+  content: "T";
+}
+
+#sentence-2:checked ~ #letter-h:checked ~ #puzzle span:nth-child(2)::before {
+  content: "H";
+}
+
+#sentence-2:checked ~ #letter-e:checked ~ #puzzle span:nth-child(3)::before,
+#sentence-2:checked ~ #letter-e:checked ~ #puzzle span:nth-child(6)::before {
+  content: "E";
+}
+
+#sentence-2:checked ~ #letter-s:checked ~ #puzzle span:nth-child(5)::before {
+  content: "S";
+}
+
+#sentence-2:checked ~ #letter-a:checked ~ #puzzle span:nth-child(7)::before,
+#sentence-2:checked ~ #letter-a:checked ~ #puzzle span:nth-child(10)::before {
+  content: "A";
+}
+
+#sentence-2:checked ~ #letter-h:checked ~ #puzzle span:nth-child(9)::before {
+  content: "H";
+}
+
+#sentence-2:checked ~ #letter-w:checked ~ #puzzle span:nth-child(11)::before {
+  content: "W";
+}
+
+#sentence-2:checked ~ #letter-k:checked ~ #puzzle span:nth-child(12)::before {
+  content: "K";
+}
+
+/* 3 - Inception */
+#sentence-3:checked ~ #puzzle span:nth-child(n + 10) {
+  display: none;
+}
+
+#sentence-3:checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ #person {
+  left: 34%;
+}
+#sentence-3:checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ #person {
+  left: 38%;
+}
+
+#sentence-3:checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ #person {
+  left: 42%;
+}
+#sentence-3:checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ #person {
+  left: 46%;
+}
+#sentence-3:checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ #person {
+  left: 50%;
+}
+#sentence-3:checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ #person {
+  left: 54%;
+  bottom: -18vmin;
+  animation-name: jumping;
+}
+
+#sentence-3:checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ #person
+  .arms {
+  transform: translate(-50%, 1vmin) rotateX(180deg);
+}
+
+#sentence-3:checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ #shark {
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+    translate(20%, -80%) translate(-80%, 250%);
+  animation-name: sharkEating;
+}
+
+#sentence-3:checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ .letter:not(#letter-i):not(#letter-n):not(#letter-c):not(#letter-e):not(#letter-p):not(#letter-t):not(#letter-i):not(#letter-o):checked
+  ~ #lost,
+#sentence-3:checked
+  ~ #letter-c:checked
+  ~ #letter-e:checked
+  ~ #letter-i:checked
+  ~ #letter-n:checked
+  ~ #letter-o:checked
+  ~ #letter-p:checked
+  ~ #letter-t:checked
+  ~ #won {
+  display: flex;
+  animation-name: slowPopup;
+}
+
+#sentence-3:checked ~ #letter-i:checked ~ #puzzle span:nth-child(1)::before,
+#sentence-3:checked ~ #letter-i:checked ~ #puzzle span:nth-child(7)::before {
+  content: "I";
+}
+
+#sentence-3:checked ~ #letter-n:checked ~ #puzzle span:nth-child(2)::before,
+#sentence-3:checked ~ #letter-n:checked ~ #puzzle span:nth-child(9)::before {
+  content: "N";
+}
+
+#sentence-3:checked ~ #letter-c:checked ~ #puzzle span:nth-child(3)::before {
+  content: "C";
+}
+
+#sentence-3:checked ~ #letter-e:checked ~ #puzzle span:nth-child(4)::before {
+  content: "E";
+}
+
+#sentence-3:checked ~ #letter-p:checked ~ #puzzle span:nth-child(5)::before {
+  content: "P";
+}
+
+#sentence-3:checked ~ #letter-t:checked ~ #puzzle span:nth-child(6)::before {
+  content: "T";
+}
+
+#sentence-3:checked ~ #letter-o:checked ~ #puzzle span:nth-child(8)::before {
+  content: "O";
+}
+
+/* 3 - Cool Runnings */
+#sentence-4:checked ~ #puzzle span:nth-child(n + 14) {
+  display: none;
+}
+
+#sentence-4:checked ~ #puzzle span:nth-child(5)::before {
+  content: "/";
+  text-decoration: none;
+}
+
+#sentence-4:checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 34%;
+}
+#sentence-4:checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 38%;
+}
+
+#sentence-4:checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 42%;
+}
+#sentence-4:checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 46%;
+}
+#sentence-4:checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 50%;
+}
+#sentence-4:checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ #person {
+  left: 54%;
+  bottom: -18vmin;
+  animation-name: jumping;
+}
+
+#sentence-4:checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ #person
+  .arms {
+  transform: translate(-50%, 1vmin) rotateX(180deg);
+}
+
+#sentence-4:checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ #shark {
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+    translate(20%, -80%) translate(-80%, 250%);
+  animation-name: sharkEating;
+}
+
+#sentence-4:checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ .letter:not(#letter-c):not(#letter-o):not(#letter-l):not(#letter-r):not(#letter-u):not(#letter-n):not(#letter-i):not(#letter-g):not(#letter-s):checked
+  ~ #lost,
+#sentence-4:checked
+  ~ #letter-c:checked
+  ~ #letter-g:checked
+  ~ #letter-i:checked
+  ~ #letter-l:checked
+  ~ #letter-n:checked
+  ~ #letter-o:checked
+  ~ #letter-r:checked
+  ~ #letter-s:checked
+  ~ #letter-u:checked
+  ~ #won {
+  display: flex;
+  animation-name: slowPopup;
+}
+
+#sentence-4:checked ~ #letter-c:checked ~ #puzzle span:nth-child(1)::before {
+  content: "C";
+}
+
+#sentence-4:checked ~ #letter-o:checked ~ #puzzle span:nth-child(2)::before,
+#sentence-4:checked ~ #letter-o:checked ~ #puzzle span:nth-child(3)::before {
+  content: "O";
+}
+
+#sentence-4:checked ~ #letter-l:checked ~ #puzzle span:nth-child(4)::before {
+  content: "L";
+}
+
+#sentence-4:checked ~ #letter-r:checked ~ #puzzle span:nth-child(6)::before {
+  content: "R";
+}
+
+#sentence-4:checked ~ #letter-u:checked ~ #puzzle span:nth-child(7)::before {
+  content: "U";
+}
+
+#sentence-4:checked ~ #letter-n:checked ~ #puzzle span:nth-child(8)::before,
+#sentence-4:checked ~ #letter-n:checked ~ #puzzle span:nth-child(9)::before,
+#sentence-4:checked ~ #letter-n:checked ~ #puzzle span:nth-child(11)::before {
+  content: "N";
+}
+
+#sentence-4:checked ~ #letter-i:checked ~ #puzzle span:nth-child(10)::before {
+  content: "I";
+}
+
+#sentence-4:checked ~ #letter-g:checked ~ #puzzle span:nth-child(12)::before {
+  content: "G";
+}
+
+#sentence-4:checked ~ #letter-s:checked ~ #puzzle span:nth-child(13)::before {
+  content: "S";
+}
+
+/* 5 - Willow */
+#sentence-5:checked ~ #puzzle span:nth-child(n + 7) {
+  display: none;
+}
+
+#sentence-5:checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ #person {
+  left: 34%;
+}
+#sentence-5:checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ #person {
+  left: 38%;
+}
+
+#sentence-5:checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ #person {
+  left: 42%;
+}
+#sentence-5:checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ #person {
+  left: 46%;
+}
+#sentence-5:checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ #person {
+  left: 50%;
+}
+#sentence-5:checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ #person {
+  left: 54%;
+  bottom: -18vmin;
+  animation-name: jumping;
+}
+
+#sentence-5:checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ #person
+  .arms {
+  transform: translate(-50%, 1vmin) rotateX(180deg);
+}
+
+#sentence-5:checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ #shark {
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+    translate(20%, -80%) translate(-80%, 250%);
+  animation-name: sharkEating;
+}
+
+#sentence-5:checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ .letter:not(#letter-w):not(#letter-i):not(#letter-l):not(#letter-o):checked
+  ~ #lost,
+#sentence-5:checked
+  ~ #letter-i:checked
+  ~ #letter-l:checked
+  ~ #letter-o:checked
+  ~ #letter-w:checked
+  ~ #won {
+  display: flex;
+  animation-name: slowPopup;
+}
+
+#sentence-5:checked ~ #letter-w:checked ~ #puzzle span:nth-child(1)::before,
+#sentence-5:checked ~ #letter-w:checked ~ #puzzle span:nth-child(6)::before {
+  content: "W";
+}
+
+#sentence-5:checked ~ #letter-i:checked ~ #puzzle span:nth-child(2)::before {
+  content: "I";
+}
+
+#sentence-5:checked ~ #letter-l:checked ~ #puzzle span:nth-child(3)::before,
+#sentence-5:checked ~ #letter-l:checked ~ #puzzle span:nth-child(4)::before {
+  content: "L";
+}
+
+#sentence-5:checked ~ #letter-o:checked ~ #puzzle span:nth-child(5)::before {
+  content: "O";
+}
+
+/* 6 - Hook */
+#sentence-6:checked ~ #puzzle span:nth-child(n + 5) {
+  display: none;
+}
+
+#sentence-6:checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ #person {
+  left: 34%;
+}
+#sentence-6:checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ #person {
+  left: 38%;
+}
+
+#sentence-6:checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ #person {
+  left: 42%;
+}
+#sentence-6:checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ #person {
+  left: 46%;
+}
+#sentence-6:checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ #person {
+  left: 50%;
+}
+#sentence-6:checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ #person {
+  left: 54%;
+  bottom: -18vmin;
+  animation-name: jumping;
+}
+
+#sentence-6:checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ #person
+  .arms {
+  transform: translate(-50%, 1vmin) rotateX(180deg);
+}
+
+#sentence-6:checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ #shark {
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+    translate(20%, -80%) translate(-80%, 250%);
+  animation-name: sharkEating;
+}
+
+#sentence-6:checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ .letter:not(#letter-h):not(#letter-o):not(#letter-k):checked
+  ~ #lost,
+#sentence-6:checked
+  ~ #letter-h:checked
+  ~ #letter-k:checked
+  ~ #letter-o:checked
+  ~ #won {
+  display: flex;
+  animation-name: slowPopup;
+}
+
+#sentence-6:checked ~ #letter-o:checked ~ #puzzle span:nth-child(2)::before,
+#sentence-6:checked ~ #letter-o:checked ~ #puzzle span:nth-child(3)::before {
+  content: "O";
+}
+
+#sentence-6:checked ~ #letter-h:checked ~ #puzzle span:nth-child(1)::before {
+  content: "H";
+}
+
+#sentence-6:checked ~ #letter-k:checked ~ #puzzle span:nth-child(4)::before {
+  content: "K";
+}
+
+/* 7 - Titanic */
+#sentence-7:checked ~ #puzzle span:nth-child(n + 8) {
+  display: none;
+}
+
+#sentence-7:checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ #person {
+  left: 34%;
+}
+#sentence-7:checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ #person {
+  left: 38%;
+}
+
+#sentence-7:checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ #person {
+  left: 42%;
+}
+#sentence-7:checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ #person {
+  left: 46%;
+}
+#sentence-7:checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ #person {
+  left: 50%;
+}
+#sentence-7:checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ #person {
+  left: 54%;
+  bottom: -18vmin;
+  animation-name: jumping;
+}
+
+#sentence-7:checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ #person
+  .arms {
+  transform: translate(-50%, 1vmin) rotateX(180deg);
+}
+
+#sentence-7:checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ #shark {
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+    translate(20%, -80%) translate(-80%, 250%);
+  animation-name: sharkEating;
+}
+
+#sentence-7:checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ .letter:not(#letter-t):not(#letter-i):not(#letter-a):not(#letter-n):not(#letter-c):checked
+  ~ #lost,
+#sentence-7:checked
+  ~ #letter-a:checked
+  ~ #letter-c:checked
+  ~ #letter-i:checked
+  ~ #letter-n:checked
+  ~ #letter-t:checked
+  ~ #won {
+  display: flex;
+  animation-name: slowPopup;
+}
+
+#sentence-7:checked ~ #letter-t:checked ~ #puzzle span:nth-child(1)::before,
+#sentence-7:checked ~ #letter-t:checked ~ #puzzle span:nth-child(3)::before {
+  content: "T";
+}
+
+#sentence-7:checked ~ #letter-i:checked ~ #puzzle span:nth-child(2)::before,
+#sentence-7:checked ~ #letter-i:checked ~ #puzzle span:nth-child(6)::before {
+  content: "I";
+}
+
+#sentence-7:checked ~ #letter-a:checked ~ #puzzle span:nth-child(4)::before {
+  content: "A";
+}
+
+#sentence-7:checked ~ #letter-n:checked ~ #puzzle span:nth-child(5)::before {
+  content: "N";
+}
+
+#sentence-7:checked ~ #letter-c:checked ~ #puzzle span:nth-child(7)::before {
+  content: "C";
+}
+
+/* 8 - Treasure Island */
+#sentence-8:checked ~ #puzzle span:nth-child(n + 16) {
+  display: none;
+}
+
+#sentence-8:checked ~ #puzzle span:nth-child(9)::before {
+  content: "/";
+  text-decoration: none;
+}
+
+#sentence-8:checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ #person {
+  left: 34%;
+}
+#sentence-8:checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ #person {
+  left: 38%;
+}
+
+#sentence-8:checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ #person {
+  left: 42%;
+}
+#sentence-8:checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ #person {
+  left: 46%;
+}
+#sentence-8:checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ #person {
+  left: 50%;
+}
+#sentence-8:checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ #person {
+  left: 54%;
+  bottom: -18vmin;
+  animation-name: jumping;
+}
+
+#sentence-8:checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ #person
+  .arms {
+  transform: translate(-50%, 1vmin) rotateX(180deg);
+}
+
+#sentence-8:checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ #shark {
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+    translate(20%, -80%) translate(-80%, 250%);
+  animation-name: sharkEating;
+}
+
+#sentence-8:checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ .letter:not(#letter-t):not(#letter-r):not(#letter-e):not(#letter-a):not(#letter-s):not(#letter-u):not(#letter-i):not(#letter-l):not(#letter-n):not(#letter-d):checked
+  ~ #lost,
+#sentence-8:checked
+  ~ #letter-a:checked
+  ~ #letter-d:checked
+  ~ #letter-e:checked
+  ~ #letter-i:checked
+  ~ #letter-l:checked
+  ~ #letter-n:checked
+  ~ #letter-r:checked
+  ~ #letter-s:checked
+  ~ #letter-t:checked
+  ~ #letter-u:checked
+  ~ #won {
+  display: flex;
+  animation-name: slowPopup;
+}
+
+#sentence-8:checked ~ #letter-t:checked ~ #puzzle span:nth-child(1)::before {
+  content: "T";
+}
+
+#sentence-8:checked ~ #letter-r:checked ~ #puzzle span:nth-child(2)::before,
+#sentence-8:checked ~ #letter-r:checked ~ #puzzle span:nth-child(7)::before {
+  content: "R";
+}
+
+#sentence-8:checked ~ #letter-e:checked ~ #puzzle span:nth-child(3)::before,
+#sentence-8:checked ~ #letter-e:checked ~ #puzzle span:nth-child(8)::before {
+  content: "E";
+}
+
+#sentence-8:checked ~ #letter-a:checked ~ #puzzle span:nth-child(4)::before,
+#sentence-8:checked ~ #letter-a:checked ~ #puzzle span:nth-child(13)::before {
+  content: "A";
+}
+
+#sentence-8:checked ~ #letter-s:checked ~ #puzzle span:nth-child(5)::before,
+#sentence-8:checked ~ #letter-s:checked ~ #puzzle span:nth-child(11)::before {
+  content: "S";
+}
+
+#sentence-8:checked ~ #letter-u:checked ~ #puzzle span:nth-child(6)::before {
+  content: "U";
+}
+
+#sentence-8:checked ~ #letter-i:checked ~ #puzzle span:nth-child(10)::before {
+  content: "I";
+}
+
+#sentence-8:checked ~ #letter-l:checked ~ #puzzle span:nth-child(12)::before {
+  content: "L";
+}
+
+#sentence-8:checked ~ #letter-n:checked ~ #puzzle span:nth-child(14)::before {
+  content: "N";
+}
+
+#sentence-8:checked ~ #letter-d:checked ~ #puzzle span:nth-child(15)::before {
+  content: "D";
+}
+
+/* 9 - Peter Pan */
+#sentence-9:checked ~ #puzzle span:nth-child(n + 10) {
+  display: none;
+}
+
+#sentence-9:checked ~ #puzzle span:nth-child(6)::before {
+  content: "/";
+  text-decoration: none;
+}
+
+#sentence-9:checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ #person {
+  left: 34%;
+}
+#sentence-9:checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ #person {
+  left: 38%;
+}
+
+#sentence-9:checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ #person {
+  left: 42%;
+}
+#sentence-9:checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ #person {
+  left: 46%;
+}
+#sentence-9:checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ #person {
+  left: 50%;
+}
+#sentence-9:checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ #person {
+  left: 54%;
+  bottom: -18vmin;
+  animation-name: jumping;
+}
+
+#sentence-9:checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ #person
+  .arms {
+  transform: translate(-50%, 1vmin) rotateX(180deg);
+}
+
+#sentence-9:checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ #shark {
+  transform: rotateY(180deg) rotate(-40deg) translate(-40%, -100%)
+    translate(20%, -80%) translate(-80%, 250%);
+  animation-name: sharkEating;
+}
+
+#sentence-9:checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ .letter:not(#letter-p):not(#letter-e):not(#letter-t):not(#letter-r):not(#letter-a):not(#letter-n):checked
+  ~ #lost,
+#sentence-9:checked
+  ~ #letter-a:checked
+  ~ #letter-e:checked
+  ~ #letter-n:checked
+  ~ #letter-p:checked
+  ~ #letter-r:checked
+  ~ #letter-t:checked
+  ~ #won {
+  display: flex;
+  animation-name: slowPopup;
+}
+
+#sentence-9:checked ~ #letter-p:checked ~ #puzzle span:nth-child(1)::before,
+#sentence-9:checked ~ #letter-p:checked ~ #puzzle span:nth-child(7)::before {
+  content: "P";
+}
+
+#sentence-9:checked ~ #letter-e:checked ~ #puzzle span:nth-child(2)::before,
+#sentence-9:checked ~ #letter-e:checked ~ #puzzle span:nth-child(4)::before {
+  content: "E";
+}
+
+#sentence-9:checked ~ #letter-t:checked ~ #puzzle span:nth-child(3)::before {
+  content: "T";
+}
+
+#sentence-9:checked ~ #letter-r:checked ~ #puzzle span:nth-child(5)::before {
+  content: "R";
+}
+
+#sentence-9:checked ~ #letter-a:checked ~ #puzzle span:nth-child(8)::before {
+  content: "A";
+}
+
+#sentence-9:checked ~ #letter-n:checked ~ #puzzle span:nth-child(9)::before {
+  content: "N";
+}

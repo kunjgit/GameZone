@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 10px;
+  background: white;
+  font-family: sans-serif;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  align-items: center;
+  text-align: center;
+  width: 90vh;
+  background-color: rgba(20, 198, 243, 0.25);
+  padding: 2%;
+  border-radius: 10%;
+  box-shadow: 0 0 50px 0 rgba(20, 198, 243, 0.3);
+}
+
+.header {
+  font-size: 2rem;
+  padding-bottom: 5px;
+  color: #333;
+  font-family: Georgia, serif;
+  text-transform: uppercase;
+}
+
+.score {
+  color: red;
+  font-size: 2.8rem;
+}
+
+.grid {
+  display: inline-grid;
+  grid-template-columns: repeat(8, 60px);
+  padding: 20px;
+  margin: 5px;
+  gap: 5px;
+  border: 1px solid #ccc;
+  background: #222;
+}
+
+.cell {
+  height: 60px;
+}
+
+.enemy,
+.player {
+  width: 100%;
+  height: 100%;
+}
+
+.enemy {
+  background: rgba(228, 103, 103, 0.3);
+  border-radius: 50%;
+  background-image: url("./assets/demon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.player {
+  background: rgba(20, 198, 243, 0.3);
+  border-radius: 50%;
+  background-image: url("./assets/boy.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.helpers,
+.author {
+  font-weight: bold;
+  color: brown;
+  text-align: center;
+  font-style: oblique;
+  margin-top: 10px;
+}
+
+.helpers p {
+  margin: 5px 0;
+}
+
+.helpers p:first-child:before {
+  content: "👉 ";
+}
+
+.helpers p:nth-child(2):before {
+  content: "🏃‍♂️ ";
+}
+
+.helpers p:last-child:before {
+  content: "🚀 ";
+}
+
+hr {
+  width: 70%;
+  background-color: #333;
+  position: relative;
+  left: 15%;
+  margin: 10px;
+}
+
+.author a {
+  color: red;
+  text-decoration: none;
+}
+
+.author a:hover {
+  text-decoration: underline;
+}

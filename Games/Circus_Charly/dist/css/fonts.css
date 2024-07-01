@@ -1,0 +1,13 @@
+/* @font-face { font-family: "Arcade"; src: url('arcadeclasic.ttf');} */
+
+@font-face {
+    font-family: 'arcadeclasic';
+    src: url('../assets/fonts/arcadeclasic-webfont.eot');
+    src: url('../assets/fonts/arcadeclasic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/arcadeclasic-webfont.woff') format('woff'),
+         url('../assets/fonts/arcadeclasic-webfont.ttf') format('truetype'),
+         url('../assets/fonts/arcadeclasic-webfont.svg#arcadeclassicregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

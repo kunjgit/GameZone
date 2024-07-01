@@ -1,0 +1,118 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Bubblegum+Sans");
+/* colors */
+.a, .a-x {
+  background: #573659;
+}
+
+.b, .b-x {
+  background: #ad4375;
+}
+
+.c, .c-x {
+  background: #fa7370;
+}
+
+.d, .d-x {
+  background: #f59231;
+}
+
+.e, .e-x {
+  background: #fecd5f;
+}
+
+.f, .f-x {
+  background: #9ccf5e;
+}
+
+.g, .g-x {
+  background: #3cad5b;
+}
+
+.h, .h-x {
+  background: #36cbbf;
+}
+
+.i, .i-x {
+  background: #1d839c;
+}
+
+.j, .j-x {
+  background: #2f506c;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(1em + 1vmin);
+  font-family: "Bubblegum Sans", Helvetica, FontAwesome, sans-serif;
+  background: #212429;
+  color: #fffced;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 1em 0;
+}
+
+#board {
+  display: flex;
+  flex-flow: row wrap;
+  height: 70vmin;
+  width: 70vmin;
+  border: 1ch solid;
+  border-radius: 0.3em;
+}
+
+#board > * {
+  flex: 0 1 7vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vmin;
+  transition: background 300ms linear;
+}
+
+#board:not(.started) > *:first-of-type::after {
+  content: "";
+}
+
+#colors {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1ch;
+}
+
+#colors > * {
+  flex: 0 1 7vmin;
+  height: 7vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0.3em;
+}
+
+.new-game {
+  pointer-events: auto;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #00bcd4;
+}
+
+#game-over {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+}

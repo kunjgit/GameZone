@@ -1,0 +1,2765 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        margin: 0px;
+        overflow: hidden;
+        user-select: none;
+      }
+    </style>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  </head>
+  <body>
+    <div style="text-align: left; 
+    font-size: 30px;
+    padding: 5px; background-color: rgb(15, 15, 38);"><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+    <canvas id="c"></canvas>
+    <script>
+      (function () {
+        var e = document.getElementById("c"),
+          n = e.getContext("2d", { alpha: !1 }),
+          aa = !1,
+          ba = !1,
+          ca = !1,
+          fa = !1,
+          p = Math.PI,
+          q = 2 * p;
+        var ha = (function () {
+          var a = 0,
+            b = [];
+          return {
+            update: function (c) {
+              b.push(c);
+              if (60 < b.length) {
+                var d = 0,
+                  f = 1e3,
+                  h = 0;
+                b.shift();
+                b.forEach(function (a) {
+                  d += a;
+                  f = Math.min(f, a);
+                  h = Math.max(h, a);
+                });
+                a = ~~(d / 60) + ", " + ~~f + " - " + ~~h;
+              }
+            },
+            get Aa() {
+              return a;
+            },
+          };
+        })();
+        function ia(a, b) {
+          var c = 0;
+          return {
+            type: 0,
+            level: b,
+            update: function () {
+              if (!c--) {
+                c = 2;
+                var d = r.v(a, 1e3);
+                if (d && 0.1 <= u.i) {
+                  u.i -= 0.1;
+                  var b = 0.5 < Math.random(),
+                    h = b ? 2e3 : w(a, d),
+                    g = y(a, d);
+                  a.ga = g;
+                  ja.create(a.x, a.y, g, h, "#0F0");
+                  b || (d.l -= 2);
+                  0.7 < Math.random() &&
+                    ba &&
+                    la[~~(Math.random() * la.length)].play();
+                }
+              }
+            },
+          };
+        }
+        function na(a, b) {
+          var c = 120,
+            d = 0;
+          return {
+            type: 3,
+            level: b,
+            update: function () {
+              if (0 >= c-- && 30 <= u.i && r.v(a, 400)) {
+                d = 0;
+                c = 120;
+                u.i -= 30;
+                for (var b = r.P.length; b--; ) {
+                  var h = r.P[b];
+                  400 > w(h, a) && r.ra(h, 0, 0.05, 100);
+                }
+              }
+              400 > d && (d += 20);
+            },
+            g: function () {
+              400 > d &&
+                (n.save(),
+                n.beginPath(),
+                (n.strokeStyle = "#c6e2ff"),
+                n.translate(a.x, a.y / z.c),
+                n.scale(1, 1 / z.c),
+                n.arc(0, 0, d, 0, q),
+                n.stroke(),
+                n.restore());
+            },
+          };
+        }
+        function oa(a, b) {
+          var c = null,
+            d = null,
+            f = null;
+          return {
+            type: 1,
+            level: b,
+            update: function () {
+              if (0.1 <= u.i) {
+                if ((c = r.v(a, 1e3))) {
+                  u.i -= 0.1;
+                  f = y(a, c);
+                  null == d && (d = f);
+                  d += 0.01 * Math.sign(pa(f - d + p) - p);
+                  for (var b = r.P.length; b--; ) {
+                    var g = r.P[b],
+                      k = pa(d - y(a, g) + p) - p;
+                    1e3 > w(g, a) && 0.1 > Math.abs(k) && (g.l -= 0.5);
+                  }
+                }
+              } else c = null;
+            },
+            g: function () {
+              if (c) {
+                n.beginPath();
+                n.lineWidth = 6 + 3 * Math.sin(performance.now() / 5);
+                var b = n.createRadialGradient(
+                  a.x,
+                  a.y / z.c,
+                  100,
+                  a.x,
+                  a.y / z.c,
+                  1e3
+                );
+                b.addColorStop(0, "#FF0");
+                b.addColorStop(1, "rgba(0,0,0,0)");
+                n.strokeStyle = b;
+                n.moveTo(a.x, a.y / z.c);
+                n.lineTo(
+                  a.x - 1e3 * Math.cos(d),
+                  (a.y - 1e3 * Math.sin(d)) / z.c
+                );
+                n.stroke();
+              }
+            },
+          };
+        }
+        function ra(a, b) {
+          function c(a) {
+            return a + 20 * Math.sin(a + performance.now() / 100);
+          }
+          var d = [];
+          return {
+            type: 4,
+            level: b,
+            update: function () {
+              var b = r.P.length;
+              d.length = 0;
+              var c = r.v(a, 300);
+              if (c)
+                for (; b-- && 0.01 <= u.i; ) {
+                  u.i -= 0.01;
+                  var g = r.P[b];
+                  300 >= w(c, g) && ((c = g), d.push(g), (g.l -= 0.1));
+                  if (10 < d.length) break;
+                }
+            },
+            g: function () {
+              if (d[0]) {
+                n.beginPath();
+                n.strokeStyle = "#0FF";
+                n.lineWidth = 1;
+                var b = d.length,
+                  h = d[b - 1];
+                n.moveTo(h.x, h.y / z.c);
+                var g = h.x;
+                for (h = h.y; b--; ) {
+                  var k = d[b],
+                    m = k.x;
+                  k = k.y;
+                  n.lineTo(c(g + (m - g) / 2), c(h + (k - h) / 2) / z.c);
+                  n.lineTo(c(m), c(k) / z.c);
+                  g = m;
+                  h = k;
+                }
+                n.lineTo(a.x, a.y / z.c);
+                n.stroke();
+              }
+            },
+          };
+        }
+        function sa(a, b) {
+          var c = 20;
+          return {
+            type: 2,
+            level: b,
+            update: function () {
+              if (!c--) {
+                c = 20;
+                var b = r.v(a, 1500);
+                b &&
+                  0.1 <= u.i &&
+                  (ta.create(a.x, a.y, y(a, b), w(a, b), "#00B"), (u.i -= 0.1));
+              }
+            },
+          };
+        }
+        var xa = (function () {
+          function a(a) {
+            for (var d = [], c = 0; c < b.length; c++)
+              b[c].X === a && d.push(b[c]);
+            return d;
+          }
+          var b = [];
+          return {
+            o: function () {
+              b[0] = { X: 4, name: "Lasers", K: null, L: ia };
+              b[1] = { X: 4, name: "Beam", K: null, L: oa };
+              b[2] = { X: 4, name: "Rockets", K: null, L: sa };
+              b[3] = { X: 4, name: "EMP", K: null, L: na };
+              b[4] = { X: 4, name: "Lightning", K: null, L: ra };
+            },
+            La: a,
+            get: function (c) {
+              if (!c.H) return [];
+              var d = [];
+              a(c.type).forEach(function (a) {
+                var f = c.H,
+                  g = b[a],
+                  k = f.type === a ? f.level + 1 : 1;
+                d.push({
+                  K: g.K,
+                  text: g.name + " (Level " + k + ")",
+                  Ba: B.na.bind(null, c, a, k),
+                  Ha:
+                    "Upgrading level " +
+                    f.level +
+                    " " +
+                    f.type +
+                    ", to level " +
+                    k +
+                    " " +
+                    a,
+                });
+              });
+              return d;
+            },
+            L: function (a) {
+              return b[a].L;
+            },
+          };
+        })();
+        var G = (function () {
+          function a() {
+            h = f = d = c = null;
+            m = b = !1;
+          }
+          var b = !1,
+            c,
+            d,
+            f,
+            h,
+            g = 0,
+            k = 0,
+            m = !1;
+          return {
+            get da() {
+              return b;
+            },
+            va: function (a, d, f) {
+              b = !0;
+              c = a;
+              g = d;
+              k = f;
+            },
+            update: function () {
+              if (d)
+                if (D.la) {
+                  if ((D.update(), m)) {
+                    var b = y({ x: D.B, y: D.C }, d);
+                    switch (c) {
+                      case 2:
+                        var t = B.Fa(d, f, b);
+                        break;
+                      case 3:
+                        t = B.Z(d, f, b);
+                        break;
+                      case 4:
+                        (t = B.xa(d, f, b)), B.na(t, g, 1);
+                    }
+                    t.update();
+                    u.M -= k;
+                    k = 0;
+                    a();
+                    F.complete(4);
+                  }
+                } else {
+                  b = D.B;
+                  var A = D.C;
+                  t = { x: b, y: A };
+                  b = B.v(b, A);
+                  f = w(d, t);
+                  f = f > h ? h : f;
+                  f = 100 * Math.round(f / 100);
+                  m = 70 <= w(b, t);
+                }
+              else (d = ya(!0)) && (h = 20 * d.size);
+            },
+            g: function () {
+              d &&
+                ((n.lineWidth = 3),
+                (n.globalAlpha = 0.5),
+                (n.strokeStyle = m ? "#0F0" : "#F00"),
+                n.beginPath(),
+                n.arc(d.x, d.y, f, 0, q),
+                n.stroke());
+            },
+            o: a,
+          };
+        })();
+        var r = (function () {
+          var a,
+            b,
+            c = [],
+            d = [],
+            f = [];
+          return {
+            P: d,
+            o: function () {
+              a = 100 * Math.ceil((2 * za.size) / 100);
+              b = a / 100;
+              c.length = 0;
+              for (var f = b * b; f--; ) c.push([]);
+              d.length = 0;
+            },
+            create: function (b, a, c) {
+              d.push({
+                x: b,
+                y: a,
+                z: 20 * Math.random(),
+                R: c,
+                l: 10,
+                target: null,
+                qa: 10 * Math.random(),
+                J: [],
+                w: null,
+              });
+            },
+            update: function () {
+              for (var h = d.length; 0 < h--; ) {
+                var g = d[h];
+                var k = g.x;
+                var m = g.y;
+                k = ~~((k + a / 2) / 100);
+                m = ~~((m + a / 2) / 100);
+                k = c[m * b + k];
+                g.w !== k &&
+                  (null !== g.w &&
+                    ((g.w[g.w.indexOf(g)] = g.w[g.w.length - 1]), g.w.length--),
+                  (g.w = k),
+                  k.push(g));
+                f.length = 0;
+                f[0] = 5;
+                f[1] = 500;
+                for (k = g.J.length; k--; )
+                  (m = g.J[k]),
+                    (f[m.type] *= m.value),
+                    0 >= m.time-- &&
+                      ((g.J[k] = g.J[g.J.length - 1]), g.J.length--);
+                k = { x: g.x, y: g.y };
+                m = 999999;
+                for (var l = B.h[0], t = B.h.length; t--; ) {
+                  var A = B.h[t];
+                  (1 < A.type || u.f === A) &&
+                    A.I &&
+                    ((A = w(B.h[t], k)), A < m && ((m = A), (l = t)));
+                }
+                g.target = B.h[l];
+                g.target &&
+                  ((g.R += 0.01 * (pa(y(g, g.target) - g.R + p) - p)),
+                  (g.x -= f[0] * Math.cos(g.R)),
+                  (g.y -= f[0] * Math.sin(g.R)),
+                  0 >= g.qa-- &&
+                    ((g.qa = 10),
+                    (k = w(g, g.target)),
+                    k < f[1] &&
+                      ((m = 0.5 < Math.random()),
+                      ja.create(g.x, g.y, y(g, g.target), m ? 2e3 : k, "#F00"),
+                      m || (g.target.l -= 0.2))));
+                0 >= g.l &&
+                  ((k = h),
+                  Aa.create(d[k].x, d[k].y),
+                  (d[k] = d[d.length - 1]),
+                  d.length--);
+                m = g.w;
+                for (l = m.length; l--; )
+                  if (((k = m[l]), g !== k && 200 > Ba(g, k))) {
+                    m = (g.x - k.x) / 4;
+                    l = (g.y - k.y) / 4;
+                    g.x += m;
+                    g.y += l;
+                    k.x -= m;
+                    k.y -= l;
+                    break;
+                  }
+              }
+            },
+            g: function () {
+              for (
+                var b = -Ca.width / 2, a = -Ca.height / 2, c = d.length;
+                c--;
+
+              ) {
+                var f = d[c];
+                n.save();
+                n.translate(f.x, f.y / z.c - f.z * z.c);
+                n.scale(2, 2 / z.c);
+                n.rotate(f.R);
+                n.drawImage(Ca, b, a);
+                n.restore();
+              }
+            },
+            v: function (b, a) {
+              for (var c = null, f = d.length; f--; ) {
+                var g = d[f],
+                  h = w(b, g);
+                h < a && ((c = g), (a = h));
+              }
+              return c;
+            },
+            ra: function (b, a, d, c) {
+              b.J.push({ type: a, value: d, time: c });
+            },
+          };
+        })();
+        var Aa = {
+          create: function (a, b) {
+            for (var c = 50; c--; )
+              ja.create(
+                a,
+                b,
+                Math.random() * q,
+                200,
+                "#FF0",
+                5 + 5 * Math.random()
+              );
+          },
+        };
+        var ja = (function () {
+          var a = {};
+          return {
+            create: function (b, c, d, f, h, g) {
+              !a[h] && (a[h] = []);
+              a[h].push({ x: b, y: c, s: d, G: f - 50, fa: g || 50 });
+            },
+            update: function () {
+              for (var b in a)
+                for (var c = a[b], d = c.length; d--; ) {
+                  var f = c[d];
+                  f.G -= f.fa;
+                  0 >= f.G
+                    ? ((f = c), (f[d] = f[f.length - 1]), --f.length)
+                    : ((f.x -= Math.cos(f.s) * f.fa),
+                      (f.y -= Math.sin(f.s) * f.fa));
+                }
+            },
+            g: function () {
+              n.globalAlpha = 1;
+              n.lineWidth = 1;
+              for (var b in a) {
+                n.strokeStyle = b;
+                n.beginPath();
+                for (var c = a[b].length; c--; ) {
+                  var d = a[b][c],
+                    f = d.x + 10 * Math.cos(d.s),
+                    h = d.y / z.c + 10 * Math.sin(d.s);
+                  n.moveTo(d.x, d.y / z.c);
+                  n.lineTo(f, h);
+                }
+                n.stroke();
+              }
+            },
+            clear: function () {
+              a = {};
+            },
+          };
+        })();
+        var D = (function () {
+          function a(a, d, f, k) {
+            return b > a && b < a + f && c > d && c < d + k;
+          }
+          var b = 0,
+            c = 0,
+            d = 0,
+            f = 0,
+            h = 0,
+            g = !1,
+            k = !1,
+            m = !1;
+          window.addEventListener(
+            "mousemove",
+            function (a) {
+              var k = e.getBoundingClientRect();
+              b = a.clientX - k.left;
+              c = a.clientY - k.top;
+              d = (b + z.x - e.width / 2) / z.zoom;
+              f = ((c + z.y - e.height / 2) * z.c) / z.zoom;
+            },
+            !1
+          );
+          window.addEventListener(
+            "mousedown",
+            function () {
+              m = g = !0;
+            },
+            !1
+          );
+          window.addEventListener(
+            "mouseup",
+            function () {
+              m = !1;
+              z.ia || (k = !0);
+            },
+            !1
+          );
+          window.addEventListener(
+            "wheel",
+            function (a) {
+              h = Math.sign(a.deltaY);
+            },
+            !1
+          );
+          return {
+            update: function () {
+              k = g = !1;
+              h = 0;
+            },
+            ka: a,
+            ta: function (b, d, c, f) {
+              return g && a(b, d, c, f);
+            },
+            get x() {
+              return b;
+            },
+            get y() {
+              return c;
+            },
+            get B() {
+              return d;
+            },
+            get C() {
+              return f;
+            },
+            get click() {
+              return g;
+            },
+            get la() {
+              return k;
+            },
+            get ya() {
+              return m;
+            },
+            get ma() {
+              return h;
+            },
+          };
+        })();
+        var ta = (function () {
+          var a = {};
+          return {
+            create: function (b, c, d, f, h) {
+              a[h] || (a[h] = []);
+              a[h].push({ x: b, y: c, T: d, G: f - 20 });
+            },
+            update: function () {
+              for (var b in a)
+                for (var c = a[b], d = c.length; d--; ) {
+                  var f = c[d],
+                    h = r.v(f, 500),
+                    g = h ? w(f, h) : 30;
+                  0 >= f.G-- || 30 > g
+                    ? (a[b].splice(d, 1), Aa.create(f.x, f.y), h && (h.l -= 10))
+                    : (h && (f.T += 0.05 * (pa(y(f, h) - f.T + p) - p)),
+                      (f.x -= 20 * Math.cos(f.T)),
+                      (f.y -= 20 * Math.sin(f.T)));
+                }
+            },
+            g: function () {
+              var b = Da.width / 2,
+                c = Da.height / 2,
+                d;
+              for (d in a)
+                for (var f = a[d], h = f.length; h--; ) {
+                  var g = f[h];
+                  n.save();
+                  n.translate(g.x, g.y / z.c);
+                  n.rotate(g.T);
+                  n.drawImage(Da, b, c);
+                  n.restore();
+                }
+            },
+          };
+        })();
+        var Ha = (function () {
+          function a(a, c) {
+            var d = document.createElement("LI"),
+              f = document.createElement("LABEL"),
+              k = document.createElement("INPUT");
+            f.textContent = a;
+            k.type = "checkbox";
+            d.appendChild(k);
+            d.appendChild(f);
+            b.appendChild(d);
+            k.onclick = function () {
+              Ea.set(a, k.checked);
+              c.call(k);
+            };
+            "true" === Ea.get(a, "true") && ((k.checked = !0), c.call(k, !0));
+          }
+          var b = document.createElement("UL"),
+            c = b.style;
+          c.position = "absolute";
+          c.right = "0px";
+          c.bottom = "0px";
+          c.color = "#FFF";
+          c.margin = "16px";
+          c.listStyle = "none";
+          c.fontFamily = "monospace";
+          document.body.appendChild(b);
+          return {
+            o: function () {
+              a("tutorial", function () {
+                fa = this.checked;
+              });
+              a("music", function (a) {
+                aa = this.checked;
+                a || Fa(Ga);
+              });
+              a("sfx", function () {
+                ba = this.checked;
+              });
+              a("voice", function () {
+                ca = this.checked;
+              });
+            },
+          };
+        })();
+        var Ea = {
+          set: function (a, b) {
+            try {
+              window.localStorage.setItem(a, b);
+            } catch (c) {
+              console.warn(c);
+            }
+          },
+          get: function (a, b) {
+            try {
+              return window.localStorage.getItem(a) || b;
+            } catch (c) {
+              return console.warn(c), b;
+            }
+          },
+        };
+        var Ja = {
+          Y: function () {
+            for (
+              var a = [],
+                b = B.Ia(Ia(60, 100, 50), 100, 0, 0),
+                c = 2 + ~~(3 * Math.random()),
+                d = 1e3,
+                f = 0;
+              f < c;
+              f++
+            ) {
+              var h = 20 + ~~(30 * Math.random()),
+                g = B.f(Ia(-1, 39, 62), h, b, d, 0.003, Math.random() * q);
+              a.push(g);
+              d += 100 * ~~((500 + ~~(500 * Math.random())) / 100);
+              for (var k = ~~(3 * Math.random()), m = 200, l = 0; l < k; l++)
+                B.f(
+                  Ia(-1, 39, 62),
+                  ~~(0.1 * h + Math.random() * h * 0.3),
+                  g,
+                  m,
+                  0.01,
+                  Math.random() * q
+                ),
+                  (m += 100);
+            }
+            u.create(a[0]);
+            B.Z(a[0], 100, 0.33 * q);
+            B.Z(a[0], 100, 0.66 * q);
+            B.Z(a[0], 100, 0.99 * q);
+            return { size: d };
+          },
+        };
+        var F = (function () {
+          function a() {
+            b[g] &&
+              ((k = b[g].text),
+              (d = !0 === b[g].end) && Ea.set("tutorial", !1),
+              Ka(k, !0));
+          }
+          var b = [
+              {
+                text: "Welcome to Space Defence... You are the commander of a long forgotten expedition to a distant star. Many hundreds of years ago you and your people set out to inhabit the galaxy. Upon reaching your destination, you were able to establish a base on a nearby planet. Not long after, you find yourself under seige from mysterious forces. Are they aliens, or maybe your own race, hundreds of years ahead of you in technology, catching up to you... Either way, this is your home now... Defend it.",
+                event: 0,
+                G: 0,
+              },
+              {
+                text: "You can move your view of the star system around by clicking and dragging anywhere on-screen. YOu can also use the W, A, S and D, or the arrow keys.",
+                event: 1,
+              },
+              {
+                text: "You can also zoom in and out with your mouse wheel.",
+                event: 3,
+              },
+              {
+                text: "The SPACEBAR can be used to pause and un-pause the game. Try it now.",
+                event: 2,
+              },
+              {
+                text: "To survive in this star system, you will have to build to gather resources and defend yourself.",
+                event: 2,
+              },
+              {
+                text: "At the top of your screen is general information. From left to right. The structural status of your base, when this hits 0 you are no more. The number of enemy waves you have survived. Seconds until the next wave. Your stored minerals. And your stored energy.",
+                event: 2,
+              },
+              {
+                text: "At the bottom of your screen are your construction options. Satellites are use to generate energy from the sun and relay connection to your main base. Mining stations gather minerals from planets. The rest are just weapons of destruction.",
+                event: 2,
+              },
+              {
+                text: "Try constructing something now. Select one of the icons. Select the star or a planet to build station in orbit of. Then select the orbit distance.",
+                event: 4,
+              },
+              {
+                text: "Satellites and stations can only function with a connection to your main base. Anything not connected is considered offline, and will do nothing. However, when offline, they will be undetectable by enemy ships.",
+                event: 4,
+              },
+              {
+                text: "To extend your functional range, you will have to build multiple satellites to relay the signal. Anything close enough to your base is already online, new satellites may have to be constructed around other celestial bodies. The connection is shown with green lines branching out from your base.",
+                event: 4,
+              },
+              {
+                text: "That's as much as I can help you. My programmers thought it wise not to provide me with information on your weapon systems. You will have to work that out yourself.",
+                event: 4,
+              },
+              { text: "Good luck...", event: 4, end: !0 },
+            ],
+            c = !1,
+            d = !1,
+            f = 60,
+            h = [],
+            g = 0,
+            k = "";
+          return {
+            get text() {
+              return k;
+            },
+            get end() {
+              return d;
+            },
+            start: function () {
+              fa ? ((H = 2), (c = !0), a()) : (d = !0);
+            },
+            update: function () {
+              if ("" !== k) {
+                var d = b[g];
+                void 0 !== d.G && 0 >= d.G-- && (h[d.event] = !0);
+                !0 === h[d.event] &&
+                  D.ta(20, e.height / 2 - 20 - 100, 500, 200) &&
+                  (g++, (k = ""), (f = 60));
+              } else c && 0 >= f-- && a();
+            },
+            g: function () {
+              if ("" !== k) {
+                n.fillStyle = "rgba(0,0,0,0.5)";
+                n.strokeStyle = "#FFF";
+                n.lineWidth = 2;
+                n.beginPath();
+                n.rect(20, e.height / 2 - 20 - 100, 500, 200);
+                n.fill();
+                n.stroke();
+                n.fillStyle = "#FFF";
+                n.textAlign = "left";
+                n.textBaseline = "top";
+                for (
+                  var a = e.height / 2 - 96 - 16,
+                    d = k.split(" "),
+                    c = "",
+                    f = 0;
+                  f < d.length;
+                  f++
+                ) {
+                  var E = c + d[f] + " ";
+                  484 < n.measureText(E).width && 0 < f
+                    ? (n.fillText(c, 28, a), (c = d[f] + " "), (a += 20))
+                    : (c = E);
+                }
+                n.fillText(c, 28, a);
+                !0 === h[b[g].event] &&
+                  ((n.textAlign = "center"),
+                  (n.font = "small-caps 600 12px monospace"),
+                  n.fillText("click to continue...", 270, e.height / 2 + 55));
+              }
+            },
+            complete: function (a) {
+              h[a] = !0;
+            },
+          };
+        })();
+        var z = (function () {
+          function a() {
+            n.setTransform(1, 0, 0, 1, 0, 0);
+          }
+          var b = 0,
+            c = 0,
+            d = 0,
+            f = 0,
+            h = 0,
+            g = 0,
+            k = 0,
+            m = 0,
+            l = 1,
+            t = 1,
+            A = 2,
+            E = !1,
+            v = {};
+          window.addEventListener(
+            "keydown",
+            function (a) {
+              v[a.key.toUpperCase()] = !0;
+            },
+            !1
+          );
+          window.addEventListener(
+            "keyup",
+            function (a) {
+              v[a.key.toUpperCase()] = !1;
+            },
+            !1
+          );
+          return {
+            get x() {
+              return b;
+            },
+            get y() {
+              return c;
+            },
+            get zoom() {
+              return l;
+            },
+            get c() {
+              return A;
+            },
+            get ia() {
+              return E;
+            },
+            o: function () {
+              b = u.f.x;
+              c = u.f.y / 2;
+              d = u.f.x;
+              f = u.f.y / 2;
+              t = l = 1;
+              A = 2;
+            },
+            clear: function () {
+              a();
+              n.clearRect(0, 0, e.width, e.height);
+            },
+            reset: a,
+            position: function () {
+              n.setTransform(l, 0, 0, l, -b + e.width / 2, -c + e.height / 2);
+            },
+            update: function () {
+              0 !== D.ma && (t = La(t - 0.1 * D.ma, 0.1, 2));
+              A = Math.min(1 + (l - 0.1), 2);
+              if (v.ARROWUP || v.W) f -= 50;
+              if (v.ARROWDOWN || v.S) f += 50;
+              if (v.ARROWLEFT || v.A) d -= 50;
+              if (v.ARROWRIGHT || v.D) d += 50;
+              D.click && ((h = b), (g = c), (k = D.x), (m = D.y));
+              var a = 5 < Math.abs(k - D.x),
+                ma = 5 < Math.abs(m - D.y);
+              0 !== k && D.ya && (E || a || ma)
+                ? ((E = !0),
+                  (d = h + (k - D.x)),
+                  (f = g + (m - D.y)),
+                  F.complete(1))
+                : (E && (k = 0), (E = !1));
+              a = l;
+              l += 0.001 > Math.abs(l - t) ? 0 : (t - l) / 5;
+              a = l - a;
+              0.001 < Math.abs(a) &&
+                ((b += D.B * a),
+                (c += D.C * a),
+                (d += D.B * a),
+                (f += D.C * a),
+                F.complete(3));
+              b += 0.001 > Math.abs(b - d) ? 0 : (d - b) / 5;
+              c += 0.001 > Math.abs(c - f) ? 0 : (f - c) / 5;
+            },
+          };
+        })();
+        for (
+          var Ma = [
+              2, 10, 116, 1, 3, 0, 164, 255, 0, 0, 0, 0, 64, 0, 0, 0, 0, 6, 0,
+              2, 255, 0, 0, 28, 0, 0, 0, 6,
+            ],
+            la = [],
+            Ra = 40;
+          Ra--;
+
+        )
+          la[Ra] = {
+            ea: [{ b: Ma, p: [1], m: [{ n: [206 - Ra], a: [] }] }],
+            aa: 5513,
+            $: 2,
+            ba: 0,
+            ca: 1,
+          };
+        var Sa = {
+          ea: [
+            {
+              b: [
+                3, 255, 128, 0, 0, 255, 140, 0, 0, 127, 2, 2, 23, 0, 0, 0, 96,
+                3, 1, 3, 94, 79, 0, 32, 84, 2, 12, 4,
+              ],
+              p: [1],
+              m: [{ n: [163], a: [] }],
+            },
+          ],
+          aa: 5513,
+          $: 1,
+          ba: 0,
+          ca: 1,
+        };
+        var Ta = document.createElement("CANVAS"),
+          I = Ta.getContext("2d");
+        Ta.width = 40;
+        Ta.height = 40;
+        I.fillStyle = "#FFF";
+        I.strokeStyle = "#FFF";
+        I.lineWidth = 4;
+        I.fillRect(0, 31, 40, 5);
+        I.fillRect(6, 36, 28, 5);
+        I.beginPath();
+        I.moveTo(10, 31);
+        I.lineTo(15, 26);
+        I.lineTo(25, 26);
+        I.lineTo(30, 31);
+        I.fill();
+        I.beginPath();
+        I.moveTo(21, 26);
+        I.lineTo(21, 21);
+        I.stroke();
+        I.lineWidth = 2;
+        I.beginPath();
+        I.moveTo(21, 19);
+        I.lineTo(21, 0);
+        I.stroke();
+        var Ua = document.createElement("CANVAS"),
+          J = Ua.getContext("2d");
+        Ua.width = 100;
+        Ua.height = 100;
+        J.translate(50, 50);
+        J.fillStyle = "#444";
+        J.moveTo(-20, 0);
+        J.lineTo(0, 50);
+        J.lineTo(20, 0);
+        J.fill();
+        J.fillStyle = "#a33";
+        J.beginPath();
+        J.scale(1, 0.5);
+        J.arc(0, 0, 40, 0, q);
+        J.fill();
+        J.fillStyle = "#222";
+        J.beginPath();
+        J.arc(0, -5, 35, 0, q);
+        J.fill();
+        var Va = document.createElement("CANVAS"),
+          K = Va.getContext("2d");
+        Va.width = 100;
+        Va.height = 100;
+        K.translate(50, 50);
+        K.fillStyle = "#444";
+        K.beginPath();
+        K.arc(0, 0, 15, 0, q);
+        K.fill();
+        K.lineWidth = 5;
+        K.strokeStyle = "#666";
+        K.beginPath();
+        K.moveTo(0, -6);
+        K.lineTo(-30, -6);
+        K.moveTo(0, 6);
+        K.lineTo(-30, 6);
+        K.stroke();
+        var Wa = document.createElement("CANVAS"),
+          L = Wa.getContext("2d");
+        Wa.width = 40;
+        Wa.height = 40;
+        L.fillStyle = "#FFF";
+        L.strokeStyle = "#FFF";
+        L.lineWidth = 2;
+        L.fillRect(0, 31, 40, 5);
+        L.fillRect(6, 36, 28, 5);
+        L.beginPath();
+        L.rect(19, 20, 2, 10);
+        L.arc(20, 20, 5, 0, q);
+        L.fill();
+        L.beginPath();
+        L.arc(20, 20, 18, 0, q);
+        L.stroke();
+        var Ca,
+          Xa = document.createElement("CANVAS"),
+          Ya = Xa.getContext("2d");
+        Xa.width = 8;
+        Xa.height = 8;
+        Ya.fillStyle = "#F00";
+        Ya.moveTo(0, 4);
+        Ya.lineTo(8, 0);
+        Ya.lineTo(6, 4);
+        Ya.lineTo(8, 8);
+        Ya.fill();
+        Ca = Xa;
+        var Za = document.createElement("CANVAS"),
+          M = Za.getContext("2d");
+        Za.width = 40;
+        Za.height = 40;
+        M.fillStyle = "#FFF";
+        M.strokeStyle = "#FFF";
+        M.lineWidth = 2;
+        M.fillRect(0, 31, 40, 5);
+        M.fillRect(6, 36, 28, 5);
+        M.beginPath();
+        M.moveTo(10, 31);
+        M.lineTo(15, 26);
+        M.lineTo(25, 26);
+        M.lineTo(30, 31);
+        M.fill();
+        M.beginPath();
+        M.moveTo(17, 26);
+        M.lineTo(14, 21);
+        M.moveTo(23, 26);
+        M.lineTo(20, 21);
+        M.moveTo(5, 6);
+        M.lineTo(2, 1);
+        M.moveTo(16, 13);
+        M.lineTo(13, 8);
+        M.stroke();
+        var $a = document.createElement("CANVAS"),
+          N = $a.getContext("2d");
+        $a.width = 40;
+        $a.height = 40;
+        N.fillStyle = "#FFF";
+        N.strokeStyle = "#FFF";
+        N.lineWidth = 1;
+        N.fillRect(0, 31, 40, 5);
+        N.fillRect(6, 36, 28, 5);
+        N.beginPath();
+        N.rect(19, 20, 2, 10);
+        N.arc(20, 20, 5, 0, q);
+        N.fill();
+        N.beginPath();
+        N.moveTo(20, 20);
+        N.lineTo(0, 20);
+        N.moveTo(20, 20);
+        N.lineTo(40, 20);
+        N.moveTo(20, 20);
+        N.lineTo(20, 0);
+        N.moveTo(20, 20);
+        N.lineTo(0, 0);
+        N.moveTo(20, 20);
+        N.lineTo(40, 0);
+        N.stroke();
+        var ab = document.createElement("CANVAS"),
+          O = ab.getContext("2d");
+        ab.width = 40;
+        ab.height = 40;
+        O.fillStyle = "#FFF";
+        O.strokeStyle = "#FFF";
+        O.lineWidth = 2;
+        O.fillRect(-4, -4, 48, 9);
+        O.fillRect(2, 5, 4, 4);
+        O.fillRect(34, 5, 4, 4);
+        O.fillRect(12, 5, 16, 8);
+        O.fillRect(18, 5, 4, 24);
+        O.beginPath();
+        O.moveTo(12, 23);
+        O.lineTo(20, 29);
+        O.lineTo(28, 23);
+        O.stroke();
+        O.beginPath();
+        O.arc(20, 70, 40, 0, q);
+        O.stroke();
+        var bb = document.createElement("CANVAS"),
+          P = bb.getContext("2d");
+        bb.width = 20;
+        bb.height = 140;
+        P.fillStyle = "#ddd";
+        P.fillRect(8, 50, 4, 40);
+        P.fillStyle = "#b33";
+        P.fillRect(2, 30, 15, 30);
+        P.fillRect(2, 80, 15, 30);
+        P.fillStyle = "#9badb7";
+        P.fillRect(2, 65, 17, 10);
+        P.fillRect(0, 66, 2, 8);
+        var cb = document.createElement("CANVAS"),
+          Q = cb.getContext("2d");
+        cb.width = 128;
+        cb.height = 64;
+        Q.lineWidth = 2;
+        Q.fillStyle = "rgba(255,0,0,0.2)";
+        Q.strokeStyle = "#F00";
+        Q.arc(32, 32, 30, 0, q);
+        Q.stroke();
+        Q.fill();
+        Q.beginPath();
+        Q.fillStyle = "rgba(0,255,0,0.2)";
+        Q.strokeStyle = "#0F0";
+        Q.arc(96, 32, 30, 0, q);
+        Q.stroke();
+        Q.fill();
+        var db = document.createElement("CANVAS"),
+          eb = db.getContext("2d");
+        db.width = 160;
+        db.height = 80;
+        eb.fillStyle = "#FFF";
+        eb.fillRect(10, 10, 20, 60);
+        eb.fillRect(50, 10, 20, 60);
+        eb.moveTo(90, 10);
+        eb.lineTo(150, 40);
+        eb.lineTo(90, 70);
+        eb.fill();
+        var Da,
+          fb = document.createElement("CANVAS"),
+          gb = fb.getContext("2d");
+        fb.width = 16;
+        fb.height = 8;
+        gb.fillStyle = "#0F0";
+        gb.moveTo(0, 4);
+        gb.lineTo(16, 0);
+        gb.lineTo(16, 8);
+        gb.fill();
+        Da = fb;
+        var hb = document.createElement("CANVAS"),
+          R = hb.getContext("2d");
+        hb.width = 40;
+        hb.height = 40;
+        R.fillStyle = "#FFF";
+        R.strokeStyle = "#FFF";
+        R.lineWidth = 4;
+        R.fillRect(0, 31, 40, 5);
+        R.fillRect(6, 36, 28, 5);
+        R.beginPath();
+        R.moveTo(10, 31);
+        R.lineTo(17, 22);
+        R.lineTo(17, 12);
+        R.lineTo(20, 2);
+        R.lineTo(23, 12);
+        R.lineTo(23, 22);
+        R.lineTo(30, 31);
+        R.lineTo(15, 24);
+        R.lineTo(25, 24);
+        R.fill();
+        var nb = document.createElement("CANVAS"),
+          S = nb.getContext("2d");
+        nb.width = 40;
+        nb.height = 40;
+        S.fillStyle = "#FFF";
+        S.strokeStyle = "#FFF";
+        S.lineWidth = 2;
+        S.translate(20, 20);
+        S.rotate(p / 4);
+        S.fillRect(-9, -4, 8, 8);
+        S.fillRect(-7, -8, 4, 16);
+        S.fillRect(-12, 8, 14, 24);
+        S.fillRect(-12, -32, 14, 24);
+        S.beginPath();
+        S.arc(30, 0, 20, 0, q);
+        S.stroke();
+        var T = document.createElement("CANVAS"),
+          U = T.getContext("2d");
+        T.width = 20;
+        T.height = 140;
+        U.fillStyle = "#dddddd";
+        U.fillRect(8, 50, 4, 40);
+        U.fillStyle = "#639bff";
+        U.fillRect(2, 0, 15, 60);
+        U.fillRect(2, 80, 15, 60);
+        U.fillStyle = "#9badb7";
+        U.fillRect(2, 65, 17, 10);
+        U.fillRect(0, 66, 2, 8);
+        function ob(a, b) {
+          return function () {
+            a();
+            b();
+          };
+        }
+        function Ba(a, b) {
+          var c = a.x - b.x;
+          a = a.y - b.y;
+          return c * c + a * a;
+        }
+        function w(a, b) {
+          return Math.sqrt(Ba(a, b));
+        }
+        function y(a, b) {
+          return Math.atan2(a.y - b.y, a.x - b.x);
+        }
+        function pa(a) {
+          return a - Math.floor(a / q) * q;
+        }
+        function Ia(a, b, c) {
+          return (
+            "hsl(" +
+            (0 > a ? 360 * Math.random() : a) +
+            "," +
+            (0 > b ? 100 * Math.random() : b) +
+            "%," +
+            (0 > c ? 100 * Math.random() : c) +
+            "%)"
+          );
+        }
+        function La(a, b, c) {
+          return a > c ? c : a < b ? b : a;
+        }
+        function ya(a) {
+          var b = null;
+          if (D.la) {
+            Y.oa(null);
+            var c = B.v(D.B, D.C);
+            w(c, { x: D.B, y: D.C }) < pb &&
+              !D.target &&
+              !D.ia &&
+              (Ka(c.name),
+              !a || (1 != c.type && 0 != c.type) ? G.da || Y.oa(c, D) : (b = c),
+              ba && Sa.play());
+          }
+          return b;
+        }
+        var qb = window.speechSynthesis,
+          rb = !1,
+          sb;
+        qb &&
+          ((rb = !0),
+          (sb = qb.getVoices()),
+          0 >= sb.length &&
+            (qb.onvoiceschanged = function () {
+              sb = qb.getVoices();
+            }));
+        function Ka(a, b) {
+          b || Y.sa(a, 240);
+          rb &&
+            ca &&
+            (qb.cancel(),
+            a.split(". ").forEach(function (a) {
+              a = new SpeechSynthesisUtterance(a + ".");
+              a.rate = 1;
+              a.pitch = 0.1;
+              a.lang = "en";
+              qb.speak(a);
+            }));
+        }
+        function tb() {
+          function a(a) {
+            return Math.sin(6.283184 * a);
+          }
+          var b = [
+              a,
+              function (a) {
+                return 0.5 > a % 1 ? 1 : -1;
+              },
+              function (a) {
+                return (a % 1) * 2 - 1;
+              },
+              function (a) {
+                a = (a % 1) * 4;
+                return 2 > a ? a - 1 : 3 - a;
+              },
+            ],
+            c,
+            d,
+            f,
+            h,
+            g;
+          this.o = function (a) {
+            c = a;
+            d = a.ba;
+            f = 0;
+            h = a.aa * a.$ * (d + 1) * 2;
+            g = new Int32Array(h);
+          };
+          this.Y = function () {
+            var k,
+              m,
+              l,
+              t,
+              A,
+              E = new Int32Array(h),
+              v = c.ea[f],
+              ka = c.aa,
+              ma = c.$,
+              ib = 0,
+              Na = 0,
+              V;
+            var W = !1;
+            var Oa = [];
+            for (m = 0; m <= d; ++m) {
+              var ua = v.p[m];
+              for (l = 0; l < ma; ++l) {
+                if ((A = ua ? v.m[ua - 1].a[l] : 0))
+                  (v.b[A - 1] = v.m[ua - 1].a[l + ma] || 0),
+                    16 > A && (Oa = []);
+                var cc = b[v.b[15]],
+                  dc = v.b[16] / 512,
+                  ec = Math.pow(2, v.b[17] - 9) / ka,
+                  fc = v.b[18],
+                  Cb = v.b[19],
+                  gc = (135.82764118168 * v.b[20]) / 44100,
+                  hc = 1 - v.b[21] / 255,
+                  jb = 1e-5 * v.b[22],
+                  ic = v.b[23] / 32,
+                  jc = v.b[24] / 512,
+                  kc = (6.283184 * Math.pow(2, v.b[25] - 9)) / ka,
+                  Db = v.b[26] / 255,
+                  kb = (v.b[27] * ka) & -2;
+                A = (m * ma + l) * ka;
+                for (t = 0; 4 > t; ++t)
+                  if ((k = ua ? v.m[ua - 1].n[l + t * ma] : 0)) {
+                    if (!Oa[k]) {
+                      var x = Oa;
+                      var da = k;
+                      var Eb = (V = void 0),
+                        Pa,
+                        X,
+                        C = v,
+                        Fb = k,
+                        lc = b[C.b[0]],
+                        mc = C.b[1],
+                        nc = C.b[3],
+                        oc = b[C.b[4]],
+                        pc = C.b[5],
+                        qc = C.b[8],
+                        Gb = C.b[9],
+                        qa = C.b[10] * C.b[10] * 4,
+                        Qa = C.b[11] * C.b[11] * 4,
+                        lb = C.b[12] * C.b[12] * 4,
+                        rc = 1 / lb,
+                        va = C.b[13],
+                        sc = ka * Math.pow(2, 2 - C.b[14]),
+                        Hb = new Int32Array(qa + Qa + lb),
+                        Ib = 0,
+                        Jb = 0;
+                      for (Pa = X = 0; X < qa + Qa + lb; X++, Pa++) {
+                        0 <= Pa &&
+                          ((va = (va >> 8) | ((va & 255) << 4)),
+                          (Pa -= sc),
+                          (Eb =
+                            0.003959503758 *
+                            Math.pow(
+                              2,
+                              (Fb + (va & 15) + C.b[2] - 128 - 128) / 12
+                            )),
+                          (V =
+                            0.003959503758 *
+                            Math.pow(
+                              2,
+                              (Fb + (va & 15) + C.b[6] - 128 - 128) / 12
+                            ) *
+                            (1 + 8e-4 * C.b[7])));
+                        var ea = 1;
+                        X < qa
+                          ? (ea = X / qa)
+                          : X >= qa + Qa && (ea -= (X - qa - Qa) * rc);
+                        var wa = Eb;
+                        nc && (wa *= ea * ea);
+                        Ib += wa;
+                        var mb = lc(Ib) * mc;
+                        wa = V;
+                        qc && (wa *= ea * ea);
+                        Jb += wa;
+                        mb += oc(Jb) * pc;
+                        Gb && (mb += (2 * Math.random() - 1) * Gb);
+                        Hb[X] = (80 * mb * ea) | 0;
+                      }
+                      x[da] = Hb;
+                    }
+                    da = Oa[k];
+                    k = 0;
+                    for (x = 2 * A; k < da.length; k++, x += 2) E[x] += da[k];
+                  }
+                for (k = 0; k < ka; k++)
+                  (t = 2 * (A + k)),
+                    (x = E[t]) || W
+                      ? ((W = gc),
+                        fc && (W *= cc(ec * t) * dc + 0.5),
+                        (W = 1.5 * Math.sin(W)),
+                        (ib += W * Na),
+                        (x = hc * (x - Na) - ib),
+                        (Na += W * x),
+                        (x = 3 == Cb ? Na : 1 == Cb ? x : ib),
+                        jb &&
+                          ((x *= jb),
+                          (x = 1 > x ? (-1 < x ? a(0.25 * x) : -1) : 1),
+                          (x /= jb)),
+                        (x *= ic),
+                        (W = 1e-5 < x * x),
+                        (da = Math.sin(kc * t) * jc + 0.5),
+                        (V = x * (1 - da)),
+                        (x *= da))
+                      : (V = 0),
+                    t >= kb &&
+                      ((V += E[t - kb + 1] * Db), (x += E[t - kb] * Db)),
+                    (E[t] = V | 0),
+                    (E[t + 1] = x | 0),
+                    (g[t] += V | 0),
+                    (g[t + 1] += x | 0);
+              }
+            }
+            f++;
+            return f / c.ca;
+          };
+          this.ha = function () {
+            var a = 44 + 2 * h - 8,
+              b = a - 36,
+              d = new Uint8Array(44 + 2 * h);
+            d.set([
+              82,
+              73,
+              70,
+              70,
+              a & 255,
+              (a >> 8) & 255,
+              (a >> 16) & 255,
+              (a >> 24) & 255,
+              87,
+              65,
+              86,
+              69,
+              102,
+              109,
+              116,
+              32,
+              16,
+              0,
+              0,
+              0,
+              1,
+              0,
+              2,
+              0,
+              68,
+              172,
+              0,
+              0,
+              16,
+              177,
+              2,
+              0,
+              4,
+              0,
+              16,
+              0,
+              100,
+              97,
+              116,
+              97,
+              b & 255,
+              (b >> 8) & 255,
+              (b >> 16) & 255,
+              (b >> 24) & 255,
+            ]);
+            a = 0;
+            for (b = 44; a < h; ++a) {
+              var c = g[a];
+              c = -32767 > c ? -32767 : 32767 < c ? 32767 : c;
+              d[b++] = c & 255;
+              d[b++] = (c >> 8) & 255;
+            }
+            return d;
+          };
+        }
+        var ub = (function () {
+          var a,
+            b,
+            c,
+            d,
+            f = [
+              "enemies, approaching",
+              "we are under attack",
+              "enemy, in-bound",
+              "hostiles detected",
+            ];
+          return {
+            o: function () {
+              a = 0;
+              d = 30;
+              b = 60;
+              c = 60 * b;
+            },
+            update: function () {
+              if (F.end && !c--) {
+                for (var h = za.size, g = d; g--; ) {
+                  var k = Math.random() * q;
+                  r.create(Math.cos(k) * h, Math.sin(k) * h, k);
+                }
+                a++;
+                b = Math.max(b - 2, 2);
+                d += 30;
+                c = 60 * b;
+                Ka(f[~~(Math.random() * f.length)]);
+              }
+            },
+            get Ja() {
+              return c;
+            },
+            get wa() {
+              return a;
+            },
+          };
+        })();
+        var vb = !0,
+          wb = [],
+          xb = !0,
+          yb = [];
+        Sa = zb(Sa);
+        for (var Ab = 0; Ab < la.length; Ab++) la[Ab] = zb(la[Ab]);
+        var Bb,
+          Kb = new tb();
+        Kb.V = new Audio();
+        Kb.U = !0;
+        Kb.o({
+          ea: [
+            {
+              b: [
+                2, 0, 92, 0, 3, 255, 92, 0, 0, 0, 5, 6, 58, 0, 0, 0, 0, 0, 1, 2,
+                135, 0, 0, 32, 147, 6, 121, 6,
+              ],
+              p: [, , , , 1, 1, 1, 1, 1, 1, 1, 1],
+              m: [
+                {
+                  n: [
+                    144,
+                    ,
+                    144,
+                    ,
+                    144,
+                    144,
+                    ,
+                    144,
+                    ,
+                    ,
+                    144,
+                    ,
+                    144,
+                    144,
+                    ,
+                    142,
+                    144,
+                    ,
+                    144,
+                    ,
+                    144,
+                    144,
+                    ,
+                    144,
+                    ,
+                    ,
+                    144,
+                    ,
+                    144,
+                    144,
+                    ,
+                    149,
+                    ,
+                    ,
+                    ,
+                    142,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    142,
+                  ],
+                  a: [],
+                },
+              ],
+            },
+            {
+              b: [
+                0, 0, 140, 0, 0, 7, 99, 1, 0, 17, 0, 11, 32, 0, 0, 2, 127, 6, 0,
+                2, 34, 52, 4, 53, 108, 5, 8, 2,
+              ],
+              p: [, , , 2, 2, , , 2, 2, 2],
+              m: [
+                { n: [], a: [] },
+                {
+                  n: [
+                    142,
+                    ,
+                    142,
+                    142,
+                    142,
+                    142,
+                    ,
+                    142,
+                    ,
+                    ,
+                    142,
+                    142,
+                    142,
+                    142,
+                    ,
+                    ,
+                    142,
+                    ,
+                    142,
+                    142,
+                    142,
+                    142,
+                    ,
+                    142,
+                    ,
+                    ,
+                    142,
+                    142,
+                    142,
+                    142,
+                    142,
+                  ],
+                  a: [],
+                },
+              ],
+            },
+            {
+              b: [
+                0, 255, 116, 1, 0, 255, 116, 0, 1, 0, 4, 6, 35, 0, 0, 0, 0, 0,
+                0, 2, 14, 0, 0, 32, 0, 0, 0, 0,
+              ],
+              p: [],
+              m: [],
+            },
+            {
+              b: [
+                0, 147, 116, 1, 0, 97, 116, 0, 1, 0, 4, 6, 35, 0, 0, 0, 0, 0, 0,
+                2, 14, 0, 0, 32, 0, 0, 0, 0,
+              ],
+              p: [, 4, , 4, 4, 4, , , 4, , , 4, 4],
+              m: [
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                {
+                  n: [
+                    ,
+                    ,
+                    ,
+                    137,
+                    139,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    137,
+                    139,
+                    137,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    137,
+                    139,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    137,
+                    139,
+                    139,
+                    ,
+                    139,
+                  ],
+                  a: [],
+                },
+              ],
+            },
+            {
+              b: [
+                2, 100, 128, 0, 3, 201, 128, 0, 0, 0, 5, 6, 58, 0, 0, 0, 195, 6,
+                1, 2, 135, 0, 0, 32, 147, 6, 121, 6,
+              ],
+              p: [],
+              m: [],
+            },
+            {
+              b: [
+                2, 100, 128, 0, 3, 201, 128, 0, 0, 0, 5, 6, 58, 0, 0, 0, 195, 6,
+                1, 2, 135, 0, 0, 32, 147, 6, 121, 6,
+              ],
+              p: [],
+              m: [],
+            },
+            {
+              b: [
+                0, 43, 128, 0, 0, 43, 128, 12, 0, 0, 12, 0, 72, 0, 0, 0, 0, 0,
+                0, 2, 255, 0, 0, 32, 83, 3, 130, 4,
+              ],
+              p: [11],
+              m: [
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                {
+                  n: [
+                    139,
+                    ,
+                    ,
+                    ,
+                    151,
+                    ,
+                    ,
+                    ,
+                    149,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    139,
+                    ,
+                    ,
+                    ,
+                    151,
+                    ,
+                    ,
+                    ,
+                    149,
+                  ],
+                  a: [],
+                },
+              ],
+            },
+            {
+              b: [
+                0, 91, 128, 0, 0, 95, 128, 12, 0, 0, 12, 0, 72, 0, 0, 0, 0, 0,
+                0, 2, 255, 0, 0, 32, 83, 3, 130, 4,
+              ],
+              p: [, 12],
+              m: [
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                {
+                  n: [
+                    140,
+                    ,
+                    ,
+                    ,
+                    154,
+                    ,
+                    ,
+                    ,
+                    152,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    ,
+                    140,
+                    ,
+                    ,
+                    ,
+                    154,
+                    ,
+                    ,
+                    ,
+                    152,
+                  ],
+                  a: [],
+                },
+              ],
+            },
+            {
+              b: [
+                2, 192, 128, 0, 2, 146, 140, 18, 0, 0, 121, 127, 120, 0, 0, 0,
+                0, 0, 0, 2, 5, 0, 0, 32, 0, 0, 0, 0,
+              ],
+              p: [13, 13, 13, 13, , 13],
+              m: [
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [140, , , , , , , , , , , , , , , , 137], a: [] },
+              ],
+            },
+            {
+              b: [
+                2, 97, 116, 0, 3, 80, 106, 4, 0, 0, 127, 127, 127, 3, 2, 2, 44,
+                15, 1, 2, 5, 44, 48, 41, 147, 4, 12, 0,
+              ],
+              p: [, , 14, 21, , , , , 14, 21, 14, 21],
+              m: [
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [142, , , , , , , , , , , , , , , , 144], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [], a: [] },
+                { n: [146, , , , , , , , , , , , , , , , 148], a: [] },
+              ],
+            },
+          ],
+          aa: 11025,
+          $: 32,
+          ba: 12,
+          ca: 10,
+        });
+        wb.push(Kb);
+        Bb = Kb.V;
+        function zb(a) {
+          var b = new tb();
+          b.V = new Audio();
+          b.U = !0;
+          b.o(a);
+          yb.push(b);
+          return b.V;
+        }
+        var Lb = 0,
+          Mb = 0,
+          Ga = Bb;
+        function Fa(a) {
+          null !== a &&
+            (aa
+              ? ((Ga = a),
+                a.Ca ||
+                  ((a.Ca = !0),
+                  a.addEventListener(
+                    "ended",
+                    function () {
+                      this.currentTime = 0;
+                      Fa(a);
+                    },
+                    !1
+                  )),
+                Ga.play(),
+                (a.volume = 0.5))
+              : Ga && Ga.pause());
+        }
+        var u = (function () {
+          var a, b, c, d, f, h, g;
+          return {
+            create: function (k) {
+              a = k;
+              b = 100;
+              c = 0.025;
+              d = 0.05;
+              f = 501;
+              h = 50;
+              g = 10;
+            },
+            get f() {
+              return a;
+            },
+            get l() {
+              return b;
+            },
+            get Da() {
+              return c;
+            },
+            get za() {
+              return d;
+            },
+            get ua() {
+              return f;
+            },
+            get M() {
+              return h;
+            },
+            get i() {
+              return g;
+            },
+            set M(a) {
+              h = a;
+            },
+            set i(a) {
+              g = a;
+            },
+          };
+        })();
+        var Y = (function () {
+          function a(a, b, d) {
+            var c = B.F(a, b);
+            if (d) return u.M >= c;
+            Ka("Select an area to build the " + B.getName(a, b));
+            G.va(a, b, c);
+            return !1;
+          }
+          function b() {
+            var a = e.width / 2 - 213,
+              b = e.height - 128 - 120,
+              d = [],
+              c = {
+                x: a,
+                y: b,
+                target: null,
+                update: function () {
+                  null !== c.target &&
+                    d.forEach(function (a) {
+                      a.update();
+                    });
+                },
+                g: function () {
+                  if (null !== c.target) {
+                    n.fillStyle = "rgba(0,0,0,0.5)";
+                    n.strokeStyle = "#FFF";
+                    n.lineWidth = 2;
+                    n.fillRect(a, b, 426, 120);
+                    n.strokeRect(a, b, 426, 120);
+                    n.fillStyle = "#fff";
+                    n.textAlign = "left";
+                    n.textBaseline = "top";
+                    n.font = "16px monospace";
+                    n.fillText(
+                      (u.f === c.target ? "Base" : "") + c.target.name,
+                      a + 120,
+                      b + 16
+                    );
+                    var f = c.target.cache,
+                      g = Math.max(f.width, f.height) / 104;
+                    n.drawImage(
+                      f,
+                      a + 8 + 52 - f.width / g / 2,
+                      b + 8 + 52 - f.height / g / 2,
+                      f.width / g,
+                      f.height / g
+                    );
+                    d.forEach(function (a) {
+                      a.g();
+                    });
+                  }
+                },
+                Ea: function (d, f) {
+                  c.x = a = d;
+                  c.y = b = f;
+                },
+                Ka: function (a) {
+                  d.length = 0;
+                  var b = 128;
+                  a.forEach(function (a) {
+                    d.push(Z(c, b, 60, a.text, a.K, a.Ba, a.Ha));
+                    b += 60;
+                  });
+                },
+              };
+            return c;
+          }
+          var c = { x: 0, y: 0 },
+            d = [],
+            f = "",
+            h,
+            g = [];
+          return {
+            pa: function () {
+              var f = e.width / 2,
+                g = e.height;
+              h = b();
+              d = [
+                h,
+                Z(
+                  c,
+                  f - 24 - 180,
+                  g - 64,
+                  "Satellite (" + B.F(2, void 0) + " minerals)",
+                  nb,
+                  a.bind(null, 2, void 0)
+                ),
+                Z(
+                  c,
+                  f - 24 - 120,
+                  g - 64,
+                  "Mining Station (" + B.F(3, void 0) + " minerals)",
+                  ab,
+                  a.bind(null, 3, void 0)
+                ),
+                Z(
+                  c,
+                  f - 24 - 60,
+                  g - 64,
+                  "Laser Platform (" + B.F(4, 0) + " minerals)",
+                  Za,
+                  a.bind(null, 4, 0)
+                ),
+                Z(
+                  c,
+                  f - 24,
+                  g - 64,
+                  "Beam Platform (" + B.F(4, 1) + " minerals)",
+                  Ta,
+                  a.bind(null, 4, 1)
+                ),
+                Z(
+                  c,
+                  f + 36,
+                  g - 64,
+                  "Rocket Platform (" + B.F(4, 2) + " minerals)",
+                  hb,
+                  a.bind(null, 4, 2)
+                ),
+                Z(
+                  c,
+                  f + 96,
+                  g - 64,
+                  "EMP Platform (" + B.F(4, 3) + " minerals)",
+                  Wa,
+                  a.bind(null, 4, 3)
+                ),
+                Z(
+                  c,
+                  f + 156,
+                  g - 64,
+                  "Lighting Platform (" + B.F(4, 4) + " minerals)",
+                  $a,
+                  a.bind(null, 4, 4)
+                ),
+              ];
+            },
+            update: function () {
+              f = "";
+              d.forEach(function (a) {
+                a.update();
+              });
+              for (var a = g.length; a--; ) g[a].time-- || g.splice(a, 1);
+            },
+            g: function () {
+              d.forEach(function (a) {
+                a.g();
+              });
+              var a = e.width / 2,
+                b = La(e.width / 1920, 0.5, 1);
+              n.globalAlpha = 1;
+              n.fillStyle = "#FFF";
+              n.textAlign = "center";
+              n.textBaseline = "middle";
+              n.font = "700 48px monospace";
+              n.fillText(~~(ub.Ja / 60), e.width / 2, 96);
+              n.font = "small-caps 700 24px monospace";
+              n.fillText("next wave in", a, 48);
+              n.fillText("minerals", a + 300 * b, 48);
+              n.fillText(~~u.M, a + 300 * b, 80);
+              n.fillText("energy", a + 600 * b, 48);
+              n.fillText(~~u.i, a + 600 * b, 80);
+              n.fillText("survived", a - 300 * b, 48);
+              n.fillText(ub.wa + " waves", a - 300 * b, 80);
+              n.fillText("base status", a - 600 * b, 48);
+              n.fillText(~~u.f.l + "%", a - 600 * b, 80);
+              n.font = "small-caps 700 16px monospace";
+              n.fillText(f, a, e.height - 96);
+              n.textAlign = "left";
+              n.textBaseline = "bottom";
+              var c = 20;
+              g.forEach(function (a) {
+                n.fillText('"' + a.text + '"', 20, e.height - c);
+                c += 20;
+              });
+              F.g();
+              n.textAlign = "left";
+              n.textBaseline = "bottom";
+              n.font = "small-caps 500 12px monospace";
+              n.fillText("FPS: " + ha.Aa, 10, 26);
+              n.drawImage(
+                db,
+                2 === H ? 0 : 80,
+                0,
+                80,
+                80,
+                e.width - 90,
+                30,
+                60,
+                60
+              );
+            },
+            sa: function (a, b) {
+              g.push({ text: a, time: b });
+            },
+            oa: function (a, b) {
+              h.target = a;
+              "undefined" !== typeof b && h.Ea(b.x, b.y);
+            },
+            Ga: function (a) {
+              f = a;
+            },
+          };
+        })();
+        function Z(a, b, c, d, f, h, g) {
+          return {
+            update: function () {
+              D.ka(a.x + b, a.y + c, 48, 48) &&
+                (Y.Ga(d), D.click && h && h(!0) && (h(), g && Ka(g)));
+            },
+            g: function () {
+              n.globalAlpha = h && !h(!0) ? 0.2 : 1;
+              n.fillStyle = "rgba(0,0,0,0.5)";
+              n.strokeStyle = "#FFF";
+              n.lineWidth = 2;
+              n.fillRect(a.x + b, a.y + c, 48, 48);
+              n.strokeRect(a.x + b, a.y + c, 48, 48);
+              f && n.drawImage(f, a.x + b + 4, a.y + c + 4);
+            },
+          };
+        }
+        Nb();
+        window.addEventListener("resize", Nb, !1);
+        function Nb() {
+          e.width = window.innerWidth;
+          e.height = window.innerHeight;
+          n.clearRect(0, 0, e.width, e.height);
+          "undefined" !== typeof B && Y.pa();
+        }
+        function Ob() {
+          n.globalAlpha = 1;
+          for (var a = B.h.length; a--; ) {
+            var b = B.h[a];
+            b.j && Pb(b);
+            var c = Math.floor(4 * z.zoom);
+            b.O &&
+              b.O[c] &&
+              ((n.globalAlpha = 0.3),
+              (c = b.O[c]),
+              n.save(),
+              n.translate(b.x, b.y / z.c),
+              n.scale(2, 2 / z.c),
+              n.drawImage(c, 0, 0, c.width, c.height),
+              n.scale(-1, 1),
+              n.drawImage(c, 0, 0),
+              n.scale(1, -1),
+              n.drawImage(c, 0, 0),
+              n.scale(-1, 1),
+              n.drawImage(c, 0, 0),
+              n.restore());
+            n.fillStyle = b.I ? "#0F0" : "#F00";
+            n.beginPath();
+            n.arc(b.x, b.y / z.c - 30, 3, 0, q);
+            n.fill();
+          }
+        }
+        function Pb(a) {
+          var b = a.j;
+          if (b) {
+            var c = b.f.O;
+            c || (c = b.f.O = []);
+            var d = Math.floor(4 * z.zoom);
+            c = c[d];
+            if (!c) {
+              c = document.createElement("CANVAS");
+              var f = 0;
+              B.h.forEach(function (a) {
+                a.j && a.j.f === b.f && (f = Math.max(f, a.j.u + 40));
+              });
+              c.width = f / 2;
+              c.height = f / 2;
+              b.f.O[d] = c;
+              c.ja = [];
+            }
+            if (!c.ja[a.id]) {
+              d = 2 * (0.2 + d / 4);
+              var h = c.getContext("2d");
+              h.setLineDash([5 / d, 5 / d]);
+              h.beginPath();
+              h.lineWidth = 2 / d;
+              h.strokeStyle = a.color;
+              h.globalAlpha = 1;
+              h.arc(0, 0, b.u / 2, 0, q / 4, !1);
+              h.stroke();
+              h.setLineDash([]);
+              c.ja[a.id] = !0;
+            }
+          }
+        }
+        function Qb() {
+          n.beginPath();
+          n.globalAlpha = 0.3;
+          n.strokeStyle = "#BDF";
+          n.lineWidth = 2 / z.zoom;
+          for (var a = B.h.length; a--; ) {
+            var b = B.h[a].j;
+            if (b) {
+              n.save();
+              var c = 1 / z.c;
+              n.transform(1, 0, 0, c, b.f.x, b.f.y * c);
+              c = b.s - b.N * b.u;
+              n.moveTo(Math.cos(c) * b.u, Math.sin(c) * b.u);
+              n.arc(0, 0, b.u, c, b.s, 0 > b.N);
+              n.restore();
+            }
+          }
+          n.stroke();
+        }
+        function Rb() {
+          n.globalAlpha = 1;
+          for (var a = B.h.length; a--; ) {
+            var b = B.h[a],
+              c = b.x,
+              d = b.y / z.c;
+            if (2 === b.type) {
+              var f = y(b, B.h[0]);
+              n.save();
+              n.translate(c, d);
+              n.rotate(f);
+              n.scale(0.3, 0.3);
+              n.drawImage(T, -T.width / 2, -T.height / 2);
+            } else if (3 === b.type)
+              b.I &&
+                ((n.strokeStyle = "#B33"),
+                (n.lineWidth = 1 + Math.abs(Math.sin(performance.now() / 100))),
+                n.beginPath(),
+                n.moveTo(c, d),
+                n.lineTo(b.j.f.x, b.j.f.y / z.c),
+                n.stroke()),
+                (f = y(b, b.j.f)),
+                n.save(),
+                n.translate(c, d),
+                n.rotate(f),
+                n.scale(0.3, 0.3),
+                n.drawImage(bb, -T.width / 2, -T.height / 2);
+            else if (4 === b.type)
+              n.save(),
+                n.translate(c, d),
+                n.scale(0.5, 0.5),
+                n.drawImage(Ua, -Ua.width / 2, -Ua.height / 2 + 10),
+                n.scale(1.2, 0.7),
+                n.rotate(b.ga),
+                n.drawImage(Va, -Va.width / 2, -Va.height / 2);
+            else {
+              var h = 0 === b.type;
+              if (!b.cache) {
+                var g = h ? "#FFF" : b.color,
+                  k = h ? 50 : 10;
+                f = b.size + k;
+                var m = 0,
+                  l = (b.cache = document.createElement("CANVAS"));
+                l.width = 2 * f;
+                l.height = 2 * f;
+                l = b.cache.getContext("2d");
+                h && ((m = 1e3), (l.shadowOffsetY = m));
+                l.beginPath();
+                l.fillStyle = g;
+                l.shadowColor = b.color;
+                l.shadowBlur = k;
+                l.arc(f, f - m, b.size, 0, q, !1);
+                l.fill();
+                h &&
+                  (l.beginPath(),
+                  (l.shadowColor = "#FFF"),
+                  (l.shadowBlur = 5),
+                  l.arc(f, f - m, b.size - 5, 0, q, !1),
+                  l.fill());
+                if (!h)
+                  for (
+                    k = g = b.size,
+                      l.beginPath(),
+                      l.arc(f, f, b.size, 0, 2 * Math.PI, !1),
+                      l.clip();
+                    g && 0 < k;
+
+                  )
+                    l.beginPath(),
+                      (l.globalAlpha = 0.05),
+                      (l.fillStyle = "#000"),
+                      (l.shadowColor = "#000"),
+                      (l.shadowBlur = 10),
+                      l.save(),
+                      l.transform(1, 0, 0, 1, f - k / 2 + (b.size - k) / 2, f),
+                      l.arc(0, 0, 2 * k, -q / 4, q / 4),
+                      l.fill(),
+                      l.restore(),
+                      (k -= Math.max(b.size / 20, 1)),
+                      (g -= Math.max(b.size / 20, 1));
+              }
+              f = y(b, B.h[0]);
+              n.save();
+              n.translate(c, d);
+              n.rotate(f);
+              h &&
+                ((c = 1 + 0.01 * Math.sin(performance.now() / 30)),
+                n.scale(c, c));
+              n.drawImage(b.cache, -b.cache.width / 2, -b.cache.height / 2);
+            }
+            n.restore();
+          }
+        }
+        var Sb = [],
+          Tb = [];
+        function Ub(a, b) {
+          a.I = !0;
+          b && ((Sb.length = 0), (Tb.length = 0));
+          b = [];
+          Tb.push(a);
+          for (var c = B.h.length; c--; ) {
+            var d = B.h[c],
+              f = 0 <= Tb.indexOf(d);
+            !(
+              a === d ||
+              f ||
+              (a !== u.f && 2 !== a.type) ||
+              (2 !== d.type && 3 !== d.type && 4 !== d.type)
+            ) &&
+              w(a, d) <= u.ua &&
+              (Sb.push(a, d), b.push(d), Tb.push(d));
+          }
+          b.forEach(function (a) {
+            Ub(a);
+          });
+          return Sb;
+        }
+        function Vb() {
+          for (var a = B.h.length; a--; ) B.h[a].I = !1;
+          a = Ub(u.f, !0);
+          n.globalAlpha = La(0.2 / z.zoom, 0.2, 0.4);
+          n.lineWidth = La(1 / z.zoom, 2, 5);
+          n.strokeStyle = "#0F0";
+          n.beginPath();
+          for (var b = 75 * (z.c - 1), c = 0; c < a.length; c += 2) {
+            var d = a[c],
+              f = a[c + 1],
+              h = d.y / z.c,
+              g = f.y / z.c;
+            n.moveTo(d.x, h);
+            n.bezierCurveTo(d.x, h - b, f.x, g - b, f.x, g);
+          }
+          n.stroke();
+        }
+        var Wb = document.createElement("CANVAS");
+        Wb.width = 512;
+        Wb.height = 512;
+        var Xb = Wb.getContext("2d");
+        Xb.shadowBlur = 1;
+        Xb.globalAlpha = 0.5;
+        for (var Yb = 300; Yb--; ) {
+          var Zb = 512 * Math.random(),
+            $b = 512 * Math.random(),
+            ac = Ia(-1, 100, 90);
+          Xb.fillStyle = ac;
+          Xb.shadowColor = ac;
+          Xb.beginPath();
+          Xb.arc(Zb, $b, 0.5, 0, 2 * Math.PI);
+          Xb.fill();
+        }
+        var bc = n.createPattern(Wb, "repeat");
+        function tc() {
+          var a = performance.now() / 2e3;
+          n.beginPath();
+          n.rect(0, 0, e.width, e.height);
+          n.fillStyle = bc;
+          n.translate(0.5 * e.width, 0.5 * e.height + 500 * z.c);
+          n.scale(0.5, 0.5);
+          n.translate(-z.x / 25, -z.y / 25);
+          n.rotate(a / 200);
+          n.fill();
+          n.rotate(-a / 200);
+          n.scale(2, 2);
+          n.translate(-z.x / 50, -z.y / 50);
+          n.fill();
+        }
+        var uc = document.createElement("CANVAS"),
+          vc = uc.getContext("2d", { alpha: !1 });
+        uc.width = 128;
+        uc.height = 128;
+        vc.beginPath();
+        var wc = vc.createRadialGradient(64, 64, 0, 64, 64, 64);
+        wc.addColorStop(0, "#234");
+        wc.addColorStop(0.1, "#123");
+        wc.addColorStop(1, "#000");
+        vc.fillStyle = wc;
+        vc.fillRect(0, 0, 128, 128);
+        var B = (function () {
+          function a(a, b, h, g, k, m, l, t) {
+            void 0 === t && (t = 0);
+            var d = { name: "", type: 0 };
+            d.x = h;
+            d.y = g;
+            d.color = a;
+            d.size = b;
+            d.id = c.length.toString();
+            d.l = 100;
+            d.H = null;
+            d.Ma = [];
+            d.I = !1;
+            d.ga = 0;
+            k &&
+              ((k.O = null),
+              (d.j = { f: k, u: m, N: l / 2, s: t }),
+              (d.j.N /= d.j.u / 100));
+            d.update = function () {
+              0 >= d.l &&
+                ((c[c.indexOf(d)] = c[c.length - 1]),
+                --c.length,
+                d.j && (d.j.f.O = null));
+              if (d.j) {
+                var a = d.j;
+                a.s += a.N;
+                d.x = a.u * Math.cos(a.s) + a.f.x;
+                d.y = a.u * Math.sin(a.s) + a.f.y;
+              }
+              d.I && d.H && d.H.update();
+            };
+            d.g = function () {
+              d.H && d.H.g && d.H.g();
+            };
+            c.push(d);
+            return d;
+          }
+          function b(a, b, c) {
+            b = xa.L(b);
+            a.H = b(a, c);
+          }
+          var c = [];
+          xa.o();
+          return {
+            h: c,
+            Ia: function (b, c, h, g) {
+              b = a(b, c, h, g, null, null, null, null);
+              b.name = "The Sun";
+              b.type = 0;
+              return b;
+            },
+            f: function (b, c, h, g, k, m) {
+              b = a(b, c, 0, 0, h, g, k, m);
+              1 === h.type
+                ? ((b.name = "Moon"), (b.type = 5))
+                : ((b.name = "Planet"), (b.type = 1), (b.j.N /= b.j.u / 1e4));
+              return b;
+            },
+            Fa: function (b, c, h) {
+              var d = a(Ia(160, 100, 50), 2, 0, 0, b, c, 0.01, h);
+              d.name = "Satellite";
+              d.type = 2;
+              d.cache = T;
+              d.update = ob(d.update, function () {
+                F.end && d.I && (u.i += u.za * La(1 - c / 500, 0.1, 1));
+              });
+              return d;
+            },
+            Z: function (b, c, h) {
+              var d = a(Ia(212, 100, 97), 2, 0, 0, b, c, 0.01, h);
+              d.name = "Mining Station";
+              d.type = 3;
+              d.cache = bb;
+              d.update = ob(d.update, function () {
+                F.end && d.I && (u.M += u.Da * La(1 - c / 500, 0.1, 1));
+              });
+              return d;
+            },
+            xa: function (d, c, h) {
+              d = a(Ia(33, 100, 50), 2, 0, 0, d, c, 0.01, h);
+              d.name = "Defense Platform";
+              d.type = 4;
+              d.cache = Ua;
+              b(d, 0, 1);
+              return d;
+            },
+            na: b,
+            F: function (a, b) {
+              switch (a) {
+                case 2:
+                  return 30;
+                case 3:
+                  return 50;
+                case 4:
+                  switch (b) {
+                    case 0:
+                      return 100;
+                    case 1:
+                      return 150;
+                    case 2:
+                      return 200;
+                    case 3:
+                      return 250;
+                    case 4:
+                      return 300;
+                  }
+              }
+              return 0;
+            },
+            getName: function (a, b) {
+              switch (a) {
+                case 2:
+                  return "Satellite";
+                case 3:
+                  return "Mining Station";
+                case 4:
+                  switch (b) {
+                    case 0:
+                      return "Laser Platform";
+                    case 1:
+                      return "Beam Platform";
+                    case 2:
+                      return "Rocket Platform";
+                    case 3:
+                      return "EMP Platform";
+                    case 4:
+                      return "Lightning Platform";
+                  }
+              }
+              return "";
+            },
+            v: function (a, b) {
+              a = { x: a, y: b };
+              b = 999999;
+              for (var d = c[0], f = c.length; f--; ) {
+                var k = w(c[f], a);
+                k < b && ((b = k), (d = f));
+              }
+              return c[d];
+            },
+          };
+        })();
+        var yc = (function () {
+          var a = !1,
+            b = !1,
+            c = !1;
+          return {
+            update: function () {
+              if (b)
+                if (vb) {
+                  for (var d = 0; d < wb.length; d++) {
+                    var f = wb[d];
+                    f.U = f.Y();
+                    if (1 <= f.U) {
+                      Lb += 1;
+                      var h = f.ha();
+                      h = URL.createObjectURL(
+                        new Blob([h], { type: "audio/wav" })
+                      );
+                      f.V.src = h;
+                    }
+                  }
+                  Lb >= wb.length && (vb = !1);
+                } else if (xb) {
+                  for (d = 0; d < yb.length; d++)
+                    (f = yb[d]),
+                      (f.U = 1 <= f.Y()),
+                      f.U &&
+                        ((Mb += 1),
+                        (h = f.ha()),
+                        (h = URL.createObjectURL(
+                          new Blob([h], { type: "audio/wav" })
+                        )),
+                        (f.V.src = h));
+                  Mb >= yb.length && (xb = !1);
+                } else
+                  a || ((a = !0), Fa(Bb), Ka("Welcome to Space Defence")),
+                    D.click && Bb.pause && Fa(Bb),
+                    (c = !1),
+                    D.ka(e.width / 2 - 200, e.height / 2 + 64 - 70, 400, 140) &&
+                      ((c = !0), D.click && ((H = 1), xc()));
+              else b = !0;
+            },
+            g: function () {
+              var a = e.width / 2,
+                b = e.height / 2;
+              n.fillStyle = "#FFF";
+              n.textAlign = "center";
+              n.textBaseline = "middle";
+              n.shadowColor = "#FFF";
+              n.shadowBlur = 50 + 2 * Math.sin(performance.now() / 100);
+              n.font = "small-caps 700 256px monospace";
+              n.fillText("X", a, b - 64);
+              n.fillText("e o", a, b - 90);
+              n.shadowBlur = 0;
+              n.font = "small-caps 700 32px monospace";
+              vb
+                ? n.fillText("Loading music...", a, b + 64)
+                : xb
+                ? n.fillText("Loading sounds...", a, b + 64)
+                : ((n.globalAlpha = c ? 1 : 0.5),
+                  n.fillText("click here to play!", a, b + 64),
+                  (n.globalAlpha = 1));
+              n.font = "small-caps 700 16px monospace";
+              n.fillText("", a, e.height - 148);
+              n.fillText("", a, e.height - 128);
+              n.fillText("", a, e.height - 108);
+              n.fillText("", a, e.height - 88);
+              n.fillText("", a, e.height - 48);
+              n.fillText(
+                "works best in Chrome, quality in other browsers will vary!",
+                a,
+                e.height - 28
+              );
+            },
+          };
+        })();
+        var za,
+          H = 0,
+          pb = 64;
+        window.addEventListener(
+          "contextmenu",
+          function (a) {
+            a.preventDefault();
+          },
+          !1
+        );
+        Ha.o();
+        document.addEventListener("keypress", function (a) {
+          " " === a.key && (F.complete(2), (H = 2 === H ? 1 : 2));
+        });
+        function xc() {
+          B.h.length = 0;
+          za = Ja.Y();
+          B.h.forEach(function (a) {
+            a.update();
+          });
+          z.o();
+          G.o();
+          ja.clear();
+          ub.o();
+          r.o();
+          F.start();
+          Y.pa();
+        }
+        var zc = performance.now(),
+          Ac = 1e3 / 60,
+          Bc = 0;
+        (function Cc(a) {
+          requestAnimationFrame(Cc);
+          var c = zc + Ac;
+          ha.update(1 / ((a - Bc) / 1e3));
+          Bc = a;
+          a > c &&
+            (Dc(Math.min(Math.floor((a - zc) / Ac), 60)), Ec(), (zc = a));
+        })(zc);
+        function Dc(a) {
+          0 === H
+            ? yc.update()
+            : (-1 === B.h.indexOf(u.f) && ((H = 0), xc()),
+              z.update(),
+              Y.update(),
+              F.update(),
+              G.da && G.update(),
+              1 === H &&
+                (ya(),
+                B.h.forEach(function (a) {
+                  a.update();
+                }),
+                ub.update(),
+                r.update(),
+                ja.update(),
+                ta.update()));
+          D.update();
+          --a && Dc(a);
+        }
+        function Ec() {
+          z.clear();
+          n.drawImage(
+            uc,
+            Math.floor(0.5 * e.width - z.x - 2048),
+            Math.floor(0.5 * e.height - z.y - 2048),
+            4096,
+            4096
+          );
+          tc();
+          if (0 === H) z.reset(), yc.g();
+          else {
+            z.position();
+            B.h.forEach(function (a) {
+              a.g();
+            });
+            n.globalAlpha = 1;
+            Qb();
+            Ob();
+            Rb();
+            r.g();
+            Vb();
+            ja.g();
+            ta.g();
+            var a = B.v(D.B, D.C);
+            n.scale(1, 1 / z.c);
+            w(a, { x: D.B, y: D.C }) < pb &&
+              (n.beginPath(),
+              n.moveTo(a.x, a.y),
+              n.lineTo(D.B, D.C),
+              (n.strokeStyle = "#FFF"),
+              n.stroke(),
+              n.beginPath(),
+              n.arc(a.x, a.y, 30, 0, q),
+              (n.lineWidth = 3),
+              n.stroke());
+            G.da && G.g();
+            n.setTransform(1, 0, 0, 1, e.width / 2, e.height / 2);
+            z.reset();
+            Y.g();
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

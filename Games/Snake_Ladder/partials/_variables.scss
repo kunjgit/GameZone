@@ -1,0 +1,26 @@
+// colors
+$color-bg: #d9dadc;
+$color-text: #2c3d50;
+$color-error: #ff5858;
+$color-odd-box: #2c3d50;
+$color-even-box: #cfa175;
+$color-dice-bg: #3a8183;
+$color-button-roll: #ffb700;
+
+//container size for viewport size bigger than 320px.
+$side-container : 268px;
+$main-container : 690px;
+
+
+// fonts
+@font-face {
+  font-family: Pacifico;
+  src: url(../fonts/Pacifico.ttf);
+}
+
+$primary-font:  'Nunito', sans-serif;
+$welcome-font: Pacifico, 'Nunito', sans-serif;
+
+
+//z-index - order the elements from the lowest z-index(left) to the highest(right)
+$main-elements:container,overlay;

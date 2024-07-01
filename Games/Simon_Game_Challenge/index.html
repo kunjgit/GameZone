@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="/assets/images/Simon_Game_Challenge.png" />
+    <link
+    href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+    rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  </head>
+
+  <body>
+    <div style="text-align: left; margin-left: 10px;
+    margin-top: 0px;
+    font-size: 40px;
+    padding: 2px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white; display: flex;" class="fas fa-home home-icon"></i></a></div>
+    <h1 id="level-title">Press Any Key to Start</h1>
+    <h2 id="highest">Highest reached level : 0</h2>
+
+    <div class="container">
+      <div class="game-section">
+        <div class="row">
+          <div type="button" id="green" class="btn green"></div>
+          <div type="button" id="red" class="btn red"></div>
+        </div>
+        <div class="row">
+          <div type="button" id="yellow" class="btn yellow"></div>
+          <div type="button" id="blue" class="btn blue"></div>
+        </div>
+      </div>
+      <div class="instructions-section">
+        <h2><u>Instructions</u></h2>
+        <p>
+          <span style="color:red;font-size:1.4rem">Objective: </span>To remember and repeat a sequence of colors shown by
+          the game. The sequence will keep getting longer as you progress. Your
+          goal is to replicate the sequence accurately to achieve the highest
+          level possible.
+        </p>
+        <ol>
+          <li>Remember the sequence of colors shown.</li>
+          <li>Click on the colors in the same sequence.</li>
+          <li>The sequence will keep getting longer as you progress.</li>
+          <li>If you make a mistake, the game will end.</li>
+        </ol>
+        <h2>All the best :)</h2>
+      </div>
+    </div>
+
+    <div id="play-button">
+      <i class="fa fa-regular fa-circle-play"></i>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

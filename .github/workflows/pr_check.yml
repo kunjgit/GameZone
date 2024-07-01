@@ -1,0 +1,216 @@
+# name: Pull Request Validation
+
+# on:
+#   pull_request_target:
+#     types:
+#       - opened
+#       - synchronize
+
+# jobs:
+#   pr-validation:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '14'
+
+#       - name: Install dependencies
+#         run: npm install --prefix .github octokit
+
+#       - name: Validate pull request
+#         id: validate_pr
+#         uses: actions/github-script@v4
+#         with:
+#           github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+#           script: |
+#             const prNumber = context.payload.pull_request.number;
+#             const repoOwner = context.payload.repository.owner.login;
+#             const repoName = context.payload.repository.name;
+
+#             const { data: pr } = await github.pulls.get({
+#               owner: repoOwner,
+#               repo: repoName,
+#               pull_number: prNumber
+#             });
+
+#             // Check if the PR content contains an issue reference
+#             const hasIssueReference = /#[0-9]+/.test(pr.body);
+#             if (!hasIssueReference) {
+#               // Close the PR
+#               await github.pulls.update({
+#                 owner: repoOwner,
+#                 repo: repoName,
+#                 pull_number: prNumber,
+#                 state: 'closed'
+#               });
+
+#               // Comment on the closed PR
+#               await github.issues.createComment({
+#                 owner: repoOwner,
+#                 repo: repoName,
+#                 issue_number: prNumber,
+#                 body: `Hey @${pr.user.login},\nPlease make sure to link the relevant issue using the appropriate syntax, such as "#issueNumber" 👀. \n Follow the proper guideline and make a new PR again 😀. \n Happy Hacking 💗`
+#               });
+
+#               console.log(`Closed and commented on pull request #${prNumber} due to missing issue reference.`);
+#               return; // Stop further processing
+#             }
+
+#             // Get the issue number from the PR content
+#             const issueNumber = pr.body.match(/#([0-9]+)/)[1];
+
+#             // Get the issue details
+#             const { data: issue } = await github.issues.get({
+#               owner: repoOwner,
+#               repo: repoName,
+#               issue_number: issueNumber
+#             });
+
+#             // Check if the issue is open
+#             if (issue.state !== 'open') {
+#               // Close the PR
+#               await github.pulls.update({
+#                 owner: repoOwner,
+#                 repo: repoName,
+#                 pull_number: prNumber,
+#                 state: 'closed'
+#               });
+
+#               // Comment on the closed PR
+#               await github.issues.createComment({
+#                 owner: repoOwner,
+#                 repo: repoName,
+#                 issue_number: prNumber,
+#                 body: `Hey @${pr.user.login},\n You can't work on a closed issue 👀! \n Follow the proper guideline and make a new PR again 😀. \n Happy Hacking 💗`
+#               });
+
+#               console.log(`Closed and commented on pull request #${prNumber} due to closed issue reference.`);
+#               return; // Stop further processing
+#             }
+
+#             // Check if the issue has the "level3" label
+#             const hasLevel3Label = issue.labels.some(label => label.name.toLowerCase() === 'level3');
+#             if (hasLevel3Label) {
+#               // Get the PR files
+#               const { data: files } = await github.pulls.listFiles({
+#                 owner: repoOwner,
+#                 repo: repoName,
+#                 pull_number: prNumber
+#               });
+
+#               // Check for required changes in the PR
+#               const changes = [];
+
+#               // Check if a new folder is created inside the "Games" folder and contains a new file
+#               const gamesFolderPath = 'Games/';
+#               const newFolderRegex = new RegExp(`${gamesFolderPath}([^/]+)/.*$`);
+#               const newFolderCreated = files.some(file => newFolderRegex.test(file.filename));
+
+#               // Check if a README.md file is added in the newly created folder
+#               const readmeRegex = new RegExp(`${gamesFolderPath}([^/]+)/README.md$`);
+#               const readmeAdded = files.some(file => readmeRegex.test(file.filename));
+
+#               // Comment with the required changes, if any
+#               if (!newFolderCreated) {
+#                 changes.push('- Please create a new folder inside the "Games" folder.');
+#               }
+#               if (!readmeAdded) {
+#                 changes.push('- Please add a README.md file inside the newly created folder.');
+#               }
+
+#               // Check if the main README.md file is modified
+#               const mainReadmeModified = files.some(file => file.filename === 'README.md');
+
+#               if (!mainReadmeModified) {
+#                 changes.push('- Please modify the main README.md file.');
+#               }
+
+#               // Check if an image is added to the assets/images directory
+#               const imageAdded = files.some(file => file.filename.startsWith('assets/images/'));
+
+#               if (!imageAdded) {
+#                 changes.push('- Please add an image to the assets/images directory.');
+#               }
+
+#               if (changes.length > 0) {
+#                 const comment = [
+#                   `Hello @${pr.user.login},`,
+#                   `You need to make the following changes:`,
+#                   ...changes.map(change => `  ${change}`),
+#                   '',
+#                   'Hoping that you will make those changes soon 🚀'
+#                 ].join('\n');
+
+#                 // Comment on the pull request
+#                 await github.pulls.createReview({
+#                   owner: repoOwner,
+#                   repo: repoName,
+#                   pull_number: prNumber,
+#                   event: 'REQUEST_CHANGES',
+#                   body: comment
+#                 });
+
+#                 // Add labels to the pull request
+#                 await github.issues.addLabels({
+#                   owner: repoOwner,
+#                   repo: repoName,
+#                   issue_number: prNumber,
+#                   labels: ['Changes Requested ⚒️', 'Pending ⏱️']
+#                 });
+
+#                 console.log(`Commented on pull request #${prNumber} with required changes.`);
+#               } else {
+#                 const existingLabels = pr.labels.map(label => label.name.toLowerCase());
+
+#                 if (existingLabels.includes('changes requested') || existingLabels.includes('pending')) {
+#                   // Remove the "changes requested" and "pending" labels
+#                   await github.issues.removeLabel({
+#                     owner: repoOwner,
+#                     repo: repoName,
+#                     issue_number: prNumber,
+#                     name: 'Changes Requested ⚒️'
+#                   });
+#                   await github.issues.removeLabel({
+#                     owner: repoOwner,
+#                     repo: repoName,
+#                     issue_number: prNumber,
+#                     name: 'Pending ⏱️'
+#                   });
+
+#                   // Approve the changes
+#                   await github.pulls.createReview({
+#                     owner: repoOwner,
+#                     repo: repoName,
+#                     pull_number: prNumber,
+#                     event: 'APPROVE'
+#                   });
+
+#                   // Add the "under review" label
+#                   await github.issues.addLabels({
+#                     owner: repoOwner,
+#                     repo: repoName,
+#                     issue_number: prNumber,
+#                     labels: ['Pending ⏱️']
+#                   });
+
+#                   console.log(`Updated pull request #${prNumber} with approved changes.`);
+#                 } else {
+#                   // Add label to the pull request
+#                   await github.issues.addLabels({
+#                     owner: repoOwner,
+#                     repo: repoName,
+#                     issue_number: prNumber,
+#                     labels: ['Pending ⏱️']
+#                   });
+
+#                   console.log(`Pull request #${prNumber} is valid and meets the requirements.`);
+#                 }
+#               }
+#             } else {
+#               console.log(`Pull request #${prNumber} does not have the "level3" label. No further validation is performed.`);
+#             }

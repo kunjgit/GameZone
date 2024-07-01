@@ -1,0 +1,72 @@
+name: Assign on Comment
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if /assign command is present
+        id: check_command
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const commentBody = context.payload.comment.body;
+            const assignCommand = '/assign';
+            const isCommandPresent = commentBody.includes(assignCommand);
+            console.log(`Command present: ${isCommandPresent}`);
+            console.log(`Comment: ${commentBody}`);
+            console.log(`Issue Number: ${context.payload.issue.number}`);
+            console.log(`Issue State: ${context.payload.issue.state}`);
+            console.log(`Assignees: ${context.payload.issue.assignees.map(assignee => assignee.login)}`);
+            console.log(`Issue URL: ${context.payload.issue.html_url}`);
+            console.log(`Comment URL: ${context.payload.comment.html_url}`);
+            console.log(`Comment Author: ${context.payload.comment.user.login}`);
+            console.log(`Repository: ${context.repo.owner}/${context.repo.repo}`);
+            console.log(`Repository URL: ${context.payload.repository.html_url}`);
+            console.log(`Repository Full Name: ${context.payload.repository.full_name}`);
+            console.log(`Repository Name: ${context.payload.repository.name}`);
+            console.log(`Repository Owner: ${context.payload.repository.owner.login}`);
+            console.log(`Repository Owner URL: ${context.payload.repository.owner.html_url}`);
+            console.log(`Event Name: ${context.eventName}`);
+
+            const commentAuthor = context.payload.comment.user.login;
+            core.setOutput('comment_author', commentAuthor);
+
+            const isGreetingFromOwner = commentAuthor === context.payload.repository.owner.login;
+            core.setOutput('is_greeting_from_owner', isGreetingFromOwner.toString());
+
+            const isAlreadyAssigned = context.payload.issue.assignees.length > 0;
+            core.setOutput('is_already_assigned', isAlreadyAssigned.toString());
+
+            if (isCommandPresent && isGreetingFromOwner) {
+              console.log('Skipping assigning issue: Greeting from repository owner.');
+              console.log(`::set-output name=assign_issue::false`);
+            } else if (isCommandPresent && isAlreadyAssigned) {
+              const { owner, repo, number } = context.issue;
+              const assignees = context.payload.issue.assignees.map(assignee => assignee.login).join(', ');
+              const commentBody = `Hey @${commentAuthor} ! , This issue is already assigned to @${assignees}. 💗 \n You can work on other issues 🚀 \n If there is anything wrong you can contact us on [Discord🕹️](https://discord.gg/fgwk4XZfxG)👀`;
+              await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
+              console.log(`Commented on the issue: ${commentBody}.`);
+              console.log(`::set-output name=assign_issue::false`);
+            } else if (isCommandPresent) {
+              console.log(`::set-output name=assign_issue::true`);
+            } else {
+              console.log(`::set-output name=assign_issue::false`);
+            }
+
+      - name: Assign the issue
+        if: steps.check_command.outputs.assign_issue == 'true'
+        id: assign_issue
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const { owner, repo, number } = context.issue;
+            const assignee = context.payload.comment.user.login;
+            await github.issues.addAssignees({ owner, repo, issue_number: number, assignees: [assignee] });
+            console.log(`Assigned the issue to ${assignee}.`);

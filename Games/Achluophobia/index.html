@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Achluophobia</title>
+		<style>
+			* { margin: 0; padding: 0; }
+			p {	font: 12pt Arial; }
+			body { background: #000000; }
+			canvas#game { margin: 40px auto 0; display: block; }
+			div#info, div#help { margin: 10px auto; color: #FFFFFF; text-align: center; }
+			a#help-link { color: #FFFFFF; text-align: center; display:block; }			
+		</style>
+		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	</head>
+	<body>
+		<div style="text-align: left; margin-left: 40px;
+		margin-top: 15px;
+		font-size: 30px;
+		padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+		<canvas id="game" width="480" height="480" >
+		</canvas>
+		<div id="info">
+			<p id="loading">Loading...</p>
+			<p id="objective" style="display:none;">Collect <span id="key-count">x</span> more keys needed to unlock the door.</p>
+			<p id="goal" style="display:none;">The door is open! Escape while you still can...</p>
+			<p id="goal" style="display:none;">You escaped. Well done. Press R to replay.</p>
+		</div>
+		<a id="help-link" href="#" onclick="showHelp()" >HELP</a>
+		<div id="help" style="display:none;">
+			<p>W A S D to move. Mouse to look around.</p>
+			<p>Find the keys to unlock the door located in the room you started in.</p>
+			<p>Exit through the door to win.</p>
+		</div>
+		
+	</body>
+	<footer>
+		<script type="text/javascript" src="js/math_helper.js"></script>e
+		<script type="text/javascript" src="js/key.js"></script>
+		<script type="text/javascript" src="js/house.js"></script>
+		<script type="text/javascript" src="js/player.js"></script>
+		<script type="text/javascript" src="js/breathing.js"></script>
+		<script type="text/javascript" src="js/shadow_renderer.js"></script>
+		<script type="text/javascript" src="js/game.js"></script>
+		<!-- <script type="text/javascript" src="js/full.game.min.js"></script> -->
+	</footer>
+</html>

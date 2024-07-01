@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Armor Alley: Remastered</title>
+<meta charset="UTF-8" />
+<meta name="description" content='"Armor Alley: Remastered" - a web browser version of the RTS-style "Armor Alley" game originally released for Macintosh and MS-DOS computers.' />
+<meta name="keywords" content="Armor Alley, JavaScript, HTML, DHTML, multiplayer, network browser game, animation, CSS3, arcade, retro, browser game, MS-DOS, Macintosh Plus, Mac Classic" />
+<meta name="author" content="Scott Schiller" />
+<link rel="shortcut icon" href="image/app-icons/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="image/app-icons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="image/app-icons/favicon-16x16.png" />
+<link rel="preload" href="image/armor-alley-wordmark-colour.webp" as="image" />
+<link rel="preload" href="font/sysfont/sysfont.woff2" as="font" crossorigin="anonymous" />
+<link rel="manifest" href="manifest.json" />
+<link rel="mask-icon" href="image/app-icons/safari-pinned-tab.svg" color="#5bbad5" />
+<meta name="msapplication-TileColor" content="#000000" />
+<meta name="theme-color" content="#000000" />
+<meta name="application-name" content="Armor Alley: Remastered" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content="@schill" />
+<meta property="twitter:creator" content="@schill" />
+<meta property="twitter:domain" content="play.armor-alley.net" />
+<meta property="og:title" content="Armor Alley" />
+<meta property="og:url" content="https://play.armor-alley.net" />
+<meta property="og:description" content='An online version of the RTS-style "Armor Alley" game originally released for Macintosh and MS-DOS computers.' />
+<meta property="og:image" content="https://play.armor-alley.net/image/app-images/armor-alley_game_image_1920x1080.png" />
+<meta property="og:image:width" content="1920" />
+<meta property="og:image:height" content="1080" />
+<!--
+
+                                         ████▙   ▀████▌████▙  ▀█████   █████▀ ▄██████▄ ▀████▌████▙         ████▙   ▀█████▀    ▀█████▀     ▀████▐███▋▀█████▀ ▀█████▀ TM
+                        ▄██▀            ▕█████▏   ████▌ ████▌  ▐████▌  ████▌ ████▎▐███▊ ████▌ ████▌        █████▏   █████      █████       ████ ▝██▋ ▝████   ▐███▘
+                      ▄█▀               ▐▐████▎   ████▌ ████▌   █████ ▌████▌▐███▊  ████▏████▌ ████▌       ▐▐████▎   █████      █████       ████   ▝▋  ▝███▙ ▗███▘
+      ▄████▄▄▄▄▄▄▄▄▄ █▀▄▄▄▄▄▄▄▄▄▄▄      █▌████▋   ████▌▗████▘   ▌█████▌████▌████▊  ████▌████▌▗████▘       █▌████▋   █████      █████       ████ ▗█▌    ▝███▙▝█▘
+                  ▄█████▄▄▄▄  ▀▀▀      ▐█▌▐████   ████▌████▘    ▌█████▌████▌████▊  ████▌████▌████▘       ▐█▌▐████   █████      █████       ████▐██▌     ▐████▌
+  ▄          ▄████████████████▄        ██ ▄████▎  ████▌▝███▙    █▐████ ████▌████▊  ████▌████▌▝███▙       ██ ▄████▎  █████      █████       ████ ▝█▌     ▐████▌
+  ██        ▀████████████████████▄    ▐█▌██████▌  ████▌ ████▌  ▕█ ███▌ ████▌▐███▊  ████ ████▌ ████▌     ▐█▌██████▌  █████    ▗▋█████    ▗▋ ████   ▗▋    ▐████▌
+  ▀███     ▄██████████████████████    ███  ▐████  ████▌ ████▌▗▋▐█ ▐██  ████▌ ████▎▐███▊ ████▌ ████▌▗▋   ███  ▐████  █████  ▗██▌█████  ▗██▌ ████ ▗██▌    ▐████▌
+   ████▄▄███████████████████████▀    ▄███▄ ▄████▌▄█████▄▀████▀▄██▄ █▌ ▄█████▄ ▀██████▀ ▄█████▄▀████▀   ▄███▄ ▄████▌▄█████▐████▌█████▌████▌▄████▐███▌   ▄██████▄
+  ████████▀▀▀▀▀▀▀▀████▀█▀▀▀▀█▀
+   ██▀              ██▘▘ ██▘▘
+
+  ---------------------------------------------
+  A R M O R  A L L E Y  ::  R E M A S T E R E D
+  --------- 10th Anniversary Edition ----------
+
+  A browser-based interpretation of the Macintosh + MS-DOS releases of Armor Alley.
+
+  Online game
+  https://armor-alley.net/
+
+  Quick video overview (3m 45s)
+  https://youtu.be/oYUCUvg02rY
+
+  Source code
+  https://github.com/scottschiller/ArmorAlley/
+
+  Original development and history (2013)
+  https://www.schillmania.com/content/entries/2013/armor-alley-web-prototype/
+
+  Original game Copyright (C) 1989 - 1991 Information Access Technologies.
+  https://en.wikipedia.org/wiki/Armor_alley
+
+  Images, text and other portions of the original game used with permission under an ISC license.
+  Original sound effects could not be re-licensed; modern replacements used from freesound.org.
+
+  New game provided under the Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0) License:
+  https://creativecommons.org/licenses/by-nc/3.0/
+
+  General disclaimer: This is a fun personal side project. The code could be tightened up a bit.
+
+  This release:     V2.01.20230520
+  Previous release: V1.6.20220201
+  Original release: V1.0.20131031
+
+  For revision history, see README.md and CHANGELOG.txt.
+
+-->
+<!-- full-bleed in iOS landscape view, including the notch -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+<!-- required for iOS Safari full-screen, "add to home screen" (hiding URL bar etc.) -->
+<!-- https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<meta name="apple-mobile-web-app-title" content="Armor Alley: Remastered" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-startup-image" href="image/app-images/armor_alley_game_image_512x512.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<!-- all kinds of icons -->
+<link rel="apple-touch-icon" sizes="72x72" href="image/app-icons/favicon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="image/app-icons/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="image/app-icons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="image/app-icons/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="image/app-icons/apple-touch-icon-180x180.png" />
+<script>
+(() => {
+  let v;
+
+  // "version" string, for CSS + JS assets.
+  // comment out this line if you are getting 404s, etc.
+  v = '.V20230607';
+
+  /**
+   * ARMOR ALLEY: "Boot loader" - production bundle vs. development source.
+   * Try ?dev=1 if you want to see the unminified, raw source JS + CSS.
+   * See README_DEVEL.md for more.
+   * https://github.com/scottschiller/ArmorAlley/
+   */
+
+  function loadScript(src, type = 'module', async = false) {
+    let s = document.createElement('script');
+    if (type) s.type = type;
+    if (async) s.async = true;
+    s.onerror = (e) => {
+      // ignore if not local
+      if (new URL(s.src).hostname !== wl.hostname) return;
+      console.warn(
+        `loadScript(): ${src}${version} failed.${
+          version ? ' Will retry, dropping version string.' : ''
+        }`,
+        e
+      );
+      s.onerror = null;
+      s.remove();
+      s = null;
+      if (version) {
+        version = '';
+        loadScript(src, type, async);
+        // try the same for CSS.
+        loadCSS();
+      }
+    };
+    s.onload = () => {
+      console.log(`Loaded JS: ${src}${version}`);
+      s.onload = null;
+      s = null;
+    };
+    s.src = `${src}${version}`;
+    if (toAppend) {
+      // document still loading
+      toAppend.push(s);
+    } else {
+      // retry case
+      document?.head?.appendChild(s);
+    }
+  }
+
+  function loadCSS(
+    src = isProdSite || forceProd ? 'css/aa_min.css' : 'css/aa.css',
+    onload
+  ) {
+    const id = 'aa-css';
+    document.getElementById(id)?.remove();
+    let link = document.createElement('link');
+    link.id = id;
+    link.rel = 'stylesheet';
+    link.media = 'screen';
+    link.onload = () => {
+      console.log(`Loaded CSS: ${src}${version}`);
+      onload?.();
+      link.onload = null;
+      link = null;
+    };
+    link.href = `${src}${version}`;
+    document.head?.appendChild(link);
+  }
+
+  function doAppend() {
+    if (!toAppend || !document.head) return;
+    try {
+      toAppend.forEach((s) => document.head.appendChild(s));
+      document.onreadystatechange = null;
+      toAppend = null;
+    } catch (e) {
+      console.warn('script append failed? :/');
+    }
+  }
+
+  const wl = window.location;
+
+  const isProdSite = !!wl.host.match(/armor-alley\.net/i);
+  const isLocalhost = !!wl.host.match(/localhost/i);
+
+  const sp = new URLSearchParams(wl.search);
+  const forceProd = sp.get('prod');
+  const dev = !forceProd && (sp.get('dev') || !isProdSite);
+
+  // e.g., ".V20230520"
+  let version = (dev || isLocalhost) && !forceProd ? '' : v || '';
+
+  // JS + CSS nodes
+  let toAppend = [];
+
+  console.log(
+    '🚁 ARMOR ALLEY: using ' +
+      (dev
+        ? 'development JS.'
+        : `production JS build, ${
+            version.length ? version.substr(1) : '[none]'
+          }. Try ?dev=1 for the full source with comments.`)
+  );
+
+  function ga() {
+    // google analytics, only for armor-alley.net.
+    if (!wl.host.match(/armor-alley\.net/i)) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () {
+      dataLayer.push(arguments);
+    };
+    gtag('js', new Date());
+    gtag('config', 'G-XGW2TDDC6V');
+    let type = '',
+      async = true;
+    loadScript(
+      'https://www.googletagmanager.com/gtag/js?id=G-XGW2TDDC6V',
+      type,
+      async
+    );
+  }
+
+  if (dev) {
+    // load the unminified sources.
+    loadScript('script/aa.js');
+  } else {
+    loadScript('script/aa_main.js');
+  }
+
+  loadCSS();
+
+  ga();
+
+  // go go go!
+  doAppend();
+
+  // just in case: fallback method
+  document.onreadystatechange = doAppend;
+})();
+</script>
+</head>
+<!-- While running: Remove "game-paused" class to see the full game UI, or add nopause=1 to URL. -->
+<body style="background: #000; overflow: hidden">
+  <!-- To reduce "Cumulative Layout Shift", initially hide until first resize / scale / layout. -->
+
+  <div id="aa" style="visibility: hidden">
+
+    <div id="world-wrapper">
+
+      <div id="pointer"></div>
+
+      <div id="level-preview"></div>
+
+      <div id="world">
+
+        <div id="world-overlay">
+
+          <div id="tv-title-screen" class="tv-display-title-screen" style="visibility: hidden">
+            <div class="tv-screen-container">
+              <div class="tv-noise-overlay"></div>
+            </div>
+            <div class="tv"></div>
+          </div>
+
+          <div id="logo">
+
+            <div id="mtv-bnb-in" style="visibility: hidden"></div>
+            <div id="bnb-vs" style="visibility: hidden"></div>
+            <div style="text-align: center;margin-top:-40px;
+            font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+            <h1>Armor Alley</h1>
+
+            <div id="game-menu" style="visibility: hidden">
+              <h2
+                id="game-subtitle"
+                title-bnb='Uh-huh huh huh huh... "Hard." Uh-huh huh huh huh. Heh heh, m-heh. Boioioioiiiiinnnngg.'
+              >
+                A modern remake of the classic 1990 Mac + PC game.
+              </h2>
+
+              <form
+                id="game-menu-form"
+                action="."
+                method="get"
+                onsubmit="return false"
+              >
+                <div
+                  id="game-level-wrapper"
+                  style="display: inline-block"
+                  class="mac-classic"
+                >
+                  <!-- <span>Level: </span> -->
+                  <select id="game_level" name="level">
+                    <optgroup label="New? Start here. 👇">
+                      <option value="Tutorial">Tutorial</option>
+                    </optgroup>
+                    <optgroup label="Original Game Levels">
+                      <option value="Cake Walk">Cake Walk</option>
+                      <option value="One Gun">One Gun</option>
+                      <option value="Sucker Punch">Sucker Punch</option>
+                      <option value="Airborne">Airborne</option>
+                      <option value="Two-Gun">Two-Gun</option>
+                      <option value="Super Bunker">Super Bunker</option>
+                      <option value="Scrapyard">Scrapyard</option>
+                      <option value="Blind Spot">Blind Spot</option>
+                      <option value="Wasteland">Wasteland</option>
+                      <option value="Midnight Oasis">Midnight Oasis</option>
+                    </optgroup>
+                    <optgroup label="Network Game Levels">
+                      <option value="Balloon Fun">Balloon Fun</option>
+                      <option value="Cavern Cobra">Cavern Cobra</option>
+                      <option value="Desert Sortie">Desert Sortie</option>
+                      <option value="First Blood">First Blood</option>
+                      <option value="Network Mania">Network Mania</option>
+                      <option value="Rescue Raiders">Rescue Raiders</option>
+                      <option value="Midpoint">Midpoint</option>
+                      <option value="Slithy Toves">Slithy Toves</option>
+                      <option value="Tanker's Demise">Tanker's Demise</option>
+                      <option value="WindStalker">WindStalker</option>
+                      <option value="Sandstorm">Sandstorm</option>
+                      <option value="Rainstorm">Rainstorm</option>
+                    </optgroup>
+                    <!--
+                      <optgroup label="Practice Levels">
+                        <option value="Demo 1">Demo 1</option>
+                        <option value="Demo 2">Demo 2</option>
+                        <option value="Demo 3">Demo 3</option>
+                        <option value="Demo 4">Demo 4</option>
+                      </optgroup>
+                    -->
+                  </select>
+                </div>
+
+                <div style="position: relative;display: inline-block;margin-left: 0.5em;top: -1px">
+                  <!-- <span>Difficulty: </span> -->
+                  <ul
+                    id="game-type-list"
+                    class="inline-list less-bottom-spacing"
+                  >
+                    <li>
+                      <label
+                        for="radio_game_type_easy"
+                        title="Get a van to the enemy base! (Easy mode.)"
+                      >
+                        <input
+                          type="radio"
+                          id="radio_game_type_easy"
+                          name="game_type"
+                          value="easy"
+                          checked
+                        />
+                        Easy 😁
+                      </label>
+                    </li>
+                    <li>
+                      <label
+                        for="radio_game_type_hard"
+                        title="Get a van to the enemy base! (Hard mode.)<br />More enemies, more often. Turrets fire faster, and can harm more units."
+                      >
+                        <input
+                          type="radio"
+                          id="radio_game_type_hard"
+                          name="game_type"
+                          value="hard"
+                        />
+                        Hard 😰
+                      </label>
+                    </li>
+                    <li>
+                      <label
+                        for="radio_game_type_extreme"
+                        title="Get a van to the enemy base! (Extreme mode.) Even more enemies.<br />Aggressive turrets fire at many ground units and missiles, and can hit infantry. Owning all bunkers no longer stops enemy production."
+                      >
+                        <input
+                          type="radio"
+                          id="radio_game_type_extreme"
+                          name="game_type"
+                          value="extreme"
+                        />
+                        Extreme 😱
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+
+                <label
+                  for="checkbox-vs"
+                  title='Virtual Stupidity: Play the game "with" two unruly, unlicensed teenagers.'
+                  class="cta cta-checkbox"
+                >
+                  <span class="checkbox-wrapper">
+                    <input
+                      id="checkbox-vs"
+                      name="bnb"
+                      type="checkbox"
+                      value="1"
+                    />
+                  </span>
+                  🎸🤘
+                </label>
+
+                <div style="margin-top: 0.75em">
+                  <button
+                    type="button"
+                    id="start-game-button"
+                    data-action="start-game"
+                    data-title="Play the original game, with a variety of levels and difficulties."
+                    class="game-start large"
+                  >
+                    Start 🚁
+                  </button>
+                  <button
+                    type="button"
+                    id="game-options-button"
+                    data-title="General settings. Access in-game via ESC or options link."
+                    class="large"
+                  >
+                    Options 🛠️
+                  </button>
+                  <button
+                    type="button"
+                    id="start-editor-button"
+                    data-action="start-editor"
+                    data-title="Modify the currently-selected level.<br />*NOTE: Highly experimental."
+                    value="editor"
+                    class="large hide-on-mobile"
+                  >
+                    Editor* <span class="editor-icon">✏️</span>
+                  </button>
+                  <button
+                    type="button"
+                    id="start-network-game"
+                    data-title="Play with your best friend, or against your worst enemy online.<br />*NOTE: Somewhat experimental."
+                    value="network"
+                    class="large network"
+                  >
+                    Network* <span class="network-icon"></span>
+                  </button>
+                </div>
+              </form>
+
+              <p id="game-description">
+                Start the tutorial, or choose a level and difficulty.
+              </p>
+            </div>
+
+            <p id="mobile-tip">
+              This game works best on landscape / widescreen displays.
+            </p>
+          </div>
+        </div>
+
+        <div id="top-bar">
+          <div id="game-status-bar">
+            <div id="radar-container">
+              <div id="radar">
+                <!-- radar items go here -->
+              </div>
+            </div>
+
+            <ul id="game-status">
+              <li id="funds">
+                Funds:
+                <div id="funds-count">
+                  <div class="digit"><div class="digit-wrapper"></div></div>
+                  <div class="digit"><div class="digit-wrapper"></div></div>
+                  <div class="digit"><div class="digit-wrapper"></div></div>
+                </div>
+              </li>
+
+              <li id="game-fps">fps: <span id="fps-count">&infin;</span></li>
+              <!-- not implemented. -->
+              <!-- <li>Score: 0</li> -->
+            </ul>
+          </div>
+
+          <div id="player-status-bar">
+            <div id="fuel-bar">
+              <div id="fuel-line"></div>
+            </div>
+
+            <ul id="stats-bar" class="stats-bar">
+              <li style="text-align: left; margin-left: 40px;
+              margin-top: 10px;
+              font-size: 10px;padding:10px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></li>
+              <li class="inventory-item">
+                <span class="letter-block">M</span>
+                <a
+                  href="#"
+                  onclick="return false"
+                  oncontextmenu="return false"
+                  onclick="return false"
+                  data-keyMap="missileLauncher"
+                  title="Missile launcher (3 funds)"
+                  class="missile-launcher"
+                ></a>
+              </li>
+
+              <li class="inventory-item">
+                <span class="letter-block">T</span>
+                <a
+                  href="#"
+                  onclick="return false"
+                  oncontextmenu="return false"
+                  onclick="return false"
+                  data-keyMap="tank"
+                  title="Tank (4 funds)"
+                  class="tank"
+                ></a>
+              </li>
+
+              <li class="inventory-item">
+                <span class="letter-block">V</span>
+                <a
+                  href="#"
+                  onclick="return false"
+                  oncontextmenu="return false"
+                  onclick="return false"
+                  data-keyMap="van"
+                  title="Van (2 funds)"
+                  class="van"
+                ></a>
+              </li>
+
+              <li class="inventory-item">
+                <span class="letter-block">I</span>
+                <a
+                  href="#"
+                  onclick="return false"
+                  oncontextmenu="return false"
+                  onclick="return false"
+                  data-keyMap="infantry"
+                  title="Infantry (5 funds)"
+                  class="infantry"
+                ></a>
+              </li>
+
+              <li class="inventory-item">
+                <span class="letter-block">E</span>
+                <a
+                  href="#"
+                  onclick="return false"
+                  oncontextmenu="return false"
+                  onclick="return false"
+                  data-keyMap="engineer"
+                  title="Engineers (5 funds)"
+                  class="engineer"
+                ></a>
+              </li>
+
+              <li class="spacer">
+                <div id="bnb-now-playing">
+                  <div class="pow beavis"></div>
+                  <div class="pow butthead"></div>
+                </div>
+              </li>
+
+              <!-- not implemented. -->
+              <!-- <li class="lives"><em>Lives:</em> <span id="lives-count">&infin;</span></li> -->
+
+              <li class="stats-item infantry-count">
+                <span class="letter-block">Space</span>
+                <span class="wrapper">
+                  <em>Infantry:</em> <span id="infantry-count">1</span>
+                </span>
+              </li>
+
+              <li class="stats-item missiles">
+                <span class="letter-block"
+                  >X<span class="alternate-missiles"
+                    ><span class="divider">|</span>C<span class="divider"
+                      >|</span
+                    >B</span
+                  ></span
+                >
+                <span class="wrapper">
+                  <em>Smart Missiles:</em>
+                  <span id="missile-count" class="weapon-count">2</span>
+                </span>
+              </li>
+
+              <li class="stats-item ammo">
+                <span class="letter-block">Shift</span>
+                <span class="wrapper">
+                  <em>Ammo:</em>
+                  <span id="ammo-count" class="weapon-count double-wide"
+                    >64</span
+                  >
+                </span>
+              </li>
+
+              <li class="stats-item bombs">
+                <span class="letter-block">Ctrl</span>
+                <span class="wrapper">
+                  <em>Bombs:</em>
+                  <span id="bomb-count" class="weapon-count double-wide"
+                    >10</span
+                  >
+                </span>
+              </li>
+            </ul>
+
+            <div id="repair-complete"></div>
+
+            <span id="spinner"></span>
+          </div>
+        </div>
+
+        <div id="game-tips">
+          <div class="tips-container">
+            <ul id="game-tips-list">
+              <!-- 100 tips from the original game -->
+              <li>Throw bombs on emerging enemies</li>
+              <li>Click to change direction</li>
+              <li>Super bunkers hold 5 men</li>
+              <li>Tanks can kill men in some bunkers</li>
+              <li>Your practice copters are tougher</li>
+              <li>Enemy ground forces move towards your base</li>
+              <li>Center the cursor to move slow</li>
+              <li>Bars across the screen mean you are ready</li>
+              <li>Anti-aircraft guns only fire at their enemies</li>
+              <li>Capture the enemy end bunker for funds</li>
+              <li>Waste enemy bombs by dodging under him</li>
+              <li>Bullets are more effective on men and missiles</li>
+              <li>Stop your copter to shoot down missiles</li>
+              <li>Drop paratroopers just before doors</li>
+              <li>The enemy watches your money</li>
+              <li>The enemy is a thief</li>
+              <li>Try hiding behind clouds</li>
+              <li>Beware of lightning!</li>
+              <li>Don’t burn the trees</li>
+              <li>Keep firing to delay your next helicopter</li>
+              <li>Balloons chase paranoids</li>
+              <li>Bomb the enemy copter</li>
+              <li>Destroy the enemy vans and tanks</li>
+              <li>Destroy infantry with tanks</li>
+              <li>Destroy tanks with your helicopter</li>
+              <li>Destroy helicopters with missiles</li>
+              <li>Attack guns from either side</li>
+              <li>Stop missiles with paratroopers</li>
+              <li>Bomb guns while flying by</li>
+              <li>Never believe everything you read</li>
+              <li>Drop paratroopers near guns</li>
+              <li>Drop paratroopers over bunkers</li>
+              <li>Use men &amp; tanks to take bunkers</li>
+              <li>Men can take out guns</li>
+              <li>Fight over enemy troops</li>
+              <li>Don’t tailgate the enemy</li>
+              <li>Sometimes a strategic retreat is in order</li>
+              <li>Guns &amp; bombardiers watch your speed</li>
+              <li>Dodge bombs left-to-right</li>
+              <li>Dodge bullets up-and-down</li>
+              <li>Don’t fly in straight lines</li>
+              <li>Avoid floating elements</li>
+              <li>Avoid enemy balloons</li>
+              <li>Fly high for a superior combat position</li>
+              <li>Outrun missiles by moving up and down</li>
+              <li>Missiles turn slowly</li>
+              <li>Beware of shrapnel</li>
+              <li>Find places to hide from the enemy</li>
+              <li>Hide behind paratroopers</li>
+              <li>Hide behind balloons</li>
+              <li>Run missiles into bunkers</li>
+              <li>Hide in bunkers</li>
+              <li>Hide in your base</li>
+              <li>Lead missiles into barriers</li>
+              <li>Lead neutral missiles into enemy targets</li>
+              <li>Build more convoys to win</li>
+              <li>Experiment with convoys</li>
+              <li>Don’t fight over your troops with your copter</li>
+              <li>Have backup convoys - Plan B, C, etc.</li>
+              <li>Defend your convoys from enemy equipment</li>
+              <li>Protect your van with ground &amp; air support</li>
+              <li>Use missile trucks to attack &amp; delay the enemy</li>
+              <li>Hold strategic positions on the field</li>
+              <li>Paratroopers train to capture &amp; destroy</li>
+              <li>The enemy is to the right</li>
+              <li>What is the most useful piece on the field?</li>
+              <li>The enemy saves up for convoys, too</li>
+              <li>Keep one helicopter in reserve</li>
+              <li>One man can do the same work as many</li>
+              <li>There are different types of guns</li>
+              <li>Low fuel means low fuel</li>
+              <li>Smoke is a dead giveaway</li>
+              <li>Letting the enemy retreat is a strategy</li>
+              <li>Avoid engaging the enemy</li>
+              <li>Missiles are precious</li>
+              <li>Combat and bombing go hand in hand</li>
+              <li>If you can hit it, it’s not yours</li>
+              <li>To win, a van must reach the enemy base</li>
+              <li>Try adjusting the game speed</li>
+              <li>Customize commands with ’Set Controls’</li>
+              <li>You can buy more helicopters with 20 funds</li>
+              <li>Use the landing pad to refuel and rearm</li>
+              <li>Enter the enemy territory for more funds</li>
+              <li>Engineers rebuild guns</li>
+              <li>The enemy doesn’t cheat</li>
+              <li>Tank flamethrowers clean out bunkers</li>
+              <li>Landing conserves fuel</li>
+              <li>Vans carry radar jamming equipment</li>
+              <li>Damaged guns shoot slowly</li>
+              <li>Guns repair quickly</li>
+              <li>Men repair helicopters &amp; bunkers</li>
+              <li>Tanks &amp; guns repair themselves</li>
+              <li>Men rebuild balloons</li>
+              <li>Infantry carry grenades</li>
+              <li>Flame burns both sides</li>
+              <li>The enemy has equivalent equipment</li>
+              <li>The copter can fly with precision</li>
+              <li>The game can be suspended</li>
+              <li>Helicopters are very expensive</li>
+
+              <!-- New additions -->
+              <li>Clouds can be dangerous</li>
+              <li>The enemy knows how to hide, too</li>
+              <li>Beware the wily rubber <b><u>c</u></b>hicken</li>
+              <li>Tired of regular missiles? Try "c" instead of "x"</li>
+              <li>Don’t eat yellow snow</li>
+            </ul>
+
+            <div id="game-announcements"></div>
+
+            <div class="tips-fader"></div>
+          </div>
+
+          <div id="game-paused">
+            <p class="hide-on-mobile">
+              <span class="resume-prompt">Game paused while in background</span>
+              <span class="resume-prompt">Aww, you were just about to win!</span>
+              <span class="resume-prompt">Work can wait. This battle needs to be won.</span>
+              <span class="resume-prompt">Stop reading, and start playing!</span>
+              <span class="resume-prompt">Hey, where'd you go!?</span>
+              <span class="resume-prompt">For a good time, click here.</span>
+              <span class="resume-prompt">Aww, the fun part was just about to happen.</span>
+              <span class="resume-prompt">What's going to happen next!? Click here to find out!</span>
+            </p>
+            <p class="mobile-only">[ Tap to resume ]</p>
+          </div>
+        </div>
+
+        <div id="notification-toasts"></div>
+
+        <div id="tutorial-window" class="finder mac-classic dialog">
+          <div class="title-bar">
+            <!-- <div class="close-button"></div> -->
+            <div class="title-bar-stripes"></div>
+            <div class="title-bar-label">Armor Alley&trade; Tutorial</div>
+          </div>
+          <div id="tutorial-body" class="body"></div>
+        </div>
+
+        <div id="tv-display">
+          <div class="tv-screen-container"></div>
+          <div id="tv"></div>
+        </div>
+
+        <div id="battlefield">
+          <!-- world with terrain elements, vehicles, etc., lives here. -->
+        </div>
+
+        <div id="tutorial">
+          <h2>Armor Alley Tutorial</h2>
+
+          <h3>Boot Camp: Training</h3>
+
+          <ul id="tutorial-list">
+            <li>
+              <h3>Your mission, should you accept it &hellip;</h3>
+              <p class="instructions">
+                Your job is to build and escort convoys, with the goal of
+                getting a van
+                <img
+                  src="image/van-static.png"
+                  style="width: 19px"
+                  alt=""
+                  loading="lazy"
+                />
+                to the enemy base.
+              </p>
+              <p class="instructions mobile-only">
+                On mobile, all controls are touch-based.<br />Inventory is
+                behind a button like so:
+                <span
+                  style="
+                    display: inline-block;
+                    padding: 0.5px;
+                    box-sizing: content-box;
+                    border-radius: 100%;
+                    border: 0.5px solid #666;
+                    vertical-align: middle;
+                    line-height: 4.25px;
+                    width: 5px;
+                    height: 5px;
+                    text-align: center;
+                  "
+                  >≡</span
+                >
+              </p>
+              <p class="instructions">
+                First up, weapons: While flying, try firing guns
+                <span class="hide-on-mobile">(<b>SHIFT</b>) </span> and
+                dropping bombs<span class="hide-on-mobile">(<b>CTRL</b>)</span>.
+              </p>
+              <p class="instructions hide-on-mobile">
+                You can also click to change direction.
+              </p>
+            </li>
+
+            <li>
+              <h3>Repair + refuel your chopper</h3>
+              <p class="instructions">
+                Return to your base’s landing pad
+                <img
+                  src="image/landing-pad-animated.gif"
+                  style="width: 40.5px"
+                  loading="lazy"
+                />
+                to repair and reload.
+              </p>
+              <p class="instructions">
+                Green lines
+                <span class="hide-on-mobile">and a sound</span> will indicate
+                completion.
+              </p>
+            </li>
+
+            <li>
+              <h3>Destroy an enemy Convoy</h3>
+              <p class="instructions">
+                You’ve got company! Look for white blocks on the radar. Don’t
+                let their van reach your base!
+              </p>
+              <p class="instructions">
+                Bombs <span class="hide-on-mobile">(<b>CTRL</b>)</span> are
+                effective on tanks.<br />The machine gun
+                <span class="hide-on-mobile">(<b>SHIFT</b>)</span> is good for others.
+              </p>
+            </li>
+
+            <li>
+              <h3>
+                Pick up some Infantry
+                <img
+                  src="image/infantry-static.png"
+                  style="width: 7.5px"
+                  alt=""
+                  loading="lazy"
+                />
+              </h3>
+              <p class="instructions">
+                Return to your base, and order some infantry.
+              </p>
+              <p class="instructions">
+                <span class="hide-on-mobile">
+                  On desktop, press the <b><u>i</u></b> key for <u>i</u>nfantry.<br />
+                </span>
+                <span class="mobile-only">Use the touch controls to show the inventory menu via the
+                  <span
+                    style="
+                      display: inline-block;
+                      padding: 0.5px;
+                      box-sizing: content-box;
+                      border-radius: 100%;
+                      border: 0.5px solid #666;
+                      vertical-align: middle;
+                      line-height: 4.25px;
+                      width: 5px;
+                      height: 5px;
+                      text-align: center;
+                    "
+                    >≡</span> button.
+                </span>
+              </p>
+              <p class="instructions">
+                Land in front of infantry to pick them up.<br />
+                Fill up on infantry. You can carry five at once.
+              </p>
+            </li>
+
+            <li>
+              <h3>
+                Claim an enemy Bunker
+                <img
+                  src="image/bunker_mac.png"
+                  alt=""
+                  style="width: 16.5px"
+                  loading="lazy"
+                />
+              </h3>
+              <p class="instructions">
+                Find an enemy bunker near your base.<br />Enemy buildings are
+                orange blocks on the radar.
+              </p>
+              <p class="instructions">
+                Drop an infantry near the bunker<span class="hide-on-mobile">
+                  via <b>SPACE</b></span
+                >.
+              </p>
+              <p class="instructions">
+                Enemy bunkers have a left-facing arrow, and will "claim" the
+                first passing infantry.
+              </p>
+            </li>
+
+            <li>
+              <h3>
+                Claim an enemy Super Bunker
+                <img
+                  src="image/super-bunker_mac.png"
+                  alt=""
+                  style="width: 20px"
+                  loading="lazy"
+                />
+              </h3>
+              <p class="instructions">
+                Super Bunkers can be neutral and dangerous, or armed by up to
+                5 Infantry which man the guns.
+              </p>
+              <p class="instructions">
+                There is a Super Bunker near the midway point; look for a
+                yellow-ish rectangle on the radar.
+              </p>
+              <p class="instructions">
+                Super Bunkers will fire at everything except tanks. Tanks can
+                disarm Super Bunkers.
+              </p>
+              <p class="instructions">
+                To disarm the bunker via helicopter, drop 3 Infantry from
+                directly overhead<span class="hide-on-mobile">, using <b>space</b></span>.
+              </p>
+              <p class="instructions">
+                Super Bunkers can be a powerful defensive tool. They're just
+                slightly wider than your helicopter...
+              </p>
+            </li>
+
+            <li>
+              <h3>Build a Convoy</h3>
+              <p class="instructions">
+                Order a <b><u>M</u></b>issile launcher, <b><u>T</u></b>ank, and a <b><u>V</u></b>an
+                <span class="hide-on-mobile">using the underlined letters</span>.
+              </p>
+              <p>
+                You need funds to build convoys. You start with a number of
+                funds, and they are earned over time.
+              </p>
+            </li>
+
+            <li>
+              <h3>Destroy the enemy Helicopter</h3>
+              <p class="instructions">
+                The enemy is out there, but may be hiding.
+              </p>
+              <p class="instructions">
+                You should see a grey triangle on the radar.<br />Find and take it out!
+              </p>
+            </li>
+
+            <li>
+              <h3>
+                Defeat incoming Smart Missiles
+                <img
+                  src="image/missile-launcher-enemy-static.png"
+                  style="width: 22px;vertical-align: middle"
+                  alt=""
+                  loading="lazy"
+                />
+              </h3>
+              <p class="instructions">
+                Missile Launcher vehicles self-destruct and fire when an enemy
+                helicopter is in range.
+              </p>
+              <p class="instructions">
+                Enemy units are ahead. Avoid missiles until they run out of
+                fuel, or attempt to shoot them down.
+              </p>
+              <p class="instructions">
+                Smart Missiles show up as fast-moving red dots on the radar,
+                so keep an eye out!
+              </p>
+            </li>
+
+            <li>
+              <h3>
+                Rebuild a Turret (
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAACCAYAAACDvVapAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QoOBCsSStvuPgAAADFJREFUCNdVx8ERACAIxMBAj1Dk2aPnyxHz2gAYsJSeVsX7YcAhpbs3quDWy9/PepkDx0QboCy6+NkAAAAASUVORK5CYII="
+                  alt=""
+                  style="
+                    width: 10px;
+                    margin-left: 1px;
+                    vertical-align: bottom;
+                  "
+                  loading="lazy"
+                />
+                to
+                <img
+                  src="image/turret-static.gif"
+                  alt=""
+                  style="width: 10px"
+                  loading="lazy"
+                />)
+              </h3>
+              <p class="instructions">
+                Engineers are capable of claiming enemy turrets, and
+                rebuilding and repairing friendly ones.
+              </p>
+              <p class="instructions">
+                Turrets can be great defensive units, but very challenging to
+                fight - especially on harder levels.
+              </p>
+              <p class="instructions">
+                There is a dead turret near your base.
+              </p>
+              <p class="instructions">
+                Order some <b><u>E</u></b>ngineers, and watch them repair the turret if you like.
+              </p>
+            </li>
+
+            <li>
+              <h3>
+                Destroy an enemy Turret
+                <img
+                  src="image/turret-static.gif"
+                  alt=""
+                  style="width: 10px"
+                  loading="lazy"
+                />
+              </h3>
+              <p class="instructions">
+                Turrets target helicopters, and can fire rapidly.
+              </p>
+              <p class="instructions">
+                Turrets are vulnerable to Infantry, Tanks, Bombs, and Smart
+                Missiles<span class="hide-on-mobile"> (<b>X</b>)</span>.
+              </p>
+              <p class="instructions">
+                In harder levels, they will also fire at Tanks!
+              </p>
+              <p class="instructions">
+                Find and destroy the turret near the midpoint.
+              </p>
+            </li>
+
+            <li>
+              <h3>Earn 50 Funds</h3>
+              <p class="instructions">
+                Funds are earned at a regular interval. Fortune favours those
+                who fly further into enemy territory.
+              </p>
+              <p class="instructions">
+                For a challenge, get infantry into the enemy’s end bunker
+                <img
+                  src="image/end-bunker-enemy.png"
+                  style="width: 15.5px"
+                  alt=""
+                  loading="lazy"
+                />
+                to steal some of their funds!
+              </p>
+            </li>
+
+            <li>
+              <h3>Mission accomplished.</h3>
+              <p class="instructions">
+                You have completed bootcamp training.
+              </p>
+              <p class="instructions">
+                You can keep playing, or exit the tutorial and play the full game.
+              </p>
+              <p class="instructions">
+                Be warned, the full thing won’t be this easy!
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div id="mobile-controls">
+          <ul id="mobile-inventory-controls" class="mobile-controls-ordering">
+            <li class="inventory-item" data-for="tank">
+              <a
+                href="#"
+                data-keyMap="tank"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="tank"
+              ><span class="letter-block">Tank</span></a>
+            </li>
+
+            <li class="inventory-item" data-for="missile-launcher">
+              <a
+                href="#"
+                data-keyMap="missileLauncher"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="missile-launcher"
+              ><span class="letter-block">Missile Launcher</span></a>
+            </li>
+
+            <li class="inventory-item" data-for="van">
+              <a
+                href="#"
+                data-keyMap="van"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="van"
+              ><span class="letter-block">Van</span></a>
+            </li>
+
+            <li class="inventory-item" data-for="infantry">
+              <a
+                href="#"
+                data-keyMap="infantry"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="infantry"
+              ><span class="letter-block">Infantry &times; 5</span></a>
+            </li>
+
+            <li class="inventory-item" data-for="engineer">
+              <a
+                href="#"
+                data-keyMap="engineer"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="engineer"
+              ><span class="letter-block">Engineers &times; 2</span></a>
+            </li>
+          </ul>
+
+          <ul class="mobile-controls-weapons">
+            <li class="weapons-item" data-for="parachute-infantry">
+              <a
+                href="#"
+                data-keyMap="space"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="parachute-infantry"
+              ><span class="letter-block">Infantry</span></a>
+            </li>
+
+            <li class="weapons-item" data-for="guns">
+              <a
+                href="#"
+                data-keyMap="shift"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="ammo"
+              ><span class="letter-block">Guns</span></a>
+            </li>
+
+            <li class="weapons-item" data-for="smart-missile">
+              <a
+                href="#"
+                data-keyMap="smartMissile,rubberChicken,banana"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="smart-missile"
+              ><span class="letter-block">Missiles</span></a>
+            </li>
+
+            <li class="weapons-item" data-for="bombs">
+              <a
+                href="#"
+                data-keyMap="ctrl"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="bombs"
+              ><span class="letter-block">Bombs</span></a>
+            </li>
+
+            <li class="weapons-item" data-for="options">
+              <a
+                href="#"
+                id="mobile-show-options"
+                data-keyMap="show_options"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="show_options"
+              ><span class="show_options letter-block">🛠️</span></a>
+            </li>
+
+            <li
+              class="inventory-item show_inventory_control"
+              data-for="inventory">
+              <a
+                href="#"
+                id="mobile-show-inventory"
+                data-keyMap="show_inventory"
+                oncontextmenu="return false"
+                onclick="return false"
+                class="show_inventory"
+              ><span class="show_inventory letter-block">≡</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="bottom">
+        <div id="queue"></div>
+
+        <div id="message-box">
+          <form id="message-form" action="." method="get" autocomplete="off">
+            <!-- note: data-gramm is for Grammarly. -->
+            <input
+              id="message-form-input"
+              name="message_text"
+              type="text"
+              placeholder="ENTER to chat, ESC to exit."
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              data-gramm="false"
+            />
+          </form>
+        </div>
+
+        <div id="help">
+          <span id="network-status">
+            <span id="lock-step-indicator" class="mac-system-spinner"></span>
+            <span id="network-info"></span
+            ><span id="lights"><span class="sub-sprite"></span></span>
+            <span class="pipe">|</span>
+          </span>
+          <span>
+            <a id="game-options-link" href="#" data-ignore-touch="true">options</a>
+          </span>
+          <span id="exit">
+            <span class="exit-pipe">|</span>
+            <a
+              href="./"
+              onclick="return window.aa.exit()"
+              title="Exit (reload required)"
+              data-ignore-touch="true"
+              class="exit"
+            >exit</a>
+          </span>
+        </div>
+      </div>
+
+      <div id="stats-endgame">
+        <table cellpadding="0" cellspacing="0">
+          <thead>
+            <th>Destruction Report</th>
+            <th>You</th>
+            <th>Enemy</th>
+          </thead>
+
+          <tr data-type="tank">
+            <td>Tanks</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+
+          <tr data-type="missile-launcher">
+            <td>Missile Launchers</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+
+          <tr data-type="van">
+            <td>Vans</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+
+          <tr data-type="engineer">
+            <td>Engineers</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+
+          <tr data-type="infantry">
+            <td>Infantry</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+
+          <tr data-type="gunfire">
+            <td>Gunfire</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+
+          <tr data-type="bomb">
+            <td>Bombs</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+
+          <tr data-type="smart-missile">
+            <td>Missiles</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="game-prefs-modal" class="modal mac-classic">
+    <!-- And here, we do terrible, terrible things. :D -->
+    <div class="border-3">
+      <div class="border-2">
+        <div class="border-1">
+          <div class="body">
+            <form
+              id="game-prefs-form"
+              name="prefs_form"
+              method="get"
+              autocomplete="off"
+              novalidate
+              onsubmit="return false"
+            >
+              <div id="game-prefs-header">
+                <div class="column">
+                  <img
+                    src="image/aa_logo_wordmark.png"
+                    alt="Armor Alley&trade; wordmark and helicopter image"
+                    loading="lazy"
+                    class="aa-logo"
+                  />
+                </div>
+                <div class="column">
+                  <button
+                    id="game-prefs-submit"
+                    type="submit"
+                    class="primary"
+                  >OK</button>
+                  <button id="game-prefs-cancel" type="reset">CANCEL</button>
+                </div>
+              </div>
+
+              <div id="form-scroller" class="fieldset-container">
+                <fieldset id="network-options-status" class="network">
+                  <legend id="network-options-status-label">
+                    Network Status
+                  </legend>
+
+                  <div id="network-options-invite-container">
+                    <p class="show-to-host">
+                      To get started, invite a friend.
+                    </p>
+
+                    <p class="show-to-host">
+                      <button
+                        id="network-options-invite-link"
+                        type="button"
+                        disabled
+                      >Invite a friend</button>
+                    </p>
+
+                    <p>
+                      The game can start once you agree on shared options.
+                      <span class="network-icon network-icon-inline"></span
+                      ><br />
+                      Once connected, you can discuss and click “ready” to
+                      proceed.<br />
+                      Non-shared settings apply only to you.
+                    </p>
+                  </div>
+
+                  <div id="network-options-link"></div>
+                </fieldset>
+
+                <fieldset
+                  id="network-options-chat"
+                  class="network sync-over-network"
+                >
+                  <legend>Network Chat</legend>
+
+                  <ul>
+                    <li>
+                      <div id="network-options-chat-box">
+                        <div id="network-options-chat-scroll">
+                          <div id="network-options-chat-ui">
+                            <!-- network chat messages go here. -->
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <input
+                          id="network-chat-input"
+                          name="network_chat_text"
+                          type="text"
+                          autocomplete="off"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          spellcheck="false"
+                          data-gramm="false"
+                          disabled
+                        />
+                      </div>
+                    </li>
+                  </ul>
+                </fieldset>
+
+                <fieldset
+                  id="network-options"
+                  class="network sync-over-network"
+                >
+                  <legend>
+                    Network Options<span class="network-icon"></span>
+                  </legend>
+
+                  <ul>
+                    <li>
+                      <p class="compact options-heading"><b>Game Style</b></p>
+                      <p class="non-indented">
+                        Play cooperatively with your best friend, or battle
+                        against your greatest foe.
+                      </p>
+                      <ul class="less-bottom-spacing">
+                        <li style="min-width: 15em; margin-bottom: 1px">
+                          <input
+                            type="radio"
+                            id="radio_net_game_style_pvp"
+                            name="net_game_style"
+                            value="pvp"
+                            checked
+                          />
+                          <label for="radio_net_game_style_pvp">Player vs. player (PvP)</label>
+                        </li>
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_net_game_style_pvp_cpu"
+                            name="net_game_style"
+                            value="pvp_cpu"
+                          />
+                          <label for="radio_net_game_style_pvp_cpu">PvP + 1 friendly CPU each</label>
+                        </li>
+                        <li style="min-width: 15em; margin-bottom: 1px">
+                          <input
+                            type="radio"
+                            id="radio_net_game_style_coop_2v1"
+                            name="net_game_style"
+                            value="coop_2v1"
+                          />
+                          <label for="radio_net_game_style_coop_2v1">Co-op: 2 humans vs. 1 CPU</label>
+                        </li>
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_net_game_style_coop_2v2"
+                            name="net_game_style"
+                            value="coop_2v2"
+                          />
+                          <label for="radio_net_game_style_coop_2v2">Co-op: 2 humans vs. 2 CPUs</label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <p class="compact options-heading"><b>Game Level</b></p>
+                      <p class="non-indented">
+                        Choose one of the classics, or a made-for-network level.
+                      </p>
+
+                      <div>
+                        <!-- <span>Level: </span> -->
+                        <select
+                          id="select_net_game_level"
+                          name="net_game_level"
+                        >
+                          <optgroup label="Original Levels">
+                            <option value="Cake Walk">Cake Walk</option>
+                            <option value="One Gun">One Gun</option>
+                            <option value="Sucker Punch">Sucker Punch</option>
+                            <option value="Airborne">Airborne</option>
+                            <option value="Two-Gun">Two-Gun</option>
+                            <option value="Super Bunker">Super Bunker</option>
+                            <option value="Scrapyard">Scrapyard</option>
+                            <option value="Blind Spot">Blind Spot</option>
+                            <option value="Wasteland">Wasteland</option>
+                            <option value="Midnight Oasis">
+                              Midnight Oasis
+                            </option>
+                          </optgroup>
+                          <optgroup label="Network Levels">
+                            <option value="Balloon Fun">Balloon Fun</option>
+                            <option value="Cavern Cobra">Cavern Cobra</option>
+                            <option value="Desert Sortie">
+                              Desert Sortie
+                            </option>
+                            <option value="First Blood">First Blood</option>
+                            <option value="Network Mania">
+                              Network Mania
+                            </option>
+                            <option value="Rescue Raiders">
+                              Rescue Raiders
+                            </option>
+                            <option value="Midpoint">Midpoint</option>
+                            <option value="Slithy Toves">Slithy Toves</option>
+                            <option value="Tanker's Demise">
+                              Tanker's Demise
+                            </option>
+                            <option value="WindStalker">WindStalker</option>
+                            <option value="Sandstorm">Sandstorm</option>
+                            <option value="Rainstorm">Rainstorm</option>
+                          </optgroup>
+                        </select>
+                      </div>
+                    </li>
+
+                    <li>
+                      <p class="compact options-heading">
+                        <b>Game Difficulty</b>
+                      </p>
+                      <p class="non-indented">
+                        This affects CPU convoy production, turret targeting
+                        and gunfire rates etc.
+                      </p>
+                      <ul class="less-bottom-spacing">
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_net_game_type_easy"
+                            name="net_game_type"
+                            value="easy"
+                            checked
+                          />
+                          <label for="radio_net_game_type_easy">Easy</label>
+                        </li>
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_net_game_type_hard"
+                            name="net_game_type"
+                            value="hard"
+                          />
+                          <label for="radio_net_game_type_hard">Hard</label>
+                        </li>
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_net_game_type_extreme"
+                            name="net_game_type"
+                            value="extreme"
+                          />
+                          <label for="radio_net_game_type_extreme">Extreme</label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="allow-in-game-updates">
+                      <ul class="less-bottom-spacing">
+                        <li>
+                          <label for="cb_lock_step">
+                            <input
+                              type="checkbox"
+                              id="cb_lock_step"
+                              name="lock_step"
+                              value="1"
+                              data-allow-in-game-updates="1"
+                            />
+                            <span class="label-text">"Lock Step" Game Sync</span>
+                            <p class="non-indented">
+                              Trade-off: Clients slow down together, instead
+                              of one side skipping frames <br />to stay in
+                              sync. Try this option if the game feels unstable
+                              or janky.
+                            </p>
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </fieldset>
+
+                <fieldset>
+                  <legend>Audio</legend>
+
+                  <ul>
+                    <li>
+                      <label for="cb_sound">
+                        <input
+                          type="checkbox"
+                          id="cb_sound"
+                          name="sound"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Sound Effects</span>
+                      </label>
+                      <label for="main_volume">
+                        <span class="label-text"> + Volume</span>
+                        <!-- min-width allows for 100% without content shift -->
+                        <span
+                          id="volume-value"
+                          style="display: inline-block; min-width: 19px"
+                        >
+                          <!-- "(70%)" rendered here -->
+                        </span>
+                        <input
+                          type="range"
+                          id="main_volume"
+                          name="volume"
+                          list="markers"
+                          min="0"
+                          max="10"
+                          value="7"
+                          step="1"
+                          class="range-slider"
+                        />
+                      </label>
+                      <p class="non-indented">
+                        Local ambience and audible hints - e.g., when building
+                        convoys, or distant gunfire.
+                      </p>
+                    </li>
+
+                    <li>
+                      <label for="cb_muzak">
+                        <input
+                          type="checkbox"
+                          id="cb_muzak"
+                          name="muzak"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Muzak</span>
+                        <p class="non-indented">
+                          Enjoy easy-listening landing pad classics, such as
+                          <i>The Girl From Ipanema.</i>
+                        </p>
+                      </label>
+                    </li>
+                  </ul>
+                </fieldset>
+
+                <fieldset>
+                  <legend>Environment + Effects*</legend>
+
+                  <ul>
+                    <li style="margin-top: 0px">
+                      <p class="compact options-heading"><b>Weather</b></p>
+                      <p style="padding-top: 0px" class="non-indented">
+                        “It was a dark and stormy night.”
+                      </p>
+                      <ul class="less-bottom-spacing">
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_weather_none"
+                            name="weather"
+                            value=""
+                            checked
+                          />
+                          <label for="radio_weather_none">None</label>
+                        </li>
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_weather_snow"
+                            name="weather"
+                            value="snow"
+                          />
+                          <label for="radio_weather_snow">Snow</label>
+                        </li>
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_weather_hail"
+                            name="weather"
+                            value="hail"
+                          />
+                          <label for="radio_weather_hail">Hail</label>
+                        </li>
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_weather_rain"
+                            name="weather"
+                            value="rain"
+                          />
+                          <label for="radio_weather_rain">Rain</label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li style="padding-top: 1px">
+                      <p class="compact options-heading">
+                        <label for="cb_domfetti">
+                          <input
+                            type="checkbox"
+                            id="cb_domfetti"
+                            name="domfetti"
+                            value="1"
+                            checked
+                          />
+                          <b>“Extra Fancy” Explosions 🎉</b>
+                        </label>
+                      </p>
+                      <p class="non-indented">
+                        Confetti-style fragments from explosions and certain
+                        collisions.
+                      </p>
+                    </li>
+
+                    <li>
+                      <p class="compact options-heading">
+                        <b>“Live” Graveyards 🪦</b>
+                      </p>
+                      <p class="non-indented">
+                        Decorate the battlefield&mdash;ideally, with enemy
+                        units&mdash;over time. <br />
+                        Switch off if the battlefield becomes crowded during
+                        gameplay.
+                      </p>
+                      <ul>
+                        <li>
+                          <input
+                            type="checkbox"
+                            id="cb_gravestones_helicopters"
+                            name="gravestones_helicopters"
+                            value="1"
+                            checked
+                          />
+                          <label for="cb_gravestones_helicopters">Helicopters</label>
+                        </li>
+                        <li>
+                          <input
+                            type="checkbox"
+                            id="cb_gravestones_infantry"
+                            name="gravestones_infantry"
+                            value="1"
+                          />
+                          <label for="cb_gravestones_infantry">Infantry</label>
+                        </li>
+                        <li>
+                          <input
+                            type="checkbox"
+                            id="cb_gravestones_vehicles"
+                            name="gravestones_vehicles"
+                            value="1"
+                          />
+                          <label for="cb_gravestones_vehicles">Vehicles</label>
+                        </li>
+                      </ul>
+                      <p class="non-indented">
+                        <sup>*</sup><i>Might affect game performance; try disabling if slow.</i>
+                      </p>
+                    </li>
+                  </ul>
+                </fieldset>
+
+                <fieldset>
+                  <legend>UI / General</legend>
+
+                  <ul>
+                    <li style="margin-bottom: 2px">
+                      <label for="cb_game_tips">
+                        <input
+                          type="checkbox"
+                          id="cb_game_tips"
+                          name="show_game_tips"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Game Tips / Hints</span>
+                        <p class="non-indented">
+                          You never know &ndash; you might learn something
+                          from these tips that scroll by.
+                        </p>
+                      </label>
+                    </li>
+
+                    <li class="inline-option">
+                      <p class="options-heading" style="padding-bottom: 1px">
+                        <b>Status Bar</b>
+                      </p>
+                      <label for="cb_inventory">
+                        <input
+                          type="checkbox"
+                          id="cb_inventory"
+                          name="show_inventory"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Inventory</span>
+                      </label>
+                    </li>
+
+                    <li class="inline-option">
+                      <label for="cb_weapons_status">
+                        <input
+                          type="checkbox"
+                          id="cb_weapons_status"
+                          name="show_weapons_status"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Weapons</span>
+                      </label>
+                    </li>
+
+                    <li class="inline-option">
+                      <label for="cb_keyboard_labels">
+                        <input
+                          type="checkbox"
+                          id="cb_keyboard_labels"
+                          name="show_keyboard_labels"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Keyboard labels</span>
+                      </label>
+                    </li>
+
+                    <li>
+                      <p class="compact options-heading">
+                        <b>Unit Energy / Damage</b>
+                      </p>
+                      <p class="non-indented">
+                        By default, shown briefly when a unit is hit or
+                        repairing.
+                      </p>
+                      <ul class="less-bottom-spacing">
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_health_status_never"
+                            name="show_health_status"
+                            value="never"
+                          />
+                          <label for="radio_health_status_never">Never</label>
+                        </li>
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_health_status_sometimes"
+                            name="show_health_status"
+                            value="sometimes"
+                            checked
+                          />
+                          <label for="radio_health_status_sometimes">Sometimes</label>
+                        </li>
+                        <li>
+                          <input
+                            type="radio"
+                            id="radio_health_status_always"
+                            name="show_health_status"
+                            value="always"
+                          />
+                          <label for="radio_health_status_always">Always</label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <p class="compact options-heading">
+                        <b>Notifications UI Location</b>
+                      </p>
+
+                      <p class="non-indented">
+                        Where would you like your toast?
+                      </p>
+
+                      <ul>
+                        <li class="compact">
+                          <label for="notifications_location_left">
+                            <input
+                              type="radio"
+                              id="notifications_location_left"
+                              name="notifications_location"
+                              value="left"
+                            />
+                            <span class="label-text">Left</span>
+                          </label>
+                        </li>
+
+                        <li>
+                          <label for="notifications_location_right">
+                            <input
+                              type="radio"
+                              id="notifications_location_right"
+                              name="notifications_location"
+                              value="right"
+                              checked
+                            />
+                            <span class="label-text">Right</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </fieldset>
+
+                <fieldset>
+                  <legend>"Virtual Stupidity" 🎸🤘</legend>
+
+                  <ul>
+                    <li>
+                      <label for="cb_bnb">
+                        <input
+                          type="checkbox"
+                          id="cb_bnb"
+                          name="bnb"
+                          value="1"
+                        />
+                        <span class="label-text">Beavis and Butt-Head in “Armor Alley”</span>
+                        <p>
+                          Play the game &quot;with&quot; two unruly, unlicensed* teenagers.
+                        </p>
+                        <p>
+                          <fn id="footnote-disclaimer">*
+                            <i>Mike Judge's “Beavis and Butt-Head” are
+                            copyright of their respective owners.</i>
+                          </fn>
+                        </p>
+                      </label>
+                    </li>
+
+                    <li>
+                      <label for="cb_bnb_tv">
+                        <input
+                          type="checkbox"
+                          id="cb_bnb_tv"
+                          name="bnb_tv"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Virtual TV 📺</span>
+                        <p>
+                          Occasional music video clips and animation sequences.
+                        </p>
+                      </label>
+                    </li>
+                  </ul>
+                </fieldset>
+
+                <fieldset id="gameplay-options" class="sync-over-network">
+                  <p class="noindent network">
+                    These are shared network options.
+                  </p>
+
+                  <legend>
+                    Gameplay Options<span class="network-icon"></span>
+                  </legend>
+
+                  <ul>
+                    <li>
+                      <label for="cb_alt_smart_missiles">
+                        <input
+                          type="checkbox"
+                          id="cb_alt_smart_missiles"
+                          name="alt_smart_missiles"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Heat-seeking rubber chicken + smart banana missiles</span>
+                        <p>
+                          Two alternate smart missile designs, not in the original game.
+                        </p>
+                      </label>
+                    </li>
+
+                    <li>
+                      <label for="cb_engineers_can_repair_bunkers">
+                        <input
+                          type="checkbox"
+                          id="cb_engineers_can_repair_bunkers"
+                          name="engineers_repair_bunkers"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Engineers can repair bunkers</span>
+                        <p>
+                          Engineers originally had limited roles, interacting only with turrets.
+                        </p>
+                      </label>
+                    </li>
+
+                    <li>
+                      <label for="cb_engineers_can_rob_the_bank">
+                        <input
+                          type="checkbox"
+                          id="cb_engineers_can_rob_the_bank"
+                          name="engineers_rob_the_bank"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Engineers can “rob the bank”</span>
+                        <p>
+                          Infantry can capture up to 20 funds from an enemy
+                          end bunker. <br />This allows engineers to capture
+                          <i>all</i> funds, as a reward for their risk.
+                        </p>
+                      </label>
+                    </li>
+
+                    <li>
+                      <label for="cb_tank_gunfire_miss_bunkers">
+                        <input
+                          type="checkbox"
+                          id="cb_tank_gunfire_miss_bunkers"
+                          name="tank_gunfire_miss_bunkers"
+                          value="1"
+                          checked
+                        />
+                        <span class="label-text">Tank gunfire / bunker pass-thru</span>
+                        <p>
+                          Allow tanks to fire through bunkers at units other
+                          than helicopters or tanks. Previously, tanks could
+                          destroy a bunker while trying to fire at infantry.
+                        </p>
+                      </label>
+                    </li>
+                  </ul>
+                </fieldset>
+
+                <fieldset id="traffic-control" class="sync-over-network">
+                  <p class="noindent network">
+                    These are shared network options.
+                  </p>
+
+                  <legend>
+                    Ground Vehicle "Traffic Control"
+                    <span class="network-icon"></span>
+                  </legend>
+
+                  <ul>
+                    <li class="allow-in-game-updates">
+                      <label for="ground_unit_traffic_control_classic">
+                        <input
+                          type="radio"
+                          id="ground_unit_traffic_control_classic"
+                          name="ground_unit_traffic_control"
+                          value="0"
+                          data-allow-in-game-updates="1"
+                        />
+                        <span class="label-text">Allow overlapping (original game style)</span>
+                        <p>
+                          Tanks are the only vehicles that stop to fire at
+                          things. This can cause "pile-ups," where multiple
+                          tanks can overlap and appear as one.
+                        </p>
+                      </label>
+                    </li>
+
+                    <li class="allow-in-game-updates">
+                      <label for="ground_unit_traffic_control_enable">
+                        <input
+                          type="radio"
+                          id="ground_unit_traffic_control_enable"
+                          name="ground_unit_traffic_control"
+                          value="1"
+                          checked
+                          data-allow-in-game-updates="1"
+                        />
+                        <span class="label-text">Reduce overlapping, "tanks first"</span>
+                        <p>
+                          Vehicles will "park" behind each other. Tanks stop
+                          only for other tanks, and will tend to head up
+                          convoys. Infantry and engineers don't wait for
+                          anyone.
+                        </p>
+                      </label>
+                    </li>
+                  </ul>
+                </fieldset>
+
+                <fieldset id="external-links" class="hide-if-network">
+                  <legend>External Links</legend>
+
+                  <ul>
+                    <li>
+                      <a
+                        href="https://youtu.be/9BQ62c7u2JM"
+                        title="Video tutorial: Overview, new features, strategy, Extreme Mode walk-through"
+                        data-ignore-touch="true"
+                        target="_blank"
+                      >Gameplay + walk-through</a>
+                      (YouTube)
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.schillmania.com/content/entries/2013/armor-alley-web-prototype/"
+                        title="Armor Alley Web Prototype: About the game, credits and thank-yous"
+                        data-ignore-touch="true"
+                        class="static"
+                        target="_blank"
+                      >About</a>: Web remake development history (2013)
+                    </li>
+                    <li>
+                      <a
+                        href="https://github.com/scottschiller/ArmorAlley"
+                        title="Armor Alley (Web Version) on GitHub"
+                        data-ignore-touch="true"
+                        target="_blank"
+                      >"Armor Alley" on GitHub</a> - source code and revision history.
+                    </li>
+                  </ul>
+                </fieldset>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="domfetti-overlay">
+    <!-- "DOMFetti" (DOM confetti) overlay -->
+  </div>
+
+  <div id="editor-window" class="finder mac-classic dialog">
+    <div class="title-bar">
+      <div class="title-bar-stripes"></div>
+      <div class="title-bar-label">Armor Alley&trade; Editor</div>
+    </div>
+
+    <div class="body">
+      <div class="grid">
+        <h3>Controls</h3>
+
+        <ul class="compact" style="margin-bottom: 4px !important">
+          <li>&middot; Prev / next item in active group: <b>[</b> <b>]</b></li>
+          <li>&middot; Set selected ownership: <b>&lt;</b> <b>&gt;</b></li>
+          <li>&middot; Delete selected item(s): <b>delete ⌦</b></li>
+          <li>&middot; Move selected item(s): <b>←</b> arrow keys <b>→</b></li>
+        </ul>
+
+        <h3>Units</h3>
+
+        <ul class="inline-list">
+          <li>
+            &middot;
+            <u><b>M</b></u>issile...&middot;
+            <u><b>T</b></u>ank &middot;
+            <u><b>V</b></u>an &middot;
+            <u><b>I</b></u>nfantry &middot;
+            <u><b>E</b></u>ngineer
+          </li>
+        </ul>
+
+        <h3><u>S</u>tructures (x4)</h3>
+
+        <ul class="inline-list">
+          <li>&middot;Bunker</li>
+          <li>&middot;Super Bunker</li>
+          <li>&middot;Turret</li>
+          <li>&middot;Landing Pad</li>
+        </ul>
+
+        <h3><u>A</u>irborne (x2)</h3>
+
+        <ul class="inline-list">
+          <li>&middot;Cloud</li>
+          <li>&middot;Balloon</li>
+        </ul>
+
+        <h3>Terrain</h3>
+
+        <ul class="inline-list">
+          <li>
+            &middot;<u><b>B</b></u>arb wire
+          </li>
+          <li>
+            &middot;<u><b>C</b></u>actus (x2)
+          </li>
+          <li>
+            &middot;<u><b>D</b></u>une (x2)
+          </li>
+          <li>
+            &middot;<u><b>F</b></u>lower (x3)
+          </li>
+          <li>
+            &middot;<u><b>G</b></u>rass / Grave (x5)
+          </li>
+          <li>
+            &middot;<u><b>R</b></u>ock (x2)
+          </li>
+          <li>
+            &middot;<u><b>W</b></u>ood (trees) (x2)
+          </li>
+        </ul>
+
+        <div id="active-sprite" class="static-sprite default"></div>
+
+        <p class="non-indented">
+          <b>Active: </b><span id="editor-active">[none]</span>
+        </p>
+
+        <!-- <button id="editor-export" data-method="export" type="button">Export</button> -->
+
+        <button id="editor-play" data-method="play" type="button">
+          Play
+        </button>
+
+        <button id="editor-show-help" data-method="showHelp" type="button">
+          Help
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="editor-window-help" class="finder mac-classic dialog">
+    <div class="title-bar">
+      <div class="close-button"></div>
+      <div class="title-bar-stripes"></div>
+      <div class="title-bar-label">Armor Alley&trade; Editor :: Help</div>
+    </div>
+
+    <div class="body">
+      <div class="grid">
+        <h3>EXPERIMENTAL DISCLAIMER</h3>
+        <p>This level editor is a work in progress!</p>
+        <p>
+          Think of it like a toolbox of brushes. Select a brush, then "paint"
+          the landscape with e.g., tanks, bunkers, or flowers.
+        </p>
+
+        <h3>How-To</h3>
+
+        <p>
+          Click and drag the landscape, or use the "scrollbar" in the top
+          radar area to navigate.
+        </p>
+
+        <h3>Placing Items</h3>
+        <p>
+          To place a Tank, press <b><u>T</u></b> (shift not required), then
+          click near the ground. Use the <b>&lt;</b> <b>&gt;</b> keys to
+          switch sides.
+        </p>
+        <p>
+          Some elements are grouped by type. Press the relevant key, e.g.
+          <b><u>S</u></b> for structures, <b><u>G</u></b> for grass /
+          gravestones. Once active, press the same key or use <b>[</b>
+          <b>]</b> to cycle through items.
+        </p>
+        <p>
+          Once there is an "active" type, click near the ground to place it.
+        </p>
+
+        <h3>Selecting Items</h3>
+        <p>
+          Click an item to select it. Arrow keys can move L/R one pixel at a
+          time.
+        </p>
+        <p>
+          Click while pressing <b>CMD / windows / meta-key</b> to draw a
+          selection marquee. CMD-click on an item to toggle and do
+          multi-selection. <b>Shift</b> can be held during marquee for
+          multi-select / toggle.
+        </p>
+        <p>Press <b>esc</b> to exit "placement" mode.</p>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <p>This browser-based game requires JavaScript to run.</p>
+  </noscript>
+
+</body>
+</html>

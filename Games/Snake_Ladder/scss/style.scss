@@ -1,0 +1,511 @@
+@import '../bourbon/bourbon';
+// http://bourbon.io/
+@import '../partials/variables';
+// colors, fonts etc...
+@import '../partials/mixins';
+// custom mixins
+@import '../partials/layout'; // responsive grid and media queries
+
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+*, *:after, *:before {
+  @include box-sizing(border-box);
+}
+
+body {
+  font: {
+    size: 100%;
+    family: $primary-font; // variables inside partials > _variables.scss
+  }
+  color: $color-text;
+  background-color: $color-bg;
+}
+
+body, html {
+  /* important */
+  height: 100%;
+  font-size: 20px;
+  @include MQ(M) {
+    font-size: 23px;
+  }
+}
+
+a {
+  color: $color-text;
+  text-decoration: none;
+}
+
+/* --------------------------------
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+
+.container { /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 95%;
+  max-width: $M; // breakpoints inside partials > _layout.scss
+  margin: 10px auto;
+  z-index: index($main-elements, container);
+  &::after { /* clearfix */
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  max-width: 630px;
+  min-width: 320px;
+  height: auto;
+  z-index: 2000;
+  visibility: hidden;
+  /*@include backface-visibility(hidden);*/
+  @include transform(translateX(-50%) translateY(-50%));
+}
+
+.show {
+  visibility: visible;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: index($main-elements, overlay);
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.72);
+  @include transition(all 0.3s);
+}
+
+.loading {
+  opacity: 1;
+  visibility: visible;
+}
+
+.show ~ .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.content {
+  color: black;
+  background: white;
+  position: relative;
+  border-radius: 3px;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  color: $color-dice-bg;
+  .who-won {
+    p {
+      color: $color-dice-bg;
+
+      margin: 10px 0;
+    }
+    p.greetings {
+      font-family: $welcome-font;
+      font-size: 1.8rem;
+      margin: 10px 0;
+      color: $color-button-roll;
+    }
+    .which-avatar-won {
+      width: 90px;
+    }
+    .go {
+      @include button_custom;
+    }
+  }
+  p.welcome {
+    font-family: $welcome-font;
+    font-size: 2rem;
+
+    padding: 10px;
+    border-bottom: 2px solid $color-button-roll;
+
+  }
+  p.instructions {
+    font-size: 0.8rem;
+    margin: 13px 0;
+    @include MQ(M) {
+      margin: 20px 0;
+    }
+    @include transition(all 0.3s);
+    &.error {
+      color: $color-error;
+
+      @-webkit-keyframes shake {
+        from, to {
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+
+        10%, 30%, 50%, 70%, 90% {
+          -webkit-transform: translate3d(-10px, 0, 0);
+          transform: translate3d(-10px, 0, 0);
+        }
+
+        20%, 40%, 60%, 80% {
+          -webkit-transform: translate3d(10px, 0, 0);
+          transform: translate3d(10px, 0, 0);
+        }
+      }
+
+      @keyframes shake {
+        from, to {
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+
+        10%, 30%, 50%, 70%, 90% {
+          -webkit-transform: translate3d(-10px, 0, 0);
+          transform: translate3d(-10px, 0, 0);
+        }
+
+        20%, 40%, 60%, 80% {
+          -webkit-transform: translate3d(10px, 0, 0);
+          transform: translate3d(10px, 0, 0);
+        }
+      }
+
+      -webkit-animation: shake 1s 1;
+      animation: shake 1s 1;
+
+    }
+  }
+  div.choose-avatar {
+    label {
+      @include MQ(M) {
+        &:first-child {
+          margin-right: 40px;
+        }
+      }
+
+    }
+    img {
+      width: 80px;
+      @include MQ(M) {
+        width: 90px;
+
+      }
+      @include transition(all 0.3s);
+    }
+    label > input {
+
+      display: none;
+    }
+    label > input + img {
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    label > input:checked + img {
+      border: 3px solid $color-button-roll;
+      border-radius: 50%;
+    }
+
+  }
+  div.choose-who-play-first {
+    label {
+      &:first-child {
+        margin-right: 40px;
+      }
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      &:hover > i { /* HOVER <i> STYLE */
+        box-shadow: inset 0 0 0 3px #fff;
+        background: $color-button-roll;
+      }
+      & > input:checked + i { /* (RADIO CHECKED) <i> STYLE */
+        box-shadow: inset 0 0 0 3px #fff;
+        background: $color-button-roll;
+      }
+      & > input {
+        visibility: hidden;
+        position: absolute;
+      }
+      & > i {
+        display: inline-block;
+        vertical-align: sub;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        transition: 0.2s;
+        box-shadow: inset 0 0 0 8px #fff;
+        border: 1px solid gray;
+
+      }
+      span {
+        font-size: 1rem;
+        margin-left: 2px;
+      }
+    }
+
+  }
+  .go {
+    @include button_custom;
+  }
+}
+
+.effect .content {
+  @include transform(scale(0.7));
+  opacity: 0;
+
+  @include transition(all 0.3s);
+}
+
+.show.effect .content {
+
+  @include transform(scale(1));
+  opacity: 1;
+}
+
+.side-container {
+  padding: 10px;
+  float: left;
+  @include MQ(M) {
+    max-width: 270px;
+
+  }
+  width: 100%;
+  .players {
+    @include MQ(M) {
+      margin-top: 60px;
+    }
+    text-align: center;
+    #player1 {
+      margin-right: 10px;
+      width: 48px;
+      @include MQ(M) {
+        width: 88px;
+      }
+    }
+    #player2 {
+      @include MQ(M) {
+        width: 88px;
+      }
+      width: 48px;
+    }
+  }
+  .whose-turn {
+    text-align: center;
+    margin: 18px;
+    @include MQ(M) {
+      margin: 16px;
+    }
+    position: relative;
+
+    .caret {
+      position: absolute;
+      top: -22px;
+      left: 32%;
+
+      @include MQ(M) {
+        top: -17px;
+        left: 22%;
+      }
+      @include transition(all 0.3s);
+
+    }
+    .nextturn {
+      @include transform(translateX(66px));
+      @include MQ(M) {
+        @include transform(translateX(106px));
+      }
+    }
+    .turn {
+      font-size: .8rem; //later
+      @include transition(all 0.3s);
+      padding: 6px 20px;
+      border-radius: 40px;
+      background: white;
+      @include MQ(M) {
+        display: block;
+        padding: 16px 20px;
+      }
+    }
+  }
+  .dice-and-roll {
+
+    background-color: $color-dice-bg;
+    border-radius: 20px;
+    padding: 17px;
+    @include MQ(M) {
+      margin-top: 50px;
+      text-align: center;
+      padding-bottom: 40px;
+    }
+    img {
+      width: 80px;
+
+      vertical-align: middle;
+      @include MQ(M) {
+        display: block;
+        margin: 20px auto 30px auto;
+        width: 113px;
+
+      }
+    }
+    a#roll-dice {
+      background-color: $color-button-roll;
+      border-radius: 40px;
+      text-align: center;
+      font-size: .8rem; //later
+      margin-left: 20px;
+      cursor: pointer;
+      padding: 7px 26px;
+      color: white;
+      @include MQ(M) {
+        margin-left: 0;
+        padding: 7px 56px;
+      }
+    }
+    a#roll-dice.not-active {
+      background-color: lighten($color-button-roll, 20%);
+      cursor: not-allowed;
+    }
+
+  }
+
+}
+
+.main-container {
+  float: left;
+  position: relative;
+  background-color: #2c3d50;
+  @include MQ(M) {
+    max-width: 690px;
+    max-height: 690px;
+  }
+  .player_in_board {
+    width: 50px;
+    @include transition(all 1s);
+    @include MQ(M) {
+      width: 90px;
+      margin: 10px 0 0 3px;
+    }
+  }
+  /*.player1{
+    @include transition(all 0.3s);
+  }*/
+  #ladder1 {
+    top: 5%;
+    left: 50%;
+    width: 73px;
+    @include MQ(M) {
+      top: 5%;
+      left: 50%;
+      width: 156px;
+
+    }
+  }
+  #ladder2 {
+    top: 67%;
+    left: 67%;
+    width: 72px;
+    @include MQ(M) {
+      top: 67%;
+      left: 67%;
+      width: 159px;
+
+    }
+  }
+  #snake1 {
+    top: 32%;
+    left: 6%;
+    width: 71px;
+    @include MQ(M) {
+      top: 32%;
+      left: 6%;
+      width: 158px;
+
+    }
+  }
+  #snake2 {
+    top: 7%;
+    left: 10%;
+    width: 172px;
+    @include MQ(M) {
+      top: 7%;
+      left: 10%;
+      width: 379px;
+    }
+  }
+  #snake3 {
+    top: 52%;
+    left: 27%;
+    width: 70px;
+    @include MQ(M) {
+      top: 52%;
+      left: 27%;
+      width: 154px;
+    }
+  }
+  #flag {
+    top: 8%;
+    left: 82%;
+    width: 30px;
+    @include MQ(M) {
+      top: 8%;
+      left: 82%;
+      width: 70px;
+    }
+  }
+  img {
+
+    position: absolute;
+  }
+  ul {
+    li.box {
+      float: left;
+      width: 60.8px;
+      height: 60.8px;
+      color: white;
+      @include MQ(M) {
+        width: 138px;
+        height: 138px;
+
+      }
+      span {
+        font-size: 0.8rem;
+        float: right;
+        padding: 0.4rem;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=9, Direction=261, Color=#000000)"; /*IE 8*/
+        text-shadow: 1px -6px 9px rgba(0, 0, 0, 0.6); /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=9, Direction=135, Color=#000000); /*IE 5.5-7*/
+      }
+    }
+    li:nth-child(odd) {
+      background-color: $color-odd-box;
+    }
+    li:nth-child(even) {
+      background-color: $color-even-box;
+    }
+  }
+
+  @include clearfix();
+
+}

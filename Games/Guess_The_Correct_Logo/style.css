@@ -1,0 +1,73 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap');
+
+
+body{
+  text-align: center;
+  background-color: #89ABE3; 
+  overflow: hidden;
+}
+
+h1{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size:50px;
+    font-family: 'Lora', serif;
+    background: linear-gradient(90deg, #f5f504,#270cf5,#f90ee9,#ff0505);
+    -webkit-background-clip: text;  /* Safari/Chrome */
+    -moz-background-clip: text;     /* Firefox (not needed anymore) */
+    background-clip: text;          /* Standard */
+    -webkit-text-fill-color: transparent;  /* Safari/Chrome */
+    -moz-text-fill-color: transparent;     /* Firefox */
+
+}
+  
+#score {
+    font-size: 32px;
+    color: #060eff;
+    font-family:'cursive'
+}
+    
+#timer {
+    font-size: 25px;
+    margin: 20px 30px;
+    color: #ed0b0b;
+    font-family:'Digital-7', sans-serif;
+  }
+  
+#choices{
+  padding-top: 50px;
+} 
+
+img {
+  width: 200px;
+  height: 180px;
+  cursor: pointer;
+
+}
+
+button{
+  padding: 0px;
+  margin-right: 40px;
+  border: 0px;
+  color:aqua;
+}
+#replayButton {
+  font-size: 20px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #0fe50fea; /* Green color */
+  border: none;
+  color: #191414;
+  cursor: pointer;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#replayButton:hover {
+  background-color: #04fb04; /* Darker green on hover */
+}

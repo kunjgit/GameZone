@@ -1,0 +1,218 @@
+@import url(https://fonts.googleapis.com/css?family=Luckiest+Guy);
+
+body{
+  height:100%;
+  overflow:hidden;
+  background: radial-gradient(ellipse at center, rgba(240,249,255,1) 0%,rgba(203,235,255,1) 25%,rgba(161,219,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=1 );
+  font-family: "Luckiest Guy", sans-serif;
+  letter-spacing:1px  
+}
+
+div{
+  box-sizing:border-box;
+}
+
+.wrapper{
+  width:520px;
+  margin:80px auto;
+  position:relative;
+}
+
+.gameover{
+  box-sizing:border-box;
+  padding:70px 0 0 0;
+  width:362px;
+  height:327px;
+  position:absolute;
+  top:0;
+  left:-6px;
+  background: rgba(0,0,0,0.5);
+  z-index:100;
+  margin-top:-35px;
+  border-radius:15px;
+  text-align:center;
+  display:none;
+  color:#fff;
+}
+
+.gameBoard{
+  width:350px;
+  position:relative;
+  float:left;
+}
+.gameBoard .row{
+  clear:both;
+}
+
+.sidebar{
+  width:140px;
+  height:285px;
+  position:relative;
+  float:right;
+}
+.scoreBoard{
+  width:110px;
+  height:170px;
+  margin-top:-34px;
+  padding:10px 10px 0;
+  text-align:right;
+  position:relative;
+  top:21px;
+  left:15px;
+  border-radius:8px;
+  background: rgba(0,0,0,0.8);
+}
+
+.lootracker li{
+	height:40px;
+}
+.lootracker li img{
+	height:30px;
+	position:relative;
+	top:8px;
+}
+
+/* Board Tiles */
+
+.gametile{
+  width:70px;
+  height:91px;  
+  float:left;
+  margin-top:-34px;
+  position:relative;
+  transition: top 200ms ease;
+  cursor: pointer;
+}
+
+.grass{
+  background: url('http://adrianpayne.me/game/assets/images/grass.png') no-repeat; 
+} 
+.grass:hover{
+ top:-10px; 
+}
+
+.dirt{
+  background: url('http://adrianpayne.me/game/assets/images/dirt.png') no-repeat;
+}
+
+.stone{
+  background: url('http://adrianpayne.me/game/assets/images/stone.png') no-repeat;
+}
+
+.water{
+  background: url('http://adrianpayne.me/game/assets/images/water.png') no-repeat;
+}
+
+.air{
+  background: url('http://adrianpayne.me/game/assets/images/air.png') no-repeat;
+}
+
+/* Game Elements */
+.gem{
+  width:46px;
+  height:49px;
+  position:relative;
+  left:12px;
+}
+
+.star{
+  width:51px;
+  height:51px;
+  position:relative;
+  left:3px;
+  top:-10px;
+}
+
+.chest{
+  width:55px;
+  height:68px;
+  position:relative;
+  left:8px;
+  top:-14px;
+}
+.chest-closed{
+  background: url('http://adrianpayne.me/game/assets/images/chest-closed.png') no-repeat 0 0;
+}
+.chest-open{
+  background: url('http://adrianpayne.me/game/assets/images/chest-open.png') no-repeat 0 0;
+}
+
+/* Buttons */
+.button{
+  width:80px;
+  padding: 5px 10px 5px 10px;
+  display:block;  
+  position:absolute;
+  left:17px;
+  bottom:38px;
+  line-height:20px;
+  font-size:18px;
+  text-decoration:none;
+  text-align:center;
+  color:#fff;
+  border-radius:8px;
+  border: 2px solid PeachPuff;
+  background: url('http://adrianpayne.me/game/assets/images/button.jpg') repeat;
+}
+.button:hover{
+  color:Khaki;
+  border-color: Sienna;
+}
+.button:active{
+  font-size:16px;
+  border-color: PeachPuff;
+}
+
+/* Text Styles */
+
+h2{
+  font-size:22px; 
+  color:#fff;
+}
+
+h3{
+  font-size:35px; 
+  color:#fff;
+  margin-bottom:5px;
+}
+
+.final-score{
+  font-size:55px; 
+  color:gold;
+}
+
+
+.score{
+  position:absolute;
+  font-size:26px;
+  color:gold;
+  right:10px;
+}
+
+.loot{
+  position:absolute;
+  font-size:22px;
+  color:#fff;
+  right:10px;
+  top:75px;
+}
+
+/* Avatar */
+.avatar{
+	position:absolute;
+	left:-85px;
+}
+.speech-bubble{
+  background: url('http://adrianpayne.me/game/assets/images/speech.png') no-repeat 0 0;
+  width:100px;
+  height:62px;
+  position:absolute;
+  text-align:center;
+  text-transform:uppercase;
+  font-size:20px;
+  line-height:56px;
+  left:-180px;
+  top:-30px;
+  opacity:0;
+}

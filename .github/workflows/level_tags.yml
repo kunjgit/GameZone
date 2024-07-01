@@ -1,0 +1,55 @@
+name: Add Tags to Issues
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-tags:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Add tags to issues
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const { issue } = context.payload;
+            const { owner, repo } = context.repo;
+            const { title, body } = issue;
+
+            let tagsToAdd = [];
+
+            // Check if issue text contains "Documentation Bug"
+            if (title && title.toLowerCase().includes('documentation bug')) {
+              tagsToAdd.push('Documentation Bug 🐛');
+              tagsToAdd.push('level1');
+            }
+
+            // Check if issue title contains "Enhancement"
+            if (title && title.toLowerCase().includes('enhancement')) {
+              tagsToAdd.push('Enhancement ⚡️');
+              tagsToAdd.push('level2');
+            }
+
+            if (tagsToAdd.length > 0) {
+              // Add tags to the issue
+              await github.issues.addLabels({
+                owner: owner,
+                repo: repo,
+                issue_number: issue.number,
+                labels: tagsToAdd
+              });
+
+              console.log(`Added tags ${tagsToAdd.join(', ')} to issue #${issue.number}.`);
+            } else {
+              console.log('No tags to add.');
+            }

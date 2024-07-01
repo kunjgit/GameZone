@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ed7373;
+}
+.game-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+h1{
+    margin-bottom: 20px;
+    color: #ed7373;
+}
+
+.race-track {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #ffe8e8;
+    margin-bottom: 20px;
+    border: 2px solid #ed7373;
+}
+.race-track:after {
+    position: absolute;
+    content: "";
+    width: 1.8px;
+    height: 100%;
+    bottom: 0;
+    left: 50%;
+    background-color: #ed7373;
+}
+
+.character {
+    position: absolute;
+    bottom: 0;
+    font-size: 2em;
+    transition: 0.3s;
+}
+
+#player {
+    left: 20%;
+}
+
+#computer {
+    right: 20%;
+}
+
+#question {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#answer {
+    padding: 10px;
+    font-size: 16px;
+    margin: 15px 0;
+    width: 100%;
+    display: block;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    background-color: #ed7373;
+    border: none;
+    color: white;
+    border-radius: 4px;
+}
+button:hover {
+    background-color: #ff5656;
+}
+
+#result {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#final-result {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#replay-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.info {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: center;
+    gap: 15px;
+}
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}

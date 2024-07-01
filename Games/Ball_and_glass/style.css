@@ -1,0 +1,172 @@
+:root {
+    --top: 0px;
+    --top325: 325px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+body {
+    overflow-x: hidden;
+    display: block;
+    background: linear-gradient(to right, #e5fac0, #3db2c2);
+}
+
+ellipse {
+    fill: hsl(0, 0%, 90%);
+    stroke: blue;
+    stroke-weight: 1px;
+}
+
+#reshoot,
+#restart {
+    margin: 10rem auto;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    display: block;
+    color: red;
+    border: 3px solid black;
+    background-color: yellow;
+}
+
+#reshoot:hover,
+#restart:hover {
+    cursor: pointer;
+    background-color: red;
+    color: yellow;
+}
+
+#time {
+    margin: auto;
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#time {}
+
+.cups {
+    margin: auto;
+    width: 310px;
+}
+
+.cup {
+    width: 100px;
+    position: relative;
+}
+
+.row2 {
+    margin-top: -10rem;
+    margin-left: 50px;
+}
+
+.row3 {
+    margin-top: -10rem;
+    margin-left: 100px;
+}
+
+.cup4 {
+    top: 5rem;
+}
+
+.cup5 {
+    top: 5rem;
+}
+
+.cup6 {
+    top: 10rem;
+}
+
+.ball {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.shooter {
+    position: relative;
+    top: 200px;
+    left: 125px;
+    width: 300px;
+    margin: auto;
+}
+
+.shootX {
+    animation: shootX 1s infinite linear;
+}
+
+@keyframes shootX {
+    0% {
+        left: 0px
+    }
+
+    25% {
+        left: 125px
+    }
+
+    50% {
+        left: 0px
+    }
+
+    75% {
+        left: -125px
+    }
+
+    100% {
+        left: 0px
+    }
+}
+
+.shootY {
+    animation: shootY 1s infinite linear;
+}
+
+@keyframes shootY {
+    0% {
+        top: 0px
+    }
+
+    50% {
+        top: 175px
+    }
+
+    100% {
+        top: 0px
+    }
+}
+
+.fadeAway {
+    animation: fadeAway 1s;
+    opacity: 0
+}
+
+@keyframes fadeAway {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+.Shoot {
+    animation: Shoot 1s;
+    animation-timing-function: ease;
+}
+
+@keyframes Shoot {
+    0% {
+        top: var(--top)
+    }
+
+    100% {
+        top: var(--top325)
+    }
+}

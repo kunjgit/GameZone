@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+  cursor: url(Assets/Cursors/Ghost.cur), auto;
+  font-family: DynaPuff;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(#9d5900, #3d2200);
+}
+
+.page-title {
+  color: #ff6d00;
+  font-family: "DynaPuff", cursive;
+  font-weight: normal;
+  text-align: center;
+  font-size: 3em;
+  margin: 20px 0px;
+}
+
+.game-info-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-info {
+  color: #ffbb89;
+  font-size: 1em;
+}
+
+.game-container {
+  margin: 10px 0px;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  justify-content: center;
+  perspective: 500px;
+}
+
+.card {
+  position: relative;
+  cursor: url("Assets/Cursors/GhostHover.cur"), auto;
+  height: 140px;
+  width: 100px;
+}
+
+.card-face {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+  transition: transform 500ms ease-in-out;
+  backface-visibility: hidden;
+}
+
+.card.visible .card-back {
+  transform: rotateY(-180deg);
+}
+
+.card.visible .card-front {
+  transform: rotateY(0);
+}
+
+.card.matched .card-front .card-value {
+  animation: dance 1s linear infinite 500ms;
+}
+
+.card-back {
+  background-color: black;
+  border-color: #ff6d00;
+  transform: rotateY(0);
+}
+
+.cob-web {
+  position: absolute;
+  transition: width 100ms ease-in-out, height 100ms ease-in-out;
+  width: 37px;
+  height: 37px;
+}
+
+.card-face:hover .cob-web {
+  width: 42px;
+  height: 42px;
+}
+
+.cob-web-top-left {
+  transform: rotate(270deg);
+  top: 0;
+  left: 0;
+}
+
+.cob-web-top-right {
+  top: 0;
+  right: 0;
+}
+
+.cob-web-bottom-left {
+  transform: rotate(180deg);
+  bottom: 0;
+  left: 0;
+}
+
+.cob-web-bottom-right {
+  transform: rotate(90deg);
+  bottom: 0;
+  right: 0;
+}
+
+.spider {
+  align-self: flex-start;
+  height: 100px;
+  transition: transform 100ms ease-in-out;
+  transform: translateY(-10px);
+}
+
+.card-back:hover .spider {
+  transform: translateY(0);
+}
+
+.card-value {
+  position: relative;
+  transition: transform 100ms ease-in-out;
+  transform: scale(0.7);
+}
+
+.card-front:hover .card-value {
+  transform: scale(0.5);
+}
+
+.card-front {
+  background-color: #ffbb89;
+  border-color: #333;
+  transform: rotateY(180deg);
+}
+
+.overlay-text {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ff6d00;
+  font-family: DynaPuff, serif;
+  transition: background-color 500ms;
+  font-size: 10px;
+}
+
+.overlay-text-small {
+  font-size: 0.6em;
+}
+
+.overlay-text.visible {
+  display: flex;
+  animation: overlay-grow 500ms forwards;
+}
+
+@keyframes dance {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes overlay-grow {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 500px) {
+  .game-info {
+    font-size: 14px;
+  }
+  .page-title {
+    font-size: 30px;
+  }
+  .card {
+    height: 105px;
+    width: 75px;
+  }
+  .cob-web {
+    width: 27px;
+    height: 27px;
+  }
+  .card-face:hover .cob-web {
+    width: 32px;
+    height: 32px;
+  }
+  .spider {
+    height: 80px;
+  }
+  .card-value {
+    transform: scale(0.5);
+  }
+  .card-front:hover .card-value {
+    transform: scale(0.4);
+  }
+  @keyframes overlay-grow {
+    from {
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 0;
+    }
+    to {
+      background-color: rgba(0, 0, 0, 0.8);
+      font-size: 1.5em;
+    }
+  }
+}

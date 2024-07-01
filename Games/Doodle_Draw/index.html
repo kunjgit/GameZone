@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doodle draw</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div style="text-align:left;
+    font-size: 20px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+    <div id="header">Doodle Draw</div>
+    <div class="main">
+        <div class="container0">
+            <div class="toggle">
+                <button class="reset">Reset</button>
+                <button class="clear">Clear</button>
+            </div>
+            <div class="default">
+                <div class="pen-bg-picker">
+                    <div class="color-picker">
+                        <!-- New to learn -->
+                        <input type="color" id="color-picker-pen" value = "#202020" >
+                        <label for="color-picker-pen">Pen Color</label>
+                    </div>
+                    <div class="color-picker">
+                        <!-- New to learn -->
+                        <input type="color" id="color-picker-bg" value = "#ffffff" > 
+                        <label for="color-picker-bg">Background Color</label>
+                    </div>
+                </div>
+                <button class="grid-line btn-on">Remove Grid Lines</button>
+                <div class="grid-size">
+                    <div class="size-adjust">
+                        <p>Grid Size: 30 x 30</p>
+                        <input type="range" id="slider" min="1" max="60" value="30">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="toggle">
+                <div id="draw">
+                    <div class="title">Switch Pen</div>
+                    <button class="random">Random</button>
+                    <button class="rainbow">Rainbow</button>
+                    <button class="lighten">Lighten</button>
+                    <button class="darken">Darken</button>
+                    <button class="eraser">Eraser</button>
+                </div>
+                <div id="fill">
+                    <div class="title">Fill Color</div>
+                    <button class="area">Specific Area</button>
+                    <button class="full">Full Area</button>
+                </div>
+            </div>
+            <div class="grid"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<TextureAtlas imagePath="sheet.png">
+	<SubTexture name="chipBlackWhite.png" x="196" y="332" width="64" height="64"/>
+	<SubTexture name="chipBlackWhite_border.png" x="0" y="262" width="68" height="68"/>
+	<SubTexture name="chipBlackWhite_side.png" x="200" y="0" width="64" height="38"/>
+	<SubTexture name="chipBlackWhite_sideBorder.png" x="0" y="68" width="68" height="42"/>
+	<SubTexture name="chipBlue.png" x="68" y="372" width="64" height="64"/>
+	<SubTexture name="chipBlueWhite.png" x="132" y="410" width="64" height="64"/>
+	<SubTexture name="chipBlueWhite_border.png" x="0" y="440" width="68" height="68"/>
+	<SubTexture name="chipBlueWhite_side.png" x="68" y="474" width="64" height="38"/>
+	<SubTexture name="chipBlueWhite_sideBorder.png" x="0" y="330" width="68" height="42"/>
+	<SubTexture name="chipBlue_border.png" x="68" y="152" width="68" height="68"/>
+	<SubTexture name="chipBlue_side.png" x="68" y="436" width="64" height="38"/>
+	<SubTexture name="chipBlue_sideBorder.png" x="68" y="68" width="68" height="42"/>
+	<SubTexture name="chipGreen.png" x="136" y="64" width="64" height="64"/>
+	<SubTexture name="chipGreenWhite.png" x="136" y="128" width="64" height="64"/>
+	<SubTexture name="chipGreenWhite_border.png" x="0" y="0" width="68" height="68"/>
+	<SubTexture name="chipGreenWhite_side.png" x="196" y="460" width="64" height="38"/>
+	<SubTexture name="chipGreenWhite_sideBorder.png" x="0" y="152" width="68" height="42"/>
+	<SubTexture name="chipGreen_border.png" x="0" y="194" width="68" height="68"/>
+	<SubTexture name="chipGreen_side.png" x="136" y="256" width="64" height="38"/>
+	<SubTexture name="chipGreen_sideBorder.png" x="0" y="110" width="68" height="42"/>
+	<SubTexture name="chipRedWhite.png" x="196" y="396" width="64" height="64"/>
+	<SubTexture name="chipRedWhite_border.png" x="0" y="372" width="68" height="68"/>
+	<SubTexture name="chipRedWhite_side.png" x="136" y="294" width="64" height="38"/>
+	<SubTexture name="chipRedWhite_sideBorder.png" x="68" y="110" width="68" height="42"/>
+	<SubTexture name="chipWhite.png" x="136" y="192" width="64" height="64"/>
+	<SubTexture name="chipWhiteBlue.png" x="136" y="0" width="64" height="64"/>
+	<SubTexture name="chipWhiteBlue_border.png" x="68" y="262" width="68" height="68"/>
+	<SubTexture name="chipWhiteBlue_side.png" x="132" y="372" width="64" height="38"/>
+	<SubTexture name="chipWhiteBlue_sideBorder.png" x="68" y="330" width="68" height="42"/>
+	<SubTexture name="chipWhite_border.png" x="68" y="0" width="68" height="68"/>
+	<SubTexture name="chipWhite_side.png" x="132" y="474" width="64" height="38"/>
+	<SubTexture name="chipWhite_sideBorder.png" x="68" y="220" width="68" height="42"/>
+</TextureAtlas>

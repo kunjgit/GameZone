@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack a Mole</title>
+    <link rel="stylesheet" href="mole.css">
+    <script src="mole.js"></script>
+</head>
+<body>
+    <div class="home">
+        <h3><a href="https://kunjgit.github.io/GameZone/">HOME</a></h3>
+ </div>
+ <h1>Whack a Mole</h1>
+    <h1>Score:<h2 id="score">0</h2>
+    <div id="speed-section">
+        <label for="speed-slider">Speed:</label>
+        <input type="range" id="speed-slider" min="1" max="5" value="3">
+    </div>
+    &nbsp;
+    <div id="button-section">
+        <button class="start-btn" id="btn">Start New Game</button>
+    </div>
+    <div id="board">
+    </div>
+
+      <!-- Audio element for background music -->
+    <audio id="background-music" src="./audio/game-music.mp3" loop></audio>
+     <audio id="gameOver-music" src="./audio/game-over.mp3" loop></audio>
+    
+   
+
+</body>
+</html>

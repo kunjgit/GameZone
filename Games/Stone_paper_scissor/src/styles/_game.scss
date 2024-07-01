@@ -1,0 +1,129 @@
+html {
+  font-size: $font-size;
+  font-family: $font-family;
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
+  color: $font-color;
+  height: 100%;
+}
+
+body {
+  text-align: center;
+}
+
+.instructions {
+  font-weight: 700;
+  margin: 24px 0 32px;
+}
+
+.game-container {
+  max-width: 620px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: -6px auto;
+}
+
+.player-headline {
+  display: flex;
+  justify-content: space-between;
+
+  .nick,
+  .score {
+    font-family: '8BIT WONDER', sans-serif;
+    font-size: 24px;
+    padding: 0 24px;
+  }
+}
+
+.player {
+  margin: 6px;
+  width: calc(50% - 12px);
+  background-color: #999999;
+}
+
+.messages {
+  margin: 6px;
+  padding: 12px;
+  width: calc(100% - 12px);
+  background-color: #333333;
+  border: 1px solid #cccccc;
+}
+
+.message-text {
+  font-weight: 700;
+}
+
+.fade-in-out {
+  animation: fadeInOut 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity:1; }
+}
+
+.player-container,
+.robot-container {
+  position: relative;
+}
+
+.player-container .player-video {
+  min-height: 298px;
+  width: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  display: block;
+}
+
+.robot-container .avatar {
+  width: 100%;
+  display: block;
+}
+
+.robot-container .robot-hand {
+  position: absolute;
+  width: 100%;
+  display: none;
+  top: 0;
+  left: 0;
+}
+
+.player-hand-container {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  right: 0;
+}
+
+.player-hand {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 42px;
+  line-height: 100px;
+}
+
+.player-hand-zoom {
+  animation: handZoom .5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes handZoom {
+  0% { font-size: 42px; }
+  50% { font-size: 64px; }
+  100% { font-size: 42px; }
+}
+
+.timer-ring-circle {
+  transition: stroke-dashoffset 0.1s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}

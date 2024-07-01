@@ -1,0 +1,45 @@
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #5bd7ea;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    canvas {
+        border: 2px solid #fff;
+        display: block;
+        margin: 0 auto;
+        background-color: #55bc2d;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #score {
+        margin-top: 20px;
+        padding: 0 20px;
+        font-size: 24px;
+		position:absolute;
+		margin-left:70%;
+    }
+
+    .player {
+        color: #fff;
+    }
+
+    .net {
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 400px;
+        background-color: #fff;
+    }
+    ul{
+      list-style: none;
+      bottom: 0;
+      text-align: center;
+    }

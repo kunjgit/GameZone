@@ -1,0 +1,125 @@
+name: Comment and Label on Issue Opened
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  comment_and_label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Add comment
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const commentAuthor = context.payload.issue.user.login;
+            const commentBody = `Hey @${commentAuthor} ! \n Thank you for raising an issue 💗 \n You can self assign the issue by commenting /assign in comment 😀 \n Make sure you follow [CODE OF CONDUCT](https://github.com/kunjgit/GameZone/blob/main/.github/CODE_OF_CONDUCT.md) and [CONTRIBUTING GUIDELINES](https://github.com/kunjgit/GameZone/blob/main/.github/CONTRIBUTING_GUIDELINE.md) 🚀 \n Don’t Forget to ⭐ our [GameZone🎮](https://github.com/kunjgit/GameZone)\n Make sure you join our [Discord🕹️](https://discord.gg/fgwk4XZfxG) `;
+            const { owner, repo, number } = context.issue;
+
+            await github.issues.createComment({
+              owner: owner,
+              repo: repo,
+              issue_number: number,
+              body: commentBody
+            });
+     
+      - name: Add label if issue body contains "GSSoC24"
+        id: check_label_gs_soc24
+        run: |
+          if grep -qE "GSSoC24" <<< "${{ github.event.issue.body }}"; then
+            echo "::set-output name=add_label_gs_soc24::true"
+          else
+            echo "::set-output name=add_label_gs_soc24::false"
+          fi
+
+      - name: Add label "GSSoC24"
+        if: ${{ steps.check_label_gs_soc24.outputs.add_label_gs_soc24 == 'true' }}
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const { owner, repo, number } = context.issue;
+
+            await github.issues.addLabels({
+              owner: owner,
+              repo: repo,
+              issue_number: number,
+              labels: ["gssoc"]
+            });
+
+      - name: Add label if issue body contains "GSSoC23"
+        id: check_label_gs_soc23
+        run: |
+          if grep -qE "GSSoC23" <<< "${{ github.event.issue.body }}"; then
+            echo "::set-output name=add_label_gs_soc23::true"
+          else
+            echo "::set-output name=add_label_gs_soc23::false"
+          fi
+
+      - name: Add label "GSSoC23"
+        if: ${{ steps.check_label_gs_soc23.outputs.add_label_gs_soc23 == 'true' }}
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const { owner, repo, number } = context.issue;
+
+            await github.issues.addLabels({
+              owner: owner,
+              repo: repo,
+              issue_number: number,
+              labels: ["GSSoC23"]
+            });
+
+      - name: Add label if issue body contains "hacktoberfest"
+        id: check_label_hacktoberfest
+        run: |
+          if grep -qE "hacktoberfest" <<< "${{ github.event.issue.body }}"; then
+            echo "::set-output name=add_label_hacktoberfest::true"
+          else
+            echo "::set-output name=add_label_hacktoberfest::false"
+          fi
+
+      - name: Add label "hacktoberfest"
+        if: ${{ steps.check_label_hacktoberfest.outputs.add_label_hacktoberfest == 'true' }}
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const { owner, repo, number } = context.issue;
+
+            await github.issues.addLabels({
+              owner: owner,
+              repo: repo,
+              issue_number: number,
+              labels: ["hacktoberfest"]
+            });
+
+      - name: Add label if issue body contains "IWOC2024"
+        id: check_label_iwoc
+        run: |
+          if grep -qE "IWOC2024" <<< "${{ github.event.issue.body }}"; then
+            echo "::set-output name=add_label_iwoc::true"
+          else
+            echo "::set-output name=add_label_iwoc::false"
+          fi
+
+      - name: Add label "IWOC2024"
+        if: ${{ steps.check_label_iwoc.outputs.add_label_iwoc == 'true' }}
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const { owner, repo, number } = context.issue;
+
+            await github.issues.addLabels({
+              owner: owner,
+              repo: repo,
+              issue_number: number,
+              labels: ["IWOC2024"]
+            });

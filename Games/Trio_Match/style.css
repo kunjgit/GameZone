@@ -1,0 +1,268 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+html {
+  font-size: 8px;
+}
+
+body {
+  background: #f7f7f7;
+  font-family: 'Open Sans', sans-serif;
+  cursor: default;
+}
+
+a {
+  color: #2c82c9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #38a5ff;
+}
+
+.col {
+  margin: 0 auto;
+}
+
+.block {
+  float: left;
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto;
+  border: .25rem solid rgba(0,0,0,.2);
+  border-radius: .4rem;
+  cursor: pointer;
+}
+
+.purple {
+  background: #663399;
+}
+
+.blue {
+  background: #2c82c9;
+}
+.blue:before {
+  content:"";
+  position: absolute;
+  margin: .625rem;
+  width: 1rem;
+  height: 3rem;
+  border: .2rem solid rgba(0,0,0,.2);
+  border-radius: .5rem;
+}
+.blue:after {
+  content:"";
+  position: absolute;
+  margin: .625rem;
+  margin-left: 2.625rem;
+  width: 1rem;
+  height: 3rem;
+  border: .2rem solid rgba(0,0,0,.2);
+  border-radius: .5rem;
+}
+
+.green {
+  background: #2cc990;
+}
+.green:after {
+  content:"";
+  position: absolute;
+  margin: .625rem;
+  width: 3rem;
+  height: 3rem;
+  border: .2rem solid rgba(0,0,0,.2);
+  border-radius: 50%;
+}
+
+.yellow {
+  position: relative;
+  background: #eee657;
+}
+.yellow:before {
+  content:"";
+  position: absolute;
+  margin: .625rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: .2rem solid rgba(0,0,0,.2);
+  border-radius: 50%;
+}
+.yellow:after {
+  content:"";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: .625rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: .2rem solid rgba(0,0,0,.2);
+  border-radius: 50%;
+}
+
+.orange {
+  background: #fcb941;
+}
+.orange:after {
+  content:"";
+  position: absolute;
+  margin: .625rem;
+  width: 3rem;
+  height: 3rem;
+  border: .2rem solid rgba(0,0,0,.2);
+  border-radius: .5rem;
+}
+
+.red {
+  background: #fc6042;
+}
+.red:before {
+  content:"";
+  position: absolute;
+  margin: .625rem;
+  width: 3rem;
+  height: 1rem;
+  border: .2rem solid rgba(0,0,0,.2);
+  border-radius: .5rem;
+}
+.red:after {
+  content:"";
+  position: absolute;
+  margin: .625rem;
+  margin-top: 2.625rem;
+  width: 3rem;
+  height: 1rem;
+  border: .2rem solid rgba(0,0,0,.2);
+  border-radius: .5rem;
+}
+
+.level {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: .5rem;
+}
+
+.points {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: .5rem;
+}
+
+.clicks {
+  position: fixed;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  padding: .5rem;
+  text-align: center;
+}
+
+.start {
+  background: #2c82c9;
+  color: #f7f7f7;
+  font-size: 2rem;
+  text-align: center;
+  width: 50%;
+  height: 5rem;
+  line-height: 5rem;
+  border-radius: .5rem;
+  margin: 2rem auto;
+  cursor: pointer;
+}
+
+.start:hover {
+  background: #2267a0;
+}
+
+.info {
+	position: relative;
+  top: 0;
+  height: 3rem;
+}
+
+.hide {
+  display: none;
+}
+
+.restart {
+	background: #777;
+  color: #f7f7f7;
+  margin: 1rem auto;
+  width: 8rem;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.restart:hover {
+  background: #373737;
+}
+
+.rules {
+	padding: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.rules ol li {
+  padding-bottom: 1rem;
+}
+
+.win {
+  font-size: 6rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.win-score {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.win-text {
+  font-size: 2rem;
+  text-align: left;
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 575px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 845px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}

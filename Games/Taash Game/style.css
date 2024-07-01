@@ -1,0 +1,111 @@
+body {
+  background: url("https://cdn.vectorstock.com/i/500p/34/82/green-casino-poker-table-texture-game-background-vector-47533482.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+   padding:10px;
+}
+
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+    width:75%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+#board{background-color: purple;border-radius: 247px;padding: 2rem;box-shadow: 1px 2px 2px 12px rgb(211 164 18 / 70%);}
+#your-box,#dealer-box{min-height: 200px;}
+#your-box{border-top-right-radius: 247px;border-top-left-radius: 247px;box-shadow: inset 0 10px 12px rgb(253 253 253 / 48%);position: relative;min-width: 600px;}
+#dealer-box{border-bottom-left-radius: 247px;border-bottom-right-radius: 247px;box-shadow: inset 0 -10px 12px rgb(253 253 253 / 48%);position: relative;min-width: 600px;}
+.flex-blackjack-row-1,
+.flex-blackjack-row-2,
+.flex-blackjack-row-3 {
+  display: flex;
+  padding: 5px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.flex-blackjack-row-2 div {
+  padding: 10px;
+  border: 1px solid black;
+
+  flex: 1;
+  height: 350px;
+  text-align: center;
+}
+
+.flex-blackjack-row-2 div img {
+  padding: 10px;
+}
+img{position: relative;z-index: 2;}
+#right{
+  height: 150px;
+  object-fit: contain;
+  position: relative;
+  right: -61px;
+  box-sizing: border-box;
+  rotate: 166deg;
+  top: 3px;
+  z-index: 1;
+}
+#left{
+  height: 150px;
+  object-fit: contain;
+  position: relative;
+  left: -61px;
+  box-sizing: border-box;
+  rotate: -166deg;
+  top: 3px;
+  z-index: 1;
+}
+#center{position: relative;z-index: 2;}
+table {
+    border: 3px solid black;
+    border-collapse: collapse;
+    padding:10px;
+    width:45%;
+    background-color: white;
+    text-align: center;
+}
+table td {
+    border: 2px solid black;
+}
+
+.flex-blackjack-row-3 div {
+  padding: 5px;
+}
+
+.flex-blackjack-row-3 button {
+  padding: 10 px;
+  margin-bottom: 10px;
+}
+
+.flex-blackjack-row-2, .flex-blackjack-row-3{
+  background-image: url(https://i.stack.imgur.com/q02th.jpg);
+  border: 3px solid black;
+}
+@media (max-width:950px) {
+  #board{min-width: 80%;}
+  #your-box,#dealer-box{
+    min-width: 90%;
+    min-height: 300px;
+  }
+}
+@media (max-width:650px) {
+  .container{width: 100%;}
+}
+@media (max-width:470px) {
+  #center,#left,#right{
+  left: 0px;
+  box-sizing: border-box;
+  rotate:0deg;
+  top: 0px;
+  z-index: 1;
+  }
+}

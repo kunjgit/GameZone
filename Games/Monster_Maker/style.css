@@ -1,0 +1,122 @@
+:root {
+  --color-monster: #a8d530;
+  --color-tail: #ff4f51;
+  --color-horns: #ff4f51;
+}
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #ffb64c;
+}
+.wrapper {
+  background-color: #ffffff;
+  width: 90vmin;
+  padding: 30px 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  box-shadow: 0 30px 50px rgba(65, 46, 19, 0.25);
+}
+.buttons {
+  width: 90%;
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px dashed #000000;
+  padding: 20px 0 40px 0;
+}
+.buttons button {
+  background-color: #ffb64c;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 30px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+}
+.container {
+  position: relative;
+}
+.monster {
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  height: 420px;
+  width: 350px;
+}
+.monster-body {
+  height: 310px;
+  width: 220px;
+  background-color: var(--color-monster);
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 50px;
+  border-radius: 10px 10px 0 0;
+}
+.monster-body:before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 40px;
+  background-color: var(--color-monster);
+  top: 140px;
+  left: -40px;
+  border-radius: 5px;
+}
+.monster-body:after {
+  content: "";
+  position: absolute;
+  height: 40px;
+  width: 30px;
+  background-color: var(--color-monster);
+  bottom: -39px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 189.5px 0 0 0 var(--color-monster);
+}
+.monster-horns {
+  width: 330px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 30px var(--color-horns);
+  position: absolute;
+  transform: translateX(-50%);
+  top: -85px;
+  left: 50%;
+}
+.monster-tail {
+  height: 50px;
+  width: 120px;
+  border: 10px solid var(--color-tail);
+  position: absolute;
+  left: 220px;
+  top: 270px;
+  transform: rotate(-10deg);
+  border-top: none;
+  border-radius: 0 0 20px 0;
+}
+.monster-tail:before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-bottom: 20px solid var(--color-tail);
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  left: 85px;
+  bottom: 39px;
+}
+img {
+  position: absolute;
+  left: -1.5px;
+}

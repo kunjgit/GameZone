@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pikachu Volleyball - ver.0.0</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  </head>
+  <body>
+    <div style="text-align: left;
+    font-size: 30px;
+    padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+    <header class="center-block text-center">
+      <button type="button" class="gameBtn" id="reset">RESTART</button>
+    </header>
+    <div id="container" class="center-block">
+      <section id="court" class="text-center center-block">
+        <div id="player1" class="halfcourt">
+          <div id="p1_score" class="score">0</div>
+          <img id="pika" src="img/pokeball.png" />
+          <img id="p1" src="img/playerLeft.png" />
+        </div>
+        <div id="player2" class="halfcourt">
+          <div id="p2_score" class="score">0</div>
+          <img id="p2" src="img/playerRight.png" />
+        </div>
+        <div id="countdown" class="text-center center-block"></div>
+      </section>
+
+      <section id="instruction" class="text-center center-block">
+        <div
+          id="method"
+          style="background: url('img/header.png') no-repeat; margin-left: 50px"
+        >
+          <div id="logo">
+            <img src="img/pikachu.png" />
+          </div>
+          <div id="keyboard1">
+            <table>
+              <tr>
+                <td class="userJUMP">W</td>
+              </tr>
+              <tr>
+                <td class="userLEFT">A</td>
+                <td></td>
+                <td class="userRIGHT">D</td>
+              </tr>
+            </table>
+            <table id="instr_p1">
+              <tr>
+                <td class="userSPIKE">SPACE</td>
+              </tr>
+              <tr>
+                <td class="playerCell">PLAYER 1</td>
+              </tr>
+            </table>
+          </div>
+          <div id="keyboard2">
+            <table>
+              <tr>
+                <td class="userJUMP">▲</td>
+              </tr>
+              <tr>
+                <td class="userLEFT">◄</td>
+                <td></td>
+                <td class="userRIGHT">►</td>
+              </tr>
+            </table>
+            <table id="instr_p2">
+              <tr>
+                <td class="userSPIKE">RETURN</td>
+              </tr>
+              <tr>
+                <td class="playerCell">PLAYER 2</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div style="margin-top: 50px">
+          <button
+            type="button"
+            data-toggle="modal"
+            data-target="#settingBox"
+            class="gameBtn"
+          >
+            SETTING
+          </button>
+          <button id="start" class="gameBtn" type="button">
+            START THE GAME
+          </button>
+        </div>
+      </section>
+
+      <section id="gameOver" class="text-center center-block">
+        <div>
+          <img src="img/gameover.png" /><br /><br />
+          <button class="gameBtn" id="restart">RESTART</button>
+        </div>
+      </section>
+    </div>
+    <div id="NET"></div>
+    <section id="effect"></section>
+    <div id="userGuide">
+      <span></span>
+    </div>
+
+    <!-- Setting Modal -->
+    <div
+      class="modal fade"
+      id="settingBox"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="basicModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="boxModal">
+          <div class="titleModal text-center">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+            <strong>GAME SETTING</strong>
+          </div>
+          <div class="textModal">
+            <form class="form-inline">
+              <label for="#max-point">Maximum Point</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="DEFAULT 21"
+                id="max-point"
+              />
+            </form>
+          </div>
+          <div class="titleModal text-right">
+            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="saveSetting"
+              data-dismiss="modal"
+            >
+              Save and CLOSE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/jBeep.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ball.js"></script>
+    <script src="js/player.js"></script>
+  </body>
+</html>

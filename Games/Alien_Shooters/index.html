@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1.0">
+        <title>Alien Shooter</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Play&family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <script src="./script.js"></script>
+    </head>
+
+    <body>
+       
+        <div>
+        <canvas id="board"></canvas>
+        </div>
+        <div class="title">
+            <h1>Alien Shooter</h1>
+        </div>
+        <div class="startscreen">
+            <ul>
+                <div style="text-align: center;
+                      margin-top: 10px;
+                      font-size: 30px; text-decoration: none;"><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+                  <li style="text-align: center; list-style: none; margin-bottom: 2rem;">How to Play: </li>
+                  <li>Press Space on keyboard to fire</li>
+                  <li>Use arrow keys  or A,D keys to move horizontally</li>
+                  <li>Don't let the aliens come down</li>
+              </ul>
+              <p class="blink" id="blinktext">click anywhere to start</p>
+        </div>
+        <div class="endscreen">
+            <p><b>GAME OVER!!</b></p>
+            <p>your score: <span id="scorecnt">0</span></p>
+            <p>press space to try again</p>
+            <p>press 'q' to quit</p>
+        </div>
+    </body>
+</html>

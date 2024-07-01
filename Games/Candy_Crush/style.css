@@ -1,0 +1,42 @@
+body {
+    background-color: #FFFAF4;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+h1{
+    font-family: 'Shrikhand', cursive;
+    font-size: 52pt;
+    color: #E08E6D;
+}
+
+h3{
+    font-family: 'Corben', cursive;
+    color: #F6C391;
+    font-size: 30pt;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#board {
+    width: 450px;
+    height: 450px;
+    background-color: #FFE8E8;
+    border: 5px solid #D25380;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 0;
+}
+
+#board img {
+    width: 50px;
+    height: 50px;
+}

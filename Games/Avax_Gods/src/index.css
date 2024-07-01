@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  height: max-content;
+}
+
+.head-text::before {
+  content: "";
+  display: flex;
+  width: 4px;
+  height: 100%;
+  background: #7f46f0;
+  margin-right: 12px;
+}
+
+.battle-card {
+  position: relative;
+  transition: 0.4s ease-out;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+.battle-card:hover:before {
+  opacity: 1;
+}
+
+.battle-card:hover .info {
+  opacity: 1;
+}
+
+.battle-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.battle-card .info {
+  position: absolute;
+  z-index: 3;
+  color: #fff;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.gameload {
+  background: rgba(127, 70, 240, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+body {
+  /* overflow: hidden; */
+}
+
+/* Battle Animation Effect */
+.container {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* .container:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background: rgba(0, 0, 0, 0.25);
+  transform: rotate(45deg);
+  outline: 10px solid rgba(0, 0, 0, 0.1);
+}
+
+.container:nth-child(4n):before,
+.container:nth-child(7n):before {
+  display: none;
+} */
+
+.particle {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+.particle:nth-child(1) .sparcle {
+  -webkit-animation-delay: 0ms;
+  animation-delay: 0ms;
+}
+.particle:nth-child(2) .sparcle {
+  -webkit-animation-delay: 50ms;
+  animation-delay: 50ms;
+}
+.particle:nth-child(3) .sparcle {
+  -webkit-animation-delay: 100ms;
+  animation-delay: 100ms;
+}
+.particle:nth-child(4) .sparcle {
+  -webkit-animation-delay: 150ms;
+  animation-delay: 150ms;
+}
+.particle:nth-child(5) .sparcle {
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
+}
+.particle:nth-child(6) .sparcle {
+  -webkit-animation-delay: 250ms;
+  animation-delay: 250ms;
+}
+.particle:nth-child(7) .sparcle {
+  -webkit-animation-delay: 300ms;
+  animation-delay: 300ms;
+}
+.particle:nth-child(8) .sparcle {
+  -webkit-animation-delay: 350ms;
+  animation-delay: 350ms;
+}
+.particle:nth-child(9) .sparcle {
+  -webkit-animation-delay: 400ms;
+  animation-delay: 400ms;
+}
+.particle:nth-child(10) .sparcle {
+  -webkit-animation-delay: 450ms;
+  animation-delay: 450ms;
+}
+.particle:nth-child(11) .sparcle {
+  -webkit-animation-delay: 500ms;
+  animation-delay: 500ms;
+}
+.particle:nth-child(12) .sparcle {
+  -webkit-animation-delay: 550ms;
+  animation-delay: 550ms;
+}
+.particle:nth-child(13) .sparcle {
+  -webkit-animation-delay: 600ms;
+  animation-delay: 600ms;
+}
+.particle:nth-child(14) .sparcle {
+  -webkit-animation-delay: 650ms;
+  animation-delay: 650ms;
+}
+.particle:nth-child(15) .sparcle {
+  -webkit-animation-delay: 700ms;
+  animation-delay: 700ms;
+}
+.particle:nth-child(16) .sparcle {
+  -webkit-animation-delay: 750ms;
+  animation-delay: 750ms;
+}
+.particle:nth-child(17) .sparcle {
+  -webkit-animation-delay: 800ms;
+  animation-delay: 800ms;
+}
+.particle:nth-child(18) .sparcle {
+  -webkit-animation-delay: 850ms;
+  animation-delay: 850ms;
+}
+.particle:nth-child(19) .sparcle {
+  -webkit-animation-delay: 900ms;
+  animation-delay: 900ms;
+}
+.particle:nth-child(20) .sparcle {
+  -webkit-animation-delay: 950ms;
+  animation-delay: 950ms;
+}
+.particle:nth-child(21) .sparcle {
+  -webkit-animation-delay: 1000ms;
+  animation-delay: 1000ms;
+}
+
+.sparcle {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(228, 249, 250, 0);
+  will-change: transform, box-shadow, background-color;
+  transform: rotate(45deg) scale(0.5) translateZ(0);
+  -webkit-animation: explode 333ms;
+  animation: explode 333ms;
+  box-shadow: 0 0 0 0 #fde655;
+}
+
+@-webkit-keyframes explode {
+  0% {
+    background-color: #e4f9fa;
+    transform: rotate(45deg) scale(1.2) translateZ(0);
+    box-shadow: 0 0 0 0 #fde655;
+  }
+  40% {
+    background-color: rgba(228, 249, 250, 0.1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1) translateZ(0);
+    box-shadow: 0 0 0 10px #fde655;
+    background-color: rgba(228, 249, 250, 0);
+  }
+  60% {
+    box-shadow: 0 0 0 50px #d47946;
+    transform: rotate(45deg) scale(0.5) translateZ(0);
+  }
+  70% {
+    background-color: rgba(228, 249, 250, 0);
+    box-shadow: 0 0 0 30px #7a2c1f;
+  }
+  100% {
+    background-color: #7a2c1f;
+    box-shadow: 0 0 0 0 #7a2c1f;
+    transform: rotate(45deg) scale(0.25) translateZ(0);
+  }
+}
+
+@keyframes explode {
+  0% {
+    background-color: #e4f9fa;
+    transform: rotate(45deg) scale(1.2) translateZ(0);
+    box-shadow: 0 0 0 0 #fde655;
+  }
+  40% {
+    background-color: rgba(228, 249, 250, 0.1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1) translateZ(0);
+    box-shadow: 0 0 0 10px #fde655;
+    background-color: rgba(228, 249, 250, 0);
+  }
+  60% {
+    box-shadow: 0 0 0 50px #d47946;
+    transform: rotate(45deg) scale(0.5) translateZ(0);
+  }
+  70% {
+    background-color: rgba(228, 249, 250, 0);
+    box-shadow: 0 0 0 30px #7a2c1f;
+  }
+  100% {
+    background-color: #7a2c1f;
+    box-shadow: 0 0 0 0 #7a2c1f;
+    transform: rotate(45deg) scale(0.25) translateZ(0);
+  }
+}

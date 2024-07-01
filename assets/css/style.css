@@ -130,6 +130,14 @@ input:checked + .slider:before {
   color: #000000;
 }
 
+.dark-theme #about {
+  color: black;
+}
+
+.dark-theme .contributors h1 {
+  color: black;
+}
+
 a {
   text-decoration: none;
   color: #fff;
@@ -3145,6 +3153,7 @@ box-shadow: 0px 0px 21px 0px rgba(204,153,255,1); */
   filter: blur(600px);
   z-index: -10;
 }
+
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
 *{

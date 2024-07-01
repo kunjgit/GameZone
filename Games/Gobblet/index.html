@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gobblet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="startScreen" class="start-screen">
+        <div class="start-content">
+            <h1>Welcome to Gobblet!</h1>
+            <button id="startButton">Play Game</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Gobblet</h1>
+        <div class="game-area">
+            <div class="pieces" id="player1-pieces"></div>
+            <div id="board"></div>
+            <div class="pieces" id="player2-pieces"></div>
+        </div>
+        <div id="message"></div>
+        <div id="scoreboard">
+            <p>Player Red Score: <span id="score1">0</span></p>
+            <p>Player Blue Score: <span id="score2">0</span></p>
+        </div>
+        <button id="restartGame">Restart Game</button>
+        <button id="resetScore">Reset Score</button>
+
+        <!-- Instellingen Icon -->
+        <i class="fa-solid fa-gear iconHover" id="settingsIcon"></i>
+
+        <!-- Modal voor instellingen -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Audio-instellingen</h2>
+                <label for="musicVolume">Muziekvolume:</label>
+                <input type="range" id="musicVolume" min="0" max="1" step="0.01" value="1" onchange="updateMusicVolume(this.value)">
+
+                <label for="effectVolume">Effectvolume:</label>
+                <input type="range" id="effectVolume" min="0" max="1" step="0.01" value="1" onchange="updateEffectVolume(this.value)">
+
+                <label for="autoDim">Automatisch dimmen inschakelen:</label>
+                <input type="checkbox" id="autoDim" checked onchange="toggleAutoDim(this.checked)">
+
+                <button id="playButton">Play Music</button>
+                <button id="pauseButton">Stop Music</button>
+            </div>
+        </div>
+
+        <!-- Win Modal -->
+        <div id="winModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1 id="winMessage"></h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <audio id="backgroundMusic" loop>
+        <source src="mp3/BLACKPINK - Kill This Love Official Instrumental.mp3" type="audio/mp3">
+        Je browser ondersteunt geen audio.
+    </audio>  
+    <audio id="stackSound">
+        <source src="mp3/munch-sound-effect.mp3" type="audio/mp3">
+        Je browser ondersteunt geen audio.
+    </audio>
+</body>
+</html>

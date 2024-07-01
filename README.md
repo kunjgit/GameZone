@@ -248,6 +248,7 @@ This repository also provides one such platforms where contributers come over an
 | [Automated_rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/automated_rock_paper_scissor) |
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game) | [Astronaut_runner](https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner) |
 | [16_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/16_Puzzle) |
+| [8_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/8_Puzzle) |
 | [Catch_The_Falling_Object](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Falling_Object) |
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower) |
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect) |

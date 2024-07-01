@@ -1,0 +1,103 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+  }
+  
+  
+  .header {
+    margin-top: 1rem;
+  
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background-color: rgb(3, 3, 45);
+    color: white;
+    border-radius: 5rem;
+    cursor: pointer;
+  }
+  
+  #game {
+  
+    width: 400px;
+    height: 500px;
+    border: 2px solid rgb(14, 7, 106);
+    margin:  auto;
+    margin-top: 2rem;
+    overflow: hidden;
+  }
+  
+  #character {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(8, 144, 255, 0.979);
+    border-radius: 50%;
+    position: relative;
+    top: 400px;
+    left: 190px;
+    z-index: 1000000;
+  }
+  
+
+  h3{
+    font-size: 1.25rem;
+  }
+
+  #resultBox {
+    display: none;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+  
+  }
+
+  
+  .block {
+    width: 400px;
+    height: 20px;
+    background-color: rgb(70, 65, 65);
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
+  }
+  
+  .hole {
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
+  }
+  
+  #restartButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color:rgb(3, 3, 45);
+    color: white;
+    border: 2px solid rgba(92, 90, 90, 0.242);
+    box-shadow: 10cap;
+    font-size: 2rem;
+    border-radius: 2cap;
+    cursor: pointer;
+    
+  }
+  
+  #restartButton:hover {
+    background-color: #45a049;
+  }
+  
+  

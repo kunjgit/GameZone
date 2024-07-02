@@ -7,8 +7,6 @@ Dragon-Slayer
 ## **Description 📃**
 <!-- add your game description here  -->
 This is a RPG Game where the player's action decides what happens. 
-- 
-
 ## **functionalities 🎮**
 <!-- add functionalities over here -->
 -RPG

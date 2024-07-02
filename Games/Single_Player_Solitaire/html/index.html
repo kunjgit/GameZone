@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solitaire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-board">
+        <div id="stock" class="card-pile"></div>
+        <div id="waste" class="card-pile"></div>
+        <div id="foundations">
+            <div class="foundation card-pile"></div>
+            <div class="foundation card-pile"></div>
+            <div class="foundation card-pile"></div>
+            <div class="foundation card-pile"></div>
+        </div>
+        <div id="tableau">
+            <div class="tableau-pile card-pile"></div>
+            <div class="tableau-pile card-pile"></div>
+            <div class="tableau-pile card-pile"></div>
+            <div class="tableau-pile card-pile"></div>
+            <div class="tableau-pile card-pile"></div>
+            <div class="tableau-pile card-pile"></div>
+            <div class="tableau-pile card-pile"></div>
+        </div>
+    </div>
+    <div id="controls">
+        <button id="new-game-button">New Game</button>
+        <button id="hint-button">Hint</button>
+        <div id="win-message" class="hidden">Congratulations, you won!</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch Craze</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="back1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <div id="scoreBoard">Score: 0</div>
+        <div id="timer">Time: 60</div>
+        <div id="startScreen">
+            <h1>Catch Craze</h1>
+            <button id="startButton">Start Game</button>
+        </div>
+        <div id="gameOverScreen">
+            <h1>Game Over!</h1>
+            <p id="finalScore"></p>
+            <button id="reloadButton">Play Again</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

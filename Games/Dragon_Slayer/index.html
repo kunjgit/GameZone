@@ -8,20 +8,25 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <main id="game-container">
+    <div id="player-stats" class="border">
+      <span id="player-XP" class="stats">XP: <strong><span id="xpText">0</span></strong></span>
+      <span id="player-health" class="stats">Health: <strong><span id="healthText">100</span></strong></span>
+      <span id="player-gold" class="stats">Gold: <strong><span>50</span></strong></span>
+    </div>
+    <div id="choice-section" class="border">
+      <button id="button1" class="btn">Go to Store</button>
+      <button id="button2" class="btn">Go to Cave</button>
+      <button id="button3" class="btn">Fight Dragon</button>
+    </div>
+    <div id="monster-stats" class="hidden border">
+      <span id="monster-name" class="stats">Monster Name: <strong><span></span></strong></span>
+      <span id="monster-health" class="stats">Health: <strong><span></span></strong></span>
+    </div>
+    <div id="text" class="border">
+      Welcome to Dragon Slayer. You must defeat the dragon that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons above.
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

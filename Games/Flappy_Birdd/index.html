@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1.0">
+        <title>Flappy Bird</title>
+        <link rel="stylesheet" href="flappybird.css">
+        <script src="flappybird.js"></script>
+    </head>
+    <body>
+        <canvas id="board"></canvas>
+    </body>
+</html>

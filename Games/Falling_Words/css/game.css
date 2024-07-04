@@ -1,0 +1,88 @@
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+h6 {
+  margin: 0 !important;
+  padding: 0.5rem 0 !important;
+}
+
+.wrapper {
+  max-width: 600px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 2em 2em;
+  color: white;
+  background-color: #343a40; /* Dark background color */
+}
+
+.container-data {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+#GameContent {
+  position: relative;
+  margin: 0 auto 0 auto;
+  height: 600px;
+  width: 100%;
+  border-bottom: 5px solid rgb(0, 217, 255);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.word {
+  position: absolute;
+  background-color: red;
+  padding: 0 10;
+  width: auto;
+  height: auto;
+  text-align: center;
+}
+
+.word p {
+  position: relative;
+  margin: 0;
+}
+
+.modal-gameover {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+input {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.btn-modal {
+  transition: all 0.5s;
+  margin: 0.3em 0;
+}
+
+.btn-modal a {
+  color: black;
+}
+
+.btn-modal:hover,
+.btn-modal a:hover {
+  background-color: rgb(153, 44, 255);
+  border-radius: 0;
+  color: rgb(238, 255, 0) !important;
+  transform: translateY(-4px);
+}
+
+audio {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}

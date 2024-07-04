@@ -1,0 +1,40 @@
+.main {
+  margin-top: 80px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 100px 0;
+  color: white;
+}
+
+h2 {
+  background: -webkit-linear-gradient(rgb(217, 255, 1), rgb(5, 255, 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h3 {
+  background: -webkit-linear-gradient(rgb(238, 255, 0), rgb(143, 5, 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+li:first-of-type {
+  color: greenyellow;
+}
+
+.cyan {
+  color: cyan;
+}
+
+.lose {
+  color: red;
+}
+
+.fast {
+  color: coral;
+}

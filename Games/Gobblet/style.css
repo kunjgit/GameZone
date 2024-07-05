@@ -1,0 +1,242 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(26, 26, 26);
+    font-family: Arial, sans-serif;
+}
+
+.start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.start-content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    background: #333;
+}
+
+#startButton {
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#startButton:hover {
+    background-color: #0056b3;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+h1 {
+    color: #FF6347; 
+    text-align: center;
+    font-size: 3em; 
+    text-transform: uppercase; 
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1); 
+    margin: 20px;
+
+}
+
+.game-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pieces {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 20px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 80px);
+    grid-template-rows: repeat(5, 80px);
+    gap: 5px;
+    margin: 20px;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(221, 177, 255);
+    border-radius: 50%; 
+    border: 2px solid rgb(179, 80, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.cell::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%; 
+}
+
+.cell .piece {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.piece1 {
+    width: 20px;
+    height: 20px;
+    background-color: #ffc8c8;
+    border-radius: 50%;
+    border: 3px solid #5ccd00;
+}
+
+.piece2 {
+    width: 30px;
+    height: 30px;
+    background-color: #fd8282;
+    border-radius: 50%;
+    border: 3px solid #5ccd00;
+}
+
+.piece3 {
+    width: 40px;
+    height: 40px;
+    background-color: #c43232;
+    border-radius: 50%;
+    border: 3px solid #5ccd00;
+}
+
+.piece4 {
+    width: 50px;
+    height: 50px;
+    background-color: #8d0000;
+    border-radius: 50%;
+    border: 3px solid #5ccd00;
+}
+
+.piece[data-player="2"].piece1 {
+    background-color: #ADD8E6; 
+}
+
+.piece[data-player="2"].piece2 {
+    background-color: #87CEEB;
+}
+
+.piece[data-player="2"].piece3 {
+    background-color: #4682B4;
+}
+
+.piece[data-player="2"].piece4 {
+    background-color: #0000CD;
+}
+
+
+.piece.selected {
+    border: 3px solid gold;
+}
+
+#message {
+    margin: 20px 0;
+    font-size: 1.5em;
+}
+
+#restartGame,
+#resetScore, 
+#playButton,
+#pauseButton {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+#restartGame:hover,
+#resetScore:hover, 
+#playButton:hover,
+#pauseButton:hover {
+   background-color: #dbdbdb;
+   border: 2px solid gold;
+}
+
+.iconHover:hover {
+    color: #ff0000;
+}
+
+#scoreboard {
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 39, 39, 0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 3px solid red;
+    border-radius: 20px;
+    width: 50%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Keyframes voor de wiggle animatie */
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(-1deg) scaleX(-1);
+    }
+    50% {
+        transform: rotate(1deg) scaleX(-1);
+    }
+}

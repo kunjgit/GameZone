@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./style.css">
+   
+    
+    <script src="./scripts/libs/893953f084.js"></script>
+    <script src="./scripts/libs/popper.min.js"></script>
+    <script src="./scripts/libs/sweetalert2@11.js"></script>
+    <script src="./scripts/libs/tippy-bundle.umd.min.js"></script>
+
+    <script src="./scripts/game.js" type="module" defer></script>
+    <script src="./scripts/handleInput.js" type="module" defer></script>
+    <script src="./scripts/ui/tooltips.js" type="module" defer></script>
+    
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>TownRise</title>
+</head>
+<body>
+    <div id="console">
+        <input type="text" name="" id="">
+        <button class="btn">OK</button>
+        <p></p>
+    </div>
+    <div id="main-interface">
+        <div id="game_container">
+        <div id="start-game" class="container menu">
+            <h1>TownRise</h1>
+            <img src="./img/icon.png">
+            <input type="button" class="btn btn-active" value="Nova Vila" id="start">
+            <input type="button" class="btn btn-active" value="Carregar Vila" id="load">
+            <input type="button" class="btn btn-active" value="Opções" id="options">
+            <p>v<span id="game-version">0.18</span> &copy; JGSS</p>
+        </div>
+        <div id="load-game" class="container menu hidden">
+            <h1>Carregar Vila</h1>
+            <br>
+            <div id="saved-villages">
+                <select id="village-to-load"></select>
+                <input type="button" class="btn-small" value="Deletar" id="delete-village">
+            </div>
+            <br>
+            <input type="button" class="btn btn-active" value="Carregar" id="load-village">
+            <br>
+            <input type="button" class="btn btn-active" value="Voltar" id="back-to-start">
+            <br>
+        </div>
+    </div>
+        <div id="left-section" style="display: none;">
+            <div class="container" id="time">
+                <div id="game-time">
+                    <input type="button" class="btn btn-active hidden" value="Voltar para o Menu" id="restart">
+                    <input type="button" class="btn time-btn hidden" value="=" id="pause">
+                    <input type="button" class="btn time-btn hidden" value=">" id="1x">
+                    <input type="button" class="btn time-btn hidden" value=">>" id="5x">
+                    <input type="button" class="btn time-btn hidden" value=">>>" id="10x">
+                </div>
+                <p><span>Dia </span><span id="totalDays-stat">1</span><span> - Ano </span><span id="year-stat">0</span></p>
+                <p><span id="day-weather"><i class="fa-solid fa-sun"></i></span> <span id="day-stat">1</span> - <span id="season">Primavera</span></p>
+                <p id="score-info">Pontuação: <span id="score-stat"></span></p>
+            </div>
+            <div class="container hidden" id="buildings-menu">
+                <div id="buildings-menu1">
+                    <button class="btn building-menu" id="building-farm">Agricultura</button>
+                    <button class="btn building-menu" id="building-house">Habitações</button>
+                    <button class="btn building-menu" id="building-manufacture">Manufaturas</button>
+                    <button class="btn building-menu" id="building-businesses">Negócios</button>
+                    <button class="btn building-menu" id="building-handicraft">Ofícios</button>
+                    <button class="btn building-menu" id="building-resources">Recursos</button>
+                    
+                    <button class="btn building-menu rmv-btn" id="rmv-building">Destruir</button>
+                </div>
+                <div id="buildings-menu2"></div>
+            </div>
+            <div class="container" id="pops"></div>
+        </div>
+        <div id="map-section">
+            <div id="active-modifiers"></div>
+            <div id="pop-deaths"></div>
+            <div class="hidden container grass-spring" id="map">
+                <div class="map-div" id="map-city"></div>
+                <div class="map-div" id="map-farms"></div>
+                <div class="map-div" id="map-manufactories"></div>
+            </div>
+        </div>
+        <div id="info-section" class="hidden">
+            <div class="container data">
+                <div id="save">
+                    <button class="btn btn-active" id="save-game">Salvar Vila</button>
+                    <button class="btn btn-active" id="options">Opções</button>
+                    <button class="btn btn-active" id="surrender">Desistir</button>
+                </div>
+
+                <table id="infos">
+                    <tr id="pop-info">
+                        <td><p>População:</p></td>
+                        <td><p><span id="population-stat"></span>/<span id="popLimit-stat"></span></p></td>
+                    </tr>
+                    <tr id="food-info">
+                        <td><p>Comida:</p></td>
+                        <td><p><span id="food-stat"></span></p></td>
+                    </tr>
+                    <tr class="hidden">
+                        <td><p>Conhecimento:</p></td>
+                        <td><p><span id="knowledge-stat"></span></p></td>
+                    </tr>
+                    <tr id="productivity-info">
+                        <td><p>Produtividade:</p></td>
+                        <td>
+                            <div class="progress-bar-background">
+                                <div id="productivity-bar" class="progress-bar">
+                                    <div>
+                                        <span id="productivity-stat"></span>%
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="happiness-info">
+                        <td><p>Felicidade:</p></td>
+                        <td>
+                            <div class="progress-bar-background">
+                                <div id="happiness-bar" class="progress-bar">
+                                    <div>
+                                        <span id="happiness-stat"></span>%
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="hidden">
+                        <td><p>Qualidade de Vida:</p></td>
+                        <td>
+                            <div class="progress-bar-background">
+                                <div id="lifeQuality-bar" class="progress-bar">
+                                    <div>
+                                        <span id="lifeQuality-stat"></span>%
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="container" id="resources"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

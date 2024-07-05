@@ -108,6 +108,7 @@ This repository also provides one such platforms where contributers come over an
 </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |
+
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | --- |
 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)                               | [Treasure Hunt](https://github.com/Antiquely3059/GameZone/tree/main/Games/Treasure%20Hunt)              | [Virtual Pet](https://github.com/Antiquely3059/GameZone/tree/main/Games/Virtual_Pet)                         | [MazeRunner](https://github.com/kunjgit/GameZone/tree/main/Games/MazeRunner)                                       | [Ping_Pong_Singleplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Singleplayer)        |     |
 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)                                 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)        | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)                                 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)                           |
@@ -404,7 +405,7 @@ This repository also provides one such platforms where contributers come over an
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 | [Tic_Tac_Toe_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe_Neon) |
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
-            
+
  </center>
 
 <br>

@@ -324,7 +324,7 @@ This repository also provides one such platforms where contributers come over an
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures) | [Screen Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Screen-Pet-Game) |
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme) |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball) |
-
+| [Tech_Memory_Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Tech_Memory_Blocks) |
 | [Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 |[Building Blocks Game](https://github.com/kunjgit/GameZone/tree/main/Games/Building_Block_Game)|
 |[Cartoon character guessing game](https://github.com/kunjgit/GameZone/tree/main/Games/Cartoon_Character_Guessing_Game)|

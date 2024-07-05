@@ -94,5 +94,5 @@ Make your changes.
 Commit your changes (git commit -m 'Add some feature').
 Push to the branch (git push origin feature-branch).
 Open a pull request.
-
+[Single_Player_Solotaire](https://github.com/nikki-05/GameZone/tree/main/Games/Single_Player_Solitaire)
 --------------------------------ENJOY----------------------------

@@ -834,6 +834,7 @@ This repository also provides one such platforms where contributers come over an
 |[Spell Bee](https://github.com/kunjgit/GameZone/tree/main/Games/Spell_Bee)|
 | [Go-fish-master](https://github.com/kunjgit/GameZone/tree/main/Games/Go-fish-master) |
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
+|[Zombie_Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Zombie_Shooter)|
  | [Ganesh_QR_Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker) |
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
 |[Tic-tac-toe](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tic-tac-toe)|

@@ -36,6 +36,7 @@ body{
 }
 
 .btn{
+  margin:0.25rem;
   padding:0.15rem 1.25rem;
   border:2px solid yellow;
   cursor: pointer;

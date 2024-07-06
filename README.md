@@ -362,6 +362,7 @@ This repository also provides one such platforms where contributers come over an
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Alien_Invasion](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Invasion) |
 | [Drawing_App](https://github.com/kunjgit/GameZone/tree/main/Games/Drawing_app) |
+| [Dodge_the_Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Dodge_the_Blocks)                     |
 
 | [Catch_the_falling_Stars](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_falling_Stars)     |
 

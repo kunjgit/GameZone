@@ -837,8 +837,9 @@ This repository also provides one such platforms where contributers come over an
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
 |[Zombie_Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Zombie_Shooter)|
  | [Ganesh_QR_Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker) |
-|[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
-|[Tic-tac-toe](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tic-tac-toe)|
+|[Wheel_of_Fortunes](https://github.com/kunjgit/GameZone/tree/main/Games/Wheel_of_Fortunes)|
+|[Samurai_Fighting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Samurai_Fighting_Game)|
+|[Tic-tac-toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-tac-toe)|
 |[Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)|
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 | [Tic_Tac_Toe_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe_Neon) |

@@ -847,6 +847,7 @@ This repository also provides one such platforms where contributers come over an
 | [Tic_Tac_Toe_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe_Neon) |
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
 
+| [guess_the_friends_name](https://github.com/kunjgit/GameZone/tree/main/Games/guess_the_friends_name) |
 
  </center>
 

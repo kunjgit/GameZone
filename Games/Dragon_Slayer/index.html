@@ -6,15 +6,19 @@
   <title>Dragon-Slayer</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
 </head>
 <body>
+ 
   <main id="game-container">
-    <div id="player-stats" class="border">
+    <div id="player-stats" class="border hidden">
       <span id="player-XP" class="stats">XP: <strong><span id="xpText">0</span></strong></span>
       <span id="player-health" class="stats">Health: <strong><span id="healthText">100</span></strong></span>
       <span id="player-gold" class="stats">Gold: <strong><span id="goldText">50</span></strong></span>
     </div>
-    <div id="choice-section" class="border">
+    <div id="choice-section" class="border hidden">
       <button id="button1" class="btn">Go to Store</button>
       <button id="button2" class="btn">Go to Cave</button>
       <button id="button3" class="btn">Fight Dragon</button>
@@ -23,10 +27,13 @@
       <span id="monster-name" class="stats">Monster Name: <strong><span id="monsterNameText"></span></strong></span>
       <span id="monster-health" class="stats">Health: <strong><span id="monsterHealthText"></span></strong></span>
     </div>
-    <div id="text" class="border">
+    <div id="text" class="border hidden">
       Welcome to Dragon Slayer. You must defeat the dragon that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons above.
     </div>
   </main>
+  <div id="start-game">
+    <button id="start-game-btn" class="start-btn">Start Game</button>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 *{
   padding:0;
   margin:0;
@@ -7,6 +8,13 @@ body{
   text-align: left;
   background-color: rgb(2, 2, 82);
 }
+#start-game{
+  margin:0 auto;
+  padding:1rem;
+  text-align: center;
+  max-width: 600px;
+}
+
 #game-container{
   margin:1rem auto;
   max-width: 600px;
@@ -16,7 +24,6 @@ body{
   background-color: rgb(241, 245, 248);
   padding:1rem;
 }
-
 #monster-stats{
   background-color: rgb(199, 10, 10);
 }
@@ -43,6 +50,31 @@ body{
   background-image: linear-gradient(to top, #ffa11c 0%, #EDDE5D  1%, #F09819  100%);
 }
 
+
+.start-btn{
+  display: block;
+  font-family: Kode Mono;
+  margin:5px auto;
+  font-weight: bold;
+  padding: 2rem 3rem  ;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: rgb(72, 66, 66);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 .2em gray; 
+  font-size: 2.35rem;
+  cursor: pointer;
+}
+
+
+.start-btn:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
 .hidden{
   display:none;
 }

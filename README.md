@@ -109,6 +109,8 @@ This repository also provides one such platforms where contributers come over an
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |
 
+
+
 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)                               | [Treasure Hunt](https://github.com/Antiquely3059/GameZone/tree/main/Games/Treasure%20Hunt)                               | [Virtual Pet](https://github.com/Antiquely3059/GameZone/tree/main/Games/Virtual_Pet)                    | [MazeRunner](https://github.com/kunjgit/GameZone/tree/main/Games/MazeRunner)                                 | [Ping_Pong_Singleplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Singleplayer)               |                                                                                                             |
 
 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)                                 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)        | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)                                 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)                           |
@@ -360,6 +362,10 @@ This repository also provides one such platforms where contributers come over an
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Alien_Invasion](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Invasion) |
 | [Drawing_App](https://github.com/kunjgit/GameZone/tree/main/Games/Drawing_app) |
+
+| [Catch_the_falling_Stars](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_falling_Stars)     |
+
+
 |[Town-Rise](https://github.com/kunjgit/GameZone/tree/main/Games/Town_Rise_Game)|
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 
@@ -536,6 +542,9 @@ This repository also provides one such platforms where contributers come over an
 </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |
+
+
+
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | --- |
 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)                               | [Treasure Hunt](https://github.com/Antiquely3059/GameZone/tree/main/Games/Treasure%20Hunt)              | [Virtual Pet](https://github.com/Antiquely3059/GameZone/tree/main/Games/Virtual_Pet)                         | [MazeRunner](https://github.com/kunjgit/GameZone/tree/main/Games/MazeRunner)                                       | [Ping_Pong_Singleplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Singleplayer)        |     |
 | [Tilting Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Tilting_Maze)                                 | [Simon Game Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Game_Challenge)        | [Snake Game](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Game)                                 | [Dino Runner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dino_Runner_Game)                           |
@@ -582,7 +591,7 @@ This repository also provides one such platforms where contributers come over an
 | [Mastermind_Mania](https://github.com/kunjgit/GameZone/tree/main/Games/Mastermind_Mania)                         | [Ludo_4_Player](https://github.com/kunjgit/GameZone/tree/main/Games/Ludo_4_Player)                      | [AirBalloon](https://github.com/kunjgit/GameZone/tree/main/Games/AirBalloon)                                 | [Space Invaders](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Invaders)                               | [Cut the Rope](https://github.com/kunjgit/GameZone/tree/main/Games/Cut_the_rope)                            |
 | [Caesar&Cipher](https://github.com/kunjgit/GameZone/tree/main/Games/Caesar_Cipher)                               | [Monster_Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Monster_Maker)                      | [Stolen Sword](https://github.com/kunjgit/GameZone/tree/main/Games/Stolen_Sword)                             | [Mastermind](https://github.com/kunjgit/GameZone/tree/main/Games/Mastermind)                                       | [Highway 404](https://github.com/kunjgit/GameZone/tree/main/Games/Highway_404)                              |
 | [BullseyeGame](https://github.com/kunjgit/GameZone/tree/main/Games/BullseyeGame)                                 | [Crossword Game](https://github.com/kunjgit/GameZone/tree/main/Games/Crossword_Game)                    | [Guess the Correct Logo](https://github.com/shruti-2412/GameZone/tree/main/Games/Guess_The_Correct_Logo)     | [Painting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Painting_Game)                                 | [Platform_game_engine](https://github.com/kunjgit/GameZone/tree/main/Games/Platform_game_engine)            |
-| [Kill_The_Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Kill_The_Bird)                                 |
+| [Kill_The_Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Kill_The_Bird)                               |
 | [Doppelkopf](https://github.com/kunjgit/GameZone/tree/main/Games/Doppelkopf)                                     | [quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/quiz_game)                              | [Island Survival](https://github.com/kunjgit/GameZone/tree/main/Games/Island_Survival)                       | [Linkup Game](https://github.com/kunjgit/GameZone/tree/main/Games/linkup)                                          | [Trivia_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Trivia_Card)                              |
 | [Insect Catch Game](https://github.com/kunjgit/GameZone/tree/main/Games/Insect_Catch_Game)                       | [Carnival_game](https://github.com/kunjgit/GameZone/tree/main/Games/Carnival_game)                      | [Make Me Laugh](https://github.com/kunjgit/GameZone/tree/main/Games/Make_Me_Laugh)                           | [Avoider_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Avoider_Game)                                   | [Dungeon_Crawler](https://github.com/kunjgit/GameZone/tree/main/Games/Dungeon_Crawler)                      |
 | [snake_water_gun](https://github.com/kunjgit/GameZone/tree/main/Games/snake_water_gun)                           | [Run and Jump](https://github.com/kunjgit/GameZone/tree/main/Games/Run_and_Jump)                        | [AI CHESS Game](https://github.com/kunjgit/GameZone/tree/main/Games/AI_CHESS_Game)                           | [Fruit_Catching](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching)                               | [Bulls eye](https://github.com/kunjgit/GameZone/tree/main/Games/Bulls_eye)                                  |
@@ -617,10 +626,10 @@ This repository also provides one such platforms where contributers come over an
 | [CSS Select](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Select)                                     | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Squid_Game)                                 | [Flip Coin](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Coin)                                   | [Witty Word Quest](https://github.com/kunjgit/GameZone/tree/main/Games/witty_word_quest)                           | [Typing Game](https://github.com/Ishan-77/GameZone/tree/main/Games/Typing_Game)                             |
 | [numeral-whiz](https://github.com/Ishan-77/GameZone/tree/main/Games/numeral-whiz)                                | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)                     | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road)                                    | [HueHero](https://github.com/kunjgit/GameZone/tree/main/Games/HueHero)                                             | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner)                          |
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                                   | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon)                               | [Color_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Blast)                              |
+| [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                                       | [Coloron](https://github.com/kunjgit/GameZone/tree/main/Games/Coloron).      
 | [Wordling](https://github.com/kunjgit/GameZone/tree/main/Games/Wordling) 
 | [HTML5_Controller_Tester](https://github.com/kunjgit/GameZone/tree/main/Games/HTML5_Controller_Tester)
-| [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                                       | [Coloron](https://github.com/kunjgit/GameZone/tree/main/Games/Coloron).                                 | [Spirograph](https://github.com/kunjgit/GameZone/tree/main/Games/Spirograph)                                 |
-| [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk)  | [Audio_Wordle](https://github.com/kunjgit/GameZone/tree/main/Games/Audio_Wordle)
+| [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk)  | [Audio_Wordle](https://github.com/kunjgit/GameZone/tree/main/Games/Audio_Wordle>>>>>>> main
 | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian) |
 | [escaperoom](https://github.com/kunjgit/GameZone/tree/main/Games/escaperoom)
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | [HTML5_Controller_Tester](https://github.com/kunjgit/GameZone/tree/main/Games/HTML5_Controller_Tester)
@@ -628,11 +637,11 @@ This repository also provides one such platforms where contributers come over an
 | [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack) |
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game) | [TriHand_Tactics](https://github.com/kunjgit/GameZone/tree/main/Games/TriHand_Tactics) | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian) | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) |  
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | [CatchTheBall](https://github.com/kunjgit/GameZone/tree/main/Games/CatchTheBall) |
-| [CopyCat](https://github.com/kunjgit/GameZone/tree/main/Games/CopyCat) | 
+| [CopyCat](https://github.com/kunjgit/GameZone/tree/main/Games/CopyCat) |
 | [Cross_The_River_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_The_River_Game) | 
 [DoraemonRun ](https://github.com/kunjgit/GameZone/tree/main/Games/DoraemonRun) |
 | [Memory_Cards_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Cards_Game) |
-| [Typing_Speed_Test2](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test2) | [Tic Tac Toe Responsive ](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_tac_toe_responsive) | [Minesweeper Easy ](https://github.com/kunjgit/GameZone/tree/main/Games/MineSweeper_Easy) | 
+| [Typing_Speed_Test2](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Speed_Test2) | [Tic Tac Toe Responsive ](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_tac_toe_responsive) | [Minesweeper Easy ](https://github.com/kunjgit/GameZone/tree/main/Games/MineSweeper_Easy) |
 | [Technical_Mind_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Technical_Mind_Game) |
 [Slide_Master_Puzzle](https://github.com/kunjgit/GameZone/tree/Main/Games/Slide_Master_Puzz)| |
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | [Letter_Sleuth](https://github.com/swetha5157/GameZone/tree/main/Games/Letter_Sleuth)
@@ -676,6 +685,7 @@ This repository also provides one such platforms where contributers come over an
 | [Automated_rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/automated_rock_paper_scissor) |
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game) | [Astronaut_runner](https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner) |
 | [16_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/16_Puzzle) |
+| [8_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/8_Puzzle) |
 | [Catch_The_Falling_Object](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Falling_Object) |
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower) |
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect) |
@@ -718,9 +728,8 @@ This repository also provides one such platforms where contributers come over an
 | [Physics_Quizz](https://github.com/kunjgit/GameZone/tree/main/Games/Physics_Quizz) |
 | [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing) |
 | [Etch_a_Sketch_2](https://github.com/kunjgit/GameZone/tree/main/Games/Etch_a_Sketch_2) |
-
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect) |
-
+| [Falling_Words](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Words) |
 | [namefate](https://github.com/kunjgit/GameZone/tree/main/Games/namefate) |
 | [Fruit_Catching_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching_Game) |
 | [color_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application) |
@@ -747,9 +756,12 @@ This repository also provides one such platforms where contributers come over an
 | [WordScramble](https://github.com/kunjgit/GameZone/tree/main/Games/wordScramble)  
 [Roll_The_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_The_Dice) |
 | [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk) |
+| [Flappy_Birdd](https://github.com/kunjgit/GameZone/tree/main/Games/Flappy_Birdd) |
+
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures) | [Screen Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Screen-Pet-Game) |
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme) |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball) |
+
 | [Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 |[Building Blocks Game](https://github.com/kunjgit/GameZone/tree/main/Games/Building_Block_Game)|
 |[Cartoon character guessing game](https://github.com/kunjgit/GameZone/tree/main/Games/Cartoon_Character_Guessing_Game)|
@@ -761,23 +773,22 @@ This repository also provides one such platforms where contributers come over an
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme) |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball) |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
-|[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game)   |
-| [Snake](https://github.com/kunjgit/GameZone/tree/main/Games/snake)                               |
-| [whack a mole](https://github.com/kunjgit/GameZone/tree/main/Games/whack%20a%20mole)             |
+|[Lunar Lander](https://github.com/kunjgit/GameZone/tree/main/Games/Lunar_Lander)|
 |[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game) |
+|[Chess_Game_computer](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game_computer) |
+|[Turn_on_the_light](https://github.com/kunjgit/GameZone/tree/main/Games/Turn_on_the_light) |
+|[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game)   |
+| [whack a mole](https://github.com/kunjgit/GameZone/tree/main/Games/whack%20a%20mole)             |
 | [Snake](https://github.com/kunjgit/GameZone/tree/main/Games/snake)                |
 | [Dice_Game] (https://github.com/shivan2004/GameZone/tree/main/Games/Dice_Game)|
 |[HitOrMiss](https://github.com/kunjgit/GameZone/tree/main/Games/HitOrMiss)|
-|[Lunar Lander](https://github.com/kunjgit/GameZone/tree/main/Games/Lunar_Lander)|
-|[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game) |
-| [Snake](https://github.com/kunjgit/GameZone/tree/main/Games/snake)                |
 | [Tetris Game](https://github.com/kunjgit/GameZone/tree/main/Games/tetris_game)|
-|[Chess_Game_computer](https://github.com/kunjgit/GameZone/tree/main/Games/Chess_Game_computer) |
 |[Turn_on_the_light](https://github.com/kunjgit/GameZone/tree/main/Games/Turn_on_the_light) |
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
 | [Bubble'z Popper](https://github.com/Chandu6702/GameZone/tree/main/Games/Bubble'z Popper)|
 | [Dsa_quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/Dsa_quiz_game) |
 | [Gravity_Simulation_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Simulation_Game) |
+
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)                  
 |  [Catch_The_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Ball) |
 | [Ball_in_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_in_Maze) |    
@@ -785,7 +796,9 @@ This repository also provides one such platforms where contributers come over an
 | [Gravity_Simulation_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Simulation_Game)   
 | [Anagarm-Word-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Anagarm-Word-Game) |
 | [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick Buster) |
-| [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy) 
+| [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)
+=======
+| [SnakeBites](https://github.com/kunjgit/GameZone/tree/main/Games/SnakeBites) |
 | [Alphabet-and-Vowels](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet-and-Vowels) |
 | [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick%20Buster) |
 | [Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly) |
@@ -798,8 +811,8 @@ This repository also provides one such platforms where contributers come over an
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Memory_Matching_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Memory_Matching_Game) |
 |[Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly)|
-| [Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) | 
-| [Shoot_Duck_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_Duck_Game) | 
+| [Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) |
+| [Shoot_Duck_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_Duck_Game) |
 | [Disney_Trivia](https://github.com/manmita/GameZone/tree/Disney_Trivia/Games/Disney_Trivia)|
 |[puzzle-game](https://github.com/kunjgit/GameZone/tree/main/Games/puzzle-game)|
 | [Helicopter_Game](https://github.com/kinjgit/GameZone/tree/main/Games/Helicopter_Game) |
@@ -811,6 +824,9 @@ This repository also provides one such platforms where contributers come over an
 | [Bunny is Lost](https://github.com/kunjgit/GameZone/tree/main/Games/Bunny_is_Lost)|
 |[Steam_Punk](https://github.com/kunjgit/GameZone/tree/main/Games/Steam_Punk)|
 |[Tower Defence Game](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Tower_Defence_Game)|
+| [Jigsaw_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Jigsaw_Puzzle) |
+| [Mathematics Escape Room](https://github.com/kunjgit/GameZone/tree/main/Games/MathematicsEscapeRoom) |
+|[Tower Defence Game](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Tower_Defence_Game) | | [Ant Smasher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ant_Smasher)|
 |[Mario Matching Game](https://github.com/ananyag309/GameZone_ggsoc/tree/main/Games/MarioMatchingGame)|
 |[Dot_Dash](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Dash)|
 |[Ghost Busting Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ghost_busting_game)|
@@ -821,12 +837,18 @@ This repository also provides one such platforms where contributers come over an
 |[Spell Bee](https://github.com/kunjgit/GameZone/tree/main/Games/Spell_Bee)|
 | [Go-fish-master](https://github.com/kunjgit/GameZone/tree/main/Games/Go-fish-master) |
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
+|[Zombie_Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Zombie_Shooter)|
  | [Ganesh_QR_Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker) |
-|[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
-|[Tic-tac-toe](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tic-tac-toe)|
+|[Wheel_of_Fortunes](https://github.com/kunjgit/GameZone/tree/main/Games/Wheel_of_Fortunes)|
+|[Samurai_Fighting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Samurai_Fighting_Game)|
+|[Tic-tac-toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-tac-toe)|
 |[Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)|
 |[Pattern Creation Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pattern_Creation_Game)|
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
+| [Tic_Tac_Toe_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe_Neon) |
+| [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
+
+
  </center>
 
 <br>

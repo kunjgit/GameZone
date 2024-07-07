@@ -2,6 +2,7 @@
 const button1 = document.getElementById('button1');
 const button2 = document.getElementById('button2');
 const button3 = document.getElementById('button3');
+const button4 = document.getElementById('start-game-btn');
 const healthText = document.getElementById('healthText');
 const xpText = document.getElementById('xpText');
 const text = document.getElementById('text');
@@ -9,13 +10,16 @@ const goldText = document.getElementById('goldText');
 const choiceContainer = document.getElementById('choice-section');
 const monsterStatsContainer = document.getElementById('monster-stats');
 const monsterHealthText = document.getElementById('monsterHealthText');
-const monsterNameText = document.getElementById('monsterNameText')
+const monsterNameText = document.getElementById('monsterNameText');
+const playerStatsDiv = document.getElementById('player-stats');
+const gameContainerDiv = document.getElementById('game-container');
+gameContainerDiv.style.display = "none";
 // Creating initial stats
 let xp = 0;
 let health = 100;
 let gold = 50;
 let weaponIndex = 0; // Represents weapon index
-let fighting; // Represents whether the player is fighting or not
+let fighting; // Represents which monster the player is fighting.
 let monsterHealth;
 let inventory = ["stick"];
 let monstersFought = 0; //Counts how many monsters you fight
@@ -59,82 +63,29 @@ const locations = [
         name: "lost",
         buttonText: ["REPLAY?","REPLAY?","REPLAY?"],
         buttonFunctions: [restart,restart,restart],
-        text: `You die! &#x2620`
+        text: `You die! 💀`
     }
 ];
 //Creating a weapons array for the store cataloge
 const weapons = [
-    {
-        name:"stick",
-        power:10
-    },
-    {
-        name:"dagger",
-        power:15
-    },
-    {
-        name:"claw-hammer",
-        power:20
-    },
-    {
-        name:"knife",
-        power:25
-    },
-    {
-        name:"Axe",
-        power:50
-    },
-    {
-        name:"Sword",
-        power:100
-    },
-]
+    { name:"stick", power:10},
+    { name:"dagger", power:15},
+    { name:"claw-hammer", power:20},
+    { name:"knife", power:25},
+    { name:"Axe", power:50},
+    { name:"Sword", power:100},
+];
+const secretWeapon = { name:"Excalibur", power:1000} //Secret Weapon
 //Creating a monsters array to store monster infomation
 const monsters = [
-    {
-        name: "Slime",
-        health: 15,
-        level:1,
-        power:5
-    },
-    {
-        name:"Venomspike",
-        health: 30,
-        level:2,
-        power:10
-    },
-    {
-        name: "Fanged Beast",
-        health: 50,
-        level:5,
-        power:20
-    },
-    {
-        name: "Gore Beast",
-        health: 75,
-        level:7,
-        power:40
-    },
-    {
-        name: "Necrofiend",
-        health: 100,
-        level:10,
-        power:50
-    },
-    {
-        name: "Ironclad",
-        health: 150,
-        level:15,
-        power:65
-    },
-    {
-        name: "Dragon",
-        health: 300,
-        power:100
-    }
+    {name: "Slime",health: 15,level:1,power:5},
+    { name:"Venomspike", health: 30, level:2, power:10 },
+    { name: "Fanged Beast", health: 50, level:5, power:20 },
+    { name: "Gore Beast", health: 75, level:7, power:40 },
+    { name: "Necrofiend", health: 100, level:10, power:50 },
+    { name: "Ironclad", health: 150, level:15, power:60 },
+    { name: "Dragon", health: 300, power:100 }
 ]
-
-
 //Creating a new Division for adding monster buttons
 const buttonDiv = document.createElement('div');
 function updateLocation(location) {
@@ -160,7 +111,6 @@ function updateLocation(location) {
     button3.onclick = location.buttonFunctions[2];
     text.innerText = location.text;
 }
-
 function goStore() {
     updateLocation(locations[2]);
 }
@@ -175,7 +125,18 @@ function goTown() {
 
 function fightDragon() {
     fighting = 6;
-    goFight();
+    checkEligibility();
+}
+
+function checkEligibility(){
+    if(monstersFought >= 15){
+        goFight();
+    }else{
+        text.innerText = "You cannot fight the dragon now, you've got to defeat atleast 15 monsters";
+        setTimeout(() => {
+            updateLocation(locations[0]);
+        },1500);
+    }
 }
 function fightSlime() {
     fighting = 0;
@@ -237,13 +198,12 @@ function run(){ //You can still attack or dodge the attack from the monster whil
 
 function win(){
     monstersFought+=1;
+    console.log(monstersFought);
     gold+= Math.round(monsters[fighting].level * 6.5);
     xp+=monsters[fighting].level;
     goldText.innerText = gold;
     xpText.innerText = xp;
-    console.log("Update Locations Before");
     updateLocation(locations[4]);
-    console.log("Update Locations After");
 }
 
 function lose(){
@@ -313,8 +273,16 @@ function sellWeapon() {
         text.innerText = `You sold your ${inventory.pop()}, You now have a ${inventory[weaponIndex]}`;
     }
 }
-
 // Initialize Buttons
 button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
+
+button4.addEventListener('click', () => {
+    gameContainerDiv.style.display = "block";
+    text.classList.remove("hidden");
+    playerStatsDiv.classList.remove('hidden');
+    choiceContainer.classList.remove('hidden');
+    const startGameDiv = document.getElementById('start-game');
+    startGameDiv.classList.add("hidden");
+});

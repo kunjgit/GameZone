@@ -1980,7 +1980,7 @@
   "394": {
     "gameTitle": "path finder puzzle",
     "gameUrl": "path_finder",
-    "thumbnailUrl": "pathfinder.png"
+    "thumbnailUrl": "Path_finder.png"
   },
 
   "395": {
@@ -2000,9 +2000,9 @@
     "thumbnailUrl": "Dot_Connect.png"
   },
   "398":{
-    "gameTitle": "path finder puzzle",
-    "gameUrl": "path_finder",
-    "thumbnailUrl": "pathfinder.png"
+    "gameTitle": "Anagram_Checker_Game",
+    "gameUrl": "Anagram_Checker_Game",
+    "thumbnailUrl": "Anagram_Checker_Game.png"
   },
   "399":{
     "gameTitle": "NameFate",
@@ -2030,14 +2030,14 @@
     "thumbnailUrl": "Virtual_Pet_Game.png"
   },
   "404":{
-    "gameTitle": "path finder puzzle",
-    "gameUrl": "path_finder",
-    "thumbnailUrl": "pathfinder.png"
+    "gameTitle": "Knife_hit",
+    "gameUrl": "Knife_hit",
+    "thumbnailUrl": "Knife_hit.png"
   },
   "405":{ 
     "gameTitle": "Tiny Fishing",
   "gameUrl": "Tiny_Fishing",
-  "thumbnailUrl": "Tiny_Fishing.png"
+  "thumbnailUrl": "Tiny-Fishing.png"
   },
   "406":{
     "gameTitle": "Shrek Vs Wild",
@@ -2064,24 +2064,8 @@
     "gameTitle" : "Colour_Generator_Game",
     "gameUrl": "Colour_Generator_Game",
     "thumbnailUrl": "Colour_Generator_Game.png"
-    },
-  "411":{
-    "gameTitle": "Knife_hit",
-    "gameUrl": "Knife_hit",
-    "thumbnailUrl": "Knife_hit.png"
-  },
-  "412":{
-    "gameTitle": "Anagram_Checker_Game",
-    "gameUrl": "Anagram_Checker_Game",
-    "thumbnailUrl": "Anagram_Checker_Game.png"
-
-  },
-  "413":{
-    "gameTitle": "Soccer",
-    "gameUrl": "Soccer",
-    "thumbnailUrl": "Soccer"
-
-  }
+    }
+  
 
 
   }

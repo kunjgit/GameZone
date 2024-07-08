@@ -190,9 +190,21 @@ function toggleTheme() {
   var slider = document.getElementById("themeToggle");
   if (slider.checked) {
     disableDarkTheme();
+    disableChangeColor();
   } else {
     enableDarkTheme();
+    changeColor();
   }
+}
+
+function changeColor() {
+  var contributor = document.getElementById('total-contributors');
+  contributor.style.color = "black";
+}
+
+function disableChangeColor() {
+  var col = document.getElementById('total-contributors');
+  col.style.color = "white";
 }
 
 function enableDarkTheme() {
@@ -305,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
 let gamesData = {};
 
 function fetchGamesData() {
-  fetch("./assets/js/gamesData.json") // Assuming gamesData.json is in the same directory
+  fetch("gamesData.json") // Assuming gamesData.json is in the same directory
     .then((response) => response.json())
     .then((data) => {
       gamesData = data;

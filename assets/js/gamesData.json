@@ -1,4 +1,4 @@
-[
+{
   "1": {
     "gameTitle": "Master Typing",
     "gameUrl": "Master_Typing",
@@ -2251,11 +2251,9 @@
   "gameUrl":"Fidget_Spinner_Game",
   "thumbnailUrl":"Fidget.png"
 },
-
 "422":{
   "gameTitle":"Pangram_Checker_Game",
   "gameUrl":"Pangram_Checker_Game",
   "thumbnailUrl":"Pangram_Checker_Game.png"
 }
-
-]
+}

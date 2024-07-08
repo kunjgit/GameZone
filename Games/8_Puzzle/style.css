@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    background-image: linear-gradient(#f0d7ed, #b8dddd);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 5px;
+    background-color: #cf837d84;
+    padding: 10px;
+    box-shadow: 10px 10px rgb(196, 117, 117);
+}
+
+.tile {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(145, 216, 188, 0.621);
+    color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tile.empty {
+    background-color: transparent;
+    cursor: default;
+}
+
+#shuffle-button {
+    margin-top: 20px;
+    padding: 7px 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: rgb(135, 30, 12);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+#shuffle-button:hover {
+    margin-top: 20px;
+    padding: 7px 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: rgb(135, 30, 12);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+#reset-button {
+    margin-top: 20px;
+    padding: 7px 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: rgb(135, 30, 12);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+#timer {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}

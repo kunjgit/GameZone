@@ -834,6 +834,7 @@ This repository also provides one such platforms where contributers come over an
 | [Ultimate_Football_Manager](https://github.com/kunjgit/GameZone/tree/main/Games/Ultimate_Football_Manager) |
 |[Zombie_Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Zombie_Shooter)|
  | [Ganesh_QR_Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker) |
+|[Brain_Card_game](https://github.com/Kunjgit/GameZone/tree/main/Games/Brain_Card_game)|
 |[Wheel_of_Fortunes](https://github.com/kunjgit/GameZone/tree/main/Games/Wheel_of_Fortunes)|
 |[Samurai_Fighting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Samurai_Fighting_Game)|
 |[Tic-tac-toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-tac-toe)|

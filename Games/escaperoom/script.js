@@ -20,8 +20,14 @@ document.addEventListener("DOMContentLoaded", function() {
         { question: "Puzzle 7: What planet is known as the Red Planet?", answer: "mars" },
         { question: "Puzzle 8: What is the largest mammal?", answer: "blue whale" },
         { question: "Puzzle 9: What is the square root of 81?", answer: "9" },
-        { question: "Puzzle 10: Who wrote 'Romeo and Juliet'?", answer: "shakespeare" }
+        { question: "Puzzle 10: Who wrote 'Romeo and Juliet'?", answer: "shakespeare" },
+        { question: "Puzzle 11: What is the capital of Japan?", answer: "tokyo" },
+        { question: "Puzzle 12: What is the chemical symbol for gold?", answer: "au" },
+        { question: "Puzzle 13: How many continents are there?", answer: "7" },
+        { question: "Puzzle 14: Who painted the Mona Lisa?", answer: "leonardo da vinci" },
+        { question: "Puzzle 15: What is the smallest prime number?", answer: "2" }
     ];
+    
 
     const introText = "Welcome to the Escape Room Game! Solve 4 puzzles to find the key and unlock the door. Good luck!";
     let charIndex = 0;

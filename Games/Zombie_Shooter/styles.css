@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Creepster");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+html, body {
+  margin: 0;
+  overflow: hidden;
+}
+canvas {
+  background: radial-gradient(rgb(171, 123, 1), rgb(168, 4, 4));
+}

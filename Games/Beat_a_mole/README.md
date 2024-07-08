@@ -30,7 +30,7 @@
 ## **Screenshots 📸**
 <br>
 
-![image](../../assets/Beat_a_Mole.png)
+![image](assets/Beat_a_Mole.png)
 
 <br>
 

@@ -626,6 +626,8 @@ This repository also provides one such platforms where contributers come over an
 | [CSS Select](https://github.com/kunjgit/GameZone/tree/main/Games/CSS_Select)                                     | [Squid](https://github.com/kunjgit/GameZone/tree/main/Games/Squid_Game)                                 | [Flip Coin](https://github.com/kunjgit/GameZone/tree/main/Games/Flip_Coin)                                   | [Witty Word Quest](https://github.com/kunjgit/GameZone/tree/main/Games/witty_word_quest)                           | [Typing Game](https://github.com/Ishan-77/GameZone/tree/main/Games/Typing_Game)                             |
 | [numeral-whiz](https://github.com/Ishan-77/GameZone/tree/main/Games/numeral-whiz)                                | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)                     | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road)                                    | [HueHero](https://github.com/kunjgit/GameZone/tree/main/Games/HueHero)                                             | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner)                          |
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                                   | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon)                               | [Color_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Blast)                              |
+| [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                                       | [Coloron](https://github.com/kunjgit/GameZone/tree/main/Games/Coloron).                                 |
+| [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk)  | [Audio_Wordle](https://github.com/kunjgit/GameZone/tree/main/Games/Audio_Wordle) | [Makeover_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Makeover_Game)
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                                       | [Coloron](https://github.com/kunjgit/GameZone/tree/main/Games/Coloron).      
 | [Wordling](https://github.com/kunjgit/GameZone/tree/main/Games/Wordling) 
 | [HTML5_Controller_Tester](https://github.com/kunjgit/GameZone/tree/main/Games/HTML5_Controller_Tester)
@@ -635,7 +637,7 @@ This repository also provides one such platforms where contributers come over an
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | [HTML5_Controller_Tester](https://github.com/kunjgit/GameZone/tree/main/Games/HTML5_Controller_Tester)
 | [numeral-whiz](https://github.com/Ishan-77/GameZone/tree/main/Games/numeral-whiz) | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga) | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road) | [HueHero](https://github.com/kunjgit/GameZone/tree/main/Games/HueHero) | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner) |
 | [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack) |
-| [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game) | [TriHand_Tactics](https://github.com/kunjgit/GameZone/tree/main/Games/TriHand_Tactics) | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian) | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) |  
+ [TriHand_Tactics](https://github.com/kunjgit/GameZone/tree/main/Games/TriHand_Tactics)|
 | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game) | [CatchTheBall](https://github.com/kunjgit/GameZone/tree/main/Games/CatchTheBall) |
 | [CopyCat](https://github.com/kunjgit/GameZone/tree/main/Games/CopyCat) |
 | [Cross_The_River_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_The_River_Game) | 
@@ -788,8 +790,6 @@ This repository also provides one such platforms where contributers come over an
 | [Bubble'z Popper](https://github.com/Chandu6702/GameZone/tree/main/Games/Bubble'z Popper)|
 | [Dsa_quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/Dsa_quiz_game) |
 | [Gravity_Simulation_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Simulation_Game) |
-
-| [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)                  
 |  [Catch_The_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Ball) |
 | [Ball_in_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_in_Maze) |    
 |[Dsa_quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/Dsa_quiz_game)   |              
@@ -797,11 +797,8 @@ This repository also provides one such platforms where contributers come over an
 | [Anagarm-Word-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Anagarm-Word-Game) |
 | [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick Buster) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)
-=======
 | [SnakeBites](https://github.com/kunjgit/GameZone/tree/main/Games/SnakeBites) |
 | [Alphabet-and-Vowels](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet-and-Vowels) |
-| [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick%20Buster) |
-| [Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly) |
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Currency_Converter](https://github.com/kunjgit/GameZone/tree/main/Games/Currency_Converter) |

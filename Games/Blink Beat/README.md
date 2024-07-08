@@ -1,8 +1,7 @@
 
 # Blink Beat
-A web-based game inspired by the classic Simon game, built using HTML, CSS, and JavaScript.
+A web-based game to test your memorising skills, built using HTML, CSS, and JavaScript.
 
 
 ## Live Website
-
-https://github.com/Shantnu-singh/Blink-Beat
+https://blink-beat.netlify.app/index.html

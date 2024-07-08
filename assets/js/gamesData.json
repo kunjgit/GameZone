@@ -2106,7 +2106,7 @@
   "thumbnailUrl": "Guess_The_Song.png"
 }
 
-},"418":{
+,"418":{
   "gameTitle": "Brick Buster",
    "gameUrl": "Brick Buster",
    "thumbnailUrl": "Brick.png"
@@ -2114,7 +2114,7 @@
 
 
   
-},"410":{
+,"410":{
   "gameTitle": "Brick Buster",
    "gameUrl": "Brick Buster",
    "thumbnailUrl": "Brick.png"
@@ -2250,6 +2250,10 @@
   "gameTitle":"Fidget_Spinner_Game",
   "gameUrl":"Fidget_Spinner_Game",
   "thumbnailUrl":"Fidget.png"
+},
+"422":{
+  "gameTitle":"Pangram_Checker_Game",
+  "gameUrl":"Pangram_Checker_Game",
+  "thumbnailUrl":"Pangram_Checker_Game.png"
 }
-
 }

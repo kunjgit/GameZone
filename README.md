@@ -728,7 +728,7 @@ This repository also provides one such platforms where contributers come over an
 | [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing) |
 | [Etch_a_Sketch_2](https://github.com/kunjgit/GameZone/tree/main/Games/Etch_a_Sketch_2) |
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect) |
-| [Falling_Words](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Words) |
+  | [Falling_Words](https://github.com/kunjgit/GameZone/tree/main/Games/Falling_Words) |
 | [namefate](https://github.com/kunjgit/GameZone/tree/main/Games/namefate) |
 | [Fruit_Catching_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching_Game) |
 | [color_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application) |
@@ -756,7 +756,6 @@ This repository also provides one such platforms where contributers come over an
 [Roll_The_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_The_Dice) |
 | [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk) |
 | [Flappy_Birdd](https://github.com/kunjgit/GameZone/tree/main/Games/Flappy_Birdd) |
-
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures) | [Screen Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Screen-Pet-Game) |
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme) |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball) |
@@ -842,8 +841,12 @@ This repository also provides one such platforms where contributers come over an
 |[Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)|
 |[Pattern Creation Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pattern_Creation_Game)|
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
+
+| [Tic_Tac_Toe_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe_Neon) |
+| [Pangram_Checker_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pangram_Checker_Game) |
 | [Tic_Tac_Toe_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe_Neon) | [Magic_8_ball_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_8_ball) |
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
+  | [Pangram_Checker_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pangram_Checker_Game) |
 
  </center>
 

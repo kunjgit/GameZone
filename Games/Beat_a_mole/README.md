@@ -30,10 +30,6 @@
 ## **Screenshots 📸**
 <br>
 
-![image](assets/Beat_a_Mole.png)
+![image](../../assets/Beat_a_mole.png)
 
 <br>
-
-
-## **Working video 📹**
-<!-- add your working video over here -->

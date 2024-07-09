@@ -29,7 +29,7 @@ The game will simulate a spinning battle between two Beyblades, where players ca
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-<img width="960" alt="Screenshot 2023-07-02 172036" src="https://github.com/KomalMaurya/GameZone/Games/Beyblade/assets/Webpage.png">
+<img width="960" alt="Screenshot 2023-07-02 172036" src="Games/Beyblade/assets/Webpage.png">
 <!-- <img width="960" alt="Screenshot 2023-07-02 172053" src="https://github.com/abhinav-m22/GameZone/assets/113239388/e1ac281a-dc7c-4dc4-b864-ffef0b56343e"> -->
 
 <br>

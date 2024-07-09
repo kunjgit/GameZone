@@ -363,6 +363,10 @@ This repository also provides one such platforms where contributers come over an
 | [Maze_Runner](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Runner)|
 | [Alien_Invasion](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Invasion) |
 | [Drawing_App](https://github.com/kunjgit/GameZone/tree/main/Games/Drawing_app) |
+
+| [Dodge_the_Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Dodge_the_Blocks)                     |
+
+
 |[Town-Rise](https://github.com/kunjgit/GameZone/tree/main/Games/Town_Rise_Game)|
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 |[Color Swap](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Swap)|

@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#gameContainer {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+    border: 2px solid #000;
+    overflow: hidden;
+}
+
+#player {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #3498db;
+    bottom: 10px;
+    left: 135px;
+}
+
+.block {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #e74c3c;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -30px;
+    }
+    100% {
+        top: 500px;
+    }
+}
+
+#score {
+    margin-top: 20px;
+    font-size: 24px;
+}

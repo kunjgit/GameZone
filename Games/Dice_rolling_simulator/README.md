@@ -59,4 +59,7 @@ The dice rolling simulator utilizes a combination of technologies and libraries 
    cd repository-name
    python dice_simulator.py
    ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> priyashuu-patch-1

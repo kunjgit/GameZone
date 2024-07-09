@@ -846,12 +846,7 @@ This repository also provides one such platforms where contributers come over an
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
 <<<<<<< HEAD
 | [Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)
-=======
-|[Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/priyashuu-patch-1/Games/Dice_rolling_simulator)
 
->>>>>>> priyashuu-patch-1
-
- </center>
 
 <br>
 

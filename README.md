@@ -844,6 +844,7 @@ This repository also provides one such platforms where contributers come over an
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 | [Tic_Tac_Toe_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe_Neon) | [Magic_8_ball_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_8_ball) |
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
+|[Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulato)
 
 <br>
 

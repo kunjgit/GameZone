@@ -20,7 +20,7 @@ The game will simulate a spinning battle between two Beyblades, where players ca
 
 ## **How to play? 🕹️**
 <!-- add the steps how to play games -->
-- To play the Beyblade game, click the "Player 1 Launch" button to launch Player 1's Beyblade, then wait for it to stop spinning and see if there's a collision, with the scores and stamina updated accordingly.
+- To play the Beyblade game, read the note written by clicking on "How to Play?" and then Click on "Play now" button then click the "Player 1 Launch" and "Player 2 Launch" button to launch Player 1's & 2's Beyblade, then wait for it to stop spinning and see if there's a collision, with the scores and stamina updated accordingly.
 
 <br>
 
@@ -29,7 +29,7 @@ The game will simulate a spinning battle between two Beyblades, where players ca
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-<img width="960" alt="Screenshot 2023-07-02 172036" src="https://github.com/abhinav-m22/GameZone/assets/113239388/deeab107-9267-44c2-92a2-3397ae59905e">
-<img width="960" alt="Screenshot 2023-07-02 172053" src="https://github.com/abhinav-m22/GameZone/assets/113239388/e1ac281a-dc7c-4dc4-b864-ffef0b56343e">
+<img width="960" alt="Screenshot 2023-07-02 172036" src="./assets/Komal.md.png">
+<!-- <img width="960" alt="Screenshot 2023-07-02 172053" src="https://github.com/abhinav-m22/GameZone/assets/113239388/e1ac281a-dc7c-4dc4-b864-ffef0b56343e"> -->
 
 <br>

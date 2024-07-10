@@ -1,10 +1,11 @@
 // Generate <li> tags dynamically
 
 const generateLiTags = (gamesData, searchText = "") => {
+  console.log(gamesData);
   const liTags = [];
   searchText = searchText.trim().toLowerCase(); // Trim whitespace and convert to lowercase
 
-  for (let tagNumber = 1; tagNumber <= 417; tagNumber++) {
+  for (let tagNumber = 1; tagNumber <= 424; tagNumber++) {
     const gameData = gamesData[tagNumber.toString()];
 
     if (gameData) {
@@ -54,7 +55,7 @@ const generateLiTags = (gamesData, searchText = "") => {
 };
 
 // Fetch the game data from the JSON file
-fetch("./assets/js/gamesData.json")
+fetch("assets/js/gamesData.json")
   .then((response) => response.json())
   .then((gamesData) => {
     const projectListContainer = document.querySelector(".project-list");
@@ -137,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //for searching
   searchInput.addEventListener("input", function () {
     const searchText = searchInput.value.trim().toLowerCase();
-    fetch("./assets/js/gamesData.json")
+    fetch("gamesData.json")
       .then((response) => response.json())
       .then((gamesData) => {
         const projectListContainer = document.querySelector(".project-list");
@@ -151,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //for search clearing
   clearSearchButton.addEventListener("click", function () {
     searchInput.value = "";
-    fetch("./assets/js/gamesData.json")
+    fetch("gamesData.json")
       .then((response) => response.json())
       .then((gamesData) => {
         const projectListContainer = document.querySelector(".project-list");

@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
 let gamesData = {};
 
 function fetchGamesData() {
-  fetch("./assets/js/gamesData.json") // Assuming gamesData.json is in the same directory
+  fetch("assets/js/gamesData.json") // Assuming gamesData.json is in the same directory
     .then((response) => response.json())
     .then((data) => {
       gamesData = data;

@@ -289,7 +289,7 @@ This repository also provides one such platforms where contributers come over an
 | [Physics_Quizz](https://github.com/kunjgit/GameZone/tree/main/Games/Physics_Quizz)     |
 | [Tiny_Fishing](https://github.com/kunjgit/GameZone/tree/main/Games/Tiny_Fishing)       |  
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
-
+| [Single_Player_Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Single_Player_Solitaire) |
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect)    |
 
 | [namefate](https://github.com/kunjgit/GameZone/tree/main/Games/namefate)                   | 

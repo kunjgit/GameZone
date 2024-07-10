@@ -33,7 +33,7 @@
 
 ## **Screenshots 📸**
 
-![image]()
+![image](https://github.com/AaryanManghnani/GameZone/blob/New-Game-Madlibs/assets/images/Madlibs.png)
 
 
 <br>

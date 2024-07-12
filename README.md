@@ -867,7 +867,7 @@ This repository also provides one such platforms where contributers come over an
 | [Tic_Tac_Toe_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe_Neon) | [Magic_8_ball_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_8_ball) |
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
 |[Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)|
-|[Space_Dominators](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Dominators)|
+|[Brick_Blaster](https://github.com/kunjgit/GameZone/tree/main/Games/Brick_Blaster)|
  </center>
 
 <br>

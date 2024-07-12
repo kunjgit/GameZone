@@ -28,9 +28,9 @@ Simply click on the button of the action you'll like to choose to perform and fo
 <br>
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![image](./img/Screenshot%20(2).png)
-![image](./img/Screenshot%20(3).png)
-![image](./img/Screenshot%20(4).png)
+![ss1](./img/Screenshot%20(2).png)
+![ss2](./img/Screenshot%20(3).png)
+![ss3](./img/Screenshot%20(4).png)
 
 <br>
 

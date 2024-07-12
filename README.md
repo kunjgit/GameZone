@@ -867,6 +867,7 @@ This repository also provides one such platforms where contributers come over an
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
 |[Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)|
 |[Space_Dominators](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Dominators)|
+|[Ninja_Hattori_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ninja_Hattori_Game)|
  </center>
 
 <br>

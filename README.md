@@ -6,12 +6,12 @@
 </div>
 <div align="center">
 
-<h3><font size="4">This open source repository contains a collection of games built on basic tech stacks in web development. Use your creativity, build your own game and contribute to the repository by making a PR 🎮
+<h3><fontsize="4">This open source repository contains a collection of games built on basic tech stacks in web development. Use your creativity, build your own game and contribute to the repository by making a PR 🎮
 <br>
 Make sure you star the repository and show your love to us💗
 <br>
 Also join the discord server for GameZone and start collaborating with others 🚀
-</font>
+</fontsize>
 <br>
 <br>
 <p>
@@ -39,7 +39,7 @@ This repository also provides one such platforms where contributers come over an
 
 </div>
 <div align="center">
-<h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" alt="High Voltage" width="40" height="40" /><font size="6">Tech Stack</font></h2>
+<h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" alt="High Voltage" width="40" height="40" /><fontsize="6">Tech Stack</fontsize></h2>
 
 <br>
 </div>
@@ -61,7 +61,7 @@ This repository also provides one such platforms where contributers come over an
 <!-- lets get started -->
 
 <div align="center">
-<h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="40" height="40" /> Let's get started</font></h2>
+<h2><fontsize="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="40" height="40" /> Let's get started</fontsize></h2>
 
 </div>
 
@@ -100,7 +100,7 @@ This repository also provides one such platforms where contributers come over an
 - If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
 
 <div align="center">
-  <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Robot" width="40" height="40" /> Games</font></h2>
+  <h2><fontsize="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Robot" width="40" height="40" /> Games</fontsize></h2>
 </div>
 <!-- list of the games -->
 <center>
@@ -386,7 +386,7 @@ This repository also provides one such platforms where contributers come over an
 <br>
 
 <div align="center">
-<h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="Page with Curl" width="40" height="40" /> Contributing Guideline </font></h2>
+<h2><fontsize="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="Page with Curl" width="40" height="40" /> Contributing Guideline </fontsize></h2>
 </div>
 <br>
 
@@ -401,7 +401,7 @@ This repository also provides one such platforms where contributers come over an
 <!-- code of conduct -->
 
 <div align="center">
-<h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" alt="Handshake" width="40" height="40" /> Code of Conduct </font></h2>
+<h2><fontsize="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" alt="Handshake" width="40" height="40" /> Code of Conduct </fontsize></h2>
 </div>
 <br>
 
@@ -431,7 +431,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 <br>
 <!-- a big thanks to all the contributors -->
 <div align="center">
-<h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" alt="Red Heart" width="40" height="40" /> Contributors </font></h2>
+<h2><fontsize="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" alt="Red Heart" width="40" height="40" /> Contributors </fontsize></h2>
 </div>
 <br>
 
@@ -448,19 +448,19 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 <br>
 <p align="right"><a href="#top">Back to top</a></p>
 <div style="display:none;" align="center"><h1>
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Video Game" width="50" height="50" /><font size="10">GameZone</font></h1>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Video Game" width="50" height="50" /><fontsize="10">GameZone</fontsize></h1>
 
 <!-- repo intro -->
 
 </div>
 <div align="center">
 
-<h3><font size="4">This open source repository contains a collection of games built on basic tech stacks in web development. Use your creativity, build your own game and contribute to the repository by making a PR 🎮
+<h3><fontsize="4">This open source repository contains a collection of games built on basic tech stacks in web development. Use your creativity, build your own game and contribute to the repository by making a PR 🎮
 <br>
 Make sure you star the repository and show your love to us💗
 <br>
 Also join the discord server for GameZone and start collaborating with others 🚀
-</font>
+</fontsize>
 <br>
 <br>
 <p>
@@ -510,7 +510,7 @@ This repository also provides one such platforms where contributers come over an
 <!-- lets get started -->
 
 <div align="center">
-<h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="40" height="40" /> Let's get started</font></h2>
+<h2><fontsize="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="40" height="40" /> Let's get started</fontsize></h2>
 
 </div>
 
@@ -549,7 +549,7 @@ This repository also provides one such platforms where contributers come over an
 - If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
 
 <div align="center">
-  <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Robot" width="40" height="40" /> Games</font></h2>
+  <h2><fontsize="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Robot" width="40" height="40" /> Games</fontsize></h2>
 </div>
 <!-- list of the games -->
 <center>
@@ -888,7 +888,7 @@ This repository also provides one such platforms where contributers come over an
 <!-- code of conduct -->
 
 <div align="center">
-<h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" alt="Handshake" width="40" height="40" /> Code of Conduct </font></h2>
+<h2><fontsize="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" alt="Handshake" width="40" height="40" /> Code of Conduct </fontsize></h2>
 </div>
 <br>
 

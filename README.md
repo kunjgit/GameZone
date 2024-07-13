@@ -377,7 +377,7 @@ This repository also provides one such platforms where contributers come over an
 |[Rock_Paper_Scissors_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_Paper_Scissors_Neon)|
 |[Beat_a_mole](https://github.com/kunjgit/GameZone/tree/main/Games/Beat_a_mole)|
 |[Catch Him](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_him) |
-
+|[Hexsweep_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hexsweep-Game)|
 
   </center>
 

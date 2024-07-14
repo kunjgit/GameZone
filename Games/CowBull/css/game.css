@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Baloo Bhai 2", cursive;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h2 {
+  text-align: center;
+  color: #000;
+  margin: 20px;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+img.logo {
+  height: 100px;
+}
+
+nav.main-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px;
+}
+
+nav.main-navigation ul li {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 13px;
+  margin: 10px 12px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #000;
+  font-weight: 500;
+}
+
+nav.main-navigation ul li:hover {
+  background-color: #36454F;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  font-size: 45px;
+}
+
+.cnb {
+  margin: 0;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.container {
+  flex: 1;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+#guessInput {
+  padding: 10px;
+  font-size: 16px;
+}
+
+#submitBtn,
+#newGameBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#submitBtn:hover,
+#newGameBtn:hover {
+  background-color: #45a049;
+}
+
+#resultsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#resultsTable {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+}
+
+#resultsTable th,
+#resultsTable td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+#resultsTable th {
+  background-color: #f2f2f2;
+}
+
+#resultsTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.left {
+  padding-top: 25px;
+  font-size: 30px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.instructions-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 30px;
+  line-height: 1;
+  color: #c92323;
+}
+
+.instructions-box ul {
+  text-align: justify;
+}
+
+.instructions-box p {
+  font-size: 18px;
+}
+
+.obj {
+  padding-top: 5px;
+  text-align: justify;
+}

@@ -194,6 +194,7 @@ let resourcesPerSecond = 0;
 }
 function updateResources() {
     document.getElementById('resource').textContent = resources;
+    document.getElementById('automation-').textContent = "    "+resourcesPerSecond;
 }
 
 function updateUpgradeCost() {

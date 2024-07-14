@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <title>Align 4 Game</title>
+  
+  <!--  Styles  -->
+  <link href="https://fonts.googleapis.com/css?family=Doppio+One" rel="stylesheet">
+  <link rel="stylesheet" href="styles/index.processed.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <div class="sidebar">
+        <h1>Align 4</h1>
+        <div class="panel dif">
+          <h2>Difficulty</h2>
+          <div class="dif-options">
+            <div>
+              <input id="dif1" type="radio" name="dif-options" value="1">
+              <label for="dif1">1</label>
+            </div>
+            <div>
+              <input id="dif2" type="radio" name="dif-options" value="2">
+              <label for="dif2">2</label>
+            </div>
+            <div>
+              <input id="dif3" type="radio" name="dif-options" value="3" checked>
+              <label for="dif3">3</label>
+            </div>
+            <div>
+              <input id="dif4" type="radio" name="dif-options" value="4">
+              <label for="dif4">4</label>
+            </div>
+            <div>
+              <input id="dif5" type="radio" name="dif-options" value="5">
+              <label for="dif5">5</label>
+            </div>
+          </div>
+          <div class="start">
+            <button>Start Game</button>
+          </div>
+        </div>
+        <div class="panel info">
+          <h2></h2>
+          <div class="blurb"></div>
+          <div class="outlook"></div>
+        </div>
+      </div>
+      <div class="board">
+        <div class="lit-columns">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="lit-cells"></div>
+        <div class="chips"></div>
+        <div class="click-columns">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="scripts/index.js"></script>
+</body>
+</html>

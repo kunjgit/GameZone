@@ -94,19 +94,24 @@ border-radius: 1000px;
 <!-- NavBar -->
 
 <nav class="navbarr">
-  <a href="#" class="logox">GAMΕΖΟΝΕ🕹️</a>  <ul class="nav-linkss">
-    <li><a href="#">Home</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li><a href="#">Contributors</a></li></ul>
+  <a href="#homelink" class="logox"><span>GAMΕΖΟΝΕ</span>🕹️</a>  
+  <ul class="nav-linkss">
+    <li><a href="#homelink">Home</a></li>
+    <li id="Aboutbutton"><a href="#homelink">About</a></li>
+    <li><a href="#contributorslink">Contributors</a></li>
+    <li><a href="#footer">Contact</a></li>
+  </ul>
+  <!-- Light-Dark theme SWITCH -->
+  <label id="themeToggleWrapper"  class="theme-toggle" for="themeToggle">
+    <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
+    <span class="slider" style="width: 40px; height: 20px;"></span>
+  </label>
 </nav>
 
 
-<!-- Light-Dark theme SWITCH -->
 
-<label id="themeToggleWrapper"  class="theme-toggle" for="themeToggle" style="position: fixed; top: 30px; right: 30px; z-index: 100; display: flex; align-items: center; border: none; background-color: transparent;">
-  <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
-  <span class="slider" style="width: 40px; height: 20px;"></span>
-</label>
+
+
 
 
 
@@ -121,14 +126,14 @@ border-radius: 1000px;
   </div>
   <script>
     window.addEventListener("load", () => {
-      const loader = document.querySelector(".preloader");
+const loader = document.querySelector(".preloader");
 
-      loader.classList.add("preloader--hidden");
+loader.classList.add("preloader--hidden");
 
-      loader.addEventListener("transitionend", () => {
-        document.body.removeChild(loader);
-      });
-    });
+loader.addEventListener("transitionend", () => {
+document.body.removeChild(loader);
+});
+});
   </script>
   <div class="cursor"></div>
   <div class="progress-bar">
@@ -136,7 +141,7 @@ border-radius: 1000px;
   </div>
 
 
-  <div class="abcd">
+  <div class="abcd" id="homelink">
 
     <main>
      
@@ -225,7 +230,7 @@ border-radius: 1000px;
 
 
   <!-- Contributors section -->
-  <div class="contributors">
+  <div class="contributors" id="contributorslink">
     <h1 style="font-family: 'Agency FB', Times, serif; color: aqua;">Our Valuable Contributors</h1>
      <!-- display number of contributors-->
     <h2 id="total-contributors" style="text-align: center; font-family: 'Agency FB', Times, serif; color: aqua;"></h2> 

@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Bug Eliminator</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilo.css" />
+    <link rel="shortcut icon" href="https://ideogram.ai/assets/progressive-image/balanced/response/jQ-h8xq5SmmquBgHkziFkQ" type="image/x-icon">
+    <script>
+        function iniciarJogo() {
+            let nivel = document.getElementById('nivel').value
+
+            if (nivel === '') {
+                alert('Selecione um nível valido.')
+                return false
+            }
+
+            window.location.href = "app.html?" + nivel
+        }
+    </script>
+</head>
+
+<body><br>  <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <img src="https://ideogram.ai/assets/progressive-image/balanced/response/j6tRjLn5T0KtnRj63kbDAg" style="width: 200px; height: 200px; border-radius: 100%;"/>
+                </div>
+            </div>
+        </div>
+<br>  <br>
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <div class="mb-2">
+                        <select class="form-control" id="nivel">
+                        <option value="">---Select level---</option>
+                        <option value="normal">Beginner</option>
+                        <option value="dificil">Intermediate</option>
+                        <option value="extremo">Hard</option>
+                        <option value="insano">Extreme</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-danger btn-lg" onclick="iniciarJogo()">Play Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

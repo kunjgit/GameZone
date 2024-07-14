@@ -326,17 +326,11 @@ This repository also provides one such platforms where contributers come over an
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 |[Pop the Bubbles](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_the_Bubbles)|
 [Fidget Spinner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fidget_Spinner_Game)|
-| [Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 |[Building Blocks Game](https://github.com/kunjgit/GameZone/tree/main/Games/Building_Block_Game)|
 |[Cartoon character guessing game](https://github.com/kunjgit/GameZone/tree/main/Games/Cartoon_Character_Guessing_Game)|
 |[Carrom Board Game](https://github.com/kunjgit/GameZone/tree/main/Games/carrom)|
 | [Number_Recall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Recall_Game)               |
 | [Hit_the_hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_the_hamster)               |
-
-|[Carrom Board Game](https://github.com/kunjgit/GameZone/tree/main/Games/carrom)|
-| [Number_Recall_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Recall_Game)               |
-| [Hit_the_hamster](https://github.com/kunjgit/GameZone/tree/main/Games/Hit_the_hamster)               |
-
 | [Forest_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Forst_Guardian)                  |
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme)                  |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |
@@ -359,26 +353,20 @@ This repository also provides one such platforms where contributers come over an
 | [Intellect Quest](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Intellect_Quest) |
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
-
+|[Hide_and_Seek](https://github.com/kunjgit/GameZone/tree/main/Games/Hide_And_Seek)|
 | [Maze_Runner](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Runner)|
 | [Alien_Invasion](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Invasion) |
 | [Drawing_App](https://github.com/kunjgit/GameZone/tree/main/Games/Drawing_app) |
-
 | [Dodge_the_Blocks](https://github.com/kunjgit/GameZone/tree/main/Games/Dodge_the_Blocks)                     |
-
-
 |[Town-Rise](https://github.com/kunjgit/GameZone/tree/main/Games/Town_Rise_Game)|
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 |[Color Swap](https://github.com/kunjgit/GameZone/tree/main/Games/Color_Swap)|
-
 | [Catch_the_falling_Stars](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_the_falling_Stars)     |
 |[Town-Rise](https://github.com/kunjgit/GameZone/tree/main/Games/Town_Rise_Game)|
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 |[Rock_Paper_Scissors_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_Paper_Scissors_Neon)|
 |[Beat_a_mole](https://github.com/kunjgit/GameZone/tree/main/Games/Beat_a_mole)|
 |[Hexsweep_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hexsweep-Game)|
-
-
 
   </center>
 
@@ -414,11 +402,6 @@ This repository also provides one such platforms where contributers come over an
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Terms and conditions for use, reproduction and distribution are under the [Apache-2.0 License](https://opensource.org/license/apache-2-0/).
-
-
-
-
-
 <!-- mentors -->
 
 <br>
@@ -863,8 +846,7 @@ This repository also provides one such platforms where contributers come over an
 |[Tic-tac-toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-tac-toe)|
 |[Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)|
 |[Pattern Creation Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pattern_Creation_Game)|
-| [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
-| [Tic_Tac_Toe_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe_Neon) | [Magic_8_ball_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_8_ball) |
+ [Magic_8_ball_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_8_ball) |
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
 |[Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)|
 |[Space_Dominators](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Dominators)|

@@ -51,14 +51,17 @@ function cellCreator(c, timeOut) {
     }
 
     var randomValue = Math.floor(Math.random() * 4 + 1); //create value 1, 2, 3 or 4
+    if (randomValue == 2){
+      randomValue =2;
+    }
     if (randomValue == 3) {
-      randomValue = 2;
+      randomValue = 4;
     } //3 --> 4
     if (randomValue == 1) {
       randomValue = 2;
     } //1 --> 2
     if (randomValue == 4) {
-      randomValue = 2;
+      randomValue = 4;
     } //4-->2
     var position = document.getElementById("" + randomX + randomY);
     var tile = document.createElement("DIV"); //create div at x, y

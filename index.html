@@ -8,7 +8,6 @@
   <title>GameZone</title>
 
   <!-- Primary Meta Tags -->
-  <title></title>
   <meta name="title" content="GameZone" />
   <meta name="description"
     content="Welcome to GameZone, the ultimate online gaming destination! Enjoy a vast collection of small games across genres like casual, puzzles, etc. Play directly in your browser. GameZone: endless fun at your fingertips!" />
@@ -46,8 +45,6 @@
   <link rel="stylesheet" href="./assets/css/scroll.css">
   <link rel="stylesheet" href="./assets/css/particles.css">
   <link rel="stylesheet" href="./assets/css/contributors.css">
-  <link rel="stylesheet" href="./assets/css/navbar.css">
-  <link rel="stylesheet" href="./assets/css/gameCard.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="stylesheet" href="./assets/css/gameCard.css">
   <link rel="stylesheet" href="./assets/css/cursor_transition.css">
@@ -97,19 +94,24 @@ border-radius: 1000px;
 <!-- NavBar -->
 
 <nav class="navbarr">
-  <a href="#" class="logox">GAMΕΖΟΝΕ🕹️</a>  <ul class="nav-linkss">
-    <li><a href="#">Home</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li><a href="#">Contributors</a></li></ul>
+  <a href="#homelink" class="logox"><span>GAMΕΖΟΝΕ</span>🕹️</a>  
+  <ul class="nav-linkss">
+    <li><a href="#homelink">Home</a></li>
+    <li id="Aboutbutton"><a href="#homelink">About</a></li>
+    <li><a href="#contributorslink">Contributors</a></li>
+    <li><a href="#footer">Contact</a></li>
+  </ul>
+  <!-- Light-Dark theme SWITCH -->
+  <label id="themeToggleWrapper"  class="theme-toggle" for="themeToggle">
+    <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
+    <span class="slider" style="width: 40px; height: 20px;"></span>
+  </label>
 </nav>
 
 
-<!-- Light-Dark theme SWITCH -->
 
-<label id="themeToggleWrapper"  class="theme-toggle" for="themeToggle" style="position: fixed; top: 30px; right: 30px; z-index: 100; display: flex; align-items: center; border: none; background-color: transparent;">
-  <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
-  <span class="slider" style="width: 40px; height: 20px;"></span>
-</label>
+
+
 
 
 
@@ -118,18 +120,6 @@ border-radius: 1000px;
 
 <body>
         <div class="area" >
-            <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
 
   <div class="preloader">
     <img src="loader.gif" class="center">
@@ -146,20 +136,12 @@ document.body.removeChild(loader);
 });
   </script>
   <div class="cursor"></div>
-  <!-- BACKGROUND PARTICLES -->
-  <!-- <div class="page-bg"></div> -->
-  <!-- <div class="animation-wrapper"> -->
-  <!-- <div class="particle particle-1"></div> -->
-  <!-- <div class="particle particle-2"></div> -->
-  <!-- <div class="particle particle-3"></div> -->
-  <!-- <div class="particle particle-4"></div> -->
-  <!-- </div> -->
   <div class="progress-bar">
     <div class="filled"></div>
   </div>
 
 
-  <div class="abcd">
+  <div class="abcd" id="homelink">
 
     <main>
      
@@ -241,13 +223,14 @@ document.body.removeChild(loader);
 
       </div>
   </div>
+  </main>
   <br>
   <br>
   <br>
 
 
   <!-- Contributors section -->
-  <div class="contributors">
+  <div class="contributors" id="contributorslink">
     <h1 style="font-family: 'Agency FB', Times, serif; color: aqua;">Our Valuable Contributors</h1>
      <!-- display number of contributors-->
     <h2 id="total-contributors" style="text-align: center; font-family: 'Agency FB', Times, serif; color: aqua;"></h2> 
@@ -345,84 +328,6 @@ document.body.removeChild(loader);
                   </svg>
                 </a>
               </li>
-            </ul>
-          </div>
-        </br></br>
-          <!-- Copyright -->
-          <p id="copyright">&copy; 2024 GameZone. All Rights Reserved.</p>
-            <p style="font-size: 20px; padding: 20px; font-style:cursive;cursor: pointer;color: rgb(254, 253, 186);font-family: 'Agency FB', Times, serif;">Make sure you
-              checkout
-              my
-              socials and
-              ⭐ GameZone on
-              github</p>
-
-          </div>
-          <div>        
-            <ul class="example-2">
-              <li class="icon-content">
-                <a
-                  href="https://www.linkedin.com/in/kunj199/"
-                  aria-label="LinkedIn"
-                  data-social="linkedin"
-                >
-                  <div class="filled"></div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-linkedin"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-              <li class="icon-content">
-                <a
-                  href="https://x.com/kunj_199"
-                  aria-label="Twitter"
-                  data-social="twitter"
-                >
-                  <div class="filled"></div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-twitter"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.676 6.676 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.084.797 3.286 3.286 0 0 0-5.595 2.994A9.325 9.325 0 0 1 1.114 2.1a3.286 3.286 0 0 0 1.018 4.381A3.323 3.323 0 0 1 .64 6.575v.041a3.286 3.286 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.615-.057 3.286 3.286 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045 9.344 9.344 0 0 0 5.026 1.465"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-              <li class="icon-content">
-                <a
-                  href="https://github.com/kunjgit"
-                  aria-label="GitHub"
-                  data-social="github"
-                >
-                  <div class="filled"></div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-github"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
               <li class="icon-content">
                 <a
                   href="https://www.instagram.com/your_instagram_username"
@@ -444,7 +349,8 @@ document.body.removeChild(loader);
               </li>
             </ul>
           </div>
-<hr style="margin: 20px; background-color:yellow; opacity: 0.8;">
+        </br></br>
+          <hr style="margin: 20px; background-color:yellow; opacity: 0.8;">
           <!-- Copyright -->
           
           <p id="copyright" style="color:rgb(222, 222, 222)">&copy; 2024 GameZone || All Rights Reserved.</p>
@@ -465,7 +371,7 @@ document.body.removeChild(loader);
 
 
 
-  </main>
+ 
 
 
 

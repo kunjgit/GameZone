@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+        <title>Memory Block</title>
+        <link href="home.css" rel="stylesheet"> <!-- CSS file for styling-->
+        <script type="text/javascript" src="home.js"></script> <!-- JavaScript file -->
+    </head>
+
+<!--
+    data-isopen : if a block is opened this attribute is changed to true else false
+    data-islocked : if image of two blocks matched then both are locked and won't be locked
+-->
+
+<body onload="hideIntro();">
+<div class="intro">
+    <h1>TechMemoryBlocks<sub>The game.</sub></h1>
+</div>
+
+<div class="difficulty">
+    <ul class="difficulty-levels">
+        <li onclick="setDifficulty(0)">Easy</li>
+        <li onclick="setDifficulty(1)">Intermediate</li>
+        <li onclick="setDifficulty(2)">Difficult</li>
+    </ul>
+</div>
+
+<div class="modal">
+    <div class="alert-message">
+        <h1>Game Over!</h1>
+    <button onclick="hideModal(0)">Ok</button>
+    </div>
+</div>
+
+<div class="modal">
+    <div class="alert-message">
+        <h1>Restart game? All progress will be lost.</h1>
+    <button onclick="restartGame()">Restart</button>
+    <button onclick="hideModal(1)">Cancel</button>
+    </div>
+</div>
+
+<div class="container">
+    
+    <div class="header">
+        <h1 class="header-title">TechMemoryBlocks<sub>The game.</sub>
+        <attempt>Attempts : </attempt>
+        </h1>
+
+    </div>
+    
+    <div class="leader">
+        <ul class="options">
+        <li onclick="document.getElementsByClassName('modal')[1].style.display='block';" title="Restart"><img src="restart.png"></li>
+            <li title="Help"><a href="help.html" target="_blank"><img src="help.png"></a></li>
+        </ul>
+
+        <h1 class="leaderboard">Leaderboard</h1>
+        <ul class="score">
+            
+        </ul>
+
+    </div>
+    <table name='matrix' cellspacing="10">
+        <tr>
+            <td onclick="changeImage(this)"   class="ele" id='0'></td>
+            <td onclick="changeImage(this)"   class="ele" id='1'></td>
+            <td onclick="changeImage(this)"   class="ele" id='2'></td>
+            <td onclick="changeImage(this)"   class="ele" id='3'></td>
+            <td onclick="changeImage(this)"   class="ele" id='4'></td>
+            <td onclick="changeImage(this)"   class="ele" id='5'></td>
+
+            
+        </tr>
+
+        <tr>
+            <td onclick="changeImage(this)"   class="ele" id='6'></td>
+            <td onclick="changeImage(this)"   class="ele" id='7'></td>
+            <td onclick="changeImage(this)"   class="ele" id='8'></td>
+            <td onclick="changeImage(this)"   class="ele" id='9'></td>
+            <td onclick="changeImage(this)"   class="ele" id='10'></td>
+            <td onclick="changeImage(this)"   class="ele" id='11'></td>
+
+        </tr>
+
+        <tr>
+            <td onclick="changeImage(this)"   class="ele" id='12'></td>
+            <td onclick="changeImage(this)"   class="ele" id='13'></td>
+            <td onclick="changeImage(this)"   class="ele" id='14'></td>
+            <td onclick="changeImage(this)"   class="ele" id='15'></td>
+            <td onclick="changeImage(this)"   class="ele" id='16'></td>
+            <td onclick="changeImage(this)"   class="ele" id='17'></td>
+
+        </tr>
+
+        <tr>
+            <td onclick="changeImage(this)"   class="ele" id='18'></td>
+            <td onclick="changeImage(this)"   class="ele" id='19'></td>
+            <td onclick="changeImage(this)"   class="ele" id='20'></td>
+            <td onclick="changeImage(this)"   class="ele" id='21'></td>
+            <td onclick="changeImage(this)"   class="ele" id='22'></td>
+            <td onclick="changeImage(this)"   class="ele" id='23'></td>
+
+        </tr>
+
+        <tr>
+            <td onclick="changeImage(this)"   class="ele" id='24'></td>
+            <td onclick="changeImage(this)"   class="ele" id='25'></td>
+            <td onclick="changeImage(this)"   class="ele" id='26'></td>
+            <td onclick="changeImage(this)"   class="ele" id='27'></td>
+            <td onclick="changeImage(this)"   class="ele" id='28'></td>
+            <td onclick="changeImage(this)"   class="ele" id='29'></td>
+
+        </tr>
+
+        <tr>
+            <td onclick="changeImage(this)"   class="ele" id='30'></td>
+            <td onclick="changeImage(this)"   class="ele" id='31'></td>
+            <td onclick="changeImage(this)"   class="ele" id='32'></td>
+            <td onclick="changeImage(this)"   class="ele" id='33'></td>
+            <td onclick="changeImage(this)"   class="ele" id='34'></td>
+            <td onclick="changeImage(this)"   class="ele" id='35'></td>
+
+        </tr>
+    </table>
+
+    <h1 class="message"></h1>
+    <button class="message-button" onclick="playAgain()">Play Again ></button>
+</div>
+</body>
+</html>

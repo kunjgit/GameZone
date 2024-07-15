@@ -3,6 +3,16 @@ document.addEventListener('mousemove', function(e) {
     customCursor.style.left = e.pageX + 'px';
     customCursor.style.top = e.pageY + 'px';
 })
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const gameContainer = document.getElementById("game-container");
     let cards = generateCards();
@@ -84,3 +94,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initializeGame();
 });
+
+///added chat box functionality
+const chatBox = document.getElementById('chat-box');
+const chatInput = document.getElementById('chat-input');
+const sendBtn = document.getElementById('send-btn');
+sendBtn.addEventListener('click', sendMessage);
+function sendMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    displayMessage(message, 'user');
+    chatInput.value = '';
+    respondToMessage(message);
+}
+
+function displayMessage(message, sender) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chat-message', sender);
+    messageElement.textContent = message;
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+
+// need for an good api didn't learn about 
+async function respondToMessage(message) {
+    const response = await fetch('https://api.fictionalai.com/v1/chat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer YOUR_API_KEY'
+        },
+        body: JSON.stringify({ message })
+    }).then(res => res.json());
+
+    displayMessage(response.reply, 'bot');
+}
+function getHint() {
+    // Check for pairs of cards that are not yet matched
+    for (let i = 0; i < cards.length; i++) {
+        for (let j = i + 1; j < cards.length; j++) {
+            if (!cards[i].classList.contains('flipped') && !cards[j].classList.contains('flipped')) {
+                if (cards[i].querySelector('.card-front').style.backgroundImage === cards[j].querySelector('.card-front').style.backgroundImage) {
+                    return `Try flipping the cards at positions ${i + 1} and ${j + 1}.`;
+                }
+            }
+        }
+    }
+    // If no pairs found, suggest flipping a random unflipped card
+    for (let i = 0; i < cards.length; i++) {
+        if (!cards[i].classList.contains('flipped')) {
+            return `Try flipping the card at position ${i + 1}.`;
+        }
+    }
+    return "No hints available at the moment.";}

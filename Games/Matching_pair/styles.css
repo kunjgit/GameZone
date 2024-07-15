@@ -13,6 +13,57 @@ body {
   color: #fff;
   cursor: none;
 }
+/* Navbar styles */
+.navbar {
+  width: 100%;
+  background-color: #09000d;
+  padding: 1px ;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-menu li {
+  display: inline;
+}
+
+.navbar-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Adjust the game container to accommodate the navbar */
+.game-container {
+  margin-top: 60px; /* Adjust based on the height of the navbar */
+  text-align: center;
+}
+
 #custom-cursor{
    
     width: 20px;
@@ -144,4 +195,57 @@ button:hover {
 @keyframes buttonBounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
+}
+.chat-container {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  width: 300px;
+  background-color: #2c2c2c;
+  border: 1px solid #444;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.chat-box {
+  height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  color: #fff;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.chat-message.bot {
+  background-color: #444;
+  text-align: left;
+}
+
+.chat-message.user {
+  background-color: #0084ff;
+  text-align: right;
+}
+
+#chat-input {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 0 0 0 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+#send-btn {
+  width: 10%;
+  padding: 5px;
+  border: none;
+  border-radius: 0 0 10px 0;
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
 }

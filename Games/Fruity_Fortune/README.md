@@ -4,7 +4,7 @@
 
 Fruity Fortune is an engaging web-based slot machine game that brings the excitement of casino-style gambling to your browser. With its colorful fruit symbols and simple gameplay, it's perfect for a quick game or extended play sessions.
 
-## Functionalities 🎮
+## Features 🎮
 
 - 🎰 Three-reel slot machine with fruit symbols
 - 💰 Starting balance of $100

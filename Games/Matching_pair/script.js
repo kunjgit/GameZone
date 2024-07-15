@@ -1,3 +1,8 @@
+document.addEventListener('mousemove', function(e) {
+    const customCursor = document.getElementById('custom-cursor');
+    customCursor.style.left = e.pageX + 'px';
+    customCursor.style.top = e.pageY + 'px';
+})
 document.addEventListener("DOMContentLoaded", () => {
     const gameContainer = document.getElementById("game-container");
     let cards = generateCards();
@@ -14,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cards.sort(() => Math.random() - 0.5);
         return cards;
     }
+
 
     function createCard(symbol, index) {
         const card = document.createElement("div");

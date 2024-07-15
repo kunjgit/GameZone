@@ -855,6 +855,7 @@ This repository also provides one such platforms where contributers come over an
 | [UNO game with computer](https://github.com/kunjgit/GameZone/tree/main/Games/UNO_game_with_Computer) |
 |[Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)|
 |[Space_Dominators](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Dominators)|
+|[Fruity_Fortune](https://github.com/kunjgit/GameZone/tree/main/Games/Fruity_Fortune)| 
  </center>
 
 <br>

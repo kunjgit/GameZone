@@ -1,0 +1,83 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    font-size:25px;
+    font-weight:bold;
+    margin:0 0 0 0;
+    background-color:#f0f0f0;
+}
+* {
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+#game {
+    position:relative;
+    margin:auto;
+    width:360px;
+    height:460px;
+}
+circle,polyline,path,line {
+    display:none;
+}
+#paths path,#paths line,#paths circle {
+    display:block;
+}
+#complete circle,#complete path {
+    display:block;
+}
+.blocks {
+    position:absolute;
+    width:72px;
+    height:72px;
+    display:none;
+    z-index:400;
+}
+#complete {
+    position:absolute;
+    top:0;
+    left:0;
+    width:360px;
+    height:460px;
+    z-index:200;
+    display:none;
+}
+#lighton {
+    position:absolute;
+    top:0;
+    right:0;
+    width:120px;
+    height:173px;
+    background-image:url(https://i.imgur.com/tTabsv6.png);
+}
+.b_levels {
+    position:absolute;
+    width:56px;
+    height:47px;
+    border:2px solid;
+    background-color:#e0e0e0;
+    border-radius:10px;
+    font-size:15px;
+    cursor:pointer;
+    z-index:400;
+}
+.b_levels div {
+    position:absolute;
+    top:15px;
+    left:0;
+    width:100%;
+    font-size:21px;
+}
+.btn {
+    position:absolute;
+    top: 127px;
+    border:2px solid;
+    background-color:#e0e0e0;
+    border-radius:10px;
+    font-size:15px;
+    cursor:pointer;
+    padding:5px 10px 5px 10px;
+    display:none;
+    z-index:200;
+}

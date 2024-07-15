@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: url("assets/mario-bg.jpg");
+    background-size: cover;
+}
+
+#board {
+    max-width: 540px; /* Set maximum width */
+    width: 90%; /* Set width to a percentage */
+    aspect-ratio: 1; /* Maintain aspect ratio */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background: url("assets/soil.png");
+    background-size: cover;
+    border: 3px solid white;
+    border-radius: 25px;
+}
+
+#board div {
+    width: 33.33%; /* Set width to 1/3 of the parent */
+    padding-bottom: 33.33%; /* Maintain a square aspect ratio */
+    background-image: url("assets/pipe.png");
+    background-size: cover;
+    position: relative;
+}
+
+#board div img {
+    width: 60%; /* Adjust size of mole image */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.beat{
+    margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+    #board {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 400px) {
+    #board {
+        max-width: 300px;
+    }
+}

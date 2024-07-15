@@ -122,7 +122,7 @@
   "25": {
     "gameTitle": "Tic Tac Toe",
     "gameUrl": "Tic_Tac_Toe",
-    "thumbnailUrl": "Tic_Tac_Toe.webp"
+    "thumbnailUrl": "Tic_Tac_Toe.png"
   },
   "26": {
     "gameTitle": "Flappy Bird",
@@ -280,7 +280,7 @@
   "56": {
     "gameTitle": "Rock Paper Scissors",
     "gameUrl": "Rock_Paper_Scissors",
-    "thumbnailUrl": "Rock_Paper_Scissors.webp"
+    "thumbnailUrl": "Rock_Paper_Scissors.png"
   },
 
   "57": {
@@ -453,7 +453,7 @@
   "89": {
     "gameTitle": "Snake Ladder",
     "gameUrl": "Snake_Ladder",
-    "thumbnailUrl": "snake_ladder.webp"
+    "thumbnailUrl": "snake_and_ladder.webp"
   },
   "90": {
     "gameTitle": "Among Us",
@@ -563,7 +563,7 @@
   "111": {
     "gameTitle": "Space Gun",
     "gameUrl": "Space_Gun",
-    "thumbnailUrl": "space_gun.webp"
+    "thumbnailUrl": "space_gun.png"
   },
   "112": {
     "gameTitle": "Space Huggers",
@@ -587,7 +587,7 @@
   },
   "116": {
     "gameTitle": "3d Box",
-    "gameUrl": "3d_Box Game",
+    "gameUrl": "3d_Box_Game",
     "thumbnailUrl": "3d_Box.webp"
   },
   "117": {
@@ -1068,7 +1068,7 @@
   "212": {
     "gameTitle": "Bulls eye",
     "gameUrl": "BullseyeGame",
-    "thumbnailUrl": "BullseyeGame.webp"
+    "thumbnailUrl": "Bulls_eye.png"
   },
   "213": {
     "gameTitle": "Cross Word",
@@ -1442,194 +1442,194 @@
   },
   "287": {
     "gameTitle": "Stone Paper Scissor",
-    "gameUrl": "Stone-Paper-Scissor",
-    "thumbnailUrl": "StonePaper.webp"
+    "gameUrl": "Stone_paper_scissor",
+    "thumbnailUrl": "StonePaper.png"
   },
   "288": {
     "gameTitle": "Spider Man Go",
     "gameUrl": "Spider_Man_Go",
-    "thumbnailUrl": "spidermango.webp"
+    "thumbnailUrl": "spidermango.png"
   },
   "289": {
     "gameTitle": "Foosball",
     "gameUrl": "Foosball",
-    "thumbnailUrl": "Foosball.webp"
+    "thumbnailUrl": "Foosball.png"
   },
   "290": {
     "gameTitle": "Triangle Back to Home",
     "gameUrl": "Triangle_Back_to_Home",
-    "thumbnailUrl": "Triangle_Back_To_Home.webp"
+    "thumbnailUrl": "Triangle_Back_To_Home.png"
   },
   "291": {
     "gameTitle": "Color Crush Game",
     "gameUrl": "Color_Crush_Game",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Color_Crush_Game.png"
   },
   "292": {
     "gameTitle": "Trex Run",
     "gameUrl": "Trex_Run",
-    "thumbnailUrl": "t-rex.webp"
+    "thumbnailUrl": "t-rex.png"
   },
   "293": {
     "gameTitle": "Chicken Cannon",
     "gameUrl": "Chicken_Cannon",
-    "thumbnailUrl": "chicken.webp"
+    "thumbnailUrl": "Chicken_cannon.png"
   },
   "294": {
     "gameTitle": "Death by Hamster",
     "gameUrl": "Death%20by%20Hamster",
-    "thumbnailUrl": "hamster.webp"
+    "thumbnailUrl": "Death by Hamster.png"
   },
   "295": {
     "gameTitle": "Trio Match",
     "gameUrl": "Trio_Match",
-    "thumbnailUrl": "Trio_Match.webp"
+    "thumbnailUrl": "Trio_Match.png"
   },
   "296": {
     "gameTitle": "Word Chain",
     "gameUrl": "Word%20Chain",
-    "thumbnailUrl": "WordChain.webp"
+    "thumbnailUrl": "WordChain.png"
   },
   "297": {
     "gameTitle": "Ball and glass",
     "gameUrl": "Ball_and_glass",
-    "thumbnailUrl": "cup.webp"
+    "thumbnailUrl": "Ball_and_glass.png"
   },
   "298": {
     "gameTitle": "Target Torrent",
     "gameUrl": "Target_Torrent",
-    "thumbnailUrl": "Target_Torrent.webp"
+    "thumbnailUrl": "Target_Torrent.png"
   },
   "299": {
     "gameTitle": "Reversi",
     "gameUrl": "Reversi",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "reversi.png"
   },
   "300": {
     "gameTitle": "reaction teaser",
     "gameUrl": "reaction_teaser",
-    "thumbnailUrl": "Games/reaction_teaser/images/favicon.jpg"
+    "thumbnailUrl": "reactionteaser.jpg"
   },
   "301": {
     "gameTitle": "Scribble",
     "gameUrl": "Scribble",
-    "thumbnailUrl": "logo.jpeg"
+    "thumbnailUrl": "Scribble.png"
   },
   "302": {
     "gameTitle": "Brain Burst Game",
     "gameUrl": "Brain_Burst_Game",
-    "thumbnailUrl": "favicon.ico"
+    "thumbnailUrl": "Brain_Burst_Game.png"
   },
   "303": {
     "gameTitle": "StickTheSticker",
     "gameUrl": "StickTheSticker",
-    "thumbnailUrl": "1.webp"
+    "thumbnailUrl": "Stick_The_Sticker.webp"
   },
   "304": {
     "gameTitle": "Meme Battle Game",
     "gameUrl": "Meme_Battle_Game",
-    "thumbnailUrl": "BATTLE game (5).webp"
+    "thumbnailUrl": "Meme Battle Game.png"
   },
   "305": {
     "gameTitle": "Bow And Arrow",
     "gameUrl": "Bow_And_Arrow",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Bow_And_Arrow.png"
   },
   "306": {
     "gameTitle": "Beyblade",
     "gameUrl": "Beyblade",
-    "thumbnailUrl": "beyblade-1.jpg"
+    "thumbnailUrl": "Beyblade.png"
   },
   "307": {
     "gameTitle": "The labyrinth of death",
     "gameUrl": "The%20labyrinth%20of%20death",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "The labyrinth of death.png"
   },
   "308": {
     "gameTitle": "2D BreakOut",
     "gameUrl": "2D_BreakOut",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "2D_Breakout.webp"
   },
   "309": {
     "gameTitle": "Battleship",
     "gameUrl": "Battleship",
-    "thumbnailUrl": "miss.webp"
+    "thumbnailUrl": "Battleship.png"
   },
   "310": {
     "gameTitle": "Baseball",
     "gameUrl": "Baseball",
-    "thumbnailUrl": "batter.jpeg"
+    "thumbnailUrl": "Baseball.png"
   },
   "311": {
     "gameTitle": "Save Princess",
     "gameUrl": "Save_Princess",
-    "thumbnailUrl": "Save_Princess.webp"
+    "thumbnailUrl": "Save_Princess.png"
   },
   "312": {
     "gameTitle": "RoadFighter",
     "gameUrl": "RoadFighter",
-    "thumbnailUrl": "barrel.webp"
+    "thumbnailUrl": "RoadFighter.png"
   },
   "313": {
     "gameTitle": "Guitar Game",
     "gameUrl": "Guitar_Game",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Guitar_Game.png"
   },
   "314": {
     "gameTitle": "Solitaire",
     "gameUrl": "Solitaire",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Solitaire.png"
   },
   "315": {
     "gameTitle": "Lady Tiger Hunter",
     "gameUrl": "Lady_Tiger_Hunter",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "lady_tiger_hunter.png"
   },
-   "316": {
-    "gameTitle": "Stone Paper Scissor",
-    "gameUrl": "Stone_Paper_Scissor",
-    "thumbnailUrl": "favicon.webp"
+  "316": {
+    "gameTitle":"Fidget_Spinner_Game",
+    "gameUrl":"Fidget_Spinner_Game",
+    "thumbnailUrl":"Fidget.png"
   },
-  
+
   "317": {
     "gameTitle": "Flashlight Pointer Game",
     "gameUrl": "Flashlight_Pointer_Game",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Flashlight_Pointer_Game.png"
   },
   "318": {
     "gameTitle": "Pig game",
     "gameUrl": "Pig_game",
-    "thumbnailUrl": "pig-game-flowchart.webp"
+    "thumbnailUrl": "Pig_game.jpg"
   },
   "319": {
     "gameTitle": "Asteroids 3D",
     "gameUrl": "Asteroids_3D",
-    "thumbnailUrl": "Asteroids_3D.webp"
+    "thumbnailUrl": "Asteroids_3D.png"
   },
   "320": {
     "gameTitle": "Lamb Lane",
     "gameUrl": "Lamb_Lane",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Lamb_Lane.png"
   },
   "321": {
     "gameTitle": "Dinoffline",
     "gameUrl": "Dinoffline",
-    "thumbnailUrl": "eyes0.webp"
+    "thumbnailUrl": "Dinoffline.png"
   },
   "322": {
-    "gameTitle": "Maths Sprint Game",
-    "gameUrl": "Maths_Sprint_Game",
-    "thumbnailUrl": ""
+    "gameTitle": "ShroomKnight",
+    "gameUrl": "ShroomKnight",
+    "thumbnailUrl": "ShroomKnight.png"
   },
   "323": {
     "gameTitle": "Etch a Sketch",
     "gameUrl": "Etch_a_Sketch",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Etch-a-Sketch.png"
   },
   "324": {
     "gameTitle": "QuizzApp",
     "gameUrl": "QuizzApp",
-    "thumbnailUrl": "quizzApp1.webp"
+    "thumbnailUrl": "quizzApp1.png"
   },
   "325": {
     "gameTitle": "Chess Game",
@@ -1639,27 +1639,27 @@
   "326": {
     "gameTitle": "Which Color",
     "gameUrl": "Which_Color",
-    "thumbnailUrl": "Which_Color"
+    "thumbnailUrl": "Which_Color.png"
   },
   "327": {
     "gameTitle": "Snail Game",
     "gameUrl": "Snail_Game",
-    "thumbnailUrl": "Snail_Game"
+    "thumbnailUrl": "Snail_Game.png"
   },
   "328": {
-    "gameTitle": "Solitaire",
-    "gameUrl": "Solitaire_up",
-    "thumbnailUrl": ""
+    "gameTitle": "rapid_click_frenzy",
+    "gameUrl": "rapid_click_frenzy",
+    "thumbnailUrl": "rapidgame.png"
   },
   "329": {
     "gameTitle": "Slime Attack ",
     "gameUrl": "Slime_attack_game",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Slime Attack.jpg"
   },
   "330": {
     "gameTitle": "Star_Trek_Trivia",
     "gameUrl": "Star_Trek_Trivia",
-    "thumbnailUrl": "star-trek-img.png"
+    "thumbnailUrl": "Star_trek_img.png"
   },
   "331": {
     "gameTitle": "Pokemon_Card_Game",
@@ -1672,14 +1672,14 @@
     "thumbnailUrl": "Digit_Dilemma.png"
   },
   "333": {
-    "gameTitle": "Snail Game",
-    "gameUrl": "Snail_Game",
-    "thumbnailUrl": "Snail_Game"
+    "gameTitle":"Puzzle-Game",
+    "gameUrl":"puzzle-game",
+    "thumbnailUrl":"puzzle-game.png"
   },
   "334": {
     "gameTitle": "Tennis",
     "gameUrl": "Tennis",
-    "thumbnailUrl": "paddle.jpeg"
+    "thumbnailUrl": "Tennis.png"
   },
   "335": {
     "gameTitle": "Illusion",
@@ -1689,142 +1689,142 @@
   "336": {
     "gameTitle": "Block Buster",
     "gameUrl": "Block_Buster",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Block_Buster.png"
   },
   "337": {
     "gameTitle": "Guess_The_Ball",
     "gameUrl": "Guess_The_Ball",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Guess_The_Ball.png"
   },
   "338": {
     "gameTitle": "Doremon Puzzle",
     "gameUrl": "Doremon_Puzzle",
-    "thumbnailUrl": "logo.png"
+    "thumbnailUrl": "Doremon_Puzzle.png"
   },
   "339": {
     "gameTitle": "Guess The Celebrity",
     "gameUrl": "Guess_The_Celebrity",
-    "thumbnailUrl": "favicon-32x32.png"
+    "thumbnailUrl": "Guess_The_Celeb.webp"
   },
   "340": {
     "gameTitle": "Rock_Paper_Scissors_Lizard_Spock",
     "gameUrl": "Rock_Paper_Scissors_Lizard_Spock",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "rock_paper_scissors_lizard_spock.png"
   },
   "341": {
     "gameTitle": "Elemental_Riddles",
     "gameUrl": "Elemental_Riddles",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Elemental_Riddles.png"
   },
   "342": {
     "gameTitle": "Falling_Ball",
     "gameUrl": "Falling_Ball",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Falling_Ball.png"
   },
   "343": {
     "gameTitle": "Hit_Target",
     "gameUrl": "Hit_Target",
-    "thumbnailUrl": "image.png"
+    "thumbnailUrl": "Hit_Target.png"
   },
   "344": {
     "gameTitle": "Archery",
     "gameUrl": "Archery",
-    "thumbnailUrl": "target.png"
+    "thumbnailUrl": "Archery.png"
   },
   "345": {
     "gameTitle": "Click_circle",
     "gameUrl": "Click_circle",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "click_circle.png"
   },
   "346": {
     "gameTitle": "color_switch_challenger",
     "gameUrl": "color_switch_challenger",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "color_switch_challenger.png"
   },
   "347": {
     "gameTitle": "Puzzle_Game",
     "gameUrl": "Puzzle_Game",
-    "thumbnailUrl": "marvel.jpg"
+    "thumbnailUrl": "avengers.png"
   },
   "348": {
     "gameTitle": "Quizify",
     "gameUrl": "Quizify",
-    "thumbnailUrl": "image.png"
+    "thumbnailUrl": "Quizify.png"
   },
   "349": {
     "gameTitle": "word blitz",
     "gameUrl": "word_blitz",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "word blitz.png"
   },
   "350": {
-    "gameTitle": "Click_circle",
-    "gameUrl": "Click_circle",
-    "thumbnailUrl": ""
+    "gameTitle": "MathQuiz",
+    "gameUrl": "MathQuiz",
+    "thumbnailUrl": "MathQuiz.png"
   },
   "351": {
-    "gameTitle": "color_switch_challenger",
-    "gameUrl": "color_switch_challenger",
-    "thumbnailUrl": ""
+    "gameTitle": "Pen_Pointer_Fight",
+    "gameUrl": "PenPointerFight",
+    "thumbnailUrl": "PenPointerFight.png"
   },
   "352": {
-    "gameTitle": "Puzzle_Game",
-    "gameUrl": "Puzzle_Game",
-    "thumbnailUrl": "marvel.jpg"
+    "gameTitle": "Soccer",
+    "gameUrl": "Soccer",
+    "thumbnailUrl": "Soccer.png"
   },
   "353": {
-    "gameTitle": "Quizify",
-    "gameUrl": "Quizify",
-    "thumbnailUrl": "image.png"
+    "gameTitle": "Brick Buster",
+    "gameUrl": "Brick Buster",
+    "thumbnailUrl": "Brick.png"
   },
   "354": {
-    "gameTitle": "word blitz",
-    "gameUrl": "word_blitz",
-    "thumbnailUrl": ""
+    "gameTitle": "Guess_The_Song",
+    "gameUrl": "Guess_The_Song",
+    "thumbnailUrl": "Guess_The_Song.png"
   },
   "355": {
     "gameTitle": "Code Cracker",
     "gameUrl": "Code_Cracker",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Code_Cracker.png"
   },
   "356": {
     "gameTitle": "Know Your Country",
     "gameUrl": "Know_Your_Country",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Know_Your_Country.png"
   },
   "357": {
     "gameTitle": "Musical_Floor",
     "gameUrl": "Musical_Floor",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Musical_Floor.png"
   },
   "358": {
     "gameTitle": "Sky_Dodge",
     "gameUrl": "Sky_Dodge",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "sky_dodge.png"
   },
   "359": {
     "gameTitle": "Swap Card Game",
     "gameUrl": "Swap-Card-Game",
-    "thumbnailUrl": "images.png"
+    "thumbnailUrl": "Swap-Card-Game.png"
   },
   "360": {
     "gameTitle": "Memorization_card",
     "gameUrl": "Memorization_card",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Memorization_cards.png"
   },
   "361": {
     "gameTitle": "Smashing_Blocks",
     "gameUrl": "Smashing_Blocks",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Smashing_Blocks.png"
   },
   "362": {
     "gameTitle": "Response_Reaction",
     "gameUrl": "Response_Reaction",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Response_Reaction.png"
   },
   "363": {
     "gameTitle": "Truth and Dare",
     "gameUrl": "Truth_and_Dare",
-    "thumbnailUrl": "image.png"
+    "thumbnailUrl": "Truth_And_Dare.png"
   },
   "364": {
     "gameTitle": "Rotating_Elements",
@@ -1834,17 +1834,17 @@
   "365": {
     "gameTitle": "Chopsticks",
     "gameUrl": "Chopsticks",
-    "thumbnailUrl": "image-0.png"
+    "thumbnailUrl": "Chopsticks.png"
   },
   "366": {
     "gameTitle": "Anime Clicker",
     "gameUrl": "Anime_Clicker",
-    "thumbnailUrl": "bg.jpg"
+    "thumbnailUrl": "Anime_Clicker.png"
   },
   "367": {
     "gameTitle": "3D Snake",
     "gameUrl": "3D_Snake",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "3d_Snake.png"
   },
   "368": {
     "gameTitle": "Rocket_Showdown",
@@ -1854,7 +1854,7 @@
   "369": {
     "gameTitle": "Find Extra Cube",
     "gameUrl": "Find_Extra_Cube",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Find_Extra_Cube.png"
   },
   "370": {
     "gameTitle": "PathPlex",
@@ -1864,52 +1864,52 @@
   "371": {
     "gameTitle": "CSS Select",
     "gameUrl": "CSS_Select",
-    "thumbnailUrl": "Share.png"
+    "thumbnailUrl": "CSS_Select.png"
   },
   "372": {
     "gameTitle": "Squid",
     "gameUrl": "Squid_Game",
-    "thumbnailUrl": "img.png"
+    "thumbnailUrl": "squid_game.webp"
   },
   "373": {
     "gameTitle": "CSS Crossword",
     "gameUrl": "CSS_Crossword",
-    "thumbnailUrl": "Snail_Game"
+    "thumbnailUrl": "CSS_Crossword.webp"
   },
   "374": {
-    "gameTitle": "CSS Select",
-    "gameUrl": "CSS_Select",
-    "thumbnailUrl": "Share.png"
+    "gameTitle": "Screen_Pet_Game",
+    "gameUrl": "Screen_Pet_Game",
+    "thumbnailUrl": "Screen_Pet_Game.png"
   },
   "375": {
-    "gameTitle": "Squid",
-    "gameUrl": "Squid_Game",
-    "thumbnailUrl": "img.png"
+    "gameTitle": "Anagram_Checker_Game",
+    "gameUrl": "Anagram_Checker_Game",
+    "thumbnailUrl": "Anagram_Checker_Game.png"
   },
   "376": {
     "gameTitle": "Flip Coin",
     "gameUrl": "Flip_Coin",
-    "thumbnailUrl": "image.png"
+    "thumbnailUrl": "Flip_Coin.png"
   },
   "377": {
     "gameTitle": "Witty Word Quest",
     "gameUrl": "witty_word_quest",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "witty_word_quest.png"
   },
   "378": {
     "gameTitle": "Typing Game",
     "gameUrl": "Typing_Game",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "Typing_Game.png"
   },
   "379": {
     "gameTitle": "numerical_whiz",
     "gameUrl": "Number guessing Game",
-    "thumbnailUrl": ""
+    "thumbnailUrl": "NumberGuessingGame.png"
   },
   "380": {
     "gameTitle": "Candy_match",
     "gameUrl": "Candy_Match_Saga",
-    "thumbnailUrl": "image.png"
+    "thumbnailUrl": "Candy_match_saga.jpg"
   },
   "381": {
     "gameTitle": "Crossy_Road",
@@ -1924,12 +1924,12 @@
   "383": {
     "gameTitle": "Puzzel_Winner",
     "gameUrl": "Puzzel_Winner",
-    "thumbnailUrl": "Puzzel_Winner.png"
+    "thumbnailUrl": "Puzzel_winner.png"
   },
   "384": {
     "gameTitle": "Emoji_Intruder",
     "gameUrl": "Emoji_Intruder",
-    "thumbnailUrl": "Emoji_intruder.png"
+    "thumbnailUrl": "Emoji_Intruder.png"
   },
   "385": {
     "gameTitle": "Guess_The_Weapon",
@@ -1937,11 +1937,153 @@
     "thumbnailUrl": "Guess_The_Weapon.png"
   },
   "386": {
+    "gameTitle": "Bulls_and_Cows",
+    "gameUrl": "Bulls_and_Cows",
+    "thumbnailUrl": "bulls-and-cows.png"
+  },
+  "387": {
     "gameTitle": "Earth_Guardian",
     "gameUrl": "Earth_Guardian",
     "thumbnailUrl": "Earth_Guardian.png"
-  }
-  
-  
-  
+  },
+  "388": {
+    "gameTitle": "Technical_Mind_Game",
+    "gameUrl": "Technical_Mind_Game",
+    "thumbnailUrl": "Technical_Mind_Game.png"
+  },
+  "389": {
+    "gameTitle": "Memory Cards Game",
+    "gameUrl": "Memory_Cards_Game",
+    "thumbnailUrl": "Memory_Cards_Game.png"
+  },
+  "390": {
+    "gameTitle": "escaperoom",
+    "gameUrl": "escaperoom",
+    "thumbnailUrl": "escaperoom.png"
+  },
+  "391": {
+    "gameTitle": "Dice Roller",
+    "gameUrl": "Dice_Roller",
+    "thumbnailUrl": "Dice_Roller.png"
+  },
+  "392": {
+    "gameTitle": "Dragon Tower",
+    "gameUrl": "Dragon_Tower",
+    "thumbnailUrl": "Dragon_Tower.png"
+  },
+  "393": {
+    "gameTitle": "Chrome_Dino_Game",
+    "gameUrl": "Chrome_Dino_Game",
+    "thumbnailUrl": "Chrome_Dino_Game.png"
+  },
+
+  "394": {
+    "gameTitle": "path finder puzzle",
+    "gameUrl": "path_finder",
+    "thumbnailUrl": "Path_finder.png"
+  },
+
+  "395": {
+    "gameTitle": "Chess.com",
+    "gameUrl": "Chess.com",
+    "thumbnailUrl": "Chess.com.jpg"
+  },
+  "396": {
+    "gameTitle": "Brick_and_Ball",
+    "gameUrl": "Brick_and_Ball",
+    "thumbnailUrl": "Brick_and_Ball.png"
+  },
+
+  "397": {
+    "gameTitle": "Dot Connect",
+    "gameUrl": "Dot_Connect",
+    "thumbnailUrl": "Dot_Connect.png"
+  },
+  "398":{
+    "gameTitle": "Anagram_Checker_Game",
+    "gameUrl": "Anagram_Checker_Game",
+    "thumbnailUrl": "Anagram_Checker_Game.png"
+  },
+  "399":{
+    "gameTitle": "NameFate",
+    "gameUrl": "namefate",
+    "thumbnailUrl": "namefate.png"
+  },
+  "400":{
+    "gameTitle": "Menja block breaker",
+    "gameUrl": "Menja_block_breaker",
+    "thumbnailUrl": "menja_Block_breaker.png"
+  },
+  "401":{
+    "gameTitle": "Pop My Balloon",
+    "gameUrl": "Pop_My_Balloon",
+    "thumbnailUrl": "Pop_My_Balloon.png"
+  },
+  "402":{
+    "gameTitle": "Tower Stack",
+    "gameUrl": "Tower_Stack",
+    "thumbnailUrl": "Tower_Stack.png"
+  },
+  "403":{
+    "gameTitle": "Virtual Pet Game",
+    "gameUrl": "Virtual_Pet_Game",
+    "thumbnailUrl": "Virtual_Pet_Game.png"
+  },
+  "404":{
+    "gameTitle": "Knife_hit",
+    "gameUrl": "Knife_hit",
+    "thumbnailUrl": "Knife_hit.png"
+  },
+  "405":{ 
+    "gameTitle": "Tiny Fishing",
+  "gameUrl": "Tiny_Fishing",
+  "thumbnailUrl": "Tiny-Fishing.png"
+  },
+  "406":{
+    "gameTitle": "Shrek Vs Wild",
+    "gameUrl": "Shrek_Vs_Wild",
+    "thumbnailUrl": "Shrek_Vs_Wild.png"
+  },
+  "407":{
+    "gameTitle": "Hover_Board_Effect",
+    "gameUrl": "Hover_Board_Effect",
+    "thumbnailUrl": "Hover_Board_Effect.png"
+  },
+  "408":{
+    "gameTitle": "Candy_Crush_Saga",
+    "gameUrl": "Candy_Crush_Saga",
+    "thumbnailUrl": "Candy_Crush_Saga.png"
+  },
+  "409":{
+    "gameTitle": "MathQuiz",
+    "gameUrl": "MathQuiz",
+    "thumbnailUrl": "MathQuiz.png"
+  },
+  "410":{
+    "gameTitle":"Puzzle-Game",
+    "gameUrl":"puzzle-game",
+    "thumbnailUrl":"puzzle-game.png"
+  },
+  "411":{
+    "gameTitle": "ShroomKnight",
+    "gameUrl": "ShroomKnight",
+    "thumbnailUrl": "ShroomKnight.png"
+  },
+  "412":{
+    "gameTitle":"Fidget_Spinner_Game",
+    "gameUrl":"Fidget_Spinner_Game",
+    "thumbnailUrl":"Fidget.png"
+  },
+  "413":{
+    "gameTitle": "16_Puzzle",
+    "gameUrl": "16_Puzzle",
+    "thumbnailUrl": "16_Puzzle.png"
+  },
+  "414":{
+    "gameTitle" : "Colour_Generator_Game",
+    "gameUrl": "Colour_Generator_Game",
+    "thumbnailUrl": "Colour_Generator_Game.png"
+    }
+
+
 }

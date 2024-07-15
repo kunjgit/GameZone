@@ -371,6 +371,7 @@ This repository also provides one such platforms where contributers come over an
 |[Beat_a_mole](https://github.com/kunjgit/GameZone/tree/main/Games/Beat_a_mole)|
 |[Catch Him](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_him) |
 |[Hexsweep_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hexsweep-Game)|
+|[Tinker_jump_master](https://github.com/kunjgit/GameZone/tree/main/Games/Tinker_jump_master)|
 
   </center>
 

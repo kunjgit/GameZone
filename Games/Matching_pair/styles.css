@@ -1,74 +1,121 @@
 body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-image: linear-gradient(to bottom right, #2f2638, #2575fc);
-    color: #fff;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: #fff;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 h1 {
-    margin-top: 20px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  margin-top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: titleAnimation 2s ease-out infinite alternate;
+}
+
+@keyframes titleAnimation {
+  0% { color: #fff; transform: scale(1); }
+  100% { color: #f3f3f3; transform: scale(1.1); }
 }
 
 #game-container {
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: repeat(4, 100px);
-    gap: 10px;
-    margin-top: 20px;
-    perspective: 1000px;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  gap: 10px;
+  margin-top: 20px;
+  perspective: 1000px;
+  animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes backgroundAnimation {
+  0% { background-color: #f44336; }
+  20% { background-color: #e91e63; }
+  40% { background-color: #9c27b0; }
+  60% { background-color: #673ab7; }
+  80% { background-color: #3f51b5; }
+  100% { background-color: #2196f3; }
 }
 
 .card {
-    width: 100px;
-    height: 100px;
-    background-color: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform 0.5s ease;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  animation: backgroundAnimation 5s infinite alternate, cardEntry 0.5s ease;
+}
+
+@keyframes cardEntry {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.card:hover {
+  transform: scale(1.1) rotateZ(5deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .card.flipped {
-    transform: rotateY(180deg);
-    background-color: #3f51b5;
-    color: #fff;
+  transform: rotateY(180deg);
+  background-color: #fff; /* Fixed color for flipped cards */
+  color: #000;
 }
 
 #game-info {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
 }
 
 #game-info p {
-    margin-right: 20px;
+  margin-right: 20px;
+  animation: fadeIn 1.5s ease-out;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: buttonBounce 2s infinite;
 }
 
 button:hover {
-    background-color: #45a049;
+  background-color: #45a049;
+  transform: scale(1.1);
+}
+
+@keyframes buttonBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }

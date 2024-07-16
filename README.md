@@ -369,14 +369,24 @@ This repository also provides one such platforms where contributers come over an
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 |[Rock_Paper_Scissors_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_Paper_Scissors_Neon)|
 |[Beat_a_mole](https://github.com/kunjgit/GameZone/tree/main/Games/Beat_a_mole)|
+|[King_Of_Pirates_Quiz](https://github.com/kunjgit/GameZone/tree/main/Games/King_Of_Pirates_Quiz)|
 |[Catch Him](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_him) |
 |[Hexsweep_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hexsweep-Game)|
 
 
-  </center>
 
+
+
+
+| [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)|
+| [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)             | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)          |    [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)          
+| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               | [Dinosaur_Memory_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dinosaur_Memory_Game) |[Hedgehog_Havoc]  (https://github.com/kunjgit/GameZone/tree/main/Games/Hedgehog_Havoc)
+  
+  
+  </center>
 <br>
 <br>
+  </center>
 
 <div align="center">
 <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="Page with Curl" width="40" height="40" /> Contributing Guideline </font></h2>
@@ -856,7 +866,11 @@ This repository also provides one such platforms where contributers come over an
 | [UNO game with computer](https://github.com/kunjgit/GameZone/tree/main/Games/UNO_game_with_Computer) |
 |[Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)|
 |[Space_Dominators](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Dominators)|
+
 |[Rocket_Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Rocket_Shooter)|
+
+|[Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys)|
+
  </center>
 
 <br>

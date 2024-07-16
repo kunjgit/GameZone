@@ -1,0 +1,227 @@
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+:root {
+  --background-color: black;
+  --button-color: rgba(255, 255, 255, 0.2);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.custom-night {
+  background-image: url("../media/FNAF.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.animation {
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.animation[data-right-door="false"][data-left-door="false"] {
+  background-image: url("../media/Textures/Office/Default.webp");
+}
+.animation[data-right-door="true"][data-left-door="false"] {
+  background-image: url("../media/Textures/Office/RD.webp");
+}
+.animation[data-right-door="false"][data-left-door="true"] {
+  background-image: url("../media/Textures/Office/LD.webp");
+}
+.animation[data-right-door="true"][data-left-door="true"] {
+  background-image: url("../media/Textures/Office/RD_LD.webp");
+}
+
+@keyframes up {
+  0% {
+    background-position: 0px;
+  }
+  85% {
+    background-position: -9500px;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes down {
+  0% {
+    background-position: -9500px;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0px;
+  }
+}
+
+@keyframes disappear {
+  from {
+    display: unset !important;
+    z-index: 1;
+    opacity: 1;
+  }
+  to {
+    display: none !important;
+    opacity: 0;
+    z-index: -10;
+  }
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--background-color);
+}
+
+.camera-button {
+  pointer-events: all !important;
+  margin-left: 26vw;
+  bottom: 0;
+  opacity: 0.5;
+}
+
+.true,
+.false {
+  transform: scale(1.3);
+  animation: up 0.6s steps(8) forwards;
+}
+
+.map {
+  bottom: 0;
+  right: 0;
+  width: fit-content;
+}
+@media only screen and (max-width: 750px) {
+  .map img {
+    width: 250px !important;
+    opacity: 0.7;
+  }
+  .map {
+    margin-bottom: 30px;
+  }
+  .camera-button {
+    width: 100vh !important;
+  }
+}
+
+area {
+  outline: none;
+}
+
+area.hover {
+  cursor: pointer;
+}
+
+.true,
+.false,
+.animatronics-true,
+.static {
+  width: 100vw;
+  height: 100vh;
+}
+.animatronics-true {
+  background-color: var(--background-color);
+}
+
+.static {
+  opacity: 0.9;
+  animation: noise 0.12s infinite alternate-reverse;
+}
+
+.hour,
+.energy {
+  font-weight: lighter;
+  opacity: 0.4;
+  z-index: 1;
+  font-family: "Consolas";
+  color: white;
+  position: "absolute";
+}
+.hour {
+  position: absolute;
+  margin-right: 0;
+  margin-left: 90vw;
+}
+.energy {
+  position: absolute;
+  bottom: 0;
+  margin-left: 3vw;
+  font-size: 15pt;
+}
+
+.opening {
+  z-index: 1;
+  animation: disappear 0.5s steps(1) forwards;
+}
+
+@keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.open {
+  animation: opening 0.5s steps(1) forwards;
+}
+
+img[data-disabled="false"] {
+  opacity: 0.3;
+}
+
+@media screen and (max-width: 700px) {
+  .camera-img {
+    width: 100vw;
+    height: 90vh;
+  }
+
+  .hour {
+    font-size: 17pt;
+  }
+  .camera-button {
+    margin-left: 22vw;
+  }
+}
+.office-img {
+  margin: auto;
+  width: 100vw;
+}
+
+.office-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  pointer-events: none;
+}
+
+* {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.camera-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -372,11 +372,12 @@ This repository also provides one such platforms where contributers come over an
 |[King_Of_Pirates_Quiz](https://github.com/kunjgit/GameZone/tree/main/Games/King_Of_Pirates_Quiz)|
 |[Catch Him](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_him) |
 |[Hexsweep_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hexsweep-Game)|
-
+| [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)|
+| [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)             | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)          |    [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)          
+| [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                               | [Dinosaur_Memory_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dinosaur_Memory_Game) |[Hedgehog_Havoc]  (https://github.com/kunjgit/GameZone/tree/main/Games/Hedgehog_Havoc)
+<br>
+<br>
   </center>
-
-<br>
-<br>
 
 <div align="center">
 <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="Page with Curl" width="40" height="40" /> Contributing Guideline </font></h2>

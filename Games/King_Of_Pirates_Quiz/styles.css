@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+
+  }
+  .heading-container{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    align-self: center;
+    margin-left: 27%;
+    font-size: 30px;
+    
+  }
+  
+  .quiz-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-top: 225px;
+    align-items: center;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #23407b;;
+  }
+  
+  button:hover {
+    background-color: #e48d30;
+    color: #080808;
+  }
+  

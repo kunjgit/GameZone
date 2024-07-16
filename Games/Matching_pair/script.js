@@ -118,19 +118,16 @@ function displayMessage(message, sender) {
 }
 
 
-// need for an good api didn't learn about 
-async function respondToMessage(message) {
-    const response = await fetch('https://api.fictionalai.com/v1/chat', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer YOUR_API_KEY'
-        },
-        body: JSON.stringify({ message })
-    }).then(res => res.json());
-
-    displayMessage(response.reply, 'bot');
+function respondToMessage(message) {
+    let response;
+    if (message.toLowerCase().includes('hint')) {
+        response = getHint();
+    } else {
+        response = "I'm here to help! Ask me for a hint or any other question.";
+    }
+    setTimeout(() => displayMessage(response, 'bot'), 1000);
 }
+
 function getHint() {
     // Check for pairs of cards that are not yet matched
     for (let i = 0; i < cards.length; i++) {

@@ -5,7 +5,7 @@
 
 ## **Description 📃**
 
-- The Math Game is a fun and educational browser-based game designed to test and improve your arithmetic skills. Players solve addition problems under a time limit, aiming to score as many points as possible.
+- Quick Math is a fun and educational browser-based game designed to test and improve your arithmetic skills. Players solve addition problems under a time limit, aiming to score as many points as possible.
 
 
 

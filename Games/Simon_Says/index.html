@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Simon</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+    </head>
+    <style>
+        #green,
+        #red,
+        #yellow,
+        #blue {
+            cursor: pointer;
+        }
+    </style>
+
+    <body scroll="no">
+        <div class="toggle" id="toggle">
+            <!-- to switch between light and dark mode-->
+            <i class="far fa-sun"></i>
+        </div>
+
+        <div class="modal hidden">
+            <div class="container-rules">
+                <h3 class="rules-heading">Rules:</h3>
+
+                <p class="rules">
+                    Boxes will be blinked randomly by the computer.
+                </p>
+                <p class="rules">
+                    Only a single box will be blinked at one level.
+                </p>
+                <p class="rules">
+                    You have to remember the pattern of blinking of boxes from
+                    the first level to the current level.
+                </p>
+                <p class="rules">
+                    At every level you have to click the boxes in same pattern
+                    in which they blinked since first level.
+                </p>
+                <p class="rules">
+                    On clicking correct pattern you will move to next level.
+                </p>
+                <p class="rules">
+                    If clicked boxes in wrong pattern then game will get over.
+                </p>
+                <div class="btn-container">
+                    <button type="button" class="btn-close">CLOSE</button>
+                </div>
+            </div>
+        </div>
+        <div class="overlay hidden"></div>
+        <div class="flex">
+            <div class="container">
+                <h1 id="level-title">Press any Key to Start</h1>
+                <h2>Highest Score: <em class="highScore">0</em></h2>
+                <div class="row">
+                    <div type="button" id="green" class="btn green"></div>
+
+                    <div type="button" id="red" class="btn red"></div>
+                </div>
+
+                <div class="row">
+                    <div type="button" id="yellow" class="btn yellow"></div>
+                    <div type="button" id="blue" class="btn blue"></div>
+                </div>
+                <a type="button" class="btn-rules">RULES</a>
+            </div>
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"
+        ></script>
+        <script src="index.js"></script>
+    </body>
+</html>

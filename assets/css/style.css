@@ -2960,11 +2960,6 @@ ul {
 .example-2 .icon-content a[data-social="github"] ~ .tooltip {
   background-color: #303a50;
 }
-.example-2 .icon-content a[data-social="instagram"] .filled,
-.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
-  background: linear-gradient(45deg, #833ab4, #e1306c, #fd1d1d, #fdcb5d);
-}
-
 .project-img {
   /* -webkit-box-shadow:0px 0px 21px 0px rgba(204,153,255,1);
 -moz-box-shadow: 0px 0px 21px 0px rgba(204,153,255,1);

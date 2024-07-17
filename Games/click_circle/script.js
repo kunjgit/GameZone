@@ -1,5 +1,5 @@
 let score = 0;
-let timeLeft = 15;
+let timeLeft = 30;
 let gameInterval;
 const gameArea = document.getElementById('gameArea');
 const circle = document.getElementById('circle');
@@ -11,12 +11,13 @@ startButton.addEventListener('click', startGame);
 
 function startGame() {
   score = 0;
-  timeLeft = 15;
+  timeLeft = 30;
   circle.style.display = 'block';
   updateScore();
   updateTimer();
   gameInterval = setInterval(moveCircle, 1000);
   setTimeout(endGame, timeLeft * 1000);
+
   startButton.disabled = true;
 
   // Reattach the click event listener when the game starts

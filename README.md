@@ -291,7 +291,7 @@ This repository also provides one such platforms where contributers come over an
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 | [Single_Player_Solitaire](https://github.com/kunjgit/GameZone/tree/main/Games/Single_Player_Solitaire) |
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect)    |
-
+| [Gita_Shloka_Generator](https://github.com/kunjgit/GameZone/tree/main/Games/Gita_Shloka_Generator) |
 | [namefate](https://github.com/kunjgit/GameZone/tree/main/Games/namefate)                   | 
 | [Fruit_Catching_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching_Game)     |
 | [color_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application)               |

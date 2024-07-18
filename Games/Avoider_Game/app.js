@@ -69,11 +69,12 @@ function startGame() {
 
 function loop() {
     let stopGame = false;
-
+    // adjust the screen size Logic
+    let cellsCalculate=window.innerWidth<600?6:8
     for (let i = enemyCells.length - 1; i >= 0; i--) {
         // From 29 till it reaches 0
         const cell = enemyCells[i];
-        const nextCell = cells[i + 8];
+        const nextCell = cells[i + cellsCalculate];
         const enemy = cell.children[0];
 
         // Continue and move on

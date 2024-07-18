@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Water and Gun Game</title>
+    <link rel="stylesheet" href="static/css/swg.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+</head>
+
+<body onload="sign()">
+    <div id="entry"></div>
+    <div id="game">
+        <div id="scoreBoard">
+            <div class="board">
+                <div>System</div>
+                <div id="systemScore">00</div>
+            </div>
+            <div class="board">
+                <div>Round</div>
+                <div id="rounds">00/00</div>
+            </div>
+            <div class="board">
+                <div id="userName">You</div>
+                <div id="userScore">00</div>
+            </div>
+        </div>
+        <div id="area">
+            <div id="warArea">
+                <div id="fight"></div>
+                <div id="msg">
+
+                </div>
+                <div id="result">
+
+                </div>
+            </div>
+            <div id="army">
+                <div class="coin">
+                    <div id="system"></div>
+                    <p>system</p>
+                </div>
+                <div id="state">
+
+                </div>
+                <div class="coin">
+                    <div id="user"></div>
+                    <p>You </p>
+                </div>
+            </div>
+        </div>
+        <p id="question">What you want to make ?</p>
+        <div id="home">
+            <div id="1" class="weapon">
+                <img src="static/images/snake.jpg" alt="snake">
+                <p>Snake</p>
+            </div>
+            <div id="2" class="weapon">
+                <img src="static/images/water.jpg" alt="water">
+                <p>Water</p>
+            </div>
+            <div id="3" class="weapon">
+                <img src="static/images/gun.jpg" alt="gun">
+                <p>Gun</p>
+            </div>
+        </div>
+    </div>
+    <div id="end"></div>
+
+    <div id="info" class="flex">
+        <h1>About Game</h1>
+        <P>In this game you have to choose between snake,water and gun. Snake kills the water, water kills the gun and gun kills the snake. In this game winner will get 1 point. if both choose the same then both will get 1 points. in total of 10 rounds who
+            gets the highest points will be considered as winner.</br> <br> let's check how lucky you are, have fun. <br><br> Your feedback is vaued for us to improve and develop more better applications.</P>
+    </div>
+    </div>
+
+    <script src="static/js/swg.js"></script>
+</body>
+
+</html>

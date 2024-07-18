@@ -881,6 +881,7 @@ This repository also provides one such platforms where contributers come over an
 |[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)|
 |[Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys)|
 |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
+| [Drum_kit] (https://github.com/kunjgit/GameZone/tree/main/Games/Drum_kit)|
  </center>
 
 <br>

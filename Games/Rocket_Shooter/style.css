@@ -1,0 +1,66 @@
+* {
+    transition: all 0.2s linear;
+}
+.h-100vh {
+    height: 100vh;
+}
+.w-100vw {
+    width: 100vw;
+}
+.galaxy-bg {
+    opacity: 0.9;
+    filter: blur(1px);
+}
+.overlay {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+.game-status {
+    z-index: 5;
+    width: 50vw;
+    height: 500px;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);        
+}
+.player-rocket-shooter {
+    width: 150px;
+    height: 150px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    filter: drop-shadow(1px -2px 45px rgba(73, 8, 225, 0.953));
+}
+.enemy-rockets {
+    width: 80px;
+    height: 80px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 1s linear;
+}
+
+.bullet-animation {
+    left: 50%;
+    bottom: 50px;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    animation: bullet-animation 3s;
+}
+@keyframes bullet-animation {
+    0%{
+
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 150%;
+    }
+}

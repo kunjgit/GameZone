@@ -1775,7 +1775,7 @@
   "353": {
     "gameTitle": "Brick Buster",
     "gameUrl": "Brick Buster",
-    "thumbnailUrl": "Brick.png"
+    "thumbnailUrl": "Brick_Buster.png"
   },
   "354": {
     "gameTitle": "Guess_The_Song",
@@ -2324,5 +2324,10 @@
     "gameTitle" : "Colour_Generator_Game",
     "gameUrl": "Colour_Generator_Game",
     "thumbnailUrl": "Colour_Generator_Game.png"
+    },
+  "424":{
+    "gameTitle" : "Snake_Gun_Water",
+    "gameUrl": "Snake_Gun_Water",
+    "thumbnailUrl": "image.png"
     }
 }

@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(#e4f37a, #8ded9a);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.game-container {
+  position: relative;
+  width: 700px;
+  height: 800px;
+  background-color: #2e2c2c81;
+  border: 2px solid #3333339f;
+  overflow: hidden;
+}
+
+.basket {
+  position: absolute;
+  bottom: 10px;
+  width: 100px;
+  height: 30px;
+  background-color: #33f209;
+  border-radius: 10px;
+}
+
+.falling-object {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #fff704;
+  border-radius: 50%;
+}
+
+.score,
+.lives {
+  position: absolute;
+  top: 40px;
+  font-size: 24px;
+}
+
+.heart {
+    font-size: 24px;
+    color: rgb(136, 3, 3);
+    margin-right: 5px;
+}
+
+.score {
+  left: 10px;
+}
+
+.lives {
+  right: 10px;
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.699);
+  color: rgb(206, 241, 241);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  display: none;
+}
+
+button {
+  border-radius: 7px;
+  font-size: medium;
+  border: 2px solid black;
+  background-color: #cbe7ff;
+  margin: 7px 7px;
+  padding: 4px 22px;
+}

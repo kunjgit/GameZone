@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathematics Escape Room</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+   <div class="home_btn">
+        <a href="https://kunjgit.github.io/GameZone/">
+          <i style="color:white;" class="fas fa-home home-icon"></i>
+        </a>
+  </div>
+  <div class="container">
+    <h1 class="game-title">Mathematics Escape Room</h1>
+    <div id="room" class="room">
+      <p class="room-description">You are in Room 1. Solve the puzzle to find the key to Room 2!</p>
+      <input type="text" id="answer" class="answer-input" placeholder="Enter your answer">
+      <button id="check-btn" class="check-btn">Check Answer</button>
+      <p id="message" class="message"></p>
+    </div>
+  </div>
+  <div id="video-container">
+    <video autoplay loop muted>
+      <source src="MathematicsEscapeRoom.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

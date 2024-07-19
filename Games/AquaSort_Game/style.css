@@ -242,4 +242,83 @@ body {
 
 #alert-button:hover {
     background-color: rgb(150,255,150);
+}#about-page {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+}
+
+#about {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+    background-color: #333;
+    margin: auto;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+#about-heading {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#about-text {
+    font-size: 1.2em;
+}
+
+#about-back {
+    margin-top: 20px;
+    cursor: pointer;
+    color: #00f;
+}
+#about-page {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+}
+
+#about {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+    background-color: #333;
+    margin: auto;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+#about-heading {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#about-text {
+    font-size: 1.2em;
+}
+
+#back {
+    margin-top: 20px;
+}
+
+#back a {
+    color: #00f;
+    text-decoration: none;
+    font-size: 1.2em;
 }

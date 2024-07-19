@@ -29,3 +29,4 @@ No installation required. Simply clone the repository and open `index.html`:
 
 ## Screenshots
 
+![image](https://github.com/user-attachments/assets/4676aa85-1c70-4ed2-8121-c4ddac562fbe)

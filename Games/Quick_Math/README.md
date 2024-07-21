@@ -35,7 +35,7 @@
 
 ## **Screenshots 📸**
 
-![image](https://github.com/AaryanManghnani/GameZone/blob/QuickMath/assets/images/Quick%20Math.png)
+![image](https://github.com/AaryanManghnani/GameZone/blob/main/assets/images/Quick_Math.png)
 
 
 <br>

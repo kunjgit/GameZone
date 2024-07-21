@@ -1,10 +1,11 @@
 // Generate <li> tags dynamically
 
 const generateLiTags = (gamesData, searchText = "") => {
+  console.log(gamesData);
   const liTags = [];
   searchText = searchText.trim().toLowerCase(); // Trim whitespace and convert to lowercase
 
-  for (let tagNumber = 1; tagNumber <= 417; tagNumber++) {
+  for (let tagNumber = 1; tagNumber <= 424; tagNumber++) {
     const gameData = gamesData[tagNumber.toString()];
 
     if (gameData) {
@@ -18,7 +19,7 @@ const generateLiTags = (gamesData, searchText = "") => {
                 <div class="project-item-icon-box">
                   <img id="joystick" src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Eye" width="3" />
                 </div>
-                <img src="./assets/images/${thumbnailUrl}" alt="${gameTitle}" loading="lazy">
+                <img src="./assets/images/${thumbnailUrl}" alt="${gameTitle}" loading="lazy" class="game-img ignore-dark-theme">
               </figure>
               <div class="title-container">
                 <a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label="${gameTitle}">${tagNumber}. ${gameTitle} 🔗</a>
@@ -29,6 +30,8 @@ const generateLiTags = (gamesData, searchText = "") => {
             </a>
           </li>
         `;
+        // added class="game-img ignore-dark-theme" in img tag so that during toggle only the game image remains unaffected. 
+
         liTags.push(liTag);
       }
     }
@@ -52,7 +55,7 @@ const generateLiTags = (gamesData, searchText = "") => {
 };
 
 // Fetch the game data from the JSON file
-fetch("./assets/js/gamesData.json")
+fetch("assets/js/gamesData.json")
   .then((response) => response.json())
   .then((gamesData) => {
     const projectListContainer = document.querySelector(".project-list");
@@ -135,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //for searching
   searchInput.addEventListener("input", function () {
     const searchText = searchInput.value.trim().toLowerCase();
-    fetch("./assets/js/gamesData.json")
+    fetch("gamesData.json")
       .then((response) => response.json())
       .then((gamesData) => {
         const projectListContainer = document.querySelector(".project-list");
@@ -149,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //for search clearing
   clearSearchButton.addEventListener("click", function () {
     searchInput.value = "";
-    fetch("./assets/js/gamesData.json")
+    fetch("gamesData.json")
       .then((response) => response.json())
       .then((gamesData) => {
         const projectListContainer = document.querySelector(".project-list");

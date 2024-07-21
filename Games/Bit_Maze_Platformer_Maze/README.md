@@ -27,10 +27,11 @@
 
 ## **Screenshots 📸**
 
-<br>
+
 <!-- add your screenshots like this -->
 <!-- ![image](url) -->
-![Image](Bit_Maze.png)
+![image](https://github.com/Bindusree1515/GameZone/assets/91887086/2c507b12-d208-4784-9253-c9a2c57e1104)
+
 
 <br>
 

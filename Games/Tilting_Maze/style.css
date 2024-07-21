@@ -6,9 +6,9 @@ body {
   --joystick-head-color: #f06449;
   --ball-color: #f06449;
   --end-color: #7d82b8;
-  --text-color: #210124;
-
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --text-color: #210124;  
+  font-size:100%;
+  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--background-color);
 }
 
@@ -38,8 +38,8 @@ body {
   position: relative;
   grid-row: 1 / -1;
   grid-column: 1;
-  width: 350px;
-  height: 315px;
+  width: 650px;
+  height: 615px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,10 +139,10 @@ body {
 }
 
 #note {
-  grid-row: 3;
+  grid-row: 0;
   grid-column: 2;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 1em;
   color: var(--text-color);
   transition: opacity 2s;
 }
@@ -265,4 +265,25 @@ a:visited {
     width: 300px;
     background-color: white;
   }
+}
+#restart-btn {
+  background-color: var(--ball-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  display: block;
+}
+
+#restart-btn:hover {
+  background-color: var(--end-color);
+  transform: scale(1.05);
+}
+
+#restart-btn:active {
+  background-color: var(--joystick-head-color);
+  transform: scale(1);
 }

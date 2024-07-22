@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching Pairs Game</title>
+    <link rel="icon" href="favicon_io (2)/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io (2)/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io (2)/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io (2)/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io (2)/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">Matching Pairs Game</a>
+            <ul class="navbar-menu">
+                <li><a href="#game-board">Play Game</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Contact-us.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="custom-cursor"></div>
+    <h1>Matching Pairs Game</h1>
+    <div id="game-container"></div>
+    <div id="game-info">
+        <p id="moves">Moves: 0</p>
+        <p id="timer">Time: 0 seconds</p>
+        <button onclick="initializeGame()">Restart Game</button>
+    </div>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="chat-message bot">Hello! Need any help?</div>
+        </div>
+        <input type="text" id="chat-input" placeholder="Type your message....">
+        <button id="send-btn">📩</button>
+    </div>
+</div>
+    <script src="script.js" charset="UTF-8"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body{
+     background: rgb(0, 0, 0);
+     background: radial-gradient(circle, rgba(0, 0, 0, 0.866) 0%, rgba(0, 0, 0, 0.944) 100%);
+}
+
+.grid{
+     display: flex;
+     flex-wrap: wrap;
+     margin: auto;
+     background-color: aqua;
+     width: 300px;
+     height: 300px;
+}
+
+.button{
+     margin-bottom: 70px;
+}
+
+footer {
+     color: #fff;
+     position: fixed;
+     bottom: 0px;
+     width: 100%;
+     height: 50px;
+     font-family: 'Noto Sans JP', sans-serif;
+}
+
+footer a {
+     text-decoration: none;
+     color: inherit;
+     font-family: inherit;
+}
+
+footer a:hover {
+     text-decoration: none;
+     color: #000;
+     font-family: inherit;
+}

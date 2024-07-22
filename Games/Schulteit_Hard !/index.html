@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <title>SCHULTE TABLE</title>
+     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+     <link rel="stylesheet" href="css/main.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+     <link rel="shortcut icon" href="images/brain.ico" type="image/x-icon">
+</head>
+
+<body>
+     <div class="alert alert-success mt-2 ml-3 col-4 position-fixed ml-auto" role="alert" hidden></div>
+     <div class="container">
+          <h1 class="text-center text-white m-4">SCHULTE TABLE</h1>
+          <div class="row justify-content-center mb-2">
+               <div class="col-4 text-center row">
+                    <div class="col-6">
+                         <h5 id="attemp" class="text-info font-weight-bold">Attemps: 0</h5>
+                    </div>
+                    <div class="col-6">
+                         <h5 id="time" class="text-info font-weight-bold">Time: 0</h5>
+                    </div>
+               </div>
+          </div>
+
+          <div class="row mb-2 justify-content-center">
+               <div class="col-3">
+                    <select id="mySelect" class="custom-select" onchange="selectItem()">
+                         <option selected value="3">3x3</option>
+                         <option value="4">4x4</option>
+                         <option value="5">5x5</option>
+                         <option value="6">6x6</option>
+                         <option value="7">7x7</option>
+                         <option value="8">8x8</option>
+                         <option value="9">9x9</option>
+                         <option value="10">10x10</option>
+                    </select>
+               </div>
+          </div>
+          <div class="grid mb-3"></div>
+          <div class="row justify-content-center button">
+               <button class="btn btn-primary btn-block col-4" onclick="resetValues()">Reset</button>
+          </div>
+     </div>
+     <footer class="bg-primary text-center p-3"> Copyright &copy; <label id="year"></label> | Designed by <a href="https://github.com/FabianCristancho" target="_blank">Fabian Cristancho</a></footer>
+     <script src="js/script.js"></script>
+</body>
+
+</html>

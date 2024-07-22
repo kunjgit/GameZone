@@ -1,5 +1,14 @@
+*{
+  padding: 0;
+  margin: 0;
+}
 body {
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   
   h1 {
@@ -14,7 +23,22 @@ body {
     padding: 5px;
     font-size: 16px;
   }
-
+#Intro_page{
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  transition: 0.3s ease-in;
+  flex-direction: column;
+}
+#Intro_page h1,  #Intro_page h2{
+  color: white;
+  font-family: monospace;
+  font-size: 2.2rem;
+}
 #input-word {
     margin-top: 0px;
     margin-bottom: 10px;
@@ -28,6 +52,7 @@ body {
   #message {
     color: #6b2222;
     font-weight: bold;
+    margin: 1rem 0;
     margin-right: 4%;
     font-weight: bolder;
     font-family: cursive;

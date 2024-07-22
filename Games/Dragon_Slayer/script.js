@@ -12,7 +12,7 @@ const monsterStatsContainer = document.getElementById('monster-stats');
 const monsterHealthText = document.getElementById('monsterHealthText');
 const monsterNameText = document.getElementById('monsterNameText');
 const playerStatsDiv = document.getElementById('player-stats');
-let fightCountText = document.getElementById('fightCountText');
+const fightCountText = document.getElementById('fightCountText');
 const gameContainerDiv = document.getElementById('game-container');
 gameContainerDiv.style.display = "none";
 
@@ -235,6 +235,7 @@ function lose(){
 function restart() {
     // Reset game state here
     xp = 0;
+    xpText.textContent = xp;
     health = 100;
     gold = 50;
     weaponIndex = 0;
@@ -242,7 +243,7 @@ function restart() {
     monsterHealth = 0;
     inventory = ["stick"];
     monstersFought = 0;
-    fightCountText = 0;
+    fightCountText.textContent = monstersFought;
     healthText.innerText =health;
     goldText.innerText = gold;
     updateLocation(locations[0]);

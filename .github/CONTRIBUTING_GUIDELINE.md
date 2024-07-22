@@ -36,17 +36,21 @@ in case you are stuck:
 <br>
 
 ## **File naming conventions 📁**
-- Give unique name for your game that is not already existed 
+- Give unique name for your game that don't exist already. 
 * Folder naming convention
-    - ```Game_Name```  ex.  ```Tilting_Maze``` (first letter should be capital and if you need space use _ )  
+    - ```Game_Name```  ex.  ```Tilting_Maze```,```Rock_Paper_Scissors``` (first letter should be capital and if you need space use underscore **_** )      
 * files in the folder 
-    - ```index.html``` , ```script.js``` , ```style.css```(not stictly to follow this but you should have separate )
+    - Main html file should be named as **index.html** , not something else like ```Tilting_Maze.html```
+    - Game files - ```index.html``` , ```script.js``` , ```style.css```(not stictly to follow this but you should have separate file for each kind)
+    - It is preferred if the main html file is directly added to the main folder of you game like ```Tilting_Maze/index.html``` along with other files like *style.css*, *script.js*
     - you can have other folders if you are having assets for your game 
-    - ```README.md``` for your folder using template [TEMPLATE](../Games/FOLDER_README_TEMPLATE.md) 
-    - It is not compulsory to follow this README template only you can have your own 
+    - Create```README.md``` for your Game using this [TEMPLATE](../Games/FOLDER_README_TEMPLATE.md).Although, it is not compulsory to follow this README template ,you can use your own *README* template whichever you prefer, to explain your Game
 * naming convention for the screenshot you will add in ```assets/images```
+    - Remember preview image should be in ```assets/images``` and not in main folder of Game itself.
     - name of image should be same as your game name
-    - ex. ```Tilting_Maze.jpeg``` or .jpg or .png any of the image formate
+    - ex. ```Tilting_Maze.jpeg``` or .jpg or .png any of the image format, but don't add image format in the name itself , it is self-assigned to a image,you don't need to add it manually, otherwise it becomes ```Tilting_Maze.jpeg.jpeg```
+    - There should be only one ScreenShot of the game in ```assets/images``` and that too with same name as the Game(Exactly Same).
+* Note:-All Other data except the ScreenShot of your Game, should be in it's main folder , don't add it to other folders of the project.
 
 <br>
 

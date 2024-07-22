@@ -20,10 +20,7 @@ This is a RPG Game where the player's action decides what happens.
 <br>
 
 ## **Screenshots 📸**
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
+
 <br>
 
 <br>

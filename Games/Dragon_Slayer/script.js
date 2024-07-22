@@ -213,7 +213,7 @@ function run(){ //You can still attack or dodge the attack from the monster whil
 }
 
 function win(){
-    if(monsters[fighintg].name === "Dragon"){
+    if(monsters[fighting].name === "Dragon"){
        updateLocation(locations[6])
     }
     monstersFought+=1;

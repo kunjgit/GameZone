@@ -8,22 +8,23 @@ Dragon-Slayer
 <!-- add your game description here  -->
 This is a RPG Game where the player's action decides what happens. 
 ## **functionalities 🎮**
-<!-- add functionalities over here -->
+- The game goes on according to how you want it to.
 -RPG
 - 
 <br>
 
 ## **How to play? 🕹️**
-<!-- add the steps how to play games -->
-- 
+- - Click the Start Game button and you're ready to play!
+  - Then choice the choices and game on!
 
 <br>
 
 ## **Screenshots 📸**
-
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 <br>
-<!-- add your screenshots like this -->
-<!-- ![image](url) -->
 
 <br>
 

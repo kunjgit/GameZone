@@ -17,6 +17,7 @@
       <span id="player-XP" class="stats">XP: <strong><span id="xpText">0</span></strong></span>
       <span id="player-health" class="stats">Health: <strong><span id="healthText">100</span></strong></span>
       <span id="player-gold" class="stats">Gold: <strong><span id="goldText">50</span></strong></span>
+      <span id="fight-count" class="stats">Monsters defeated: <strong><span id="fightCountText">0</span></strong></span>
     </div>
     <div id="choice-section" class="border hidden">
       <button id="button1" class="btn">Go to Store</button>
@@ -34,6 +35,21 @@
   <div id="start-game">
     <button id="start-game-btn" class="start-btn">Start Game</button>
   </div>
+  <!-- Music Control Pop-up-->
+  <button id="openPopup" class="hidden">Open Music Control</button>
+  <div id="musicPopup" class="popup">
+      <div class="popup-content">
+          <span id="closePopup" class="close">&times;</span>
+          <h2 id="music-control-heading">Music Control</h2>
+          <button id="playMusic" class="musicBtn">Play</button>
+          <button id="pauseMusic" class="musicBtn">Pause</button>
+          <button id="muteMusic" class="musicBtn">Mute</button>
+          <button id="unmuteMusic" class="musicBtn">Unmute</button>
+          <label for="volumeControl">Volume: </label>
+          <input type="range" id="volumeControl" min="0" max="100" step="1" value="0.5">
+      </div>
+  </div>
+  
   <script src="script.js"></script>
 </body>
 </html>

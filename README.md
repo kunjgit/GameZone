@@ -1580,6 +1580,8 @@ This repository also provides one such platforms where contributers come over an
 | [Simon_Says](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Says) |
 |[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)|
 |[Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys)|
+|[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
+|[Tether](https://github.com/kunjgit/GameZone/tree/main/Games/Tether)|
 
  </center>
 

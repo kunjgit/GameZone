@@ -12,8 +12,15 @@ const monsterStatsContainer = document.getElementById('monster-stats');
 const monsterHealthText = document.getElementById('monsterHealthText');
 const monsterNameText = document.getElementById('monsterNameText');
 const playerStatsDiv = document.getElementById('player-stats');
+const fightCountText = document.getElementById('fightCountText');
 const gameContainerDiv = document.getElementById('game-container');
 gameContainerDiv.style.display = "none";
+
+//Adding background-music
+const backgroundMusic = new Audio('./backgroundMusic.mp3');
+backgroundMusic.loop = true;
+
+
 // Creating initial stats
 let xp = 0;
 let health = 100;
@@ -64,8 +71,15 @@ const locations = [
         buttonText: ["REPLAY?","REPLAY?","REPLAY?"],
         buttonFunctions: [restart,restart,restart],
         text: `You die! 💀`
+    },
+    {
+        name: "replay",
+        buttonText: ["REPLAY?","REPLAY?","REPLAY?"],
+        buttonFunctions: [restart,restart,restart],
+        text: `You defeated the dragon and freed the people of the town from its terror!! Would you like to play again?`
     }
 ];
+
 //Creating a weapons array for the store cataloge
 const weapons = [
     { name:"stick", power:10},
@@ -75,6 +89,7 @@ const weapons = [
     { name:"Axe", power:50},
     { name:"Sword", power:100},
 ];
+
 const secretWeapon = { name:"Excalibur", power:1000} //Secret Weapon
 //Creating a monsters array to store monster infomation
 const monsters = [
@@ -85,9 +100,13 @@ const monsters = [
     { name: "Necrofiend", health: 100, level:10, power:50 },
     { name: "Ironclad", health: 150, level:15, power:60 },
     { name: "Dragon", health: 300, power:100 }
-]
+];
+
+
 //Creating a new Division for adding monster buttons
 const buttonDiv = document.createElement('div');
+
+//Update Location function
 function updateLocation(location) {
     monsterStatsContainer.classList.add("hidden");
     if(location.name === "Cave"){
@@ -133,9 +152,6 @@ function checkEligibility(){
         goFight();
     }else{
         text.innerText = "You cannot fight the dragon now, you've got to defeat atleast 15 monsters";
-        setTimeout(() => {
-            updateLocation(locations[0]);
-        },1500);
     }
 }
 function fightSlime() {
@@ -197,8 +213,11 @@ function run(){ //You can still attack or dodge the attack from the monster whil
 }
 
 function win(){
+    if(monsters[fighintg].name === "Dragon"){
+       updateLocation(locations[6])
+    }
     monstersFought+=1;
-    console.log(monstersFought);
+    fightCountText.innerText = monstersFought;
     gold+= Math.round(monsters[fighting].level * 6.5);
     xp+=monsters[fighting].level;
     goldText.innerText = gold;
@@ -212,6 +231,7 @@ function lose(){
     updateLocation(locations[5]);
 }
 
+//Restart Game function
 function restart() {
     // Reset game state here
     xp = 0;
@@ -222,12 +242,13 @@ function restart() {
     monsterHealth = 0;
     inventory = ["stick"];
     monstersFought = 0;
+    fightCountText = monstersFought;
     healthText.innerText =health;
     goldText.innerText = gold;
     updateLocation(locations[0]);
 }
-//Creating a monsterTextUpdate function to update the text when fighting a monster
 
+//Creating a goFight function to update the text when fighting a monster
 const goFight = () => {
     updateLocation(locations[3]);
     monsterHealth = monsters[fighting].health;
@@ -278,11 +299,59 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
+//StartGame Button functioning
 button4.addEventListener('click', () => {
+    openPopup.classList.remove("hidden");
+    backgroundMusic.play();
     gameContainerDiv.style.display = "block";
     text.classList.remove("hidden");
     playerStatsDiv.classList.remove('hidden');
     choiceContainer.classList.remove('hidden');
     const startGameDiv = document.getElementById('start-game');
     startGameDiv.classList.add("hidden");
+});
+
+//Music Controls 
+document.addEventListener('DOMContentLoaded', () => {
+    const openPopup = document.getElementById('openPopup');
+    const closePopup = document.getElementById('closePopup');
+    const musicPopup = document.getElementById('musicPopup');
+    const playMusic = document.getElementById('playMusic');
+    const pauseMusic = document.getElementById('pauseMusic');
+    const muteMusic = document.getElementById('muteMusic');
+    const unmuteMusic = document.getElementById('unmuteMusic');
+    const volumeControl = document.getElementById('volumeControl');
+
+    openPopup.addEventListener('click', () => {
+        musicPopup.style.display = 'flex';
+    });
+
+    closePopup.addEventListener('click', () => {
+        musicPopup.style.display = 'none';
+    });
+
+    playMusic.addEventListener('click', () => {
+        backgroundMusic.play().catch(error => console.error('Error playing music:', error));
+    });
+
+    pauseMusic.addEventListener('click', () => {
+        backgroundMusic.pause();
+    });
+
+    muteMusic.addEventListener('click', () => {
+        backgroundMusic.muted = true;
+    });
+
+    unmuteMusic.addEventListener('click', () => {
+        backgroundMusic.muted = false;
+    });
+
+    volumeControl.addEventListener('input', (event) => {
+        backgroundMusic.volume = event.target.value;
+    });
+    document.body.addEventListener('click', () => {
+        if (backgroundMusic.paused) {
+            backgroundMusic.play().catch(error => console.error('Autoplay prevented:', error));
+        }
+    }, { once: true });
 });

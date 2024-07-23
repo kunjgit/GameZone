@@ -1,27 +1,20 @@
 # **Game_Name** 
 
-Dragon World Game (Issue: #926 - GSSOC '23)
+Drum Kit [Issue #4876]
 
 <br>
 
 ## **Description 📃**
 Dragon world game is developed using HTML, CSS, JavaScript.
-Main target is to save an innocent creature from attack of dragon from continuous attacks. The number of times user will be able to save 
-the creature from attack from dragon, the points will be earned.
+Main target is to have experience of drum kit sound and have fun.
  
 
 ## **functionalities 🎮**
-1. There will be an innocent creature and a dragon
-2. Player will try to save the creature from the attack of dragon
-3. Dragon will continuously attack the creature
-4. The number of times player will be able to save the creature, that many points will be gained
-5. If dragon hits the creature, the game will be over.
+1. Have experience of drum kit sound and have fun.
 <br>
 
 ## **How to play? 🕹️**
-1. To make jump press the up arrow key
-2. To go forward press the forward arrow key
-3. To move backward press the backward arrow key
-
+1. User can click on drum image.
+2. User can play using keyboard too.
 ## **Screenshots 📸**
-![Drum_kit](https://github.com/sujanrupu/dg/assets/103595490/06599e6c-8ee1-44f4-9f8a-a5134dfd2044)
+![Drum_kit](./images/asset.png)

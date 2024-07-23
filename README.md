@@ -403,7 +403,7 @@ This repository also provides one such platforms where contributers come over an
 |[Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)|
 | [IKnowYou-Mind-Reading-Game](https://github.com/kunjgit/GameZone/tree/main/Games/IKnowYou-Mind-Reading-Game) |
 | [Tic_Tac_Toe_Neon](https://github.com/kunjgit/GameZone/tree/main/Games/Tic_Tac_Toe_Neon) |
-| [Dragon_Slayer](https://github.com/gopi-trip/GameZone/tree/main/Games/Dragon_Slayer) |
+| [Dragon_Slayer](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Slayer) |
  </center>
 
 <br>

@@ -1,11 +1,10 @@
 // Generate <li> tags dynamically
 
 const generateLiTags = (gamesData, searchText = "") => {
-  console.log(gamesData);
   const liTags = [];
   searchText = searchText.trim().toLowerCase(); // Trim whitespace and convert to lowercase
-
-  for (let tagNumber = 1; tagNumber <= 424; tagNumber++) {
+  let lengthOfJson = Object.keys(gamesData).length; // get the no. of games of Json to list them all
+  for (let tagNumber = 1; tagNumber <= lengthOfJson; tagNumber++) {
     const gameData = gamesData[tagNumber.toString()];
 
     if (gameData) {

@@ -201,9 +201,7 @@ footer {
   color: #ffffff;
 }
 
-a:hover svg {
-  fill: rgb(0, 119, 181);
-}
+
 
 .fa-linkedin-square:hover {
   color: rgb(0, 119, 181);
@@ -2962,7 +2960,6 @@ ul {
 .example-2 .icon-content a[data-social="github"] ~ .tooltip {
   background-color: #303a50;
 }
-
 .project-img {
   /* -webkit-box-shadow:0px 0px 21px 0px rgba(204,153,255,1);
 -moz-box-shadow: 0px 0px 21px 0px rgba(204,153,255,1);

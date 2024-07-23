@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Otherworldly Odyssey</title>
+  </head>
+  <body class="background-img">
+    <!-- Main title of the game -->
+    <h1 class="gradient-text">Otherworldly Odyssey</h1>
+    <!-- Main game container -->
+    <div id="game" class="centered-div">
+      <!-- Player statistics section -->
+      <div id="stats">
+        <span class="stat xpStat">XP: <strong><span id="xpText">0</span></strong></span>
+        <span class="stat healthStat">Health: <strong><span id="healthText">1000</span></strong></span>
+        <span class="stat goldStat">Gold: <strong><span id="goldText">50</span></strong></span>
+      </div>
+      <!-- Monster statistics section -->
+      <div id="monsterStats">
+        <span class="stat">Monster Name: <strong><span id="monsterName"></span></strong></span>
+        <span class="stat">Health: <strong><span id="monsterHealth"></span></strong></span>
+      </div>
+      <!-- Game text display area -->
+      <div id="text">
+        Welcome to Otherworldly Odyssey. You must defeat the primordial dragon - Tiamut that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons below.
+      </div>
+       <!-- Game control buttons -->
+      <div id="controls">
+        <button id="button1">Go to store</button>
+        <button id="button2">Go to cave</button>
+        <button id="button3">Fight dragon</button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

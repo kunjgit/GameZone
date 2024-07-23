@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex Sweep Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hex Sweep</h1>
+        <div id="game"></div>
+        <div class="info">
+            <p>Flags: <span id="flag-count">0</span></p>
+            <p>Mines: <span id="mine-count">10</span></p>
+            <p>Time: <span id="timer">0</span> seconds</p>
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p id="popup-message"></p>
+            <button id="popup-button">Play Again</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

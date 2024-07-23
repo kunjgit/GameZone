@@ -1,0 +1,298 @@
+@font-face
+{
+    font-family : 'Pacifico';
+    src : url("Pacifico-Regular.ttf");
+}
+
+@font-face
+{
+    font-family: 'Roboto';
+    src : url("Roboto-Thin.ttf");
+}
+html,body
+{
+    width : 100%;
+    height : 100%;
+    padding : 0px;
+    margin : 0px;
+    background-color: rgb(188, 194, 190);
+
+}
+
+.intro
+{
+    display: block;
+    position: fixed;
+    z-index : 1;
+    width : 100%;
+    height : 100%;
+    background-color : white;
+}
+
+.leader
+{
+    display: inline-block;
+    width : 50%;
+    height : 91.8%;
+    background-color: white;
+    float : left;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.options
+{
+   display: block;
+   margin : auto;
+   padding : 0px;
+   padding-top : 30px;
+}
+
+.options li
+{
+    display: inline;
+    list-style-type: none;
+    padding : 50px;
+}
+
+.options li img
+{
+    width : 30px;
+    height : 30px;
+}
+
+.leaderboard
+{
+    display: block;
+    width : 100%;
+    font-family: 'Candara';
+    color : black;
+    font-size : 40px;
+    font-weight: lighter;
+}
+
+.score
+{
+  float : left;
+}
+
+.score li
+{
+    font-family: 'Candara';
+    font-size : 15px;
+    color : rgb(45, 45, 46);
+    display : block;
+    float : left;
+    margin-top : 10px;
+}
+
+.intro h1
+{
+font-family: 'Pacifico';
+color : black;
+display: block;
+text-align: center;
+font-size : 80px;
+margin : auto;
+position: relative;
+top : 30%;
+}
+
+.intro h1 sub
+{
+font-size : 30px;
+}
+
+.names
+{
+    display: block !important;
+    font-family: Roboto !important;
+    font-size : 20px !important;
+    text-align: center !important;
+    font-weight: lighter;
+}
+table[name='matrix']
+{
+    display: none;
+    padding : 0px;
+    position: relative;
+    top : 3%;
+
+}
+
+table[name='matrix'] tr td{
+    width : 80px;
+    height  : 80px;
+    background-color: black;
+    border-radius: 5px;
+    transition: background-color 0.4s linear;
+}
+
+.ele
+{
+    background-repeat: no-repeat;
+    background-size: 80px 80px;
+}
+.container
+{
+    display : block;
+    width : 100%;
+    height : 100%;
+    text-align : center;
+    margin : auto;
+}
+
+.header
+{
+    display: block;
+    position: relative;
+    top : 0px;
+    left : 0px;
+    right : 0px;
+    padding : 0px;
+    margin : 0px;
+    width : 100%;
+    background-color: black;
+    text-align: center;
+}
+
+.header-title
+{
+    display: block;
+    width : inherit;
+    font-family : 'Pacifico';
+    color : white;
+    font-size : 23px;
+    padding : 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin : 0px;
+    margin-left: -10px;
+}
+
+.header-title sub
+{
+    font-size : 15px;
+}
+
+.header-title attempt
+{
+    float : right;
+}
+
+.difficulty
+{
+    position: fixed;
+    display: none;
+    width : 100%;
+    height : 100%;
+    background-color : rgba(0,0,0,0.8);
+    z-index : 1;
+    text-align: center;
+}
+
+.difficulty-levels
+{
+    display: block;
+    margin : auto;
+    margin-top : 15%;
+}
+
+.difficulty-levels li
+{
+    list-style-type: none;
+    width : 40%;
+    background-color: white;
+    color : black;
+    border-radius: 5px;
+    padding : 20px 10px 20px 10px;
+    margin : auto;
+    font-family: Roboto;
+    font-weight: bold;
+    margin-top : 8px;
+}
+
+.modal
+{
+    position: fixed;
+    display: none;
+    width : 100%;
+    height : 100%;
+    background-color : rgba(0,0,0,0.8);
+    z-index : 1;
+    text-align: center;
+}
+
+.alert-message
+{
+    display: block;
+    width : 30%;
+    height : 30%;
+    background-color : white;
+    border-radius : 5px;
+    margin: auto;
+    margin-top: 15%;
+}
+
+.alert-message h1
+{
+    font-family: 'Calibri';
+    font-size : 30px;
+    display: block;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.alert-message button
+{
+    width : 20%;
+    height : 20%;
+    background-color: cadetblue;
+    color : white;
+    font-family: 'Calibri';
+    font-size : 13px;
+    border-width: 0px;
+}
+.message
+{
+    display : none;
+    width : 100%;
+    font-family: Arial;
+    color : black;
+    font-weight: lighter;
+    font-size : 25px;
+    margin : auto;
+    position: relative;
+    top : 30%;
+}
+
+.message-button
+{
+    display: none;
+    width : 90px;
+    height : 45px;
+    border-width : 0px;
+    color : black;
+    background-color : white;
+    position: relative;
+    top : 35%;
+    margin : auto;
+    border-radius : 5px;
+}
+
+@media only screen and (max-width : 1140px)
+{
+    .leader
+    {
+    width :35%;
+    }
+
+}
+
+@media only screen and (max-width : 1140px)
+{
+    .leader
+    {
+    width :100%;
+    }
+}

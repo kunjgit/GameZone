@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    /*background-color: red;*/
+    overflow: hidden;
+}
+.gameContainer{
+    background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(nhome.jpg);
+    background-repeat: no-repeat;
+    text-shadow: 2px 2px cyan;
+    color: red;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    background-size: 100vw 100vh;
+    width: 100%;
+    height: 100vh;
+}
+.gameOvery{
+	visibility: hidden;
+	text-align: center;
+	font-family: 'Alata', sans-serif;
+	background-color: black;
+	margin-top: 15vw;
+	font-size: 3rem;
+	/*box-shadow: 5px 5px 5px 5px red;*/
+	/*text-shadow: 2px 2px 5px red;*/
+	width: 50vw;
+	border-radius: 10px;
+	border:5px dotted brown;
+	position: absolute;
+	margin-left: 320px;
+	color: transparent;
+	padding: 15px 30px;
+}
+
+.ninja{
+    background-image: url(hattory.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 250px;
+    height: 215px;
+    position: absolute;
+    /*bottom:0;*/
+    margin-top: 29vw;
+    left: 52px;
+}
+
+.obstacle{
+    width: 150px;
+    height: 115px;
+    background-image: url(kiyo.png);
+    background-size: 100% 100%;
+    position: absolute;
+    /*bottom: 0;*/
+    margin-top: 35vw;
+    left: 99vw;
+}
+
+.animateDino{
+    animation: dino 0.6s ease-out;
+}
+
+.obstacleAni{
+    animation: obstacleAni 5s linear infinite;
+}
+
+.gameOver{
+    position: relative;
+    background-color: black;
+    top:20px;
+    margin: auto;
+    opacity: 0.8;
+    width:55vw;
+    border-radius: 9px;
+    border:3px solid white;
+    padding: 15px 10px; 
+    font-size: 40px;
+    text-align: center; 
+    /*font-family: 'Ubuntu', sans-serif;*/
+    /*font-family: 'Londrina Solid', cursive;*/
+    font-family: 'Lobster', cursive;
+}
+
+#scoreCont{
+    font-size: 25px;
+    color: #54212f;
+    font-weight: bold;
+    position: absolute;
+    margin: 25PX 535PX;
+    border: 2px solid black;
+    background-color: white;
+    opacity: 0.6;
+    padding: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 10px;
+}
+
+@keyframes dino{
+    0%{
+        bottom: 0;
+    }
+    50%{
+        bottom: 422px;
+    }
+    60%{
+    	bottom: 422px;
+    }
+    100%{
+        bottom: 0; 
+    }
+}
+
+@keyframes obstacleAni{
+    0%{
+        left: 100vw;
+    }
+    100%{
+        left: -10vw;
+    }
+}

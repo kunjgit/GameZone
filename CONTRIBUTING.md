@@ -87,6 +87,30 @@ If you find this project helpful, please consider giving it a star on GitHub! Yo
 
 <br>
 
+
+## Add Game to assets/js/gamesData.json
+
+* This is to Show your game on the main Website
+   - Go to the end of gamesData.json and add :
+   - **,**
+         " **No.** ":{
+            "gameTitle" : " **Title** ",
+            "gameUrl": " **Main Folder** ",
+            "thumbnailUrl":" **Preview Image** " 
+         }
+   - **No.**: Number for your Game , it should be the next number with respect to the file. eg: it the last no. in file at present is *625* you should put *626* at the place of **No.**
+   - **Title:** this is the title for your game that will be shown on the website, if your game name is ```Super_Mario_Game``` ,put Title as ```Super Mario Game```
+   - **Main Folder :** This is the reference to *index.html* 
+      - if your index.html is directly in main game folder ,put the main folder name eg: ```Super_Mario_Game```
+      - if your index.html is in subfolder , give path to it 
+      eg: ```Super_Mario_Game/public``` (assuming index.html is in public folder of Super_Mario_Game folder)
+      - if your main html file's name is not index.html , you need to specify the main html file also. eg:```Super_Mario_Game/mario.html``` or if in sub folder ```Super_Mario_Game/public/mario.html```
+   - **Preview Image:** This is the image that will be shown as preview for your game , here you provide the name of the image that you added to **assets/images** folder, along with format type. Eg. ```Super_Mario_Game.png``` or ```Super_Mario_Game.jpg``` or with any other format.
+
+**Note:-** 
+   
+   -  Do not modify anything else in the rest of the file, you only need to add your game in the end of the file. 
+   - Don't forget to add the comma for new entry (already give in above sample but this is a reminder as one might miss it to see in the sample)
 ## **Pull Request Process 🚀**
 
 1. Ensure that you have self reviewed your code 😀

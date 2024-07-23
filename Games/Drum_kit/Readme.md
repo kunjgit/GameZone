@@ -5,7 +5,7 @@ Drum Kit [Issue #4876]
 <br>
 
 ## **Description 📃**
-Dragon world game is developed using HTML, CSS, JavaScript.
+Drum kit game is developed using HTML, CSS, JavaScript.
 Main target is to have experience of drum kit sound and have fun.
  
 

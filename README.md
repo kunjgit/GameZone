@@ -1321,6 +1321,7 @@ This repository also provides one such platforms where contributers come over an
 |[Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys)|
 |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
 |[Tether](https://github.com/kunjgit/GameZone/tree/main/Games/Tether)|
+|[Maze_Explorer](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Explorer)|
 
  </center>
 

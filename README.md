@@ -107,7 +107,7 @@ This repository also provides one such platforms where contributers come over an
 
 </center>
 
-| Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               |                                                                                                        |
+
 | [Master Typing](https://github.com/kunjgit/GameZone/tree/main/Games/Master_Typing)                               | [Treasure Hunt](https://github.com/Antiquely3059/GameZone/tree/main/Games/Treasure%20Hunt)                               | [Virtual Pet](https://github.com/Antiquely3059/GameZone/tree/main/Games/Virtual_Pet)                    | [MazeRunner](https://github.com/kunjgit/GameZone/tree/main/Games/MazeRunner)                                 | [Ping_Pong_Singleplayer](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong_Singleplayer)               | [Madlibs](https://github.com/AaryanManghnani/GameZone/tree/main/Games/Madlibs)                                                                                                            |
 | [Bulls_And_Cows_New](https://github.com/kunjgit/GameZone/tree/main/Games/Bulls_And_Cows_New)
 | [Guess_That_Pokemon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_That_Pokemon) 

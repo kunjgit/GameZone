@@ -21,6 +21,7 @@ body {
   width: 90vh;
   background-color: rgba(20, 198, 243, 0.25);
   padding: 2%;
+  max-width: 700px;
   border-radius: 10%;
   box-shadow: 0 0 50px 0 rgba(20, 198, 243, 0.3);
 }
@@ -116,4 +117,9 @@ hr {
 
 .author a:hover {
   text-decoration: underline;
+}
+@media (max-width:600px) {
+  .container{width:95% !important;}
+  .grid{grid-template-columns: repeat(6, 40px) !important;}
+  .cell{height:40px !important;}
 }

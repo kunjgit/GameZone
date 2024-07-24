@@ -1,0 +1,196 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive; /* Arcade-like font */
+    background: url('./assets/arcade_game.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #333;
+    border: 1px solid #666;
+    box-shadow: 0 0 60px 30px rgb(56, 56, 42), /* Inner neon yellow glow */
+               0 0 140px 90px rgb(29, 29, 29); /* Outer cyan glow */
+    border-radius: 10px; /* Add a slight rounded corner effect */
+    padding: 20px; /* Add some padding to the container */
+}
+
+.header-bar {
+    background-color: #222;
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-bar h1 {
+    font-size: 24px;
+    color: #C7F464; /* Neon pink */
+    margin: 0;
+    text-align: center; 
+    display: block; /* Make the h1 a block element */
+    width: 100%; 
+    text-shadow: 0 0 10px #C7F464;
+}
+
+.header-bar .home-icon {
+    font-size: 24px;
+    color: #33CC33; /* Neon green */
+    margin-left: 10px;
+}
+
+#output-panel {
+    padding: 20px;
+    background-color: #444;
+    border: 1px solid #666;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #FFFF00; /* Neon yellow */
+    text-shadow: 0 0 10px #FFFF00;
+}
+
+#guess-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #333;
+    color: #FFFFFF; /* White */
+}
+
+#submit-btn {
+    background-color: #55b94d; /* Neon pink */
+    color: #FFFFFF; /* White */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#submit-btn:hover {
+    background-color: #FFC0CB; /* Pastel pink */
+}
+
+#guess-log {
+    padding: 20px;
+    background-color: #444;
+    border: 1px solid #666;
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow-y: auto;
+    max-height: 200px;
+    color: #33CC33; /* Neon green */
+    text-shadow: 0 0 10px #33CC33;
+}
+
+#guess-log strong {
+    font-weight: bold;
+    color: #FFFF00; /* Neon yellow */
+    text-shadow: 0 0 10px #FFFF00;
+}
+
+#game-rules {
+    padding: 20px;
+    background-color: #444;
+    border: 1px solid #666;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #FFFFFF; /* White */
+    text-shadow: 0 0 10px #FFFFFF;
+}
+
+#game-rules ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#game-rules li {
+    margin-bottom: 10px;
+}
+
+#game-rules strong {
+    font-weight: bold;
+    color: #FF69B4; /* Neon pink */
+    text-shadow: 0 0 10px #FF69B4;
+}
+
+/* Celebration animation */
+.celebration {
+    animation: celebration 2s ease-in-out;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #f1f1f1;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+@keyframes celebration {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px 20px;
+        padding: 10px;
+    }
+    #output-panel, #guess-log, #game-rules {
+        padding: 10px;
+    }
+    #guess-input {
+        width: 80%;
+    }
+    #submit-btn {
+        padding: 10px 15px;
+    }
+}

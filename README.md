@@ -522,11 +522,11 @@ This repository also provides one such platforms where contributers come over an
 | [Simon_Says](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Says) |
 |[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)|
 |[Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys)|
+
 |[Matching_Pair](https://github.com/kunjgit/GameZone/tree/main/Games/Matching_pair)
 
 |[Otherworldly_Odyssey](./Games/Otherworldly_Odyssey/)|
 </center>
- </center>
 | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                                       | [TriHand_Tactics](https://github.com/kunjgit/GameZone/tree/main/Games/TriHand_Tactics)                  | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)                       | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)                       | [CatchTheBall](https://github.com/kunjgit/GameZone/tree/main/Games/CatchTheBall) |  [Colour_Generator_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Colour_Generator_Game) |
 | [Rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/Rock_paper_scissor)                  | [City_Builder_Game](https://github.com/kunjgit/GameZone/tree/main/Games/City_Builder_Game)  | [Mancala_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Mancala_Game)  | [2048_win](https://github.com/kunjgit/GameZone/tree/main/Games/2048_win) |  [Dice_Roller](https://github.com/kunjgit/GameZone/tree/main/Games/Dice_Roller)                  |   [Chrome_Dino_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Chrome_Dino_Game) | 
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)  | [Shrek_Vs_Wild](https://github.com/kunjgit/GameZone/tree/main/Games/Shrek_Vs_Wild)  | [Balloon_Buster](https://github.com/kunjgit/GameZone/tree/main/Games/Balloon_Buster) | [Pokemon_Stats_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Stats_Card) | [Steampunk_FlappyBird](https://github.com/kunjgit/GameZone/tree/main/Games/Steampunk_FlappyBird)  | 
@@ -549,7 +549,8 @@ This repository also provides one such platforms where contributers come over an
  | [Ultimate_Football_Manager](https://github.com/kunjgit/GameZone/tree/main/Games/Ultimate_Football_Manager) | [Zombie_Shooter](https://github.com/kunjgit/GameZone/tree/main/Games/Zombie_Shooter)| [Ganesh_QR_Maker](https://github.com/kunjgit/GameZone/tree/main/Games/Ganesh_QR_Maker) | [Brain_Card_game](https://github.com/Kunjgit/GameZone/tree/main/Games/Brain_Card_game)| [Wheel_of_Fortunes](https://github.com/kunjgit/GameZone/tree/main/Games/Wheel_of_Fortunes)|
 |[Samurai_Fighting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Samurai_Fighting_Game)| [Tic-tac-toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-tac-toe)| [Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)| [Pattern Creation Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pattern_Creation_Game)| [Magic_8_ball_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_8_ball) |
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) | [UNO game with computer](https://github.com/kunjgit/GameZone/tree/main/Games/UNO_game_with_Computer) | [Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)| [Space_Dominators](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Dominators)| [Simon_Says](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Says) |
-|[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)| [Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys) | [Penalty_Shootout_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Penalty_Shootout_Game)| 
+|[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)| [Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys) | [Penalty_Shootout_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Penalty_Shootout_Game)| |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
+| [Drum_kit] (https://github.com/kunjgit/GameZone/tree/main/Games/Drum_kit)|
 </center>
 <br>
 <p align="right"><a href="#top">Back to top</a></p>

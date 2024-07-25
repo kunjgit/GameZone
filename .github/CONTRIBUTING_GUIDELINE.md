@@ -90,32 +90,41 @@ If you find this project helpful, please consider giving it a star on GitHub! Yo
 * Note:-All Other data except the ScreenShot of your Game, should be in it's main folder , don't add it to other folders of the project.
 
 <br>
+---
 
-## Add Game to assets/js/gamesData.json
+## Add Game to `assets/js/gamesData.json`
 
-* This is to Show your game on the main Website
-   - Go to the end of gamesData.json and add :
-   - **,**
-         " **No.** ":{
-            "gameTitle" : " **Title** ",
-            "gameUrl": " **Main Folder** ",
-            "thumbnailUrl":" **Preview Image** " 
-         }
-   - **No.**: Number for your Game , it should be the next number with respect to the file. eg: if the last no. in file at present is *625* you should put *626* at the place of **No.**
-   - **Title:** this is the title for your game that will be shown on the website, if your game name is ```Super_Mario_Game``` ,put Title as ```Super Mario Game```
-   - **Main Folder :** This is the reference to *index.html* 
-      - if your index.html is directly in main game folder ,put the main folder name eg: ```Super_Mario_Game```
-      - if your index.html is in subfolder , give path to it 
-      eg: ```Super_Mario_Game/public``` (assuming index.html is in public folder of Super_Mario_Game folder)
-      - if your main html file's name is not index.html , you need to specify the main html file also. eg:```Super_Mario_Game/mario.html``` or if in sub folder ```Super_Mario_Game/public/mario.html```
-   - **Preview Image:** This is the image that will be shown as preview for your game , here you provide the name of the image that you added to **assets/images** folder, along with format type. Eg. ```Super_Mario_Game.png``` or ```Super_Mario_Game.jpg``` or with any other format.
+*This guide will help you add your game to the main website.*
 
-**Note:-** 
-   
-   -  Do not modify anything else in the rest of the file, you only need to add your game in the end of the file. 
-   - Don't forget to add the comma before the new entry (already give in above sample but this is a reminder as one might miss it to see in the sample)
-   - A trailing comma is a error in JSON, games won't load and the last curly braces is the closing curly braces of the file , don't remove it, add your new game before it.
+1. **Locate `gamesData.json`:** Go to the end of the `gamesData.json` file.
 
+2. **Add Your Game Data:** Append the following JSON entry at the end of the file:
+   ```json
+   ,
+   "No.": {
+       "gameTitle": "Title",
+       "gameUrl": "Main Folder",
+       "thumbnailUrl": "Preview Image"
+   }
+   ```
+
+   - **No.:** Replace `No.` with the next number in sequence. For example, if the last number in the file is `625`, use `626` for your game.
+
+   - **Title:** Replace `"Title"` with the title of your game as it should appear on the website. For example, if your game is named `Super_Mario_Game`, use `"Super Mario Game"`.
+
+   - **Main Folder:** Replace `"Main Folder"` with the path to your game's main HTML file. If `index.html` is directly in the game's folder, use the folder name (e.g., `"Super_Mario_Game"`). If `index.html` is in a subfolder, specify the path (e.g., `"Super_Mario_Game/public"`). If your main HTML file is not named `index.html`, include the file name (e.g., `"Super_Mario_Game/mario.html"` or `"Super_Mario_Game/public/mario.html"`).
+
+   - **Preview Image:** Replace `"Preview Image"` with the name of the image you added to the `assets/images` folder, including the file format. For example, `"Super_Mario_Game.png"` or `"Super_Mario_Game.jpg"`.
+
+3. **Important Notes:**
+   - **Comma Placement:** Ensure you add a comma before your new entry. This is crucial to maintain valid JSON format. The provided sample includes the comma, but make sure you don’t forget it.
+   - **Trailing Comma:** JSON does not allow trailing commas. Do not add a comma after the last entry. Ensure your new game entry is added before the final closing curly brace of the file.
+   - **File Integrity:** Do not modify any other part of the file. Only add your game entry at the end.
+
+4. **Check if Game Load**
+   - **Open index.html:** After you have added your game to the gamesData.json open index.html of GameZone
+   - **Go To last Page:** Go to the Last page and check if your game is loading along with preview image and when opened ,works properly.
+---
 
 <br>
 

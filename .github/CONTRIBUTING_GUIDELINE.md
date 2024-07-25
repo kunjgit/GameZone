@@ -113,7 +113,8 @@ If you find this project helpful, please consider giving it a star on GitHub! Yo
 **Note:-** 
    
    -  Do not modify anything else in the rest of the file, you only need to add your game in the end of the file. 
-   - Don't forget to add the comma for new entry (already give in above sample but this is a reminder as one might miss it to see in the sample)
+   - Don't forget to add the comma before the new entry (already give in above sample but this is a reminder as one might miss it to see in the sample)
+   - A trailing comma is a error in JSON, games won't load and the last curly braces is the closing curly braces of the file , don't remove it, add your new game before it.
 
 
 <br>

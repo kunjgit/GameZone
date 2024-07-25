@@ -15,10 +15,11 @@ Fixes # <your_issue_number>
 - [ ] My changes generates no new warnings.
 - [ ] I have followed proper naming convention showed in [CONTRIBUTING GUIDELINE](https://github.com/kunjgit/GameZone/blob/main/.github/CONTRIBUTING_GUIDELINE.md)
 - [ ] I have added screenshot for website preview in assets/images 
-- [ ] I have added entries for my game in main README.md
-- [ ] I have added README.md in my folder 
+- [ ] I have added entries for my game in GameZone's README.md
+- [ ] I have added README.md in my Game folder 
 - [ ] I have added working video of the game in README.md (optional)
 - [ ] I have specified the respective issue number for which I have requested the new game.
+- [ ] I have added my Game to gamesData.json file and it is loading properly on main website as intended.
 
 
 <hr>

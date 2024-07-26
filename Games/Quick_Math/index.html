@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-menu">
+        <h1>Welcome to Math Game</h1>
+        <button id="startBtn" onclick="startGame()">Start Game</button>
+    </div>
+
+    <div class="container game-container" style="display: none;">
+        <h1>Math Game</h1>
+        <div id="problem"></div>
+        <input type="number" id="answer" placeholder="Enter your answer">
+        <button id="submitBtn" onclick="checkAnswer()">Submit</button>
+        <p>Score: <span id="score">0</span></p>
+        <p id="timerDisplay">Time Left: <span id="timer">30</span> seconds</p>
+    </div>
+
+    <div class="end-screen" style="display: none;">
+        <h1>Game Over!</h1>
+        <p>Your final score is: <span id="finalScore">0</span></p>
+        <button id="playAgainBtn" onclick="playAgain()">Play Again</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

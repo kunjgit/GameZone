@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who's that Pokemon?</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="allPokemons.js"></script>
+    <script src="script.js"></script>
+
+    <script src="https://kit.fontawesome.com/d4a52177dc.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+        <h1 id="title"><strong>Who's that Pokemon?</strong></h1>
+    </header>
+
+    <div class="main">
+
+        <figure>
+            <img src="" alt="some image" id="canvas">
+        </figure>
+
+
+        <div class="box">
+
+            <input type="text" id="guessInput" value="" onkeyup="if (event.keyCode == 13) document.getElementById('submit-btn').click()">
+
+        </div>
+
+        <div class="box">
+            <button onclick="tryGuess()" id="submit-btn">Guess</button>
+            <button onclick="giveHint()">Hint</button>
+            <button onclick="choosePic()">I don't know!</button>
+        </div>
+
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="modal-message" style="font-size: 24px;"></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

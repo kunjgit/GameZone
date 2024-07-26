@@ -1,2 +1,5 @@
+echo ".DS_Store" >> .gitignore
+echo "Games/.DS_Store" >> .gitignore
+echo "assets/.DS_Store" >> .gitignore
+echo "assets/images/.DS_Store" >> .gitignore
 
-assets/images/Pixel_Painter.png

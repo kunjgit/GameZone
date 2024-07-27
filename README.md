@@ -844,6 +844,7 @@ This repository also provides one such platforms where contributers come over an
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
 | [Angry_Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Bird) |
 | [Subway_Surfers](https://github.com/kunjgit/GameZone/tree/main/Games/Subway_Surfers) |
+| [Call_Of_Duty](https://github.com/kunjgit/GameZone/tree/main/Games/Call_Of_Duty) |
 
  </center>
 

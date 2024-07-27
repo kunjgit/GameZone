@@ -1,0 +1,208 @@
+.golden_freddy {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../media/Textures/golden_freddy.webp");
+  background-color: #000;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.custom_night_container {
+  overflow: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  backdrop-filter: blur(7px) brightness(0.5);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100vh;
+}
+
+.github_icon {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  cursor: pointer;
+  transition: transform 200ms 50ms;
+}
+
+.github_icon a {
+  width: fit-content;
+  height: fit-content;
+}
+
+.github_icon:hover {
+  transform: scale(1.2);
+  transition: transform 200ms 50ms;
+}
+
+.custom_night_container h1 {
+  font-weight: 400;
+  margin-left: 30px;
+  opacity: 0.8;
+}
+
+.animatronics_container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.animatronic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.animatronic img {
+  max-width: 200px;
+  width: 20vw;
+}
+
+.animatronic > span {
+  font-size: 20pt;
+  margin-bottom: 15px;
+}
+
+.range_buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  font-size: 1.5rem;
+  font-family: "Consolas";
+  width: 100%;
+}
+
+.range_buttons button {
+  border-radius: 5px;
+  width: 50px;
+  outline: none;
+  background-color: var(--button-color);
+  color: inherit;
+  font-weight: bolder;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
+  transition: transform 200ms 50ms;
+}
+
+.range_buttons button:not(:disabled):hover,
+.range_buttons button:not(:disabled):focus-within {
+  transform: scale(1.15);
+  transition: transform 200ms 50ms;
+}
+
+.range_buttons button:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.start_screen {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* height: 100vh; */
+  display: flex;
+  align-self: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.start_screen span {
+  flex: 100%;
+  margin-bottom: 15px;
+  font-size: 12.5pt;
+}
+
+.ready_button {
+  font-weight: 800;
+  padding: auto 10px;
+
+  font-size: 17pt;
+}
+
+.start_screen button:not(.ready_button) {
+  font-size: 15pt;
+}
+
+.start_screen button:not(.ready_button)[data-selected="false"] {
+  opacity: 0.6;
+}
+
+.start_screen button:not(.ready_button)[data-selected="true"]:before {
+  content: "▶ ";
+}
+
+.start_screen button {
+  border-radius: 6.5px;
+  /* width: 100px; */
+  cursor: pointer;
+  height: 100%;
+  outline: none;
+  color: white;
+  background-color: var(--button-color);
+  border: none;
+}
+
+.footer {
+  opacity: 0.8;
+  height: 50px;
+  text-align: center;
+}
+
+.footer p {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .custom_night_container h1 {
+    margin-bottom: 30px;
+  }
+  .start_screen {
+    width: 50%;
+  }
+  .start_screen button {
+    margin-top: 10px;
+    height: 50px;
+  }
+
+  .range_buttons button {
+    height: 50px;
+  }
+
+  .footer {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .custom_night_container h1 {
+    /* margin-bottom: 2%; */
+    margin-top: 2%;
+    font-size: 15pt;
+  }
+
+  .start_screen {
+    width: 90%;
+  }
+  .ready_button {
+    margin: 1.2% auto 1% auto;
+  }
+
+  .start_screen button {
+    font-size: 10pt !important;
+    height: 35px;
+  }
+
+  .range_buttons {
+    margin-top: 15px;
+    max-height: 30px;
+  }
+
+  .footer {
+    margin: 1% 0px 1% 0px;
+  }
+}

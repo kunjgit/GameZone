@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./mobileView.css">
+    <title>Bubble'z Popper</title>
+</head>
+
+<body>
+
+    <h1 id="name">Bubble'z Popper</h1>
+
+    <div class="main">
+        <div class="container">
+            <div class="game-over">
+                <h1>Game Over</h1>
+                <button class="try-again" onclick="start()">Try Again</button>
+            </div>
+        </div>
+        <div class="utils">
+            <div class="start-div">
+                <button class="start dis" onclick="start()">Start</button>
+            </div>
+            <div id="score">
+                <p>Your Score - <span>0</span></p>
+            </div>
+            <div id="high-score">
+                <p>High Score - <span>0</span></p>
+            </div>
+            <div id="missed">
+                <p>Missed - <span>0</span></p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>

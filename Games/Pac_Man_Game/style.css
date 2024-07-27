@@ -1,0 +1,114 @@
+body {
+    /* Center align the content vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Set the height of the body to 100% of the viewport height */
+    height: 100vh;
+    /* Remove margin to prevent unwanted spacing */
+    margin: 0;
+    /* Set background color to black */
+    background-color: #000;
+}
+
+#gameBoard {
+    /* Create a grid layout for the game board */
+    display: grid;
+    /* Define 20 columns each with a width of 30px */
+    grid-template-columns: repeat(20, 30px);
+    /* Define 20 rows each with a height of 30px */
+    grid-template-rows: repeat(20, 30px);
+    /* Set the gap between grid items */
+    gap: 2px;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+}
+
+.wall {
+    background-color: blue;
+}
+
+/*Space for the pac dots*/
+.pac-dot {
+    background-color: black;
+    /* Center align content vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Pac dots themselves*/
+.pac-dot::after {
+    /*Create circle*/
+    content: '';
+    width: 10px;
+    height: 10px;
+
+    background-color: white;
+    /*Create a rounded shape*/
+    border-radius: 50%;
+}
+
+/*Pac-Man*/
+.pacman {
+    background-color: yellow;
+    /*Create a round shape*/
+    border-radius: 50%;
+}
+
+/*Score display*/
+#score {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    padding: 10px;
+}
+
+/*Score value*/
+#scoreValue {
+    color: yellow;
+}
+
+
+/*Ghosts*/
+.ghost {
+    /*Set background color dynamically*/
+    background-color: var(--ghost-color);
+}
+
+/*Red ghost*/
+.red {
+    --ghost-color: red;
+}
+
+/*Blue ghost*/
+.blue {
+    --ghost-color: green;
+}
+
+/*Lives*/
+#livesContainer {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.life {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/*Hide life*/
+.life.hidden {
+    display: none;
+}

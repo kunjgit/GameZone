@@ -529,6 +529,8 @@ This repository also provides one such platforms where contributers come over an
 
 |[Matching_Pair](https://github.com/kunjgit/GameZone/tree/main/Games/Matching_pair)
 
+|[Number Guessing Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing-Game)
+
 |[Otherworldly_Odyssey](./Games/Otherworldly_Odyssey/)|
 </center>
 

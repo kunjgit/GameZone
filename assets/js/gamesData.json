@@ -3151,3 +3151,8 @@
     "gameUrl": "Atlas_Game",
     "thumbnailUrl": "Atlas_Game.png"
   },
+  "629":{
+    "gameTitle" : "Word Search Game",
+    "gameUrl": "Word_Search_Game",
+    "thumbnailUrl": "Word_Search_Game.jpeg"
+  },

@@ -1,4 +1,3 @@
-
 # Hii 👋, My name is Wobbletron, the alien👽
 ---------------------------------------------------------------------------------------------------------------------------
 Welcome to the Alien Language Translator project! This application allows users to translate text between human languages and fictional alien languages.
@@ -25,13 +24,14 @@ We welcome contributions to improve the Alien Language Translator! If you'd like
 -Push to the branch (git push origin feature/YourFeature).
 -Create a new Pull Request.
 
-
+## Image of the game is placed in the image folder
 
 👋ζ∑ζ∑φ¥Λß∈Ω , to understand this , please navigate to the game and learn my language 
 
 Happy Learning :)
 
+
 ## Contact
 If you have any questions or suggestions, please feel free to reach out:
-Email: nikitatewari1633@gmail.com 
+Email: nikitatewari1633@gmail.com  
 GitHub: nikki-05

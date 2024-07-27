@@ -9,7 +9,7 @@ let notify = new Audio('sound/notify.mp3');
 let capture = new Audio('sound/capture.mp3');
 
 let playerGo = 'black';
-playerDisplay.textContent = 'black';
+playerDisplay.textContent = 'white';
 
 
 const startPieces = [
@@ -41,11 +41,11 @@ function createBoard(){
 
         //changing the color of pieces : black & white
         if(i <= 15){
-            square.firstElementChild.firstElementChild.classList.add('black');
+            square.firstElementChild.firstElementChild.classList.add('white');
         }
 
         if(i >= 48){
-            square.firstElementChild.firstElementChild.classList.add('white');
+            square.firstElementChild.firstElementChild.classList.add('black');
         }
 
 
@@ -87,7 +87,7 @@ function dragDrop(e){
     const takenByOpponent = e.target.firstElementChild?.classList.contains(opponentGo);
 
     
-    if(correctGo){
+    if(true){
         
         //must check this first
         if(takenByOpponent && valid){
@@ -130,9 +130,10 @@ function checkIfValid(target){
     const targetId = Number(target.getAttribute('square-id')) || Number(target.parentNode.getAttribute('square-id'));
     const startId = Number(startPositionId);
     const piece = draggedElement.id;
-    console.log('targetID', targetId);
-    console.log('startID', startId);
-    console.log('piece', piece);
+    // console.log('targetID', targetId);
+    // console.log('startID', startId);
+    // console.log('piece', piece);
+
 
     switch(piece){
         case 'pawn':
@@ -336,11 +337,11 @@ function changePlayer(){
     if(playerGo === "black"){
         reverseIds();
         playerGo = "white";
-        playerDisplay.textContent = 'white';
+        playerDisplay.textContent = 'black';
     }else{
         revertIds();
         playerGo = "black";
-        playerDisplay.textContent = 'black';
+        playerDisplay.textContent = 'white';
     }
 }
 

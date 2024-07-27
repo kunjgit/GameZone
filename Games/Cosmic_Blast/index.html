@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Blast</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/images/gamezone.png" type="image/x-icon">
+</head> 
+<body>
+
+    <div style="text-align:center;
+        font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+
+    <!-- === INTERFACE === -->
+    <div id="interface">
+        <h1>Cosmic Blast</h1>
+        <p>Welcome to the Cosmic Blast Game! Save the Earth from incoming asteroids by clicking on them.</p>
+        <p>Instructions:</p>
+        <ul>
+            <li>Click on the asteroids to destroy them and increase your score.</li>
+            <li>Missed asteroids will damage Earth, causing it to slowly fade as its health decreases</li>
+            <li>If health reaches zero, the game is over.</li>
+        </ul>
+        <button id="start-btn" class="start-btn">Start Game</button>
+        <!-- <button class="start-btn"><a href="https://kunjgit.github.io/GameZone/">HOME</a></button> -->
+    </div>
+
+    <!-- === GAME CONTAINER === -->
+    <div id="game-container">
+        <button id="quit-btn">&#10006;</button>
+        <div id="earth"></div>
+        <div id="health-bar">
+            <div id="health-text"></div>
+        </div>
+        <div id="score"></div>
+    </div>
+
+    <!-- === END SCREEN === -->
+    <div id="end-screen" class="hidden">
+        <div class="popup">
+            <h2>Earth has been destroyed by the asteroids</h2>
+            <p>Your final score: <span id="final-score"></span></p>
+            <button id="play-again-btn">Play Again</button>
+            <!-- <button id="home-btn">BACK</button> -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

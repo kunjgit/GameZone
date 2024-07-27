@@ -1,0 +1,99 @@
+/* styles.css */
+body {
+    min-width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #7cd5ee;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+@media screen and (max-width :1100px){
+    body{
+        flex-direction: column-reverse;
+        height: auto;
+        margin-top: 50px;
+    }
+}
+#instruct{
+    line-height: 22px;
+}
+#placeHouse,#placeFactory,#placePark,#restart{
+    padding: 5px 20px;
+    height: 35px;
+    border-radius: 10px;
+    
+}
+#restart{
+    background-color: rgb(178, 46, 6);
+}
+#placeHouse{
+    background-color:#118382 ;
+    color: white;
+}
+#placeFactory{
+    background-color:black ;
+    color: white;
+}
+#placePark{
+    background-color:rgb(87,203,59) ;
+}
+#gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+#gameBoard div {
+    width: 40px;
+    height: 40px;
+    background: #e0e0e0;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+#info {
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    align-items: center;
+}
+
+#info p {
+    margin: 5px 0;
+}
+
+#restart-final{
+    background-color: rgb(0, 255, 0);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    color: black;
+    padding: 10px 25px;
+}

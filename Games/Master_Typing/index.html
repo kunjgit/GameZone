@@ -9,15 +9,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="/assets/images/Master_Typing.png" />
-    <div style="text-align: left; margin-left: -1400px;
-    margin-top: 10px;
-    font-size: 30px;
-    padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+  </head>
+  <body>
+    <div class="details_div">
+      <div onclick="window.location.href='https://kunjgit.github.io/GameZone/'" class="home_btn">
+        <i style="color:white;" class="fas fa-home home-icon"></i>
+      </div>
+      <div class="load">
+        <h1>MASTER TYPING</h1>
+        <hr>
+      </div>
+      
+      <div onclick="window.location.href = './rules.html'" class="menu">
+        <p>Click here for Instructions</></p>
+      </div>
+    </div>
+
     <div class="container">
       <!-- for timer  and assessment section-->
       <h1 class="title">Hands on the keyboard 👀</h1>
       <div class="timer title" id="timer">00:00</div>
-
+      <div class="keyContainer">
+        <div class="TotScore" id="TotKey">Total Key pressed: 0</h1></div>
+        <div class="corScore" id="corKey">Correct: 0</div>
+        <div class="wrScore" id="uncorKey">Incorrect: 0</div>
+      </div>
+      
       <!-- for keyboard  -->
       <div class="keyboard">
         <ul class="row row-0">
@@ -82,13 +99,20 @@
           <li class="pinky" id="right-shift">SHIFT</li>
         </ul>
       </div>
-
+      
+      <div class="wrTeller"></div>
       <!-- for start and restart button -->
       <div class="btn">
-        <button class="button" onclick="startTimer()">Start</button>
-        <button class="button" onclick="restartTimer()">Restart</button>
+        <button class="button start-button" onclick="startTimer()">Start</button>
+        <button class="button reset-button" onclick="restartTimer()">Reset</button>
       </div>
+     
     </div>
+
+     
+
+
+    
 
     <!-- For audio section  -->
     <audio id="keySound">
@@ -102,10 +126,50 @@
     <!-- Content will be added dynamically -->
   </div>
 </div>
+<!-- <div class="score">0</div> -->
+    <!-- <div class="stage"></div> -->
 
-<!-- Rest of your HTML code -->
+    <div class="rating-prompt" id="ratingPrompt">
+        <div class="rating-container">
+            <h2>Rate the Game</h2>
+            <div class="stars">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <div class="buttons">
+                <button id="submitRating">Submit</button>
+                <button id="cancelRating">Cancel</button>
+            </div>
+            <div class="feedback-link">
+              <a href="#" id="feedbackLink">Write Detailed Feedback</a>
+          </div>
+      </div>
+  </div>
+
+  <div class="feedback-container" id="feedbackContainer">
+      <div class="feedback-content">
+          <h1>Write Your Feedback</h1>
+          <form id="feedbackForm">
+              <textarea name="feedback" rows="10" cols="50" placeholder="Write your detailed feedback here..."></textarea>
+              <br>
+              <button type="submit">Submit Feedback</button>
+              <button type="button" id="closeFeedback">Close</button>
+          </form>
+      </div>
+        </div>
+    </div>
 
 
+<!--countdown message-->
+<div id="countdownMessage">Only 10 seconds left!</div>
+
+
+
+
+<script src="path/to/your/javascript/file.js"></script>
     <script src="script.js"></script>
-  </head>
+  </body>
 </html>

@@ -56,7 +56,7 @@ function preload(){
 function setup(){
     
     cnv = createCanvas(800,635);
-    cnv.position(320,270);
+    cnv.position(365,250);
     sword = new Sword(color("#FFFFFF"));
     frameRate(60);
     score = 0;

@@ -330,10 +330,12 @@ Math.minmax = (value, limit) => {
       `;
   
     if (hardMode) {
-      noteElement.innerHTML = `Click the joystick to start!
+      noteElement.innerHTML = `<h3><b>Instructions:</b></h3>
+      Click the joystick to start!
           <p>Hard mode, Avoid black holes. Back to easy mode? Press E</p>`;
     } else {
-      noteElement.innerHTML = `Click the joystick to start!
+      noteElement.innerHTML = `<h3><b>Instructions:</b></h3>
+      Click the joystick to start!
           <p>Move every ball to the center. Ready for hard mode? Press H</p>`;
     }
     noteElement.style.opacity = 1;
@@ -678,3 +680,9 @@ Math.minmax = (value, limit) => {
       } else throw error;
     }
   }
+  const restartBtn = document.getElementById("restart-btn");
+
+
+  restartBtn.addEventListener("click", function() {
+    resetGame(); 
+  });

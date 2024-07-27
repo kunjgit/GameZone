@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: helvetica;
 }
 
 body {
@@ -9,6 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+  
 }
 
 #piano {
@@ -22,12 +24,20 @@ body {
     position: relative;
 }
 
+.key.active{
+    background-color: gray;
+}
+
 .whites {
     display: flex;
 
 }
 
 .white {
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
     width: 68px;
     height: 280px;
     border-radius: 0 0 5px 5px;
@@ -41,11 +51,16 @@ body {
 }
 
 .black {
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
     width: 38px;
     height: 160px;
     border-radius: 0 0 5px 5px;
     position: absolute;
     background-color: #000;
+    color: white;
 }
 
 .black:nth-child(1) {
@@ -87,4 +102,12 @@ body {
 
 .black:nth-child(10) {
     left: 865px;
+}
+
+#reset{
+    margin: 12px;
+    background-color: aquamarine;
+    border-radius: 20px;
+    padding:20px
+
 }

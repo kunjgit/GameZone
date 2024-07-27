@@ -1,0 +1,157 @@
+/* Global body styles */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #0a0a23;
+  background-image: url('img/23.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size: 16px;
+  }
+
+/* Game text area styles */
+#text {
+    background-color: rgba(10, 10, 35, 0.5);
+    color: #ffffff;
+    padding: 10px;
+  }
+
+/* Main game container styles */
+#game {
+  max-width: 90%; /* Responsive width */
+  max-height: none; /* Remove max-height */
+  margin: 20px auto;
+  padding: 10px;
+  background-color: rgba(0, 0, 10, 0);
+  }
+
+/* Styles for controls and stats sections */
+#controls,
+#stats {
+    border: 1px solid #0a0a23;
+    padding: 5px;
+    color: #0a0a23;
+    background-color: rgba(0, 0, 10, 0.5);
+  }
+
+/* Control buttons layout */
+#controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    flex-direction: column; /* Stack buttons vertically on mobile */
+    gap: 10px; /* Add space between buttons */
+  }
+
+/* Monster stats section styles */  
+#monsterStats {
+    display: none;
+    border: 1px solid #0a0a23;
+    padding: 5px;
+    color: #ffffff;
+    background-color: #c70d0d;
+  }
+  
+/* Individual stat styling */
+.stat {
+    padding-right: 10px;
+  }
+  
+/* Button styles */
+button {
+    cursor: pointer;
+    color: #0a0a23;
+    background-color: #feac32;
+    background-image: linear-gradient(#fecc4c, #ffac33);
+    border: 3px solid #feac32;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out, transform 0.1s ease-in-out;
+    width: 100%; /* Full width buttons */
+    padding: 10px; /* Larger touch target */
+    font-size: 1em; /* Relative font size */
+  }
+
+/* Button hover effect */
+button:hover {
+    box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.7); /* Glow effect */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+/* Centering utility class */
+.centered-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+/* Gradient text effect for title */
+.gradient-text {
+    font-size: 2em; /* Relative font size */
+    font-weight: bold;
+    background: linear-gradient(
+      to right,
+      #4285F4, /* Blue */
+      #f4009f, /* Pink */
+      #DB4437, /* Red */
+      #5d0f9d, /* Purple */
+      #4285F4  /* Blue again to loop smoothly */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: gradient-animation 10s linear infinite;
+    text-align: center;
+  }
+  
+/* Keyframes for gradient animation */
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+
+/* XP stat styling */
+.xpStat {
+    color:#8c00ff;
+    text-shadow: 0 0 10px #8c00ff, 0 0 20px #8c00ff, 0 0 30px #8c00ff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+  }
+
+/* Health stat styling */
+.healthStat {
+    color: #ff0000 ;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+  }
+
+/* Gold stat styling */
+.goldStat {
+    color: #FFD300;
+    text-shadow: 0 0 10px #FFD300, 0 0 20px #FFD300, 0 0 30px #FFD300, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+  }
+
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+  #game {
+    max-width: 500px;
+  }
+
+  #controls {
+    flex-direction: row;
+  }
+
+  button {
+    width: auto;
+  }
+
+  .gradient-text {
+    font-size: 48px;
+  }
+}

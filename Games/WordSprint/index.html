@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel="icon" href="6.png">
+        <title>Word Sprint</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Paytone+One|Montserrat" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="left">
+            <div id="timeLeft">
+                <p id="counthead">Countdown</p>
+                <p id="secs">4</p>
+            </div>
+            <div id="wordlist">
+                <div id="arrow"></div>
+                <div id="scrollingwords">
+                    <ul style="list-style: none;">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="center">
+            <div id="circular">
+                <div class="quaters movers" id="q1"></div>
+                <div class="quaters movers" id="q2"></div>
+                <div class="quaters movers" id="q3"></div>
+                <div class="quaters movers" id="q4"></div>
+                <div class="bouncy"></div>
+                <p id="word"></p>
+            </div>
+            <div id="inputCover">
+                <input id="input" type="text" placeholder="Type the text above to begin..." spellcheck="false" />
+            </div>
+            <div id="message">
+                Level-0
+            </div>
+        </div>
+        <div id="stats">
+            <div style="display:flex;">
+                <div id="current">
+                    <p id="scorehead">Score</p>
+                    <p id="score">0</p>
+                </div>
+                <div id="high">
+                    <p id="highhead">Your High Score</p>
+                    <p id="highscore">0</p>
+                </div>
+            </div>
+            <div id="graph">
+                <canvas id="wpmchart" width="100%" height="100%"></canvas>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

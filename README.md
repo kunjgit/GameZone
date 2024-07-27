@@ -561,6 +561,7 @@ This repository also provides one such platforms where contributers come over an
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) | [UNO game with computer](https://github.com/kunjgit/GameZone/tree/main/Games/UNO_game_with_Computer) | [Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)| [Space_Dominators](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Dominators)| [Simon_Says](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Says) |
 |[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)| [Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys) | [Penalty_Shootout_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Penalty_Shootout_Game)| |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
 | [Drum_kit] (https://github.com/kunjgit/GameZone/tree/main/Games/Drum_kit)|
+ |[Balloon_Popup] (https://github.com/kunjgit/GameZone/tree/main/Games/Balloon_Popup)|
 </center>
 <br>
 <p align="right"><a href="#top">Back to top</a></p>

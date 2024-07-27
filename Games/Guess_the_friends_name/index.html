@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Friend Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Guess the Friend's Name</h1>
+        <div class="input-section">
+            <div class="box-input">
+                <div class="border">
+                    <input type="text" class="input" id="friend1" placeholder="Enter friend 1 name">
+                    <input type="text" class="input" id="friend2" placeholder="Enter friend 2 name">
+                    <input type="text" class="input" id="friend3" placeholder="Enter friend 3 name">
+                    <input type="text" class="input" id="friend4" placeholder="Enter friend 4 name">
+                </div>
+            </div>
+            <button onclick="startGame()">Start Game</button>
+        </div>
+        <div class="game-section" style="display: none;">
+            <p>Guess the name of one friend:</p>
+            <div class="box-input">
+                <div class="border">
+                    <input type="text" id="guess" class="input" placeholder="Enter your guess">
+                </div>
+            </div>
+            <button onclick="makeGuess()">Submit Guess</button>
+            <button onclick="exitGame()">Exit Game</button>
+            <p id="result"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

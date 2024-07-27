@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact-Me</title>
+    <link rel="stylesheet" href="Contact.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">Contact-me</a>
+            <ul class="navbar-menu">
+                <li><a href="#">LinkdeIn</a></li>
+                <li><a href="#">Github</a></li>
+                <li><a href="#">Devfolio</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="contact-container">
+    <h1>Contact-Us</h1>
+
+    <hr size="5px" noshade="none">
+    <form class="contactForm" action="#" method="post" enctype="text/plain">
+        <label  for="name">Name:</label>
+        <input type="text" id="name " name="name" placeholder="Enter Your Name " required>
+        
+         <label for="email">Email:</label>
+            <input type="email" id="email"name="email" placeholder="Enter Your Email" required>
+        
+            <label for="message" >Message:</label>
+            <textarea type="message" name="message" value=""placeholder="Enter Your Message" required></textarea>
+        <div class="form-group">
+        <button class="submit" type="submit">Submit</button>
+</div>
+        
+    </form>
+    <p id="formMessage"></p>
+    </div>  
+    <script src="contact.js"></script>
+</body>
+</html>

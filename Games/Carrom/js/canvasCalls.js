@@ -4,10 +4,10 @@ function canvasCalls(){
 	//inner rectangle
 	drawRect(20,20,680,680,'#f3e5ab',ctx);
 	//Corner Circles
-	drawCircle(35,35,22,'black',ctx);
-	drawCircle(685,35,22,'black',ctx);
-	drawCircle(685,685,22,'black',ctx);
-	drawCircle(35,685,22,'black',ctx);
+	drawCircle(35,35,22,'#750E21',ctx);
+	drawCircle(685,35,22,'#750E21',ctx);
+	drawCircle(685,685,22,'#750E21',ctx);
+	drawCircle(35,685,22,'#750E21',ctx);
 	//Central Circles
 	drawCircle(360,360,10,'black',ctx);
 	drawCircleS(360,360,70,ctx);

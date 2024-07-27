@@ -1,0 +1,97 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(45deg, #0d0812, #0a1a37,rgb(43, 5, 94),rgb(79, 3, 79),rgb(4, 4, 134),rgb(86, 86, 248)
+    );
+    background-size: 400% 400%;
+    animation: gradientAnimation 5s ease infinite;
+    color: #fff;
+    cursor: pointer;
+  }
+  #custom-cursor{
+   
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e8dce4;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transition: transform 0.1s ease-out, background-color 0.2s ease;
+    z-index: 10000;
+    animation: cursorAnimation 0.3s infinite alternate;
+}
+@keyframes cursorAnimation {
+  0% { transform: scale(1); background-color: black,; }
+  100% { transform: scale(1.5); background-color: white; }
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes backgroundAnimation {
+    0% { background-color: #f44336; }
+    20% { background-color: #e91e63; }
+    40% { background-color: #9c27b0; }
+    60% { background-color: #673ab7; }
+    80% { background-color: #3f51b5; }
+    100% { background-color: #2196f3; }
+}
+@keyframes cursorAnimation {
+    0% { transform: scale(1); background-color: black,; }
+    100% { transform: scale(1.5); background-color: white; }
+  }
+  h1 {
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: titleAnimation 1s ease-out infinite alternate;
+  }
+    
+.content-container {
+    margin-top: 300px; /* Adjust based on the height of the navbar */
+    padding: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 500px;
+    
+}
+h1{
+  animation: gradientAnimations 0.3 ease infinite;
+}
+.instructions h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.instructions p, .instructions li {
+    font-size: 18px;
+    margin-bottom: 10px;
+   
+}
+p{
+  margin-top: 15px;
+}
+
+.instructions ul, .instructions ol {
+    margin-left: 20px;
+}

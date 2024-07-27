@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKnowYou - Mind Reading Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/images/gamezone.png" type="image/x-icon">
+</head>
+<body>
+    <div class="game-wrapper">
+        <img id="slide-image" src="assets/cover.jpeg" alt="">
+        <div class="container">
+            <h1>IKnowYou - Mind Reading Game</h1>
+            <button id="start-btn">Start</button>
+            <div id="questions" class="hidden">
+                <div class="slide">
+                    <p>Think of any number 😀 <br>
+                        For your simplicity choose a number less than 1000. <br>
+                        Suppose the number as money🤑. <br> 
+                        Example: Your number is 100 means you have 100Rs. <br><br>
+                        <b>Ready?</b></p>
+                    <button class="next-btn">Next</button>
+                </div>
+                <div class="slide hidden">
+                    <p>The same amount is given to you by your friend, now sum it up. You may need to pay him back later😝
+                        <br>
+                        <b>Done?</b>
+                    </p>
+                    <button class="next-btn">Next</button>
+                </div>
+                <div class="slide hidden">
+                    <p>I also want to join🥲 <br> 
+                        Add <span id="myMoney"></span> for me also please. <br>
+                        Sum up all the money. <br>
+                        <b>Done?</b> <br>
+                    </p>
+                    <button class="next-btn">Next</button>
+                </div>
+                <div class="slide hidden">
+                    <p>We encounter poor people and decide to charity half of the money we have.
+                        <br> Deduct half of the money and remember the balance amount.
+                    </p>
+                    <button class="next-btn">Next</button>
+                </div>
+                <div class="slide hidden">
+                    <p> Okay, now give the money you took from your friend.
+                    </p>
+                    <button id="show-result" class="next-btn">Show Result</button>
+                </div>
+            </div>
+            <div id="game" class="hidden">
+                <p id="question">The amount you are left with now is: <span id="guess"></span>?</p>
+                <button id="reset-btn" class="next-btn">Yes</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Contributed by &copy; <a href="https://github.com/vansh-codes/">vansh-codes</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1> Bubble Shooter </h1>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bubble Shooter</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #game-canvas {
+            background: #eee;
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <canvas id="game-canvas" style="background: #eee;" width="480" height="400"></canvas>
+</div>
+  <script type='application/javascript'
+  src="https://rawgit.com/nicholas-maltbie/BubbleShooterJS/master/grid.js">
+</script>
+<script type='application/javascript'
+  src="https://rawgit.com/nicholas-maltbie/BubbleShooterJS/master/ball.js">
+</script>
+<script type='application/javascript'
+  src="https://rawgit.com/nicholas-maltbie/BubbleShooterJS/master/shooter.js">
+</script>
+<script type='application/javascript'
+  src="https://rawgit.com/nicholas-maltbie/BubbleShooterJS/master/manager.js">
+</script>
+    <script src="script.js"></script>
+
+</body>
+</html>
+

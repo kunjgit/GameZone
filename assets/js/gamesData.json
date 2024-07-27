@@ -3149,6 +3149,16 @@
     "gameTitle" : "Penalty_Shootout_Game",
     "gameUrl": "Penalty_Shootout_Game",
     "thumbnailUrl": "Penalty_Shootout_Game.png"
+  },
+    "628":{
+    "gameTitle" : "Atlas Game",
+    "gameUrl": "Atlas_Game",
+    "thumbnailUrl": "Atlas_Game.png"
+  },
+  "629":{
+    "gameTitle" : "Hangman Game",
+    "gameUrl": "Hangman_Game",
+    "thumbnailUrl": "Hangman_Game.png"
   }
 
 

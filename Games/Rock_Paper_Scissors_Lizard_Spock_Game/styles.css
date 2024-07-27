@@ -1,0 +1,20 @@
+/* Define keyframes for gradient animation */
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }      /* Start position */
+  50% { background-position: 100% 50%; }   /* Middle position */
+  100% { background-position: 0% 50%; }    /* End position (same as start) */
+}
+
+/* Gradient animation on hover */
+.animate-gradient:hover {
+  animation: gradient-animation 3s ease infinite; /* Apply the animation */
+  background-size: 200% 200%; /* Increase background size for smoother animation */
+}
+
+/* Animated gradient border */
+.animate-gradient-border {
+  /* Create a multi-color gradient background */
+  background: linear-gradient(60deg, #3b82f6, #8b5cf6, #ef4444, #3b82f6);
+  background-size: 300% 300%; /* Increase background size for smoother animation */
+  animation: gradient-animation 5s ease infinite; /* Apply the animation */
+}

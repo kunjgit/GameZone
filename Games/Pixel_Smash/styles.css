@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #000;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    border: 2px solid #0f0;
+    box-shadow: 0 0 20px #0f0;
+}
+
+canvas {
+    display: block;
+    background: #111;
+}

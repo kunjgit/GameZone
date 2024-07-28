@@ -3151,3 +3151,14 @@
     "gameUrl": "Atlas_Game",
     "thumbnailUrl": "Atlas_Game.png"
   },
+  "629":{
+    "gameTitle" : "Hangman Game",
+    "gameUrl": "Hangman_Game",
+    "thumbnailUrl": "Hangman_Game.png"
+  },
+  "630":{
+    "gameTitle" : "Number Guessing Game",
+    "gameUrl": "HNumber_Guessing_Game",
+    "thumbnailUrl": "NumberGuessingGame.png"
+  }
+}

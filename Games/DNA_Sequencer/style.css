@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    margin: 0;
+}
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.dna-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.dna-sequence {
+    display: flex;
+    gap: 5px;
+}
+.dna-sequence .base {
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #eee;
+    transform: perspective(100px) rotateX(10deg) rotateY(10deg);
+    transition: transform 0.3s;
+}
+.dna-sequence .base:hover {
+    transform: perspective(100px) rotateX(0deg) rotateY(0deg);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.controls {
+    margin: 20px 0;
+}
+.controls button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.controls button:hover {
+    background-color: #0056b3;
+}
+.result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+.level {
+    font-size: 20px;
+    margin-top: 10px;
+}

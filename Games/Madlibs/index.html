@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Libs Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mad Libs Game</h1>
+        <form id="madLibsForm">
+            <label for="noun1">Noun:</label>
+            <input type="text" id="noun1" name="noun1" required><br><br>
+            
+            <label for="verb1">Verb:</label>
+            <input type="text" id="verb1" name="verb1" required><br><br>
+            
+            <label for="adjective1">Adjective:</label>
+            <input type="text" id="adjective1" name="adjective1" required><br><br>
+            
+            <label for="adverb1">Adverb:</label>
+            <input type="text" id="adverb1" name="adverb1" required><br><br>
+
+            <label for="noun2">Another Noun:</label>
+            <input type="text" id="noun2" name="noun2" required><br><br>
+            
+            <label for="verb2">Another Verb:</label>
+            <input type="text" id="verb2" name="verb2" required><br><br>
+            
+            <label for="adjective2">Another Adjective:</label>
+            <input type="text" id="adjective2" name="adjective2" required><br><br>
+            
+            <label for="adverb2">Another Adverb:</label>
+            <input type="text" id="adverb2" name="adverb2" required><br><br>
+            
+            <button type="button" onclick="generateMadLib()">Generate Mad Lib</button>
+        </form>
+        
+        <div id="story" class="hidden">
+            <h2>Your Mad Libs Story</h2>
+            <p id="madLibStory"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

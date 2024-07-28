@@ -1,0 +1,529 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #000;
+  height: 100%;
+}
+
+#zee-ball {
+  position: absolute; top: 440px; left: 390px;
+  -webkit-transition: width 0.5s linear, height 0.5s linear;
+  -moz-transition: width 0.5s  linear, height 0.5s linear;
+  -ms-transition: width 0.5s  linear, height 0.5s  linear;
+  -o-transition: width 0.5s  linear, height 0.5s  linear;
+  transition: width 0.5s  linear, height 0.5s  linear;
+}
+
+#kickAnimation {
+  position: absolute;
+  top: 250px;
+  left: 280px;
+}
+
+#zee-game {
+  margin: 0 auto 0 auto;
+  width: 810px;
+  height: 525px;
+  position: relative;
+  background: url('../img/background.jpg') no-repeat top center transparent;
+  cursor: pointer;
+  overflow: hidden;
+
+  /* center vertically on the screen */
+  top: 50%;
+  margin-top: -262.5px;
+}
+
+#vertical-direction {
+  position: absolute;
+  top: 342px;
+  left: 60px;
+  width: 17px;
+  height: 130px;
+  background: url('../img/direction-vertical.png') no-repeat 0 0 transparent;
+}
+
+#horizontal-direction {
+  position: absolute;
+  top: 500px;
+  left: 60px;
+  width: 132px;
+  height: 18px;
+  background: url('../img/direction-horizontal.png') no-repeat 0 0 transparent;
+}
+
+#power-level {
+  position: absolute;
+  top: 500px;
+  right: 70px;
+  width: 134px;
+  height: 11px;
+  background: url('../img/power.png') no-repeat 0 0 transparent;
+}
+
+.small-ball {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: url('../img/small-ball.png') no-repeat 0 0 transparent;
+}
+
+#horizontal-direction-indicator {
+  top: 480px;
+  -webkit-transition: left 0.32s ease-out;
+  -moz-transition: left 0.32s ease-out;
+  -ms-transition: left 0.32s ease-out;
+  -o-transition: left 0.32s ease-out;
+  transition: left 0.32s ease-out;
+}
+
+#horizontal-direction-indicator.one-end {
+  left: 60px;
+}
+
+#horizontal-direction-indicator.other-end {
+  left: 179px;
+}
+
+#vertical-direction-indicator {
+  left: 82px;
+  -webkit-transition: top 0.32s ease-out;
+  -moz-transition: top 0.32s ease-out;
+  -ms-transition: top 0.32s ease-out;
+  -o-transition: top 0.32s ease-out;
+  transition: top 0.32s ease-out;
+}
+
+#vertical-direction-indicator.one-end {
+  top: 342px;
+}
+
+#vertical-direction-indicator.other-end {
+  top: 459px;
+}
+
+#power-level-indicator {
+  top: 477px;
+  -webkit-transition: right 0.32s ease-out;
+  -moz-transition: right 0.32s ease-out;
+  -ms-transition: right 0.32s ease-out;
+  -o-transition: right 0.32s ease-out;
+  transition: right 0.32s ease-out;
+}
+
+#power-level-indicator.one-end {
+  right: 70px;
+}
+
+#power-level-indicator.other-end {
+  right: 191px;
+}
+
+/* goal keeper */
+.goal-keeper {
+  position: absolute;
+  height: 194px;
+  width: 596px;
+  top: 98px;
+  left: 114px;
+}
+
+.goal-keeper.standing {
+  background: url('../img/keeper-standing.png') no-repeat 0 0 transparent;
+}
+
+.goal-keeper.right-jump {
+  background: url('../img/keeper-right-jump.png') no-repeat 0 0 transparent;
+  display: none;
+}
+
+.goal-keeper.left-jump {
+  background: url('../img/keeper-left-jump.png') no-repeat 0 0 transparent;
+  display: none;
+}
+
+/* modals */
+
+.modal {
+  position: absolute;
+  top: -475px;
+  left: 239px;
+  width: 288px;
+  min-height: 41px;
+  padding: 30px;
+  -webkit-transition: top 0.26s ease-out;
+  -moz-transition: top 0.26s ease-out;
+  -ms-transition: top 0.26s ease-out;
+  -o-transition: top 0.26s ease-out;
+  transition: top 0.26s ease-out;
+  text-align: center;
+  /* default fallback */
+  background: rgb(255, 255, 255) transparent;
+  /* nice browsers */
+  background: rgba(255, 255, 255, 0.8);
+  /* IE 6/7 */
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF);
+  /* IE8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF)";
+  /* border radius */
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+
+  /* font styles */
+  font: 25px sans-serif;
+}
+
+.modal.active {
+  top: 232px;
+}
+
+#score-board {
+  list-style: none;
+  padding: 6px 0 0 64px;
+  margin: 0;
+}
+
+#score-board li {
+  float: left;
+  margin-right: 6px;
+  zoom: 1;
+	filter: alpha(opacity=56);
+	opacity: 0.56;
+}
+
+#score-board li.scored {
+  zoom: 1;
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+
+/* splash screen */
+#splash-screen {
+  position: absolute;
+  top: 0; left: 5px;
+  width: 800px; height: 800px;
+  background: url('../img/splash-screen.jpg') no-repeat 0 0 #fff;
+  -webkit-transition: top 0.38s ease-out;
+  -moz-transition: top 0.38s ease-out;
+  -ms-transition: top 0.38s ease-out;
+  -o-transition: top 0.38s ease-out;
+  transition: top 0.38s ease-out;
+}
+
+#splash-screen.out {
+  top: -800px;
+}
+
+/* form */
+#form-thing .labels {
+  font: 16px sans-serif;
+  line-height: 1;
+}
+
+#form-thing input[type="text"] {
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  padding: 9px 13px;
+  margin: 9px 0 9px 18px;
+  font: 16px sans-serif;
+  color: #666;
+  line-height: 1;
+  width: 212px;
+}
+
+#form-thing button {
+  border: none;
+  background: #CFCFCF;
+  font: 16px sans-serif;
+  line-height: 1;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-top: 14px;
+  width: 309px;
+}
+
+#form-thing button:hover {
+  background: #dfdfdf;
+}
+
+#form-thing button.submitted {
+  background: #dfdfdf;
+}
+
+#form-thing form {
+  padding: 102px 0 0 254px;
+  zoom: 1;
+	filter: alpha(opacity=90);
+	opacity: 0.9;
+}
+
+#form-thing form label {
+  color: #eee;
+}
+
+#form-thing {
+  position: absolute;
+  width: 800px; height: 800px;
+  top: 0; left: 5px;
+  background: #fff;
+  -webkit-transition: top 0.38s ease-out;
+  -moz-transition: top 0.38s ease-out;
+  -ms-transition: top 0.38s ease-out;
+  -o-transition: top 0.38s ease-out;
+  transition: top 0.38s ease-out;
+  background: url('../img/form.jpg') no-repeat 0 0 #fff;
+}
+
+#form-thing.out {
+  top: -800px;
+}
+
+#zee-button {
+  position: absolute;
+  top: 497px;
+  left: 318px;
+  width: 177px;
+  height: 49px;
+  cursor: pointer;
+}
+
+#form-message {
+  text-align: center;
+  color: #ddd;
+}
+
+/* instructions */
+#instructions {
+  position: absolute;
+  width: 800px; height: 800px;
+  top: 0; left: 5px;
+  background: url('../img/instructions.jpg') no-repeat 0 0 #fff;
+  -webkit-transition: top 0.38s ease-out;
+  -moz-transition: top 0.38s ease-out;
+  -ms-transition: top 0.38s ease-out;
+  -o-transition: top 0.38s ease-out;
+  transition: top 0.38s ease-out;
+}
+
+#instructions.out {
+  top: -800px;
+}
+
+#like-gate {
+  position: absolute;
+  width: 800px; height: 800px;
+  top: 0; left: 5px;
+  background: url('../img/like-gate.jpg') no-repeat 0 0 #fff;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

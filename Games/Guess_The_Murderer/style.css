@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  header {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-family: 'Gloock', serif;
+    font-size: 3em;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .container {
+    text-align: center;
+    margin: 50px;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .step1 {
+      font-size: 19px;
+      margin: 20px;
+  }
+  
+  .step2 {
+      font-size: 19px;
+      margin: 20px;
+  }
+  
+  .step3 {
+      font-size: 20px;
+      margin: 40px;
+  }
+  
+  
+  .mainSlide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 10px 30px;
+  }
+  
+  .slider {
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    min-width: 100%;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .arrow {
+    background-color: #C75052;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    font-family: Avenir;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  
+  .arrow.left {
+    top: 53%;
+    left: 23%; 
+  }
+  
+  .arrow.right {
+    top: 55%;
+    right: 21%; 
+  }
+  
+  .starter{
+    font-size:30px;
+    padding:5px;
+    display:block;
+    margin:0px;
+    background-color: #B0D9D9;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  #output{
+    background-color: black;
+    color: white;
+    font-family: 'Avenir', Arial;
+    font-size: 30px;
+    width: 800px;
+    margin: 30px;
+  }
+  
+  .suspectImageSetOne {
+    width: 800px;
+    display: inline-block
+  }
+  
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-top: 10px;
+  
+  }
+  
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .suspectImageSetTwo {
+    width: 800px;
+    display: inline-block
+  }
+  
+  .suspectNumber1 {
+      align-content: center;
+      margin: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+  
+  }
+  span.number {
+      text-align: center;
+      margin: 80px;
+  
+  }
+  
+  .suspectNumber2 {
+      align-content: center;
+      margin: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+  }
+  
+  .arrestButton {
+    background-color: red;
+    color: white;
+    font-size: 24px;
+    padding: 20px;
+  }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruity Fortune Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Fruity Fortune</h1>
+        <div class="slot-machine">
+            <div class="reel" id="reel1">🍎</div>
+            <div class="reel" id="reel2">🍊</div>
+            <div class="reel" id="reel3">🍇</div>
+        </div>
+        <div class="controls">
+            <button id="spinButton" class="btn spin-btn">Spin ($10)</button>
+            <button id="resetButton" class="btn reset-btn">Reset Game</button>
+            <button id="rulesButton" class="btn rules-btn">View Rules</button>
+        </div>
+        <div class="info">
+            <p class="balance">Balance: $<span id="balance">100</span></p>
+            <p id="message" class="message"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#kitchen {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.ingredient {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: background 0.3s;
+}
+
+.ingredient:hover {
+    background: #f9f9f9;
+}
+
+#orderBoard {
+    margin-bottom: 20px;
+}
+
+#serveButton {
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#scoreBoard p {
+    margin: 5px 0;
+}

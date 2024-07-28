@@ -7,7 +7,6 @@ A classic Tetris game built with HTML, CSS, and JavaScript. The goal is to manip
 - Falling tetrominoes of various shapes.
 - Scoring system that awards points for clearing lines.
 - Increasing difficulty as more lines are cleared.
-- Ability to pause and resume the game.
 
 ## How to Play
 
@@ -37,6 +36,6 @@ A classic Tetris game built with HTML, CSS, and JavaScript. The goal is to manip
 2. Use the arrow keys to control the falling tetrominoes.
 3. Form complete lines to score points.
 4. The game speed increases as you clear more lines.
-5. Press the **Pause** button to pause the game and **Resume** to continue playing.
 
-Feel free to fork and modify the code to suit your needs. Enjoy playing!
+<img width="451" alt="image" src="https://github.com/user-attachments/assets/4a045122-d384-4a76-b41f-7cc06b365d3f">
+

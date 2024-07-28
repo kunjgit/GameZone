@@ -1648,6 +1648,7 @@ This repository also provides one such platforms where contributers come over an
 |[Rock Paper Scissors Lizard Spock Game](./Games/Rock_Paper_Scissors_Lizard_Spock_Game)|
 
 |[Hangman_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hangman_Game)|
+|[Endless_Runner](https://github.com/kunjgit/GameZone/blob/main/Games/EndlessRunner/index.html)|
 
  </center>
 

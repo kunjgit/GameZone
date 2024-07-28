@@ -216,7 +216,7 @@ function enableDarkTheme() {
       element.tagName !== 'BODY' &&
       !element.classList.contains('ignore-dark-theme') && //add ignore-dark-theme in classes that you dont want affected by the toggle 
       !element.classList.contains('project-category') &&
-      !element.classList.contains('footer')
+      !element.classList.contains('footer')&&
 
       element.tagName !== "BODY" &&
       !element.classList.contains("ignore-dark-theme") &&

@@ -1,0 +1,100 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e1e1e 0%, #111 100%);
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #0f0; /* Neon green */
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #0f0;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    grid-template-rows: repeat(5, 60px);
+    gap: 10px;
+    margin: 20px auto;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #222;
+    border: 2px solid #0f0;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+.cell:hover {
+    transform: scale(1.1);
+}
+
+.cell.active {
+    background-color: #0f0; /* Neon green */
+    color: #222;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+}
+
+#controls {
+    margin-top: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+button {
+    background-color: #0f0; /* Neon green */
+    color: #222;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+button:hover {
+    background-color: #0d0;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

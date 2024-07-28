@@ -12,6 +12,6 @@ JavaScript
 
 1. A circle that moves randomly within a fixed area on the screen.
 2. A score counter to keep track of the number of times the circle is clicked.
-3. A timer to limit the game duration.
+3. A timer of 30 seconds to limit the game duration.
 4. Start button to control the game.
  

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA Sequencer Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>DNA Sequencer</h1>
+        <p>Guess the DNA Sequence order by shuffling 
+            <br>(You can shuffle manually as well)!</p>
+        <div class="dna-container">
+            <div id="dna-sequence" class="dna-sequence"></div>
+        </div>
+        <div class="controls">
+            <button id="shuffle">Shuffle</button>
+            <button id="check">Check Sequence</button>
+            <button id="play-again">Play Again</button> 
+        </div>
+        <div id="timer" class="timer">Time: 00:00</div>
+        <div id="result" class="result"></div>
+        <br>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

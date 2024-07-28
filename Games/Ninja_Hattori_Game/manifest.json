@@ -1,0 +1,18 @@
+{
+    {
+        "manifest_version": 3,
+        "name": "Ninja Hattori Game",
+        "version": "1.0",
+        "description": "Your favourite cartoon character game",
+        "action": {
+            "default_popup": "index.html",
+            "default_icon": "game.png"
+        },
+        "icons": {
+            "16": "game.png",
+            "48": "game.png",
+            "128": "game.png"
+        },
+        "permissions": []
+    }
+}

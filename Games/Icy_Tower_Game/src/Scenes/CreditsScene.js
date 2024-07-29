@@ -15,7 +15,7 @@ export default class CreditsScene extends Phaser.Scene {
     this.madeByText = this.add.text(
       0,
       0,
-      '\n\n Created By: Safa ERDEN \n\n Github: SafaErden \n\n Inspired from: Icy Tower ',
+      '\n\n Created By: Pavitraa \n\n Inspired from: Icy Tower ',
       { fontSize: '30px', fill: '#fff' },
     );
     this.zone = this.add.zone(config.width / 2, config.height / 2, config.width, config.height);

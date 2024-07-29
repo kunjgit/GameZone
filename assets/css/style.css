@@ -1474,21 +1474,32 @@ main {
 .project-category {
   margin-left: 10px;
 }
+
 .title-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  position: relative;
   color: white;
+  
+}
+.title-container a:hover {
+  color: black
 }
 
 .like-button {
   background: none;
   border: none;
   font-size: 16px;
-  color: #fff !important; 
-  position: absolute;
-  right: 40px; 
+  margin-left: 8px;
+  color: #ffffff !important; 
+}
+
+.like-button .heart {
+  transition: transform 0.2s ease; /* Smooth transition for all changes */
+}
+
+.like-button .heart:hover {
+  transform: scale(1.5); /* Slightly larger */
 }
 
 .like-button.liked {

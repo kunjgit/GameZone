@@ -1662,6 +1662,7 @@ This repository also provides one such platforms where contributers come over an
 |[Brain_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Game)|
 
 |[Pokemon_Adventure_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Adventure_Game)|
+|[Garden-Builder-game](https://github.com/kunjgit/GameZone/tree/main/Games/Garden-Builder-game)|
 
  </center>
 

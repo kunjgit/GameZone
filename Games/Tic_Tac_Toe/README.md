@@ -37,4 +37,3 @@ Feel free to report issues, or suggest improvements. Let the Tic Tac Toe battles
 ### Board
 
 <img src="./assets/Desktop.png" alt="Desktop" />
----

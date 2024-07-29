@@ -212,10 +212,17 @@ function enableDarkTheme() {
   for (var i = 0; i < elements.length; i++) {
     var element = elements[i];
     if (
+
+      element.tagName !== 'BODY' &&
+      !element.classList.contains('ignore-dark-theme') && //add ignore-dark-theme in classes that you dont want affected by the toggle 
+      !element.classList.contains('project-category') &&
+      !element.classList.contains('footer')&&
+
       element.tagName !== "BODY" &&
       !element.classList.contains("ignore-dark-theme") &&
       !element.classList.contains("project-category") &&
       !element.classList.contains("footer")
+
     ) {
       element.classList.add("dark-theme");
     }
@@ -317,7 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
 let gamesData = {};
 
 function fetchGamesData() {
-  fetch("./assets/js/gamesData.json") // Assuming gamesData.json is in the same directory
+  fetch("assets/js/gamesData.json") // Assuming gamesData.json is in the same directory
     .then((response) => response.json())
     .then((data) => {
       gamesData = data;

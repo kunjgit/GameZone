@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Cracker Game</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header-bar">
+            <h1>Bulls And Cows</h1>
+            <div style="text-align:center;
+            font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
+
+        </div>
+        <div id="output-panel"></div>
+        <input type="text" id="guess-input" placeholder="e.g. 1234" onkeyup="if (event.keyCode == 13) document.getElementById('submit-btn').click()">
+        <button id="submit-btn" onclick="evaluateGuess()">Submit</button>
+        <div id="guess-log"></div>
+        <div id="game-rules">
+            <ul>
+                <li><strong>Bulls:</strong> Correct digit in the correct position.</li>
+                <li><strong>Cows:</strong> Correct digit in the wrong position.</li>
+            </ul>
+            <strong>How to Play:</strong>
+            <ul>
+                <li>You have 7 chances to guess the entire 4-digit number.</li>
+                <li>You will be awarded points based on the number of guesses it took to win.</li>
+                <li>1 guess - 70 points, 2 guesses - 60 points,..., 7 guesses - 10 points.</li>
+                <li>If you cannot guess the number in 7 attempts, you will score 0 points.</li>
+                
+                <li>Keep guessing until you crack the code!</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="modal-message"></p>
+        </div>
+      </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

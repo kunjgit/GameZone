@@ -429,7 +429,8 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                                   | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon)                               | [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack)                                                                                                         | 
 
 | [DNA_Sequencer](https://github.com/kunjgit/GameZone/tree/main/Games/DNA_Sequencer) | 
-| [Boom_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Boom_Blast) |]
+| [Boom_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Boom_Blast) |
+| [Shadow_Runner](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_Runner) | 
 
 </center>
 <br>

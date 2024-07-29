@@ -3156,16 +3156,25 @@
     "thumbnailUrl": "Atlas_Game.png"
   },
   "629":{
+    "gameTitle" : "Word Search Game",
+    "gameUrl": "Word_Search_Game",
+    "thumbnailUrl": "Word_Search_Game.jpeg"
+  },
     "gameTitle" : "Hangman Game",
     "gameUrl": "Hangman_Game",
     "thumbnailUrl": "Hangman_Game.png"
   },
   "630":{
+    "gameTitle" : "Pokemon Adventure Game",
+    "gameUrl": "Pokemon_Adventure_Game",
+    "thumbnailUrl": "Pokemon_Adventure_Game.webp"
+  },
+  "631":{
     "gameTitle" : "Number Guessing Game",
     "gameUrl": "HNumber_Guessing_Game",
     "thumbnailUrl": "NumberGuessingGame.png"
   },
-  "631":{
+  "632":{
     "gameTitle" : "Brain Game",
     "gameUrl": "Brain_Game",
     "thumbnailUrl": "Brain_Game.png"

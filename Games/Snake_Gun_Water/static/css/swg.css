@@ -1,0 +1,266 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#scoreBoard {
+    display: flex;
+    height: 10vh;
+    padding: 5px;
+    background-color: rgb(185, 182, 1);
+    text-align: center;
+    justify-content: center;
+}
+
+.board p {
+    margin: 0px;
+    padding: 0;
+    width: 100%;
+    height: max-content;
+    text-align: center;
+}
+
+.board {
+    width: 80%;
+    overflow: auto;
+    height: 8vh;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 3vh;
+    margin: 10px;
+    border-radius: 30px;
+}
+
+
+/* -----END of score board section ----- */
+
+#area {
+    padding: 5px;
+    border: 10px solid maroon;
+    background-color: rgb(255, 254, 254);
+}
+
+#warArea {
+    align-items: center;
+    background-color: whitesmoke;
+    height: 45vh;
+}
+
+#msg {
+    justify-content: center;
+}
+
+#msg p {
+    border: 4px solid black;
+    background-color: white;
+    border-radius: 80px 80px 0 80px;
+    padding: 25px;
+    margin: 40px;
+    text-align: center;
+    font-size: 4vh;
+}
+
+#result {
+    box-sizing: content-box;
+    margin: 30px;
+    background-color: white;
+    font-size: 7vh;
+    /* height: 10vh; */
+    text-align: center;
+    justify-content: center;
+}
+
+#fight {
+    height: 15vh;
+    width: 20vh;
+    background-color: red;
+    margin: 10px auto;
+    border-radius: 24px;
+}
+
+#fight img {
+    height: 15vh;
+    width: 20vh;
+}
+
+
+/* selected options section */
+
+#army {
+    height: 15vh;
+    margin: 10px auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#army p {
+    text-decoration: black;
+    text-align: center;
+    font-size: 2vh;
+    padding: 10px;
+}
+
+.coin {
+    background-color: white;
+    border-radius: 28px;
+    width: 16vh;
+    height: 10vh;
+    margin: auto;
+}
+
+<<<<<<< HEAD
+#system,#user {
+<<<<<<< HEAD
+    
+    height: 10vh;
+=======
+#system {
+    height: 8vh;
+>>>>>>> 3f916de92c641848b2fb326a1837ba10355f44c1
+    width: 15vh;
+    margin: auto;
+    border-radius: 23px;
+    border: 8px solid gold;
+}
+
+<<<<<<< HEAD
+
+   
+=======
+    height: 8vh;
+    width: 15vh;
+    margin: auto;
+    border-radius: 18px;
+    border: 4px solid gold;
+}
+>>>>>>> b2903102e180abdb73172f9d9ba5f0c3611386a6
+=======
+#user {
+    border-radius: 23px;
+    border: 8px solid gold;
+    height: 8vh;
+    margin: auto;
+    width: 15vh;
+}
+>>>>>>> 3f916de92c641848b2fb326a1837ba10355f44c1
+
+#state {
+    margin: auto;
+    font-size: 1rem;
+}
+
+#home {
+    display: flex;
+    background-color: yellow;
+    border: 10px solid yellowgreen;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+#question {
+    border: 10px solid yellowgreen;
+    border-bottom: none;
+    background-color: white;
+    font-size: 3em;
+    height: max-content;
+    color: red;
+    padding: 4px;
+    overflow: auto;
+    /* margin: 0; */
+    text-align: center;
+}
+
+
+/* user planel */
+#user img,#system img {
+    height: 7vh;
+    width: 14vh;
+    margin: auto;
+    border-radius: 18px;
+    
+}
+
+.weapon {
+    border: 10px solid white;
+    border-radius: 25px;
+    background-color: white;
+    font-size: 2.5vh;
+    margin: 20px;
+    height: 12vh;
+    width: 20vh;
+    text-align: center;
+}
+.weapon img{
+    height: 7vh;
+    width: 14;
+}
+
+#info {
+    height: 80vh;
+    justify-content: flex-start;
+    padding: 12px;
+    margin: 5vh auto;
+}
+
+#info h1 {
+    font-size: 6em;
+    margin: 1vh;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#info p {
+    text-indent: 100px;
+    font-size: 3vh;
+    margin: 1vh 3vh;
+    text-align: justify;
+    font-family: cursive;
+}
+
+#devinfo {
+    border: 1px solid black;
+    border-radius: 23px;
+    height: max-content;
+    margin: 5vh 1vh 2vh 1vh;
+}
+
+#devinfo p {
+    text-align: center;
+    font-size: 2vh;
+    margin: 1vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#devinfo img {
+    height: 4vh;
+    width: 4vh;
+    border-radius: 8px;
+    padding: 2px;
+}
+
+#devinfo a {
+    font-family: cursive;
+}
+
+#devinfo span {
+    padding: 1vh;
+    margin-bottom: 1vh;
+}
+
+@media(min-width:1024px) {
+    #abs {
+        left: 50%;
+        margin-left: -50vh;
+    }
+}

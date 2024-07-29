@@ -201,9 +201,7 @@ footer {
   color: #ffffff;
 }
 
-a:hover svg {
-  fill: rgb(0, 119, 181);
-}
+
 
 .fa-linkedin-square:hover {
   color: rgb(0, 119, 181);
@@ -869,46 +867,6 @@ main {
   color: var(--light-gray);
 }
 
-/*-----------------------------------*\
-  #NAVBAR
-\*-----------------------------------*/
-
-.navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: hsla(240, 1%, 17%, 0.75);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--jet);
-  border-radius: 12px 12px 0 0;
-  box-shadow: var(--shadow-2);
-  z-index: 5;
-}
-
-.navbar-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10px;
-}
-
-.navbar-link {
-  color: var(--light-gray);
-  font-size: var(--fs-8);
-  padding: 20px 7px;
-  transition: color var(--transition-1);
-}
-
-.navbar-link:hover,
-.navbar-link:focus {
-  color: var(--light-gray-70);
-}
-
-.navbar-link.active {
-  color: var(--orange-yellow-crayola);
-}
 
 /*-----------------------------------*\
   #ABOUT
@@ -1516,21 +1474,32 @@ main {
 .project-category {
   margin-left: 10px;
 }
+
 .title-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  position: relative;
   color: white;
+  
+}
+.title-container a:hover {
+  color: black
 }
 
 .like-button {
   background: none;
   border: none;
   font-size: 16px;
-  color: #fff !important; 
-  position: absolute;
-  right: 40px; 
+  margin-left: 8px;
+  color: #ffffff !important; 
+}
+
+.like-button .heart {
+  transition: transform 0.2s ease; /* Smooth transition for all changes */
+}
+
+.like-button .heart:hover {
+  transform: scale(1.5); /* Slightly larger */
 }
 
 .like-button.liked {
@@ -1931,22 +1900,6 @@ textarea.form-input::-webkit-resizer {
   }
 
   /**
-   * #NAVBAR
-   */
-
-  .navbar {
-    border-radius: 20px 20px 0 0;
-  }
-
-  .navbar-list {
-    gap: 20px;
-  }
-
-  .navbar-link {
-    --fs-8: 14px;
-  }
-
-  /**
    * #ABOUT
    */
 
@@ -2161,13 +2114,6 @@ textarea.form-input::-webkit-resizer {
     gap: 30px 15px;
   }
 
-  /**
-   * NAVBAR
-   */
-
-  .navbar-link {
-    --fs-8: 15px;
-  }
 
   /**
    * ABOUT
@@ -2283,30 +2229,6 @@ textarea.form-input::-webkit-resizer {
     margin: auto;
   }
 
-  /**
-   * NAVBAR
-   */
-
-  .navbar {
-    position: absolute;
-    bottom: auto;
-    top: 0;
-    left: auto;
-    right: 0;
-    width: max-content;
-    border-radius: 0 20px;
-    padding: 0 20px;
-    box-shadow: none;
-  }
-
-  .navbar-list {
-    gap: 30px;
-    padding: 0 20px;
-  }
-
-  .navbar-link {
-    font-weight: var(--fw-500);
-  }
 
   /**
    * ABOUT
@@ -3049,7 +2971,6 @@ ul {
 .example-2 .icon-content a[data-social="github"] ~ .tooltip {
   background-color: #303a50;
 }
-
 .project-img {
   /* -webkit-box-shadow:0px 0px 21px 0px rgba(204,153,255,1);
 -moz-box-shadow: 0px 0px 21px 0px rgba(204,153,255,1);

@@ -1647,7 +1647,7 @@ This repository also provides one such platforms where contributers come over an
 |[Tether](https://github.com/kunjgit/GameZone/tree/main/Games/Tether)|
 |[Maze_Explorer](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Explorer)|
 |[Rock Paper Scissors Lizard Spock Game](./Games/Rock_Paper_Scissors_Lizard_Spock_Game)|
-
+|[Eco_Warrior](https://github.com/kunjgit/GameZone/tree/main/Games/Eco_Warrior)|
 |[Hangman_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hangman_Game)|
 |[Brain_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Game)|
 

@@ -848,6 +848,7 @@ This repository also provides one such platforms where contributers come over an
 | [Angry_Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Bird) |
 | [Subway_Surfers](https://github.com/kunjgit/GameZone/tree/main/Games/Subway_Surfers) |
 | [Call_Of_Duty](https://github.com/kunjgit/GameZone/tree/main/Games/Call_Of_Duty) |
+| [Minecraft](https://github.com/kunjgit/GameZone/tree/main/Games/Minecraft) |
 | [UNO game with computer](https://github.com/kunjgit/GameZone/tree/main/Games/UNO_game_with_Computer) |
 |[Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)|
 |[Space_Dominators](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Dominators)|

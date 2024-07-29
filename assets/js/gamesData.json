@@ -3178,6 +3178,10 @@
     "gameTitle" : "Brain Game",
     "gameUrl": "Brain_Game",
     "thumbnailUrl": "Brain_Game.png"
+  },
+  "633":{
+    "gameTitle" : "2D Fighting Game",
+    "gameUrl": "2D_Fighting_Game",
+    "thumbnailUrl": "2D_Fighting_Game.png"
   }
-
 }

@@ -841,6 +841,7 @@ This repository also provides one such platforms where contributers come over an
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) |
 | [Angry_Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Angry_Bird) |
 | [Subway_Surfers](https://github.com/kunjgit/GameZone/tree/main/Games/Subway_Surfers) |
+| [Call_Of_Duty](https://github.com/kunjgit/GameZone/tree/main/Games/Call_Of_Duty) |
 | [UNO game with computer](https://github.com/kunjgit/GameZone/tree/main/Games/UNO_game_with_Computer) |
 |[Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)|
 |[Space_Dominators](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Dominators)|
@@ -854,6 +855,7 @@ This repository also provides one such platforms where contributers come over an
 
 |[Otherworldly_Odyssey](./Games/Otherworldly_Odyssey/)|
 </center>
+
 
  </center>
 

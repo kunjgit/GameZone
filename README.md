@@ -431,6 +431,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 | [DNA_Sequencer](https://github.com/kunjgit/GameZone/tree/main/Games/DNA_Sequencer) | 
 | [Boom_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Boom_Blast) |
 | [Shadow_Runner](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_Runner) | 
+| [Underwater_Shoot](https://github.com/kunjgit/GameZone/tree/main/Games/Underwater_Shoot) | 
 
 </center>
 <br>

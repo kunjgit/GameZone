@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underwater Shoot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="assets/background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="game-container">
+        <div class="game-area" id="game-area"></div>
+        <div class="info">
+            <p>Score: <span id="score">0</span></p>
+            <p>Time: <span id="time">60</span>s</p>
+            <button id="start-button">Start Game</button>
+        </div>
+    </div>
+    <div class="instructions">
+        <h2>How to Play</h2>
+        <ul>
+            <li>Click on the creatures to shoot them.</li>
+            <li>Large Creatures: 5 points</li>
+            <li>Medium Creatures: 10 points</li>
+            <li>Small Creatures: 15 points</li>
+            <li>Score as many points as possible within 60 seconds!</li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

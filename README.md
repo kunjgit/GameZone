@@ -431,6 +431,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 | [DNA_Sequencer](https://github.com/kunjgit/GameZone/tree/main/Games/DNA_Sequencer) | 
 | [Boom_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Boom_Blast) |
 | [Shadow_Runner](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_Runner) | 
+| [Underwater_Shoot](https://github.com/kunjgit/GameZone/tree/main/Games/Underwater_Shoot) | 
 
 </center>
 <br>
@@ -887,7 +888,7 @@ This repository also provides one such platforms where contributers come over an
 |[Samurai_Fighting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Samurai_Fighting_Game)| [Tic-tac-toe](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-tac-toe)| [Quest_For_Riches](https://github.com/kunjgit/GameZone/tree/main/Games/Quest_For_Riches)| [Pattern Creation Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pattern_Creation_Game)| [Magic_8_ball_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Magic_8_ball) |
 | [Catch_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_Craze) | [UNO game with computer](https://github.com/kunjgit/GameZone/tree/main/Games/UNO_game_with_Computer) | [Dice_Rolling_Simulator](https://github.com/priyashuu/GameZone/tree/main/Games/Dice_rolling_simulator)| [Space_Dominators](https://github.com/kunjgit/GameZone/tree/main/Games/Space_Dominators)| [Simon_Says](https://github.com/kunjgit/GameZone/tree/main/Games/Simon_Says) |
 
-|[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)| [Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys) | [Penalty_Shootout_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Penalty_Shootout_Game)| | [Circuit_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Circuit_Craze) |
+|[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)| [Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys) | [Penalty_Shootout_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Penalty_Shootout_Game)| | [Circuit_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Circuit_Craze) | | [Flying_Fish](https://github.com/kunjgit/GameZone/tree/main/Games/Flying_Fish) |
 
 |[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)| [Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys) | [Penalty_Shootout_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Penalty_Shootout_Game)| |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
 | [Drum_kit] (https://github.com/kunjgit/GameZone/tree/main/Games/Drum_kit)|
@@ -1652,14 +1653,23 @@ This repository also provides one such platforms where contributers come over an
 |[Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys)|
 |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
 |[Tether](https://github.com/kunjgit/GameZone/tree/main/Games/Tether)|
+
+|[Conqueror_Quest](https://github.com/kunjgit/GameZone/tree/main/Games/Conqueror_Quest)|
+
 |[Maze_Explorer](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Explorer)|
+
 |[Rock Paper Scissors Lizard Spock Game](./Games/Rock_Paper_Scissors_Lizard_Spock_Game)|
 
 |[Word Search Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Search_Game)|
 |[Eco_Warrior](https://github.com/kunjgit/GameZone/tree/main/Games/Eco_Warrior)|
 
 |[Hangman_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hangman_Game)|
+
+|[Endless_Runner](https://github.com/kunjgit/GameZone/blob/main/Games/EndlessRunner/index.html)|
+
 |[Brain_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Game)|
+
+
 
 |[Pokemon_Adventure_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Adventure_Game)|
 

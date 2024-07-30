@@ -846,6 +846,7 @@ This repository also provides one such platforms where contributers come over an
 | [Subway_Surfers](https://github.com/kunjgit/GameZone/tree/main/Games/Subway_Surfers) |
 | [Call_Of_Duty](https://github.com/kunjgit/GameZone/tree/main/Games/Call_Of_Duty) |
 | [Minecraft](https://github.com/kunjgit/GameZone/tree/main/Games/Minecraft) |
+| [Class_Of_Clans](https://github.com/kunjgit/GameZone/tree/main/Games/Class_Of_Clans) |
 
  </center>
 

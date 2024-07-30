@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "Clash of Clans GG Script",
+    "version": "1.0",
+    "description": "A script to modify gems, gold, and elixir in Clash of Clans for educational purposes.",
+    "icons": {
+      "48": "icon.png"
+    },
+    "browser_action": {
+      "default_popup": "index.html",
+      "default_icon": "icon.png"
+    },
+    "permissions": [
+      "activeTab"
+    ]
+  }
+  

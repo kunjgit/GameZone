@@ -822,7 +822,7 @@ This repository also provides one such platforms where contributers come over an
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
-
+|[Ping_Pong](https://github.com/AaryanManghnani/GameZone/tree/Ping_Pong/Games/Ping_Pong)
 | [Typing_Test](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Test) |
 
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|

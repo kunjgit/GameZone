@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow Runner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <div class="game-area" id="game-area">
+      <div class="background" id="background"></div>
+      <div class="player" id="player"></div>
+      <div class="win-message" id="win-message">Game Over</div>
+      <div class="lose-message" id="lose-message">Game Over</div>
+    </div>
+    <div class="hud">
+      <div class="score" id="score">Score: 0</div>
+      <div class="time" id="time">Time: 60</div>
+    </div>
+    <div class="controls">
+      <button id="start-button">Start Game</button>
+    </div>
+    <div class="instructions">
+      <h2>How to Play</h2>
+      <ul>
+        <li>Use <strong>Arrow</strong> keys to move the player.</li>
+        <li>Yellow Squares: -5 points, Green Triangles: +10 points, Red Balls: +15 points</li>
+        <li>Double points in darker areas</li>
+      </ul>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

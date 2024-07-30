@@ -1,0 +1,99 @@
+body{
+    background: url(images/one-piece-desktop-kids-running-b5b3kgp79e5rebgg.jpg);
+    margin: 0;
+            padding: 0;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+           /* Replace with your image path */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            background-color: #111;
+}
+h1{
+    text-align: center;
+            font-size: 50px;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #b7d605, #f09d03);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+#game{
+    width:700px;
+    height:250px;
+    background-color:#111;
+    position: relative;
+    top:50px;
+    
+   
+   
+
+
+}
+#chicken{
+    width:60px;
+    height:60px;
+    background: red;
+    position:relative;
+    top:190px;
+    left:100px;
+
+}
+.animate{
+    animation:jump .5s linear 0s;
+}
+@keyframes jump{
+    0%{top:150px};
+    30%{top: 100px;}
+    70%{top: 100px;}
+    100%{top:100px}
+
+}
+#obstacle{
+    width:50px;
+    height:50px;
+    background: green;
+    position: relative;
+  
+    top:150px;
+    left:100%;
+    animation:block 1.3s infinite linear;
+
+
+}
+@keyframes block{
+    0%{left:680px;}
+    100%{left:-50px;}
+
+}
+#ground{
+    width:700px;
+    height:50px;
+    background: brown;
+    position: relative;
+    top:50px;
+    
+}
+p{
+    color: aliceblue;
+    text-align: center;
+    font-size: larger;
+    margin-top: 100px;
+}

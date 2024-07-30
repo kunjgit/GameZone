@@ -2326,11 +2326,10 @@
     "thumbnailUrl": "Astronaunt_runner.png"
   },
   "424":{
-    "gameTitle" : "Snake_Gun_Water",
-    "gameUrl": "Snake_Gun_Water",
-    "thumbnailUrl": "image.png"
+    "gameTitle" : "Atlas Game",
+    "gameUrl": "Atlas_Game",
+    "thumbnailUrl": "Atlas_Game.png"
     },
-  
   "425":{
     "gameTitle" : "Audio Wordle",
     "gameUrl": "Audio_Wordle",
@@ -3056,6 +3055,11 @@
     "gameUrl": "road_car",
     "thumbnailUrl":"road_car.png" 
   },
+  "570":{
+    "gameTitle" : "Snake_Gun_Water",
+    "gameUrl": "Snake_Gun_Water",
+    "thumbnailUrl": "Snake_Gun_Water.png"
+  },
   "571":{
     "gameTitle" : "Rock paper scissor",
     "gameUrl": "Rock_paper_scissor",
@@ -3339,24 +3343,43 @@
   "627":{
     "gameTitle" : "Penalty_Shootout_Game",
     "gameUrl": "Penalty_Shootout_Game",
-    "thumbnailUrl": "Penalty_Shootout_Game"
-    },
+    "thumbnailUrl": "Penalty_Shootout_Game.png"
+  },
     "628":{
     "gameTitle" : "Atlas Game",
     "gameUrl": "Atlas_Game",
     "thumbnailUrl": "Atlas_Game.png"
   },
   "629":{
+    "gameTitle" : "Word Search Game",
+    "gameUrl": "Word_Search_Game",
+    "thumbnailUrl": "Word_Search_Game.jpeg"
+  },
     "gameTitle" : "Hangman Game",
     "gameUrl": "Hangman_Game",
     "thumbnailUrl": "Hangman_Game.png"
   },
   "630":{
+    "gameTitle" : "Pokemon Adventure Game",
+    "gameUrl": "Pokemon_Adventure_Game",
+    "thumbnailUrl": "Pokemon_Adventure_Game.webp"
+  },
+  "631":{
+    "gameTitle" : "Number Guessing Game",
+    "gameUrl": "HNumber_Guessing_Game",
+    "thumbnailUrl": "NumberGuessingGame.png"
+  },
+  "632":{
+    "gameTitle" : "Brain Game",
+    "gameUrl": "Brain_Game",
+    "thumbnailUrl": "Brain_Game.png"
+  },
+  "633":{
     "gameTitle" : "Cosmic_Blast",
     "gameUrl": "Cosmic_Blast",
     "thumbnailUrl": "Cosmic_Blast.png"
   },
-  "631":{
+  "634":{
     "gameTitle" : "IKnowYou-Mind-Reading-Game",
     "gameUrl": "IKnowYou-Mind-Reading-Game",
     "thumbnailUrl": "IKnowYou-Mind-Reading-Game.png"

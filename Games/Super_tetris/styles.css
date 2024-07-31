@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
+body {
+    margin: 0;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}

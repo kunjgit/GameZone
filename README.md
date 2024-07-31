@@ -1675,6 +1675,7 @@ This repository also provides one such platforms where contributers come over an
 
 
 |[Pokemon_Adventure_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Adventure_Game)|
+|[Garden-Builder-game](https://github.com/kunjgit/GameZone/tree/main/Games/Garden-Builder-game)|
 
 | [Airhockey_game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_game)|
 

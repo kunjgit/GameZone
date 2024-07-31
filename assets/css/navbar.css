@@ -11,10 +11,10 @@
 
 }
 
-#themeToggle{
+/* #themeToggle{
   border: none; 
   background-color: transparent;
-}
+} */
 .logox {
   display: flex;
   font-size: 1.5rem;
@@ -63,13 +63,13 @@
     width: 0;
     transition: opacity .5s ease-in-out, width .5s ease-in-out ;
   }
-  #themeToggleWrapper{
+  /* #themeToggleWrapper{
     opacity: 0;
     width: 0;
     padding: 0;
     margin: 0;
     transition: opacity .5s ease-in-out,width .5s ease-in-out, padding .5s ease-in-out, margin .5s ease-in-out;
-  }
+  } */
   .nav-linkss li{
     margin-right: 1rem;
     margin-left: 1rem;
@@ -90,11 +90,11 @@
     width: auto;
     transition: opacity .5s ease-in-out, width .1s ease-in-out ; 
   }
-  #themeToggleWrapper{
+  /* #themeToggleWrapper{ 
     opacity: 1;
     width:40px ;
     transition: opacity .5s ease-in-out,width .5s ease-in-out;
-  }
+  } */
   .nav-linkss li{
     margin-left: 1rem;
     margin-right: 1rem;

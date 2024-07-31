@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Warrior</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Eco Warrior</h1>
+            <div id="stats">
+                <p>Energy: <span id="energy">100</span></p>
+                <p>Score: <span id="score">0</span></p>
+                <p>Level: <span id="level">1</span></p>
+                <p>Time Left: <span id="timer">60</span>s</p>
+            </div>
+        </header>
+        <div id="game-area">
+            <div id="instructions">
+                <p>Clean up the litter by clicking on it. Plant trees to increase your impact score. Energy regenerates over time.</p>
+            </div>
+            <div id="litter"></div>
+            <div id="trees"></div>
+        </div>
+        <footer>
+            <button id="plant-tree">Plant Tree (-10 Energy)</button>
+            <button id="upgrade" disabled>Upgrade: Energy Booster (-50 Score)</button>
+        </footer>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

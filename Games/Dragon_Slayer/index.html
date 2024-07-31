@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dragon-Slayer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+  <main id="game-container">
+    <div id="player-stats" class="border hidden">
+      <span id="player-XP" class="stats">XP: <strong><span id="xpText">0</span></strong></span>
+      <span id="player-health" class="stats">Health: <strong><span id="healthText">100</span></strong></span>
+      <span id="player-gold" class="stats">Gold: <strong><span id="goldText">50</span></strong></span>
+      <span id="fight-count" class="stats">Monsters defeated: <strong><span id="fightCountText">0</span></strong></span>
+    </div>
+    <div id="choice-section" class="border hidden">
+      <button id="button1" class="btn">Go to Store</button>
+      <button id="button2" class="btn">Go to Cave</button>
+      <button id="button3" class="btn">Fight Dragon</button>
+    </div>
+    <div id="monster-stats" class="hidden border">
+      <span id="monster-name" class="stats">Monster Name: <strong><span id="monsterNameText"></span></strong></span>
+      <span id="monster-health" class="stats">Health: <strong><span id="monsterHealthText"></span></strong></span>
+    </div>
+    <div id="text" class="border hidden">
+      Welcome to Dragon Slayer. You must defeat the dragon that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons above.
+    </div>
+  </main>
+  <div id="start-game">
+    <button id="start-game-btn" class="start-btn">Start Game</button>
+  </div>
+  <!-- Music Control Pop-up-->
+  <button id="openPopup" class="hidden">Open Music Control</button>
+  <div id="musicPopup" class="popup">
+      <div class="popup-content">
+          <span id="closePopup" class="close">&times;</span>
+          <h2 id="music-control-heading">Music Control</h2>
+          <button id="playMusic" class="musicBtn">Play</button>
+          <button id="pauseMusic" class="musicBtn">Pause</button>
+          <button id="muteMusic" class="musicBtn">Mute</button>
+          <button id="unmuteMusic" class="musicBtn">Unmute</button>
+          <label for="volumeControl">Volume: </label>
+          <input type="range" id="volumeControl" min="0" max="100" step="1" value="0.5">
+      </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

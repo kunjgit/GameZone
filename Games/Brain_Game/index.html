@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="con">
+        <div class="intro">
+            <h1>Brain Game</h1>
+        </div>
+        <div id="prg" class="prg">
+            <div id="timeBar"></div>
+        </div>
+        <div id="disp" class="hidden">
+            <h1 id="colors"></h1>
+        </div>
+        <div class="score hidden">
+            <h2 id="scr">0</h2>
+        </div>
+        <div class="control hidden">
+            <button onclick="right()" id="right">&#10004;</button>
+            <button onclick="wrong()" id="wrong">&#10006;</button>
+        </div>
+        <div class="startBt">
+            <button onclick="start()" id="startBt">Start</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

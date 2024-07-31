@@ -1,0 +1,326 @@
+.hide {
+    display: none;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;    
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    /* background: #85997D; */
+    /* background: linear-gradient(to bottom right, #85997D, #AD088C); */
+    background-image: url(assets/images/mario-klassen-70YxSTWa2Zw-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+header {
+    margin: 0;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    padding: 0;
+    color: white;
+    text-align: center;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #3e8e41;
+}
+
+section {
+    padding: 20px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#buttonBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#teamSel_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#teamSel_container select {
+    width: 100%;
+    margin: 10px 0;
+    height: 35px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+#mainMenu_btns {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#time {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+#teamLayer {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#scoreDiv {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+}
+
+#eventLayer {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+#homeScorer, #awayScorer {
+    margin-top: 0;
+}
+
+.myTeam {
+    color: #70e000;
+    font-weight: bolder;
+}
+
+.opponent {
+    color: red;
+    font-weight: bolder;
+}
+
+#teamTable {
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+#teamTable th, #teamTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#teamTable th {
+    background-color: grey;
+    color: white;
+}
+
+#teamTable tr {
+    cursor: pointer;
+}
+
+#teamTable tr:hover {
+    background-color: #D6EEEE;
+}
+
+.selected {
+    background-color: yellow;
+}
+
+.tableButtonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#formationButtons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#formationButtons button {
+    padding: 5px 10px;
+    font-size: 1rem;
+}
+
+#leagueTable {
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+#leagueTable th, #leagueTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+thead tr th {
+    background-color: #3A86FF;
+    color: white;
+}
+
+#leagueTable tbody tr {
+    background-color: #8338EC;
+}
+
+#leagueTable tbody tr td {
+    text-align: center;
+    color: white;
+    border-radius: 10px 0 10px 0;
+}
+
+#leagueTable tbody #league_1 {
+    background-color: #FFBE0B;
+}
+
+#leagueTable tbody #league_2,
+#leagueTable tbody #league_3,
+#leagueTable tbody #league_4 {
+    background-color: #FB5607;
+}
+
+#leagueTable tbody #league_18,
+#leagueTable tbody #league_19,
+#leagueTable tbody #league_20 {
+    background-color: red;
+}
+
+#resultsTable {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+#results_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#resultsTable th, #resultsTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#resultsTable th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#resultsTable tbody tr {
+    background-color: #f9f9f9;
+}
+
+#resultsTable tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+#resultsMainBtn {
+    margin: 20px auto;
+}
+
+.awayTd {
+    margin-left: auto;
+}
+
+.scoreNum {
+    margin: 0 auto;
+}
+
+#fixture_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#roundHeading {
+    width: 100%;
+    text-align: center;
+}
+
+.fixture_container {
+    display: grid;
+    width: 100%;
+    margin: 20px 0;
+    grid-template-rows: 100%;
+    grid-template-columns: 45% 10% 45%;
+    grid-template-areas: "homeTeam versus awayTeam";
+    font-weight: bolder;
+}
+
+.awayTeam {
+    margin-left: auto;
+}
+
+.versus {
+    margin: auto;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

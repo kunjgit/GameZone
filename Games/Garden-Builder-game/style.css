@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+#toolbar {
+    margin-bottom: 10px;
+}
+
+canvas {
+    border: 1px solid #000;
+    background-color: #8FBC8F;
+}
+.button-container img {
+    cursor: pointer;
+    width: 77px; 
+    height: 72px; 
+    margin: 5px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    object-fit: contain;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+		/>
+		<link href="styles.css" rel="stylesheet" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+		<title>Dress Up</title>
+	</head>
+
+	<body>
+		<main class="game-container">
+			<div id="game-bg">
+				<div id="base"></div>
+				<div id="hair"></div>
+				<div id="top"></div>
+				<div id="bottom"></div>
+				<div id="shoes"></div>
+			</div>
+			<form>
+				<div class="color-section">
+					<label for="hue">Hue Change: </label>
+					<input
+						type="range"
+						value="0"
+						id="hue"
+						min="0"
+						max="360"
+					/>
+					<label for="saturate">Saturation Change: </label>
+					<input
+						type="range"
+						value="100"
+						id="saturate"
+						min="0"
+						max="100"
+						/>
+						<label for="brightness">Brightness Change: </label>
+					<input
+						type="range"
+						value="100"
+						id="brightness"
+						min="0"
+						max="200"
+						/>
+					</div>
+					<div id="warning">
+						<p class="text">
+							No item type selected to change filters of! Select
+							circle below.
+						</p>
+					</div>
+					<!-- BASE -->
+					<input
+						type="button"
+						value="base"
+						id="next-base"
+						onclick="itemSelector(this)"
+					/>
+					<input
+						type="radio"
+						value="base"
+						id="base-color"
+						name="item-color"
+						onchange="itemTypetoColor(this)"
+					/>
+					<input
+						type="button"
+						value="base"
+						id="prev-base"
+						onclick="itemSelector(this)"
+					/>
+					<!-- HAIR -->
+					<input
+					type="button"
+					value="Hair"
+					id="next-hair"
+					onclick="itemSelector(this)"
+					/>
+				<input
+					type="radio"
+					value="hair"
+					id="hair-color"
+					name="item-color"
+					onchange="itemTypetoColor(this)"
+				/>
+				<input
+					type="button"
+					value="Hair"
+					id="prev-hair"
+					onclick="itemSelector(this)"
+				/>
+				<!-- TOP -->
+				<input
+					type="button"
+					value="Top"
+					id="next-top"
+					onclick="itemSelector(this)"
+				/>
+				<input
+					type="radio"
+					value="top"
+					id="top-color"
+					name="item-color"
+					onchange="itemTypetoColor(this)"
+				/>
+				<input
+					type="button"
+					value="Top"
+					id="prev-top"
+					onclick="itemSelector(this)"
+				/>
+				<!-- BOTTOM -->
+				<input
+					type="button"
+					value="Bottom"
+					id="next-bottom"
+					onclick="itemSelector(this)"
+				/>
+				<input
+					type="radio"
+					value="bottom"
+					id="bottom-color"
+					name="item-color"
+					onchange="itemTypetoColor(this)"
+				/>
+				<input
+					type="button"
+					value="Bottom"
+					id="prev-bottom"
+					onclick="itemSelector(this)"
+				/>
+				<!-- SHOE -->
+				<input
+					type="button"
+					value="Shoe"
+					id="next-shoe"
+					onclick="itemSelector(this)"
+				/>
+				<input
+					type="radio"
+					value="shoes"
+					id="shoes-color"
+					name="item-color"
+					onchange="itemTypetoColor(this)"
+				/>
+				<input
+					type="button"
+					value="Shoes"
+					id="prev-shoe"
+					onclick="itemSelector(this)"
+				/>
+			</form>
+			<button id="capture-btn">
+				<img src="img/camera-icon.png" alt="Capture" />
+			</button>
+		</main>
+
+		<footer>
+			<p>
+				Made by 
+				<a
+					href="https://github.com/abckhush"
+					>Khushi Kalra</a
+				>
+				|
+				<a
+					href="https://www.etsy.com/shop/AshariaArts"
+					>Artist: AshariaArts</a
+				>
+			</p>
+		</footer>
+		<script src="script.js"></script>
+	</body>
+</html>

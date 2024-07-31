@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #00c6ff, #0072ff);
+}
+
+.game-container {
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+#start-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #00aaff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+#maze {
+    width: 80vw;
+    height: 60vh;
+    position: relative;
+    background-color: #e0f7fa;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    gap: 2px;
+}
+
+.cell {
+    background-color: #80deea;
+    border: 1px solid #4dd0e1;
+}
+
+.wall {
+    background-color: #004d40;
+}
+
+.path {
+    background-color: #80deea;
+}
+
+.player {
+    background-color: #01579b;
+}
+
+.exit {
+    background-color: #00796b;
+}
+
+.collectible {
+    background-color: #ffeb3b;
+}
+
+.obstacle {
+    background-color: #e64a19;
+}
+
+.power-up {
+    background-color: #d32f2f;
+}
+
+.scoreboard {
+    margin-top: 20px;
+    color: white;
+    font-size: 20px;
+}

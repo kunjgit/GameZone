@@ -351,6 +351,7 @@ This repository also provides one such platforms where contributers come over an
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Airhockey_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_Game) |
+|[Gem_Cruncher](https://github.com/kunjgit/GameZone/tree/main/Games/Gem_Cruncher)|
  </center>
 
 <br>
@@ -1678,6 +1679,7 @@ This repository also provides one such platforms where contributers come over an
 |[Garden-Builder-game](https://github.com/kunjgit/GameZone/tree/main/Games/Garden-Builder-game)|
 
 | [Airhockey_game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_game)|
+|[Gem_Cruncher](https://github.com/kunjgit/GameZone/tree/main/Games/Gem_Cruncher)|
 
  </center>
 

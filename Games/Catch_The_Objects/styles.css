@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #87ceeb;
+}
+
+#basket {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100px;
+    height: 50px;
+    background-color: #ff4500;
+    border-radius: 10px;
+    transform: translateX(-50%);
+}
+
+#object {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #ff6347;
+    border-radius: 50%;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #ffffff;
+}

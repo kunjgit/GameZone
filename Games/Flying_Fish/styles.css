@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    color: #0ff;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.game-container {
+    text-align: center;
+}
+
+#game {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    border: 2px solid #0ff;
+    overflow: hidden;
+    background-color: #111;
+}
+
+#fish {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #0ff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+}
+
+#startButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0ff;
+    border: none;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#startButton:hover {
+    background-color: #0aa;
+}

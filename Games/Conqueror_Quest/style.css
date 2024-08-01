@@ -1,0 +1,66 @@
+body {
+    font-family: 'Courier New', monospace;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color: %234b3d2a; stop-opacity: 1" /><stop offset="100%" style="stop-color: %23807c6d; stop-opacity: 1" /></linearGradient><pattern id="pattern-ruins" patternUnits="userSpaceOnUse" width="100" height="100"><image href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Ancient_Ruins.svg/100px-Ancient_Ruins.svg.png" x="0" y="0" width="100" height="100" /></pattern></defs><rect width="100" height="100" fill="url(%23grad1)" /><rect width="100" height="100" fill="url(%23pattern-ruins)" opacity="0.2" /></svg>') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#game-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    color: #8b4513;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#story-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+#options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.option {
+    background-color: #e6ccb2;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: #d4a276;
+}
+
+#inventory, #player-stats {
+    margin-top: 20px;
+    border-top: 1px solid #8b4513;
+    padding-top: 10px;
+}
+
+#inventory-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#inventory-list li {
+    margin-bottom: 5px;
+}

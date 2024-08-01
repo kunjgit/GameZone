@@ -823,7 +823,7 @@ This repository also provides one such platforms where contributers come over an
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
 |[Pottery-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pottery-Game)|
-
+|[Ping_Pong](https://github.com/kunjgit/GameZone/tree/main/Games/Ping_Pong)
 | [Typing_Test](https://github.com/kunjgit/GameZone/tree/main/Games/Typing_Test) |
 
 |[Wheel_of_Fortunes](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Wheel_of_Fortunes)|
@@ -1330,6 +1330,7 @@ This repository also provides one such platforms where contributers come over an
 |[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)|
 |[Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys)|
 |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
+|[Catch_The_Object](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Objects)|
  </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |
@@ -1677,8 +1678,10 @@ This repository also provides one such platforms where contributers come over an
 |[Garden-Builder-game](https://github.com/kunjgit/GameZone/tree/main/Games/Garden-Builder-game)|
 
 |[2D_Fighting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/2D_Fighting_Game)|
+
 | [Airhockey_game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_game)|
 |[King_Sword_Runner](https://github.com/kunjgit/GameZone/tree/main/Games/King_Sword_Runner)|
+|[Animal_Name_Guessing](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Name_Guessing)|
 
  </center>
 

@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const cursor = document.querySelector(".cursor");
+    let cursor = document.querySelector(".cursor");
+    let body = document.querySelector(".body");
     var timeout;
 
     document.addEventListener("mousemove", (e) => {
@@ -26,3 +27,4 @@ document.addEventListener("DOMContentLoaded", function () {
       cursor.style.display = "none";
     });
   });
+ 

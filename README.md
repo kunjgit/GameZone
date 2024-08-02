@@ -1678,7 +1678,7 @@ This repository also provides one such platforms where contributers come over an
 |[Garden-Builder-game](https://github.com/kunjgit/GameZone/tree/main/Games/Garden-Builder-game)|
 
 | [Airhockey_game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_game)|
-|[Smash-Monty-Mole]()|
+|[Smash-Monty-Mole](https://github.com/kunjgit/GameZone/tree/main/Smash-Monty-Mole)|
 
  </center>
 

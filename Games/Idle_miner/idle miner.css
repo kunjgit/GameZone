@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin:0px;
+}
+.hello{
+    margin-top: 150px;
+}
+#game {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 10px;
+    width:300px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.production-rate {
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.buy-info {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.buy-btn {
+    background-color: #ffcc00;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.buy-btn:hover {
+    background-color: #ffbb00;
+}
+
+.cost {
+    font-size: 14px;
+}
+
+.timer {
+    font-size: 14px;
+    margin-top: 5px;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Guess Who?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class = "container">
+        <header><h1>Guess The Murderer</h1></header>
+
+        <p class=step1>STEP 01: Read the clue cards below to find the culprit.</p>
+
+        <div class="mainSlide">
+            <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide" id="clue1"><img src="images/clue1.jpg"></div>
+                    <div class="slide" id="clue2"><img src="images/clue2.jpg"></div>
+                    <div class="slide" id="clue3"><img src="images/clue3.jpg"></div>
+                    <div class="slide" id="clue4"><img src="images/clue4.jpg"></div>
+                    <div class="slide" id="clue5"><img src="images/clue5.jpg"></div>
+                    <div class="slide" id="clue6"><img src="images/clue6.jpg"></div>
+                </div>
+            </div>
+            <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+        </div>
+        
+
+<p class=step2>STEP 02: Click on the images to eliminate the suspects</p>
+
+<div class="suspectImageSetOne">
+    <div class="column">
+        <img id="pic_s1" onclick="changeImage()" src="images/Suspect1.png" style = "width:250px"/>
+    </div>
+    <div class="column">
+        <img id="pic_s2" onclick="changeImage2()" src="images/Suspect2.png" style = "width:250px"/>
+    </div>
+    <div class="column">
+        <img id="pic_s3" onclick="changeImage3()" src="images/Suspect3.png" style = "width:250px"/>
+    </div>
+</div>
+
+<div class="suspectNumber1">
+    <span class = number> SUSPECT 1 </span><span class = number> SUSPECT 2 </span><span class = number> SUSPECT 3 </span>
+</div>
+
+
+<div class="suspectImageSetTwo">
+    <div class="column">
+        <img id="pic_s4" onclick="changeImage4()" src="images/Suspect4.png" style = "width:250px"/>
+    </div>
+    <div class="column">
+        <img id="pic_s5" onclick="changeImage5()" src="images/Suspect5.png" style = "width:250px"/>
+    </div>
+    <div class="column">
+        <img id="pic_s6" onclick="changeImage6()" src="images/Suspect6.png" style = "width:250px"/>
+    </div>
+</div>
+
+<div class="suspectNumber2">
+    <span class = number> SUSPECT 4 </span><span class = number> SUSPECT 5 </span><span class = number> SUSPECT 6 </span>
+</div>
+<div id = "deliberation"> </div>
+    <p class="starter" id="output"></p>
+    <script src="script.js"></script>
+    </div>
+</div>
+</body>
+</html>

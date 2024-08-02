@@ -1,0 +1,135 @@
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+body{
+  text-align: left;
+  background-color: rgb(2, 2, 82);
+}
+#start-game{
+  margin:0 auto;
+  padding:1rem;
+  text-align: center;
+  max-width: 600px;
+}
+
+#game-container{
+  margin:1rem auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap:0.1rem;
+  background-color: rgb(241, 245, 248);
+  padding:1rem;
+}
+#monster-stats{
+  background-color: rgb(199, 10, 10);
+}
+
+#text{
+  background-color: rgb(28, 27, 27);
+  color:white;
+}
+
+.border{
+  border: 1px solid black;
+  padding:0.4rem;
+}
+
+.stats{
+  padding-right:2rem;
+}
+
+.btn{
+  margin:0.25rem;
+  padding:0.15rem 1.25rem;
+  border:2px solid yellow;
+  cursor: pointer;
+  background-image: linear-gradient(to top, #ffa11c 0%, #EDDE5D  1%, #F09819  100%);
+}
+
+
+.start-btn{
+  display: block;
+  font-family: Kode Mono;
+  margin:5px auto;
+  font-weight: bold;
+  padding: 2rem 3rem  ;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: rgb(72, 66, 66);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 .2em gray; 
+  font-size: 2.35rem;
+  cursor: pointer;
+}
+
+
+.start-btn:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+.hidden{
+  display:none;
+}
+
+
+/* Music Control styling */
+#musicPopup{
+  font-family: Kode Mono;
+}
+#openPopup {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-family: Kode Mono;
+  font-weight: bold;
+  background-color: rgb(181, 45, 45);
+  cursor: pointer;
+  margin:2rem 39.5rem;
+  border-radius: 1.25rem;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+.musicBtn{
+  padding:0.15rem 1rem;
+  margin:0.25rem;
+  background-color: rgb(241, 136, 97);
+  font-weight: 700;
+}
+.popup-content {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+#unmuteMusic{
+  margin: 0 auto;
+  display: block;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+

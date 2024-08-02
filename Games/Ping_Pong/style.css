@@ -1,0 +1,47 @@
+#game {
+    width: 500px;
+    height: 300px;
+    margin: 50px auto;
+    border: 1px solid black;
+    position: relative;
+  }
+  
+  .divider {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    background: black;
+    transform: translateX(-50%);
+  }
+  
+  
+  #board {
+    width: 100%;
+    height: 100%;
+    background: white;
+  }
+  
+  #paddle-left, #paddle-right {
+    width: 10px;
+    height: 50px;
+    position: absolute;
+    background: black;
+  }
+  
+  #paddle-left {
+    left: 0;
+  }
+  
+  #paddle-right {
+    right: 0;
+  }
+  
+  
+  #ball {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: red;
+    border-radius: 50%;
+  }

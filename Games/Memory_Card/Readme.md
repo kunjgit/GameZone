@@ -43,4 +43,5 @@ Game Over 🏁
 
 ## **Screenshots 📸**
 
-![Game Screenshot](path/to/your/screenshot.png)
+![Game Screenshot](![image](https://github.com/user-attachments/assets/58414edc-f1f4-4366-b109-4ca5892ddf4c)
+)

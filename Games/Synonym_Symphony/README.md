@@ -1,4 +1,4 @@
-# **Math Race Game** 
+# **Synonym Symphony game** 
 
 ---
 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sand Tetris Demo</title>
+    <link rel="icon" type="image/png" href="./logo.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"
+        integrity="sha512-M7uzkKVt12bO/ClDOwaTk0AUwDPmJzjxri/KQKft2cisI6q3zJ4KxX3IfSQXF9Z6WU6NNW67JAljgWrA4WiiOA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+
+
+
+
+                <nav class="navbar bg-body-tertiary mb-3">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <img src="./logo.png" alt="Logo" width="30" height="30"
+                                class="d-inline-block align-text-top">
+                            Sand Tetris 
+                        </a>
+                    </div>
+                </nav>
+
+
+
+            </div>
+            <div class="col-md-3"></div>
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-3">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <div id="canvasBox"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Score: <span id="scoreui">0</span></h5>
+
+
+                    </div>
+                </div>
+
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <button id="pausebtn" class="btn btn-outline-primary btn-sm" type="button"><i
+                                    class="bi bi-pause"></i>
+                                Pause</button>
+                            <button id="resetbtn" class="btn btn-outline-primary  btn-sm" type="button"><i
+                                    class="bi bi-x"></i>
+                                Reset</button>
+
+                            <button id="scrshotbtn" class="btn btn-outline-primary  btn-sm mt-3" type="button"><i
+                                    class="bi bi-file-image"></i> Screenshot</button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card mb-2">
+                    <div class="card-body">
+
+                        <div class="form-check">
+                            <input checked class="form-check-input" type="radio" name="difficultyradio"
+                                id="difficultyradio1">
+                            <label class="form-check-label" for="difficultyradio1">
+                                Intermediate
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="difficultyradio" id="difficultyradio2">
+                            <label class="form-check-label" for="difficultyradio2">
+                                Expert<br> <span class="small">(No diagonal check)</span>
+                            </label>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3"></div>
+
+        </div>
+
+    </div>
+
+    <script defer src="./playfield.js"></script>
+    <script defer src="./piece.js"></script>
+    <script defer src="./handleinput.js"></script>
+    <script defer src="./script.js"></script>
+</body>
+
+</html>

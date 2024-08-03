@@ -1688,7 +1688,7 @@ This repository also provides one such platforms where contributers come over an
 | [Airhockey_game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_game)|
 | [Hole_And_Mole_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hole_And_Mole_Game)|
 |[Animal_Name_Guessing](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Name_Guessing)|
-
+| [Memory_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Card)|
 
  </center>
 

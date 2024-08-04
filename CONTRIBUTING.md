@@ -73,53 +73,71 @@ If you find this project helpful, please consider giving it a star on GitHub! Yo
 <br>
 
 ## **File naming conventions 📁**
-- Give unique name for your game that is not already existed 
+- Give unique name for your game that don't exist already. 
 * Folder naming convention
-    - ```Game_Name```  ex.  ```Tilting_Maze``` (first letter should be capital and if you need space use _ )  
+    - ```Game_Name```  ex.  ```Tilting_Maze```,```Rock_Paper_Scissors``` (first letter should be capital and if you need space use underscore **_** )      
 * files in the folder 
-    - ```index.html``` , ```script.js``` , ```style.css```(not stictly to follow this but you should have separate )
+    - Main html file should be named as **index.html** , not something else like ```Tilting_Maze.html```(Preferred)
+    - Game files - ```index.html``` , ```script.js``` , ```style.css```(not stictly to follow this but you should have separate file for each kind)
+    - It is preferred if the main html file is directly added to the main folder of you game like ```Tilting_Maze/index.html``` along with other files like **style.css**, **script.js**
     - you can have other folders if you are having assets for your game 
-    - ```README.md``` for your folder using template [TEMPLATE](../Games/FOLDER_README_TEMPLATE.md) 
-    - It is not compulsory to follow this README template only you can have your own 
+    - Create```README.md``` for your Game using this [TEMPLATE](../Games/FOLDER_README_TEMPLATE.md).Although, it is not compulsory to follow this README template ,you can use your own *README* template whichever you prefer, to explain functionality and code of your Game
 * naming convention for the screenshot you will add in ```assets/images```
-    - name of image should be same as your game name
-    - ex. ```Tilting_Maze.jpeg``` or .jpg or .png any of the image formate
+    - Remember preview image should be in ```assets/images``` and not in main folder of Game itself.
+    - Name of image should be same as your Game name
+    - ex. ```Tilting_Maze.jpeg``` or .jpg or .png any of the image format, but don't add image format in the name itself , it is self-assigned to a image, you don't need to add it manually, otherwise it becomes ```Tilting_Maze.jpeg.jpeg```
+    - There should be only one ScreenShot of the game in ```assets/images``` and that too with same name as the Game (Exactly Same).
+* Note:-All Other data except the ScreenShot of your Game, should be in it's main folder , don't add it to other folders of the project.
 
 <br>
+---
 
+## Add Game to `assets/js/gamesData.json`
 
-## Add Game to assets/js/gamesData.json
+*This guide will help you add your game to the main website.*
 
-* This is to Show your game on the main Website
-   - Go to the end of gamesData.json and add :
-   - **,**
-         " **No.** ":{
-            "gameTitle" : " **Title** ",
-            "gameUrl": " **Main Folder** ",
-            "thumbnailUrl":" **Preview Image** " 
-         }
-   - **No.**: Number for your Game , it should be the next number with respect to the file. eg: it the last no. in file at present is *625* you should put *626* at the place of **No.**
-   - **Title:** this is the title for your game that will be shown on the website, if your game name is ```Super_Mario_Game``` ,put Title as ```Super Mario Game```
-   - **Main Folder :** This is the reference to *index.html* 
-      - if your index.html is directly in main game folder ,put the main folder name eg: ```Super_Mario_Game```
-      - if your index.html is in subfolder , give path to it 
-      eg: ```Super_Mario_Game/public``` (assuming index.html is in public folder of Super_Mario_Game folder)
-      - if your main html file's name is not index.html , you need to specify the main html file also. eg:```Super_Mario_Game/mario.html``` or if in sub folder ```Super_Mario_Game/public/mario.html```
-   - **Preview Image:** This is the image that will be shown as preview for your game , here you provide the name of the image that you added to **assets/images** folder, along with format type. Eg. ```Super_Mario_Game.png``` or ```Super_Mario_Game.jpg``` or with any other format.
+1. **Locate `gamesData.json`:** Go to the end of the `gamesData.json` file.
 
-**Note:-** 
-   
-   -  Do not modify anything else in the rest of the file, you only need to add your game in the end of the file. 
-   - Don't forget to add the comma for new entry (already give in above sample but this is a reminder as one might miss it to see in the sample)
+2. **Add Your Game Data:** Append the following JSON entry at the end of the file:
+   ```json
+   ,
+   "No.": {
+       "gameTitle": "Title",
+       "gameUrl": "Main Folder",
+       "thumbnailUrl": "Preview Image"
+   }
+   ```
+
+   - **No.:** Replace `No.` with the next number in sequence. For example, if the last number in the file is `625`, use `626` for your game.
+
+   - **Title:** Replace `"Title"` with the title of your game as it should appear on the website. For example, if your game is named `Super_Mario_Game`, use `"Super Mario Game"`.
+
+   - **Main Folder:** Replace `"Main Folder"` with the path to your game's main HTML file. If `index.html` is directly in the game's folder, use the folder name (e.g., `"Super_Mario_Game"`). If `index.html` is in a subfolder, specify the path (e.g., `"Super_Mario_Game/public"`). If your main HTML file is not named `index.html`, include the file name (e.g., `"Super_Mario_Game/mario.html"` or `"Super_Mario_Game/public/mario.html"`).
+
+   - **Preview Image:** Replace `"Preview Image"` with the name of the image you added to the `assets/images` folder, including the file format. For example, `"Super_Mario_Game.png"` or `"Super_Mario_Game.jpg"`.
+
+3. **Important Notes:**
+   - **Comma Placement:** Ensure you add a comma before your new entry. This is crucial to maintain valid JSON format. The provided sample includes the comma, but make sure you don’t forget it.
+   - **Trailing Comma:** JSON does not allow trailing commas. Do not add a comma after the last entry. Ensure your new game entry is added before the final closing curly brace of the file.
+   - **File Integrity:** Do not modify any other part of the file. Only add your game entry at the end.
+
+4. **Check if Game Load**
+   - **Open index.html:** After you have added your game to the gamesData.json open index.html of GameZone
+   - **Go To last Page:** Go to the Last page and check if your game is loading along with preview image and when opened ,works properly.
+---
+
+<br>
 ## **Pull Request Process 🚀**
 
 1. Ensure that you have self reviewed your code 😀
 2. Make sure you have added the proper description for the functionality of the code
-3. You have added README file in your repository .
-4. You have added the thumbnail of the project into ```assets/images``` for website preview
-5. Add your game screenshot in the assets folder by following the proper conversion specified over here
-6. You have added your game name and link in main README.md
-7. Submit your PR by giving the necesarry information in PR template and hang tight we will review it really soon 🚀
+3. You have added README file in your Game folder.
+4. You have added the thumbnail of the project/Game into ```assets/images``` for website preview
+5. Added your game screenshot in the assets folder by following the proper conversion specified over here
+6. You have added your game name and link in GameZone's README.md
+7. You have Added your game to ```assets\js\gamesData.json```.
+8. you have reviewed that your Game loads on the website with preview image and works when opened.
+9. Submit your PR by giving the necesarry information in PR template and hang tight we will review it really soon 🚀
 
 <br>
 

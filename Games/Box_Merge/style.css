@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #0f0;
+  margin-bottom: 20px;
+}
+
+#controls {
+  margin-bottom: 20px;
+}
+
+#controls label, #controls input, #controls button {
+  margin: 5px;
+}
+
+#game-area {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background-color: #222;
+  border: 2px solid #0f0;
+  overflow: hidden;
+}
+
+#player-box {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #0f0;
+  box-shadow: 0 0 10px #0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #000;
+}
+
+.box {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  box-shadow: 0 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #000;
+}
+
+#score {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #0f0;
+}
+
+#message {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #0f0;
+}
+
+#controls {
+  margin-top: 20px;
+}
+
+#controls button {
+  margin: 5px;
+  padding: 10px;
+  background-color: #0f0;
+  border: none;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0f0;
+}
+
+#controls button:hover {
+  background-color: #0a0;
+}

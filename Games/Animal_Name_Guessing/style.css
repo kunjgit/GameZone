@@ -1,0 +1,192 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+ }
+ 
+ html, body {
+    height: 100%;
+    display: grid;
+    color: #fbfbfb;
+    background: url('/imgs/background.png');
+    background-size: cover;
+    background-position: center;
+    font-weight: 500;
+ }
+ 
+ h1 {
+    font-size: 3.25rem;
+    line-height: 3rem;
+    color: #dbcf24;
+    font-weight: 900;
+ }
+ 
+ 
+ h3 {
+    font-weight: 700;
+    font-size: 1.6rem;
+ }
+ 
+ h4 {
+    font-size: 1.2rem;
+ }
+ 
+ p {
+    margin: 0.5rem;
+    font-size: 1.1rem;
+ }
+ 
+ button, .btn {
+    cursor: pointer;
+    display: inline-block;
+     height: 2.25rem;
+    padding: 10px 20px;
+    margin-top: 1rem;
+    line-height: 1rem;
+     border: 0;
+     border-radius: 0.3rem;
+    background: #dbcf24;
+    color: #232323;
+    font-weight: 700;
+     font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+ }
+ 
+ button:disabled{
+    cursor: not-allowed;
+    background: #58574b;
+    color: #1a1801;
+ }
+ 
+ button:focus {
+    outline: none;
+    outline-offset: 0;
+ }
+ 
+ input {
+    margin-top: 1rem;
+    height: 2.25rem;
+    width: 50%;
+    padding: 0 0.5rem;
+    border: 2px solid #141414;
+    border-radius: 0.4rem;
+    text-align: center;
+    font-size: 15px;
+ }
+ 
+ input:focus {
+    border: 2px solid #c5b418;
+    outline: none;
+    outline-offset: 0;
+ }
+ 
+ .container {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .header {
+    margin: 2.5rem 0;
+ }
+ 
+ .instructions {
+    width: 72%;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    color: #232323;
+ }
+ 
+ #board {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+ }
+ 
+ #board > h4 {
+    margin: 0 0.6rem;
+ }
+ 
+ #board span, #final-score {
+    background: #dbcf24;
+    color: #141414;
+    padding: 0 0.3rem;
+    border-radius: 0.3rem;
+    font-size: 1.25rem;
+    margin-left: 0.3rem;
+ }
+ 
+ #question-number {
+    margin-bottom: 1.5rem;
+ }
+ 
+ .good {
+    border: 2px solid #009632;
+ }
+ 
+ .bad {
+    border: 2px solid #db1414;
+ }
+ 
+ .footer {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+    margin-bottom: 0.5rem;
+ }
+ 
+ .footer .social {
+     padding-top: 15px;
+     display: flex;
+     justify-content: space-between;
+ }
+ 
+ .fa-lg {
+    color: #dbcf24;
+ }
+ 
+ .fa-lg:hover {
+   color: #91891efd;
+ }
+ 
+ 
+ 
+ @media(max-width: 850px){
+    .instructions {
+       width: 100%;
+    }
+ }
+ 
+ @media(max-width: 700px){
+    .container {
+       width: 90%;
+    }
+ }
+ 
+ @media(max-width: 550px){
+    h1 {
+       font-size: 2.8rem;
+    }
+ 
+    input {
+       width: 70%;
+    }
+ }
+ 
+ @media(max-width: 460px) {
+    .container {
+       width: 94%;
+    }
+ 
+    input {
+       width: 80%;
+    }
+ }

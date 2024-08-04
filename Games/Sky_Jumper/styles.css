@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #87CEEB; /* Sky blue */
+}
+
+#gameCanvasContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+canvas {
+    display: block;
+}

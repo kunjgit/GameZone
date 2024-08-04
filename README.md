@@ -1671,7 +1671,11 @@ This repository also provides one such platforms where contributers come over an
 
 | [Hole_And_Mole_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hole_And_Mole_Game)|
 |[Animal_Name_Guessing](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Name_Guessing)|
+
+| [Memory_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Card)|
+
 |[Synonym_Symphony](https://github.com/kunjgit/GameZone/tree/main/Games/Synonym_Symphony)|
+
 
  </center>
 

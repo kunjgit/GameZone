@@ -21,14 +21,14 @@
   }
   @keyframes animate{
     50%{
-      transform: translateY(-8px);
+      transform: scale(1.02);
     }
   }
   #progress-value {
     display: block;
     height: calc(100% - 15px);
     width: calc(100% - 15px);
-    background-color: rgb(104, 98, 232);
+    background-color: rgb(56, 51, 154);
     background: linear-gradient(90deg, rgb(159, 157, 235) 0%, rgb(212, 153, 222) 39%, rgb(253, 199, 134) 100%);
     border-radius: 50%;
     display: grid;

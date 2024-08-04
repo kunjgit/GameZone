@@ -21,6 +21,7 @@
 
 .contributors h1:hover {
     text-decoration: underline;
+    transform: scale(1.01);
 }
 
 #contributor {

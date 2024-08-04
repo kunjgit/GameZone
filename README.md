@@ -1676,6 +1676,7 @@ This repository also provides one such platforms where contributers come over an
 
 |[Synonym_Symphony](https://github.com/kunjgit/GameZone/tree/main/Games/Synonym_Symphony)|
 
+|[Sentence_Scramble](https://github.com/kunjgit/GameZone/tree/main/Games/Sentence_Scramble)|
 
  </center>
 

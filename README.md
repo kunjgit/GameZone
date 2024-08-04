@@ -330,6 +330,7 @@ This repository also provides one such platforms where contributers come over an
 |[Carrom Board Game](https://github.com/kunjgit/GameZone/tree/main/Games/carrom)|
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Airhockey_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_Game) |
+| [Am_I_the_number](https://github.com/kunjgit/GameZone/tree/main/Games/Am_I_the_number)   |
  </center>
 
 <br>

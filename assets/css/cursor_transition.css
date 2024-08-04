@@ -1,36 +1,47 @@
 .cursor {
-    z-index: 999;
     position: fixed;
-    background: #23bdf5;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid #47ebf0;
+    border-left: 5px solid #47ebf0;
+    transform-origin: top;
+    transform: translate(-1px,5px) rotate(15deg) scale(0);
+    transition: transform 0.1s;
     pointer-events: none;
-    box-shadow: 0 0 20px #23bdf5,
-        0 0 60px #23bdf5,
-        0 0 100px #23bdf5;
-    animation: colors 1s infinite;
-    transform: translate(-50%, -50%);
-    display: none;
+    animation: animate 5s linear infinite;
+    
 }
-
-@keyframes colors {
-    0% {
-        filter: hue-rotate(0deg);
-    }
-
-    100% {
-        filter: hue-rotate(360deg);
-    }
+body{
+    max-height: 100vh;
+    background: #222;
+    background-image: linear-gradient(to right, #333 1px, transparent 1px),
+                      linear-gradient(to bottom, #333 1px, transparent 1px);
+    background-size: 40px 40px;    
+    cursor: none;            
 }
-
 .cursor:before {
     content: '';
     position: absolute;
-    background: #23bdf5;
-    width: 15px;
-    height: 15px;
-    opacity: 0.2;
-    transform: translate(-30%, -30%);
-    border-radius: 50%;
+    left: -2.5px;
+    width: 5px;
+    height: 30px;
+    background: #47ebf0;
+    transform-origin: top;
+    transform: rotate(315deg);
+    
 }
+body:hover .cursor{
+    transform: translate(-1px,5px) rotate(15deg) scale(1);
+}
+@keyframes animate {
+    0%{
+        filter: drop-shadow(0 0 5px #47ebf0) drop-shadow(0 0 15px #47ebf0) drop-shadow(0 0 30px #47ebf0) 
+        hue-rotate(0deg);
+    }
+    100%{
+        filter: drop-shadow(0 0 5px #47ebf0) drop-shadow(0 0 15px #47ebf0) drop-shadow(0 0 30px #47ebf0) 
+        hue-rotate(360deg);
+    }
+    
+}
+

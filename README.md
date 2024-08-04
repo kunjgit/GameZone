@@ -423,11 +423,14 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 | [Catch_The_Circle](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Circle)       | [Automated_rock_paper_scissor](https://github.com/kunjgit/GameZone/tree/main/Games/automated_rock_paper_scissor) | [Maze_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Game)                     | [Astronaut_runner](https://github.com/tanishkaa08/GameZone/tree/main/Games/Astronaunt_runner) | [16_Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/16_Puzzle)                     |
 | [Dragon_Tower](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_Tower)               | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect)   | [escaperoom](https://github.com/kunjgit/GameZone/tree/main/Games/escaperoom)                   | [Ball_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_Shooting_Game)   | [HTML5_Controller_Tester](https://github.com/kunjgit/GameZone/tree/main/Games/HTML5_Controller_Tester) | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)          | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road)                      | [HueHero](https://github.com/kunjgit/GameZone/tree/main/Games/HueHero)                      | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner)             |
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)           | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon) | [TriHand_Tactics](https://github.com/kunjgit/GameZone/tree/main/Games/TriHand_Tactics)         | [Earth_Guardian](https://github.com/kunjgit/GameZone/tree/main/Games/Earth_Guardian)           |  [CatchTheBall](https://github.com/kunjgit/GameZone/tree/main/Games/CatchTheBall)               |
-| [Candy_Crush_Saga](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Crush_Saga)       |  [numeral-whiz](https://github.com/Ishan-77/GameZone/tree/main/Games/numeral-whiz)                                | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)                     | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road)                                    | [HueHero](https://github.com/kunjgit/GameZone/tree/main/Games/HueHero)                                             | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner)                          |
-
+| [Candy_Crush_Saga](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Crush_Saga)       |  [numeral-whiz](https://github.com/Ishan-77/GameZone/tree/main/Games/numeral-whiz)                                | [candy_match](https://github.com/kunjgit/GameZone/tree/main/Games/Candy_Match_Saga)                     | [Crossy_Road](https://github.com/tanujbordikar/GameZone/tree/Crossy_Road)                                    | [HueHero](https://github.com/kunjgit/GameZone/tree/main/Games/HueHero)                                             | [Puzzel_Winner](https://github.com/kunjgit/GameZone/tree/main/Games/Puzzel_Winner)              
 | [DNA_Sequencer](https://github.com/kunjgit/GameZone/tree/main/Games/DNA_Sequencer) |
+
+| [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                                   | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon)                               | [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack) | [Sand Tetris](https://github.com/kunjgit/GameZone/tree/main/Games/sand_tetris)    |                                                                                                    
+
 | [Boom_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Boom_Blast) |
 | [Shadow_Runner](https://github.com/kunjgit/GameZone/tree/main/Games/Shadow_Runner) |
+
 
 </center>
 <br>
@@ -1615,10 +1618,10 @@ This repository also provides one such platforms where contributers come over an
 
 | [Mathematics Escape Room](https://github.com/kunjgit/GameZone/tree/main/Games/MathematicsEscapeRoom) |
 |[Tower Defence Game](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Tower_Defence_Game) | | [Ant Smasher Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ant_Smasher)|
-|[Mario Matching Game](https://github.com/ananyag309/GameZone_ggsoc/tree/main/Games/MarioMatchingGame)|
+|[Mario Matching Game](https://github.com/ananyag309/GameZone_ggsos/MarioMatchingGame)|
 |[Dot_Dash](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Dash)|
 |[Ghost Busting Game](https://github.com/kunjgit/GameZone/tree/main/Games/Ghost_busting_game)|
-|[Wheel_of_fortune](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Wheel_of_fortune)|
+|[Wheel_of_fortune](https://github.com/Will2Jacks/GameZoneForked/te/Task/Games/Wheel_of_fortune)|
 |[Dot_Box_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dot_Box_Game)|
 | [Cosmic_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Cosmic_Blast) |
 |[Mole](https://github.com/taneeshaa15/GameZone/tree/main/Games/Mole)|
@@ -1657,7 +1660,13 @@ This repository also provides one such platforms where contributers come over an
 |[Brain_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Game)|
 
 |[Pokemon_Adventure_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Adventure_Game)|
-|[Garden-Builder-game](https://github.com/kunjgit/GameZone/tree/main/Games/Garden-Builder-game)|
+|[Garden-Builder-game](https://github.com/kunjgit/GameZone/tree/main/Games/Gard
+|[2D_Fighting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/2D_Fighting_Game)|
+
+| [Airhockey_game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_game)|
+| [Hole_And_Mole_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hole_And_Mole_Game)|
+|[Animal_Name_Guessing](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Name_Guessing)|
+
 
 
  </center>

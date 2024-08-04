@@ -335,6 +335,10 @@ footer {
 
 
 @media (max-width: 500px) {
+  footer .container {
+    margin-left: 0 !important;
+  }
+
   .footer-bottom p {
     float: none;
   }

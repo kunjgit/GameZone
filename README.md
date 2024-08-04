@@ -1316,6 +1316,7 @@ This repository also provides one such platforms where contributers come over an
 |[Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys)|
 |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
 |[Catch_The_Object](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Objects)|
+|[Sky_Jumper](https://github.com/kunjgit/GameZone/tree/main/Games/Sky_Jumper)|
  </center>
 
 | Game                                                                                                             | Game                                                                                                    | Game                                                                                                         | Game                                                                                                               | Game                                                                                                        |

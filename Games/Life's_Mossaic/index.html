@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" />
+  <link rel="icon" href="./images/glider-icon.png" type="image/gif" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Life's Mosaic is a cellular automaton devised by the British mathematician John Horton Conway in 1970." />
+  <meta name="keywords" content="Life's Mosaic, cellular automaton, John Horton Conway, 1970" />
+  <title>Life's Mosaic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.js" integrity="sha512-docBEeq28CCaXCXN7cINkyQs0pRszdQsVBFWUd+pLNlEk3LDlSDDtN7i1H+nTB8tshJPQHS0yu0GW9YGFd/CRg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.js" integrity="sha512-FSNQjUUq97PtDnAJyMlBTH8EhV4o5X5FLVbzS9ttrdEVVbmrssJBh/PgXFQbxS+6yYx5n5irOj7de6Th0TRQZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YetnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    ul {
+        list-style-type: none;
+    }
+</style>
+  
+</head>
+
+<body>
+  <div class="game-settings">
+    <button id="toggleButton"><i class="fa-solid fa-bars"></i></button>
+    <div class="sidenav" id="sideNav">
+      <div class="other-settings animate">Settings</div>
+      <div class="cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"
+          color="#ffffff" fill="none">
+          <path d="M19.0005 4.99988L5.00045 18.9999M5.00045 4.99988L19.0005 18.9999" stroke="currentColor"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg></div>
+
+      <div class="other-settings-container animate">
+        <div class="grid-toggle">
+          <input type="checkbox" checked id="grid-toggle" class="grid-checkbox" onclick="toggleGrid()" />
+          <label for="grid-toggle" style="cursor: pointer;">Gridlines</label>
+        </div>
+        <div class="warp-on-edges">
+          <input type="checkbox" checked id="warp-on-edges" class="warp-checkbox" onclick="toggleWarp()" />
+          <label for="warp-on-edges" style="cursor: pointer;">Warp on Edges</label>
+        </div>
+        <p class="randomness-container">
+          <label class="randomness-value" style="cursor: pointer;"><span>Randomness</span><span id="randomValOutput">20</span></label>
+          <input type="range" min="1" max="100" value="20" class="slider" id="randomVal" />
+        </p>
+      </div>
+      <div class="color-themes has-dropdown animate" style="cursor: pointer;">Themes</div>
+      <div class="themes-container animate">
+        <ul>
+        <li>
+          <div>
+            <input type="radio" class="color-label" id="red-theme" name="theme" onclick="selectTheme('red')" />
+            <label for="red-theme" class="color-label">Red</label>
+          </div>
+        </li>
+      </ul>
+      <ul>
+        <li>
+            <div>
+            <input type="radio" class="color-label" id="green-theme" name="theme" onclick="selectTheme('green')" />
+            <label for="green-theme" class="color-label">Green</label>
+          </div>
+        </li>
+      </ul>
+      <ul>
+        <li>
+        <div>
+          <input checked type="radio" id="blue-theme" name="theme" onclick="selectTheme('blue')" />
+          <label for="blue-theme">Blue</label>
+        </div>
+      </li>
+    </ul>
+    <ul> 
+        <li>
+          <div>
+            <input type="radio" id="purple-theme" name="theme" onclick="selectTheme('purple')" />
+            <label for="purple-theme">Purple</label>
+          </div>
+        </li>
+      </ul> 
+      <ul>
+        <li>
+          <div>
+            <input type="radio" id="darkcyan-theme" name="theme" onclick="selectTheme('darkCyan')" />
+            <label for="darkcyan-theme">Dark Cyan</label>
+          </div>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <div>
+            <input type="radio" id="black-theme" name="theme" onclick="selectTheme('black')" />
+            <label for="black-theme">Black & White</label>
+          </div>
+        </li>
+      </ul>
+    <ul>
+      <li>
+        <div>
+          <input type="radio" id="neon-theme" class="color-label" name="theme" onclick="selectTheme('neon')" />
+          <label for="neon-theme" class="color-label">Dark Neon</label>
+        </div>
+      </li>
+      <li>
+        <div>
+          <input type="radio" id="cyberpunk-theme" class="color-label" name="theme" onclick="selectTheme('cyberpunk')" />
+          <label for="cyberpunk-theme"  class="color-label">Cyberpunk</label>
+        </div>
+      </li>
+    </ul>
+        <div>
+          <button id="gradient-theme-btn" class="has-dropdown  animate">
+            Switch to Gradient Theme
+          </button>
+          <div id="gradient-colors-container" style="display: none;">
+            <div class="gradient-settings-container animate">
+              <input type="color" id="color1" value="#ff7e5f">
+              <input type="color" id="color2" value="#feb47b">
+              <select id="gradient-direction" class="gradient-direction-select">
+                <option value="to top">Top</option>
+                <option value="to right">Right</option>
+                <option value="to bottom">Bottom</option>
+                <option value="to left">Left</option>
+              </select>    
+            </div>
+              <button id="apply-gradient-btn" class="gradient-button">Apply Gradient</button>
+          </div>
+          </div>
+      </div>
+      <div class="presets has-dropdown animate" style="cursor: pointer;">Presets</div>
+      <div class="presets-container animate">
+        <ul>
+        <li>
+          <button class="presets-list" onclick="drawPresetPattern('GliderGun')">
+            Glider Gun
+          </button>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <button class="presets-list" onclick="drawPresetPattern('smallGlider')">
+            Small Glider
+          </button>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <button class="presets-list" onclick="drawPresetPattern('bigGlider')">
+            Big Glider
+          </button>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <button class="presets-list" onclick="drawPresetPattern('Pulsar')">
+            Pulsar
+          </button>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <button class="presets-list" onclick="drawPresetPattern('CircleOfFire')">
+            Circle of Fire
+          </button>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <button class="presets-list" onclick="drawPresetPattern('Quadpole')">
+            Quadpole
+          </button>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <button class="presets-list" onclick="drawPresetPattern('Spider')">
+            Spider
+          </button>
+        </li>
+      </ul>
+      </div>
+      <div class="history has-dropdown animate" style="font-size: 1.24rem; cursor: pointer;" onclick="location.href='history.html'">History</div>
+      <div class="history-container animate"></div>
+      <div class="game-rules has-dropdown animate">
+        <button class="game-rules has-dropdown" style="font-size: 1.24rem; margin-left:-1.7rem; padding-top:3px;" onclick="location.href='gamerules.html'">
+          Game Rules
+        </button>
+       
+      </div>
+      
+  </div>
+  <div class="game">
+    <div class="hamburger">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+        <path d="M4 5L20 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M4 12L20 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M4 19L20 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+    <div class="heading great-vibes-regular">Life's Mosaic</div>
+    <div class="grid-container">
+      <div id="main-grid" class="main-grid"></div>
+    </div>
+    <div class="controls">
+  <div class="tooltip-container">
+    <button class="clear-button button-73" id="clear-button" onclick="clearGrid()">Clear</button>
+    <span class="tooltip-text">Clear the grid</span>
+  </div>
+  <div class="tooltip-container">
+    <button class="control-button" id="fast-reverse-button" onclick="decreaseSpeed()">
+      <img class="icon" id="fast-reverse-icon" src="./images/Fast-Reverse-Button.svg" alt="Rewind" />
+    </button>
+    <span class="tooltip-text">Rewind</span>
+  </div>
+  <div class="tooltip-container">
+    <button class="control-button" id="play-pause-button" onclick="startAnimation()">
+      <img class="icon" id="play-pause-icon" src="./images/Play-Button.svg" alt="Start or Pause" />
+    </button>
+    <span class="tooltip-text">Start or Pause the animation</span>
+  </div>
+  <div class="tooltip-container">
+    <button class="control-button" id="fast-forward-button" onclick="increaseSpeed()">
+      <img class="icon" id="fast-forward-icon" src="./images/Fast-Forward-Button.svg" alt="Fast Forward" />
+    </button>
+    <span class="tooltip-text">Fast Forward</span>
+  </div>
+  <div class="tooltip-container">
+    <button class="random-button button-73" id="random-button" onclick="randomGrid()">Random</button>
+    <span class="tooltip-text">Random</span>
+  </div>
+</div>
+
+  </div>
+  <script src="node_modules/animejs/lib/anime.min.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/gradient.js"></script>
+</body>
+
+<script>
+  document.getElementById("toggleButton").addEventListener("click", function () {
+      const sideNav = document.getElementById("sideNav");
+      sideNav.classList.toggle("hide-nav");
+      document.querySelector(".game").classList.toggle("full-width");
+  });
+
+  document.querySelector(".cross").addEventListener("click", function () {
+    const sideNav = document.getElementById("sideNav");
+      sideNav.classList.toggle("hide-nav");
+      document.querySelector(".game").classList.toggle("full-width");
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+  integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="animation.js"></script>
+</html>

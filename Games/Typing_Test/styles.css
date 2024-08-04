@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height: 100vh;
+    background: #c4c4ff;
+}
+.container{
+    width:770px;
+    background:#e6e6fa;
+    padding:35px;
+    border-radius: 10px;
+}
+.container .input{
+    z-index: -999;
+    opacity: 0;
+    position:absolute;
+}
+.container .box{
+    padding:13px 20px 0;
+    border-radius:10px;
+    border: 1px solid #ccc;
+}
+.box .text{
+    max-height:255px;
+    overflow-y:auto;
+}
+.text::-webkit-scrollbar{
+    width:0;
+}
+.text p{
+    font-size:21px;
+    text-align:justify;
+    letter-spacing:1px;
+    word-break:break-all;
+}
+.text p span{
+    position:relative;
+}
+.text p span.correct{
+    color: #56964f;
+}
+.text p span.incorrect{
+    color:#cb3439;
+    background:#ffc0cb;
+    outline: 1px solid #fff;
+    border-radius:4px;
+}
+.text p span.active{
+    color:#17a2b8;
+}
+.text p span.active::before{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    height:2px;
+    width:1000%;
+    background:#17a2b8;
+    animation:blink 1s ease-in-out infinite;
+}
+@keyframes blink{
+    50%{
+        opacity: 1;
+    }
+}
+.box .content{
+    display:flex;
+    margin-top:17px;
+    padding: 12px 0;
+    align-items:center;
+    border-top:1px solid #ccc;
+    justify-content:space-between;
+}
+.content .result{
+    display:flex;
+    width:calc(100% - 140px);
+    justify-content:space-between;
+}
+.content button{
+    border:none;
+    outline:none;
+    width:105px;
+    padding:8px 0;
+    color:#fff;
+    cursor:pointer;
+    font-size:16px;
+    border-radius:5px;
+    background:#c4c4ff;
+    transition:transform 0.3s ease;
+}
+.content button:active{
+    transform:scale(0.97);
+}
+.result li{
+    height:22px;
+    list-style:none;
+    display:flex;
+    align-items:center;
+}
+.result  li span{
+    display:block;
+    font-size:20px;
+    margin-left:10px;
+}
+.result  li p{
+    font-size:19px;
+}
+.result li:not(:first-child){
+ padding-left:22px;
+ border-left:1px solid #a5a5a5;
+}
+.result li:not(:first-child) span{
+    font-weight:500;
+}
+.result  li b{
+    font-weight:500;
+}

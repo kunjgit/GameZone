@@ -1,0 +1,139 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-area {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  background: #444;
+  border: 2px solid #666;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(to right, #666 50%, #444 50%);
+  background-size: cover;
+  animation: backgroundScroll 5s linear infinite;
+}
+
+@keyframes backgroundScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.player {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background: #000;
+  bottom: 10px;
+  left: 50px;
+  transition: left 0.1s, bottom 0.1s; 
+}
+
+.light {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 0, 0.5);
+  border-radius: 50%;
+  animation: lightPulse 2s infinite;
+}
+
+@keyframes lightPulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+.obstacle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: red;
+  border-radius: 50%;
+}
+
+.power-up {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: green;
+  border-radius: 50%;
+}
+
+.win-message, .lose-message {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  color: yellow;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  margin-top: 20px;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #555;
+}
+.light {
+  position: absolute;
+  width: 100px; 
+  height: 100px;
+  background: yellow;
+  border-radius: 0; 
+}
+
+.obstacle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%; 
+}
+
+.power-up {
+  position: absolute;
+  width: 40px; 
+  height: 40px;
+  background: green;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); 
+}

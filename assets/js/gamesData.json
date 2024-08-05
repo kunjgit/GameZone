@@ -3394,5 +3394,10 @@
     "gameTitle" : "King_Sword_Runner",
     "gameUrl": "King_Sword_Runner",
     "thumbnailUrl": "King_Sword_Runner.png"
+  },
+  "637":{
+    "gameTitle" : "Infinite_Cars",
+    "gameUrl": "Infinite_Cars",
+    "thumbnailUrl": "infinite_Cars.png"
   }
 }

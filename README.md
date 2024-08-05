@@ -1668,7 +1668,9 @@ This repository also provides one such platforms where contributers come over an
 |[Animal_Name_Guessing](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Name_Guessing)|
 | [Memory_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Card)|
 |[Synonym_Symphony](https://github.com/kunjgit/GameZone/tree/main/Games/Synonym_Symphony)|
+|[Sentence_Scramble](https://github.com/kunjgit/GameZone/tree/main/Games/Sentence_Scramble)|
 |[Quiz_With_Timer](https://github.com/kunjgit/GameZone/tree/main/Games/Quiz_With_Timer)|
+
  </center>
 
 <br>

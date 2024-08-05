@@ -1,0 +1,72 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    font-family: 'Arial', sans-serif;
+}
+
+canvas {
+    border: 2px solid #000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background: #fff;
+    border-radius: 10px;
+}
+
+.controls {
+    position: absolute;
+    top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.controls button, .controls select {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.controls button:hover, .controls select:hover {
+    background: #0056b3;
+}
+
+#timer {
+    position: absolute;
+    top: 50px;
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.rules {
+    position: absolute;
+    bottom: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: justify;
+    max-width: 800px;
+}
+
+.rules h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.rules p {
+    margin: 5px 0;
+    font-size: 16px;
+}

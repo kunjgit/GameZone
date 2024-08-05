@@ -411,6 +411,9 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                                   | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon)                               | [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack) | [Sand Tetris](https://github.com/kunjgit/GameZone/tree/main/Games/sand_tetris)    |                                                                                                    | 
 
 | [Emoji_Intruder](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Intruder)                             | [Guess The Weapon](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_The_Weapon)                | [Guess Who](https://github.com/kunjgit/GameZone/tree/main/Games/Guess_Who)                                   | [Pop My Balloon](https://github.com/kunjgit/GameZone/tree/main/Games/Pop_My_Balloon)                               | [Tower Stack](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Stack)                                                                                                         | 
+
+| [Boom_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Boom_Blast) | 
+| [Unword_it](https://github.com/kunjgit/GameZone/tree/main/Games/Unword_It) |
 | [Boom_Blast](https://github.com/kunjgit/GameZone/tree/main/Games/Boom_Blast) |
            
 | [DNA_Sequencer](https://github.com/kunjgit/GameZone/tree/main/Games/DNA_Sequencer) | 
@@ -476,6 +479,7 @@ This repository also provides one such platforms where contributers come over an
 <a href="https://v2.tailwindcss.com/docs"><img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=black"></a>
 <div>
 </p>
+
 </center>
 <br>
 
@@ -1642,41 +1646,27 @@ This repository also provides one such platforms where contributers come over an
 |[Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys)|
 |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
 |[Tether](https://github.com/kunjgit/GameZone/tree/main/Games/Tether)|
-
-|[Conqueror_Quest](https://github.com/kunjgit/GameZone/tree/main/Games/Conqueror_Quest)|
-
-|[Maze_Explorer](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Explorer)|
-
 |[Rock Paper Scissors Lizard Spock Game](./Games/Rock_Paper_Scissors_Lizard_Spock_Game)|
-
+|[Hangman_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hangman_Game)|
+|[Conqueror_Quest](https://github.com/kunjgit/GameZone/tree/main/Games/Conqueror_Quest)|
+|[Maze_Explorer](https://github.com/kunjgit/GameZone/tree/main/Games/Maze_Explorer)|
+|[Rock Paper Scissors Lizard Spock Game](./Games/Rock_Paper_Scissors_Lizard_Spock_Game)|
 |[Word Search Game](https://github.com/kunjgit/GameZone/tree/main/Games/Word_Search_Game)|
 |[Eco_Warrior](https://github.com/kunjgit/GameZone/tree/main/Games/Eco_Warrior)|
-
 |[Hangman_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hangman_Game)|
-
 |[Endless_Runner](https://github.com/kunjgit/GameZone/blob/main/Games/EndlessRunner/index.html)|
-
 |[Brain_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brain_Game)|
-
-
-
 |[Pokemon_Adventure_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Pokemon_Adventure_Game)|
 |[Garden-Builder-game](https://github.com/kunjgit/GameZone/tree/main/Games/Garden-Builder-game)|
-
 |[2D_Fighting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/2D_Fighting_Game)|
-
 | [Airhockey_game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_game)|
-
 |[Smash-Monty-Mole](https://github.com/kunjgit/GameZone/tree/main/Smash-Monty-mole-master-main)|
-
 | [Hole_And_Mole_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hole_And_Mole_Game)|
 |[Animal_Name_Guessing](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Name_Guessing)|
-
 | [Memory_Card](https://github.com/kunjgit/GameZone/tree/main/Games/Memory_Card)|
-
 |[Synonym_Symphony](https://github.com/kunjgit/GameZone/tree/main/Games/Synonym_Symphony)|
-
 |[Sentence_Scramble](https://github.com/kunjgit/GameZone/tree/main/Games/Sentence_Scramble)|
+|[Quiz_With_Timer](https://github.com/kunjgit/GameZone/tree/main/Games/Quiz_With_Timer)|
 
  </center>
 

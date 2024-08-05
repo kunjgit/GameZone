@@ -3394,5 +3394,10 @@
     "gameTitle" : "King_Sword_Runner",
     "gameUrl": "King_Sword_Runner",
     "thumbnailUrl": "King_Sword_Runner.png"
+  },
+  "637":{
+    "gameTitle" : "Multiplayer_Shooting_Game",
+    "gameUrl": "Multiplayer_Shooting_Game",
+    "thumbnailUrl": "Multiplayer_Shooting_Game.jpeg"
   }
 }

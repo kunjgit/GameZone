@@ -1662,7 +1662,7 @@ This repository also provides one such platforms where contributers come over an
 | [Airhockey_game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_game)|
 
 |[King_Sword_Runner](https://github.com/kunjgit/GameZone/tree/main/Games/King_Sword_Runner)|
-  
+|[Multiplayer_Shooting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Multiplayer_Shooting_Game)|
 |[Smash-Monty-Mole](https://github.com/kunjgit/GameZone/tree/main/Smash-Monty-mole-master-main)|
 | [Hole_And_Mole_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hole_And_Mole_Game)|
 |[Animal_Name_Guessing](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Name_Guessing)|

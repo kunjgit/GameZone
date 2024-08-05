@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffeb3b, #ff5722); /* Initial bright gradient background */
+    margin: 0;
+    transition: background-color 0.5s ease; /* Smooth transition for background color change */
+}
+
+.game-container {
+    text-align: center;
+    background-color: #ffffff; /* White background for the game area */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+    animation: bounce 1s ease infinite; /* Bounce animation effect */
+}
+
+.game-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #e91e63; /* Bright pink color for the title */
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect */
+}
+
+.word {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #4caf50; /* Bright green color for the word */
+}
+
+.input {
+    font-size: 1.5em;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #2196f3; /* Bright blue border for the input */
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    border-color: #0d47a1; /* Darker blue for focus state */
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #ff5722; /* Bright orange background for the button */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth color transition and scale effect */
+}
+
+.button:hover {
+    background-color: #d84315; /* Darker orange on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+#message {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+#message.correct {
+    color: #4caf50; /* Bright green color for correct messages */
+}
+
+#message.incorrect {
+    color: #f44336; /* Bright red color for incorrect messages */
+}
+
+.score {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #2196f3; /* Bright blue color for the score */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Classes for background color changes */
+.bg-correct {
+    background-color: #a5d6a7; /* Light green background for correct answer */
+}
+
+.bg-incorrect {
+    background-color: #ffcdd2; /* Light red background for incorrect answer */
+}

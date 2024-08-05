@@ -19,3 +19,9 @@
 2. Open `index.html` in a web browser to play the game.
 
 
+## **Screenshots 📸**
+![image](../../assets/Find_The_Missing_Letter.png)
+
+<br>
+
+

@@ -3351,10 +3351,11 @@
     "thumbnailUrl": "Atlas_Game.png"
   },
   "629":{
-    "gameTitle" : "Word Search Game",
-    "gameUrl": "Word_Search_Game",
-    "thumbnailUrl": "Word_Search_Game.jpeg"
-  },
+    "gameTitle" : "Sand Tetris",
+    "gameUrl": "sand_tetris",
+    "thumbnailUrl": "logo.png"
+  }
+{
     "gameTitle" : "Hangman Game",
     "gameUrl": "Hangman_Game",
     "thumbnailUrl": "Hangman_Game.png"
@@ -3375,13 +3376,23 @@
     "thumbnailUrl": "Brain_Game.png"
   },
   "633":{
+    "gameTitle" : "2D Fighting Game",
+    "gameUrl": "2D_Fighting_Game",
+    "thumbnailUrl": "2D_Fighting_Game.png"
+  },
+  "634":{
     "gameTitle" : "Cosmic_Blast",
     "gameUrl": "Cosmic_Blast",
     "thumbnailUrl": "Cosmic_Blast.png"
   },
-  "634":{
+  "635":{
     "gameTitle" : "IKnowYou-Mind-Reading-Game",
     "gameUrl": "IKnowYou-Mind-Reading-Game",
     "thumbnailUrl": "IKnowYou-Mind-Reading-Game.png"
+  },
+  "636":{
+    "gameTitle" : "King_Sword_Runner",
+    "gameUrl": "King_Sword_Runner",
+    "thumbnailUrl": "King_Sword_Runner.png"
   }
 }

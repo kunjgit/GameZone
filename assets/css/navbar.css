@@ -1,120 +1,125 @@
-.navbarr {
-  display: flex;
-  justify-content: space-between;
+.header{
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  z-index: 200;
+  padding: 1.3rem 10%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: .5rem;
-  background: linear-gradient(rgb(236, 145, 145),rgb(189, 239, 189),rgb(161, 161, 209),rgb(220, 220, 159));
-
+  z-index: 100;
 }
+.header::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0 ,0 , .1);
+  backdrop-filter: blur(50px); 
+  z-index: -1;
+}
+
+.header::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left:-100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg , transparent, red
+  transparent);
+}
+
 
 /* #themeToggle{
   border: none; 
   background-color: transparent;
 } */
 .logox {
-  display: flex;
-  font-size: 1.5rem;
-  font-weight: bolder;
-  color: rgb(17, 4, 4); 
-}
-
-.nav-linkss {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
   
-  font-weight: bold;
-}
-
-.nav-linkss li {
-  margin-right: 2rem;
-  margin-left: 2rem;
-}
-
-
-.nav-linkss a {
+  font-size: 2rem;
+  font-weight: 800;
+  color: purple; 
   text-decoration: none;
-  color: #333;  
+  
 }
 
-.navbarr ul li a:hover {
-  text-decoration: underline;
-  color: rgb(144, 137, 137);
+.navbarr a{
+  font-size: 1.15rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 2.5rem;
+}
+
+#check{
+  display: none;
+}
+.icons{
+  position: absolute;
+  right: 5%;
+  font-size: 2.8rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
 }
 
 
-
-/* Media Queries for responsiveness*/
-
-/* media query for screen sizes upto 420px */
-@media screen and (max-width:550px){
-  .logox{
-    opacity: 0;
-    width: 0;
-    transition: opacity .5s ease-in-out, width .1s ease-in-out ; 
+@media (max-width: 992px){
+  .header{
+    padding: 1.3rem 5%;
   }
-  .logox span{
-    opacity: 0;
-    width: 0;
-    transition: opacity .5s ease-in-out, width .5s ease-in-out ;
-  }
-  /* #themeToggleWrapper{
-    opacity: 0;
-    width: 0;
-    padding: 0;
-    margin: 0;
-    transition: opacity .5s ease-in-out,width .5s ease-in-out, padding .5s ease-in-out, margin .5s ease-in-out;
-  } */
-  .nav-linkss li{
-    margin-right: 1rem;
-    margin-left: 1rem;
-    transition: margin-right .5s ease-in-out ,margin-left .5s ease-in-out;
-  }
-
 }
 
-/* Media query for screens between 420px and 768px wide */
-@media screen and (min-width:550px) and (max-width: 768px) {
-  .logox span{
-    opacity: 0;
-    width: 0;
-    transition: opacity .5s ease-in-out, width .5s ease-in-out ;
+@media (max-width:768px){
+  .icons{
+    display: inline-flex;
   }
-  .logox{
+
+  #check:checked~icons #menu-icon{
+     display: none;
+  }
+
+  .icons #close-icon{
+    display: none;
+  }
+
+  #check:checked~icons #close-icon{
+    display: block;
+ }
+  .navbarr {
+  
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba( 0, 0, 0, .1);
+    backdrop-filter: blur(50px);
+    box-shadow: 0.5rem 1rem rgba( 0, 0, 0, .1) ;
+    overflow: hidden;
+    transition: 0.3s ease;
+  
+  }
+
+  #check:checked~.navbarr{
+   height: 17.7rem;
+ }
+  .navbarr a{
+    display: block;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+
+  #check:checked~.navbarr a{
+    transform: translateY(0);
     opacity: 1;
-    width: auto;
-    transition: opacity .5s ease-in-out, width .1s ease-in-out ; 
-  }
-  /* #themeToggleWrapper{ 
-    opacity: 1;
-    width:40px ;
-    transition: opacity .5s ease-in-out,width .5s ease-in-out;
-  } */
-  .nav-linkss li{
-    margin-left: 1rem;
-    margin-right: 1rem;
-    transition: margin-right .5s ease-in-out ,margin-left .5s ease-in-out;
+    transition-delay: calc(.15s *var(--i));
   }
 }
-
-
-
-/* Media query for screens between 768px and 1024px wide */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .logox span{
-    opacity: 1;
-    width: auto;
-    transition: opacity .5s ease-in-out, width .5s ease-in-out ;
-  }
-  .nav-linkss li{
-    margin-left:1.5rem ;
-    margin-right:1.5rem ;
-    transition: margin-right .5s ease-in-out ,margin-left .5s ease-in-out; ;
-  }
-}
-

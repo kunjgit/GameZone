@@ -1,0 +1,51 @@
+{
+	"name": "platform-game",
+	"version": "1.1.0",
+	"description": "An endless runner implemented with phaser",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "jest",
+		"build": "webpack",
+		"start": "npm run build && webpack-dev-server --port=8000"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SafaErden/IcyTower.git"
+	},
+	"author": "Safa ERDEN",
+	"license": "MIT",
+	"licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
+	"bugs": {
+		"url": "https://github.com/photonstorm/phaser3-project-template/issues"
+	},
+	"homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
+	"devDependencies": {
+		"@babel/core": "^7.9.0",
+		"@babel/plugin-proposal-class-properties": "^7.8.3",
+		"@babel/plugin-proposal-export-default-from": "^7.8.3",
+		"@babel/plugin-transform-runtime": "^7.9.0",
+		"@babel/preset-env": "^7.9.0",
+		"@babel/preset-react": "^7.9.4",
+		"@babel/runtime": "^7.9.2",
+		"babel-core": "^6.26.3",
+		"babel-loader": "^8.1.0",
+		"babel-polyfill": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"eslint": "^6.8.0",
+		"eslint-config-airbnb-base": "^14.1.0",
+		"eslint-plugin-import": "^2.20.2",
+		"jest": "^25.5.4",
+		"raw-loader": "^0.5.1",
+		"stylelint": "^13.3.3",
+		"stylelint-config-standard": "^20.0.0",
+		"stylelint-csstree-validator": "^1.8.0",
+		"stylelint-scss": "^3.17.2",
+		"webpack-dev-server": "^2.11.0"
+	},
+	"dependencies": {
+		"webpack": "^3.4.1",
+		"phaser": "^3.3.0",
+		"node-fetch": "^2.6.1",
+		"phaser3-rex-plugins": "^1.1.28"
+	}
+}

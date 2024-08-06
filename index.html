@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameZone</title>
+  
+  
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="GameZone" />
@@ -93,16 +95,24 @@ border-radius: 1000px;
 
 <!-- NavBar -->
 
-<nav class="navbarr">
+<header class="header">
+  <a href="#homelink" class="logox"><span>GAMEΖΟΝΕ</span>🕹️</a> 
+  <input type="checkbox" id="check">
+  <label for="check" class="icons">
+    <i class='bx bx-menu-alt-right'  id="menu-icon"></i>
+    <i class='bx bx-x' id="close-icon"></i>
 
-  <a href="#homelink" class="logox"><span>GAMΕΖΟΝΕ</span>🕹️</a>  
-  <ul class="nav-linkss">
-    <li><a href="#homelink">Home</a></li>
-    <li><a href="#games">Games</a></li>
-    <li id="Aboutbutton"><a href="#homelink">About</a></li>
-    <li><a href="#contributorslink">Contributors</a></li>
-    <li><a href="#footer">Contact</a></li>
-  </ul>
+  <nav class="navbarr">
+    
+      
+    </label>
+
+    <a href="#homelink"  style="--i:0">Home</a>
+    <a href="#games" style="--i:1">Games</a>
+    <a href="#homelink" id="Aboutbutton" style="--i:2">About</a></li>
+    <a href="#contributorslink" style="--i:3">Contributors</a>
+    <a href="#footer" style="--i:4">Contact</a>
+  
   <!-- Light-Dark theme SWITCH -->
   <!-- <label id="themeToggleWrapper"  class="theme-toggle" for="themeToggle">
     <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
@@ -110,6 +120,7 @@ border-radius: 1000px;
   </label> -->
 
 </nav>
+</header>
 
 
 
@@ -128,6 +139,7 @@ border-radius: 1000px;
     <img src="loader.gif" class="center">
   </div>
   <script>
+    
     window.addEventListener("load", () => {
 const loader = document.querySelector(".preloader");
 
@@ -371,6 +383,8 @@ document.body.removeChild(loader);
   </article>
   </div>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' >
+
 
 
 
@@ -391,7 +405,7 @@ document.body.removeChild(loader);
   <script src="./assets/js/background.js"></script>
  
   
-
+  
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -406,6 +420,7 @@ document.body.removeChild(loader);
     <span id="progress-value">&#x1F815;</span>
   </div>
   <script>
+    
     window.embeddedChatbotConfig = {
     chatbotId: "cH7USH1tj9yFXJDJcv4dc",
     domain: "www.chatbase.co"

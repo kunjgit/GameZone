@@ -13,6 +13,6 @@
 ## **Screenshots 📸**
 
 <br>
-![Screenshot 2024-08-07 194752](https://github.com/user-attachments/assets/d9ca8651-1661-4860-bc04-7bc1a67a7ac9)
+![images](https://github.com/user-attachments/assets/d9ca8651-1661-4860-bc04-7bc1a67a7ac9)
 
 <br>

@@ -1636,6 +1636,7 @@ This repository also provides one such platforms where contributers come over an
 |[Math_Race_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Math_Race_Game)|
 | [Bunny is Lost](https://github.com/kunjgit/GameZone/tree/main/Games/Bunny_is_Lost)|
 |[Steam_Punk](https://github.com/kunjgit/GameZone/tree/main/Games/Steam_Punk)|
+|[Fish_Qrwal](https://github.com/kunjgit/GameZone/tree/main/Games/Fish_Qrwal)|
 
 
 |[OutRun_Offline_Game](https://github.com/kunjgit/GameZone/tree/main/Games/OutRun_Offline_Game)|

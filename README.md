@@ -1605,13 +1605,10 @@ This repository also provides one such platforms where contributers come over an
 | [Tetris Game](https://github.com/kunjgit/GameZone/tree/main/Games/tetris_game)|
 |[Turn_on_the_light](https://github.com/kunjgit/GameZone/tree/main/Games/Turn_on_the_light) |
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
-
-
+[Mechanica](https://github.com/kunjgit/GameZone/tree/main/Games/Mechanica) |
 | [Bounce_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Bounce_Ball)
 | [Bubble'z Popper](https://github.com/Chandu6702/GameZone/tree/main/Games/Bubble'z Popper)|
-
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)                  
-
 |[Elephant_ant_man](https://github.com/tanishkaa08/GameZone/tree/main/Games/Elephant_ant_man)    
 |  [Catch_The_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Catch_The_Ball) |
 | [Ball_in_Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Ball_in_Maze) |    
@@ -1683,7 +1680,6 @@ This repository also provides one such platforms where contributers come over an
 |[Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys)|
 |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
 |[Tether](https://github.com/kunjgit/GameZone/tree/main/Games/Tether)|
-
 |[Rock Paper Scissors Lizard Spock Game](./Games/Rock_Paper_Scissors_Lizard_Spock_Game)|
 |[Hangman_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hangman_Game)|
 |[Conqueror_Quest](https://github.com/kunjgit/GameZone/tree/main/Games/Conqueror_Quest)|
@@ -1709,20 +1705,23 @@ This repository also provides one such platforms where contributers come over an
 |[Synonym_Symphony](https://github.com/kunjgit/GameZone/tree/main/Games/Synonym_Symphony)|
 |[Sentence_Scramble](https://github.com/kunjgit/GameZone/tree/main/Games/Sentence_Scramble)|
 |[Quiz_With_Timer](https://github.com/kunjgit/GameZone/tree/main/Games/Quiz_With_Timer)|
+|[Infinite_Cars](https://github.com/kunjgit/GameZone/tree/main/Games/Infinite_Cars)|
 |[Find_The_Missing_Letter](https://github.com/kunjgit/GameZone/tree/main/Games/Find_The_Missing_Letter)|
-
-
 | [Hole_And_Mole_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hole_And_Mole_Game)|
 |[Animal_Name_Guessing](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Name_Guessing)|
+
  
 
 |[Cross_Road_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_Road_Game)|
 
 |[Number_Sorting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Sorting_Game)|
 
-|[Tower_Building_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Building_Game)|
 
 |[Cross_Road_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_Road_Game)|
+
+|[Tower_Building_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Building_Game)|
+|[Cross_Road_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_Road_Game)|
+
  </center>
 
 <br>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Drops</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="controls">
+        <button id="reset">Reset</button>
+        <button id="clear">Clear</button>
+        <button id="increase-gravity">Increase Gravity</button>
+        <button id="decrease-gravity">Decrease Gravity</button>
+        <select id="color-picker">
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="purple">Purple</option>
+        </select>
+    </div>
+    <div id="timer">Time: 0s</div>
+    <canvas id="canvas"></canvas>
+    <div class="rules">
+        <h2>Gravity Drops Rules</h2>
+        <p>Click on the canvas to add paint drops.</p>
+        <p>Use the buttons to adjust gravity and control the movement of the drops.</p>
+        <p>Try to create specific patterns or fill shapes by manipulating gravity.</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

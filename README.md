@@ -1720,12 +1720,6 @@ This repository also provides one such platforms where contributers come over an
 
 |[Number_Sorting_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Sorting_Game)|
 
-
-
-
-|[Cross_Road_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_Road_Game)|
- main
-
 |[Tower_Building_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Building_Game)|
 
 |[Cross_Road_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_Road_Game)|

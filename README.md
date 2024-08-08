@@ -359,7 +359,11 @@ This repository also provides one such platforms where contributers come over an
 
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Airhockey_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_Game) |
+
+| [Am_I_the_number](https://github.com/kunjgit/GameZone/tree/main/Games/Am_I_the_number)   |
+
 |[Gem_Cruncher](https://github.com/kunjgit/GameZone/tree/main/Games/Gem_Cruncher)|
+
  </center>
 
 <br>

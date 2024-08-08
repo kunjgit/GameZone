@@ -1,0 +1,119 @@
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+	font-family: 'Arial', sans-serif; /* You can change this to any font you prefer */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#container {
+	width: 870px;
+	height: 610px;
+	margin: 0 auto;
+	background: rgba(97, 97, 97, 0.745);
+	border-radius: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+}
+
+#hint {
+	width: 200px;
+	height: 570px;
+	float: left;
+	text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(0, 0, 0);
+	font-size: 25px;
+	border: 1px solid rgb(255, 255, 255);
+	display: none;
+	background: #ffffff53;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+}
+
+#letters {
+	width: 580px;
+	height: 580px;
+	float: right;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	background: #ffffff53;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+}
+
+.individual {
+	width: 40px;
+	height: 40px;
+	border: 1px solid black;
+	border-radius: 10px;
+	font-size: 25px;
+	text-align: center;
+	margin: 3px;
+	background: #ffffff53;
+	transition: background 0.3s, transform 0.3s;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+.individual:hover {
+	transform: scale(1.1);
+	background: #ffffff;
+}
+
+.done {
+	text-decoration: line-through;
+	color: #595858;
+}
+
+.colorPurple {
+	background: rgb(95, 95, 255);
+	color: #fff;
+}
+
+.correctlySelected {
+	background: silver;
+	color: #fff;
+}
+
+#message {
+	color: green;
+	font-size: 20px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+button {
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #007bff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+button:hover {
+	background-color: #0056b3;
+}

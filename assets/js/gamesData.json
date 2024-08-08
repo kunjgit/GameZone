@@ -1600,7 +1600,7 @@
   "318": {
     "gameTitle": "Pig game",
     "gameUrl": "Pig_game",
-    "thumbnailUrl": "Pig_game.jpg"
+    "thumbnailUrl": "Pig_game.JPG"
   },
   "319": {
     "gameTitle": "Asteroids 3D",
@@ -2000,17 +2000,18 @@
     "gameUrl": "Dot_Connect",
     "thumbnailUrl": "Dot_Connect.png"
   },
-  "398":{
-    "gameTitle": "Anagram word Game",
-    "gameUrl": "Anagram-word-Game",
-    "thumbnailUrl": "Anagram-Word-Game.jpeg"
+"398": {
+    "gameTitle": "path finder puzzle",
+    "gameUrl": "path_finder",
+    "thumbnailUrl": "pathfinder.png"
   },
   "399":{
     "gameTitle": "NameFate",
     "gameUrl": "namefate",
     "thumbnailUrl": "namefate.png"
   },
-  "400":{
+
+"400":{
     "gameTitle": "Menja block breaker",
     "gameUrl": "Menja_block_breaker",
     "thumbnailUrl": "menja_Block_breaker.png"
@@ -2038,7 +2039,7 @@
   "405":{ 
     "gameTitle": "Tiny Fishing",
   "gameUrl": "Tiny_Fishing",
-  "thumbnailUrl": "Tiny-Fishing.png"
+  "thumbnailUrl": "Tiny-fishing.png"
   },
   "406":{
     "gameTitle": "Shrek Vs Wild",
@@ -2055,26 +2056,10 @@
     "gameUrl": "Candy_Crush_Saga",
     "thumbnailUrl": "Candy_Crush_Saga.png"
   },
-  "409":{
-    "gameTitle": "MathQuiz",
-    "gameUrl": "MathQuiz",
-    "thumbnailUrl": "MathQuiz.png"
-  },
-  "410":{
-    "gameTitle":"Puzzle-Game",
-    "gameUrl":"puzzle-game",
-    "thumbnailUrl":"puzzle-game.png"
-  },
-  "411":{
-    "gameTitle": "ShroomKnight",
-    "gameUrl": "ShroomKnight",
-    "thumbnailUrl": "ShroomKnight.png"
-  },
-  "412":{
-    "gameTitle":"Fidget_Spinner_Game",
-    "gameUrl":"Fidget_Spinner_Game",
-    "thumbnailUrl":"Fidget.png"
-  },
+  
+
+  
+
   "413":{
     "gameTitle": "16_Puzzle",
     "gameUrl": "16_Puzzle",
@@ -2084,8 +2069,8 @@
     "gameTitle" : "Colour_Generator_Game",
     "gameUrl": "Colour_Generator_Game",
     "thumbnailUrl": "Colour_Generator_Game.png"
-    },
-  "415":{
+  },
+"415":{
     "gameTitle" : "8 Puzzle Game",
     "gameUrl": "8_Puzzle",
     "thumbnailUrl": "8_Puzzle.png"
@@ -2131,11 +2116,10 @@
     "thumbnailUrl": "Astronaunt_runner.png"
   },
   "424":{
-    "gameTitle" : "Snake_Gun_Water",
-    "gameUrl": "Snake_Gun_Water",
-    "thumbnailUrl": "image.png"
+    "gameTitle" : "Atlas Game",
+    "gameUrl": "Atlas_Game",
+    "thumbnailUrl": "Atlas_Game.png"
     },
-  
   "425":{
     "gameTitle" : "Audio Wordle",
     "gameUrl": "Audio_Wordle",
@@ -2861,6 +2845,11 @@
     "gameUrl": "road_car",
     "thumbnailUrl":"road_car.png" 
   },
+  "570":{
+    "gameTitle" : "Snake_Gun_Water",
+    "gameUrl": "Snake_Gun_Water",
+    "thumbnailUrl": "Snake_Gun_Water.png"
+  },
   "571":{
     "gameTitle" : "Rock paper scissor",
     "gameUrl": "Rock_paper_scissor",
@@ -3144,16 +3133,80 @@
   "627":{
     "gameTitle" : "Penalty_Shootout_Game",
     "gameUrl": "Penalty_Shootout_Game",
-    "thumbnailUrl": "Penalty_Shootout_Game"
-    },
+    "thumbnailUrl": "Penalty_Shootout_Game.png"
+  },
     "628":{
     "gameTitle" : "Atlas Game",
     "gameUrl": "Atlas_Game",
     "thumbnailUrl": "Atlas_Game.png"
   },
   "629":{
+
+    "gameTitle" : "Word Search Game",
+    "gameUrl": "Word_Search_Game",
+    "thumbnailUrl": "Word_Search_Game.jpeg"
+  },
+
+  "630":{
+    "gameTitle" : "Pokemon Adventure Game",
+    "gameUrl": "Pokemon_Adventure_Game",
+    "thumbnailUrl": "Pokemon_Adventure_Game.webp"
+  },
+  "631":{
+    "gameTitle" : "Number Guessing Game",
+    "gameUrl": "HNumber_Guessing_Game",
+    "thumbnailUrl": "NumberGuessingGame.png"
+  },
+  "632":{
+    "gameTitle" : "Brain Game",
+    "gameUrl": "Brain_Game",
+    "thumbnailUrl": "Brain_Game.png"
+  },
+  "633":{
+    "gameTitle" : "2D Fighting Game",
+    "gameUrl": "2D_Fighting_Game",
+    "thumbnailUrl": "2D_Fighting_Game.png"
+  },
+  "634":{
+    "gameTitle" : "Cosmic_Blast",
+    "gameUrl": "Cosmic_Blast",
+    "thumbnailUrl": "Cosmic_Blast.png"
+  },
+  "635":{
+    "gameTitle" : "IKnowYou-Mind-Reading-Game",
+    "gameUrl": "IKnowYou-Mind-Reading-Game",
+    "thumbnailUrl": "IKnowYou-Mind-Reading-Game.png"
+  },
+  "636":{
+    "gameTitle" : "King_Sword_Runner",
+    "gameUrl": "King_Sword_Runner",
+    "thumbnailUrl": "King_Sword_Runner.png"
+
+  },
+  "637":{
+    "gameTitle" : "Multiplayer_Shooting_Game",
+    "gameUrl": "Multiplayer_Shooting_Game",
+    "thumbnailUrl": "Multiplayer_Shooting_Game.jpeg"
+  }
+  },
+  "637":{
+    "gameTitle" : "Sand Tetris",
+    "gameUrl": "sand_tetris",
+    "thumbnailUrl": "logo.png"
+  },
+ "638":{
     "gameTitle" : "Hangman Game",
     "gameUrl": "Hangman_Game",
     "thumbnailUrl": "Hangman_Game.png"
-  }
+  },
+ "639":{
+    "gameTitle" : "Hangman Game",
+    "gameUrl": "Hangman_Game",
+    "thumbnailUrl": "Hangman_Game.png"
+ },
+ "640":{
+    "gameTitle" : "Sky Lift Dash",
+    "gameUrl": "Sky_Lift_Dash",
+    "thumbnailUrl": "Sky_Lift_Dash.png"
+ }
 }

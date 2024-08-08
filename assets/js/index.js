@@ -21,10 +21,10 @@ const generateLiTags = (gamesData, searchText = "") => {
                 <img src="./assets/images/${thumbnailUrl}" alt="${gameTitle}" loading="lazy" class="game-img ignore-dark-theme">
               </figure>
               <div class="title-container">
-                <a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label="${gameTitle}">${tagNumber}. ${gameTitle} 🔗</a>
+                <a href="https://github.com/kunjgit/GameZone/tree/main/Games/${gameUrl}" target="_blank" aria-label="${gameTitle}">${tagNumber}. ${gameTitle}</a>
                 <button class="like-button ${
                   liked ? "liked" : ""
-                }" onclick="like(this, ${tagNumber})">♡</button>
+                }" onclick="like(this, ${tagNumber})"><span class="heart">♡</span></button>
               </div>
             </a>
           </li>

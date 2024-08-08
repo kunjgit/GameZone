@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 15px;
+    background-color: #4b0082;
+}
+
+.game-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    background-color: #3f026b;
+    min-width: 500px;
+}
+.game-container h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #d9a4ff;
+}
+#synonym-input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+li {
+    font-size: 15px;
+    color: whitesmoke;
+    margin-bottom: 10px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #ac37ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #9a0cff;
+}
+
+#feedback {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#score, #timer {
+    margin-top: 15px;
+}
+p {
+    font-size: 16px;
+    color: white;
+}
+#score {
+    color: #31c139;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+#final-feedback {
+    font-size: 16px;
+}
+#user-provided {
+    font-size: 13px;
+    color: yellow;
+}

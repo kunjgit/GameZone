@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synonym Symphony</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container start-container">
+        <h1>Synonym Symphony</h1>
+        <ul style="text-align: left;">
+            <li>The game will provide a word to the player. This word will be the starting point for finding synonyms.</li>
+            <li>The player inputs words they believe are synonyms of the given word.</li>
+            <li>There will be a countdown timer of 60s for limiting the time players have to enter synonyms.</li>
+            <li>For each valid synonym you will recieve 10 points.</li>
+        </ul>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    <div class="game-container play">
+        <h1>Synonym Symphony</h1>
+        <p id="word-display">Word: <span id="word">Happy</span></p>
+        <input type="text" id="synonym-input" placeholder="Enter a synonym">
+        <button onclick="checkSynonym()">Submit</button>
+        <p id="feedback"></p>
+        <p id="score">Score: 0</p>
+        <p id="user-provided"></p>
+        <p id="timer">Time Left: <span id="time">60</span>s</p>
+        
+    </div>
+
+    <div class="game-container end-container">
+        <h1>Synonym Symphony</h1>
+        <p id="final-feedback"></p>
+        <button onclick="playAgain()">Play again</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

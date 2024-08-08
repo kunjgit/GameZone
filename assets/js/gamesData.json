@@ -1600,7 +1600,7 @@
   "318": {
     "gameTitle": "Pig game",
     "gameUrl": "Pig_game",
-    "thumbnailUrl": "Pig_game.jpg"
+    "thumbnailUrl": "Pig_game.JPG"
   },
   "319": {
     "gameTitle": "Asteroids 3D",
@@ -2039,7 +2039,7 @@
   "405":{ 
     "gameTitle": "Tiny Fishing",
   "gameUrl": "Tiny_Fishing",
-  "thumbnailUrl": "Tiny-Fishing.png"
+  "thumbnailUrl": "Tiny-fishing.png"
   },
   "406":{
     "gameTitle": "Shrek Vs Wild",
@@ -3203,5 +3203,10 @@
     "gameTitle" : "Hangman Game",
     "gameUrl": "Hangman_Game",
     "thumbnailUrl": "Hangman_Game.png"
+ },
+ "640":{
+    "gameTitle" : "Sky Lift Dash",
+    "gameUrl": "Sky_Lift_Dash",
+    "thumbnailUrl": "Sky_Lift_Dash.png"
  }
 }

@@ -1,0 +1,80 @@
+body{
+    font-family:sans-serif;
+    padding: 50px;
+    background:rgb(227, 107, 163);
+}
+
+.wrapper{
+    max-width: 800px;
+    margin-left: 180px;
+}
+
+.blue {
+    color:#b53811;
+    margin-left: 10px;
+   font-size: larger;
+}
+
+h1{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 120px;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #050648;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight:bolder;
+}
+
+#balloon-gallery div{
+    background: #ff3300;
+    height: 121px;
+    width: 119px;
+    text-align: center;
+    color: #ff3300;
+    font-size: 40px;
+    font-family: sans-serif, arial;
+    border-radius: 100%;
+    margin-top: 20px;
+    display: inline-block;
+    /* float: left; */
+    margin: 2.5px 5 px 2.5px 0px;
+}
+
+#balloon-gallery div:nth-child(3n){
+    background: #6c0c65;
+    color: #6c0c65;
+}
+
+#balloon-gallery div:nth-child(3n-1){
+    background:#059434;
+    color:#059434;
+}
+
+#balloon-gallery div:nth-child(5n){
+    background:#3d1ee8;
+    color: #3d1ee8;
+}
+
+#balloon-gallery div:nth-child(13){
+    background:#3d1ee8;
+    color: #3d1ee8;
+}
+
+#balloon-gallery div:nth-child(10n){
+    background:#ff3300;
+    color: #ff3300;
+}
+
+#balloon-gallery div:nth-child(4n){
+    background:#cdb010;
+    color: #cdb010;
+    clear:right;
+}
+
+#yay-no-balloons {
+    display:none;
+    color:#0f0f10;
+    font-size:80px;
+}

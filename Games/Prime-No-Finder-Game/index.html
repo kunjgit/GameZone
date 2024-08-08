@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .background-image {
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="background-image text-white flex items-center justify-center h-screen">
+    <div class="bg-gray-800 bg-opacity-75 p-10 rounded-lg shadow-lg">
+        <h1 class="text-4xl mb-4 text-center">Prime Number Finder</h1>
+        <p class="text-lg mb-6 text-center">Enter a number to check if it's a prime number.</p>
+        <div class="mb-4">
+            <input id="numberInput" type="number" placeholder="Enter number" class="w-full p-2 rounded-lg text-black">
+        </div>
+        <div class="mb-4 text-center">
+            <button onclick="checkPrime()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Check</button>
+        </div>
+        <div id="result" class="text-center text-2xl"></div>
+        <img id="resultImage" class="mt-4 mx-auto w-32 h-32 hidden">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Scramble Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="start" class="section">
+        <h1>Sentence Scramble Game</h1>
+        <p class="rules">
+            <strong>Rules:</strong><br>
+            1. Unscramble the sentence.<br>
+            2. Type your answer and click "Check Answer."<br>
+            3. You have 60 seconds per sentence.<br>
+            4. Complete all 5 sentences to finish the game.
+        </p>
+        <p>Select difficulty level:</p>
+        <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select><br>
+        <button id="start-game">Start Game</button>
+        
+    </div>
+
+    <div id="play" class="section" style="display:none;">
+        <div class="controls">
+            <div id="timer">Time: 00:00</div>
+        </div>
+        <div class="scrambled-sentence" id="scrambled-sentence"></div>
+        <input type="text" id="user-input" placeholder="Unscramble the sentence">
+        <button id="check-answer">Check Answer</button>
+        <div id="result"></div>
+    </div>
+
+    <div id="end" class="section" style="display:none;">
+        <h1>Game Over</h1>
+        <div id="final-result"></div>
+        <button id="restart-game">Start New Game</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

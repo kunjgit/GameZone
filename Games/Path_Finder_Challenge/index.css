@@ -1,0 +1,148 @@
+/* Dark Theme */
+:root {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --grid-background: #1e1e1e;
+    --grid-item-color: #333333;
+    --button-background: #4caf50;
+    --button-hover-background: #388e3c;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--grid-background);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 5px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    width: 50px;
+    height: 50px;
+    background-color: var(--grid-item-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 24px; /* Adjust font size for symbols */
+}
+
+.obstacle {
+    background-color: #060100;
+}
+
+.bonus {
+    background-color: #4caf50;
+}
+
+.special {
+    background-color: #ffc107;
+}
+
+.normal {
+    background-color: var(--grid-item-color);
+}
+
+.source {
+    background-color: #2196f3;
+}
+
+.destination {
+    background-color: #ff5722;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+/*.theme-toggle 
+    display: none; /* Hide theme toggle button as dark theme is always applied */
+
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button-background);
+    color: var(--text-color);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover-background);
+}
+
+.game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.selected {
+    background-color: #d8f4d9; /* Light green for selected path */
+    border: 2px solid #000901;
+    opacity: 0.8;
+}
+
+/* Symbols */
+.grid-item::before {
+    content: "";
+    display: inline-block;
+    font-size: 24px; /* Adjust as needed */
+}
+
+.source::before {
+    content: "🏁"; /* Symbol for the source */
+}
+
+.destination::before {
+    content: "🎯"; /* Symbol for the destination */
+}
+
+.bonus::before {
+    content: "👑"; /* Crown symbol for the bonus */
+}
+
+.obstacle::before {
+    content: "❌"; /* Cross symbol for obstacles */
+}

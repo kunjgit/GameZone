@@ -3216,10 +3216,15 @@
     "gameTitle" : "Block Vault",
     "gameUrl": "Block_Vault",
     "thumbnailUrl": "Block_Vault.png"
- }
+ },
   "643":{
     "gameTitle" : "Droop Dash Game",
     "gameUrl": "Drop_Dash_Game",
+    "thumbnailUrl": "Drop_Dash_Game.png"
+ },
+  "644":{
+    "gameTitle" : "Random Choice Picker",
+    "gameUrl": "Random_Choice_Picker",
     "thumbnailUrl": "Drop_Dash_Game.png"
  }
 }

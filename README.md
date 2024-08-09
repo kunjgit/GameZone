@@ -911,7 +911,7 @@ This repository also provides one such platforms where contributers come over an
 | [Drum_kit] (https://github.com/kunjgit/GameZone/tree/main/Games/Drum_kit)|
 | [Prime-No-Finder-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Prime-No-Finder-Game)|  
 | [Synonym-Typing-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Synonym-Typing-Game)|
-| [Color Blink Challenge] (https://github.com/kunjgit/GameZone/tree/main/Games/Color_Blink_Challenge)|
+| [Color Blink Challenge] (https://github.com/kunjgit/GameZone/tree/main/Games/Color Blink Challenge)|
 </center>
 <br>
 <p align="right"><a href="#top">Back to top</a></p>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="gamerules.css" />
+    <title>Game Rules</title>
+    <link rel="icon" href="./images/registerpage-favicon.png" type="images/png">
+</head>
+  <body>
+    <div class="back-button">
+        <a href="index.html">
+            <img src="./images/home.png" alt="Back to Home" class="home-icon">
+        </a>
+    </div>
+
+    <div class="container">
+
+      <h1>How To Play?</h1>
+      <hr />
+      <h2>Life's Mosaic</h2>
+      <p>
+        Life's Mosaic, or simply "Life," is a cellular automaton devised
+        by British mathematician John Horton Conway in 1970. It is a zero-player
+        game, meaning its evolution is determined by its initial state,
+        requiring no further input. Players interact with the game by creating
+        an initial configuration and observing how it evolves. The game is
+        Turing complete and can simulate a universal constructor or any other
+        Turing machine.
+      </p>
+      <hr />
+      <h2>The Universe</h2>
+      <p>
+        The universe of the Game of Life is an infinite, two-dimensional
+        orthogonal grid of square cells, Each cell is in one of two possible
+        states, ALIVE or DEAD. Every cell interacts with its eight neighbors,
+        which are the cells that are horizontally, vertically, or diagonally
+        adjacent.
+      </p>
+      <hr />
+      <h2>Rules</h2>
+      <ol>
+        <li>
+          Any live cell with fewer than two live neighbors dies, as if by
+          underpopulation.
+        </li>
+        <li>
+          Any live cell with two or three live neighbors lives on to the next
+          generation.
+        </li>
+        <li>
+          Any live cell with more than three live neighbors dies, as if by
+          overpopulation.
+        </li>
+        <li>
+          Any dead cell with exactly three live neighbors becomes a live cell,
+          as if by reproduction.
+        </li>
+      </ol>
+      <p>
+        The first generation is created by applying the above rules
+        simultaneously to every cell in the seed, alive or dead; births and
+        deaths occur simultaneously, and the discrete moment at which this
+        happens is sometimes called a tick. Each generation is a pure function
+        of the preceding one.
+      </p>
+      <h2>The Game</h2>
+      <img src="images/Game-Grid.png" alt="Game Grid" class="center" />
+      <table>
+        <caption>
+          Button Functions
+        </caption>
+        <tr>
+          <th>Button</th>
+          <th>What they do</th>
+        </tr>
+        <tr>
+          <td><img src="images/Pause-Button.svg" alt="Pause Button" /></td>
+          <td>Starts the animation after you've set the initial pattern</td>
+        </tr>
+        <tr>
+          <td><img src="images/Play-Button.svg" alt="Play Button" /></td>
+          <td>Pauses the animation</td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src="images/Fast-Forward-Button.svg"
+              alt="Fast Forward Button"
+            />
+          </td>
+          <td>Increases the speed of the animation</td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src="images/Fast-Reverse-Button.svg"
+              width="35"
+              height="30"
+              alt="Slow Down Button"
+            />
+          </td>
+          <td>Decreases the speed of the animation</td>
+        </tr>
+        <tr>
+          <td>Clear</td>
+          <td>
+            Clears the grid on click, only if the game is not animating at that
+            moment
+          </td>
+        </tr>
+        <tr>
+          <td>Random</td>
+          <td>Randomly initializes the grid with initial randomness as 20%</td>
+        </tr>
+      </table>
+      <hr />
+      <h2>The Presets</h2>
+      <div>
+        <h3>Glider</h3>
+        <p>
+          The glider is the smallest, most common, and first-discovered
+          spaceship in Game of Life. It travels diagonally across the grid.
+          Gliders are important because they are easily produced (by glider guns
+          and rakes), can be collided with each other to form more complicated
+          patterns, and can be used to transmit information over long distances.
+        </p>
+        <img src="images/Small-Glider.png" alt="Small Glider" class="center" />
+      </div>
+      <div>
+        <h3>Big Glider</h3>
+        <p>
+          The big glider was found by Dean Hickerson in December 1989 and was
+          the first known diagonal spaceship other than the glider. Two gliders
+          can be temporarily seen at the front of the ship; these do not stay
+          gliders but still move like them.
+        </p>
+        <img
+          src="images/Big-Glider.png"
+          alt="Big Glider"
+          class="center"
+          style="width: 18%; height: 18%"
+        />
+      </div>
+      <div>
+        <h3>Gosper Glider Gun</h3>
+        <p>
+          The Gosper glider gun is the first known gun, and indeed the first
+          known finite pattern with unbounded growth, found by Bill Gosper in
+          November 1970. It consists of two queen bee shuttles stabilized by two
+          blocks.
+        </p>
+        <img
+          src="images/Gosper-Glider-Gun.png"
+          alt="Gosper Glider Gun"
+          class="center"
+        />
+      </div>
+      <hr />
+      <h2>Summary</h2>
+      <p>
+        Life's Mosaic Life is a fascinating exploration of life, death, and
+        the rules that govern them. Despite its simplicity, it can lead to
+        complex and beautiful patterns.Life's Mosaic offers a unique way to
+        explore the unpredictable beauty of life itself.
+      </p>
+      <p class="footer">Enjoy the Game!</p>
+      <div class = "homeButton">
+        <a href="index.html" class="back-to-home">Back to Home</a>
+    </div>
+    </div>
+  </body>
+</html>

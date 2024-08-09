@@ -1693,7 +1693,11 @@ This repository also provides one such platforms where contributers come over an
 |[Synonym_Symphony](https://github.com/kunjgit/GameZone/tree/main/Games/Synonym_Symphony)|
 |[Sentence_Scramble](https://github.com/kunjgit/GameZone/tree/main/Games/Sentence_Scramble)|
 |[Quiz_With_Timer](https://github.com/kunjgit/GameZone/tree/main/Games/Quiz_With_Timer)|
+
+| [Number_Catcher_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Catcher_Game)|
+
 |[Infinite_Cars](https://github.com/kunjgit/GameZone/tree/main/Games/Infinite_Cars)|
+
 |[Find_The_Missing_Letter](https://github.com/kunjgit/GameZone/tree/main/Games/Find_The_Missing_Letter)|
 | [Hole_And_Mole_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Hole_And_Mole_Game)|
 |[Animal_Name_Guessing](https://github.com/kunjgit/GameZone/tree/main/Games/Animal_Name_Guessing)|

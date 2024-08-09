@@ -330,6 +330,7 @@ This repository also provides one such platforms where contributers come over an
 |[Carrom Board Game](https://github.com/kunjgit/GameZone/tree/main/Games/carrom)|
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Airhockey_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_Game) |
+| [Elemental Flux Game](https://github.com/kunjgit/GameZone/tree/main/Games/Elemental_Flux)|
  </center>
 
 <br>

@@ -1,0 +1,134 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('bg.png');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1200px;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.8); /* Darken background to make text readable */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Slight transparency for background */
+}
+
+.left-column {
+    text-align: left;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.right-column {
+    text-align: right;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-container {
+    flex: 2;
+    text-align: center;
+    padding: 20px;
+}
+
+.header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #FFD700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    background-color: transparent;
+    border: 3px solid #FFD700;
+    transition: background-color 0.3s ease;
+    animation: blink 1s infinite alternate;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #FF4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    box-shadow: 0 4px #d23a00;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #FF6347;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    box-shadow: 0 2px #d23a00;
+    transform: translateY(2px);
+}
+
+.input-field {
+    padding: 8px;
+    margin: 10px 0;
+    width: 60px;
+    text-align: center;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.game-info {
+    margin-top: 20px;
+}
+
+.score-time {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #FFD700;
+}
+
+@keyframes blink {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 0, 0.6);
+    }
+}

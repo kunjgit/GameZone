@@ -748,7 +748,7 @@ This repository also provides one such platforms where contributers come over an
 | [Etch_a_Sketch_2](https://github.com/kunjgit/GameZone/tree/main/Games/Etch_a_Sketch_2) |
 
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect) |
-| [Path_Finder_Challange](https://github.com/kunjgit/GameZone/tree/main/Games/Path_Finder_Challenge)
+| [Path_Finder_Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Path_Finder_Challenge) |
 | [namefate](https://github.com/kunjgit/GameZone/tree/main/Games/namefate) |
 | [Fruit_Catching_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching_Game) |
 | [color_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application) |

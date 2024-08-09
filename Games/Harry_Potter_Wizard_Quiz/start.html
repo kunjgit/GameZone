@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter Wizard Quiz Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="startup-container">
+        <h1>Welcome to the Harry Potter Wizard Quiz Game!</h1>
+        <button id="start-button">Play</button>
+    </div>
+    <script>
+        document.getElementById('start-button').addEventListener('click', () => {
+            window.location.href = 'index.html'; // Redirect to the quiz game
+        });
+    </script>
+</body>
+
+</html>

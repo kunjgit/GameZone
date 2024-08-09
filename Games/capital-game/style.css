@@ -1,0 +1,112 @@
+
+#container{
+    width: 100%;
+    height: 110vh;
+    background-image: url("assets/Wallpaper.jpeg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#main {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 54%;
+    height: 56%;
+    border: 2px solid rgb(6, 3, 18);
+    border-radius: 15px;
+    border-width: 3px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#heading {
+
+    color: rgb(6, 3, 18);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.05vmax;
+    margin-bottom: 0.05vmax;
+}
+/*Flag*/
+#Flag{
+    
+ text-align: center;
+display: flex;
+justify-content: space-evenly;
+     
+}
+#Flag img{
+    height: 10vmax;
+    max-width: 50%;
+}
+/*Country*/
+#Country{
+    text-align: center;
+   
+    display: flex;
+   
+    justify-content: space-evenly;
+    font-size: 1.5vmax;
+    text-align: center;
+    height: 3vmax;
+    color: rgb(6, 3, 18);
+    
+
+}
+/*ANSWER*/
+#answer{
+    color: rgb(6, 3, 18);
+    font-size: 1.75vmax;
+    text-align: center;
+    border-radius: 0.5vmax;
+    height: 2.5vmax;
+    padding: 0.5vmax;
+}
+/*BUTTON*/
+#button{
+    padding: 0.5vmax;
+    text-align: center;
+}
+
+#button button{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 3vmax;
+    width: 5.1vmax;
+    font-size: 1.15vmax;
+    text-align: center;
+    border-radius: 0.5vmax;
+    border: none;
+    background-color:rgb(6, 3, 18);
+    color:white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#button button:hover {
+    background-color:rgb(49,43,75);
+}
+#result {
+    
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    padding: 0.5vm;
+    margin-bottom: 25px;
+  }
+@media (max-width: 576px) {
+    #main {
+        padding: 20px;
+    }
+
+    #heading h1 {
+        font-size: 1.2em;
+    }
+
+    #output{
+        font-size: 1.5vmax;
+    }
+
+    #picture img{
+        height: 25vmax;
+    }
+}
+

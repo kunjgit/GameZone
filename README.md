@@ -362,6 +362,7 @@ This repository also provides one such platforms where contributers come over an
 | [Am_I_the_number](https://github.com/kunjgit/GameZone/tree/main/Games/Am_I_the_number)   |
 
 |[Gem_Cruncher](https://github.com/kunjgit/GameZone/tree/main/Games/Gem_Cruncher)|
+|[Rainy Day](https://github.com/kunjgit/GameZone/tree/main/Games/Rainy_Day)|
 
  </center>
 

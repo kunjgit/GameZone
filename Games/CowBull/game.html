@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cows and Bulls</title>
+    <link rel="stylesheet" href="assets/css/game.css" />
+    <link rel="icon" href="../../assets/images/cowlogo.png" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LERGGZ5WH2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-LERGGZ5WH2");
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="main-navigation">
+        <a href="index.html"
+          ><img class="logo" src="../../assets/images/cowlogo.png" alt=""
+        /></a>
+        <ul>
+          <li><a href="#" class="how-to-play">How to play?</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="overlay">
+      <div class="instructions-box">
+        <h1>Instructions</h1>
+        <p>Welcome to Cows and Bulls!</p>
+        <p class="obj">
+          <strong>Objective:</strong> Guess the secret number within 10
+          attempts.
+        </p>
+        <p>Rules</p>
+        <ul>
+          <li>
+            A secret number will be generated, consisting of non-repeating 3
+            digits (each digit between 1 and 9).
+          </li>
+          <li>
+            You need to guess the secret number by entering a 3-digit number.
+          </li>
+          <li>
+            If a guessed digit matches the corresponding digit in the secret
+            number and is in the correct position, it's a "Bull."
+          </li>
+          <li>
+            If a guessed digit matches a digit in the secret number but is in
+            the wrong position, it's a "Cow."
+          </li>
+          <li>
+            Based on the number of Bulls and Cows, you can refine your guesses
+            until you find the secret number.
+          </li>
+          <li>
+            You have a total of 10 attempts to guess the number. Use them
+            wisely!
+          </li>
+        </ul>
+        <p>Have fun playing Cows and Bulls!</p>
+        <div class="close-btn">&times;</div>
+      </div>
+    </div>
+    <h1>Game Board</h1>
+    <div class="cnb">
+      <div class="container left">
+        <p id="status">Computer has guessed a 3-digit number</p>
+        <p>It's your turn to guess!</p>
+
+        <div id="game">
+          <input
+            type="text"
+            id="guessInput"
+            maxlength="3"
+            placeholder="Enter your guess"
+          />
+          <button id="submitBtn" onclick="submitGuess()">Submit</button>
+          <button id="newGameBtn" onclick="newGame()">New Game</button>
+        </div>
+      </div>
+
+      <div class="container right">
+        <h2>Results</h2>
+        <div id="resultsContainer">
+          <table id="resultsTable">
+            <thead>
+              <tr>
+                <th>Attempt</th>
+                <th>Guess</th>
+                <th>Cows</th>
+                <th>Bulls</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/game.js"></script>
+  </body>
+</html>

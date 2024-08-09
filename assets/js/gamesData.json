@@ -1600,7 +1600,7 @@
   "318": {
     "gameTitle": "Pig game",
     "gameUrl": "Pig_game",
-    "thumbnailUrl": "Pig_game.jpg"
+    "thumbnailUrl": "Pig_game.JPG"
   },
   "319": {
     "gameTitle": "Asteroids 3D",
@@ -2039,7 +2039,7 @@
   "405":{ 
     "gameTitle": "Tiny Fishing",
   "gameUrl": "Tiny_Fishing",
-  "thumbnailUrl": "Tiny-Fishing.png"
+  "thumbnailUrl": "Tiny-fishing.png"
   },
   "406":{
     "gameTitle": "Shrek Vs Wild",
@@ -3181,27 +3181,45 @@
     "gameTitle" : "King_Sword_Runner",
     "gameUrl": "King_Sword_Runner",
     "thumbnailUrl": "King_Sword_Runner.png"
-
   },
   "637":{
+    "gameTitle" : "Infinite_Cars",
+    "gameUrl": "Infinite_Cars",
+    "thumbnailUrl": "infinite_Cars.png"
+  },
+  "638":{
     "gameTitle" : "Multiplayer_Shooting_Game",
     "gameUrl": "Multiplayer_Shooting_Game",
     "thumbnailUrl": "Multiplayer_Shooting_Game.jpeg"
-  }
   },
-  "637":{
+  "639":{
     "gameTitle" : "Sand Tetris",
     "gameUrl": "sand_tetris",
     "thumbnailUrl": "logo.png"
   },
- "638":{
+ "640":{
     "gameTitle" : "Hangman Game",
     "gameUrl": "Hangman_Game",
     "thumbnailUrl": "Hangman_Game.png"
   },
- "639":{
+ "641":{
     "gameTitle" : "Hangman Game",
     "gameUrl": "Hangman_Game",
     "thumbnailUrl": "Hangman_Game.png"
+ },
+ "642":{
+    "gameTitle" : "Sky Lift Dash",
+    "gameUrl": "Sky_Lift_Dash",
+    "thumbnailUrl": "Sky_Lift_Dash.png"
+ },
+ "643":{
+    "gameTitle" : "Block Vault",
+    "gameUrl": "Block_Vault",
+    "thumbnailUrl": "Block_Vault.png"
+ }
+  "643":{
+    "gameTitle" : "Droop Dash Game",
+    "gameUrl": "Drop_Dash_Game",
+    "thumbnailUrl": "Drop_Dash_Game.png"
  }
 }

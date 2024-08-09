@@ -454,7 +454,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 | [Gravity_Drops](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Drops) | 
 | [Sky_Lift_Dash](https://github.com/kunjgit/GameZone/tree/main/Games/Sky_Lift_Dash) |
 | [Block_Vault](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Vault) |
-
+| [Ball and Paddle game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball-And-Paddle-Game) |
 </center>
 <br>
 <p align="right"><a href="#top">Back to top</a></p>

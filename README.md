@@ -311,13 +311,16 @@ This repository also provides one such platforms where contributers come over an
 | [NewsJunction](https://github.com/kunjgit/GameZone/tree/main/Games/NewsJunction) |
 | [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures) |
 
-| [WordScramble](https://github.com/kunjgit/GameZone/tree/main/Games/wordScramble)
+| [WordScramble](https://github.com/kunjgit/GameZone/tree/main/Games/wordScramble)          
+[Roll_The_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_The_Dice)  |
+| [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk)                  |
+| [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures)                  | [Screen Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Screen-Pet-Game) |
+| [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme)                  |
+| [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball)                  |
 
-[Roll_The_Dice](https://github.com/kunjgit/GameZone/tree/main/Games/Roll_The_Dice) |
-| [Black_jackk](https://github.com/kunjgit/GameZone/tree/main/Games/Black_jackk) |
-| [Recognizing_Figures](https://github.com/kunjgit/GameZone/tree/main/Games/Recognizing_Figures) | [Screen Pet Game](https://github.com/kunjgit/GameZone/tree/main/Games/Screen-Pet-Game) |
-| [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme) |
-| [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball) |
+|[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
+|[Alien_Language_Translator](https://github.com/kunjgit/GameZone/tree/main/Games/Alien_Language_translator)  |
+[Fidget Spinner Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fidget_Spinner_Game)|
 | [Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
 |[Building Blocks Game](https://github.com/kunjgit/GameZone/tree/main/Games/Building_Block_Game)|
 |[Cartoon character guessing game](https://github.com/kunjgit/GameZone/tree/main/Games/Cartoon_Character_Guessing_Game)|
@@ -745,7 +748,7 @@ This repository also provides one such platforms where contributers come over an
 | [Etch_a_Sketch_2](https://github.com/kunjgit/GameZone/tree/main/Games/Etch_a_Sketch_2) |
 
 | [Hover_Board_Effect](https://github.com/kunjgit/GameZone/tree/main/Games/Hover_Board_Effect) |
-
+| [Path_Finder_Challange](https://github.com/kunjgit/GameZone/tree/main/Games/Path_Finder_Challenge)
 | [namefate](https://github.com/kunjgit/GameZone/tree/main/Games/namefate) |
 | [Fruit_Catching_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Fruit_Catching_Game) |
 | [color_matching_application](https://github.com/kunjgit/GameZone/tree/main/Games/color_matching_application) |

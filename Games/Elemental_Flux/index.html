@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Sources Drag & Drop Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Energy Sources: Renewable vs. Non-Renewable</h1>
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="game-area">
+            <div class="dropzone" id="renewable">
+                <h2>Renewable</h2>
+            </div>
+            <div class="dropzone" id="non-renewable">
+                <h2>Non-Renewable</h2>
+            </div>
+            <div class="cards-container">
+                <div class="card" draggable="true" data-type="renewable">
+                    <img src="images/solor.jpeg" alt="Solar">
+                    <p>Solar</p>
+                </div>
+                <div class="card" draggable="true" data-type="non-renewable">
+                    <img src="images/coal.jpeg" alt="Coal">
+                    <p>Coal</p>
+                </div>
+                <div class="card" draggable="true" data-type="renewable">
+                    <img src="images/wind.jpeg" alt="Wind">
+                    <p>Wind</p>
+                </div>
+                <div class="card" draggable="true" data-type="non-renewable">
+                    <img src="images/gas.jpeg" alt="Natural Gas">
+                    <p>Natural Gas</p>
+                </div>
+                <div class="card" draggable="true" data-type="renewable">
+                    <img src="images/hydro.jpeg" alt="Hydroelectric">
+                    <p>Hydroelectric</p>
+                </div>
+                <div class="card" draggable="true" data-type="non-renewable">
+                    <img src="images/oil.jpeg" alt="Oil">
+                    <p>Oil</p>
+                </div>
+            </div>
+        </div>
+        <button id="continue-btn" style="display: none;">Continue</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

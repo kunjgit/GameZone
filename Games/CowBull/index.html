@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cows and Bulls</title>
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="icon" href="assets/images/logo.png" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LERGGZ5WH2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-LERGGZ5WH2");
+    </script>
+  </head>
+
+  <body>
+    <div class="out"></div>
+    <div id="particles-js"></div>
+    <header>
+      <nav class="main-navigation">
+        <a href="index.html"
+          ><img class="logo" src="../../assets/images/cowlogo.png" alt=""
+        /></a>
+        <ul>
+          <li><a href="#" class="how-to-play">How to play?</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="intro">
+      <h1>Cows and Bulls</h1>
+      <img class="image" src="../../assets/images/cowhome.png" />
+      <div ontouchstart="">
+        <div class="button">
+          <a href="game.html">Play</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay">
+      <div class="instructions-box">
+        <h1>Instructions</h1>
+        <p>Welcome to Cows and Bulls!</p>
+        <p class="obj">
+          <strong>Objective:</strong> Guess the secret number within 10
+          attempts.
+        </p>
+        <p>Rules</p>
+        <ul>
+          <li>
+            A secret number will be generated, consisting of non-repeating 3
+            digits (each digit between 1 and 9).
+          </li>
+          <li>
+            You need to guess the secret number by entering a 3-digit number.
+          </li>
+          <li>
+            If a guessed digit matches the corresponding digit in the secret
+            number and is in the correct position, it's a "Bull."
+          </li>
+          <li>
+            If a guessed digit matches a digit in the secret number but is in
+            the wrong position, it's a "Cow."
+          </li>
+          <li>
+            Based on the number of Bulls and Cows, you can refine your guesses
+            until you find the secret number.
+          </li>
+          <li>
+            You have a total of 10 attempts to guess the number. Use them
+            wisely!
+          </li>
+        </ul>
+        <p>Have fun playing Cows and Bulls!</p>
+        <div class="close-btn">&times;</div>
+      </div>
+    </div>
+    <script src="assets/js/particles.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>

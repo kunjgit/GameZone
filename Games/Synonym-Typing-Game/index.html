@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synonym Typing Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="bg"></div>
+    <div id="game">
+        <h1 class="game-title">Synonym Typing Game</h1>
+        <p id="word"></p>
+        <input type="text" id="synonymInput" placeholder="Type a synonym">
+        <button onclick="submitSynonym()">Submit</button>
+        <div id="game-info">
+            <p>Time Left: <span id="time">60</span> seconds</p>
+            <p>Score: <span id="score">0</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{
+  "blue": {
+    "--primary-color": "#0f045a",
+    "--theme-color1": "#7582b2",
+    "--theme-color2": "#036c96",
+    "--theme-color3": "#ebf2ff",
+    "--shadow-color1": "#352a7e",
+    "--shadow-color2": "#101536",
+    "--border-color1": "#080126",
+    "--background-col": "#c6cede",
+    "ALIVE_COLOR": "#00246B",
+    "DEAD_COLOR": "#CADCFC"
+  },
+  "green": {
+    "--primary-color": "#045a1e",
+    "--theme-color1": "#75B289",
+    "--theme-color2": "#03962f",
+    "--theme-color3": "#EBFFEF",
+    "--shadow-color1": "#2A7E4D",
+    "--shadow-color2": "#10361C",
+    "--border-color1": "#01260B",
+    "--background-col": "#C6DECC",
+    "ALIVE_COLOR": "#006b2b",
+    "DEAD_COLOR": "#cafcdd"
+  },
+  "red": {
+    "--primary-color": "#5a0404",
+    "--theme-color1": "#B27575",
+    "--theme-color2": "#960320",
+    "--theme-color3": "#FFEBEB",
+    "--shadow-color1": "#7E2A37",
+    "--shadow-color2": "#361015",
+    "--border-color1": "#260106",
+    "--background-col": "#DEC6C6",
+    "ALIVE_COLOR": "#6b0000",
+    "DEAD_COLOR": "#fccaca"
+  },
+  "purple": {
+    "--primary-color": "#5a045a",
+    "--theme-color1": "#B275B2",
+    "--theme-color2": "#960396",
+    "--theme-color3": "#FFEBFF",
+    "--shadow-color1": "#7E2A7E",
+    "--shadow-color2": "#361036",
+    "--border-color1": "#260126",
+    "--background-col": "#DEC6DE",
+    "ALIVE_COLOR": "#6b006b",
+    "DEAD_COLOR": "#fcafcf"
+  },
+  "darkCyan": {
+    "--primary-color": "#045a5a",
+    "--theme-color1": "#75B2B2",
+    "--theme-color2": "#039696",
+    "--theme-color3": "#EBFFFF",
+    "--shadow-color1": "#2A7E7E",
+    "--shadow-color2": "#103636",
+    "--border-color1": "#012626",
+    "--background-col": "#C6DEDE",
+    "ALIVE_COLOR": "#006b6b",
+    "DEAD_COLOR": "#cafcfc"
+  },
+  "neon": {
+    "--primary-color": "#d0ff00",
+    "--theme-color1": "#00cc26",
+    "--theme-color2": "#00b81b",
+    "--theme-color3": "#004640",
+    "--shadow-color1": "#fc0101",
+    "--shadow-color2": "#000000",
+    "--border-color1": "#002628",
+    "--background-col": "#000525",
+    "ALIVE_COLOR": "#9800f5",
+    "DEAD_COLOR": "#80ffff"
+  },
+  "black": {
+    "--primary-color": "#505050",
+    "--theme-color1": "#FFFFFF",
+    "--theme-color2": "#808080",
+    "--theme-color3": "#FFFFFF",
+    "--shadow-color1": "#808080",
+    "--shadow-color2": "#000000",
+    "--border-color1": "#000000",
+    "--background-col": "#FFFFFF",
+    "ALIVE_COLOR": "#000000",
+    "DEAD_COLOR": "#FFFFFF"
+  },"cyberpunk": {
+    "--primary-color": "#FCE4EC",       
+    "--theme-color1": "#EC407A",       
+    "--theme-color2": "#D81B60",       
+    "--theme-color3": "#AD1457",        
+    "--shadow-color1": "#FF0056",       
+    "--shadow-color2": "#C2185B",       
+    "--border-color1": "#880E4F",       
+    "--background-col": "#FFF0F5",       
+    "ALIVE_COLOR": "#EC407A",           
+    "DEAD_COLOR": "#FCE4EC"            
+}
+
+}

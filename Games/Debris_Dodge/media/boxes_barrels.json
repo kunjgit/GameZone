@@ -1,0 +1,60 @@
+{"frames": {
+
+"barrel_side.png":
+{
+	"frame": {"x":2,"y":2,"w":30,"h":36},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":36},
+	"sourceSize": {"w":30,"h":36}
+},
+"barrel_top.png":
+{
+	"frame": {"x":34,"y":2,"w":30,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":32},
+	"sourceSize": {"w":30,"h":32}
+},
+"box.png":
+{
+	"frame": {"x":42,"y":40,"w":50,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":50},
+	"sourceSize": {"w":50,"h":50}
+},
+"box_2x1.png":
+{
+	"frame": {"x":2,"y":176,"w":80,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":80,"h":53},
+	"sourceSize": {"w":80,"h":53}
+},
+"box_2x2.png":
+{
+	"frame": {"x":2,"y":92,"w":80,"h":82},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":80,"h":82},
+	"sourceSize": {"w":80,"h":82}
+},
+"box_small.png":
+{
+	"frame": {"x":2,"y":40,"w":38,"h":40},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":40},
+	"sourceSize": {"w":38,"h":40}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "boxes_barrels.png",
+	"format": "RGBA8888",
+	"size": {"w":94,"h":231},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e1f8dd3e75d56379964832e4e1fe08fd:ca59b503f7b878a09d84d41cbeb53a15:d01cf1bf6125b2a1524959777ff4451f$"
+}
+}

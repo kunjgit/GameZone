@@ -1,0 +1,82 @@
+#!/usr/bin/env ruby
+
+require 'gosu_texture_packer'
+require 'perlin_noise'
+require 'gosu'
+
+root_dir = File.expand_path(File.join(
+  File.dirname(File.dirname(__FILE__)), 'lib'))
+
+%w(
+  game_states/game_state.rb
+  game_states/play_state.rb
+  entities/components/component.rb
+  entities/components/ai/tank_motion_state.rb
+  entities/game_object.rb
+  entities/powerups/powerup.rb
+  entities/box.rb
+  entities/bullet.rb
+  entities/camera.rb
+  entities/components/ai/gun.rb
+  entities/components/ai/tank_chasing_state.rb
+  entities/components/ai/tank_fighting_state.rb
+  entities/components/ai/tank_fleeing_state.rb
+  entities/components/ai/tank_motion_fsm.rb
+  entities/components/ai/tank_motion_state.rb
+  entities/components/ai/tank_navigating_state.rb
+  entities/components/ai/tank_roaming_state.rb
+  entities/components/ai/tank_stuck_state.rb
+  entities/components/ai/vision.rb
+  entities/components/ai_input.rb
+  entities/components/box_graphics.rb
+  entities/components/bullet_graphics.rb
+  entities/components/bullet_physics.rb
+  entities/components/bullet_sounds.rb
+  entities/components/component.rb
+  entities/components/damage_graphics.rb
+  entities/components/explosion_graphics.rb
+  entities/components/explosion_sounds.rb
+  entities/components/health.rb
+  entities/components/player_input.rb
+  entities/components/player_sounds.rb
+  entities/components/powerup_graphics.rb
+  entities/components/powerup_sounds.rb
+  entities/components/tank_graphics.rb
+  entities/components/tank_health.rb
+  entities/components/tank_physics.rb
+  entities/components/tank_sounds.rb
+  entities/components/tree_graphics.rb
+  entities/damage.rb
+  entities/explosion.rb
+  entities/game_object.rb
+  entities/hud.rb
+  entities/map.rb
+  entities/object_pool.rb
+  entities/powerups/fire_rate_powerup.rb
+  entities/powerups/health_powerup.rb
+  entities/powerups/powerup.rb
+  entities/powerups/powerup_respawn_queue.rb
+  entities/powerups/repair_powerup.rb
+  entities/powerups/tank_speed_powerup.rb
+  entities/radar.rb
+  entities/score_display.rb
+  entities/tank.rb
+  entities/tree.rb
+  game_states/demo_state.rb
+  game_states/menu_state.rb
+  game_states/pause_state.rb
+  misc/axis_aligned_bounding_box.rb
+  misc/game_window.rb
+  misc/names.rb
+  misc/quad_tree.rb
+  misc/stats.rb
+  misc/stereo_sample.rb
+  misc/utils.rb
+).each do |f|
+  require File.join(root_dir, f)
+end
+
+$debug = false
+$window = GameWindow.new
+GameState.switch(MenuState.instance)
+$window.show

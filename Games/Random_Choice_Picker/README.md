@@ -17,8 +17,8 @@ Random Choice Picker is a simple yet fun web-based game designed to help you mak
 - **Pick:** Press ENTER key to get a random selection.
 
 **Screenshots 📸**  
-![Gameplay Screenshot](link-to-screenshot1)  
-![Gameplay Screenshot](link-to-screenshot2)
+
+![Gameplay Screenshot](https://github.com/SanskarSinghiit/GameZone/blob/main/Games/Random_Choice_Picker/assets/preview.png)
 
 **Getting Started 🚀**  
 To get started with the Random Choice Picker, clone the repository and open the `index.html` file in your browser.

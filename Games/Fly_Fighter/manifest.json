@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Fly Fighter",
+    "description": "A simple browser-based shooting game.",
+    "version": "1.0",
+    "icons": {
+      "128": "assets/icon_128.png"
+    },
+    "permissions": [
+      "storage",
+      "unlimitedStorage"
+    ],
+    "browser_action": {
+      "default_popup": "index.html",
+      "default_icon": "assets/icon_128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["assets/main2.js"],
+        "css": ["assets/style.css"]
+      }
+    ],
+    "web_accessible_resources": [
+      "assets/back.jpg",
+      "assets/ship.png",
+      "assets/musuh.png",
+      "assets/laser.mp3"
+    ]
+  }
+  

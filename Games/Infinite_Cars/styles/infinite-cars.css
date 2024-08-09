@@ -1,0 +1,21 @@
+@font-face {
+	font-family: "Luckiest Guy";
+	src: url("../assets/fonts/LuckiestGuy-Regular.ttf") format("woff2");
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Luckiest Guy", cursive;
+	background-color: #000000;
+}
+
+canvas {
+	font-family: inherit;
+	vertical-align: middle;
+}

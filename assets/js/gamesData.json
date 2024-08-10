@@ -3223,15 +3223,22 @@
     "gameTitle" : "Box In Air Game",
     "gameUrl": "Box_In_Air_Game",
     "thumbnailUrl": "Box_In_Air_Game.png"
-
+ },
+ "645":{
     "gameTitle" : "Block Vault",
     "gameUrl": "Block_Vault",
     "thumbnailUrl": "Block_Vault.png"
- }
-  "643":{
+ },
+  "646":{
     "gameTitle" : "Droop Dash Game",
     "gameUrl": "Drop_Dash_Game",
     "thumbnailUrl": "Drop_Dash_Game.png"
+
+ },
+ "647":{
+    "gameTitle" : "Gravity Switch Game",
+    "gameUrl": "Gravity_Switch_Game",
+    "thumbnailUrl": "Gravity_Switch_Game.png"
 
  }
 }

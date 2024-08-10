@@ -1,0 +1,2 @@
+<div align="center"> <h1>Hit - The - Mole</h1>  </div>
+<p>"Hit the Mole" game is a fun and engaging interactive game where players must quickly click on moles that randomly appear on the screen. The objective is to hit as many moles as possible within a set time limit. The game features simple yet appealing graphics, responsive controls, and keeps track of the player's score. It's a great way to test and improve your reaction speed while having fun!</p>

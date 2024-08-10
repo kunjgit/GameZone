@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Blink Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="column left-column">
+            <h2>About the Game</h2>
+            <p>
+                The Color Blink Challenge is a fun and interactive game where you need to count how many times a specific color appears within 30 seconds. The color to count is selected randomly at the start of each round. Test your focus and speed, and try to achieve the highest score possible!
+            </p>
+        </div>
+
+        <div class="game-container">
+            <div class="header">
+                <h1>Color Blink Challenge</h1>
+            </div>
+            <div id="circle" class="circle"></div>
+            <div class="controls">
+                <button id="startButton" class="btn">Start</button>
+                <button id="endButton" class="btn">Exit</button>
+            </div>
+            <div class="game-info">
+                <p>Count the <span id="targetColor"></span> color</p>
+                <input type="number" id="userInput" class="input-field" placeholder="Enter count" disabled>
+                <button id="submitButton" class="btn">Submit</button>
+                <div class="score-time">
+                    <p>Score: <span id="score">0</span></p>
+                    <p>Time Left: <span id="timer">30</span> seconds</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column right-column">
+            <h2>Colors in the Game</h2>
+            <ul>
+                <li>Red</li>
+                <li>Green</li>
+                <li>Blue</li>
+                <li>Yellow</li>
+                <li>Purple</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
+}
+
+.game-heading {
+    color: yellow;
+    margin-bottom: 20px;
+}
+
+.game-container {
+    border: 5px solid #fff;
+    padding: 10px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    background-color: #000;
+}

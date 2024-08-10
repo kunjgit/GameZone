@@ -363,6 +363,11 @@ This repository also provides one such platforms where contributers come over an
 
 |[Gem_Cruncher](https://github.com/kunjgit/GameZone/tree/main/Games/Gem_Cruncher)|
 
+| [Ball and Paddle game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball-And-Paddle-Game) |
+
+|[Harry Potter Wizards Quiz](https://github.com/kunjgit/GameZone/tree/main/Games/Harry_Potter_Wizards_Quiz)|
+
+
  </center>
 
 <br>
@@ -600,7 +605,8 @@ This repository also provides one such platforms where contributers come over an
 | [Escape](https://github.com/kunjgit/GameZone/tree/main/Games/Escape)                                             | [Retro Dungeon Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Retro_Dungeon_Puzzle)        | [Immunity Collapse](https://github.com/kunjgit/GameZone/tree/main/Games/Immunity_Collapse)                   | [Hunt Your Card](https://github.com/kunjgit/GameZone/tree/main/Games/Hunt_Your_Card)                               | [Tenacity](https://github.com/kunjgit/GameZone/tree/main/Games/Tenacity)                                    |
 | [Emoji Puzzle Game](https://github.com/kunjgit/GameZone/tree/main/Games/Emoji_Puzzle_Game)                       | [Back To Space](https://github.com/kunjgit/GameZone/tree/main/Games/Back_To_Space)                      | [Snooze](https://github.com/kunjgit/GameZone/tree/main/Games/Snooze)                                         | [Galaxy Rider](https://github.com/kunjgit/GameZone/tree/main/Games/Galaxy_Rider)                                   | [Squared Lines](https://github.com/kunjgit/GameZone/tree/main/Games/Squared_Lines)                          |
 | [Space War](https://github.com/kunjgit/GameZone/tree/main/Games/Space_War)                                       | [Sciara of Colors](https://github.com/kunjgit/GameZone/tree/main/Games/Sciara_Of_Colors)                | [JunoJs](https://github.com/kunjgit/GameZone/tree/main/Games/JunoJs)                                         | [Fall Down](https://github.com/kunjgit/GameZone/tree/main/Games/Fall_Down)                                         | [Cat Goric](https://github.com/kunjgit/GameZone/tree/main/Games/Cat_Goric)                                  |
-| [Cable Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Cable_Maze)                                     | [Spaceducts](https://github.com/kunjgit/GameZone/tree/main/Games/Spaceducts)                            | [Zurbo](https://github.com/kunjgit/GameZone/tree/main/Games/Zurbo)                                           | [Blast Zone](https://github.com/kunjgit/GameZone/tree/main/Games/BlastZone)                                        | [Free Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Free_Bird)                                  |
+| [Cable Maze](https://github.com/kunjgit/GameZone/tree/main/Games/Cable_Maze)                                     | [Spaceducts](https://github.com/kunjgit/GameZone/tree/main/Games/Spaceducts)      
+| [Box In Air Game](https://github.com/kunjgit/GameZone/tree/main/Games/Box_In_Air_Game)                              | [Zurbo](https://github.com/kunjgit/GameZone/tree/main/Games/Zurbo)                                           | [Blast Zone](https://github.com/kunjgit/GameZone/tree/main/Games/BlastZone)                                        | [Free Bird](https://github.com/kunjgit/GameZone/tree/main/Games/Free_Bird)                                  |
 | [Maximise Boxes](https://github.com/kunjgit/GameZone/tree/main/Games/MaximiseBoxes)                              | [Slide Puzzle](https://github.com/kunjgit/GameZone/tree/main/Games/Slide_Puzzle)                        | [Diamond Run](https://github.com/kunjgit/GameZone/tree/main/Games/Diamond_Run)                               | [Everyones Sky](https://github.com/kunjgit/GameZone/tree/main/Games/Everyones_Sky)                                 | [Line Of Fire](https://github.com/kunjgit/GameZone/tree/main/Games/Line_Of_Fire)                            |
 | [1024 Moves](https://github.com/kunjgit/GameZone/tree/main/Games/1024_Moves)                                     | [Save The Forest](https://github.com/kunjgit/GameZone/tree/main/Games/Save_The_Forest)                  | [Dragon World Game](https://github.com/kunjgit/GameZone/tree/main/Games/Dragon_World_Game)                   | [DuckHunt](https://github.com/kunjgit/GameZone/tree/main/Games/DuckHunt)                                           | [Plankman](https://github.com/kunjgit/GameZone/tree/main/Games/Plankman)                                    |
 | [Hold The Cloud](https://github.com/kunjgit/GameZone/tree/main/Games/Hold_The_Cloud)                             | [Labyrinth](https://github.com/kunjgit/GameZone/tree/main/Games/Labyrinth)                              | [RIP](https://github.com/kunjgit/GameZone/tree/main/Games/RIP)                                               | [Risky Nav](https://github.com/kunjgit/GameZone/tree/main/Games/Risky_Nav)                                         | [Pixels From Space](https://github.com/kunjgit/GameZone/tree/main/Games/Pixels_From_Space)                  |
@@ -917,8 +923,12 @@ This repository also provides one such platforms where contributers come over an
 
 |[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)| [Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys) | [Penalty_Shootout_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Penalty_Shootout_Game)| |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
 | [Drum_kit] (https://github.com/kunjgit/GameZone/tree/main/Games/Drum_kit)|
+| [Prime-No-Finder-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Prime-No-Finder-Game)| 
+| [Debris_Dodge](https://github.com/kunjgit/GameZone/tree/main/Games/Debris_Dodge)|
+
 | [Prime-No-Finder-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Prime-No-Finder-Game)|  
 | [Synonym-Typing-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Synonym-Typing-Game)|
+| [Color-Blink-Challenge] (https://github.com/kunjgit/GameZone/tree/main/Games/Color-Blink-Challenge)|
 </center>
 <br>
 <p align="right"><a href="#top">Back to top</a></p>
@@ -1716,6 +1726,7 @@ This repository also provides one such platforms where contributers come over an
 
 |[Tower_Building_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Building_Game)|
 |[Cross_Road_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_Road_Game)|
+|[The_Mystery_Adventure_game](https://github.com/kunjgit/GameZone/tree/main/Games/The_Mystery_Adventure_Game)|
 
 
  </center>

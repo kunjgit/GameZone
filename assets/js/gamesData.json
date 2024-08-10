@@ -3213,18 +3213,40 @@
     "thumbnailUrl": "Sky_Lift_Dash.png"
  },
  "643":{
+
+      "gameTitle" : "Droop Dash Game",
+      "gameUrl": "Drop_Dash_Game",
+      "thumbnailUrl": "Drop_Dash_Game.png"
+   },
+  
+ "644":{
+    "gameTitle" : "Box In Air Game",
+    "gameUrl": "Box_In_Air_Game",
+    "thumbnailUrl": "Box_In_Air_Game.png"
+
     "gameTitle" : "Block Vault",
     "gameUrl": "Block_Vault",
     "thumbnailUrl": "Block_Vault.png"
  },
-  "643":{
+
+
+  "645":{
+    "gameTitle" : "Harry Potter Wizard Quiz",
+    "gameUrl": "Harry_Potter_Wizard_Quiz/start.html",
+    "thumbnailUrl": "Harry_Potter_Wizard_Quiz.png"
+ }
+
+  "646":{
     "gameTitle" : "Droop Dash Game",
     "gameUrl": "Drop_Dash_Game",
     "thumbnailUrl": "Drop_Dash_Game.png"
+
  },
-  "644":{
+  "647":{
     "gameTitle" : "Random Choice Picker",
     "gameUrl": "Random_Choice_Picker",
     "thumbnailUrl": "Drop_Dash_Game.png"
+
+
  }
 }

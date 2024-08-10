@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/f97c6f29-f9d5-47a8-b261-0503154c0e23)# Drummmer_Kit
+# Drummmer_Kit
 
 A simple drum kit game made using javascript to understand the concept of event listeners in DOM.
 

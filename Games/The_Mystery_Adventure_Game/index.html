@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery Adventure Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game">
+        <h1>Mystery Adventure Game</h1>
+        <div id="roomContainer">
+            <div id="room1" class="room">
+                <h2>Living Room</h2>
+                <div class="object" id="key" data-item="Old Key" style="left: 200px; top: 100px;"></div>
+                <button class="navButton" data-room="room2">Go to Library</button>
+            </div>
+            <div id="room2" class="room" style="display: none;">
+                <h2>Library</h2>
+                <div class="object" id="book" data-item="Mystery Book" style="left: 150px; top: 200px;"></div>
+                <button class="navButton" data-room="room1">Go to Living Room</button>
+                <button id="solvePuzzleButton">Solve Puzzle</button>
+            </div>
+        </div>
+        <div id="dialogue" style="display: none;">
+            <p id="dialogueText"></p>
+            <button id="closeDialogue">Close</button>
+        </div>
+        <div id="inventory">
+            <h2>Inventory</h2>
+            <ul id="inventoryList"></ul>
+        </div>
+        <div id="controls">
+            <button id="stopGameButton">Stop Game</button>
+            <button id="restartGameButton">Restart Game</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

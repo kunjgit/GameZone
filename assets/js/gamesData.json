@@ -3229,16 +3229,32 @@
     "gameUrl": "Block_Vault",
     "thumbnailUrl": "Block_Vault.png"
  },
+
+
+
+
   "646":{
+    "gameTitle" : "Harry Potter Wizard Quiz",
+    "gameUrl": "Harry_Potter_Wizard_Quiz/start.html",
+    "thumbnailUrl": "Harry_Potter_Wizard_Quiz.png"
+ }
+
+
+  "647":{
     "gameTitle" : "Droop Dash Game",
     "gameUrl": "Drop_Dash_Game",
     "thumbnailUrl": "Drop_Dash_Game.png"
 
- },
- "647":{
+ }, 
+ "648":{
     "gameTitle" : "Gravity Switch Game",
     "gameUrl": "Gravity_Switch_Game",
     "thumbnailUrl": "Gravity_Switch_Game.png"
+
+  "649":{
+    "gameTitle" : "Random Choice Picker",
+    "gameUrl": "Random_Choice_Picker",
+    "thumbnailUrl": "Drop_Dash_Game.png"
 
  }
 }

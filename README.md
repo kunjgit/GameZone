@@ -357,9 +357,16 @@ This repository also provides one such platforms where contributers come over an
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Airhockey_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Airhockey_Game) |
 
+| [Elemental Flux Game](https://github.com/kunjgit/GameZone/tree/main/Games/Elemental_Flux)|
+
 | [Am_I_the_number](https://github.com/kunjgit/GameZone/tree/main/Games/Am_I_the_number)   |
 
 |[Gem_Cruncher](https://github.com/kunjgit/GameZone/tree/main/Games/Gem_Cruncher)|
+
+| [Ball and Paddle game](https://github.com/kunjgit/GameZone/tree/main/Games/Ball-And-Paddle-Game) |
+
+|[Harry Potter Wizards Quiz](https://github.com/kunjgit/GameZone/tree/main/Games/Harry_Potter_Wizards_Quiz)|
+
 
  </center>
 
@@ -452,6 +459,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 | [Gravity_Drops](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Drops) | 
 | [Sky_Lift_Dash](https://github.com/kunjgit/GameZone/tree/main/Games/Sky_Lift_Dash) |
 | [Block_Vault](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Vault) |
+| [Random_Choice_Picker](https://github.com/kunjgit/GameZone/tree/main/Games/Random_Choice_Picker) |
 
 </center>
 <br>
@@ -916,8 +924,12 @@ This repository also provides one such platforms where contributers come over an
 
 |[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)| [Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys) | [Penalty_Shootout_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Penalty_Shootout_Game)| |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
 | [Drum_kit] (https://github.com/kunjgit/GameZone/tree/main/Games/Drum_kit)|
+| [Prime-No-Finder-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Prime-No-Finder-Game)| 
+| [Debris_Dodge](https://github.com/kunjgit/GameZone/tree/main/Games/Debris_Dodge)|
+
 | [Prime-No-Finder-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Prime-No-Finder-Game)|  
 | [Synonym-Typing-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Synonym-Typing-Game)|
+| [Color-Blink-Challenge] (https://github.com/kunjgit/GameZone/tree/main/Games/Color-Blink-Challenge)|
 </center>
 <br>
 <p align="right"><a href="#top">Back to top</a></p>
@@ -1715,6 +1727,7 @@ This repository also provides one such platforms where contributers come over an
 
 |[Tower_Building_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Building_Game)|
 |[Cross_Road_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_Road_Game)|
+|[The_Mystery_Adventure_game](https://github.com/kunjgit/GameZone/tree/main/Games/The_Mystery_Adventure_Game)|
 
 
  </center>

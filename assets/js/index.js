@@ -3,7 +3,7 @@
 const generateLiTags = (gamesData, searchText = "") => {
   const liTags = [];
   searchText = searchText.trim().toLowerCase(); // Trim whitespace and convert to lowercase
-  let lengthOfJson = Object.keys(gamesData).length; // get the no. of games of Json to list them all
+  let lengthOfJson = Object.keys(gamesData).length+10; // get the no. of games of Json to list them all
   for (let tagNumber = 1; tagNumber <= lengthOfJson; tagNumber++) {
     const gameData = gamesData[tagNumber.toString()];
 

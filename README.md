@@ -460,6 +460,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 | [Sky_Lift_Dash](https://github.com/kunjgit/GameZone/tree/main/Games/Sky_Lift_Dash) |
 | [Block_Vault](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Vault) |
 | [Random_Choice_Picker](https://github.com/kunjgit/GameZone/tree/main/Games/Random_Choice_Picker) |
+| [Drummer_Kit](https://github.com/kunjgit/GameZone/tree/main/Games/Drummer_Kit) |
 
 </center>
 <br>

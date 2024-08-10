@@ -3216,6 +3216,11 @@
     "gameTitle" : "Block Vault",
     "gameUrl": "Block_Vault",
     "thumbnailUrl": "Block_Vault.png"
+ },
+  "644":{
+    "gameTitle" : "Harry Potter Wizard Quiz",
+    "gameUrl": "Harry_Potter_Wizard_Quiz/start.html",
+    "thumbnailUrl": "Harry_Potter_Wizard_Quiz.png"
  }
   "643":{
     "gameTitle" : "Droop Dash Game",

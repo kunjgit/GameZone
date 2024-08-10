@@ -1,0 +1,29 @@
+
+.game-container {
+	width: 800px;
+	height: 600px;
+	background-color: #000;
+}
+
+.player {
+	width: 30px;
+	height: 30px;
+	background-color: #FFF;
+	position: absolute;
+}
+
+.platforms {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.platform {
+	width: 100px;
+	height: 20px;
+	background-color: #666;
+	margin: 10px;
+	display: inline-block;
+}

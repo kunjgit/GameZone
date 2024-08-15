@@ -1,0 +1,26 @@
+{
+    "name": "Speak Number Guess",
+    "short_name": "Num Guess",
+    "description": "A game where you guess a number between 1 and 100 by speaking it into your microphone.",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#27273d",
+    "theme_color": "#27273d",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "https://i.ibb.co/Kb6SkTm/8399350-mic-microphone-audio-icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "https://i.ibb.co/Kb6SkTm/8399350-mic-microphone-audio-icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "permissions": [
+      "microphone"
+    ]
+  }
+  

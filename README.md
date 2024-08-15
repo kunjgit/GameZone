@@ -8,9 +8,9 @@
 
 <h3><font size="4">This open source repository contains a collection of games built on basic tech stacks in web development. Use your creativity, build your own game and contribute to the repository by making a PR 🎮
 <br>
-Make sure you star the repository and show your love to us💗
+Make sure you star the repository and show your love to u 💗
 <br>
-Also join the discord server for GameZone and start collaborating with others 🚀
+Also, join GameZone's discord server and start collaborating with others 🚀
 </font>
 <br>
 <br>
@@ -18,8 +18,8 @@ Also join the discord server for GameZone and start collaborating with others �
 
 ## Why to Open Source
 
-Contributing in open source increases your opportunities to work with different projects and mentors, getting to know various insights and ideas. It is a platform where contributors grow together with a construvtive and a positive attitude.
-This repository also provides one such platforms where contributers come over and put their ideas of new games and make our website as interactive as much they can!
+Contributing in open source increases your opportunities to work with different projects and mentors, and get to know various insights and ideas. It is a platform where contributors can grow together in a constructive and a positive environment.
+This repository also provides a platform where contributors can come and put their ideas for new games and help make our website as interactive as much they want!
 
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/fgwk4XZfxG)
 
@@ -75,29 +75,29 @@ This repository also provides one such platforms where contributers come over an
   - Select appropriate issue template
   - Make sure your idea is unique and interesting 🚀
 
-  * Don't alter the issue title. You are supposed to write your issue name after that only.
-    - `[Issue Title]: Your Issue` make sure you just add your issue name
+  * Don't alter the issue title. You are supposed to write only your issue name after that
+    - `[Issue Title]: Your Issue` make sure you add just your issue name
     - ex .`[New game]: Super Mario`
 
   - Make sure you select the program in which you are participating 🔥
 
-- Wait till you have been assigned the issue
-- After you have been assigned the issue start working on the code
+- Wait until you have been assigned the issue
+- After you have been assigned the issue, you can start working on the code
 - Create your new branch using `git checkout -b <name of your branch> `
 
 * Having your code into the repository
-  - Make your game folder into `Games` folder by the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
+  - Create your game folder in the `Games` folder and follow the naming convention mentioned in [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
   - Add your code files (index.html,style.css,script.js) in your game folder
-  - Create `README.md` file in your folder and add all the functionalities and how you can play that game in that README file , also include screenshots of working game , video of a game explaining (if required).
+  - Create `README.md` file in your folder and add all the functionalities and including how you can play that game in that README file. Also include screenshots of the working game, and a video of game explanations (if required)
   - To create `Your_Folder/README.md ` checkout the template [GAME README TEMPLATE](./Games/FOLDER_README_TEMPLATE.md)
-  - Now take one good screenshot of your game that you want to display it on our website and add into `assets/images` (follow the naming convention <your_folder_name>.png or .jpeg or .jpg)
-  - add your folders link and name in main README.md (the one you are reading currently)
+  - Now take one good screenshot of your game that you want to display on our website and add into `assets/images` (follow the naming convention <your_folder_name>.png or .jpeg or .jpg)
+  - Add your folder's link and name in main README.md (the one you are reading currently)
 
 - Push your changes to Github using `git push origin <name your branch>`
-- Submit your changes for review by creating PR
+- Submit your changes for review by creating a PR
 - And you are done !
-- I will review your code and I will merge your code to the main branch of this repository and you will notified for the same
-- If you having queries in basic flow of github learn it from [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
+- I will review your code and I will merge your code to the main branch of this repository. You will be notified once approved
+- If you have queries on the basic flow of github, check out the [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md)
 
 <div align="center">
   <h2><font size="6"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Robot" width="40" height="40" /> Games</font></h2>
@@ -381,9 +381,9 @@ This repository also provides one such platforms where contributers come over an
 
 <!-- contributing guideline detail -->
 
-- Read our [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md) to get all details about contributing to **GameZone**
-- Learn all about development process and all information you need to contribute to our project
-- If you are having the basic queries make sure you checkout resources there
+- Read our [CONTRIBUTING GUIDELINE](./.github/CONTRIBUTING_GUIDELINE.md) to get all the details about contributing to **GameZone**
+- Learn all about the development process and all the information you need to contribute to our project
+- If you have basic queries, make sure you checkout resources there
 
 <br>
 
@@ -394,7 +394,7 @@ This repository also provides one such platforms where contributers come over an
 </div>
 <br>
 
-- Please note that this project is released with [CODE OF CONDUCT](./.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+- Please note that this project is released with a [CODE OF CONDUCT](./.github/CODE_OF_CONDUCT.md). By participating in this project, you agree to abide by its terms.
 
 <br>
 

@@ -794,7 +794,7 @@ This repository also provides one such platforms where contributers come over an
 | [Sudoku_light_theme](https://github.com/kunjgit/GameZone/tree/main/Games/Sudoku_light_theme) |
 | [Find_the_ball](https://github.com/kunjgit/GameZone/tree/main/Games/Find_the_ball) |
 |[Color The Page](https://github.com/kunjgit/GameZone/tree/main/Games/Color_The_Page)|
-| [Dice_Game] (https://github.com/shivan2004/GameZone/tree/main/Games/Dice_Game)|
+| [Dice_Game](https://github.com/shivan2004/GameZone/tree/main/Games/Dice_Game)|
 |[HitOrMiss](https://github.com/kunjgit/GameZone/tree/main/Games/HitOrMiss)|
 |[Lunar Lander](https://github.com/kunjgit/GameZone/tree/main/Games/Lunar_Lander)|
 |[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game) |
@@ -813,7 +813,7 @@ This repository also provides one such platforms where contributers come over an
 |[Dsa_quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/Dsa_quiz_game) |  
 | [Gravity_Simulation_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Simulation_Game)  
 | [Anagarm-Word-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Anagarm-Word-Game) |
-| [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick Buster) |
+| [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick%20Buster) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)
 | [Alphabet-and-Vowels](https://github.com/kunjgit/GameZone/tree/main/Games/Alphabet-and-Vowels) |
 | [Taash_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Taash_Game)|
@@ -823,13 +823,13 @@ This repository also provides one such platforms where contributers come over an
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Currency_Converter](https://github.com/kunjgit/GameZone/tree/main/Games/Currency_Converter) |
 | [mario-game](https://github.com/kunjgit/GameZone/tree/main/Games/mario-game) |
-| [Fruit_Slicer_Game] (https://github.com/narayani9120/GameZone_B/tree/main/Games/Fruit_Slicer_Game) |
+| [Fruit_Slicer_Game](https://github.com/narayani9120/GameZone_B/tree/main/Games/Fruit_Slicer_Game) |
 | [Tower_Block_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tower_Block_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Memory_Matching_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Memory_Matching_Game) |
 |[Penguins Can't Fly](https://github.com/Will2Jacks/GameZoneForked/tree/Task/Games/Penguins_Can't_Fly)|
-| [Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) |
-| [Shoot_Duck_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_Duck_Game) |
+| [Block_Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) |
+| [Shoot_Duck_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_Duck_Game) |
 | [Disney_Trivia](https://github.com/manmita/GameZone/tree/Disney_Trivia/Games/Disney_Trivia)|
 |[puzzle-game](https://github.com/kunjgit/GameZone/tree/main/Games/puzzle-game)|
 | [Helicopter_Game](https://github.com/kinjgit/GameZone/tree/main/Games/Helicopter_Game) |
@@ -916,13 +916,13 @@ This repository also provides one such platforms where contributers come over an
 |[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)| [Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys) | [Penalty_Shootout_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Penalty_Shootout_Game)| | [Circuit_Craze](https://github.com/kunjgit/GameZone/tree/main/Games/Circuit_Craze) | | [Flying_Fish](https://github.com/kunjgit/GameZone/tree/main/Games/Flying_Fish) | | [Box_Merge](https://github.com/kunjgit/GameZone/tree/main/Games/Box_Merge) |
 
 |[Idle_miner](https://github.com/kunjgit/GameZone/tree/main/Games/Idle_miner)| [Five_Nights_at_Freddys](https://github.com/kunjgit/GameZone/tree/main/Games/Five_Nights_at_Freddys) | [Penalty_Shootout_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Penalty_Shootout_Game)| |[Snake_Gun_Water](https://github.com/kunjgit/GameZone/tree/main/Games/Snake_Gun_Water)|
-| [Drum_kit] (https://github.com/kunjgit/GameZone/tree/main/Games/Drum_kit)|
-| [Prime-No-Finder-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Prime-No-Finder-Game)| 
+| [Drum_kit](https://github.com/kunjgit/GameZone/tree/main/Games/Drum_kit)|
+| [Prime-No-Finder-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Prime-No-Finder-Game)| 
 | [Debris_Dodge](https://github.com/kunjgit/GameZone/tree/main/Games/Debris_Dodge)|
 
-| [Prime-No-Finder-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Prime-No-Finder-Game)|  
-| [Synonym-Typing-Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Synonym-Typing-Game)|
-| [Color-Blink-Challenge] (https://github.com/kunjgit/GameZone/tree/main/Games/Color-Blink-Challenge)|
+| [Prime-No-Finder-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Prime-No-Finder-Game)|  
+| [Synonym-Typing-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Synonym-Typing-Game)|
+| [Color-Blink-Challenge](https://github.com/kunjgit/GameZone/tree/main/Games/Color-Blink-Challenge)|
 </center>
 <br>
 <p align="right"><a href="#top">Back to top</a></p>
@@ -1600,14 +1600,14 @@ This repository also provides one such platforms where contributers come over an
 |[AquaSort_Game](https://github.com/kunjgit/GameZone/tree/main/Games/AquaSort_Game) |
 | [whack a mole](https://github.com/kunjgit/GameZone/tree/main/Games/whack%20a%20mole) |
 | [Snake](https://github.com/kunjgit/GameZone/tree/main/Games/snake)                |
-| [Dice_Game] (https://github.com/shivan2004/GameZone/tree/main/Games/Dice_Game)|
+| [Dice_Game](https://github.com/shivan2004/GameZone/tree/main/Games/Dice_Game)|
 |[HitOrMiss](https://github.com/kunjgit/GameZone/tree/main/Games/HitOrMiss)|
 | [Tetris Game](https://github.com/kunjgit/GameZone/tree/main/Games/tetris_game)|
 |[Turn_on_the_light](https://github.com/kunjgit/GameZone/tree/main/Games/Turn_on_the_light) |
 | [Tic-Tac-Toe Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tic-Tac-Toe) |
 [Mechanica](https://github.com/kunjgit/GameZone/tree/main/Games/Mechanica) |
 | [Bounce_Ball](https://github.com/kunjgit/GameZone/tree/main/Games/Bounce_Ball)
-| [Bubble'z Popper](https://github.com/Chandu6702/GameZone/tree/main/Games/Bubble'z Popper)|
+| [Bubble'z Popper](https://github.com/Chandu6702/GameZone/tree/main/Games/Bubble'z%20Popper)|
 | [Dsa_quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/Dsa_quiz_game) |
 | [Gravity_Simulation_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Simulation_Game) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)
@@ -1618,7 +1618,7 @@ This repository also provides one such platforms where contributers come over an
 |[Dsa_quiz_game](https://github.com/kunjgit/GameZone/tree/main/Games/Dsa_quiz_game) |  
 | [Gravity_Simulation_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Gravity_Simulation_Game)  
 | [Anagarm-Word-Game](https://github.com/kunjgit/GameZone/tree/main/Games/Anagarm-Word-Game) |
-| [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick Buster) |
+| [Brick Buster Game](https://github.com/kunjgit/GameZone/tree/main/Games/Brick%20Buster) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)
 | [SnakeBites](https://github.com/kunjgit/GameZone/tree/main/Games/SnakeBites) |
 | [Rapid_click_frenzy](https://github.com/kunjgit/GameZone/tree/main/Games/Rapid_click_frenzy)
@@ -1627,12 +1627,12 @@ This repository also provides one such platforms where contributers come over an
 | [Number_Guessing_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Number_Guessing_Game) |
 | [Currency_Converter](https://github.com/kunjgit/GameZone/tree/main/Games/Currency_Converter) |
 | [mario-game](https://github.com/kunjgit/GameZone/tree/main/Games/mario-game) |
-| [Fruit_Slicer_Game] (https://github.com/narayani9120/GameZone_B/tree/main/Games/Fruit_Slicer_Game) |
+| [Fruit_Slicer_Game](https://github.com/narayani9120/GameZone_B/tree/main/Games/Fruit_Slicer_Game) |
 | [Tower_Block_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Tower_Block_Game) |
 | [Modulo_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Modulo_Game) |
 | [Memory_Matching_Game](https://github.com/Saipradyumnagoud/GameZone/tree/main/Games/Memory_Matching_Game) |
-| [Block_Ninja] (https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) |
-| [Shoot_Duck_Game] (https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_Duck_Game) |
+| [Block_Ninja](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Ninja) |
+| [Shoot_Duck_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Shoot_Duck_Game) |
 | [Disney_Trivia](https://github.com/manmita/GameZone/tree/Disney_Trivia/Games/Disney_Trivia)|
 |[puzzle-game](https://github.com/kunjgit/GameZone/tree/main/Games/puzzle-game)|
 | [Helicopter_Game](https://github.com/kinjgit/GameZone/tree/main/Games/Helicopter_Game) |

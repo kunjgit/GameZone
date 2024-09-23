@@ -1,0 +1,196 @@
+.game {
+    display: flex;
+    /* justify-content: space-between; */
+    height: 103vh;
+    width: 100vw;
+    background-color: #10242c;
+    overflow: hidden;
+}
+
+.main-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+
+}
+.console-box    {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+}
+.box {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px);
+    gap: 85px;
+    /* margin-left: 20px; */
+}
+
+.small-box {
+    width:120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2b3a42;
+    color: white;
+    font-size:50px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.small-box:hover {
+    background-color: #3a4b57;
+}
+
+.bomb {
+    color: red;
+}
+
+.diamond {
+    color: green;
+}
+.console{
+    display: flex;
+    flex-direction: column;
+    background-color:  #2b3a42;
+    height: 50%;
+    width:60%;
+    border-radius: 10px;
+}
+.console h2 {
+    color: white;
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+.console input{
+    margin-top: 10px;
+  
+    margin-left: 30px;
+    width: 70%;
+    height: 20px;
+}
+p{
+    margin-top: 10px;
+    color: white;
+    margin-left: 30px;
+    width: 70%;
+    height: 20px;
+}
+#play{
+    width: 100px;
+    margin-top: 20px;
+    height: 30px;
+    background-color: #08ec04;
+    border: none;
+    border-radius: 5px;
+}
+#cashout{
+    width: 100px;
+    margin-top: 20px;
+    height: 30px;
+    background-color: #08ec04;
+    border: none;
+    border-radius: 5px;
+}
+.money{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width:103vw;
+    height:50px;
+    background-color:#10242c;
+    box-shadow: white 4px -31px 58px 13px;
+    color: white;
+}
+/* .game{
+
+} */
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 70%;
+    height: 8px;
+    background: lightgray; 
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #08ec04; 
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff; 
+    cursor: pointer;
+    border: 2px solid #08ec04;
+    margin-top: -6px; 
+}
+
+input[type="range"]:hover::-webkit-slider-runnable-track {
+    background: #45a049; 
+}
+
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #08ec04; 
+    border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff; 
+    cursor: pointer;
+    border: 2px solid #08ec04;
+}
+
+input[type="range"]::-ms-track {
+    width: 50%;
+    height: 8px;
+    cursor: pointer;
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type="range"]::-ms-fill-lower {
+    background: #08ec04; 
+    border-radius: 5px;
+}
+
+input[type="range"]::-ms-fill-upper {
+    background: lightgray; 
+}
+
+input[type="range"]::-ms-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff; 
+    cursor: pointer;
+    border: 2px solid #08ec04;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mines</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <div class="game">
+        <div class="money">
+            <h4 style="color: white;">Balance : </h4>
+            <div class="display-money">
+                $10000
+            </div>
+        </div>
+        <div class="console-box">
+            <div class="console">
+                <h2>Amount</h2>
+                <input type="number">
+                <h2>Mines</h2>
+                <input class="range" type="range" id="rangeInput" min="1" max="24" value="1" oninput="displayValue(this.value)">
+                <br>
+                <p>Selected value: <span id="rangeValue">12</span></p>
+                <input class="play" type="button" value="Play" id="play">
+                <input type="button" type="button" value="Cashout" id="cashout">
+            </div>
+            <div style="margin-top: 40px;margin-left: 60px;" class="instruction">
+                <p>1.You will be Given $10000 to start with</p>
+                <p>2.You have to set some bet amount</p>
+                <p>3.Click on start game to play to start game</p>
+                <p>4.Now choose tile one by one</p>
+                <p>5.If you dont want to loose money cashout to add profit to balance.</p><br/>
+                <p>6.If balance become zero u loose</p>
+            </div>
+        </div>
+        
+        <div class="main-box">
+            <div class="box">
+            
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+<script>
+    function displayValue(value) {
+        document.getElementById('rangeValue').textContent = value;
+    }
+</script>
+<script src="script.js"></script>
+</html>

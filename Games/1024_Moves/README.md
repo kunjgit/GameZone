@@ -24,6 +24,6 @@
 ## **Screenshots 📸**
 
 
-![image](../../assets/images/1024_Moves.jpg)
+![image](https://github.com/kunjgit/GameZone/blob/ac4ce207868a6dfef11073435234311d91dfac99/assets/images/1024_Moves.jpg)
 
 <br>

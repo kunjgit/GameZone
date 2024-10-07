@@ -28,7 +28,7 @@
 
 ## **Screenshots 📸**
 
-![Screenshot](https://github.com/kunjgit/GameZone/blob/main/assets/images/2Truth&1lie.png)
+![Screenshot](https://github.com/kunjgit/GameZone/blob/ac4ce207868a6dfef11073435234311d91dfac99/assets/images/1024_Moves.jpg)
 
 <br>
 

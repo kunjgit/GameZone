@@ -28,7 +28,7 @@
 
 ## **Screenshots 📸**
 
-![Screenshot](Games/2Truth&1lie/img/2Truth&1lie.png)
+![Screenshot](Games/2Truth&1lie/img/2Truth&1lie.png).
 
 <br>
 

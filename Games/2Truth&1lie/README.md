@@ -28,7 +28,7 @@
 
 ## **Screenshots 📸**
 
-![Screenshot](path_to_your_screenshot_image)
+![Screenshot](..assets/images/2Truth&1lie.png)
 
 <br>
 

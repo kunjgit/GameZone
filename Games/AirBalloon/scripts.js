@@ -1,3 +1,9 @@
+
+let timeOfDay = 0; // 0 = day, 1 = night
+let timeDirection = 1; // For day to night toggle
+
+let clouds = [];
+let showClouds = true;
 let gameStarted; // Boolean
 
 let balloonX;
@@ -47,6 +53,10 @@ Math.sinus = function (degree) {
 
 // Initialize layout
 resetGame();
+document.getElementById("toggleClouds").addEventListener("click", function () {
+  showClouds = !showClouds;
+});
+
 
 // Resets game variables and layouts but does not start the game (game starts on keypress)
 function resetGame() {
@@ -115,8 +125,38 @@ function generateTree() {
 
   trees.push({ x, h, r1, r2, r3, r4, r5, r6, r7, color });
 }
+function createCloud() {
+  return {
+    x: Math.random() * canvas.width,
+    y: Math.random() * 100,
+    speed: 0.2 + Math.random() * 0.2,
+    size: 50 + Math.random() * 30
+  };
+}
+
+// Initialize clouds
+for (let i = 0; i < 5; i++) clouds.push(createCloud());
 
 resetGame();
+function updateTimeOfDay() {
+  const speed = 0.0003;
+  timeOfDay += speed * timeDirection;
+
+  if (timeOfDay >= 1) {
+    timeOfDay = 1;
+    timeDirection = -1;
+  } else if (timeOfDay <= 0) {
+    timeOfDay = 0;
+    timeDirection = 1;
+  }
+}
+
+function drawDayNightOverlay() {
+  const darkness = timeOfDay * 0.5;
+  ctx.fillStyle = `rgba(0, 0, 50, ${darkness})`;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 
 // If space was pressed restart the game
 window.addEventListener("keydown", function (event) {
@@ -194,34 +234,36 @@ function animate() {
     restartButton.style.display = "block";
     return;
   }
+updateTimeOfDay();
 
   window.requestAnimationFrame(animate);
 }
 
+
 function draw() {
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-  drawSky(); // Fill the background with a gradient
+  drawSky();
+  drawClouds(); // ✅ Clouds go here
 
   ctx.save();
   ctx.translate(0, verticalPadding + mainAreaHeight);
   drawBackgroundHills();
 
   ctx.translate(horizontalPadding, 0);
-
-  // Center main canvas area to the middle of the screen
   ctx.translate(-balloonX, 0);
 
-  // Draw scene
   drawTrees();
   drawBalloon();
+  
 
-  // Restore transformation
   ctx.restore();
 
-  // Header is last because it's on top of everything else
   drawHeader();
+  drawDayNightOverlay(); // ✅ Overlay goes last
 }
+
+  
 
 restartButton.addEventListener("click", function (event) {
   event.preventDefault();
@@ -264,6 +306,30 @@ function drawTrees() {
     ctx.restore();
   });
 }
+function drawClouds() {
+  if (!showClouds) return;
+
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+
+  clouds.forEach(cloud => {
+    const x = cloud.x;
+    const y = cloud.y + 50;
+    const s = cloud.size;
+
+    ctx.beginPath();
+    ctx.arc(x, y, s * 0.6, 0, Math.PI * 2);
+    ctx.arc(x + s * 0.4, y + 5, s * 0.5, 0, Math.PI * 2);
+    ctx.arc(x - s * 0.4, y + 5, s * 0.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    cloud.x -= cloud.speed;
+    if (cloud.x + cloud.size < 0) {
+      cloud.x = canvas.width;
+      cloud.y = Math.random() * 100;
+    }
+  });
+}
+
 
 function drawBalloon() {
   ctx.save();

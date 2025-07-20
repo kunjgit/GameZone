@@ -41,6 +41,18 @@ body {
   display: none;
   cursor: pointer;
 }
+#toggleClouds {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background: #ffffffcc;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 
 
 

@@ -1,0 +1,150 @@
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/image1.jpg');
+    background-size: cover;
+    color:white;
+}
+.container{
+    width: 450px;
+    height: 500px;
+    display: block;
+    margin: 25px auto;
+    position: relative;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+#cvs{
+    position: absolute;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.options{
+    position: absolute;
+    width: 450px;
+    height: 450px;
+}
+
+.options h2,h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+.options div{
+    display: inline-block;
+}
+
+.options .computer, .x{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+    background-color: #FFF;
+    color: #000;
+    font-size: 1.5em;
+    border-radius: 5px;
+    margin-left: 70px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.options .friend, .o{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+    background-color: #FFF;
+    color: #000;
+    font-size: 1.5em;
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.options .friend:hover, .computer:hover, .x:hover, .o:hover{
+    background-color: #ff0000;
+    color: #FFF;
+}
+
+.options .play{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5em;
+    width: 150px;
+    display: block;
+    margin: 25px auto;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bolder;
+    padding: 10px;
+    background-color: #1ef000;
+    color: #000;
+    cursor: pointer;
+    transition: 100ms width ease-in;
+}
+.options .play:hover{
+    width: 170px;
+}
+
+.active{
+    background-color: #0dff11 !important;
+    color: #000 !important;
+}
+
+.hide{
+    display: none;
+}
+
+.gameover{
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+.gameover h1{
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #fff;
+    margin: 40px 0 20px 0;
+}
+
+.gameover .winner-img{
+    display: block;
+    margin: 20px auto;
+}
+
+.gameover .play{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.5em;
+    width: 100px;
+    display: block;
+    margin: 25px auto;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    background-color: #1ef000;
+    color: #000;
+    cursor: pointer;
+    transition: 100ms width ease-in;
+}
+.gameover .play:hover{
+    width: 150px;
+    background-color:#e90000;
+}
+
+.red{
+    color:#e90000;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink {
+    0%{
+        opacity:1;
+    }
+    50%{
+        opacity:0.3;
+    }
+    100%{
+        opacity:1;
+    }
+}

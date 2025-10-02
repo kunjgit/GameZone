@@ -1730,6 +1730,7 @@ This repository also provides one such platforms where contributers come over an
 |[Tower_Building_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Tower_Building_Game)|
 |[Cross_Road_Game](https://github.com/kunjgit/GameZone/tree/main/Games/Cross_Road_Game)|
 |[The_Mystery_Adventure_game](https://github.com/kunjgit/GameZone/tree/main/Games/The_Mystery_Adventure_Game)|
+|[Blind_Artist](https://github.com/kunjgit/GameZone/tree/main/Games/Blind_Artist)|
 
 
  </center>

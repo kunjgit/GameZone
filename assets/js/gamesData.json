@@ -3250,9 +3250,14 @@
     "gameUrl": "Random_Choice_Picker",
     "thumbnailUrl": "Drop_Dash_Game.png"
  },
-  "648":{
+  "650":{
     "gameTitle" : "Drummer Kit",
     "gameUrl": "Drummer_Kit",
     "thumbnailUrl": "Drummer_Kit.png"
+ },
+ "651": {
+    "gameTitle": "Blind Artist",
+    "gameUrl": "Blind_Artist",
+    "thumbnailUrl": "Blind_Artist.png"
  }
 }

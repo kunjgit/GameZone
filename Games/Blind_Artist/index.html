@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blind Artist - Draw Without Looking!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎨 Blind Artist</h1>
+            <p class="subtitle">Can you draw without seeing? Let's find out!</p>
+        </header>
+
+        <!-- Game Info Section -->
+        <div class="game-info">
+            <div class="info-card">
+                <div class="label">Your Challenge:</div>
+                <div id="prompt" class="prompt">Click Start to Begin</div>
+            </div>
+            <div class="info-card">
+                <div class="label">Time Left:</div>
+                <div id="timer" class="timer">60s</div>
+            </div>
+        </div>
+
+        <!-- Canvas Container -->
+        <div class="canvas-container">
+            <canvas id="drawingCanvas" width="600" height="600"></canvas>
+            <div id="canvasOverlay" class="canvas-overlay">
+                <div class="overlay-text">🎨 Draw here... if you dare!</div>
+            </div>
+        </div>
+
+        <!-- Drawing Controls -->
+        <div class="controls">
+            <div class="color-controls">
+                <label for="colorPicker">Pen Color:</label>
+                <input type="color" id="colorPicker" value="#000000">
+            </div>
+            <div class="size-controls">
+                <label for="penSize">Pen Size:</label>
+                <input type="range" id="penSize" min="1" max="10" value="3">
+                <span id="sizeDisplay">3px</span>
+            </div>
+            <button id="eraserBtn" class="control-btn">🧹 Eraser</button>
+            <button id="clearBtn" class="control-btn">🗑️ Clear</button>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button id="startBtn" class="btn btn-start">🚀 Start Drawing</button>
+            <button id="revealBtn" class="btn btn-reveal" style="display: none;">👁️ Reveal My Art!</button>
+        </div>
+
+        <!-- Results Section (Hidden initially) -->
+        <div id="resultsSection" class="results-section" style="display: none;">
+            <h2>🎉 Your Masterpiece!</h2>
+            <p class="result-text">How did you do?</p>
+            
+            <!-- Rating System -->
+            <div class="rating-container">
+                <p>Rate your artwork:</p>
+                <div class="stars" id="starRating">
+                    <span class="star" data-rating="1">⭐</span>
+                    <span class="star" data-rating="2">⭐</span>
+                    <span class="star" data-rating="3">⭐</span>
+                    <span class="star" data-rating="4">⭐</span>
+                    <span class="star" data-rating="5">⭐</span>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="result-buttons">
+                <button id="retryBtn" class="btn btn-secondary">🔄 Try Same Object</button>
+                <button id="newPromptBtn" class="btn btn-primary">🎲 New Challenge</button>
+                <button id="downloadBtn" class="btn btn-success">💾 Save Drawing</button>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>📖 How to Play</h3>
+            <ol>
+                <li>Click <strong>"Start Drawing"</strong> to get a random object to draw</li>
+                <li>Draw on the <strong>invisible canvas</strong> - you can't see what you're drawing!</li>
+                <li>You have <strong>60 seconds</strong> to complete your drawing</li>
+                <li>Click <strong>"Reveal My Art"</strong> when done (or when time runs out)</li>
+                <li>See your hilarious creation and rate your artwork!</li>
+                <li>Share your masterpiece with friends! 😄</li>
+            </ol>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with ❤️ for GameZone | A game of memory, skill, and lots of laughs!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

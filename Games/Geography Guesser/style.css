@@ -1,0 +1,71 @@
+/* Body & Fonts */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #333;
+}
+
+/* Title */
+h1 {
+  margin: 20px 0;
+  font-size: 2.2rem;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Containers */
+#menu, #game {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover { transform: scale(1.05); }
+
+/* Mode buttons */
+.mode { background: #4CAF50; color: #fff; }
+.mode.active { box-shadow: 0 0 10px #4CAF50; }
+
+/* Option buttons */
+.optionBtn {
+  display: block;
+  width: 200px;
+  margin: 10px auto;
+  background: #2196F3;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+.optionBtn.correct { background: #4CAF50; }
+.optionBtn.wrong { background: #f44336; }
+
+/* Clue elements */
+#clueImg { max-width: 200px; margin: 15px auto; display: block; border-radius: 8px; }
+#clueText { font-size: 1.5rem; margin: 15px 0; }
+
+/* Status & Timer */
+#status { font-size: 1.2rem; margin-top: 10px; }
+#timer { font-weight: bold; margin: 10px 0; }
+
+/* Next & Quit buttons */
+#nextBtn, #quitBtn { background: #FF9800; color: white; margin-top: 15px; }

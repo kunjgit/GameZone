@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geography Guesser</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="thumbnail.png" />
+
+
+</head>
+<body>
+
+<h1>Geography Guesser</h1>
+
+<div id="menu">
+  <div>
+    <label>Mode:</label>
+    <button class="mode" data-mode="flag">Flag</button>
+    <button class="mode" data-mode="capital">Capital</button>
+  </div>
+  <div style="margin-top:15px;">
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+  </div>
+  <div style="margin-top:15px;">
+    <label for="timerMode">Timer (seconds):</label>
+    <select id="timerMode">
+      <option value="off">Off</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+    </select>
+  </div>
+  <button id="startBtn" disabled style="margin-top:20px;">Start Game</button>
+</div>
+
+<div id="game" class="hidden" style="display:none;">
+  <h2 id="modeLabel"></h2>
+  <img id="clueImg" class="hidden">
+  <div id="clueText" class="hidden"></div>
+  <div id="options"></div>
+  <div id="status">
+    Score: <span id="score">0</span> | Lives: <span id="lives">3</span>
+  </div>
+  <div id="timer" class="hidden">Time left: <span id="timerVal">0</span>s</div>
+  <button id="nextBtn" class="hidden">Next</button>
+  <button id="quitBtn">Quit</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -3254,5 +3254,10 @@
     "gameTitle" : "Drummer Kit",
     "gameUrl": "Drummer_Kit",
     "thumbnailUrl": "Drummer_Kit.png"
+ },
+  "649":{
+    "gameTitle" : "Geography Guesser",
+    "gameUrl": "Geography_Guesser",
+    "thumbnailUrl": "Geography_Guesser.png"
  }
 }

@@ -3254,5 +3254,10 @@
     "gameTitle" : "Drummer Kit",
     "gameUrl": "Drummer_Kit",
     "thumbnailUrl": "Drummer_Kit.png"
+ },
+ "649":{
+    "gameTitle" : "BrainBlitz",
+    "gameUrl": "BrainBlitz/public/index.html",
+    "thumbnailUrl": "BrainBlitz.png"
  }
 }

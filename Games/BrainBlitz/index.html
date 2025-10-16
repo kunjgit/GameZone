@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BrainBlitz — Memory Card Game</title>
+  <style>
+    :root{
+      --bg:#f7f9fc; /* soft white */
+      --card:#ffffff;
+      --accent-1:linear-gradient(135deg,#60a5fa,#7dd3fc);
+      --accent-2:linear-gradient(135deg,#34d399,#60a5fa);
+      --muted:#64748b;
+      --glass: rgba(2,6,23,0.03);
+      --card-size:100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:#0f1724}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px}
+
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    h1{font-size:20px;margin:0;display:flex;gap:10px;align-items:center}
+    .logo{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--accent-1);font-weight:700;color:white}
+
+    /* controls */
+    .controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    select, button{background:var(--card);border:1px solid rgba(15,23,36,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600}
+    button.primary{background:var(--accent-1);color:white;border:none;box-shadow:0 6px 18px rgba(99,102,241,0.08)}
+    .stats{display:flex;gap:12px;align-items:center;margin-top:8px}
+    .stat{background:linear-gradient(180deg,white, #f3f6fb);padding:10px 12px;border-radius:10px;border:1px solid rgba(15,23,36,0.03);min-width:110px}
+    .stat strong{display:block;font-size:18px;color:#0f1724}
+    .mode-pill{padding:6px 10px;border-radius:999px;background:white;border:1px solid rgba(15,23,36,0.04);cursor:pointer}
+    .mode-pill.active{box-shadow:0 6px 20px rgba(99,102,241,0.06);border-color:rgba(99,102,241,0.18)}
+
+    /* board */
+    .board-wrap{margin-top:18px;background:transparent;padding:18px;border-radius:14px}
+    .board{display:grid;gap:12px;justify-content:center}
+    .card{width:var(--card-size);height:var(--card-size);perspective:900px}
+    .card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 0.45s cubic-bezier(.2,.9,.2,1)}
+    .flipped .card-inner{transform:rotateY(180deg)}
+    .face{position:absolute;inset:0;border-radius:10px;display:flex;align-items:center;justify-content:center;backface-visibility:hidden}
+    .face.front{background:linear-gradient(180deg,#ffffff,#f1f5f9);border:1px solid rgba(15,23,36,0.04);transform:rotateY(180deg);font-size:28px}
+    .face.back{background:var(--accent-2);color:white;border:1px solid rgba(15,23,36,0.03);font-size:28px}
+    .emoji{font-size:30px}
+    .matched .card-inner{transform:scale(1.02) rotateY(180deg);box-shadow:0 10px 30px rgba(99,102,241,0.06)}
+
+    /* modal */
+    .modal-back{position:fixed;inset:0;background:rgba(2,6,23,0.35);display:none;align-items:center;justify-content:center;padding:18px}
+    .modal{background:linear-gradient(180deg,#ffffff,#f8fafc);padding:18px;border-radius:12px;border:1px solid rgba(15,23,36,0.04);min-width:320px;max-width:520px}
+    .modal h3{margin:0 0 8px}
+    .modal p{margin:0 0 12px;color:var(--muted)}
+    .modal.show{display:flex}
+
+    /* responsive */
+    @media (max-width:760px){:root{--card-size:86px}.wrap{padding:12px}header{flex-direction:column;align-items:flex-start;gap:10px}}
+
+    .leaderboard{margin-top:12px;background:linear-gradient(180deg,#ffffff,#fbfdff);padding:10px;border-radius:10px;border:1px solid rgba(15,23,36,0.03)}
+    .leaderboard h4{margin:0 0 8px}
+    .lb-list{display:flex;flex-direction:column;gap:6px}
+    .lb-item{display:flex;justify-content:space-between}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1><span class="logo">BB</span>BrainBlitz <small style="color:var(--muted);font-weight:600;font-size:12px;margin-left:8px">— Memory Match Game</small></h1>
+      <div class="controls">
+        <select id="difficulty" title="Choose difficulty">
+          <option value="4">Easy — 4×4</option>
+          <option value="6" selected>Medium — 6×6</option>
+          <option value="8">Hard — 8×8</option>
+        </select>
+
+        <div class="mode-selector">
+          <button class="mode-pill" data-mode="single">Single</button>
+          <button class="mode-pill" data-mode="multiplayer">Multiplayer</button>
+          <button class="mode-pill" data-mode="ai">AI Bot</button>
+          <button class="mode-pill" data-mode="quiz">Quiz Mode</button>
+        </div>
+
+        <button id="startBtn" class="primary">Start</button>
+      </div>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><small>Time</small><strong id="time">00:00</strong></div>
+      <div class="stat"><small>Moves</small><strong id="moves">0</strong></div>
+      <div class="stat"><small>Pairs</small><strong id="pairs">0/0</strong></div>
+      <div class="stat"><small>Turn</small><strong id="turn">Player 1</strong></div>
+    </div>
+
+    <div class="board-wrap">
+      <div id="board" class="board"></div>
+      <div style="display:flex;gap:12px;margin-top:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+        <div style="display:flex;gap:8px;align-items:center">
+          <button id="restart">Restart</button>
+          <button id="shuffle">Shuffle</button>
+        </div>
+        <div class="leaderboard" style="min-width:200px">
+          <h4>Top Scores</h4>
+          <div class="lb-list" id="leaderboardList"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer style="margin-top:12px;color:var(--muted);font-size:13px">Tip: In Quiz Mode, correct answers secure your matched pair; wrong answers shuffle only the unmatched cards. Enjoy!</footer>
+  </div>
+
+  <!-- Modal UI -->
+  <div id="modal" class="modal-back">
+    <div class="modal">
+      <h3 id="modalTitle">Title</h3>
+      <p id="modalBody">Body</p>
+      <div id="modalActions" style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px"></div>
+    </div>
+  </div>
+
+  <script>
+  // BrainBlitz — full features with polished Quiz Mode
+
+  // ----- Assets -----
+  const EMOJIS = [
+    '🍎','🍌','🍇','🍒','🍉','🍓','🍑','🍍','🥝','🍐','🍊','🥭','🍋','🍈','🍏','🥥','🥑','🍅','🍆','🥕','🌽','🥔','🧀','🍪','🍩','🍰','🍫','🍭','🍿','🧁','🥨'
+  ];
+
+  const QUIZ_Q = [
+    {q:'What is the capital of France?', opts:['Paris','Rome','Madrid','Berlin'], a:'Paris'},
+    {q:'Which planet is known as the Red Planet?', opts:['Mars','Venus','Jupiter','Saturn'], a:'Mars'},
+    {q:'Who wrote "Romeo and Juliet"?', opts:['Shakespeare','Hemingway','Tolstoy','Dickens'], a:'Shakespeare'},
+    {q:'What is H2O commonly called?', opts:['Salt','Water','Oxygen','Hydrogen'], a:'Water'},
+    {q:'How many continents are there?', opts:['5','6','7','8'], a:'7'},
+    {q:'Which animal is known as the king of the jungle?', opts:['Tiger','Lion','Elephant','Leopard'], a:'Lion'},
+    {q:'Which gas do plants absorb?', opts:['Nitrogen','Oxygen','Carbon Dioxide','Helium'], a:'Carbon Dioxide'},
+    {q:'Which is the largest ocean on Earth?', opts:['Atlantic','Indian','Arctic','Pacific'], a:'Pacific'},
+    {q:'Who painted the Mona Lisa?', opts:['Van Gogh','Da Vinci','Picasso','Rembrandt'], a:'Da Vinci'},
+    {q:'What is the boiling point of water at sea level (°C)?', opts:['90','100','120','80'], a:'100'},
+    {q:'What currency is used in Japan?', opts:['Yuan','Dollar','Yen','Won'], a:'Yen'},
+    {q:'Which organ pumps blood in the human body?', opts:['Lungs','Liver','Heart','Kidney'], a:'Heart'},
+    {q:'What language has the most native speakers?', opts:['English','Spanish','Mandarin','Hindi'], a:'Mandarin'},
+    {q:'Which element has the chemical symbol O?', opts:['Gold','Oxygen','Silver','Iron'], a:'Oxygen'},
+    {q:'How many minutes are in an hour?', opts:['30','45','60','90'], a:'60'},
+    {q:'Which country is known for the Great Pyramid of Giza?', opts:['Mexico','Egypt','Peru','India'], a:'Egypt'},
+    {q:'Who discovered gravity famously by observing an apple?', opts:['Newton','Einstein','Galileo','Bohr'], a:'Newton'},
+    {q:'What device do we use to look at stars?', opts:['Microscope','Telescope','Thermometer','Barometer'], a:'Telescope'},
+    {q:'Which is the largest land animal?', opts:['Whale','Elephant','Giraffe','Hippo'], a:'Elephant'},
+    {q:'Which is the fastest land animal?', opts:['Cheetah','Lion','Horse','Gazelle'], a:'Cheetah'}
+  ];
+
+  // ----- DOM refs -----
+  const board = document.getElementById('board');
+  const startBtn = document.getElementById('startBtn');
+  const difficultySel = document.getElementById('difficulty');
+  const movesEl = document.getElementById('moves');
+  const timeEl = document.getElementById('time');
+  const pairsEl = document.getElementById('pairs');
+  const turnEl = document.getElementById('turn');
+  const restartBtn = document.getElementById('restart');
+  const shuffleBtn = document.getElementById('shuffle');
+  const modalBack = document.getElementById('modal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+  const modalActions = document.getElementById('modalActions');
+  const leaderboardList = document.getElementById('leaderboardList');
+
+  const modeButtons = document.querySelectorAll('.mode-pill');
+
+  // ----- state -----
+  let mode = 'single';
+  let gridSize = 6;
+  let totalPairs = 0;
+  let cards = []; // each card: {uid, emoji, matched}
+  let first = null, second = null;
+  let lock = false;
+  let moves = 0, matchedPairs = 0;
+  let timer = null, elapsed = 0;
+  let currentPlayer = 1;
+  let scores = {1:0,2:0};
+
+  // AI
+  let aiMemory = {}; let aiMistakeProb = 0.18;
+
+  // ----- UI setup -----
+  modeButtons.forEach(b=>b.addEventListener('click',()=>{ modeButtons.forEach(x=>x.classList.remove('active')); b.classList.add('active'); mode=b.dataset.mode; updateTurnUI(); }));
+  document.querySelector('.mode-pill[data-mode="single"]').classList.add('active');
+
+  startBtn.addEventListener('click',()=>{ gridSize = parseInt(difficultySel.value,10); initGame(gridSize); });
+  restartBtn.addEventListener('click',()=>initGame(gridSize));
+  shuffleBtn.addEventListener('click',()=>manualShuffle());
+
+  // ----- game lifecycle -----
+  function initGame(size){
+    stopTimer(); elapsed=0; timeEl.textContent='00:00';
+    first=null; second=null; lock=false; moves=0; matchedPairs=0; cards=[]; scores={1:0,2:0}; currentPlayer=1; aiMemory={};
+    movesEl.textContent='0'; pairsEl.textContent=`0/0`; turnEl.textContent='Player 1';
+
+    const pairCount = (size*size)/2; totalPairs = pairCount; pairsEl.textContent = `0/${totalPairs}`;
+
+    const chosen = shuffleArray(EMOJIS).slice(0,pairCount);
+    const pool = shuffleArray([...chosen, ...chosen]).map((emoji,i)=>({uid:generateUID(),emoji,matched:false}));
+    cards = pool;
+
+    renderBoard(size);
+    startTimer();
+
+    if(mode==='ai' && currentPlayer===2){ aiTakeTurnWithDelay(); }
+  }
+
+  function renderBoard(size){
+    board.style.gridTemplateColumns = `repeat(${size}, auto)`;
+    board.innerHTML = '';
+
+    cards.forEach((c, i)=>{
+      const el = document.createElement('div'); el.className='card'; el.dataset.uid=c.uid; el.dataset.index=i;
+      el.innerHTML = `
+        <div class="card-inner">
+          <div class="face back"><div class="emoji">❓</div></div>
+          <div class="face front"><div class="emoji">${c.emoji}</div></div>
+        </div>`;
+      if(c.matched) el.classList.add('flipped','matched');
+      board.appendChild(el);
+      el.addEventListener('click',()=>onCardClick(i,el));
+    });
+  }
+
+  function onCardClick(index, el){
+    if(lock) return; const card = cards[index]; if(!card || card.matched) return;
+    // prevent clicking same card twice
+    if(first && first.index===index) return;
+
+    // flip visually
+    el.classList.add('flipped');
+
+    if(!first){ first = { ...card, index, el }; if(mode==='ai' && currentPlayer===2) recordAIMemory(card, index); return; }
+
+    second = { ...card, index, el };
+    lock = true; moves++; movesEl.textContent = moves;
+
+    if(first.emoji === second.emoji){
+      // show quiz only in quiz mode
+      if(mode==='quiz'){
+        showQuizForMatch(first.index, second.index, ()=>{ // correct
+          finalizeMatch(true);
+        }, ()=>{ // incorrect
+          finalizeMatch(false, true); // pass flag that this was due to quiz incorrect
+        });
+      } else {
+        finalizeMatch(true);
+      }
+    } else {
+      // not a match — flip back after delay
+      setTimeout(()=>{ finalizeMatch(false); }, 800);
+    }
+  }
+
+  // finalizeMatch: success boolean, quizWrong flag indicates an incorrect quiz answer for a matched pair
+  function finalizeMatch(success, quizWrong=false){
+    if(success){
+      // mark matched in data
+      cards[first.index].matched = true; cards[second.index].matched = true;
+      first.el.classList.add('matched'); second.el.classList.add('matched');
+      matchedPairs++; pairsEl.textContent = `${matchedPairs}/${totalPairs}`;
+
+      // scoring
+      if(mode==='multiplayer') scores[currentPlayer]++;
+      else if(mode==='ai'){ if(currentPlayer===1) scores[1]++; else scores[2]++; }
+
+      // clear ai memory for emoji
+      if(aiMemory[first.emoji]!==undefined) delete aiMemory[first.emoji];
+
+      // reset selection
+      first=null; second=null; lock=false;
+
+      // check win
+      if(matchedPairs === totalPairs){ stopTimer(); showModal('Game Complete', `Completed in ${formatTime(elapsed)} · Moves: ${moves}`, [{txt:'Save Score',fn:saveScore},{txt:'Close',fn:closeModal}]); updateLeaderboardUI(); }
+      else {
+        // in multiplayer and ai, same player continues
+        if(mode==='ai' && currentPlayer===2){ currentPlayer=1; updateTurnUI(); }
+      }
+
+      // if the quiz was wrong (should not happen here because success true and quizWrong true means incorrect answer case handled below)
+    } else {
+      // failure: flip back and possibly shuffle (only when quizWrong flag true)
+      setTimeout(()=>{
+        // flip back visually if not matched
+        if(first && first.el) first.el.classList.remove('flipped');
+        if(second && second.el) second.el.classList.remove('flipped');
+
+        // if the player answered quiz incorrectly after finding a matching pair, shuffle unmatched cards
+        if(quizWrong){
+          shuffleUnmatchedPreservingMatched();
+        }
+
+        // switch turn for multiplayer/ai
+        if(mode==='multiplayer') currentPlayer = currentPlayer===1?2:1;
+        else if(mode==='ai') currentPlayer = currentPlayer===1?2:1;
+        updateTurnUI();
+
+        first=null; second=null; lock=false;
+
+        // schedule AI move if needed
+        if(mode==='ai' && currentPlayer===2 && matchedPairs<totalPairs){ setTimeout(()=>aiTakeTurnWithDelay(),600); }
+      }, 650);
+    }
+  }
+
+  // shuffle only unmatched cards, keep matched cards in place
+  function shuffleUnmatchedPreservingMatched(){
+    // extract unmatched emojis
+    const unmatched = cards.filter(c=>!c.matched).map(c=>c.emoji);
+    const shuffled = shuffleArray(unmatched);
+    // reassign emojis to unmatched card slots
+    let ptr = 0;
+    cards = cards.map(c=>{ if(c.matched) return c; return {...c, emoji:shuffled[ptr++]} });
+    // re-render board to reflect new positions but keep matched revealed and their DOM consistent
+    const size = Math.sqrt(cards.length);
+    renderBoard(size);
+  }
+
+  function manualShuffle(){ shuffleUnmatchedPreservingMatched(); }
+
+  // ----- Quiz handling (polished) -----
+  function showQuizForMatch(idx1, idx2, onCorrect, onIncorrect){
+    // pause interactions
+    lock = true;
+
+    // pick question and render modal with options
+    const q = QUIZ_Q[Math.floor(Math.random()*QUIZ_Q.length)];
+    modalTitle.textContent = 'Quiz Time!';
+    modalBody.innerHTML = `<p style="color:var(--muted);margin-bottom:12px">${q.q}</p>`;
+    modalActions.innerHTML = '';
+
+    // shuffle options order
+    const opts = shuffleArray(q.opts.slice());
+    opts.forEach(opt=>{
+      const btn = document.createElement('button'); btn.textContent = opt; btn.style.padding='8px 12px'; btn.style.borderRadius='8px'; btn.style.border='1px solid rgba(15,23,36,0.06)'; btn.addEventListener('click',()=>{
+        closeModal();
+        if(opt === q.a){ onCorrect(); }
+        else { onIncorrect(); }
+      }); modalActions.appendChild(btn);
+    });
+
+    modalBack.style.display='flex';
+  }
+
+  function showModal(title, body, actions=[]){ modalBack.style.display='flex'; modalTitle.textContent=title; modalBody.textContent=body; modalActions.innerHTML=''; actions.forEach(a=>{ const btn=document.createElement('button'); btn.textContent=a.txt; btn.addEventListener('click',()=>{ a.fn(); }); btn.style.padding='8px 12px'; btn.style.borderRadius='8px'; btn.style.border='1px solid rgba(15,23,36,0.06)'; modalActions.appendChild(btn); }); }
+  function closeModal(){ modalBack.style.display='none'; lock=false; }
+
+  // ----- AI -----
+  function aiTakeTurnWithDelay(){ setTimeout(()=>aiTakeTurn(), 900 + Math.random()*800); }
+  function aiTakeTurn(){ if(lock) return; // find known pair
+    // try to find a known matching pair from memory
+    for(const [emoji, idx] of Object.entries(aiMemory)){
+      const otherIdx = cards.findIndex((c,i)=>i!==Number(idx) && !c.matched && c.emoji===emoji);
+      if(otherIdx!==-1){ // pick idx then otherIdx
+        simulateClick(idx);
+        setTimeout(()=>simulateClick(otherIdx), 700);
+        return;
+      }
+    }
+    // else pick random
+    const candidates = cards.map((c,i)=>i).filter(i=>!cards[i].matched);
+    const pick1 = candidates[Math.floor(Math.random()*candidates.length)];
+    simulateClick(pick1);
+    setTimeout(()=>{
+      // pick second, try to pick matching from memory
+      const emoji = cards[pick1].emoji;
+      let pick2 = Object.values(aiMemory).find(i=>i!=pick1 && cards[i] && !cards[i].matched && cards[i].emoji===emoji);
+      if(Math.random() < aiMistakeProb) pick2 = null; // make mistakes sometimes
+      if(pick2===undefined || pick2===null){ pick2 = candidates.filter(i=>i!=pick1)[Math.floor(Math.random()*(candidates.length-1))]; }
+      simulateClick(pick2);
+    }, 700 + Math.random()*500);
+  }
+
+  function simulateClick(index){ const el = board.querySelector(`[data-index='${index}']`); if(el) el.click(); }
+
+  function recordAIMemory(card, index){ aiMemory[card.emoji] = index; }
+
+  // ----- utilities -----
+  function shuffleArray(a){ const arr = a.slice(); for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]] } return arr; }
+  function generateUID(){ return Math.random().toString(36).slice(2,9); }
+
+  // ----- timer -----
+  function startTimer(){ stopTimer(); timer = setInterval(()=>{ elapsed++; timeEl.textContent = formatTime(elapsed); },1000); }
+  function stopTimer(){ if(timer) clearInterval(timer); timer=null; }
+  function formatTime(s){ const mm = String(Math.floor(s/60)).padStart(2,'0'), ss = String(s%60).padStart(2,'0'); return `${mm}:${ss}` }
+
+  // ----- leaderboard -----
+  function saveScore(){ const name = prompt('Name to save','Player') || 'Player'; const key='brainblitz_lb'; const existing = JSON.parse(localStorage.getItem(key)||'[]'); existing.push({name, time:elapsed, moves, date:new Date().toISOString()}); existing.sort((a,b)=> (a.time - b.time) || (a.moves - b.moves)); localStorage.setItem(key, JSON.stringify(existing.slice(0,10))); closeModal(); updateLeaderboardUI(); }
+  function updateLeaderboardUI(){ const key='brainblitz_lb'; const items = JSON.parse(localStorage.getItem(key)||'[]'); leaderboardList.innerHTML=''; if(items.length===0){ leaderboardList.innerHTML='<div style="color:var(--muted)">No scores yet</div>'; return; } items.slice(0,5).forEach((it,i)=>{ const row=document.createElement('div'); row.className='lb-item'; row.innerHTML = `<div>${i+1}. ${it.name}</div><div>${formatTime(it.time)} · ${it.moves}m</div>`; leaderboardList.appendChild(row); }); }
+
+  // turn UI
+  function updateTurnUI(){ if(mode==='multiplayer'){ turnEl.textContent = `Player ${currentPlayer}` } else if(mode==='ai'){ turnEl.textContent = currentPlayer===1 ? 'You' : 'AI'; } else { turnEl.textContent = 'Player' } }
+
+  // initial
+  (function(){ updateLeaderboardUI(); initGame(gridSize); })();
+
+  // modal outside click
+  modalBack.addEventListener('click',(e)=>{ if(e.target===modalBack) closeModal(); });
+
+  // keyboard quick restart
+  document.addEventListener('keydown',(e)=>{ if(e.key.toLowerCase()==='r') initGame(gridSize); });
+
+  // expose for debugging
+  window._brainblitz = { initGame, saveScore };
+  </script>
+</body>
+</html>

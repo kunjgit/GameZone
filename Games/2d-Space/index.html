@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Space.io </title>
+<link rel="icon" type="image/jpg" href="imgg.png">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root{
+    --game-w: 1000px;
+    --game-h: 600px;
+    --lane-count: 4;
+    --ui-bg: rgba(0,0,0,0.6);
+    --accent: #ff6b35;
+  }
+  *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+  body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  gap:20px;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  color:#e6eef8;
+  padding:30px;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:url('bg-city.png');
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:115% 115%;
+  filter:blur(14px);
+  transform:scale(1.05);
+  z-index:-1;
+  animation: bgPan 20s linear infinite alternate;
+}
+
+@keyframes bgPan{
+  0%{
+    transform:scale(1.05) translate3d(0,0,0);
+    background-position: 40% 50%;
+  }
+  50%{
+    transform:scale(1.07) translate3d(-10px,-4px,0);
+    background-position: 60% 48%;
+  }
+  100%{
+    transform:scale(1.05) translate3d(0,-8px,0);
+    background-position: 50% 52%;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-3px, -2px) rotate(-0.5deg); }
+  20% { transform: translate(2px, 3px) rotate(0.5deg); }
+  30% { transform: translate(-2px, -3px) rotate(-0.5deg); }
+  40% { transform: translate(3px, 2px) rotate(0.5deg); }
+  50% { transform: translate(-2px, 2px) rotate(-0.5deg); }
+  60% { transform: translate(2px, -2px) rotate(0.5deg); }
+  70% { transform: translate(-1px, 3px) rotate(-0.3deg); }
+  80% { transform: translate(1px, -1px) rotate(0.3deg); }
+  90% { transform: translate(-3px, 1px) rotate(-0.4deg); }
+}
+
+.game.shake-effect {
+  animation: shake 0.4s ease-in-out 1;
+}
+
+.container{
+  width:var(--game-w);
+}
+
+h1 { text-align:center; margin:0 0 10px; font-weight:600;}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+  gap:8px;
+}
+.ui{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.btn{
+  background:var(--ui-bg);
+  color:inherit;
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.06);
+  cursor:pointer;
+  transition: all 150ms;
+}
+.btn:hover{
+  background: rgba(255,255,255,0.1);
+}
+.scorebox{
+  background: rgba(255,255,255,0.03);
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:600;
+}
+
+.game {
+  position: relative;
+  width: var(--game-w);
+  height: var(--game-h);
+  overflow: hidden;
+  border-radius:12px;
+  border: 3px solid rgba(255,255,255,0.06);
+  background-image: url('bg-city.png');
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-position: 0 bottom;
+  box-shadow: 0 10px 40px rgba(2,6,23,0.7);
+  transition: filter 0.15s ease-out;
+}
+
+.bg-layer{
+  position:absolute;
+  left:0; right:0;
+  height:100%;
+  top:0;
+  pointer-events:none;
+  background-repeat:repeat-x;
+  background-position:0 bottom;
+}
+.bg-layer.layer1{ background-image: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); opacity:0.12; background-size: 200px 100%;}
+.bg-layer.layer2{ top:40px; opacity:0.2; background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03), transparent 10%); background-size: 600px 200px;}
+.bg-layer.layer3{ top:120px; opacity:0.28; background-image: linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 400px 100%; }
+
+.lane {
+  position:absolute;
+  left:0; right:0;
+  height: calc(var(--game-h) / var(--lane-count));
+  border-top: 1px dashed rgba(255,255,255,0.03);
+  pointer-events:none;
+}
+
+.player {
+  position:absolute;
+  width:90px;
+  height:90px;
+  left:80px;
+  transform:translateY(-50%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:visible;
+  transition:top 180ms cubic-bezier(.2,.9,.2,1), transform 150ms;
+  background: transparent;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+.player img{ width:100%; height:100%; object-fit:cover; display:block; border-radius: 8px; }
+
+.trail-particle {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0.6;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.8), rgba(255, 107, 53, 0.2));
+}
+
+.ent {
+  position:absolute;
+  width:80px;
+  height:80px;
+  border-radius:10px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform:translateY(-50%);
+  transition: transform 120ms;
+}
+
+.obstacle{
+  background-color: transparent;
+}
+.obstacle img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.obstacle img[src$="obs2.png"]{
+  transform: rotate(180deg);
+}
+
+.coin{
+background: radial-gradient(circle at 30% 20%, #fff8c4, #e0a800);
+width:60px;
+height:60px;
+border-radius:50%;
+box-shadow:0 3px 8px rgba(0,0,0,0.35);
+display:flex;
+align-items:center;
+justify-content:center;
+perspective:400px;
+}
+
+.coin-label{
+font-weight:800;
+font-size:26px;
+color:#3b1f00;
+text-shadow:0 2px 3px rgba(0,0,0,0.45);
+display:inline-block;
+transform-style:preserve-3d;
+animation: coinSpin 1.4s linear infinite;
+}
+
+@keyframes coinSpin{
+0%{
+transform:rotateY(0deg) translateZ(0);
+}
+50%{
+transform:rotateY(180deg) translateZ(4px);
+}
+100%{
+transform:rotateY(360deg) translateZ(0);
+}
+}
+
+.power{
+background: transparent;
+border:none;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+.power img{
+width:70%;
+height:70%;
+object-fit:contain;
+display:block;
+}
+
+.overlay {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.6));
+  z-index:50;
+  gap:14px;
+  flex-direction:column;
+  padding:20px;
+  text-align:center;
+}
+.menu, .gameover, .settings {
+  width:80%;
+  max-width:600px;
+  background:rgba(255,255,255,0.03);
+  padding:20px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.04);
+}
+
+.settings {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.settings-section {
+  margin: 16px 0;
+  text-align: left;
+}
+
+.settings-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+  font-size: 14px;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+input[type="range"] {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.2);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff6b35;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff6b35;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.slider-value {
+  min-width: 40px;
+  text-align: right;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+small{ opacity:0.8; display:block; margin-top:6px; }
+
+.hud {
+  position:absolute;
+  right:12px;
+  top:12px;
+  display:flex;
+  gap:8px;
+  z-index:40;
+}
+.pill {
+  background:rgba(0,0,0,0.45);
+  padding:4px 6px;
+  border-radius:999px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+}
+.pill-icon{
+  width:20px;
+  height:20px;
+  object-fit:contain;
+  display:block;
+}
+
+/* touchzones stay under overlays due to z-index */
+.touchzone{
+  position:absolute;
+  left:0; right:0;
+  height:50%;
+  pointer-events:auto;
+  z-index:1;
+}
+.touch-top{ top:0; }
+.touch-bottom{ bottom:0; }
+
+@media (max-width:1100px){
+  :root{ --game-w: 92vw; --game-h: 60vh; }
+  .player{ width:64px; height:64px; left:56px; }
+  .ent{ width:56px; height:56px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="topbar">
+    <h1>Space.io</h1>
+    <div class="ui">
+      <div class="scorebox">Score: <span id="score">0</span></div>
+      <div class="scorebox">Best: <span id="best">0</span></div>
+      <button id="pauseBtn" class="btn">Pause</button>
+      <button id="settingsBtn" class="btn">⚙️</button>
+      <button id="muteBtn" class="btn">🔊</button>
+    </div>
+  </div>
+
+  <div id="game" class="game" tabindex="0">
+    <div class="bg-layer layer1" data-speed="0.25"></div>
+    <div class="bg-layer layer2" data-speed="0.5"></div>
+    <div class="bg-layer layer3" data-speed="0.9"></div>
+
+    <div id="lanes"></div>
+
+    <div id="player" class="player" style="top:50%;">
+      <img id="playerImg" src="imgg.png" alt="player" onerror="this.style.display='none'">
+      <div id="playerFallback" style="display:none;width:100%;height:100%;background:#fff;border-radius:8px;"></div>
+    </div>
+
+    <div class="hud">
+      <div id="shieldPill" class="pill" style="display:none">
+        <img src="shield.png" alt="Shield" class="pill-icon">
+      </div>
+      <div id="slowPill" class="pill" style="display:none">
+        <img src="slow.png" alt="Slow" class="pill-icon">
+      </div>
+    </div>
+
+    <div class="touchzone touch-top" id="touchTop"></div>
+    <div class="touchzone touch-bottom" id="touchBottom"></div>
+
+    <div id="menuOverlay" class="overlay">
+      <div class="menu">
+        <h2>Welcome to Space.io</h2>
+        <p>Use <b>Arrow Up / W</b> and <b>Arrow Down / S</b> to change lanes.<br>
+        Tap top/bottom on mobile. Collect coins and power-ups. Avoid obstacles.</p>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:12px;">
+          <button id="startBtn" class="btn">Start Game</button>
+          <button id="tutorialBtn" class="btn">How to Play</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="pausedOverlay" class="overlay" style="display:none; z-index:45">
+      <div class="menu">
+        <h2>Paused</h2>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:12px;">
+          <button id="resumeBtn" class="btn">Resume</button>
+          <button id="restartBtn" class="btn">Restart</button>
+          <button id="pauseSettingsBtn" class="btn">Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="settingsOverlay" class="overlay" style="display:none;">
+      <div class="settings">
+        <h2 style="text-align:center;margin-top:0;">Settings</h2>
+        
+        <div class="settings-section">
+          <label class="settings-label">🔊 Music Volume</label>
+          <div class="slider-container">
+            <input type="range" id="musicVol" min="0" max="100" value="70">
+            <span class="slider-value"><span id="musicVolVal">70</span>%</span>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <label class="settings-label">🔔 SFX Volume</label>
+          <div class="slider-container">
+            <input type="range" id="sfxVol" min="0" max="100" value="80">
+            <span class="slider-value"><span id="sfxVolVal">80</span>%</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:20px;">
+          <button id="closeSettingsBtn" class="btn">Close</button>
+          <button id="settingsResumeBtn" class="btn" style="display:none;">Resume Game</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="gameOverOverlay" class="overlay" style="display:none;">
+      <div class="gameover" id="gameOverPanel">
+        <h2>Game Over</h2>
+        <p>Your score: <b id="finalScore">0</b></p>
+        <p>Best: <b id="finalBest">0</b></p>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:12px;">
+          <button id="againBtn" class="btn">Play Again</button>
+          <button id="menuBtn" class="btn">Main Menu</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<script>
+const CONFIG = {
+  lanes: 4,
+  playerX: 80,
+  obstacleBaseSpeed: 320,
+  obstacleSpawnMin: 0.5,
+  obstacleSpawnMax: 2.0,
+  difficultyIncreaseInterval: 10,
+  speedIncreasePerStep: 40,
+  minSpawnMin: 0.3,
+  powerupChance: 0.12,
+  coinChance: 0.28,
+  shieldDuration: 6,
+  slowDuration: 4,
+  slowFactor: 0.45,
+  speedVariationMin: 0.65,
+  speedVariationMax: 1.5,
+  spawnOffsetMin: 0,
+  spawnOffsetMax: 200,
+  burstSpawnChance: 0.08,
+  burstCount: 2,
+  laneClusterChance: 0.15,
+};
+
+const gameEl = document.getElementById('game');
+const lanesEl = document.getElementById('lanes');
+const playerEl = document.getElementById('player');
+const playerImg = document.getElementById('playerImg');
+const playerFallback = document.getElementById('playerFallback');
+const scoreEl = document.getElementById('score');
+const bestEl = document.getElementById('best');
+const pauseBtn = document.getElementById('pauseBtn');
+const settingsBtn = document.getElementById('settingsBtn');
+const muteBtn = document.getElementById('muteBtn');
+const menuOverlay = document.getElementById('menuOverlay');
+const menuBtn = document.getElementById('menuBtn');
+const startBtn = document.getElementById('startBtn');
+const tutorialBtn = document.getElementById('tutorialBtn');
+const pausedOverlay = document.getElementById('pausedOverlay');
+const settingsOverlay = document.getElementById('settingsOverlay');
+const gameOverOverlay = document.getElementById('gameOverOverlay');
+const finalScore = document.getElementById('finalScore');
+const finalBest = document.getElementById('finalBest');
+const againBtn = document.getElementById('againBtn');
+const resumeBtn = document.getElementById('resumeBtn');
+const restartBtn = document.getElementById('restartBtn');
+const shieldPill = document.getElementById('shieldPill');
+const slowPill = document.getElementById('slowPill');
+const touchTop = document.getElementById('touchTop');
+const touchBottom = document.getElementById('touchBottom');
+const bgMusic = document.getElementById('bgMusic');
+const musicVolSlider = document.getElementById('musicVol');
+const sfxVolSlider = document.getElementById('sfxVol');
+const musicVolVal = document.getElementById('musicVolVal');
+const sfxVolVal = document.getElementById('sfxVolVal');
+const closeSettingsBtn = document.getElementById('closeSettingsBtn');
+const pauseSettingsBtn = document.getElementById('pauseSettingsBtn');
+const settingsResumeBtn = document.getElementById('settingsResumeBtn');
+
+const bestKey = 'dodge_best_v1';
+const settingsKey = 'dodge_settings_v1';
+
+let state = {
+  running: false,
+  paused: false,
+  settingsOpen: false,
+  lastTimestamp: 0,
+  playerLane: Math.floor(CONFIG.lanes / 2),
+  entities: [],
+  nextSpawn: 0,
+  spawnIntervalMin: CONFIG.obstacleSpawnMin,
+  spawnIntervalMax: CONFIG.obstacleSpawnMax,
+  baseSpeed: CONFIG.obstacleBaseSpeed,
+  score: 0,
+  best: parseInt(localStorage.getItem(bestKey) || "0", 10),
+  shield: false,
+  slow: false,
+  slowExpiresAt: 0,
+  shieldExpiresAt: 0,
+  muted: false,
+  musicVol: 0.7,
+  sfxVol: 0.8,
+  timeSinceStart: 0,
+  lastDifficultyStep: 0,
+  lastSpawnLane: -1,
+  bgX: 0,
+  lastTrailTime: 0,
+};
+
+bestEl.textContent = state.best;
+
+function loadSettings(){
+  const saved = localStorage.getItem(settingsKey);
+  if(saved){
+    const s = JSON.parse(saved);
+    state.musicVol = s.musicVol || 0.7;
+    state.sfxVol = s.sfxVol || 0.8;
+  }
+  musicVolSlider.value = Math.round(state.musicVol * 100);
+  sfxVolSlider.value = Math.round(state.sfxVol * 100);
+  musicVolVal.textContent = musicVolSlider.value;
+  sfxVolVal.textContent = sfxVolSlider.value;
+  updateAudioVolumes();
+}
+
+function saveSettings(){
+  localStorage.setItem(settingsKey, JSON.stringify({musicVol: state.musicVol, sfxVol: state.sfxVol}));
+}
+
+function updateAudioVolumes(){
+  if(bgMusic) bgMusic.volume = state.musicVol;
+}
+
+loadSettings();
+
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+function rand(min,max){return Math.random()*(max-min)+min;}
+function choose(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function rectsIntersect(a,b){
+  return !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
+}
+function laneTopPx(lane){
+  const h = gameEl.clientHeight;
+  const laneHeight = h / CONFIG.lanes;
+  return lane * laneHeight + laneHeight/2;
+}
+
+function screenShake(){
+  gameEl.classList.add('shake-effect');
+  setTimeout(() => gameEl.classList.remove('shake-effect'), 400);
+}
+
+function createTrail(){
+  const rect = playerEl.getBoundingClientRect();
+  const gameRect = gameEl.getBoundingClientRect();
+  
+  const particle = document.createElement('div');
+  particle.className = 'trail-particle';
+  const size = rand(6, 14);
+  particle.style.width = size + 'px';
+  particle.style.height = size + 'px';
+  particle.style.left = (rect.left - gameRect.left + 45) + 'px';
+  particle.style.top = (rect.top - gameRect.top + 45) + 'px';
+  
+  gameEl.appendChild(particle);
+  
+  let opacity = 0.6;
+  const fadeInterval = setInterval(() => {
+    opacity -= 0.15;
+    particle.style.opacity = opacity;
+    if(opacity <= 0) {
+      clearInterval(fadeInterval);
+      particle.remove();
+    }
+  }, 40);
+}
+
+function startBgMusic(){
+  if(!bgMusic) return;
+  bgMusic.muted = state.muted;
+  if(bgMusic.paused){
+    bgMusic.play().catch(()=>{});
+  }
+}
+function pauseBgMusic(){
+  if(!bgMusic) return;
+  bgMusic.pause();
+}
+
+// enable/disable touch zones
+function setTouchzonesActive(active){
+  const pe = active ? 'auto' : 'none';
+  touchTop.style.pointerEvents = pe;
+  touchBottom.style.pointerEvents = pe;
+}
+
+function createEntityNode(kind,imgSrc){
+  const node = document.createElement('div');
+  node.classList.add('ent');
+  node.dataset.kind = kind;
+
+  if(kind === 'obstacle'){
+    node.classList.add('obstacle');
+    if(imgSrc){
+      const i=document.createElement('img');
+      i.src=imgSrc;
+      i.onerror=()=>i.style.display='none';
+      node.appendChild(i);
+    }
+  } else if(kind === 'coin'){
+    const inner = document.createElement('div');
+    inner.className = 'coin';
+    inner.innerHTML = '<span class="coin-label">$</span>';
+    node.appendChild(inner);
+  } else if(kind==='power'){
+    node.classList.add('power');
+    if(imgSrc){
+      const i=document.createElement('img');
+      i.src=imgSrc;
+      i.onerror=()=>i.style.display='none';
+      node.appendChild(i);
+    }
+  }
+  gameEl.appendChild(node);
+  return node;
+}
+
+function spawnEntity(){
+  let lane;
+  if(Math.random()<CONFIG.laneClusterChance && state.lastSpawnLane>=0){
+    const offset=Math.random()<0.5?-1:1;
+    lane=clamp(state.lastSpawnLane+offset,0,CONFIG.lanes-1);
+  }else{
+    lane=Math.floor(rand(0,CONFIG.lanes));
+  }
+  state.lastSpawnLane=lane;
+
+  const baseX=gameEl.clientWidth+80;
+  const x=baseX+rand(CONFIG.spawnOffsetMin,CONFIG.spawnOffsetMax);
+
+  const r=Math.random();
+  let type='obstacle';
+  if(r<CONFIG.coinChance) type='coin';
+  else if(r<CONFIG.coinChance+CONFIG.powerupChance) type='power';
+
+  const imgSet=['obs1.png','obs2.png','obs3.png'];
+  let img=null;
+  let powerKind=null;
+
+  if(type==='obstacle'){
+    img=choose(imgSet);
+  }else if(type==='power'){
+    powerKind=Math.random()<0.5?'shield':'slow';
+    img=powerKind==='shield'?'shield.png':'slow.png';
+  }
+
+  const node=createEntityNode(type,img);
+  node.style.top=laneTopPx(lane)+'px';
+
+  const speedMultiplier=rand(CONFIG.speedVariationMin,CONFIG.speedVariationMax);
+  const speed=state.baseSpeed*speedMultiplier;
+
+  const e={
+    id:Math.random().toString(36).slice(2),
+    kind:type,
+    powerKind,
+    lane,
+    x,
+    node,
+    w:node.offsetWidth||80,
+    h:node.offsetHeight||80,
+    speed,
+    spawnAt:performance.now()
+  };
+  node.style.left=e.x+'px';
+  node.style.transform='translateY(-60%) scale(0.92)';
+  setTimeout(()=>node.style.transform='translateY(-50%) scale(1)',80);
+
+  state.entities.push(e);
+}
+
+function spawnBurst(){
+  for(let i=0;i<CONFIG.burstCount;i++){
+    setTimeout(()=>spawnEntity(),i*80);
+  }
+}
+
+function removeEntity(e){
+  if(!e) return;
+  try{e.node.remove();}catch(_){}
+  state.entities=state.entities.filter(x=>x!==e);
+}
+
+let audioCtx=null;
+function initAudio(){
+  if(audioCtx) return;
+  try{
+    audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  }catch(e){audioCtx=null;}
+}
+function beep(freq=440,time=0.08,gain=0.12){
+  if(state.muted || state.sfxVol === 0) return;
+  initAudio();
+  if(!audioCtx) return;
+  const o=audioCtx.createOscillator();
+  const g=audioCtx.createGain();
+  o.type='sine';
+  o.frequency.value=freq;
+  g.gain.value=gain * state.sfxVol;
+  o.connect(g);g.connect(audioCtx.destination);
+  o.start();
+  o.stop(audioCtx.currentTime+time);
+}
+function playCoin(){beep(900,0.06,0.08);}
+function playHit(){beep(140,0.18,0.18);}
+function playPower(){beep(520,0.14,0.12);}
+function playStart(){beep(720,0.12,0.08);beep(980,0.06,0.04);}
+
+function movePlayerToLane(lane){
+  state.playerLane=clamp(lane,0,CONFIG.lanes-1);
+  const top=laneTopPx(state.playerLane);
+  playerEl.style.top=top+'px';
+  playerEl.style.transform='translateY(-50%) translateX(0) scale(1) rotate('+(((CONFIG.lanes-1)/2-state.playerLane)*2)+'deg)';
+  setTimeout(()=>playerEl.style.transform='translateY(-50%) scale(1)',260);
+}
+function moveUp(){movePlayerToLane(state.playerLane-1);}
+function moveDown(){movePlayerToLane(state.playerLane+1);}
+
+let touchStartY=null;
+gameEl.addEventListener('touchstart',ev=>{
+  const t=ev.touches[0];
+  touchStartY=t.clientY;
+  const rect=gameEl.getBoundingClientRect();
+  const localY=t.clientY-rect.top;
+  localY<rect.height/2?moveUp():moveDown();
+  ev.preventDefault();
+},{passive:false});
+gameEl.addEventListener('touchmove',ev=>ev.preventDefault(),{passive:false});
+gameEl.addEventListener('touchend',ev=>{
+  const t=ev.changedTouches[0];
+  if(touchStartY!==null){
+    const dy=t.clientY-touchStartY;
+    if(Math.abs(dy)>40){
+      dy<0?moveUp():moveDown();
+    }
+  }
+  touchStartY=null;
+},{passive:false});
+
+touchTop.addEventListener('click',()=>moveUp());
+touchBottom.addEventListener('click',()=>moveDown());
+
+window.addEventListener('keydown',e=>{
+  if(!state.running||state.paused) return;
+  if(e.key==='ArrowUp'||e.key.toLowerCase()==='w'){moveUp();e.preventDefault();}
+  else if(e.key==='ArrowDown'||e.key.toLowerCase()==='s'){moveDown();e.preventDefault();}
+});
+
+gameEl.addEventListener('wheel',e=>{
+  if(!state.running||state.paused) return;
+  e.deltaY<0?moveUp():moveDown();
+});
+
+function gameLoop(ts){
+  if(!state.running||state.paused){state.lastTimestamp=ts;requestAnimationFrame(gameLoop);return;}
+  if(!state.lastTimestamp) state.lastTimestamp=ts;
+  const dt=(ts-state.lastTimestamp)/1000;
+  state.lastTimestamp=ts;
+  state.timeSinceStart+=dt;
+
+  state.lastTrailTime += dt;
+  if(state.lastTrailTime > 0.05) {
+    createTrail();
+    state.lastTrailTime = 0;
+  }
+
+  const bgSpeed = state.baseSpeed/4;
+  state.bgX = (state.bgX - bgSpeed*dt) % 1920;
+  gameEl.style.backgroundPosition = state.bgX + 'px bottom';
+
+  document.querySelectorAll('.bg-layer').forEach(layer=>{
+    const speed=parseFloat(layer.dataset.speed)||0.5;
+    const cur=parseFloat(layer.dataset.x||0);
+    const nx=(cur - speed*(state.baseSpeed/200)*dt) % gameEl.clientWidth;
+    layer.style.backgroundPositionX=nx+'px';
+    layer.dataset.x=nx;
+  });
+
+  state.nextSpawn-=dt;
+  if(state.nextSpawn<=0){
+    if(Math.random()<CONFIG.burstSpawnChance) spawnBurst();
+    else spawnEntity();
+    state.nextSpawn=rand(state.spawnIntervalMin,state.spawnIntervalMax);
+  }
+
+  const toRemove=[];
+  for(const e of state.entities){
+    if(!e.node||!document.body.contains(e.node)){
+      toRemove.push(e);continue;
+    }
+    const slowFactor=state.slow?CONFIG.slowFactor:1;
+    const dx=e.speed*slowFactor*dt;
+    e.x-=dx;
+    e.node.style.left=e.x+'px';
+
+    const playerRect=playerEl.getBoundingClientRect();
+    const entRect=e.node.getBoundingClientRect();
+    const pad=6;
+    const a={left:playerRect.left+pad,right:playerRect.right-pad,top:playerRect.top+pad,bottom:playerRect.bottom-pad};
+    const b={left:entRect.left+pad,right:entRect.right-pad,top:entRect.top+pad,bottom:entRect.bottom-pad};
+
+    const nearMissDistance = 120;
+    const distX = Math.min(Math.abs(playerRect.left - entRect.right), Math.abs(playerRect.right - entRect.left));
+    const distY = Math.abs((playerRect.top + playerRect.bottom)/2 - (entRect.top + entRect.bottom)/2);
+    const isNearMiss = e.kind === 'obstacle' && distX < nearMissDistance && distY < 80 && !rectsIntersect(a,b);
+
+    if(rectsIntersect(a,b)){
+      if(e.kind==='obstacle'){
+        if(state.shield){
+          state.shield=false;
+          shieldPill.style.display='none';
+          state.shieldExpiresAt=0;
+          playPower();
+          screenShake();
+          removeEntity(e);
+        }else{
+          playHit();
+          screenShake();
+          endGame();
+          return;
+        }
+      }else if(e.kind==='coin'){
+        state.score+=10;
+        playCoin();
+        removeEntity(e);
+      }else if(e.kind==='power'){
+        const pType=e.powerKind||(Math.random()<0.5?'shield':'slow');
+        if(pType==='shield'){
+          state.shield=true;
+          state.shieldExpiresAt=state.timeSinceStart+CONFIG.shieldDuration;
+          shieldPill.style.display='inline-flex';
+        }else{
+          state.slow=true;
+          state.slowExpiresAt=state.timeSinceStart+CONFIG.slowDuration;
+          slowPill.style.display='inline-flex';
+        }
+        playPower();
+        removeEntity(e);
+      }
+    } else if(isNearMiss && Math.random() < 0.15) {
+      screenShake();
+    }
+
+    if(e.x+80<-120) toRemove.push(e);
+  }
+  for(const e of toRemove) removeEntity(e);
+
+  if(state.shield&&state.shieldExpiresAt&&state.timeSinceStart>=state.shieldExpiresAt){
+    state.shield=false;
+    shieldPill.style.display='none';
+    state.shieldExpiresAt=0;
+  }
+  if(state.slow&&state.slowExpiresAt&&state.timeSinceStart>=state.slowExpiresAt){
+    state.slow=false;
+    slowPill.style.display='none';
+    state.slowExpiresAt=0;
+  }
+
+  state.score+=Math.round(4*dt*(state.baseSpeed/CONFIG.obstacleBaseSpeed));
+  scoreEl.textContent=state.score;
+
+  if(state.timeSinceStart-state.lastDifficultyStep>=CONFIG.difficultyIncreaseInterval){
+    state.baseSpeed+=CONFIG.speedIncreasePerStep;
+    state.spawnIntervalMin=Math.max(CONFIG.minSpawnMin,state.spawnIntervalMin-0.08);
+    state.spawnIntervalMax=Math.max(state.spawnIntervalMin+0.3,state.spawnIntervalMax-0.14);
+    state.lastDifficultyStep=state.timeSinceStart;
+    beep(600,0.06,0.06);
+  }
+
+  requestAnimationFrame(gameLoop);
+}
+
+function startGame(){
+  state.running=true;
+  state.paused=false;
+  state.lastTimestamp=0;
+  state.entities.forEach(e=>{try{e.node.remove();}catch(_){}});state.entities=[];
+  state.nextSpawn=0.5;
+  state.spawnIntervalMin=CONFIG.obstacleSpawnMin;
+  state.spawnIntervalMax=CONFIG.obstacleSpawnMax;
+  state.baseSpeed=CONFIG.obstacleBaseSpeed;
+  state.score=0;
+  state.timeSinceStart=0;
+  state.lastDifficultyStep=0;
+  state.lastSpawnLane=-1;
+  state.shield=false;
+  state.slow=false;
+  state.lastTrailTime=0;
+  shieldPill.style.display='none';
+  slowPill.style.display='none';
+  state.bgX=0;
+  movePlayerToLane(Math.floor(CONFIG.lanes/2));
+  menuOverlay.style.display='none';
+  gameOverOverlay.style.display='none';
+  pausedOverlay.style.display='none';
+  settingsOverlay.style.display='none';
+  setTouchzonesActive(true);
+  playStart();
+  startBgMusic();
+  requestAnimationFrame(gameLoop);
+}
+
+function endGame(){
+  try{
+    state.running=false;
+    pauseBgMusic();
+    setTouchzonesActive(false);
+    gameOverOverlay.style.display='flex';
+    finalScore.textContent=state.score;
+    if(state.score>state.best){
+      state.best=state.score;
+      localStorage.setItem(bestKey,state.best);
+    }
+    finalBest.textContent=state.best;
+    bestEl.textContent=state.best;
+  }catch(err){
+    console.error('Game over error',err);
+  }
+}
+
+startBtn.addEventListener('click',()=>startGame());
+againBtn.addEventListener('click',()=>startGame());
+menuBtn.addEventListener('click',()=>{
+  menuOverlay.style.display='flex';
+  gameOverOverlay.style.display='none';
+  setTouchzonesActive(false);
+});
+pauseBtn.addEventListener('click',()=>{
+  if(!state.running) return;
+  state.paused=!state.paused;
+  pausedOverlay.style.display=state.paused?'flex':'none';
+  pauseBtn.textContent=state.paused?'Resume':'Pause';
+  setTouchzonesActive(!state.paused);
+  if(state.paused) pauseBgMusic(); else startBgMusic();
+});
+resumeBtn.addEventListener('click',()=>{
+  state.paused=false;
+  pausedOverlay.style.display='none';
+  pauseBtn.textContent='Pause';
+  setTouchzonesActive(true);
+  startBgMusic();
+});
+restartBtn.addEventListener('click',()=>startGame());
+pauseSettingsBtn.addEventListener('click',()=>{
+  pausedOverlay.style.display='none';
+  settingsOverlay.style.display='flex';
+  state.settingsOpen=true;
+  settingsResumeBtn.style.display='inline-block';
+  closeSettingsBtn.textContent='Back';
+  setTouchzonesActive(false);
+});
+settingsBtn.addEventListener('click',()=>{
+  if(state.running) {
+    pauseBtn.click();
+    pauseSettingsBtn.click();
+  } else {
+    settingsOverlay.style.display='flex';
+    state.settingsOpen=true;
+    settingsResumeBtn.style.display='none';
+    closeSettingsBtn.textContent='Close';
+    setTouchzonesActive(false);
+  }
+});
+closeSettingsBtn.addEventListener('click',()=>{
+  settingsOverlay.style.display='none';
+  if(state.settingsOpen && state.paused){
+    pausedOverlay.style.display='flex';
+  }
+  state.settingsOpen=false;
+  setTouchzonesActive(!state.paused && state.running);
+});
+settingsResumeBtn.addEventListener('click',()=>{
+  settingsOverlay.style.display='none';
+  pausedOverlay.style.display='none';
+  state.paused=false;
+  state.settingsOpen=false;
+  pauseBtn.textContent='Pause';
+  setTouchzonesActive(true);
+  startBgMusic();
+  requestAnimationFrame(gameLoop);
+});
+tutorialBtn.addEventListener('click',()=>{
+  alert("Controls:\n - Arrow Up / W: move up\n - Arrow Down / S: move down\n - On mobile: tap top/bottom.\nCollect coins and power-ups. Avoid obstacles!\n\n");
+});
+muteBtn.addEventListener('click',()=>{
+  state.muted=!state.muted;
+  muteBtn.textContent=state.muted?'🔇':'🔊';
+  if(bgMusic) bgMusic.muted = state.muted;
+});
+
+musicVolSlider.addEventListener('input', (e)=>{
+  state.musicVol = parseInt(e.target.value) / 100;
+  musicVolVal.textContent = e.target.value;
+  updateAudioVolumes();
+  saveSettings();
+});
+
+sfxVolSlider.addEventListener('input', (e)=>{
+  state.sfxVol = parseInt(e.target.value) / 100;
+  sfxVolVal.textContent = e.target.value;
+  saveSettings();
+});
+
+window.addEventListener('blur',()=>{
+  if(state.running&&!state.paused){
+    state.paused=true;
+    pausedOverlay.style.display='flex';
+    pauseBtn.textContent='Resume';
+    pauseBgMusic();
+    setTouchzonesActive(false);
+  }
+});
+
+function setupLanes(){
+  lanesEl.innerHTML='';
+  const h=gameEl.clientHeight;
+  const laneH=h/CONFIG.lanes;
+  for(let i=0;i<CONFIG.lanes;i++){
+    const d=document.createElement('div');
+    d.className='lane';
+    d.style.top=(i*laneH)+'px';
+    lanesEl.appendChild(d);
+  }
+}
+window.addEventListener('resize',()=>{
+  setupLanes();
+  movePlayerToLane(state.playerLane);
+});
+setupLanes();
+movePlayerToLane(state.playerLane);
+
+playerImg.addEventListener('error',()=>{
+  playerImg.style.display='none';
+  playerFallback.style.display='block';
+});
+playerImg.addEventListener('load',()=>{
+  playerFallback.style.display='none';
+});
+
+setInterval(()=>{
+  state.entities=state.entities.filter(e=>document.contains(e.node));
+},5000);
+
+menuOverlay.style.display='flex';
+setTouchzonesActive(false);
+</script>
+</body>
+</html>

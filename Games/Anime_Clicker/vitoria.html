@@ -9,9 +9,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css" />
     <title>Document</title>
+    <style>
+        .score-display {
+            position: fixed;
+            top: 20px;
+            left: 45%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+    </style>
+    <script>
+        function getScoreFromURL() {
+            let params = new URLSearchParams(window.location.search)
+            let sucessos = params.get('sucessos') || 0
+            let tentativas = params.get('tentativas') || 0
+            
+            document.getElementById('score').innerHTML = 'Final score = ' + sucessos + '/' + tentativas
+        }
+        
+        window.onload = getScoreFromURL
+    </script>
 </head>
 
 <body>
+    <div class="score-display" id="score">Final score = 0/0</div>
+    
     <div class="container">
         <div class="row">
             <div class="col">

@@ -6,50 +6,103 @@
 body{
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    min-height: 100vh;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 .container #heading{
-    font-size: 5rem;
-    color: rgba(29, 43, 248, 0.74);
-    border: 2px solid;
-    margin: auto;
+    font-size: 3rem;
+    color: rgba(29, 43, 248, 0.9);
+    border: 3px solid rgba(29, 43, 248, 0.5);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0 auto 2rem;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 .levels{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
 }
 .levels label{
-    font-size: 2rem;
-    
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgba(29, 43, 248, 0.9);
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 100px;
+    text-align: right;
 }
 #size{
     font-size: 1.2rem;
-    color: blueviolet;
-    position: relative;
-    border: 2px solid black;
-
+    color: #333;
+    font-weight: 500;
+    border: 2px solid rgba(29, 43, 248, 0.6);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 15px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: white;
+    min-width: 120px;
 }
 #diff{
     font-size: 1.2rem;
-    color: blueviolet;
-    position: relative;
-    border: 2px solid black;
-
+    color: #333;
+    font-weight: 500;
+    border: 2px solid rgba(29, 43, 248, 0.6);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 15px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: white;
+    min-width: 120px;
 }
 #reset{
-    font-size: 1.2rem;
-    color: blueviolet;
-    position: relative;
-    margin-top: 30px;
-    border-radius: 0.5rem;
-    padding: 5px 25px 5px 25px;
-    border: 2px solid black;
-    
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 0.6rem;
+    padding: 10px 40px;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    background: linear-gradient(135deg, rgba(29, 43, 248, 0.8), rgba(148,187,233,1));
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 100px;
+}
+
+#reset:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, rgba(29, 43, 248, 1), rgba(148,187,233,0.9));
+}
+
+#reset:active{
+    transform: translateY(0);
 }
 span {
    font-family: Arial, Helvetica, sans-serif;
+}
+
+#text {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #d32f2f;
+    text-align: center;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
 }
 
 #grid {
@@ -76,11 +129,18 @@ span {
     
 }
 #grid25 #mines{
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(29, 43, 248, 0.9);
+    margin-bottom: 0.5rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 #timer{
-    font-size: 2rem;
-
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(29, 43, 248, 0.9);
+    margin-bottom: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .visible {
     font-size: 16px;

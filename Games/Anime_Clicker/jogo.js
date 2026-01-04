@@ -2,6 +2,8 @@ let largura = 0
 let altura = 0
 let vidas = 1
 let tempo = 30
+let sucessos = 0
+let totalTentativas = 0
 
 let criaMosquitoTempo = 2000
 
@@ -47,7 +49,7 @@ let cronometro = setInterval(function() {
     if (tempo < 0) {
         clearInterval(cronometro)
         clearInterval(criaMosquito)
-        window.location.href = 'vitoria.html'
+        window.location.href = 'vitoria.html?sucessos=' + sucessos + '&tentativas=' + totalTentativas
     } else {
         document.getElementById('cronometro').innerHTML = tempo
     }
@@ -59,11 +61,12 @@ function posicaoRandomica() {
     //Remover mosquito anterior (caso exista).
     if (document.getElementById('mosquito')) {
         document.getElementById('mosquito').remove()
+        totalTentativas++
 
         //console.log('elemento selecionado foi: v' + vidas)
         if (vidas > 3) {
 
-            window.location.href = 'fim_de_jogo.html'
+            window.location.href = 'fim_de_jogo.html?sucessos=' + sucessos + '&tentativas=' + totalTentativas
         } else {
             document.getElementById('v' + vidas).src = "img/coracao_vazio.png"
 
@@ -81,7 +84,6 @@ function posicaoRandomica() {
     posicaoY = posicaoY < 0 ? 0 : posicaoY
 
     console.log(posicaoX, posicaoY)
-
     //Criando o elemento "mosquito" no HTML
     let mosquito = document.createElement('img')
     mosquito.src = 'img/mosca.png'
@@ -91,9 +93,12 @@ function posicaoRandomica() {
     mosquito.style.position = 'absolute'
     mosquito.id = 'mosquito'
     mosquito.onclick = function() {
+        sucessos++
+        totalTentativas++
         this.remove()
     }
 
+    document.body.appendChild(mosquito)
     document.body.appendChild(mosquito)
 
 }

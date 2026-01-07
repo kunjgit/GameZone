@@ -95,3 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
   
+    
+    function resetGame() {
+		target = Math.floor(Math.random() * 100) + 1; // regenerate number
+		document.getElementById("guess").value = ""; // clear input
+		document.getElementById("status").textContent = "Game restarted! Guess a number between 1 and 100.";
+	}
+
+	document.getElementById("restart").addEventListener("click", resetGame);
+
+  

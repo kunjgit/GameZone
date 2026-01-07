@@ -2,11 +2,12 @@ const moves = document.getElementById("moves-count");
 const timeValue = document.getElementById("time");
 const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
+const pauseButton = document.getElementById("pause");
 const gameContainer = document.querySelector(".game-container");
 const result = document.getElementById("result");
 const controls = document.querySelector(".controls-container");
 let cards;
-let interval;
+let interval = null;
 let firstCard = false;
 let secondCard = false;
 
@@ -32,6 +33,8 @@ let seconds = 0,
 //Initial moves and win count
 let movesCount = 0,
   winCount = 0;
+  let secondsValue = 0;
+  let minutesValue = 0;
 
 //For timer
 const timeGenerator = () => {
@@ -42,8 +45,8 @@ const timeGenerator = () => {
     seconds = 0;
   }
   //format time before displaying
-  let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
-  let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
+  secondsValue = seconds < 10 ? `0${seconds}` : seconds;
+  minutesValue = minutes < 10 ? `0${minutes}` : minutes;
   timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
 };
 
@@ -98,7 +101,11 @@ const matrixGenerator = (cardValues, size = 4) => {
   cards = document.querySelectorAll(".card-container");
   cards.forEach((card) => {
     card.addEventListener("click", () => {
-      interval = setInterval(timeGenerator, 1000);
+      
+if (interval === null) {   // prevents multiple intervals
+    interval = setInterval(timeGenerator, 1000);
+  }
+
       //If selected card is not matched yet then only run (i.e already matched card when clicked would be ignored)
       if (!card.classList.contains("matched")) {
         //flip the cliked card
@@ -157,7 +164,6 @@ startButton.addEventListener("click", () => {
   movesCount = 0;
   seconds = 0;
   minutes = 0;
-  console.log("started");
   //controls amd buttons visibility
   controls.classList.add("hide");
   stopButton.classList.remove("hide");
@@ -177,6 +183,20 @@ stopButton.addEventListener(
     stopButton.classList.add("hide");
     startButton.classList.remove("hide");
     clearInterval(interval);
+    seconds = 0;
+    minutes = 0;
+    secondsValue = 0;
+    minutesValue = 0;
+    interval = null;
+    timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
+  })
+);
+
+pauseButton.addEventListener(
+  "click",
+  (pauseGame = () => {
+    clearInterval(interval);
+    interval = null;
   })
 );
 

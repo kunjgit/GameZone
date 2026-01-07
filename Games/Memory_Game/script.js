@@ -98,6 +98,7 @@ const matrixGenerator = (cardValues, size = 4) => {
   cards = document.querySelectorAll(".card-container");
   cards.forEach((card) => {
     card.addEventListener("click", () => {
+      interval = setInterval(timeGenerator, 1000);
       //If selected card is not matched yet then only run (i.e already matched card when clicked would be ignored)
       if (!card.classList.contains("matched")) {
         //flip the cliked card
@@ -156,12 +157,13 @@ startButton.addEventListener("click", () => {
   movesCount = 0;
   seconds = 0;
   minutes = 0;
+  console.log("started");
   //controls amd buttons visibility
   controls.classList.add("hide");
   stopButton.classList.remove("hide");
   startButton.classList.add("hide");
   //Start timer
-  interval = setInterval(timeGenerator, 1000);
+  //interval = setInterval(timeGenerator, 1000);
   //initial moves
   moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
   initializer();

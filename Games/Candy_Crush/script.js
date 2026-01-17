@@ -46,6 +46,23 @@ function startGame() {
         }
         board.push(row);
     }
+    // Ensure no initial matches by checking and replacing
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+            // Check horizontal match
+            if (c >= 2) {
+                while (board[r][c].src == board[r][c-1].src && board[r][c].src == board[r][c-2].src) {
+                    board[r][c].src = "././assets/" + randomCandy() + ".png";
+                }
+            }
+            // Check vertical match
+            if (r >= 2) {
+                while (board[r][c].src == board[r-1][c].src && board[r][c].src == board[r-2][c].src) {
+                    board[r][c].src = "././assets/" + randomCandy() + ".png";
+                }
+            }
+        }
+    } 
 
 }
 

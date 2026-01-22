@@ -59,7 +59,7 @@ let grid = generateGrid();
 let fallingPieceObj = null;
 let score = 0;
 
-setInterval(newGameState,500);
+setInterval(newGameState,1200);
 function newGameState(){
     checkGrid();
     if(!fallingPieceObj){
@@ -216,6 +216,8 @@ function renderGame(){
     renderPiece();
 }
 
+
+
 document.addEventListener("keydown",function(e){
     let key = e.key;
     if(key == "ArrowDown"){
@@ -228,3 +230,46 @@ document.addEventListener("keydown",function(e){
         rotate();
     }
 })
+
+
+//Sahu: script.js — add this after your other listeners
+document.getElementById('start-button').addEventListener('click', () => {
+  // reset core state, same as on game over
+  grid = generateGrid();        // fresh empty grid
+  score = 0;                    // reset score
+  fallingPieceObj = null;       // force a new random piece in next tick
+  scoreboard.innerHTML = "Score: " + score;
+
+  // optional: clear the canvas immediately
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // redraw the empty board
+  renderGame();
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    const levelButtons = document.querySelectorAll('#level-selector button');
+    levelButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            levelButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+    });
+});
+
+let gameInterval; // Variable to store the interval ID
+
+document.getElementById('easy-button').addEventListener('click', function() {
+    clearInterval(gameInterval); // Clear any existing interval
+    gameInterval = setInterval(newGameState, 1200); // Set new interval for easy level
+});
+
+document.getElementById('medium-button').addEventListener('click', function() {
+    clearInterval(gameInterval); // Clear any existing interval
+    gameInterval = setInterval(newGameState, 900); // Set new interval for medium level   
+});
+
+document.getElementById('difficult-button').addEventListener('click', function() {
+    clearInterval(gameInterval); // Clear any existing interval
+    gameInterval = setInterval(newGameState, 100); // Set new interval for difficult level 
+});

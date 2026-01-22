@@ -17,6 +17,66 @@
         <div id="left-panel">
             <h1 id="game">TETRIS</h1>
             <h2 id="scoreboard">Score: 0</h2>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const easyButton = document.getElementById("easy-button");
+                    const mediumButton = document.getElementById("medium-button");
+                    const difficultButton = document.getElementById("difficult-button");
+
+                    // Set default active button to Easy
+                    easyButton.classList.add("active");
+
+                    // Add event listeners to buttons
+                    easyButton.addEventListener("click", function() {
+                        setActiveButton(easyButton);
+                    });
+
+                    mediumButton.addEventListener("click", function() {
+                        setActiveButton(mediumButton);
+                    });
+
+                    difficultButton.addEventListener("click", function() {
+                        setActiveButton(difficultButton);
+                    });
+
+                    function setActiveButton(activeButton) {
+                        // Remove active class from all buttons
+                        easyButton.classList.remove("active");
+                        mediumButton.classList.remove("active");
+                        difficultButton.classList.remove("active");
+
+                        // Add active class to the clicked button
+                        activeButton.classList.add("active");
+                    }
+                });
+            </script>
+            <style>
+                #level-selector button.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+                #level-selector button {
+                    background-color: #f1f1f1;
+                    color: black;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+                #level-selector button.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+                #easy-button.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+        </style>
+            <div id="level-selector">
+                <label for="level">Level:</label>
+                <button id="easy-button">Easy</button>
+                <button id="medium-button">Medium</button>
+                <button id="difficult-button">Difficult</button>
+            </div>
             <button id="start-button">Start New Game</button>
         </div>
         <canvas id="tetris" height="600" width="300"></canvas>

@@ -1,7 +1,8 @@
-/**********Global Var***********/
+
+/********** Global Vars ***********/
 var canvas, canvasContext;
 
-// Bricks
+// Bricks (rows/cols constant so Bricks Remaining stays 70 and your score math stays intact)
 const BRICK_W = 80;
 const BRICK_H = 20;
 const BRICK_GAP = 2;
@@ -26,17 +27,34 @@ const PADDLE_DIST_FROM_EDGE = 60;
 var mouseX = 0;
 var mouseY = 0;
 
-/**********General GamePlay***********/
+// UI
+let startBtn;
 
+/********** General GamePlay ***********/
 window.onload = function () {
   canvas = document.getElementById("gameCanvas");
   canvasContext = canvas.getContext("2d");
+
+  // UI refs
+  startBtn = document.getElementById('startBtn');
+
+  // 30 FPS game loop (always running)
   var framesPerSecond = 30;
   setInterval(updateAll, 1000 / framesPerSecond);
 
   canvas.addEventListener("mousemove", updateMousePos);
+
+  // Initial board
   brickReset();
   ballRest();
+
+  // Start: reset board and ball
+  if (startBtn) {
+    startBtn.addEventListener('click', () => {
+      brickReset();
+      ballRest();
+    });
+  }
 };
 
 function updateAll() {
@@ -53,34 +71,35 @@ function brickReset() {
   brickCount = 0;
   initializeBrickColors();
 
-  var i;
-  for (var i = 0; i < 3 * BRICK_COLS; i++) {
+  // top 3 rows empty
+  let i = 0;
+  for (; i < 3 * BRICK_COLS; i++) {
     brickGrid[i] = false;
   }
+  // fill remainder
   for (; i < BRICK_COLS * BRICK_ROWS; i++) {
-    if (Math.random() < 0.5) {
-      brickGrid[i] = true;
-    } else {
-      brickGrid[i] = false;
-    }
     brickGrid[i] = true;
     brickCount++;
   }
+
+  // update UI
+  updateScore(brickCount);     // should show 70
+  scoredisplay(false);         // keep your original scoring behavior
 }
 
 function ballMove() {
-  // ballMovement
   ballX += ballSpeedX;
   ballY += ballSpeedY;
-  // ballY
+
+  // bottom edge -> reset board
   if (ballY > canvas.height) {
-    // ballSpeedY = -ballSpeedY;
     ballRest();
     brickReset();
-  } else if (ballY < 0 && ballSpeedY > 0.0) {
+  } else if (ballY < 0 && ballSpeedY < 0) {
     ballSpeedY = -ballSpeedY;
   }
-  // ballx
+
+  // sides
   if (ballX > canvas.width && ballSpeedX > 0.0) {
     ballSpeedX = -ballSpeedX;
   } else if (ballX < 0 && ballSpeedX < 0.0) {
@@ -101,6 +120,7 @@ function ballBrickColl() {
   var ballBrickCol = Math.floor(ballX / BRICK_W);
   var ballBrickRow = Math.floor(ballY / BRICK_H);
   var brickIndexUnderBall = rowColToArrayIndex(ballBrickCol, ballBrickRow);
+
   if (
     ballBrickCol >= 0 &&
     ballBrickCol < BRICK_COLS &&
@@ -138,77 +158,60 @@ function ballBrickColl() {
       }
     }
   }
-  if (brickCount === 0) {
-    brickReset();
-    updateScore(0); 
-    scoredisplay(false); // Reset the score to zero if no bricks are remaining
-  } else {
-    updateScore(brickCount); // Update the score with the remaining brick count
-    scoredisplay(true); // Increment the score if a brick is hit
-  }
-  
-  // colorText(ballBrickCol+","+ballBrickRow+": "+brickIndexUnderBall, mouseX, mouseY, 'white');
 
-  if(brickCount=== 70){
-    scoredisplay(0);
+  if (brickCount === 0) {
+    // board cleared -> rebuild same layout and continue playing
+    brickReset();
+    ballRest();
+  } else {
+    updateScore(brickCount);
+    scoredisplay(true);
   }
 }
 
 function updateScore(score) {
   var scoreElement = document.getElementById("score");
-  scoreElement.textContent = "Bricks Remaining: " + score;
-  
+  if (scoreElement) scoreElement.textContent = "Bricks Remaining: " + score;
 }
 
-var s = 0; // Declare the variable outside the function to store the score
-var y=0;
+// ===== Original scoring logic kept intact =====
+var s = 0;
+var y = 0;
 function scoredisplay(hit) {
   if (hit) {
-    s=70-brickCount;
-    if(s>20){
-      y=s-20;
-      s=s+y*4;
+    s = 70 - brickCount;
+    if (s > 20) {
+      y = s - 20;
+      s = s + y * 4;
     }
-    else if(s>10){
-      y=s-10;
-      s=s+y;
+    else if (s > 10) {
+      y = s - 10;
+      s = s + y;
     }
-  
-    
-  } else if(brickCount==70){
-    s = 0; // Reset the score to zero if no bricks are hit
+  } else if (brickCount == 70) {
+    s = 0;
   }
-  
-
-  // Update the content of the HTML element with id "s" to display the score
   var scoredisplayElement = document.getElementById("s");
-  scoredisplayElement.textContent = "Score: " + s;
+  if (scoredisplayElement) scoredisplayElement.textContent = "Score: " + s;
 }
 
-
-
-
 function paddleMove() {
-  // paddle
   var paddleTopEdgeY = canvas.height - PADDLE_DIST_FROM_EDGE;
   var paddleBottomEdgeY = paddleTopEdgeY + PADDLE_THICKNESS;
   var paddleLeftEdgeX = paddleX;
   var paddleRightEdgeX = paddleX + PADDLE_WIDTH;
+
   if (
     ballY > paddleTopEdgeY && // top of paddle
     ballY < paddleBottomEdgeY && // bottom of paddle
-    ballX > paddleLeftEdgeX && // left half of paddle
-    ballX < paddleRightEdgeX // right half of paddle
+    ballX > paddleLeftEdgeX && // left half
+    ballX < paddleRightEdgeX   // right half
   ) {
     ballSpeedY = -ballSpeedY;
 
     var paddleCenterX = paddleX + PADDLE_WIDTH / 2;
     var ballDistFromCenterX = ballX - paddleCenterX;
     ballSpeedX = ballDistFromCenterX * 0.35;
-
-    if (brickCount == 0) {
-      brickReset();
-    }
   }
 }
 
@@ -226,21 +229,12 @@ function updateMousePos(evt) {
   mouseY = evt.clientY - rect.top - root.scrollTop;
 
   paddleX = mouseX - PADDLE_WIDTH / 2;
-
-  // cheat to test ball in any position
-  // ballX = mouseX;
-  // ballY = mouseY;
-  // ballSpeedY = 4;
-  // ballSpeedY = -4;
 }
 
-/**********GamePlay Draw functions***********/
+/********** Draw ***********/
 function playArea() {
-  // gameCanvas
   colorRect(0, 0, canvas.width, canvas.height, "#222");
-  // ball
   colorCircle();
-  // paddle
   colorRect(
     paddleX,
     canvas.height - PADDLE_DIST_FROM_EDGE,
@@ -248,7 +242,6 @@ function playArea() {
     PADDLE_THICKNESS,
     "#61dafb"
   );
-
   drawbricks();
 }
 
@@ -268,31 +261,25 @@ function rowColToArrayIndex(col, row) {
 
 var brickColors = [];
 
-// Function to initialize the brick colors
+// Initialize brick colors
 function initializeBrickColors() {
   brickColors = [];
   for (var i = 0; i < BRICK_ROWS * BRICK_COLS; i++) {
-    // Add a random color to the array
     brickColors.push(getRandomColor());
   }
 }
 
-// Function to get a random color
+// Random color
 function getRandomColor() {
-  var colors = ["#f86257", "#5bb9a9", "	#7d5ba6", "#0b5394", "#ec9b00"];
+  var colors = ["#f86257", "#5bb9a9", "#7d5ba6", "#0b5394", "#ec9b00"];
   return colors[Math.floor(Math.random() * colors.length)];
 }
-
-// Call the function to initialize brick colors once during initialization
-initializeBrickColors();
 
 function drawbricks() {
   for (var eachRow = 0; eachRow < BRICK_ROWS; eachRow++) {
     for (var eachCol = 0; eachCol < BRICK_COLS; eachCol++) {
       var arrayIndex = rowColToArrayIndex(eachCol, eachRow);
       if (brickGrid[arrayIndex]) {
-        // Choose a random color from an array of colors
-        
         colorRect(
           BRICK_W * eachCol,
           BRICK_H * eachRow,
@@ -300,19 +287,15 @@ function drawbricks() {
           BRICK_H - BRICK_GAP,
           brickColors[arrayIndex]
         );
-      } // if brick
-    } // each brick
-  } // each brickrow
-} // drawbricks
+      }
+    }
+  }
+}
 
 function colorCircle() {
   var gradient = canvasContext.createRadialGradient(
-    ballX,
-    ballY,
-    0,
-    ballX,
-    ballY,
-    10
+    ballX, ballY, 0,
+    ballX, ballY, 10
   );
   gradient.addColorStop(0, "#61dafb");
   gradient.addColorStop(0.5, "#888");

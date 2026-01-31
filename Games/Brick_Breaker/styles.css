@@ -1,3 +1,4 @@
+
 body {
   margin: 20px;
   padding: 0;
@@ -5,7 +6,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: #282c34; */
   background: linear-gradient(#282c34, rgb(4, 4, 17));
   color: white;
   font-family: 'Arial', sans-serif;
@@ -14,7 +14,8 @@ body {
 #header-container {
   text-align: center;
   margin: 20px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+               'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #header-container h1 {
@@ -22,42 +23,41 @@ body {
   color: #61dafb;
   margin: 0;
 }
-.status{
+
+.status {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 800px;;
+  width: 800px;
   margin-bottom: 20px;
 }
-#score-container #score-display {
 
+/* Style both panels */
+#score-container,
+#score-display {
   font-size: 30px;
-  margin: 0px;
+  margin: 0;
   margin-bottom: 10px;
-  
 }
 
-#score-display{
-  color:rgb(233, 243, 160);
+#score-display {
+  color: rgb(233, 243, 160);
 }
 
-.status span{
+.status span {
   font-size: 20px;
- border: 1px solid rgb(103, 101, 101) !important;
- padding: 10px;
+  border: 1px solid rgb(103, 101, 101) !important;
+  padding: 10px;
 }
 
-/* #canvas-container {
+#canvas-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-} */
- #canvas-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start !important; /* Align bricks to the top */
+  align-items: flex-start !important; /* align bricks to top */
   height: calc(100vh - 100px);
-  top:0;
+  top: 0;
+  width: 800px;
+  max-width: 100%;
 }
 
 #gameCanvas {
@@ -68,8 +68,45 @@ body {
 .home-icon {
   font-size: 1.5em;
   position: absolute;
-  /* top: 20px; */
+  top: 20px;
   left: 20px;
   color: #61dafb;
   text-decoration: none;
+}
+
+/* ==== Controls (Start only) ==== */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 16px;
+  width: 800px;
+  max-width: 100%;
+}
+
+.btn {
+  background: #37b8e5;
+  border: none;
+  color: #0e1a22;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 860px) {
+  .controls,
+  .status,
+  #canvas-container {
+    width: 100%;
+  }
+  #gameCanvas {
+    max-width: 100%;
+    height: auto; /* preserve aspect ratio via width scaling */
+  }
 }

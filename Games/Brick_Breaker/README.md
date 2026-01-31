@@ -5,29 +5,39 @@
 <br>
 
 ## **Description 📃**
-- This is a classic Brick Breaking Game made using HTML & CSS only that we all know and love!
+- Brick Breaker Pro is a classic arcade-style game built with modern web technologies. Challenge your reflexes and strategy as you clear waves of bricks with increasing rewards
 
 ## **functionalities 🎮**
-- Features of a classic Brick Breaking Game
-- Shows Remaining number of bricks on the top
+- Start Logic: The game remains paused until you are ready. Click "Start Game" to begin.
+
+- Dynamic Difficulty: Choose between Easy, Medium, and Hard modes to adjust ball speed and paddle size.
+
+- High Score Tracking: Your personal best is saved to your browser's local storage.
+
+- Real-time Stats: Track remaining bricks and current score dynamically at the top of the screen
 <br>
 
 ## **How to play? 🕹️**
-- Simply moving the mouse moves the paddle with which u can bounce the ball and destroy the bricks.
+- Mouse: Simply moving the mouse moves the paddle automatically.
+
+- Keyboard: Use the Left and Right Arrow Keys to control the paddle.
+
+- Goal: Bounce the ball to destroy all bricks without letting it fall below the paddle
 
 <br>
 
 ## **Scores:**
-- +1 for each brick broken till number of bricks is greater than or equal to 60.
-- +2 for each brick broken till number of bricks is less than 60 and greater than or equal to 50.
-- +5 for each brick broken if number of bricks is less than 50;
+- +1 Point: Each brick broken while the remaining bricks are 60 or more.
+
+- +2 Points: Each brick broken while remaining bricks are less than 60 but 50 or more.
+
+- +5 Points: Each brick broken while remaining bricks are less than 50.;
 ## **Screenshots 📸**
 
 <br>
 <!-- add your screenshots like this -->
-<img src="../../assets/images/Brick_Breaker.png">
+<img src="../../assets/img/brickBreaker.png">
   
-<br>
 
 ## **Working video 📹**
 <!-- add your working video over here -->

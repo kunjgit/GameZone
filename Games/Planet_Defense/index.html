@@ -1,12 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Defense: Space Guardian</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        body {
+            margin: 0;
+            background-color: #020617;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            touch-action: none;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-diff, .btn-planet {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .active {
+            background-color: #3b82f6 !important;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            border-color: #60a5fa !important;
+            color: white !important;
+        }
+
+        #ui-layer {
+            pointer-events: none;
+        }
+        #ui-layer * {
+            pointer-events: auto;
+        }
+
+        .home-icon {
+            transition: transform 0.3s ease;
+        }
+        .home-icon:hover {
+            transform: scale(1.1);
+            color: #60a5fa;
+        }
+    </style>
 </head>
-<body style="background-image: url('space.jpg');">
-  <div style="text-align: left; margin-left: 20px;
-  margin-top: 10px;
-  font-size: 30px;
-  padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:white;" class="fas fa-home home-icon"></i></a></div>
-  <canvas id="canvas"></canvas>
-  <script src="script.js"></script>
+<body>
+
+    <!-- UI Layer -->
+    <div id="ui-layer" class="fixed inset-0 z-50 flex flex-col items-center justify-center p-6">
+        
+        <!-- Top Header -->
+        <div class="fixed top-6 left-6 flex items-center gap-6">
+            <a href="https://kunjgit.github.io/GameZone/" class="text-white text-3xl home-icon">
+                <i class="fas fa-home"></i>
+            </a>
+            <div class="hidden md:block">
+                <h1 class="orbitron text-xl font-bold tracking-widest text-blue-400">PLANET DEFENSE</h1>
+                <p class="text-[10px] text-slate-500 uppercase tracking-[0.2em]">Orbital Protection Protocol</p>
+            </div>
+        </div>
+
+        <!-- HUD (Visible during play) -->
+        <div id="hud" class="fixed top-6 right-6 flex items-center gap-8 hidden">
+            <button id="pause-btn" class="text-white hover:text-blue-400 transition-colors text-2xl">
+                <i id="pause-icon" class="fas fa-pause"></i>
+            </button>
+            <div class="text-right">
+                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Shield Integrity</p>
+                <div class="w-32 h-2 bg-slate-800 rounded-full mt-1 overflow-hidden border border-slate-700">
+                    <div id="health-bar" class="h-full bg-blue-500 transition-all duration-300" style="width: 100%"></div>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Score</p>
+                <p id="score-val" class="orbitron text-2xl text-white">0</p>
+            </div>
+        </div>
+
+        <!-- Main Menu -->
+        <div id="menu" class="glass p-8 md:p-10 rounded-3xl max-w-md w-full text-center shadow-2xl">
+            <h2 class="orbitron text-4xl font-bold mb-2 text-white">GALAXY <span class="text-blue-500">GUARD</span></h2>
+            <p class="text-slate-400 text-sm mb-6">Defend the core from incoming alien armadas and asteroids.</p>
+            
+            <!-- Planet Selection -->
+            <div class="mb-6">
+                <p class="text-[10px] uppercase font-bold text-slate-500 tracking-widest mb-3">Select Planet</p>
+                <div class="flex gap-2 justify-center">
+                    <button onclick="setPlanet('mercury')" id="p-mercury" class="btn-planet flex-1 py-2 rounded-xl bg-slate-800 text-[10px] font-bold">MERCURY</button>
+                    <button onclick="setPlanet('earth')" id="p-earth" class="btn-planet flex-1 py-2 rounded-xl bg-slate-800 text-[10px] font-bold active">EARTH</button>
+                    <button onclick="setPlanet('mars')" id="p-mars" class="btn-planet flex-1 py-2 rounded-xl bg-slate-800 text-[10px] font-bold">MARS</button>
+                </div>
+            </div>
+
+            <!-- Difficulty Selection -->
+            <div class="mb-8">
+                <p class="text-[10px] uppercase font-bold text-slate-500 tracking-widest mb-3">Threat Level</p>
+                <div class="flex gap-2 justify-center">
+                    <button onclick="setDifficulty('easy')" id="btn-easy" class="btn-diff flex-1 py-2 rounded-xl bg-slate-800 text-[10px] font-bold">EASY</button>
+                    <button onclick="setDifficulty('medium')" id="btn-medium" class="btn-diff flex-1 py-2 rounded-xl bg-slate-800 text-[10px] font-bold active">MEDIUM</button>
+                    <button onclick="setDifficulty('hard')" id="btn-hard" class="btn-diff flex-1 py-2 rounded-xl bg-slate-800 text-[10px] font-bold">HARD</button>
+                </div>
+            </div>
+
+            <button id="start-btn" class="w-full orbitron bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-900/40 transition-all active:scale-95 text-lg">
+                INITIALIZE DEFENSE
+            </button>
+            
+            <div class="mt-6 flex justify-center gap-4 text-[10px] text-slate-500 uppercase tracking-widest">
+                <span><i class="fas fa-crosshairs mr-1"></i> AIM</span>
+                <span><i class="fas fa-keyboard mr-1"></i> [P] PAUSE</span>
+                <span><i class="fas fa-trophy mr-1 text-yellow-500"></i> BEST: <span id="high-score">0</span></span>
+            </div>
+        </div>
+
+        <!-- Game Over -->
+        <div id="game-over" class="glass p-10 rounded-3xl max-w-md w-full text-center shadow-2xl hidden">
+            <h2 class="orbitron text-4xl font-bold mb-2 text-red-500">CORE BREACHED</h2>
+            <p id="final-stats" class="text-slate-400 text-sm mb-8">Your planet survived for 0 seconds.</p>
+            
+            <div class="bg-slate-900/50 p-4 rounded-2xl mb-8">
+                <p class="text-xs text-slate-500 uppercase font-bold mb-1">Final Score</p>
+                <p id="final-score" class="orbitron text-4xl text-white">0</p>
+            </div>
+
+            <button onclick="location.reload()" class="w-full orbitron bg-slate-100 hover:bg-white text-slate-900 font-bold py-4 rounded-2xl transition-all active:scale-95 text-lg">
+                RETRY MISSION
+            </button>
+        </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script>
+        /**
+         * PLANET DEFENSE ENGINE v2.5
+         */
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const menu = document.getElementById('menu');
+        const hud = document.getElementById('hud');
+        const gameOverUI = document.getElementById('game-over');
+        const startBtn = document.getElementById('start-btn');
+        const pauseBtn = document.getElementById('pause-btn');
+        const pauseIcon = document.getElementById('pause-icon');
+        const healthBar = document.getElementById('health-bar');
+        const scoreVal = document.getElementById('score-val');
+        const highScoreVal = document.getElementById('high-score');
+
+        // State & Settings
+        let gameState = 'MENU'; 
+        let isPaused = false;
+        let score = 0;
+        let highScore = localStorage.getItem('planetDefenseHigh') || 0;
+        let health = 100;
+        let frame = 0;
+        let shake = 0;
+        let mouse = { x: 0, y: 0 };
+        let aimAngle = 0;
+        
+        // Configuration
+        const PLANETS = {
+            earth: { color: '#3b82f6', alt: '#22c55e', atmos: 'rgba(59, 130, 246, 0.4)', name: 'Earth' },
+            mars: { color: '#ef4444', alt: '#92400e', atmos: 'rgba(239, 68, 68, 0.3)', name: 'Mars' },
+            mercury: { color: '#94a3b8', alt: '#475569', atmos: 'rgba(148, 163, 184, 0.2)', name: 'Mercury' }
+        };
+        let currentPlanet = 'earth';
+
+        let difficulty = { spawnRate: 120, speedMultiplier: 1, healthPenalty: 10 };
+
+        highScoreVal.innerText = highScore;
+
+        // Entities
+        let enemies = [];
+        let bullets = [];
+        let particles = [];
+        let stars = [];
+
+        // SVG Path Data
+        const UFO_SVG = new Path2D("M20,10 C20,4 15,0 10,0 C5,0 0,4 0,10 C0,13 4,15 10,15 C16,15 20,13 20,10 Z M10,12 C7,12 5,11 5,10 C5,9 7,8 10,8 C13,8 15,9 15,10 C15,11 13,12 10,12 Z");
+        const ROCKET_SVG = new Path2D("M0,0 L15,-4 L18,-4 L20,0 L18,4 L15,4 L0,0 Z");
+
+        function initStars() {
+            stars = [];
+            for(let i = 0; i < 250; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2,
+                    speed: Math.random() * 0.5 + 0.1
+                });
+            }
+        }
+
+        function setPlanet(type) {
+            currentPlanet = type;
+            document.querySelectorAll('.btn-planet').forEach(b => b.classList.remove('active'));
+            document.getElementById('p-' + type).classList.add('active');
+        }
+
+        function setDifficulty(level) {
+            document.querySelectorAll('.btn-diff').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + level).classList.add('active');
+            
+            if(level === 'easy') {
+                difficulty = { spawnRate: 160, speedMultiplier: 0.7, healthPenalty: 5 };
+            } else if(level === 'medium') {
+                difficulty = { spawnRate: 100, speedMultiplier: 1.1, healthPenalty: 12 };
+            } else {
+                difficulty = { spawnRate: 50, speedMultiplier: 1.7, healthPenalty: 22 };
+            }
+        }
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initStars();
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            aimAngle = Math.atan2(mouse.y - centerY, mouse.x - centerX);
+        });
+
+        window.addEventListener('mousedown', () => {
+            if(gameState !== 'PLAYING' || isPaused) return;
+            fireBullet();
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if(e.key.toLowerCase() === 'p' && gameState === 'PLAYING') togglePause();
+        });
+
+        pauseBtn.onclick = togglePause;
+
+        function togglePause() {
+            isPaused = !isPaused;
+            pauseIcon.className = isPaused ? 'fas fa-play' : 'fas fa-pause';
+        }
+
+        function fireBullet() {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            
+            bullets.push({
+                x: centerX + Math.cos(aimAngle) * 75,
+                y: centerY + Math.sin(aimAngle) * 75,
+                vx: Math.cos(aimAngle) * 12,
+                vy: Math.sin(aimAngle) * 12,
+                life: 140
+            });
+            shake = Math.min(shake + 4, 10);
+        }
+
+        function spawnEnemy() {
+            const angle = Math.random() * Math.PI * 2;
+            const dist = Math.max(canvas.width, canvas.height);
+            const rand = Math.random();
+            let type = 'asteroid';
+            if (rand < 0.25) type = 'ufo';
+            else if (rand < 0.45) type = 'rocket';
+            
+            enemies.push({
+                x: canvas.width/2 + Math.cos(angle) * dist,
+                y: canvas.height/2 + Math.sin(angle) * dist,
+                type: type,
+                size: type === 'ufo' ? 25 : (type === 'rocket' ? 18 : 15 + Math.random() * 25),
+                speed: (type === 'ufo' ? 1.4 : (type === 'rocket' ? 2.8 : 1)) * difficulty.speedMultiplier,
+                hp: type === 'ufo' ? 2 : 1,
+                rot: Math.atan2(-(canvas.height/2 - (canvas.height/2 + Math.sin(angle) * dist)), -(canvas.width/2 - (canvas.width/2 + Math.cos(angle) * dist))),
+                rotV: type === 'asteroid' ? (Math.random() - 0.5) * 0.05 : 0
+            });
+        }
+
+        function createExplosion(x, y, color, count = 12) {
+            for(let i = 0; i < count; i++) {
+                particles.push({
+                    x, y,
+                    vx: (Math.random() - 0.5) * 12,
+                    vy: (Math.random() - 0.5) * 12,
+                    size: Math.random() * 5 + 2,
+                    life: 1,
+                    decay: 0.02 + Math.random() * 0.03,
+                    color: color
+                });
+            }
+        }
+
+        function update() {
+            if(gameState !== 'PLAYING' || isPaused) return;
+
+            frame++;
+            if(frame % Math.floor(difficulty.spawnRate) === 0) spawnEnemy();
+            if(shake > 0) shake *= 0.88;
+
+            bullets.forEach((b, i) => {
+                b.x += b.vx; b.y += b.vy; b.life--;
+                if(b.life <= 0) bullets.splice(i, 1);
+            });
+
+            enemies.forEach((e, i) => {
+                const dx = canvas.width/2 - e.x;
+                const dy = canvas.height/2 - e.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                
+                e.x += (dx / dist) * e.speed;
+                e.y += (dy / dist) * e.speed;
+                e.rot += e.rotV;
+
+                if (e.type === 'rocket' && frame % 4 === 0) {
+                    particles.push({
+                        x: e.x - (dx/dist) * 12, y: e.y - (dy/dist) * 12,
+                        vx: -(dx/dist) * 3 + (Math.random()-0.5)*2,
+                        vy: -(dy/dist) * 3 + (Math.random()-0.5)*2,
+                        size: 4, life: 0.6, decay: 0.06,
+                        color: Math.random() > 0.4 ? '#f97316' : '#ef4444'
+                    });
+                }
+
+                if(dist < 50) {
+                    health -= difficulty.healthPenalty;
+                    shake = 20;
+                    createExplosion(e.x, e.y, '#ef4444', 25);
+                    enemies.splice(i, 1);
+                    if(health <= 0) endGame();
+                }
+
+                bullets.forEach((b, bi) => {
+                    const bdx = e.x - b.x; const bdy = e.y - b.y;
+                    const bdist = Math.sqrt(bdx*bdx + bdy*bdy);
+                    if(bdist < e.size) {
+                        e.hp--;
+                        bullets.splice(bi, 1);
+                        createExplosion(b.x, b.y, e.type === 'ufo' ? '#3b82f6' : (e.type === 'rocket' ? '#f59e0b' : '#94a3b8'), 6);
+                        if(e.hp <= 0) {
+                            score += e.type === 'ufo' ? 50 : (e.type === 'rocket' ? 35 : 20);
+                            createExplosion(e.x, e.y, e.type === 'ufo' ? '#60a5fa' : (e.type === 'rocket' ? '#fb923c' : '#64748b'), 18);
+                            enemies.splice(i, 1);
+                        }
+                    }
+                });
+            });
+
+            particles.forEach((p, i) => {
+                p.x += p.vx; p.y += p.vy; p.life -= p.decay;
+                if(p.life <= 0) particles.splice(i, 1);
+            });
+
+            healthBar.style.width = Math.max(0, health) + '%';
+            scoreVal.innerText = score;
+        }
+
+        function drawPlanetSurface(ctx, cx, cy, radius, color, altColor) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(cx, cy, radius, 0, Math.PI*2);
+            ctx.clip();
+            
+            ctx.fillStyle = color;
+            ctx.fill();
+
+            // Pseudo-continents or craters
+            ctx.fillStyle = altColor;
+            ctx.globalAlpha = 0.5;
+            
+            // Fixed seeds for consistent look
+            const seeds = [
+                {x: -15, y: -10, r: 25}, {x: 20, y: 15, r: 20}, 
+                {x: -10, y: 25, r: 15}, {x: 15, y: -25, r: 12}
+            ];
+            
+            seeds.forEach(s => {
+                ctx.beginPath();
+                ctx.arc(cx + s.x, cy + s.y, s.r, 0, Math.PI*2);
+                ctx.fill();
+            });
+            
+            // Shadow
+            const grad = ctx.createRadialGradient(cx + radius*0.3, cy - radius*0.3, 0, cx, cy, radius);
+            grad.addColorStop(0, 'rgba(255,255,255,0.1)');
+            grad.addColorStop(1, 'rgba(0,0,0,0.4)');
+            ctx.fillStyle = grad;
+            ctx.beginPath(); ctx.arc(cx, cy, radius, 0, Math.PI*2); ctx.fill();
+            
+            ctx.restore();
+        }
+
+        function draw() {
+            ctx.save();
+            if(shake > 0) ctx.translate((Math.random()-0.5)*shake, (Math.random()-0.5)*shake);
+
+            // Background Starfield
+            ctx.fillStyle = '#020617';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = 'white';
+            stars.forEach(s => {
+                ctx.globalAlpha = 0.4 + Math.sin(frame * 0.03 + s.x) * 0.5;
+                ctx.beginPath(); ctx.arc(s.x, s.y, s.size, 0, Math.PI*2); ctx.fill();
+            });
+            ctx.globalAlpha = 1;
+
+            const cx = canvas.width/2;
+            const cy = canvas.height/2;
+            const pData = PLANETS[currentPlanet];
+
+            // Aim Guidance
+            if(gameState === 'PLAYING') {
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+                ctx.setLineDash([6, 12]);
+                ctx.beginPath();
+                ctx.moveTo(cx + Math.cos(aimAngle) * 75, cy + Math.sin(aimAngle) * 75);
+                ctx.lineTo(mouse.x, mouse.y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+
+            // Atmosphere Glow
+            const atmosGrad = ctx.createRadialGradient(cx, cy, 30, cx, cy, 85);
+            atmosGrad.addColorStop(0, pData.atmos);
+            atmosGrad.addColorStop(1, 'transparent');
+            ctx.fillStyle = atmosGrad;
+            ctx.beginPath(); ctx.arc(cx, cy, 85, 0, Math.PI*2); ctx.fill();
+
+            // Planet Body
+            drawPlanetSurface(ctx, cx, cy, 45, pData.color, pData.alt);
+            
+            ctx.strokeStyle = pData.color;
+            ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.arc(cx, cy, 46, 0, Math.PI*2); ctx.stroke();
+
+            // Orbital Ring
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.setLineDash([5, 10]);
+            ctx.beginPath(); ctx.arc(cx, cy, 70, frame * 0.005, frame * 0.005 + Math.PI*2); ctx.stroke();
+            ctx.setLineDash([]);
+
+            // ADVANCED RAILGUN TURRET
+            if(gameState === 'PLAYING') {
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.rotate(aimAngle);
+                ctx.translate(45, 0); 
+                
+                // Base
+                ctx.fillStyle = '#1e293b';
+                ctx.strokeStyle = '#475569';
+                ctx.beginPath(); ctx.arc(0, 0, 14, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+                
+                // Gun Mount
+                ctx.fillStyle = '#334155';
+                ctx.fillRect(0, -8, 12, 16);
+                
+                // Barrel
+                ctx.fillStyle = '#64748b';
+                ctx.strokeStyle = '#94a3b8';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(12, -5); ctx.lineTo(35, -5); 
+                ctx.lineTo(38, -7); ctx.lineTo(42, -7); // Muzzle brake
+                ctx.lineTo(42, 7); ctx.lineTo(38, 7);
+                ctx.lineTo(35, 5); ctx.lineTo(12, 5);
+                ctx.closePath();
+                ctx.fill(); ctx.stroke();
+
+                // Energy Core
+                ctx.fillStyle = pData.color;
+                ctx.globalAlpha = 0.5 + Math.sin(frame * 0.1) * 0.5;
+                ctx.fillRect(15, -2, 15, 4);
+                
+                ctx.restore();
+            }
+
+            // Draw Enemies
+            enemies.forEach(e => {
+                ctx.save();
+                ctx.translate(e.x, e.y);
+                ctx.rotate(e.rot);
+                if(e.type === 'ufo') {
+                    ctx.scale(1.5, 1.5); ctx.translate(-10, -7.5);
+                    ctx.fillStyle = '#3b82f6'; ctx.fill(UFO_SVG);
+                    ctx.strokeStyle = '#60a5fa'; ctx.stroke(UFO_SVG);
+                    ctx.fillStyle = frame % 20 > 10 ? '#fff' : '#ef4444';
+                    ctx.beginPath(); ctx.arc(10, 10, 1.5, 0, Math.PI*2); ctx.fill();
+                } else if (e.type === 'rocket') {
+                    ctx.scale(1.3, 1.3); ctx.translate(-10, 0);
+                    ctx.fillStyle = '#cbd5e1'; ctx.fill(ROCKET_SVG);
+                    ctx.strokeStyle = '#ef4444'; ctx.stroke(ROCKET_SVG);
+                    ctx.fillStyle = '#ef4444'; ctx.beginPath(); ctx.arc(20, 0, 3, 0, Math.PI*2); ctx.fill();
+                } else {
+                    ctx.fillStyle = '#475569'; ctx.strokeStyle = '#1e293b';
+                    ctx.beginPath();
+                    for(let i=0; i<6; i++) {
+                        const r = e.size * (0.8 + Math.random()*0.4);
+                        const a = (i/6) * Math.PI*2;
+                        ctx.lineTo(Math.cos(a)*r, Math.sin(a)*r);
+                    }
+                    ctx.closePath(); ctx.fill(); ctx.stroke();
+                }
+                ctx.restore();
+            });
+
+            // Bullets
+            bullets.forEach(b => {
+                ctx.fillStyle = '#fef08a';
+                ctx.shadowBlur = 15; ctx.shadowColor = '#fbbf24';
+                ctx.beginPath(); ctx.arc(b.x, b.y, 4.5, 0, Math.PI*2); ctx.fill();
+                ctx.shadowBlur = 0;
+            });
+
+            // Particles
+            particles.forEach(p => {
+                ctx.globalAlpha = p.life;
+                ctx.fillStyle = p.color;
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
+            });
+            ctx.globalAlpha = 1;
+
+            ctx.restore();
+            requestAnimationFrame(() => { update(); draw(); });
+        }
+
+        function endGame() {
+            gameState = 'GAME_OVER';
+            hud.classList.add('hidden');
+            gameOverUI.classList.remove('hidden');
+            document.getElementById('final-score').innerText = score;
+            document.getElementById('final-stats').innerText = `You defended ${PLANETS[currentPlanet].name} for ${(frame/60).toFixed(1)} seconds.`;
+            if(score > highScore) {
+                localStorage.setItem('planetDefenseHigh', score);
+                highScoreVal.innerText = score;
+            }
+        }
+
+        startBtn.onclick = () => {
+            menu.classList.add('hidden');
+            hud.classList.remove('hidden');
+            gameState = 'PLAYING';
+            isPaused = false;
+            score = 0; health = 100;
+            enemies = []; bullets = []; particles = [];
+            frame = 0;
+        };
+
+        draw();
+    </script>
 </body>
+</html>

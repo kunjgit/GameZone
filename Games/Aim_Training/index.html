@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Aim training</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
 </head>
+
 <body>
-  <div style="text-align: center;
-  margin-top: 10px;
-  font-size: 30px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
+  <div style="text-align:center; margin-top:10px; font-size:30px;">
+    <a href="https://kunjgit.github.io/GameZone/">
+      <i style="color:black;" class="fas fa-home home-icon"></i>
+    </a>
+  </div>
+
   <h1>Aim training</h1>
+
   <div id="gameContainer">
+    <!-- Top alert for last-10-seconds message -->
     <div id="countdown-alert"></div>
+
+    <!-- Primary HUD (kept exactly as you had) -->
     <div id="score">Score: <span id="scoreValue">0</span></div>
     <div id="highScore">High Score: <span id="highScoreValue">0</span></div>
     <div id="timer">Time Left: <span id="timerValue">30</span> seconds</div>
+
+    <!-- Secondary HUD (optional; used by enhanced script.js but does not break if absent) -->
+    <div id="secondaryHud">
+      Accuracy: <span id="accuracyValue">100%</span> |
+      Combo: <span id="comboValue">0</span>
+    </div>
+
+    <!-- Game area -->
     <div id="bubbles"></div>
   </div>
-  <button id="startButton" class="start-button">Start Game</button>
-  <audio id="popSound" src="pop.wav"></audio>
-  <audio id="endSound" src="end.wav"></audio>
+
+  <!-- Controls -->
+  <button id="startButton" class="start-button">Start</button>
+  <button id="muteToggle" class="start-button" aria-pressed="false">Mute</button>
+
+  <!-- Audio (valid tags) -->
+  <audio id="popSound" src="pop.wav" preload="auto"></audio>
+  <audio id="endSound" src="end.wav" preload="auto"></audio>
+
+  <!-- Screen-reader live region (optional, non-visual) -->
+  <div id="status-live" aria-live="polite" class="sr-only"></div>
+
+  <!-- Game logic -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -27,6 +27,13 @@ h1 {
   margin-bottom: 10px;
 }
 
+/* Optional secondary HUD */
+#secondaryHud {
+  font-size: 18px;
+  color: #333;
+  margin: 8px 0 16px;
+}
+
 #bubbles {
   position: relative;
   width: 600px;
@@ -49,12 +56,21 @@ h1 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add box shadow */
 }
 
+/* Hover & active feedback */
 .bubble:hover {
   background-color: #f00;
   transform: scale(1.2);
-  transform: scale(1.2);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.bubble:active {
+  transform: scale(0.9);
+}
+
+/* Keyboard focus outline for accessibility */
+.bubble:focus {
+  outline: 2px solid #000;
+  outline-offset: 1px;
 }
 
 #scoreValue,
@@ -62,9 +78,10 @@ h1 {
   font-weight: bold;
 }
 
+/* FIX: Use the defined @keyframes name (was 'blink' earlier) */
 #timerValue {
   font-weight: bold;
-  animation: blink 1s infinite;
+  animation: countdown 1s infinite;
 }
 
 .start-button {
@@ -74,13 +91,15 @@ h1 {
   color: #fff;
   border: none;
   cursor: pointer;
-  margin-top: 20px;
+  margin: 12px 6px 20px;
+  border-radius: 6px;
   transition: transform 0.2s ease-in-out; /* Add transition */
 }
 .start-button:hover {
   transform: scale(1.1); /* Scale up on hover */
 }
 
+/* Fixed top alert for last-10-seconds message */
 #countdown-alert {
   position: fixed;
   top: 10px;
@@ -95,16 +114,24 @@ h1 {
   z-index: 1000; /* Ensure it's on top */
 }
 
+/* The animation used by #timerValue */
 @keyframes countdown {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Visually hidden utility for screen-reader only elements */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 @media (max-width: 768px) {

@@ -7,7 +7,7 @@ body{
 .Game-Card{
     width: 400px;
     height: 500px;
-    background: #000;
+    background: #0ff;
     margin: 0 auto;
     position: relative;
 }
@@ -47,4 +47,36 @@ body{
     cursor: pointer;
     font-size: 1.25em;
     color: #FFF;
+}
+.difficulty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#normal{
+    position: absolute;
+    top: 150px;
+    left: 115px;
+    cursor: pointer;
+    font-size: 4em;
+    color: #0e6315;
+    user-select: none;
+}
+#hard{
+    position: absolute;
+    top: 220px;
+    left: 145px;
+    cursor: pointer;
+    font-size: 4em;
+    color: #ff9102;
+    user-select: none;
+}
+#brutal{
+    position: absolute;
+    top: 290px;
+    left: 130px;
+    cursor: pointer;
+    font-size: 4em;
+    color: #fd0b0b;
+    user-select: none;
 }

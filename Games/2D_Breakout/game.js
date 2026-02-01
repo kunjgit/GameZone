@@ -13,15 +13,16 @@ const PADDLE_WIDTH = 100;
 const PADDLE_MARGIN_BOTTOM = 50;
 const PADDLE_HEIGHT = 20;
 const BALL_RADIUS = 8;
-let LIFE = 3; // PLAYER HAS 3 LIVES
+let ballSpeedMod=.5;//how much ball speed increases per level
+let LIFE = 3; // PLAYER HAS 3 LIVES, BUT VARIES ON DIFFICULTY
 let SCORE = 0;
+let difficulty = "";
 const SCORE_UNIT = 10;
 let LEVEL = 1;
-const MAX_LEVEL = 3;
+const MAX_LEVEL = 6;
 let GAME_OVER = false;
 let leftArrow = false;
 let rightArrow = false;
-
 // CREATE THE PADDLE
 const paddle = {
     x : cvs.width/2 - PADDLE_WIDTH/2,
@@ -54,6 +55,12 @@ document.addEventListener("keyup", function(event){
    }else if(event.keyCode == 39){
        rightArrow = false;
    }
+});
+// restart game
+document.addEventListener("keydown", function(event){
+  if(event.key==" " && GAME_OVER){
+    location.reload()
+  }
 });
 
 // MOVE PADDLE
@@ -98,7 +105,8 @@ function moveBall(){
 // BALL AND WALL COLLISION DETECTION
 function ballWallCollision(){
     if(ball.x + ball.radius > cvs.width || ball.x - ball.radius < 0){
-        ball.dx = - ball.dx;
+        ball.dx = - ball.dx; //Sets ball x velocity to it's oppsoite, causing it to "bounce"
+        ball.x+=ball.dx //prevents bug where ball gets locked in wall
         WALL_HIT.play();
     }
     
@@ -236,6 +244,7 @@ function draw(){
     showGameStats(LEVEL, cvs.width/2, 25, LEVEL_IMG, cvs.width/2 - 30, 5);
 }
 
+
 // game over
 function gameOver(){
     if(LIFE <= 0){
@@ -265,7 +274,7 @@ function levelUp(){
         }
         brick.row++;
         createBricks();
-        ball.speed += 0.5;
+        ball.speed += ballSpeedMod;
         resetBall();
         LEVEL++;
     }
@@ -291,17 +300,20 @@ function update(){
 // GAME LOOP
 function loop(){
     // CLEAR THE CANVAS
-    ctx.drawImage(BG_IMG, 0, 0);
-    
+    if(difficulty!="brutal"){
+    ctx.drawImage(BG_IMG, 0, 0);}
+    else{
+    ctx.drawImage(BG_IMG_HARD, 0, 0);
+    }
     draw();
-    
-    update();
-    
+    if(difficulty!=""){
+        update(); //Waits until difficulty is selcted to start game
+    }
     if(! GAME_OVER){
         requestAnimationFrame(loop);
     }
 }
-loop();
+loop(); 
 
 
 // SELECT SOUND ELEMENT
@@ -330,16 +342,53 @@ const gameover = document.getElementById("gameover");
 const youwin = document.getElementById("youwin");
 const youlose = document.getElementById("youlose");
 const restart = document.getElementById("restart");
+const normal = document.getElementById("normal")
+const hard = document.getElementById("hard")
+const brutal = document.getElementById("brutal")
 
 // CLICK ON PLAY AGAIN BUTTON
 restart.addEventListener("click", function(){
     location.reload(); // reload the page
+    ctx.drawImage(BG_IMG, 0, 0);
+})
+
+//Difficulty Click And Changes
+normal.addEventListener("click", function(){
+    difficulty="normal"; 
+    normal.style.visibility = "hidden"; //Hide difficulty
+    hard.style.visibility = "hidden";
+    brutal.style.visibility = "hidden";
+})
+hard.addEventListener("click", function(){
+    difficulty="hard"; 
+    paddle.dx=6;//increases paddle speed
+    cvs.style.border = "1px solid rgb(255, 153, 0)";
+    ballSpeedMod=.7;//changes how much faster ball gets each level
+    normal.style.visibility = "hidden";
+    hard.style.visibility = "hidden";
+    brutal.style.visibility = "hidden";
+    paddle.width=80; //Reduce paddle size
+    LIFE=2
+})
+brutal.addEventListener("click", function(){
+    difficulty="brutal"; 
+    paddle.dx=7;
+    cvs.style.border = "1px solid rgb(255, 12, 12)";
+    ballSpeedMod=.9;
+    normal.style.visibility = "hidden";
+    hard.style.visibility = "hidden";
+    brutal.style.visibility = "hidden";
+    ctx.drawImage(BG_IMG_HARD, 0, 0);
+    paddle.width=50;
+    LIFE=1 
+
 })
 
 // SHOW YOU WIN
 function showYouWin(){
     gameover.style.display = "block";
     youwon.style.display = "block";
+    
 }
 
 // SHOW YOU LOSE
@@ -347,6 +396,7 @@ function showYouLose(){
     gameover.style.display = "block";
     youlose.style.display = "block";
 }
+
 
 
 

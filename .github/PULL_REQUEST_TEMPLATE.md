@@ -9,10 +9,10 @@ Fixes # <your_issue_number>
 
 <!----Please delete options that are not relevant. In order to tick the check box just but x inside them for example [x] like this----->
 
-- [ ] I follow [CONTRIBUTING GUIDELINE](https://github.com/kunjgit/GameZone/blob/main/.github/CONTRIBUTING_GUIDELINE.md) & [CODE OF CONDUCT](https://github.com/kunjgit/GameZone/blob/main/.github/CODE_OF_CONDUCT.md) of this project.
-- [ ] I have performed a self-review of my own code or work.
-- [ ] I have commented my code, particularly in hard-to-understand areas.
-- [ ] My changes generates no new warnings.
+- [✅] I follow [CONTRIBUTING GUIDELINE](https://github.com/kunjgit/GameZone/blob/main/.github/CONTRIBUTING_GUIDELINE.md) & [CODE OF CONDUCT](https://github.com/kunjgit/GameZone/blob/main/.github/CODE_OF_CONDUCT.md) of this project.
+- [✅ ] I have performed a self-review of my own code or work.
+- [✅ ] I have commented my code, particularly in hard-to-understand areas.
+- [✅ ] My changes generates no new warnings.
 - [ ] I have followed proper naming convention showed in [CONTRIBUTING GUIDELINE](https://github.com/kunjgit/GameZone/blob/main/.github/CONTRIBUTING_GUIDELINE.md)
 - [ ] I have added screenshot for website preview in assets/images 
 - [ ] I have added entries for my game in GameZone's README.md

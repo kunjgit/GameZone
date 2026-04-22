@@ -1,6 +1,8 @@
 let canvas = document.querySelector("#tetris");
 let scoreboard = document.querySelector("h2");
 let ctx = canvas.getContext("2d");
+let newgamebutton = document.getElementById("start-button");
+
 ctx.scale(30,30);
 
 const SHAPES = [
@@ -60,6 +62,12 @@ let fallingPieceObj = null;
 let score = 0;
 
 setInterval(newGameState,500);
+
+newgamebutton.addEventListener("click", () => {
+    grid = generateGrid();
+    score = 0;
+    fallingPieceObj = null;
+})
 function newGameState(){
     checkGrid();
     if(!fallingPieceObj){

@@ -297,15 +297,29 @@ for (let i = 0; i < navigationLinks.length; i++) {
   }
 }
 
+// function search_game() {
+//   let input = document.getElementById("searchbar").value;
+//   input = input.toLowerCase();
+//   // let searchelement = document.getElementsByClassName("project-item  active");
+//   let searchelement = document.querySelectorAll(".project-item");
+//   for (let i = 0; i < searchelement.length; i++) {
+//     if (!searchelement[i].innerHTML.toLowerCase().includes(input)) {
+//       searchelement[i].style.display = "none";
+//     } else {
+//       searchelement[i].style.display = "list-item";
+//     }
+//   }
+// }
+
 function search_game() {
-  let input = document.getElementById("searchbar").value;
-  input = input.toLowerCase();
-  let searchelement = document.getElementsByClassName("project-item  active");
+  let input = document.getElementById("searchbar").value.toLowerCase();
+  let searchelement = document.querySelectorAll(".project-item");
   for (let i = 0; i < searchelement.length; i++) {
-    if (!searchelement[i].innerHTML.toLowerCase().includes(input)) {
-      searchelement[i].style.display = "none";
-    } else {
+    let text = searchelement[i].innerText.toLowerCase();
+    if (text.includes(input)) {
       searchelement[i].style.display = "list-item";
+    } else {
+      searchelement[i].style.display = "none";
     }
   }
 }

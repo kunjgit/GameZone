@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Relay Rift — rotate conductive tiles to route the signal from the generator to every receiver. 30 levels, vanilla HTML/CSS/JS.">
+  <title>Relay Rift · Signal Routing Puzzle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     HOW TO PLAY MODAL
+══════════════════════════════════════════════════════════ -->
+<div id="tutorialOverlay" class="tutorial-overlay" hidden>
+  <div class="tutorial-card">
+
+    <!-- Step 1 -->
+    <div class="tut-step active" data-step="1">
+      <div class="tut-icon">⚡</div>
+      <h2 class="tut-title">Welcome to<br><span>Relay Rift</span></h2>
+      <p class="tut-body">A signal-routing puzzle game. Route electricity from the <strong>source</strong> through wire tiles to light up every <strong>receiver</strong>.</p>
+      <div class="tut-visual tut-grid-demo">
+        <div class="demo-tile source-tile"><div class="demo-wire demo-cross"></div><div class="demo-node src"></div></div>
+        <div class="demo-arrow">⚡</div>
+        <div class="demo-tile"><div class="demo-wire demo-horiz"></div><div class="demo-node"></div></div>
+        <div class="demo-arrow">→</div>
+        <div class="demo-tile rx-tile"><div class="demo-wire demo-cross"></div><div class="demo-node rx"></div></div>
+      </div>
+      <p class="tut-caption">Cyan glowing tiles = powered &nbsp;·&nbsp; Red tiles = offline receivers</p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="tut-step" data-step="2">
+      <div class="tut-icon">🔄</div>
+      <h2 class="tut-title">Rotate Tiles</h2>
+      <p class="tut-body"><strong>Click</strong> (or tap) any tile to rotate it 90° clockwise. Line up the wire arms so the signal can flow through.</p>
+      <div class="tut-visual tut-rotate-demo">
+        <div class="rotate-seq">
+          <div class="demo-tile dim"><div class="demo-wire demo-vert"></div><div class="demo-node"></div></div>
+          <div class="rot-arrow">→ click →</div>
+          <div class="demo-tile lit"><div class="demo-wire demo-horiz"></div><div class="demo-node powered-node"></div></div>
+        </div>
+        <p class="tut-caption-sm">Same tile, different rotation — now the signal flows east/west instead of north/south.</p>
+      </div>
+      <p class="tut-body">Use <kbd>Arrow keys</kbd> to navigate and <kbd>Space</kbd> to rotate. Press <kbd>H</kbd> for a hint, <kbd>R</kbd> to reset.</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="tut-step" data-step="3">
+      <div class="tut-icon">🔧</div>
+      <h2 class="tut-title">Tile Types</h2>
+      <p class="tut-body">Four wire shapes — each connects different directions:</p>
+      <div class="tut-tile-grid">
+        <div class="tile-type-row">
+          <div class="demo-tile sm"><div class="demo-wire demo-vert"></div><div class="demo-node"></div></div>
+          <div class="tile-type-info"><strong>Straight</strong><br>North ↔ South (or East ↔ West)</div>
+        </div>
+        <div class="tile-type-row">
+          <div class="demo-tile sm"><div class="demo-wire demo-corner-ne"></div><div class="demo-node"></div></div>
+          <div class="tile-type-info"><strong>Corner</strong><br>Turns 90° — two adjacent sides</div>
+        </div>
+        <div class="tile-type-row">
+          <div class="demo-tile sm"><div class="demo-wire demo-tee"></div><div class="demo-node"></div></div>
+          <div class="tile-type-info"><strong>T-Junction</strong><br>Splits to three directions</div>
+        </div>
+        <div class="tile-type-row">
+          <div class="demo-tile sm source-tile"><div class="demo-wire demo-cross"></div><div class="demo-node src"></div></div>
+          <div class="tile-type-info"><strong>Source / Cross</strong><br>Connects all four sides</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="tut-step" data-step="4">
+      <div class="tut-icon">🏆</div>
+      <h2 class="tut-title">Win the Level</h2>
+      <p class="tut-body">Power <strong>every receiver</strong> before using up your move budget. The fewer rotations you use, the higher your score bonus!</p>
+      <div class="tut-visual win-demo">
+        <div class="win-demo-row">
+          <div class="pill offline-pill">● RX-01 OFFLINE</div>
+          <div class="pill offline-pill">● RX-02 OFFLINE</div>
+        </div>
+        <div class="win-arrow">↓ solve the grid ↓</div>
+        <div class="win-demo-row">
+          <div class="pill online-pill">● RX-01 ONLINE</div>
+          <div class="pill online-pill">● RX-02 ONLINE</div>
+        </div>
+      </div>
+      <p class="tut-body">30 levels — grids grow from <strong>3×3</strong> all the way to <strong>7×7</strong> with up to 6 receivers!</p>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="tut-step" data-step="5">
+      <div class="tut-icon">🎮</div>
+      <h2 class="tut-title">You're Ready!</h2>
+      <p class="tut-body">Quick tips before you start:</p>
+      <ul class="tut-tips">
+        <li>🔍 Press <kbd>H</kbd> or click <strong>Hint</strong> — it highlights the next tile AND tells you how many rotations it needs.</li>
+        <li>↩ Press <kbd>R</kbd> or click <strong>Reset</strong> to restore the original arrangement.</li>
+        <li>⌨️ Use <kbd>Arrow keys</kbd> + <kbd>Space</kbd> for full keyboard play.</li>
+        <li>💾 Your best score is saved automatically.</li>
+      </ul>
+      <button type="button" id="startGameBtn" class="tut-start-btn">Start Playing →</button>
+    </div>
+
+    <!-- Navigation -->
+    <div class="tut-nav">
+      <div class="tut-dots" id="tutDots"></div>
+      <div class="tut-nav-btns">
+        <button type="button" id="tutPrev" class="tut-btn">← Back</button>
+        <button type="button" id="tutNext" class="tut-btn primary">Next →</button>
+      </div>
+    </div>
+
+    <button type="button" id="tutSkip" class="tut-skip">Skip tutorial</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     WIN OVERLAY
+══════════════════════════════════════════════════════════ -->
+<div id="winOverlay" class="win-overlay" hidden aria-live="assertive">
+  <canvas id="particleCanvas" class="particle-canvas"></canvas>
+  <div class="win-card">
+    <p class="win-kicker">Grid Stabilized</p>
+    <h2 class="win-title">Signal Locked</h2>
+    <p class="win-score" id="winScoreText">+0 pts</p>
+    <div class="win-actions">
+      <button type="button" id="winNextBtn">Next Level</button>
+      <button type="button" id="winRetryBtn">Replay</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+
+<main class="shell">
+  <!-- Header -->
+  <header class="topbar">
+    <a href="../../index.html" class="back-link" aria-label="Back to GameZone">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      GameZone
+    </a>
+    <div class="topbar-brand">
+      <span class="brand-kicker">Signal Routing Puzzle</span>
+      <span class="brand-name">RELAY RIFT</span>
+    </div>
+    <button type="button" id="helpBtn" class="help-btn" title="How to play">?</button>
+  </header>
+
+  <!-- HUD -->
+  <div class="hud" aria-label="Game status">
+    <div class="hud-cell">
+      <span class="hud-label">Level</span>
+      <strong class="hud-value" id="levelLabel">1</strong>
+    </div>
+    <div class="hud-cell">
+      <span class="hud-label">Progress</span>
+      <strong class="hud-value dim" id="progressLabel">1 / 30</strong>
+    </div>
+    <div class="hud-cell">
+      <span class="hud-label">Moves</span>
+      <strong class="hud-value" id="movesLabel">0 / 0</strong>
+    </div>
+    <div class="hud-cell">
+      <span class="hud-label">Score</span>
+      <strong class="hud-value accent" id="scoreLabel">0</strong>
+    </div>
+    <div class="hud-cell">
+      <span class="hud-label">Best</span>
+      <strong class="hud-value dim" id="bestLabel">0</strong>
+    </div>
+  </div>
+
+  <!-- Game area -->
+  <div class="game-area">
+    <section class="board-panel" aria-labelledby="boardHeading">
+      <h1 id="boardHeading" class="sr-only">Relay grid</h1>
+      <div id="board" class="board" role="grid" aria-label="Relay puzzle grid"></div>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <aside class="console" aria-label="Game console">
+      <div class="console-section">
+        <p class="console-label">Objective</p>
+        <p id="objectiveText" class="console-body">Power all receivers.</p>
+      </div>
+      <div class="console-section">
+        <p class="console-label">Receivers</p>
+        <div id="receiverList" class="receiver-list" aria-label="Receiver status"></div>
+      </div>
+      <div class="console-section">
+        <p class="console-label">Controls</p>
+        <div class="btn-grid">
+          <button type="button" id="hintButton" title="Hint (H)">Hint</button>
+          <button type="button" id="resetButton" title="Reset (R)">Reset</button>
+          <button type="button" id="nextButton" title="Next level" disabled>Next →</button>
+        </div>
+      </div>
+      <div class="console-section keys-section">
+        <p class="console-label">Keyboard</p>
+        <div class="key-legend">
+          <span><kbd>Click</kbd> / <kbd>Space</kbd> rotate tile</span>
+          <span><kbd>Arrows</kbd> navigate</span>
+          <span><kbd>H</kbd> hint &nbsp; <kbd>R</kbd> reset</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="rr-title rr-desc">
+  <title id="rr-title">Relay Rift — signal routing puzzle game thumbnail</title>
+  <desc id="rr-desc">Dark cyberpunk circuit board with glowing teal signal paths leading from a generator to receivers.</desc>
+  <defs>
+    <!-- Scanline overlay -->
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="rgba(0,240,200,0.03)" stroke-width="1"/>
+    </pattern>
+    <!-- Tile fill -->
+    <linearGradient id="tileBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#111820"/>
+    </linearGradient>
+    <!-- Wire glow -->
+    <filter id="wglow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Text glow -->
+    <filter id="tglow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Amber glow -->
+    <filter id="aglow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#07090d"/>
+  <rect width="1200" height="800" fill="url(#scanlines)"/>
+
+  <!-- Ambient glows -->
+  <circle cx="250" cy="300" r="280" fill="rgba(0,240,200,0.06)"/>
+  <circle cx="950" cy="500" r="220" fill="rgba(255,184,48,0.06)"/>
+
+  <!-- Grid of tiles (left half) -->
+  <!-- Tile group - 4x4 grid centered left -->
+  <g transform="translate(60, 80)">
+
+    <!-- Row 0 -->
+    <!-- Source tile (0,0) powered -->
+    <rect x="0"   y="0"   width="130" height="130" rx="10" fill="#0a2030" stroke="rgba(0,240,200,0.7)" stroke-width="2"/>
+    <rect x="10"  y="10"  width="110" height="110" rx="6" fill="rgba(0,240,200,0.05)"/>
+    <!-- Cross wire powered -->
+    <rect x="53"  y="0"   width="24" height="65" fill="none" rx="4"/>
+    <g filter="url(#wglow)">
+      <rect x="53"  y="0"   width="24" height="65" fill="#00f0c8" rx="4"/>
+      <rect x="53"  y="65"  width="24" height="65" fill="#00f0c8" rx="4"/>
+      <rect x="0"   y="53"  width="65" height="24" fill="#00f0c8" rx="4"/>
+      <rect x="65"  y="53"  width="65" height="24" fill="#00f0c8" rx="4"/>
+    </g>
+    <circle cx="65" cy="65" r="20" fill="#00f0c8" filter="url(#wglow)"/>
+    <circle cx="65" cy="65" r="8"  fill="#07090d"/>
+
+    <!-- Corner tile (0,1) powered -->
+    <rect x="142" y="0"   width="130" height="130" rx="10" fill="#0d2822" stroke="rgba(0,240,200,0.45)" stroke-width="2"/>
+    <g filter="url(#wglow)">
+      <rect x="195" y="0"   width="24" height="65" fill="#00f0c8" rx="4"/>
+      <rect x="142" y="53" width="65" height="24" fill="#00f0c8" rx="4"/>
+    </g>
+    <circle cx="207" cy="65" r="14" fill="#0d2822" stroke="rgba(0,240,200,0.4)" stroke-width="2"/>
+
+    <!-- Straight tile (0,2) powered -->
+    <rect x="284" y="0"   width="130" height="130" rx="10" fill="#0d2822" stroke="rgba(0,240,200,0.45)" stroke-width="2"/>
+    <g filter="url(#wglow)">
+      <rect x="337" y="0"   width="24" height="130" fill="#00f0c8" rx="4"/>
+    </g>
+    <circle cx="349" cy="65" r="14" fill="#0d2822" stroke="rgba(0,240,200,0.4)" stroke-width="2"/>
+
+    <!-- Receiver tile (0,3) — offline -->
+    <rect x="426" y="0"   width="130" height="130" rx="10" fill="#220a0e" stroke="rgba(255,77,94,0.45)" stroke-width="2"/>
+    <rect x="479" y="0"   width="24" height="65" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <rect x="479" y="65"  width="24" height="65" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <rect x="426" y="53"  width="65" height="24" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <rect x="491" y="53"  width="65" height="24" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <circle cx="491" cy="65" r="20" fill="rgba(255,77,94,0.25)" stroke="#ff4d5e" stroke-width="2"/>
+    <circle cx="491" cy="65" r="8"  fill="rgba(255,77,94,0.6)"/>
+
+    <!-- Row 1 -->
+    <!-- Straight powered -->
+    <rect x="0"   y="142" width="130" height="130" rx="10" fill="#0d2822" stroke="rgba(0,240,200,0.45)" stroke-width="2"/>
+    <g filter="url(#wglow)">
+      <rect x="53" y="142" width="24" height="130" fill="#00f0c8" rx="4"/>
+    </g>
+    <circle cx="65" cy="207" r="14" fill="#0d2822" stroke="rgba(0,240,200,0.4)" stroke-width="2"/>
+
+    <!-- Corner powered -->
+    <rect x="142" y="142" width="130" height="130" rx="10" fill="#0d2822" stroke="rgba(0,240,200,0.45)" stroke-width="2"/>
+    <g filter="url(#wglow)">
+      <rect x="195" y="142" width="24" height="65" fill="#00f0c8" rx="4"/>
+      <rect x="195" y="207" width="89" height="24" fill="#00f0c8" rx="4"/>
+    </g>
+    <circle cx="207" cy="207" r="14" fill="#0d2822" stroke="rgba(0,240,200,0.4)" stroke-width="2"/>
+
+    <!-- Dim tiles row 1 cols 2-3 -->
+    <rect x="284" y="142" width="130" height="130" rx="10" fill="url(#tileBg)" stroke="rgba(0,240,200,0.14)" stroke-width="1"/>
+    <rect x="337" y="142" width="24" height="130" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <circle cx="349" cy="207" r="14" fill="url(#tileBg)" stroke="rgba(0,240,200,0.2)" stroke-width="2"/>
+
+    <rect x="426" y="142" width="130" height="130" rx="10" fill="url(#tileBg)" stroke="rgba(0,240,200,0.14)" stroke-width="1"/>
+    <rect x="479" y="142" width="24" height="130" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <circle cx="491" cy="207" r="14" fill="url(#tileBg)" stroke="rgba(0,240,200,0.2)" stroke-width="2"/>
+
+    <!-- Row 2 dim -->
+    <rect x="0"   y="284" width="130" height="130" rx="10" fill="url(#tileBg)" stroke="rgba(0,240,200,0.14)" stroke-width="1"/>
+    <rect x="53"  y="284" width="24" height="130" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <circle cx="65" cy="349" r="14" fill="url(#tileBg)" stroke="rgba(0,240,200,0.2)" stroke-width="2"/>
+
+    <rect x="142" y="284" width="130" height="130" rx="10" fill="url(#tileBg)" stroke="rgba(0,240,200,0.14)" stroke-width="1"/>
+    <rect x="195" y="284" width="24" height="65" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <rect x="142" y="337" width="130" height="24" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <circle cx="207" cy="349" r="14" fill="url(#tileBg)" stroke="rgba(0,240,200,0.2)" stroke-width="2"/>
+
+    <rect x="284" y="284" width="130" height="130" rx="10" fill="url(#tileBg)" stroke="rgba(0,240,200,0.14)" stroke-width="1"/>
+    <rect x="284" y="337" width="130" height="24" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <circle cx="349" cy="349" r="14" fill="url(#tileBg)" stroke="rgba(0,240,200,0.2)" stroke-width="2"/>
+
+    <!-- Receiver solved (0,3 row 2) -->
+    <rect x="426" y="284" width="130" height="130" rx="10" fill="#062418" stroke="rgba(57,232,143,0.54)" stroke-width="2"/>
+    <g filter="url(#wglow)">
+      <rect x="479" y="284" width="24" height="65" fill="#39e88f" rx="4"/>
+      <rect x="479" y="349" width="24" height="65" fill="#39e88f" rx="4"/>
+      <rect x="426" y="337" width="65" height="24" fill="#39e88f" rx="4"/>
+      <rect x="491" y="337" width="65" height="24" fill="#39e88f" rx="4"/>
+    </g>
+    <circle cx="491" cy="349" r="20" fill="rgba(57,232,143,0.2)" stroke="#39e88f" stroke-width="2" filter="url(#wglow)"/>
+    <circle cx="491" cy="349" r="8"  fill="rgba(57,232,143,0.7)"/>
+
+    <!-- Row 3 dim -->
+    <rect x="0"   y="426" width="130" height="130" rx="10" fill="#220a0e" stroke="rgba(255,77,94,0.35)" stroke-width="2"/>
+    <rect x="53"  y="426" width="24" height="65" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <rect x="53"  y="491" width="24" height="65" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <rect x="0"   y="479" width="65" height="24" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <rect x="65"  y="479" width="65" height="24" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <circle cx="65" cy="491" r="20" fill="rgba(255,77,94,0.2)" stroke="#ff4d5e" stroke-width="2"/>
+    <circle cx="65" cy="491" r="8"  fill="rgba(255,77,94,0.5)"/>
+
+    <rect x="142" y="426" width="130" height="130" rx="10" fill="url(#tileBg)" stroke="rgba(0,240,200,0.14)" stroke-width="1"/>
+    <rect x="142" y="479" width="65" height="24" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <rect x="207" y="479" width="65" height="24" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <circle cx="207" cy="491" r="14" fill="url(#tileBg)" stroke="rgba(0,240,200,0.2)" stroke-width="2"/>
+
+    <rect x="284" y="426" width="130" height="130" rx="10" fill="url(#tileBg)" stroke="rgba(0,240,200,0.14)" stroke-width="1"/>
+    <rect x="337" y="426" width="24" height="130" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <circle cx="349" cy="491" r="14" fill="url(#tileBg)" stroke="rgba(0,240,200,0.2)" stroke-width="2"/>
+
+    <rect x="426" y="426" width="130" height="130" rx="10" fill="url(#tileBg)" stroke="rgba(0,240,200,0.14)" stroke-width="1"/>
+    <rect x="426" y="479" width="65" height="24" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <rect x="491" y="479" width="65" height="24" fill="rgba(80,80,80,0.4)" rx="4"/>
+    <circle cx="491" cy="491" r="14" fill="url(#tileBg)" stroke="rgba(0,240,200,0.2)" stroke-width="2"/>
+  </g>
+
+  <!-- Right side — branding -->
+  <g transform="translate(630, 0)">
+    <!-- Top labels -->
+    <text x="0" y="120" fill="rgba(107,128,128,0.9)" font-family="'Courier New', monospace" font-size="22" font-weight="700" letter-spacing="12">SIGNAL ROUTING PUZZLE</text>
+
+    <!-- Title -->
+    <text x="-4" y="260" fill="#00f0c8" font-family="'Courier New', monospace" font-size="110" font-weight="900" letter-spacing="4" filter="url(#tglow)">RELAY</text>
+    <text x="-4" y="380" fill="#ffb830" font-family="'Courier New', monospace" font-size="110" font-weight="900" letter-spacing="4" filter="url(#aglow)">RIFT</text>
+
+    <!-- Divider line -->
+    <rect x="0" y="420" width="540" height="3" fill="url(#scanlines)" rx="2"/>
+    <rect x="0" y="420" width="200" height="3" fill="#00f0c8" rx="2"/>
+
+    <!-- Features -->
+    <text x="0" y="480" fill="rgba(232,240,239,0.55)" font-family="'Courier New', monospace" font-size="24" letter-spacing="2">3 Levels · Move Budget · Score System</text>
+    <text x="0" y="520" fill="rgba(232,240,239,0.38)" font-family="'Courier New', monospace" font-size="20" letter-spacing="2">Keyboard + Touch · Best Score Saved</text>
+
+    <!-- Bottom badge -->
+    <rect x="0" y="660" width="200" height="44" rx="8" fill="rgba(0,240,200,0.12)" stroke="rgba(0,240,200,0.35)" stroke-width="2"/>
+    <text x="100" y="687" fill="#00f0c8" font-family="'Courier New', monospace" font-size="18" font-weight="700" letter-spacing="4" text-anchor="middle">PLAY NOW</text>
+  </g>
+</svg>

@@ -7,6 +7,8 @@ var tilesClicked = 0;
 var flagEnabled = false;
 var gameOver = false;
 window.onload = function() {
+    document.getElementById("flag-button").addEventListener("click", setFlag);
+    document.getElementById("restart-button").addEventListener("click", restartGame);
     startGame();
 }
 function setMines() {
@@ -28,9 +30,8 @@ function setMines() {
 
 function startGame() {
     document.getElementById("mines-count").innerText = minesCount;
-    document.getElementById("flag-button").addEventListener("click", setFlag);
     setMines();
-for (let r = 0; r < rows; r++) {
+    for (let r = 0; r < rows; r++) {
         let row = [];
         for (let c = 0; c < columns; c++) {
             let tile = document.createElement("div");
@@ -42,6 +43,21 @@ for (let r = 0; r < rows; r++) {
         board.push(row);
     }
 
+}
+
+function restartGame() {
+    board = [];
+    minesLocation = [];
+    tilesClicked = 0;
+    flagEnabled = false;
+    gameOver = false;
+
+    document.getElementById("mines-count").innerText = minesCount;
+    document.getElementById("flag-button").style.backgroundColor = "lightgray";
+    document.getElementById("restart-button").style.display = "none";
+    document.getElementById("board").innerHTML = "";
+
+    startGame();
 }
 
 function setFlag() {
@@ -96,6 +112,9 @@ function revealMines() {
             }
         }
     }
+
+    document.getElementById("restart-button").innerText = "Restart";
+    document.getElementById("restart-button").style.display = "inline-block";
 }
 
 function checkMine(r, c) {
@@ -147,7 +166,10 @@ function checkMine(r, c) {
 
     if (tilesClicked == rows * columns - minesCount) {
         document.getElementById("mines-count").innerText = "Cleared";
+        document.getElementById("restart-button").innerText = "Play Again";
+        document.getElementById("restart-button").style.display = "inline-block";
         gameOver = true;
+        return;
     }
 
 }

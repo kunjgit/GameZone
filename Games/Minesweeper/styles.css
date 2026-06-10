@@ -95,3 +95,18 @@ h1{
     left: 53%;
     transform: translate(-90%, -53%);
 }
+
+#restart-button {
+    display: none;
+    width: 140px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: lightgray;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    top: 77%;
+    left: 53.8%;
+    transform: translate(-90%, -53%);
+}

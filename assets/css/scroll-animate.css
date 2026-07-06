@@ -1,0 +1,28 @@
+/* Scroll-triggered animations */
+.scroll-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-hidden.from-left {
+  transform: translateX(-60px);
+}
+
+.scroll-hidden.from-right {
+  transform: translateX(60px);
+}
+
+.scroll-hidden.scale-in {
+  transform: scale(0.85);
+}
+
+.scroll-visible {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) scale(1) !important;
+}
+
+/* Stagger game cards */
+.project-item.scroll-hidden {
+  transition-delay: calc(var(--anim-order, 0) * 0.08s);
+}

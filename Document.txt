@@ -1,0 +1,7 @@
+Bugs filling 
+
+Dark/Light Mode Toggle Not Functioning
+Homepage Search Bar Does Not Filter Games
+Candy Crush Game Shows Non-Zero Score on Load 
+Tetris "Start New Game" Button Non-Functional
+Pac-Man Game Does Not Restart

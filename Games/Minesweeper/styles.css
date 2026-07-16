@@ -93,5 +93,19 @@ h1{
     position: absolute;
     top: 90%;
     left: 53%;
-    transform: translate(-90%, -53%);
+    transform: translate(-150%, -53%);
+}
+
+#restart-button {
+    width: 100px;
+    height: 50px;
+    font-size: 25px;
+    background-color: lightgray;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    top: 90%;
+    left: 51%;
+    transform: translate(20px, -50%);
 }

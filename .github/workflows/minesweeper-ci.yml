@@ -1,0 +1,42 @@
+name: Minesweeper CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: Games/Minesweeper
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Instalar servidor HTTP
+        run: npm install -g serve wait-on
+
+      - name: Iniciar aplicação
+        run: serve . -l 3000 &
+
+      - name: Aguardar servidor iniciar
+        run: npx wait-on http://localhost:3000
+
+      - name: Instalar Google Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Executar testes Cypress
+        run: npx cypress run --browser chrome
+        env:
+          CYPRESS_BASE_URL: http://localhost:3000

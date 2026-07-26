@@ -462,7 +462,7 @@ Terms and conditions for use, reproduction and distribution are under the [Apach
 | [Block_Vault](https://github.com/kunjgit/GameZone/tree/main/Games/Block_Vault) |
 | [Random_Choice_Picker](https://github.com/kunjgit/GameZone/tree/main/Games/Random_Choice_Picker) |
 | [Drummer_Kit](https://github.com/kunjgit/GameZone/tree/main/Games/Drummer_Kit) |
-
+| [Linux Command Challenge](./Games/Linux_Command_Challenge/) |
 </center>
 <br>
 <p align="right"><a href="#top">Back to top</a></p>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <meta
+        name="description"
+        content="An educational quiz game for practicing common Linux commands."
+    >
+
+    <title>Linux Command Challenge</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="game-container">
+        <header class="game-header">
+            <div class="terminal-icon" aria-hidden="true">&gt;_</div>
+
+            <div>
+                <h1>Linux Command Challenge</h1>
+                <p>Test your knowledge of common Linux terminal commands.</p>
+            </div>
+        </header>
+
+        <section
+            id="start-screen"
+            class="screen"
+            aria-labelledby="start-title"
+        >
+            <h2 id="start-title">Ready to begin?</h2>
+
+            <p>
+                Answer 10 multiple-choice questions about Linux commands.
+                You will receive immediate feedback after each answer.
+            </p>
+
+            <button id="start-button" class="primary-button">
+                Start Challenge
+            </button>
+        </section>
+
+        <section
+            id="quiz-screen"
+            class="screen hidden"
+            aria-labelledby="question-text"
+        >
+            <div class="quiz-status">
+                <p>
+                    Question
+                    <span id="question-number">1</span>
+                    of
+                    <span id="total-questions">10</span>
+                </p>
+
+                <p>
+                    Score:
+                    <span id="score">0</span>
+                </p>
+            </div>
+
+            <div class="progress-bar" aria-hidden="true">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+
+            <div class="question-card">
+                <p class="command-prompt">Select the correct command:</p>
+
+                <h2 id="question-text"></h2>
+
+                <div
+                    id="answer-buttons"
+                    class="answer-buttons"
+                    role="group"
+                    aria-label="Answer choices"
+                ></div>
+
+                <div
+                    id="feedback"
+                    class="feedback hidden"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+                <button
+                    id="next-button"
+                    class="primary-button hidden"
+                >
+                    Next Question
+                </button>
+            </div>
+        </section>
+
+        <section
+            id="result-screen"
+            class="screen hidden"
+            aria-labelledby="result-title"
+        >
+            <h2 id="result-title">Challenge Complete</h2>
+
+            <p class="final-score">
+                You scored
+                <span id="final-score">0</span>
+                out of
+                <span id="final-total">10</span>.
+            </p>
+
+            <p id="result-message"></p>
+
+            <button id="restart-button" class="primary-button">
+                Play Again
+            </button>
+        </section>
+
+        <footer>
+            <p>Created with HTML, CSS, and JavaScript.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

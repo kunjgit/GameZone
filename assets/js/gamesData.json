@@ -3254,5 +3254,10 @@
     "gameTitle" : "Drummer Kit",
     "gameUrl": "Drummer_Kit",
     "thumbnailUrl": "Drummer_Kit.png"
- }
+ },
+  "650":{
+    "gameTitle": "Linux Command Challenge",
+    "gameUrl": "Linux_Command_Challenge",
+    "thumbnailUrl": "Linux_Command_Challenge.png"
+    }
 }

@@ -15,6 +15,12 @@
         font-size: 30px;
         padding: 5px; "><a href="https://kunjgit.github.io/GameZone/"><i style="color:black;" class="fas fa-home home-icon"></i></a></div>
         <h1>Space Invaders</h1>
-        <canvas id="board"></canvas>
+        <div class="game-wrapper">
+            <canvas id="board"></canvas>
+            <div id="game-over-screen" class="hide">
+                <p id="final-score">Game Over</p>
+                <button type="button" id="restart-btn">Restart</button>
+            </div>
+        </div>
     </body>
 </html>

@@ -44,11 +44,20 @@ let bulletVelocityY = -10; //bullet moving speed
 let score = 0;
 let gameOver = false;
 
+let gameOverScreen;
+let finalScoreElem;
+let restartBtn;
+
 window.onload = function() {
     board = document.getElementById("board");
     board.width = boardWidth;
     board.height = boardHeight;
     context = board.getContext("2d"); //used for drawing on the board
+
+    gameOverScreen = document.getElementById("game-over-screen");
+    finalScoreElem = document.getElementById("final-score");
+    restartBtn = document.getElementById("restart-btn");
+    restartBtn.addEventListener("click", restartGame);
 
     //draw initial ship
     // context.fillStyle="green";
@@ -68,6 +77,30 @@ window.onload = function() {
     requestAnimationFrame(update);
     document.addEventListener("keydown", moveShip);
     document.addEventListener("keyup", shoot);
+}
+
+function endGame() {
+    gameOver = true;
+    finalScoreElem.textContent = "Game Over — Score: " + score;
+    gameOverScreen.classList.remove("hide");
+}
+
+function restartGame() {
+    gameOverScreen.classList.add("hide");
+
+    ship.x = shipX;
+    ship.y = shipY;
+
+    alienArray = [];
+    bulletArray = [];
+    alienColumns = 3;
+    alienRows = 2;
+    alienVelocityX = 1;
+
+    score = 0;
+    gameOver = false;
+
+    createAliens();
 }
 
 function update() {
@@ -101,7 +134,7 @@ function update() {
             context.drawImage(alienImg, alien.x, alien.y, alien.width, alien.height);
 
             if (alien.y >= ship.y) {
-                gameOver = true;
+                endGame();
             }
         }
     }

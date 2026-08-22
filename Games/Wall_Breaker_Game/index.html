@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wall Breaker Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>Wall Breaker</h1>
+    <div class="hud">
+      <span>Score: <span id="score">0</span></span>
+      <span>Lives: <span id="lives">3</span></span>
+    </div>
+
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="600" height="450"></canvas>
+
+      <div id="overlay" class="overlay">
+        <p id="overlay-text">Press Left / Right Arrow Keys or Space to Start</p>
+        <button type="button" id="action-btn">Start</button>
+      </div>
+    </div>
+
+    <p class="instructions">Use ← / → arrow keys to move the paddle and break every brick.</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

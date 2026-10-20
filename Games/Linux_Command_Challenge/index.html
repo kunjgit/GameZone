@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practice ten everyday Linux commands in a free, interactive terminal quiz.">
+  <title>Linux Command Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="../../index.html"><span class="brand-icon" aria-hidden="true">&gt;_</span> GameZone <span class="slash">/</span> <span class="lab">the command lab</span></a>
+      <span class="session"><span aria-hidden="true">●</span> PRACTICE SESSION</span>
+    </header>
+
+    <main>
+      <aside class="intro" aria-labelledby="game-title">
+        <p class="eyebrow">LEARN BY DOING / VOL. 01</p>
+        <h1 id="game-title">Linux<br> Command<br> <span>Challenge.</span></h1>
+        <p class="intro-copy">Small commands. Big possibilities.<br>Find your feet in the terminal, one question at a time.</p>
+        <div class="facts"><span><strong>10</strong> questions</span><span><strong>∞</strong> attempts</span><span><strong>0</strong> pressure</span></div>
+        <div class="terminal-note"><p><span aria-hidden="true">$</span> ./learn-linux</p><p>No terminal needed.<br>Just a little curiosity.<span class="cursor" aria-hidden="true">▌</span></p></div>
+        <p class="safety-note">This is a quiz. Commands shown here never run on your computer.</p>
+      </aside>
+
+      <section class="workspace" aria-label="Linux command quiz">
+        <div class="window-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>challenge.sh</span><span aria-hidden="true">~/practice</span></div>
+        <div class="game-body">
+          <div class="stats"><span id="question-count">QUESTION 01 / 10</span><span>Score <strong id="score">0 / 10</strong></span></div>
+          <label class="sr-only" for="progress">Questions answered</label>
+          <progress id="progress" max="10" value="0">0 of 10 answered</progress>
+
+          <div id="quiz">
+            <p id="category" class="eyebrow question-category"></p>
+            <h2 id="question" tabindex="-1"></h2>
+            <p class="question-help">Choose the command that gets the job done.</p>
+            <div id="options" class="options" role="group" aria-labelledby="question" aria-describedby="keyboard-help"></div>
+            <div id="feedback" class="feedback" role="status" aria-live="polite" aria-atomic="true"></div>
+            <div class="quiz-footer"><p id="keyboard-help">Press <kbd>1</kbd>–<kbd>4</kbd> to choose<br>or use <kbd>Tab</kbd> + <kbd>Enter</kbd></p><button id="next" class="primary" disabled>Next question <span aria-hidden="true">→</span></button></div>
+          </div>
+
+          <div id="results" hidden>
+            <p class="eyebrow question-category">SESSION COMPLETE</p>
+            <h2 id="result-title" tabindex="-1"></h2>
+            <p id="result-message" class="question-help"></p>
+            <p class="result-score"><strong id="final-score"></strong><span>correct answers</span></p>
+            <details><summary>Review all 10 answers</summary><ol id="review"></ol></details>
+          </div>
+          <button id="restart" class="restart" type="button">↻ Restart challenge</button>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer"><span>A little practice goes a long way.</span><span>HTML · CSS · JavaScript</span></footer>
+  </div>
+  <noscript><p class="noscript">Enable JavaScript to play Linux Command Challenge.</p></noscript>
+</body>
+</html>
